@@ -1,14 +1,13 @@
 package com.binance4j.websocket.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.concurrent.CompletableFuture;
 
 import com.binance4j.websocket.payload.DepthLevel;
 import com.binance4j.websocket.payload.DepthUpdateSpeed;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WebsocketMiniDepthClientTest {
     WebsocketMiniDepthClient client;
@@ -23,9 +22,7 @@ public class WebsocketMiniDepthClientTest {
             assertNotNull(cb.body());
         });
 
-        client.onClosing(cb -> {
-            System.out.println("closing");
-        });
+        client.onClosing(cb -> System.out.println("closing"));
 
         client.onClosed(cb -> {
             System.out.println("closed");
@@ -55,7 +52,7 @@ public class WebsocketMiniDepthClientTest {
         } catch (Exception e) {
             future.complete(null);
             System.out.println(e);
-            assertTrue(false);
+            fail();
         }
     }
 }

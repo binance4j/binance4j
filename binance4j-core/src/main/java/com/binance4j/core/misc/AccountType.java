@@ -13,5 +13,5 @@ public enum AccountType {
     /** A USDT futures trading account */
     USDT_FUTURE,
     /** A futures trading account */
-    COIN_FUTURE;
+    COIN_FUTURE
 }

@@ -102,7 +102,7 @@ Binance4j-market is a Java connector for the market endpoints of the Binance RES
             method="getExchangeInfo"
             responseType="ExchangeInfo"
             requestType="ExchangeInfoRequest"
-            requestParameters={['List.of("BNBBTC","BTCEUR","SHIBEUR")']}
+            requestParameters={['Arrays.asList("BNBBTC","BTCEUR","SHIBEUR")']}
         />
     </TabItem>
 </Tabs>
@@ -425,7 +425,7 @@ The String interval must correspond to one of the `CandlestickInterval` else the
             method="get24hTickerStatistics"
             responseType="List<TickerStatistics>"
             requestType="TickersStatisticsRequest"
-            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+            requestParameters={['Arrays.asList("BNBBTC","BNBBUSD")']}
         />
     </TabItem>
 </Tabs>
@@ -475,7 +475,7 @@ The first is for one or all symbols, the other is for specific symbols.
             method="getTicker"
             responseType="List<PriceTicker>"
             requestType="PriceTickersRequest"
-            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+            requestParameters={['Arrays.asList("BNBBTC","BNBBUSD")']}
         />
     </TabItem>
 </Tabs>
@@ -526,7 +526,7 @@ The first is for one or all symbols, the other is for specific symbols.
             method="getBookTicker"
             responseType="BookTicker"
             requestType="BookTickersRequest"
-            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+            requestParameters={['Arrays.asList("BNBBTC","BNBBUSD")']}
         />
     </TabItem>
 </Tabs>

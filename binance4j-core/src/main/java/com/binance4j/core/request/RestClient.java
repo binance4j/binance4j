@@ -1,9 +1,11 @@
 package com.binance4j.core.request;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.binance4j.core.misc.TimeInForce;
 import com.binance4j.core.security.AuthenticationInterceptor;
@@ -33,7 +35,7 @@ public abstract class RestClient<T> {
      */
     @Getter
     @Setter
-    private static List<String> apiPrefixes = new ArrayList<>(List.of("api", "api1", "api2", "api3"));
+    private static List<String> apiPrefixes = new ArrayList<>(Arrays.asList("api", "api1", "api2", "api3"));
 
     /**
      * URL base domain
@@ -114,7 +116,7 @@ public abstract class RestClient<T> {
      * client
      */
     public void reloadServices() {
-        services = new ArrayList<>(getApiPrefixes().stream().map(this::createService).toList());
+        services = new ArrayList<>(getApiPrefixes().stream().map(this::createService).collect(Collectors.toList()));
     }
 
     /**

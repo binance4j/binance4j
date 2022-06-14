@@ -1,10 +1,5 @@
 package com.binance4j.spot.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -30,6 +25,8 @@ import com.binance4j.spot.order.OrderStatusRequest;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SpotClientTest {
     SpotClient client;
@@ -292,27 +289,25 @@ public class SpotClientTest {
         OrderInfo order = client.getOrderStatus(new OrderStatusRequest(symbol, id)).execute();
         assertNotNull(order);
 
-        if (order != null) {
-            assertNull(order.getIsIsolated());
-            assertNotNull(order.getClientOrderId());
-            assertNotNull(order.getCummulativeQuoteQty());
-            assertNotNull(order.getExecutedQty());
-            assertNotNull(order.getIcebergQty());
-            assertNotNull(order.getIsWorking());
-            assertNotNull(order.getOrderId());
-            assertNotNull(order.getOrigQty());
-            assertNotNull(order.getOrigQuoteOrderQty());
-            assertNotNull(order.getPrice());
-            assertNotNull(order.getSide());
-            assertNotNull(order.getStatus());
-            assertNotNull(order.getStopPrice());
-            assertNotNull(order.getTime());
-            assertNotNull(order.getTimeInForce());
-            assertNotNull(order.getType());
-            assertNotNull(order.getUpdateTime());
-            assertNotNull(order.getSymbol());
-            assertEquals(order.getSymbol(), symbol);
-        }
+        assertNull(order.getIsIsolated());
+        assertNotNull(order.getClientOrderId());
+        assertNotNull(order.getCummulativeQuoteQty());
+        assertNotNull(order.getExecutedQty());
+        assertNotNull(order.getIcebergQty());
+        assertNotNull(order.getIsWorking());
+        assertNotNull(order.getOrderId());
+        assertNotNull(order.getOrigQty());
+        assertNotNull(order.getOrigQuoteOrderQty());
+        assertNotNull(order.getPrice());
+        assertNotNull(order.getSide());
+        assertNotNull(order.getStatus());
+        assertNotNull(order.getStopPrice());
+        assertNotNull(order.getTime());
+        assertNotNull(order.getTimeInForce());
+        assertNotNull(order.getType());
+        assertNotNull(order.getUpdateTime());
+        assertNotNull(order.getSymbol());
+        assertEquals(order.getSymbol(), symbol);
     }
 
     @Test
@@ -374,7 +369,7 @@ public class SpotClientTest {
             assertNotNull(resp.getTransactionTime());
         } catch (ApiException e) {
             System.out.println(e);
-            assertTrue(false);
+            fail();
         }
     }
 

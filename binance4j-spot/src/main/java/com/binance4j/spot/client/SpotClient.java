@@ -1,6 +1,7 @@
 package com.binance4j.spot.client;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.binance4j.core.order.CancelOpenOrdersRequest;
 import com.binance4j.core.order.CancelOrderRequest;
@@ -67,7 +68,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<NewOrderResponse> newOrder(NewOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrder(pojoToMap(order))).toList(), order);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.newOrder(pojoToMap(order))).collect(Collectors.toList()), order);
     }
 
     /**
@@ -80,7 +82,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<Void> newOrderTest(NewOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrderTest(pojoToMap(order))).toList(), order);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.newOrderTest(pojoToMap(order))).collect(Collectors.toList()), order);
     }
 
     /**
@@ -92,7 +95,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<CancelOrderResponse> cancelOrder(CancelOrderRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOrder(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.cancelOrder(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -105,7 +109,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOpenOrders(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.cancelOpenOrders(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -122,7 +127,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<OrderInfo> getOrderStatus(OrderStatusRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOrderStatus(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOrderStatus(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -134,7 +140,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @param req The request configuration
      */
     public RequestExecutor<List<OrderInfo>> getOpenOrders(OpenOrdersStatusRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOrders(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOpenOrders(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -146,7 +153,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      */
     public RequestExecutor<List<OrderInfo>> getOpenOrders() {
         OpenOrdersStatusRequest req = new OpenOrdersStatusRequest();
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOrders(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOpenOrders(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -158,7 +166,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<OrderInfo>> getAllOrders(AllOrdersRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAllOrders(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAllOrders(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -170,7 +179,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<OCOResponse> newOCO(OCOOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOCO(pojoToMap(order))).toList(), order);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.newOCO(pojoToMap(order))).collect(Collectors.toList()), order);
     }
 
     /**
@@ -183,7 +193,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<OCOResponse>> cancelOCO(CancelOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.cancelOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -195,7 +206,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<OCOInfo> queryOCO(OCOInfoRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.queryOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.queryOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -207,7 +219,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<OCOInfo>> getAllOCO(AllOCOInfoRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAllOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAllOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -219,7 +232,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      */
     public RequestExecutor<List<OCOInfo>> getAllOCO() {
         AllOCOInfoRequest req = new AllOCOInfoRequest();
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAllOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAllOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -231,7 +245,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<OCOInfo>> getOpenOCO(OpenOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOpenOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -243,7 +258,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      */
     public RequestExecutor<List<OCOInfo>> getOpenOCO() {
         OpenOCORequest req = new OpenOCORequest();
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOCO(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOpenOCO(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -255,7 +271,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<Account> getAccount(AccountRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAccount(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAccount(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -267,7 +284,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      */
     public RequestExecutor<Account> getAccount() {
         AccountRequest req = new AccountRequest();
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAccount(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAccount(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -281,7 +299,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<Trade>> getMyTrades(MyTradesRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getMyTrades(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getMyTrades(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -293,7 +312,8 @@ public class SpotClient extends RestClient<SpotMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<List<OrderCount>> getOrderCount(OrderCountRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOrderCount(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOrderCount(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -306,6 +326,7 @@ public class SpotClient extends RestClient<SpotMapping> {
      */
     public RequestExecutor<List<OrderCount>> getOrderCount() {
         OrderCountRequest req = new OrderCountRequest();
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOrderCount(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOrderCount(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 }

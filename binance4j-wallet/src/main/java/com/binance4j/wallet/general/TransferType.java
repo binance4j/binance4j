@@ -15,5 +15,5 @@ public enum TransferType {
   MARGIN_TO_SPOT("2");
 
   @Getter
-  private String value;
+  private final String value;
 }

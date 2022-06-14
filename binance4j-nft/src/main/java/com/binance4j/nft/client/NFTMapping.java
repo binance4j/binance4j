@@ -14,11 +14,11 @@ import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
 public interface NFTMapping {
-    public static final String BASE = "/sapi/v1/nft/";
+    String BASE = "/sapi/v1/nft/";
     /** The signed http full header */
-    public static final String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
+    String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
     /** The API key http full header */
-    public static final String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
+    String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
     @GET(BASE + "history/transactions")
     @Headers({ API_H, SIGNED_H })

@@ -1,5 +1,7 @@
 package com.binance4j.websocket.client;
 
+import java.util.stream.Collectors;
+
 import com.binance4j.core.misc.ListenKey;
 import com.binance4j.core.request.RequestExecutor;
 import com.binance4j.core.request.RestClient;
@@ -49,7 +51,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<ListenKey> startUserDataStream() {
-        return new RequestExecutor<>(getServices().stream().map(UserDataMapping::startUserDataStream).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(UserDataMapping::startUserDataStream).collect(Collectors.toList()));
     }
 
     /**
@@ -64,7 +67,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<Void> keepAliveUserDataStream(String listenKey) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.keepAliveUserDataStream(listenKey)).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.keepAliveUserDataStream(listenKey)).collect(Collectors.toList()));
     }
 
     /**
@@ -75,6 +79,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
      * @return The executor to make sync/async request
      */
     public RequestExecutor<Void> closeUserDataStream(String listenKey) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.closeUserDataStream(listenKey)).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.closeUserDataStream(listenKey)).collect(Collectors.toList()));
     }
 }

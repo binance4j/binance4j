@@ -2,6 +2,7 @@ package com.binance4j.market.client;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.exchangeinfo.ExchangeInfoRequest;
@@ -56,7 +57,7 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#test-connectivity">Documentation</a>
      */
     public RequestExecutor<Void> ping() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::ping).toList());
+        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::ping).collect(Collectors.toList())));
     }
 
     /**
@@ -66,7 +67,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#check-server-time">Documentation</a>
      */
     public RequestExecutor<ServerTimeResponse> getServerTime() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::getServerTime).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(MarketDataMapping::getServerTime).collect(Collectors.toList()));
     }
 
     /**
@@ -79,7 +81,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#exchange-information">Documentation</a>
      */
     public RequestExecutor<ExchangeInfo> getExchangeInfo(ExchangeInfoRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getExchangeInfo(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getExchangeInfo(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -98,7 +101,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#order-book">Documentation</a>
      */
     public RequestExecutor<OrderBook> getOrderBook(OrderBookRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOrderBook(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getOrderBook(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -108,7 +112,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list">Documentation</a>
      */
     public RequestExecutor<List<TradeHistoryItem>> getTrades(TradesRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getTrades(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getTrades(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -118,7 +123,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#old-trade-lookup-market_data">Documentation</a>
      */
     public RequestExecutor<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getHistoricalTrades(pojoToMap(req))).toList(),
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getHistoricalTrades(pojoToMap(req))).collect(Collectors.toList()),
                 req);
     }
 
@@ -142,7 +148,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#compressed-aggregate-trades-list">Documentation</a>
      */
     public RequestExecutor<List<AggTrade>> getAggTrades(AggTradeRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAggTrades(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAggTrades(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -165,7 +172,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
         // present in IntervalRequest through FramedRequest but not required by the API
         map.remove("timestamp");
         map.remove("recvWindow");
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getKlines(map)).toList(), req);
+        return new RequestExecutor<>(getServices().stream().map(a -> a.getKlines(map)).collect(Collectors.toList()),
+                req);
     }
 
     /**
@@ -175,7 +183,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#current-average-price">Documentation</a>
      */
     public RequestExecutor<AveragePrice> getAveragePrice(AveragePriceRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAveragePrice(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAveragePrice(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -185,7 +194,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">Documentation</a>
      */
     public RequestExecutor<TickerStatistics> get24hTickerStatistics(TickerStatisticsRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.get24hTickerStatistics(pojoToMap(req))).toList(),
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.get24hTickerStatistics(pojoToMap(req))).collect(Collectors.toList()),
                 req);
     }
 
@@ -196,7 +206,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">Documentation</a>
      */
     public RequestExecutor<List<TickerStatistics>> get24hTickerStatistics() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::get24hTickerStatistics).toList(),
+        return new RequestExecutor<>(
+                getServices().stream().map(MarketDataMapping::get24hTickerStatistics).collect(Collectors.toList()),
                 new Request(40));
     }
 
@@ -207,7 +218,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker">Documentation</a>
      */
     public RequestExecutor<PriceTicker> getTicker(PriceTickerRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getTicker(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getTicker(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -217,7 +229,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker">Documentation</a>
      */
     public RequestExecutor<List<PriceTicker>> getTicker() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::getTicker).toList(), new Request(2));
+        return new RequestExecutor<>(
+                getServices().stream().map(MarketDataMapping::getTicker).collect(Collectors.toList()), new Request(2));
     }
 
     /**
@@ -227,7 +240,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">Documentation</a>
      */
     public RequestExecutor<BookTicker> getBookTicker(BookTickerRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getBookTicker(pojoToMap(req))).toList(), req);
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getBookTicker(pojoToMap(req))).collect(Collectors.toList()), req);
     }
 
     /**
@@ -237,7 +251,8 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">Documentation</a>
      */
     public RequestExecutor<List<BookTicker>> getBookTicker() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::getBookTicker).toList(),
+        return new RequestExecutor<>(
+                getServices().stream().map(MarketDataMapping::getBookTicker).collect(Collectors.toList()),
                 new Request(2));
     }
 }

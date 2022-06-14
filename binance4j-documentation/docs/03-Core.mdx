@@ -70,7 +70,7 @@ public class SpotClient extends RestClient<SpotMapping> {
     }
 
     public RequestExecutor<NewOrderResponse> newOrder(NewOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrder(pojoToMap(order))).toList(), order);
+        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrder(pojoToMap(order))).collect(Collectors.toList()), order);
     }
 }
 ```

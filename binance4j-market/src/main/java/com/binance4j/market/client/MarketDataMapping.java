@@ -21,7 +21,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
 public interface MarketDataMapping {
-    public static final String BASE = "/api/v3/";
+    String BASE = "/api/v3/";
 
     @GET(BASE + "ping")
     Call<Void> ping();

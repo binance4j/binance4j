@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.binance4j.core.exception.ApiException;
 
+import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +32,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
      * @param response The API response
      */
     @Override
-    public void onResponse(Call<T> call, Response<T> response) {
+    public void onResponse(@NotNull Call<T> call, Response<T> response) {
         switch (response.code()) {
             case 200:
                 callback.onResponse(response.body());
@@ -69,7 +70,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
      * @param throwable The API error message
      */
     @Override
-    public void onFailure(Call<T> call, Throwable throwable) {
+    public void onFailure(@NotNull Call<T> call, Throwable throwable) {
         callback.onFailure(new ApiException(-1000, throwable.getMessage()));
     }
 }

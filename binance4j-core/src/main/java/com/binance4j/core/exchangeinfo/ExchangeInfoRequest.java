@@ -1,5 +1,6 @@
 package com.binance4j.core.exchangeinfo;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,6 +42,6 @@ public class ExchangeInfoRequest extends Request {
      * @param symbol The trading pair
      */
     public ExchangeInfoRequest(String symbol) {
-        this(List.of(symbol));
+        this(Arrays.asList(symbol));
     }
 }

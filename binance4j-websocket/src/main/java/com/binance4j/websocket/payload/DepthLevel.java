@@ -17,5 +17,5 @@ public enum DepthLevel {
      * The result size
      */
     @Getter
-    private String level;
+    private final String level;
 }

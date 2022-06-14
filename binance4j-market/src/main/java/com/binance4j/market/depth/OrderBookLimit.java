@@ -13,5 +13,5 @@ public enum OrderBookLimit {
     LIMIT_5000(5000);
 
     @Getter
-    private int value;
+    private final int value;
 }

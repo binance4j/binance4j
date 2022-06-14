@@ -36,11 +36,11 @@ import retrofit2.http.QueryMap;
 /** Binance Wallet endpoints mapping */
 public interface WalletMapping {
 
-	public static final String BASE = "/sapi/v1/";
-	public static final String BASE_ASSET = BASE + "asset/";
-	public static final String BASE_CAPITAL = BASE + "capital/";
-	public static final String BASE_ACCOUNT = BASE + "account/";
-	public static final String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
+	String BASE = "/sapi/v1/";
+	String BASE_ASSET = BASE + "asset/";
+	String BASE_CAPITAL = BASE + "capital/";
+	String BASE_ACCOUNT = BASE + "account/";
+	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
 
 	@GET(BASE + "system/status")
 	Call<SystemStatus> getSystemStatus();

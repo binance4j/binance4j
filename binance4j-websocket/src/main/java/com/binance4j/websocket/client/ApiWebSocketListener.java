@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Binance API WebSocket listener.
@@ -65,7 +66,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
      * @param text      The payload as a string
      */
     @Override
-    public void onMessage(final WebSocket webSocket, final String text) {
+    public void onMessage(@NotNull final WebSocket webSocket, @NotNull final String text) {
         try {
             callback.onResponse(objectReader.readValue(text));
         } catch (final IOException e) {
@@ -80,7 +81,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
      * @param response  The opening payload
      */
     @Override
-    public void onOpen(final WebSocket webSocket, final Response response) {
+    public void onOpen(@NotNull final WebSocket webSocket, @NotNull final Response response) {
         callback.onOpen(response);
     }
 
@@ -92,7 +93,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
      * @param reason    The closing reason
      */
     @Override
-    public void onClosing(final WebSocket webSocket, final int code, final String reason) {
+    public void onClosing(@NotNull final WebSocket webSocket, final int code, @NotNull final String reason) {
         closing = true;
         callback.onClosing(code, reason);
     }
@@ -105,7 +106,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
      * @param reason    The closing reason
      */
     @Override
-    public void onClosed(final WebSocket webSocket, final int code, final String reason) {
+    public void onClosed(@NotNull final WebSocket webSocket, final int code, @NotNull final String reason) {
         closing = false;
         callback.onClosed(code, reason);
     }
@@ -118,7 +119,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
      * @param response  The HTTP response
      */
     @Override
-    public void onFailure(final WebSocket webSocket, final Throwable t, final Response response) {
+    public void onFailure(@NotNull final WebSocket webSocket, @NotNull final Throwable t, final Response response) {
         if (!closing) {
             callback.onFailure(new ApiException(-1000, t.getMessage()));
         }

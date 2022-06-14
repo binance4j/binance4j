@@ -1,5 +1,7 @@
 package com.binance4j.nft.client;
 
+import java.util.stream.Collectors;
+
 import com.binance4j.core.request.RequestExecutor;
 import com.binance4j.core.request.RestClient;
 import com.binance4j.nft.asset.NFTAssetHistory;
@@ -40,7 +42,8 @@ public class NFTClient extends RestClient<NFTMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-nft-transaction-history-user_data">Documentation</a>
      */
     public RequestExecutor<NFTTransactionHistory> getTransactions(NFTTransactionHistoryRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getTransactions(pojoToMap(req))).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getTransactions(pojoToMap(req))).collect(Collectors.toList()));
     }
 
     /**
@@ -50,7 +53,8 @@ public class NFTClient extends RestClient<NFTMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-nft-deposit-history-user_data">Documentation</a>
      */
     public RequestExecutor<NFTDepositHistory> getDeposits(NFTDepositHistoryRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getDeposits(pojoToMap(req))).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getDeposits(pojoToMap(req))).collect(Collectors.toList()));
     }
 
     /**
@@ -60,7 +64,8 @@ public class NFTClient extends RestClient<NFTMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-nft-withdraw-history-user_data">Documentation</a>
      */
     public RequestExecutor<NFTWithdrawHistory> getWithdraws(NFTWithdrawRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getWithdraws(pojoToMap(req))).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getWithdraws(pojoToMap(req))).collect(Collectors.toList()));
     }
 
     /**
@@ -70,6 +75,7 @@ public class NFTClient extends RestClient<NFTMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-nft-asset-user_data">Documentation</a>
      */
     public RequestExecutor<NFTAssetHistory> getAssets(NFTAssetRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAssets(pojoToMap(req))).toList());
+        return new RequestExecutor<>(
+                getServices().stream().map(a -> a.getAssets(pojoToMap(req))).collect(Collectors.toList()));
     }
 }

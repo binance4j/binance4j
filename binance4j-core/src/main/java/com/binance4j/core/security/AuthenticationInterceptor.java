@@ -10,6 +10,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.Buffer;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A request interceptor that injects the API Key Header into requests, and
@@ -52,6 +53,7 @@ public class AuthenticationInterceptor implements Interceptor {
      * 
      * @param chain The request chain
      */
+    @NotNull
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request original = chain.request();
@@ -91,9 +93,8 @@ public class AuthenticationInterceptor implements Interceptor {
     @SuppressWarnings("unused")
     private static String bodyToString(RequestBody request) throws ApiException {
         try (final Buffer buffer = new Buffer()) {
-            final RequestBody copy = request;
-            if (copy != null) {
-                copy.writeTo(buffer);
+	        if (request != null) {
+                request.writeTo(buffer);
             } else {
                 return "";
             }

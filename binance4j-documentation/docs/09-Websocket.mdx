@@ -166,7 +166,7 @@ Handles 24hr rolling window ticker statistics for a single symbol.
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketTickerClient client = new WebsocketTickerClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketTickerClient client = new WebsocketTickerClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -200,7 +200,7 @@ These are NOT the statistics of the UTC day, but a 24hr rolling window for the p
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketMiniTickerClient client = new WebsocketMiniTickerClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketMiniTickerClient client = new WebsocketMiniTickerClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -254,7 +254,7 @@ Pushes any update to the best bid or ask's price or quantity in real-time for a 
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketBookTickerClient client = new WebsocketBookTickerClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketBookTickerClient client = new WebsocketBookTickerClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -294,7 +294,7 @@ The Kline/Candlestick Stream push updates to the current klines/candlestick ever
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketCandlestickClient client = new WebsocketCandlestickClient(List.of("BNBBTC", "BNBBUSD",
+            WebsocketCandlestickClient client = new WebsocketCandlestickClient(Arrays.asList("BNBBTC", "BNBBUSD",
             CandlestickInterval.FIVE_MINUTE));
         </CodeBlock>
     </TabItem>
@@ -319,7 +319,7 @@ Order book price and quantity depth updates used to locally manage an order book
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketDepthClient client = new WebsocketDepthClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketDepthClient client = new WebsocketDepthClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -343,7 +343,7 @@ Top bids and asks, Valid are 5, 10, or 20.
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -367,7 +367,7 @@ The Trade Streams push raw trade information; each trade has a unique buyer and 
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketTradeClient client = new WebsocketTradeClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketTradeClient client = new WebsocketTradeClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>
@@ -391,7 +391,7 @@ The Aggregate Trade Streams push trade information that is aggregated for a sing
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketAggTradeClient client = new WebsocketAggTradeClient(List.of("BNBBTC", "BNBBUSD"));
+            WebsocketAggTradeClient client = new WebsocketAggTradeClient(Arrays.asList("BNBBTC", "BNBBUSD"));
         </CodeBlock>
     </TabItem>
 </Tabs>

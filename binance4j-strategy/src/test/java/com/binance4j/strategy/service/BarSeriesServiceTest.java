@@ -62,7 +62,7 @@ public class BarSeriesServiceTest {
             Bar bar1 = series.getBar(i);
             CandlestickBar bar2 = bars.get(i);
             Long closeTime = Timestamp.valueOf(bar1.getEndTime().toLocalDateTime()).getTime();
-            Long openTime = Timestamp.valueOf(bar1.getBeginTime().toLocalDateTime()).getTime();
+            long openTime = Timestamp.valueOf(bar1.getBeginTime().toLocalDateTime()).getTime();
 
             assertNotNull(closeTime);
             assertNotNull(bar2.getCloseTime());

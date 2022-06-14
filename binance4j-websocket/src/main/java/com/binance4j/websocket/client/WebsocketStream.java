@@ -20,14 +20,14 @@ public enum WebsocketStream {
     /**
      * The string reprsentation of the enum
      */
-    private String value;
+    private final String value;
 
     /**
      * Constructor
      * 
      * @param value The string reprsentation of the enum
      */
-    private WebsocketStream(String value) {
+    WebsocketStream(String value) {
         this.value = value;
     }
 

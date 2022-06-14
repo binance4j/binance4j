@@ -1,11 +1,10 @@
 package com.binance4j.websocket.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.concurrent.CompletableFuture;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WebsocketAggTradeClientTest {
     WebsocketAggTradeClient client;
@@ -15,13 +14,9 @@ public class WebsocketAggTradeClientTest {
         CompletableFuture<Void> future = new CompletableFuture<>();
         client = new WebsocketAggTradeClient("BTCBUSD");
 
-        client.onOpen(cb -> {
-            System.out.println("open");
-        });
+        client.onOpen(cb -> System.out.println("open"));
 
-        client.onClosing(cb -> {
-            System.out.println("closing");
-        });
+        client.onClosing(cb -> System.out.println("closing"));
 
         client.onClosed(cb -> {
             System.out.println("closed");
@@ -56,7 +51,7 @@ public class WebsocketAggTradeClientTest {
         } catch (Exception e) {
             future.complete(null);
             System.out.println(e);
-            assertTrue(false);
+            fail();
         }
     }
 }

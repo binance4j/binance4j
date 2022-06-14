@@ -16,5 +16,5 @@ public enum DepthUpdateSpeed {
      * The result update speed
      */
     @Getter
-    private String speed;
+    private final String speed;
 }

@@ -7,14 +7,14 @@ import retrofit2.http.Path;
 
 /** The API SPOT calls */
 public interface SpotMapping {
-    public static final String MONTHLY_KLINES_URL = "spot/monthly/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}.zip";
-    public static final String DAILY_KLINES_URL = "spot/daily/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}-{day}.zip";
+    String MONTHLY_KLINES_URL = "spot/monthly/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}.zip";
+    String DAILY_KLINES_URL = "spot/daily/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}-{day}.zip";
 
-    public static final String MONTHLY_TRADES_URL = "spot/monthly/trades/{symbol}/{symbol}-trades-{year}-{month}.zip";
-    public static final String DAILY_TRADES_URL = "spot/daily/trades/{symbol}/{symbol}-trades-{year}-{month}-{day}.zip";
+    String MONTHLY_TRADES_URL = "spot/monthly/trades/{symbol}/{symbol}-trades-{year}-{month}.zip";
+    String DAILY_TRADES_URL = "spot/daily/trades/{symbol}/{symbol}-trades-{year}-{month}-{day}.zip";
 
-    public static final String MONTHLY_AGGTRADES_URL = "spot/monthly/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}.zip";
-    public static final String DAILY_AGGTRADES_URL = "spot/daily/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}-{day}.zip";
+    String MONTHLY_AGGTRADES_URL = "spot/monthly/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}.zip";
+    String DAILY_AGGTRADES_URL = "spot/daily/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}-{day}.zip";
 
     /**
      * Mapping of the monthly candlestick data call

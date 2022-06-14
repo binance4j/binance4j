@@ -1,14 +1,13 @@
 package com.binance4j.websocket.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 
 import com.binance4j.core.exception.ApiException;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NoResponseTimeOutTest {
     WebsocketUserDataClient client;
@@ -31,9 +30,7 @@ public class NoResponseTimeOutTest {
             assertNotNull(cb.body());
         });
 
-        client.onClosing(cb -> {
-            System.out.println("closing");
-        });
+        client.onClosing(cb -> System.out.println("closing"));
 
         client.onClosed(cb -> {
             System.out.println("closed");
@@ -46,9 +43,7 @@ public class NoResponseTimeOutTest {
             assertNotNull(cb);
         });
 
-        client.onMessage(cb -> {
-            client.close();
-        });
+        client.onMessage(cb -> client.close());
 
         client.open();
 
@@ -57,7 +52,7 @@ public class NoResponseTimeOutTest {
         } catch (Exception e) {
             future.complete(null);
             System.out.println(e);
-            assertTrue(false);
+            fail();
         }
     }
 }

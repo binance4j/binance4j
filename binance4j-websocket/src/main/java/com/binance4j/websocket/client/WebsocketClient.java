@@ -351,7 +351,7 @@ public abstract class WebsocketClient<T> {
 
 			if (now - noResponseTimeout.toMillis() > lastResponseTimestamp) {
 				callback.onFailure(new ApiException(403, "Response timeout : no data received for "
-						+ Long.toString(noResponseTimeout.getSeconds()) + " seconds"));
+						+ noResponseTimeout.getSeconds() + " seconds"));
 				close(false);
 			}
 		}

@@ -1,11 +1,5 @@
 package com.binance4j.vision.spot;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -18,6 +12,8 @@ import com.binance4j.core.market.CandlestickInterval;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SpotClientTest {
     SpotClient client;
@@ -55,7 +51,7 @@ public class SpotClientTest {
 
             @Override
             public void onResponse(ZipInputStream response) {
-                assertTrue(false);
+                fail();
                 future.complete(null);
             }
         });

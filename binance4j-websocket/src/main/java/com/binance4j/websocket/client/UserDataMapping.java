@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface UserDataMapping {
 	/** The API key http full header */
-	public static final String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
+	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
 	 * @return The query result

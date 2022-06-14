@@ -187,7 +187,7 @@ WebsocketClient wsClient = strategy.watch("BNBBTC,BTCBUSD,SHIBBUSD", Candlestick
 or with a collection:
 
 ```java
-WebsocketClient wsClient = strategy.watch(List.of("BNBBTC","BTCBUSD","SHIBBUSD"), CandlestickInterval.ONE_MINUTE, callback);
+WebsocketClient wsClient = strategy.watch(Arrays.asList("BNBBTC","BTCBUSD","SHIBBUSD"), CandlestickInterval.ONE_MINUTE, callback);
 ```
 
 The strategy will create a `BarSeries` instance for every symbol.

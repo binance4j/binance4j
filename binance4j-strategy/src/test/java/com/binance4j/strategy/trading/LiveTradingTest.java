@@ -5,18 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 class LiveTradingTest {
     int count = 0;
@@ -119,7 +120,7 @@ class LiveTradingTest {
         AlwaysExitStrategy strategy = new AlwaysExitStrategy();
         ApiStrategyCallback callback = new ApiStrategyCallback();
         Set<String> set = new HashSet<>();
-        List<String> symbols = List.of("BTCBUSD", "BNBBTC", "SHIBBUSD");
+        List<String> symbols = Arrays.asList("BTCBUSD", "BNBBTC", "SHIBBUSD");
 
         callback.onFailure(t -> {
             assertNotNull(t);

@@ -52,5 +52,5 @@ public enum SymbolStatus {
   /** Binance devs reserved status */
   PRE_TRADING,
   /** Binance devs reserved status */
-  POST_TRADING;
+  POST_TRADING
 }

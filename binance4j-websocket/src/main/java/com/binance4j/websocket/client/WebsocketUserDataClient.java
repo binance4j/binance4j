@@ -16,7 +16,7 @@ import lombok.Setter;
  */
 @EqualsAndHashCode(callSuper = true)
 public class WebsocketUserDataClient extends WebsocketClient<UserDataUpdatePayload> {
-    private UserDataClient userDataClient;
+    private final UserDataClient userDataClient;
 
     /** The timer responsible to schedule the keep alive task */
     @Getter
