@@ -1,0 +1,45 @@
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+*.ips
+
+# Eclipse
+.settings/
+.metadata/
+.classpath
+.project
+
+#NetBeans
+nb-configuration.xml
+nbactions.xml
+
+# VSCode
+.vscode
+.apt_**
+# Generated
+target/
+javadoc/
+bin/
+log/
+classes/
+
+# Misc.
+.DS_Store
+*.swp
+*.swo
+
+# externalized configuration file for keys
+exchangeConfiguration.json
+*secret.keys
+
+# emacs
+*~
+\#*\#
+
+# ignore tags
+GTAGS
+GRTAGS
+GPATH
+GSYMS

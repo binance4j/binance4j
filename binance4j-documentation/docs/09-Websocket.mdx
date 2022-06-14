@@ -1,0 +1,527 @@
+---
+title: Websocket
+---
+
+import CodeBlock from "@theme/CodeBlock";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import JavadocBadge from "@site/src/components/badge/JavadocBadge";
+import Badges from "./partials/_WebsocketBadges.mdx";
+import Badge from "./partials/_WebsocketBadge.mdx";
+import Examples from "@site/src/components/RequestExamples.tsx";
+import data from "./data";
+
+<RepoBadges artifact="websocket" version={data.version} />
+
+## Description
+
+Binance4j-websocket is a set of Java connectors for the Binance Websocket API.
+
+## Installation
+
+<InstallationInstructions repo="websocket" version={data.version} />
+
+## Dependencies
+
+-   [binance4j-core](Core) : The core of every binance4j artifact
+-   [Lombok](https://projectlombok.org/) : Prevent boilerplate code.
+-   [OkHttp](https://square.github.io/okhttp/) : HTTP && Websocket clients
+-   [Retrofit](https://square.github.io/retrofit/) : Map API endpoints with annotations.
+-   [Jackson](https://github.com/FasterXML/jackson) : Payload deserialization
+-   [Apache Common Codecs](https://commons.apache.org/proper/commons-codec/) : Encode/decode urls
+-   [RxJava](https://reactivex.io/intro.html) : asynchronous and event-based programs by using observable sequences.
+
+## How does it work?
+
+<JavadocBadge
+    artifact="websocket"
+    javadoc="com/binance4j/websocket/client/WebsocketClient.html"
+    version={data.version}
+/>
+
+The goal of a websocket client is to receive real time data from the Binance API through a persistent, bi-directional stream.
+This can be market or user/balance data. Every client share the same methods as they inherit from the `WebsocketClient` class.
+
+### Event handlers
+
+```java
+//The connection with the server is opened.
+client.onOpen(response -> {
+    // ...
+});
+
+//The connection with the server is closing.
+client.onClosing(cb -> {
+    // ...
+});
+
+//The connection with the server is closed.
+client.onClosed(cb -> {
+    // ...
+});
+
+//Connection failed, deserialization failed, the server has not sent data for a long time (timeout)
+client.onFailure(cb -> {
+    // ...
+});
+
+//The server pushed data
+client.onMessage(cb -> {
+    // ...
+});
+```
+
+### Open/Close the stream
+
+```java
+//When the connection will open, the `onOpen` handler will be called.
+client.open();
+
+//Before closing, the `onClosing` handler will be called, then `onClosed` once the connection is closed.
+client.close();
+```
+
+### Stream lifespan
+
+From Binance documentation:
+
+> A single connection to stream.binance.com is only valid for 24 hours; expect to be disconnected at the 24 hour mark.
+
+> The websocket server will send a ping frame every 3 minutes.
+> If the websocket server does not receive a pong frame back from the connection within a 10 minute period, the connection will be disconnected.
+> Unsolicited pong frames are allowed.
+
+#### Ping the server
+
+Websocket clients automatically ping the server every 3 minutes. You don't need to do anything! But if you want to change that interval, just call:
+
+```java
+client.setPingInterval(java.time.Duration)
+```
+
+:::caution
+The stream must be closed or this won't work. If you need to change this interval, close and reopen the stream.
+:::
+
+#### Ping the server back
+
+Again, websocket clients automatically pings back. You don't need to do anything!
+
+#### Reconnect after a disconnection
+
+Every websocket client is by default configured to automatically reconnect if the stream is closed by the server. If you don't like this behaviour, just call:
+
+```java
+client.setKeepAlive(false);
+```
+
+Next time the client is disconnected, it won't try to reconnect.
+
+#### Reconnect after a connection failure
+
+Every websocket client is by default configured to automatically reconnect after a connection failure. If you don't like this behaviour, just call:
+
+```java
+client.retryOnConnectionFailure(false);
+```
+
+:::caution
+The stream must be closed or this won't work. If you need to change this interval, close and reopen the stream.
+:::
+
+#### Reconnect after no response for some time
+
+It can happen that after some time, the server stops sending data to the client. Every websocket client is by default configured to automatically disconnect and reconnect after a not receiving data for some time (3 minutes by default). To change this interval call:
+
+```java
+client.setNoResponseTimeout(time.Duration);
+```
+
+:::caution
+The stream must be closed or this won't work. If you need to change this interval, close and reopen the stream.
+:::
+
+Since Binance recommends a 30 minutes interval, i wouldn't recommend to change this value.
+
+## Available Websocket clients
+
+### Individual Symbol Ticker Streams
+
+<Badge label="WebsocketTickerClient" javadoc="client/WebsocketTickerClient.html" />
+&nbsp;
+<Badge label="TickerPayload" javadoc="payload/TickerPayload.html" />
+
+Handles 24hr rolling window ticker statistics for a single symbol.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">WebsocketTickerClient client = new WebsocketTickerClient("BNBBTC");</CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketTickerClient client = new WebsocketTickerClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketTickerClient client = new WebsocketTickerClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+:::caution
+These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
+:::
+
+### Individual Symbol Mini Ticker Stream
+
+<Badge label="WebsocketMiniTickerClient" javadoc="client/WebsocketMiniTickerClient.html" />
+&nbsp;
+<Badge label="MiniTickerPayload" javadoc="payload/MiniTickerPayload.html" />
+
+24hr rolling window mini-ticker statistics.
+
+:::caution
+These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
+:::
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">
+            WebsocketMiniTickerClient client = new WebsocketMiniTickerClient("BNBBTC");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketMiniTickerClient client = new WebsocketMiniTickerClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketMiniTickerClient client = new WebsocketMiniTickerClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### All Market Tickers Stream
+
+<Badge label="WebsocketAllMiniTickersClient" javadoc="client/WebsocketAllMiniTickersClient.html" />
+&nbsp;
+<Badge label="TickerPayload" javadoc="payload/TickerPayload.html" />
+
+24hr rolling window ticker statistics for all symbols that changed.
+
+<CodeBlock language="java">WebsocketAllTickersClient client = new WebsocketAllTickersClient();</CodeBlock>
+
+:::caution
+These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
+:::
+
+### All Market Mini Tickers Stream
+
+<Badge label="WebsocketAllMiniTickersClient" javadoc="client/WebsocketAllMiniTickersClient.html" />
+&nbsp;
+<Badge label="MiniTickerPayload" javadoc="payload/MiniTickerPayload.html" />
+
+24hr rolling window mini-ticker statistics for all symbols that changed.
+
+<CodeBlock language="java">WebsocketAllMiniTickersClient client = new WebsocketAllMiniTickersClient();</CodeBlock>
+
+:::caution
+These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
+:::
+
+### Individual Symbol Book Ticker Streams
+
+<Badge label="WebsocketBookTickerClient" javadoc="client/WebsocketBookTickerClient.html" />
+&nbsp;
+<Badge label="BookTickerPayload" javadoc="payload/BookTickerPayload.html" />
+
+Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">
+            WebsocketBookTickerClient client = new WebsocketBookTickerClient("BNBBTC");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketBookTickerClient client = new WebsocketBookTickerClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketBookTickerClient client = new WebsocketBookTickerClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### All Book Tickers Stream
+
+<Badge label="WebsocketAllBookTickersClient" javadoc="client/WebsocketAllBookTickersClient.html" />
+&nbsp;
+<Badge label="BookTickerPayload" javadoc="payload/BookTickerPayload.html" />
+
+Pushes any update to the best bid or ask's price or quantity in real-time for all symbols.
+
+```java
+WebsocketAllBookTickersClient client = new WebsocketAllBookTickersClient();
+```
+
+### Kline/Candlestick Streams
+
+<Badge label="WebsocketCandlestickClient" javadoc="client/WebsocketCandlestickClient.html" />
+&nbsp;
+<Badge label="CandlestickBarPayload" javadoc="payload/CandlestickBarPayload.html" />
+
+The Kline/Candlestick Stream push updates to the current klines/candlestick every second.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">
+            WebsocketCandlestickClient client = new WebsocketCandlestickClient("BNBBTC",
+            CandlestickInterval.FIVE_MINUTE);
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketCandlestickClient client = new WebsocketCandlestickClient("BNBBTC, BNBBUSD",
+            CandlestickInterval.FIVE_MINUTE);
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketCandlestickClient client = new WebsocketCandlestickClient(List.of("BNBBTC", "BNBBUSD",
+            CandlestickInterval.FIVE_MINUTE));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### Diff. Depth Stream
+
+<Badge label="WebsocketDepthClient" javadoc="client/WebsocketDepthClient.html" />
+&nbsp;
+<Badge label="DepthPayload" javadoc="payload/DepthPayload.html" />
+
+Order book price and quantity depth updates used to locally manage an order book.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">WebsocketDepthClient client = new WebsocketDepthClient("BNBBTC");</CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketDepthClient client = new WebsocketDepthClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketDepthClient client = new WebsocketDepthClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### Partial Book Depth Streams
+
+<Badge label="WebsocketMiniDepthClient" javadoc="client/WebsocketMiniDepthClient.html" />
+&nbsp;
+<Badge label="MiniDepthPayload" javadoc="payload/MiniDepthPayload.html" />
+
+Top bids and asks, Valid are 5, 10, or 20.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">WebsocketMiniDepthClient client = new WebsocketMiniDepthClient("BNBBTC");</CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### Trade Streams
+
+<Badge label="WebsocketTradeClient" javadoc="client/WebsocketTradeClient.html" />
+&nbsp;
+<Badge label="TradePayload" javadoc="payload/TradePayload.html" />
+
+The Trade Streams push raw trade information; each trade has a unique buyer and seller.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">WebsocketTradeClient client = new WebsocketTradeClient("BNBBTC");</CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketTradeClient client = new WebsocketTradeClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketTradeClient client = new WebsocketTradeClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### Aggregate Trade Streams
+
+<Badge label="WebsocketAggTradeClient" javadoc="client/WebsocketAggTradeClient.html" />
+&nbsp;
+<Badge label="AggTradePayload" javadoc="payload/AggTradePayload.html" />
+
+The Aggregate Trade Streams push trade information that is aggregated for a single taker order.
+
+<Tabs>
+    <TabItem label="One symbol" value="one-symbol" default>
+        <CodeBlock language="java">WebsocketAggTradeClient client = new WebsocketAggTradeClient("BNBBTC");</CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (String)" value="multiple-symbols-string">
+        <CodeBlock language="java">
+            WebsocketAggTradeClient client = new WebsocketAggTradeClient("BNBBTC, BNBBUSD");
+        </CodeBlock>
+    </TabItem>
+    <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
+        <CodeBlock language="java">
+            WebsocketAggTradeClient client = new WebsocketAggTradeClient(List.of("BNBBTC", "BNBBUSD"));
+        </CodeBlock>
+    </TabItem>
+</Tabs>
+
+### User Data Streams
+
+<Badge label="WebsocketUserDataClient" javadoc="client/WebsocketUserDataClient.html" />
+&nbsp;
+<Badge label="UserDataUpdatePayload" javadoc="payload/UserDataUpdatePayload.html" />
+
+The User Data Streams push account, balance and order update infos.
+
+```java
+// Instantiate a UserDataClient
+UserDataClient userDataClient = new UserDataClient(key,secret);
+
+// instantiate the ws client
+WebsocketUserDataClient client = new WebsocketUserDataClient(userDataClient);
+```
+
+-   Account Update : outboundAccountPosition is sent any time an account balance has changed and contains the assets that were possibly changed by the event that generated the balance change.
+
+-   Balance Update: Balance Update occurs during the following:
+
+    -   Deposits or withdrawals from the account
+    -   Transfer of funds between accounts (e.g. Spot to Margin)
+
+-   Order Update: Orders are updated with the executionReport event. Check the [Public API Definitions](https://binance-docs.github.io/apidocs/spot/en/#public-api-definitions) and below for relevant enum definitions. Execution types:
+
+    -   NEW - The order has been accepted into the engine.
+    -   CANCELED - The order has been canceled by the user.
+    -   REPLACED (currently unused)
+    -   REJECTED - The order has been rejected and was not processed. (This is never pushed into the User Data Stream)
+    -   TRADE - Part of the order or all of the order's quantity has filled.
+    -   EXPIRED - The order was canceled according to the order type's rules (e.g. LIMIT FOK orders with no fill, LIMIT IOC or MARKET orders that partially fill) or by the exchange, (e.g. orders canceled during liquidation, orders canceled during maintenance)
+
+### Keep the User data Stream open
+
+From Binance documentation:
+
+> The stream will close after 60 minutes unless a keepalive is sent.
+> It's recommended to send a ping about every 30 minutes.
+
+The WebsocketUserDataClient constructor takes a `UserDataCLient` instance as parameter. In this way, it will automatically ask a listen key to the API and extends its lifespan by pinging the server every 30 minutes.
+
+The interval can be changed by calling:
+
+```java
+client.setKeepAliveInterval(java.time.Duration);
+```
+
+:::caution
+The stream must be closed or this won't work. If you need to change this interval, close and reopen the stream.
+:::
+
+Since Binance recommends a 30 minutes interval, i wouldn't recommend to change this value.
+
+## User data endpoints
+
+### Start user data stream
+
+<Badges
+    label="startUserDataStream()"
+    version={data.version}
+    artifact="websocket"
+    javadoc="client/UserDataClient.html#startUserDataStream()"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /api/v3/userDataStream"
+/>
+
+Returns a listen key to open a user data websocket stream.
+
+<Examples
+    client="UserDataClient"
+    constructorParams={["key", "secret"]}
+    method="startUserDataStream"
+    responseType="ListenKey"
+/>
+
+:::note
+The stream will close after 60 minutes unless a keepalive is sent.
+
+If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
+:::
+
+### Keep alive user data stream
+
+<Badges
+    label="keepAliveUserDataStream()"
+    version={data.version}
+    artifact="websocket"
+    javadoc="client/UserDataClient.html#keepAliveUserDataStream(java.lang.String)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="PUT /api/v3/userDataStream"
+/>
+
+Keepalive a user data stream to prevent a time out.
+
+<Examples
+    client="UserDataClient"
+    constructorParams={["key", "secret"]}
+    method="keepAliveUserDataStream"
+    requestType="String"
+    requestParameters={["/** listenKey */"]}
+/>
+
+:::note
+User data streams will close after 60 minutes.
+
+It's recommended to send a ping about every 30 minutes.
+:::
+
+### Close out a user data stream
+
+<Badges
+    label="closeUserDataStream()"
+    version={data.version}
+    artifact="websocket"
+    javadoc="client/UserDataClient.html#closeUserDataStream(java.lang.String)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="DELETE /api/v3/userDataStream"
+/>
+
+<Examples
+    client="UserDataClient"
+    constructorParams={["key", "secret"]}
+    method="loseUserDataStream"
+    requestType="String"
+    requestParameters={["/** listenKey */"]}
+/>
