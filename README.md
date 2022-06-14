@@ -24,6 +24,20 @@
 		Documentation
 	</a>
 </h3>
+
+<!-- disclaimer -->
+
+<h2 align="center">Disclaimer</h2>
+
+This is a personal project for educational purpose. Use at your own risk. I am not affiliated with Binance. I won't respond to trading strategy advices. Only trade money you can afford to lose.
+
+
+<h3 align="center">
+	<a href="https://github.com/binance4j/binance4j/projects/1">
+		Roadmap / Issues / Progress
+	</a>
+</h3>
+
 <!-- binance4j-market -->
 
 <!-- title -->
