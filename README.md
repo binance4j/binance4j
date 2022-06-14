@@ -24,6 +24,20 @@
 		Documentation
 	</a>
 </h3>
+
+<!-- disclaimer -->
+
+<h2 align="center">Disclaimer</h2>
+
+This is a personal project for educational purpose. Use at your own risk. I am not affiliated with Binance. I won't respond to trading strategy advices. Only trade money you can afford to lose.
+
+
+<h3 align="center">
+	<a href="https://github.com/binance4j/binance4j/projects/1">
+		Roadmap / Issues / Progress
+	</a>
+</h3>
+
 <!-- binance4j-market -->
 
 <!-- title -->
@@ -73,7 +87,7 @@
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-market</artifactId>
-	<version>1.7.3</version>
+	<version>1.7.4</version>
 </dependency>
 ```
 
@@ -115,7 +129,7 @@
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-nft</artifactId>
-	<version>1.7.3</version>
+	<version>1.7.4</version>
 </dependency>
 ```
 
@@ -159,7 +173,7 @@
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-spot</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
 
@@ -214,7 +228,7 @@
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-wallet</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
 
@@ -265,7 +279,7 @@
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-websocket</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
 
@@ -312,7 +326,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-vision</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
 
@@ -355,7 +369,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-strategy</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
 
@@ -395,6 +409,6 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-core</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4</version>
 </dependency>
 ```
