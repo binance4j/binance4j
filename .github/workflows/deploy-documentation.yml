@@ -1,0 +1,35 @@
+name: Deploy documentation
+
+on:
+  push:
+    branches: 
+     - deploy-documentation
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  
+  ##### DOCUMENTATION #####
+
+  deploy-doc:
+    name: Deploy documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+          cache-dependency-path: "./binance4j-documentation/yarn.lock"
+      - name: Install dependencies
+        run: cd binance4j-documentation && yarn install --frozen-lockfile
+      - name: Build website
+        run: cd binance4j-documentation && yarn build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./binance4j-documentation/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
