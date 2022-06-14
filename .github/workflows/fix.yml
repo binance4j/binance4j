@@ -186,7 +186,6 @@ jobs:
 
   deploy-doc:
     name: Deploy documentation
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
