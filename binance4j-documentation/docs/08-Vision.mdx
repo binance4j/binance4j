@@ -1,0 +1,347 @@
+---
+title: Vision
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import LinkBadge from "@site/src/components/badge/LinkBadge";
+import JavadocBadge from "@site/src/components/badge/JavadocBadge";
+import Examples from "@site/src/components/VisionRequestExamples.tsx";
+import Badge from "./partials/_VisionBadge.mdx";
+import CoreBadge from "./partials/_CoreBadge.mdx";
+import data from "./data";
+
+<RepoBadges artifact="vision" version={data.version} />
+
+## Description
+
+Binance4j-vision is a Java connector for the public data endpoints of the Binance REST API.
+
+## Installation
+
+## Dependencies
+
+-   [binance4j-core](Core) : The core of every binance4j artifact
+-   [Lombok](https://projectlombok.org/) : Prevent boilerplate code.
+-   [OkHttp](https://square.github.io/okhttp/) : HTTP && Websocket clients
+-   [Retrofit](https://square.github.io/retrofit/) : Map API endpoints with annotations.
+-   [Jackson](https://github.com/FasterXML/jackson) : Payload deserialization
+-   [Apache Common Codecs](https://commons.apache.org/proper/commons-codec/) : Encode/decode urls
+
+<InstallationInstructions repo="vision" version={data.version} />
+
+## SPOT endpoints
+
+### Get klines
+
+<Badge label="SpotClient" javadoc="spot/SpotClient.html"/>
+&nbsp;
+<CoreBadge label="CandlestickBar" javadoc="market/CandlestickBar.html"/>
+&nbsp;
+<LinkBadge
+    label="Binance doc"
+    message="klines"
+    color="gold"
+    to="https://github.com/binance/binance-public-data#klines"
+/>
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a CSV format / 2D List">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="List<CandlestickBar>"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getKlines"
+                    responseType="List<CandlestickBar>"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getKlinesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getKlinesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTE", '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
+### Get trades
+
+<Badge label="SpotClient" javadoc="spot/SpotClient.html"/>
+&nbsp;
+<Badge label="Trade" javadoc="spot/Trade.html"/>
+&nbsp;
+<LinkBadge
+    label="Binance doc"
+    message="trades"
+    color="gold"
+    to="https://github.com/binance/binance-public-data#trades"
+/>
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a CSV format / 2D List">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="List<Trade>"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getTrades"
+                    responseType="List<Trade>"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
+### Get aggregate trades
+
+<Badge label="SpotClient" javadoc="spot/SpotClient.html"/>
+&nbsp;
+<CoreBadge label="AggTrade" javadoc="market/trade.html"/>
+&nbsp;
+<LinkBadge
+    label="Binance doc"
+    message="aggtrades"
+    color="gold"
+    to="https://github.com/binance/binance-public-data#aggtrades"
+/>
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a CSV format / 2D List">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="AggTrade"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTrades"
+                    responseType="AggTrade"
+                    format="getData"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"']}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="SpotClient"
+                    method="getAggTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={['"BNBBTC"', '"2022"', '"01"', '"25"']}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>

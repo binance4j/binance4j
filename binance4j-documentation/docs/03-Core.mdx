@@ -1,0 +1,145 @@
+---
+title: Core
+---
+
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Examples from "@site/src/components/RequestExamples.tsx";
+import data from "./data";
+
+<RepoBadges artifact="core" version={data.version} />
+
+## Description
+
+Binance4j-core is the core module of the binance4j ecosystem.
+
+## Installation
+
+<InstallationInstructions repo="core" version={data.version} />
+
+## Dependencies
+
+-   [Lombok](https://projectlombok.org/) : Prevent boilerplate code.
+-   [OkHttp](https://square.github.io/okhttp/) : HTTP && Websocket clients
+-   [Retrofit](https://square.github.io/retrofit/) : Map API endpoints with annotations.
+-   [Jackson](https://github.com/FasterXML/jackson) : Payload deserialization
+-   [Apache Common Codecs](https://commons.apache.org/proper/commons-codec/) : Encode/decode urls
+
+## API Mapping
+
+Every client mapping is represented by an interface with anotated methods defining the endpoint, the HTTP method, the request parameters, the response payload and when it must include the API credentials. This mapping is used by it's corresponding HTTP client.
+
+Here is a snippet of the SpotMapping code:
+
+```java
+public interface SpotMapping {
+	/** The API key header */
+	public static final String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
+	/** The signed header */
+	public static final String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
+
+	@Headers({ API_H, SIGNED_H })
+	@POST("/api/v3/order")
+	Call<NewOrderResponse> newOrder(@QueryMap Map<String, Object> map);
+}
+```
+
+Here we defined that sending an order requires to call `POST` on `/api/v3/order` endpoint with the order query params and include the public and signed keys in the headers.
+
+:::note
+The query parameters are converted from a `Request` Object to a Map by the client.
+:::
+
+## RestClient
+
+Every HTTP client inherits from the `RestClient` class.
+Most of their constructor must receive a valid `API KEY` and `SECRET KEY` to be able to retrieve sensible data.
+Clients are linked to a Retrofit mappinq interface. Every method returns a `RequestExecutor` instance with a list of Retrofit calls for each available server.
+
+Here is a snippet of the SpotClient code:
+
+```java
+public class SpotClient extends RestClient<SpotMapping> {
+
+    public SpotClient(String key, String secret, Boolean useTestnet) {
+        super(SpotMapping.class, key, secret, useTestnet);
+    }
+
+    public SpotClient(String key, String secret) {
+        this(key, secret, false);
+    }
+
+    public RequestExecutor<NewOrderResponse> newOrder(NewOrder order) {
+        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrder(pojoToMap(order))).toList(), order);
+    }
+}
+```
+
+HTTP clients can be configured through `RestClient` static parameters:
+
+-   apiPrefixes : The available servers (Default prefixes: api, api1, api2, api3)
+-   baseDomain : The API base domain (Default: binance.com)
+-   testnetDomain : The testnet API base domain (Default: testnet.binance.vision)
+-   timeInForce : how long an order will remain active before it is executed or expires (Default: TimeInForce.GTC)
+-   maxRequestsPerHost : max simultaneous requests per host (Default: 500)
+-   maxRequests : max simultaneous requests (Default: 500)
+
+## RequestExecutor
+
+It is not the client method that calls the API.
+Every method returns an instance of `RequestExecutor` that is able to make sync and async request to the API.
+Why not use directly the client method?
+
+-   Binance limits the number of request you can make in a defined interval of time but also limits requests by weight. Every request has its own weight. You can get the request weight with the Executor before calling the API and rate limit the requests to prevent being banned from the API.
+-   Binance is hosted on 4 servers represented by 4 prefixes. If one server is down, you can change it thanks to the Executor.
+-   It divides the clients code by 2.
+
+Here is an example of every possible type of request:
+
+<Examples
+    client="SpotClient"
+    constructorParams={["key", "secret"]}
+    method="newOrder"
+    responseType="NewOrderResponse"
+    requestType="NewOrder"
+    requestParameters={['"BNBBTC"', "OrderType.MARKET", "OrderSide.BUY", 'new BigDecimal("100")']}
+/>
+
+## ApiCallback
+
+Every async call to the API made by the `RequestExecutor` is handled by a functional interface: `ApiCallback`.
+
+The interface has two methods:
+
+-   onResponse : it passes the deserialized data returned by the API.
+-   onFailure : it passes an `ApiException` if something went wrong.
+
+The `onResponse` handler is the default handler. It makes it possible for the async `then` method of the `RequestExecutor` to just use a lambda but it is not recommended as you would not be able to handle an `ApiException`.
+
+## WebsocketCallback
+
+Every Websocket client is using an inner `WebsocketCallback` to handle every connection event:
+
+-   onResponse : Triggered when the server sends data
+-   onFailure : Triggered when the connection fails, deserialization fails, the server has not sent data for a long time.
+-   onClosing : Triggered when the connection is closing
+-   onClosed : Triggered when the connection is closed
+-   onOpen : Triggered when the connection is open
+
+## ApiException
+
+Any exception thrown by Binance4j is an `ApiException`. It contains a specific error message and an `ErrorCode` enum linked to an integer error code.
+
+These exceptions are thrown by sync methods and passed to the `onFailure` method of an `ApiCallback` or `WebsocketCallback` instance.
+
+## Testnet
+
+Clients can connect to Binance Testnet servers
+
+From Binance:
+
+> The testnet is a test environment for Binance Chain network, run by the Binance Chain development community, which is open to developers.
+> The validators on the testnet are from development team.
+> You can connect a node to the testnet by downloading the node binary to use this configuration.
+
+[More](https://docs.binance.org/guides/testnet.html#:~:text=The%20testnet%20is%20a%20test,binary%20to%20use%20this%20configuration.)

@@ -1,0 +1,680 @@
+---
+title: Wallet
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Examples from "@site/src/components/RequestExamples.tsx";
+import Badges from "./partials/_WalletBadges.mdx";
+import Badge from "./partials/_WalletBadge.mdx";
+import data from "./data";
+
+<RepoBadges artifact="wallet" version={data.version} />
+
+## Description
+
+Binance4j-wallet is a Java connector for the wallet enpoints of the Binance REST API.
+
+## Installation
+
+<InstallationInstructions repo="wallet" version={data.version} />
+
+## Dependencies
+
+-   [binance4j-core](Core) : The core of every binance4j artifact
+-   [Lombok](https://projectlombok.org/) : Prevent boilerplate code.
+-   [OkHttp](https://square.github.io/okhttp/) : HTTP && Websocket clients
+-   [Retrofit](https://square.github.io/retrofit/) : Map API endpoints with annotations.
+-   [Jackson](https://github.com/FasterXML/jackson) : Payload deserialization
+-   [Apache Common Codecs](https://commons.apache.org/proper/commons-codec/) : Encode/decode urls
+
+## Get system status
+
+<Badges
+    label="getSystemStatus()"
+    javadoc="client/WalletClient.html#getSystemStatus()"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/system/status"
+/>
+&nbsp;
+<Badge label="SystemStatus" javadoc="systemstatus/SystemStatus.html" />
+&nbsp;
+<Badge label="SystemStatusRequest" javadoc="systemstatus/SystemStatusRequest.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getSystemStatus"
+    responseType="SystemStatus"
+/>
+
+## Get all coins info
+
+<Badges
+    label="getAllCoinsInfo()"
+    javadoc="client/WalletClient.html#getAllCoinsInfo()"
+    weight="10 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/capital/config/getall"
+/>
+&nbsp;
+<Badge label="CoinInformation" javadoc="coinsinfo/CoinInformation.html" />
+&nbsp;
+<Badge label="CoinInformationRequest" javadoc="coinsinfo/CoinInformationRequest.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getAllCoinsInfo"
+    responseType="List<CoinInformation>"
+/>
+
+## Get Account snapshot
+
+<Badges
+    label="getSpotAccountSnapshot()"
+    javadoc="client/WalletClient.html#getSpotAccountSnapshot(com.binance4j.wallet.snapshot.AccountSnapshotRequest)"
+    weight="2400 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/accountSnapshot"
+/>
+&nbsp;
+<Badge label="AccountSnapshotRequest" javadoc="snapshot/AccountSnapshotRequest.html" />
+&nbsp;
+<Badge label="FuturesAccountSnapshotResponse" javadoc="snapshot/futures/FuturesAccountSnapshotResponse.html" />
+&nbsp;
+<Badge label="MarginAccountSnapshotResponse" javadoc="snapshot/margin/MarginAccountSnapshotResponse.html" />
+
+<Tabs>
+    <TabItem value="spot" label="SPOT">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getSpotAccountSnapshot"
+            responseType="SpotAccountSnapshotResponse"
+        />
+    </TabItem>
+    <TabItem value="margin" label="MARGIN">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getMarginAccountSnapshot"
+            responseType="MarginAccountSnapshotResponse"
+        />
+    </TabItem>
+    <TabItem value="futures" label="FUTURES">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getFuturesAccountSnapshot"
+            responseType="FuturesAccountSnapshotResponse"
+        />
+    </TabItem>
+</Tabs>
+
+## Enable fast withdraw switch
+
+<Badges
+    label="enableFastWithdrawSwitch()"
+    javadoc="client/WalletClient.html#enableFastWithdrawSwitch(com.binance4j.wallet.withdraw.FastWithdrawSwitchRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/account/enableFastWithdrawSwitch"
+/>
+&nbsp;
+<Badge label="FastWithdrawSwitchRequest" javadoc="withdraw/FastWithdrawSwitchRequest.html" />
+
+Enables fast withdraw switch under your account.
+
+You need to enable `trade` option for the api key which requests this endpoint.
+
+When Fast Withdraw Switch is on, transferring funds to a Binance account will be done instantly.
+
+There is no on-chain transaction, no transaction ID and no withdrawal fee.
+
+<Examples client="WalletClient" constructorParams={["key", "secret"]} method="enableFastWithdrawSwitch" />
+
+## Disable fast withdraw switch
+
+<Badges
+    label="disableFastWithdrawSwitch()"
+    javadoc="client/WalletClient.html#disableFastWithdrawSwitch(com.binance4j.wallet.withdraw.FastWithdrawSwitchRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/account/disableFastWithdrawSwitch"
+/>
+&nbsp;
+<Badge label="FastWithdrawSwitchRequest" javadoc="withdraw/FastWithdrawSwitchRequest.html" />
+
+Disables fast withdraw switch under your account.
+
+You need to enable `trade` option for the api key which requests this endpoint.
+
+<Examples client="WalletClient" constructorParams={["key", "secret"]} method="disableFastWithdrawSwitch" />
+
+## Withdraw
+
+<Badges
+    label="withdraw()"
+    javadoc="client/WalletClient.html#withdraw(com.binance4j.wallet.withdraw.WithdrawRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/capital/withdraw/apply"
+/>
+&nbsp;
+<Badge label="WithdrawRequest" javadoc="withdraw/WithdrawRequest.html" />
+&nbsp;
+<Badge label="WithdrawResult" javadoc="withdraw/WithdrawResult.html" />
+
+If network not send, return with default network of the coin.
+
+You can get `network` and `isDefault` in networkList of a coin in the response of [getAllCoinsInfo](#get-all-coins-info)
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="withdraw"
+    responseType="WithdrawResult"
+    requestType="WithdrawRequest"
+    requestParameters={["new BigDecimal(1)", '"BTC"', '"0x00000000000000"']}
+/>
+
+## Get deposit history
+
+<Badges
+    label="getDepositHistory()"
+    javadoc="client/WalletClient.html#getDepositHistory()"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/capital/deposit/hisrec"
+/>
+&nbsp;
+<Badge label="DepositHistoryRequest" javadoc="deposit/DepositHistoryRequest.html" />
+&nbsp;
+<Badge label="DepositHistory" javadoc="deposit/DepositHistory.html" />
+
+Fetches the deposit history of one or multiple coins.
+
+<Tabs>
+    <TabItem value="all" label="All coins">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getDepositHistory"
+            responseType="List<DepositHistory>"
+        />
+    </TabItem>
+    <TabItem value="one" label="Specific coin">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getDepositHistory"
+            responseType="List<DepositHistory>"
+            requestType="DepositHistoryRequest"
+            requestParameters={['"BTC"']}
+        />
+    </TabItem>
+    <TabItem value="status-enum" label="By status (DepositStatus)">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getDepositHistory"
+            responseType="List<DepositHistory>"
+            requestType="DepositHistoryRequest"
+            requestParameters={["DepositStatus.SUCCESS"]}
+        />
+    </TabItem>
+    <TabItem value="status-int" label="By status (int)">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getDepositHistory"
+            responseType="List<DepositHistory>"
+            requestType="DepositHistoryRequest"
+            requestParameters={["1"]}
+        />
+    </TabItem>
+    <TabItem value="coin-status" label="By coin and status ">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getDepositHistory"
+            responseType="List<DepositHistory>"
+            requestType="DepositHistoryRequest"
+            requestParameters={['"BTC"', "DepositStatus.SUCCESS"]}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Please notice the default `startTime` and `endTime` to make sure that time interval is within 0-90
+days.
+
+If both `startTime` and `endTime` are sent, time between `startTime` and `endTime` must be
+less than 90 days.
+:::
+
+## Get withdraw history
+
+<Badges
+    label="getWithdrawHistory()"
+    javadoc="client/WalletClient.html#getWithdrawHistory(com.binance4j.wallet.withdraw.WithdrawHistoryRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/capital/withdraw/history"
+/>
+&nbsp;
+<Badge label="WithdrawHistoryRequest" javadoc="withdraw/WithdrawHistoryRequest.html" />
+&nbsp;
+<Badge label="WithdrawHistory" javadoc="withdraw/WithdrawHistory.html" />
+
+Fetches the withdraw history of one or multiple coins.
+
+<Tabs>
+    <TabItem value="all" label="All coins">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getWithdrawHistory"
+            responseType="List<WithdrawHistory>"
+        />
+    </TabItem>
+    <TabItem value="one" label="Specific coin">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getWithdrawHistory"
+            responseType="List<WithdrawHistory>"
+            requestType="WithdrawHistoryRequest"
+            requestParameters={['"BTC"']}
+        />
+    </TabItem>
+    <TabItem value="status-enum" label="By status (WithdrawStatus)">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getWithdrawHistory"
+            responseType="List<WithdrawHistory>"
+            requestType="WithdrawHistoryRequest"
+            requestParameters={["WithdrawStatus.SUCCESS"]}
+        />
+    </TabItem>
+    <TabItem value="status-int" label="By status (int)">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getWithdrawHistory"
+            responseType="List<WithdrawHistory>"
+            requestType="WithdrawHistoryRequest"
+            requestParameters={["6"]}
+        />
+    </TabItem>
+    <TabItem value="coin-status" label="By coin and status ">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getWithdrawHistory"
+            responseType="List<WithdrawHistory>"
+            requestType="WithdrawHistoryRequest"
+            requestParameters={['"BTC"', "WithdrawStatus.COMPLETED"]}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Network may not be in the response for old withdraw.
+
+Please notice the default `startTime` and `endTime` to make sure that time interval is within 0-90 days.
+
+If both `startTime` and `endTime` are sent, time between startTime and `endTime` must be less than 90 days.
+
+If `withdrawOrderId` is sent, time between `startTime` and `endTime` must be less than 7 days.
+
+If `withdrawOrderId` is sent, `startTime` and `endTime` are not sent, will return last 7 days records by default.
+:::
+
+## Get deposit address
+
+<Badges
+    label="getDepositAddress()"
+    javadoc="client/WalletClient.html#getDepositAddress(com.binance4j.wallet.deposit.DepositAddressRequest)"
+    weight="10 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/capital/deposit/address"
+/>
+&nbsp;
+<Badge label="DepositAddressRequest" javadoc="deposit/DepositAddressRequest.html" />
+&nbsp;
+<Badge label="DepositAddress" javadoc="deposit/DepositAddress.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getDepositAddress"
+    responseType="DepositAddress"
+    requestType="WithdrawRequesDepositAddressRequest"
+    requestParameters={['"BNB"']}
+/>
+
+:::note
+You can get `network` and `isDefault` in `networkList` in the response of `getAllCoinsInfo`
+
+If `network` is not sent, return with default network of the coin.
+:::
+
+## Get account status
+
+<Badges
+    label="getAccountstatus()"
+    javadoc="client/WalletClient.html#getAccountstatus(com.binance4j.wallet.accountstatus.AccountStatusRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/account/status"
+/>
+&nbsp;
+<Badge label="AccountStatusRequest" javadoc="accountstatus/AccountStatusRequest.html" />
+&nbsp;
+<Badge label="AccountStatus" javadoc="accountstatus/AccountStatus.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getAccountstatus"
+    responseType="AccountStatus"
+/>
+
+## Get API trading status
+
+<Badges
+    label="getApiTradingStatus()"
+    javadoc="client/WalletClient.html#getApiTradingStatus(com.binance4j.wallet.tradingstatus.ApiTradingStatusRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/account/apiTradingStatus"
+/>
+&nbsp;
+<Badge label="ApiTradingStatusRequest" javadoc="tradingstatus/ApiTradingStatusRequest.html" />
+&nbsp;
+<Badge label="ApiTradingStatus" javadoc="tradingstatus/ApiTradingStatus.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getApiTradingStatus"
+    responseType="ApiTradingStatus"
+/>
+
+## Get dust log
+
+<Badges
+    label="getDustLog()"
+    javadoc="client/WalletClient.html#getDustLog(com.binance4j.wallet.dust.DustLogRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/asset/dribblet"
+/>
+&nbsp;
+<Badge label="DustLogRequest" javadoc="dust/DustLogRequest.html" />
+&nbsp;
+<Badge label="DustLog" javadoc="dust/DustLog.html" />
+
+<Examples client="WalletClient" constructorParams={["key", "secret"]} method="getDustLog" responseType="DustLog" />
+
+## Do a dust transfer
+
+<Badges
+    label="dustTransfert()"
+    javadoc="client/WalletClient.html#dustTransfert(com.binance4j.wallet.dust.DustTransferRequest)"
+    weight="10 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/asset/dust"
+/>
+&nbsp;
+<Badge label="DustTransferRequest" javadoc="dust/DustTransferRequest.html" />
+&nbsp;
+<Badge label="DustTransferResponse" javadoc="dust/DustTransferResponse.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="dustTransfert"
+    responseType="DustTransferResponse"
+    requestType="DustTransferRequest"
+    requestParameters={['List.of("BTC","SHIB","DOGE")']}
+/>
+
+## Get asset dividend record
+
+<Badges
+    label="getAssetDividendRecord()"
+    javadoc="client/WalletClient.html#getAssetDividendRecord(com.binance4j.wallet.assetdividendrecord.AssetDividendRecordRequest)"
+    weight="10 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/asset/assetDividend"
+/>
+&nbsp;
+<Badge label="AssetDividendRecordRequest" javadoc="assetdividendrecord/AssetDividendRecordRequest.html" />
+&nbsp;
+<Badge label="AssetDividendRecord" javadoc="assetdividendrecord/AssetDividendRecord.html" />
+
+<Tabs>
+    <TabItem value="last-20" label="Last 20 (default)">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getAssetDividendRecord"
+            responseType="AssetDividendRecord"
+        />
+    </TabItem>
+    <TabItem value="one-coin-last-20" label="Specific coin last 20">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getAssetDividendRecord"
+            responseType="AssetDividendRecord"
+            requestType="AssetDividendRecordRequest"
+            requestParameters={['"BTC"']}
+        />
+    </TabItem>
+    <TabItem value="last-500" label="Last 500 records">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getAssetDividendRecord"
+            responseType="AssetDividendRecord"
+            requestType="AssetDividendRecordRequest"
+            requestParameters={['"BTC"', 500]}
+        />
+    </TabItem>
+</Tabs>
+
+## Get asset detail
+
+<Badges
+    label="getAssetDetail()"
+    javadoc="client/WalletClient.html#getAssetDetail(com.binance4j.wallet.assetdetail.AssetDetailRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/asset/assetDetail"
+/>
+&nbsp;
+<Badge label="AssetDetailRequest" javadoc="assetdetail/AssetDetailRequest.html" />
+&nbsp;
+<Badge label="AssetDetail" javadoc="assetdetail/AssetDetail.html" />
+
+Get the details of all assets supported by Binance
+
+<Tabs>
+    <TabItem value="all" label="All assets">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getAssetDetail"
+            responseType="Map<String, AssetDetail>"
+        />
+    </TabItem>
+    <TabItem value="one" label="One asset">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getAssetDetail"
+            responseType="Map<String, AssetDetail>"
+            requestType="AssetDetailRequest"
+            requestParameters={['"BTC"']}
+        />
+    </TabItem>
+</Tabs>
+
+## Get trade fee
+
+<Badges
+    label="getTradeFee()"
+    javadoc="client/WalletClient.html#getTradeFee(com.binance4j.wallet.tradefee.TradeFeeRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/asset/tradeFee"
+/>
+&nbsp;
+<Badge label="TradeFeeRequest" javadoc="tradefee/TradeFeeRequest.html" />
+&nbsp;
+<Badge label="TradeFee" javadoc="tradefee/TradeFee.html" />
+
+<Tabs>
+    <TabItem value="all" label="All pairs">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            client="WalletClient"
+            method="getTradeFee"
+            responseType="List<TradeFee>"
+        />
+    </TabItem>
+    <TabItem value="one" label="One pair">
+        <Examples
+            constructorParams={["key", "secret"]}
+            method="getTradeFee"
+            responseType="List<TradeFee>"
+            requestType="TradeFeeRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+</Tabs>
+
+## Make a universal transfer
+
+<Badges
+    label="transfer()"
+    javadoc="client/WalletClient.html#transfer(com.binance4j.wallet.transfer.WalletTransferRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/asset/transfer"
+/>
+&nbsp;
+<Badge label="WalletTransferRequest" javadoc="transfer/WalletTransferRequest.html" />
+&nbsp;
+<Badge label="WalletTransferResponse" javadoc="transfer/WalletTransferResponse.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="transfer"
+    responseType="WalletTransferResponse"
+    requestType="WalletTransferRequest"
+    requestParameters={['new BigDecimal("100")', '"BNB"', "WalletTransferType.MAIN_MARGIN"]}
+/>
+
+## Get transfer history
+
+<Badges
+    label="getTransferHistory()"
+    javadoc="client/WalletClient.html#getTransferHistory(com.binance4j.wallet.transfer.WalletTransferHistoryRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/asset/transfer"
+/>
+&nbsp;
+<Badge label="WalletTransferHistoryRequest" javadoc="transfer/WalletTransferHistoryRequest.html" />
+&nbsp;
+<Badge label="WalletTransferHistory" javadoc="transfer/WalletTransferHistory.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getTransferHistory"
+    responseType="WalletTransferHistory"
+    requestType="WalletTransferHistoryRequest"
+    requestParameters={["WalletTransferType.MAIN_MARGIN"]}
+/>
+
+## Get funding asset
+
+<Badges
+    label="getFundingAsset()"
+    javadoc="client/WalletClient.html#getFundingAsset()"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="POST /sapi/v1/asset/get-funding-asset"
+/>
+&nbsp;
+<Badge label="FundingAssetRequest" javadoc="funding/FundingAssetRequest.html" />
+&nbsp;
+<Badge label="FundingAsset" javadoc="funding/FundingAsset.html" />
+
+Fetches the funding wallet asset balance
+
+Currently supports querying the following business assets：Binance Pay, Binance Card, Binance Gift Card, Stock Token
+
+<Tabs>
+    <TabItem value="all" label="All balances">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getFundingAsset"
+            responseType="List<FundingAsset>"
+        />
+    </TabItem>
+    <TabItem value="one" label="Specific">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getFundingAsset"
+            responseType="List<FundingAsset>"
+            requestType="FundingAssetRequest"
+            requestParameters={['"BNB"']}
+        />
+    </TabItem>
+    <TabItem value="btc-valuation" label="SAdd BTC valuation">
+        <Examples
+            client="WalletClient"
+            constructorParams={["key", "secret"]}
+            method="getFundingAsset"
+            responseType="List<FundingAsset>"
+            requestType="FundingAssetRequest"
+            requestParameters={['"BNB"', true]}
+        />
+    </TabItem>
+</Tabs>
+
+## Get API permissions
+
+<Badges
+    label="getApiPermissions()"
+    javadoc="client/WalletClient.html#getApiPermissions(com.binance4j.wallet.permissions.ApiPermissionsRequest)"
+    weight="1 (IP)"
+    signature="signed (HMAC SHA256)"
+    path="GET /sapi/v1/account/apiRestrictions"
+/>
+&nbsp;
+<Badge label="ApiPermissionsRequest" javadoc="permissions/ApiPermissionsRequest.html" />
+&nbsp;
+<Badge label="ApiPermissions" javadoc="permissions/ApiPermissions.html" />
+
+<Examples
+    client="WalletClient"
+    constructorParams={["key", "secret"]}
+    method="getApiPermissions"
+    responseType="ApiPermissions"
+/>

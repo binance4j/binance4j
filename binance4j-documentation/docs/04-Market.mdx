@@ -1,0 +1,537 @@
+---
+title: Market
+---
+
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import Badges from "./partials/_MarketBadges.mdx";
+import Badge from "./partials/_MarketBadge.mdx";
+import CoreBadge from "./partials/_CoreBadge.mdx";
+import Examples from "@site/src/components/RequestExamples.tsx";
+import data from "./data";
+
+<RepoBadges artifact="market" version={data.version} />
+
+## Description
+
+Binance4j-market is a Java connector for the market endpoints of the Binance REST API.
+
+## Installation
+
+<InstallationInstructions repo="market" version={data.version} />
+
+## Dependencies
+
+-   [binance4j-core](Core) : The core of every binance4j artifact
+-   [Lombok](https://projectlombok.org/) : Prevent boilerplate code.
+-   [OkHttp](https://square.github.io/okhttp/) : HTTP && Websocket clients
+-   [Retrofit](https://square.github.io/retrofit/) : Map API endpoints with annotations.
+-   [Jackson](https://github.com/FasterXML/jackson) : Payload deserialization
+-   [Apache Common Codecs](https://commons.apache.org/proper/commons-codec/) : Encode/decode urls
+
+## Test connectivity
+
+<Badges
+    label="ping()"
+    javadoc="client/MarketDataClient.html#ping()"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/ping"
+/>
+
+<Examples client="MarketDataClient" constructorParams={["key", "secret"]} method="ping" />
+
+## Get server time
+
+<Badges
+    label="getServerTime()"
+    javadoc="client/MarketDataClient.html#getServerTime()"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/time"
+/>
+&nbsp;
+<Badge label="ServerTimeResponse" javadoc="time/ServerTimeResponse.html" />
+
+<Examples
+    client="MarketDataClient"
+    constructorParams={["key", "secret"]}
+    method="getServerTime"
+    responseType="ServerTimeResponse"
+/>
+
+## Get exchange info
+
+<Badges
+    label="getExchangeInfo()"
+    javadoc="client/MarketDataClient.html#getExchangeInfo()"
+    weight="10 (IP)"
+    signature="none"
+    path="GET /api/v3/exchangeInfo"
+/>
+&nbsp;
+<CoreBadge label="ExchangeInfoRequest" javadoc="exchangeinfo/ExchangeInfoRequest.html" />
+&nbsp;
+<CoreBadge label="ExchangeInfo" javadoc="exchangeinfo/ExchangeInfo.html" />
+
+<Tabs>
+    <TabItem value="all" label="All symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getExchangeInfo"
+            responseType="ExchangeInfo"
+        />
+    </TabItem>
+    <TabItem value="one" label="One symbol">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getExchangeInfo"
+            responseType="ExchangeInfo"
+            requestType="ExchangeInfoRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="multiple" label="Multiple symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getExchangeInfo"
+            responseType="ExchangeInfo"
+            requestType="ExchangeInfoRequest"
+            requestParameters={['List.of("BNBBTC","BTCEUR","SHIBEUR")']}
+        />
+    </TabItem>
+</Tabs>
+
+## Get a symbol's order book
+
+<Badges
+    label="getOrderBook()"
+    javadoc="client/MarketDataClient.html#getOrderBook(com.binance4j.market.depth.OrderBookRequest)"
+    weight="1 to 50 (IP)"
+    signature="none"
+    path="GET /api/v3/depth"
+/>
+&nbsp;
+<Badge label="OrderBookRequest" javadoc="depth/OrderBookRequest.html" />
+&nbsp;
+<Badge label="OrderBook" javadoc="depth/depth.html" />
+
+> The term order book refers to an electronic list of buy and sell orders for a specific security or financial instrument organized by price level. An order book lists the number of shares being bid on or offered at each price point, or market depth. It also identifies the market participants behind the buy and sell orders, though some choose to remain anonymous. These lists help traders and also improve market transparency because they provide valuable trading information.
+
+[Investopedia](https://www.investopedia.com/terms/o/order-book.asp)
+
+<Tabs>
+    <TabItem value="result-100" label="Default request (limit: 100)">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getOrderBook"
+            responseType="OrderBook"
+            requestType="OrderBookRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="result-500" label="Request with limit">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getOrderBook"
+            responseType="OrderBook"
+            requestType="OrderBookRequest"
+            requestParameters={['"BNBBTC"', 500]}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+The limit will determine the request weight
+:::
+
+:::warning
+The integer value must match one of the `OrderBookLimit` values or the request will fail
+:::
+
+## Get recent trades
+
+<Badges
+    label="getTrades()"
+    javadoc="client/MarketDataClient.html#getTrades(com.binance4j.market.trades.TradesRequest)"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/trades"
+/>
+&nbsp;
+<Badge label="TradesRequest" javadoc="trades/TradesRequest.html" />
+&nbsp;
+<Badge label="TradeHistoryItem" javadoc="trades/TradeHistoryItem.html" />
+
+<Tabs>
+    <TabItem value="result-100" label="Default request (limit: 500)">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getTrades"
+            responseType="List<TradeHistoryItem>"
+            requestType="TradesRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="result-1000" label="Request with max limit">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getTrades"
+            responseType="List<TradeHistoryItem>"
+            requestType="TradesRequest"
+            requestParameters={['"BNBBTC"', 1000]}
+        />
+    </TabItem>
+</Tabs>
+
+## Get historical trades
+
+<Badges
+    label="getHistoricalTrades()"
+    javadoc="client/MarketDataClient.html#getHistoricalTrades(com.binance4j.market.trades.HistoricalTradesRequest)"
+    weight="5 (IP)"
+    signature="API KEY"
+    path="GET /api/v3/historicalTrades"
+/>
+&nbsp;
+<Badge label="HistoricalTradesRequest" javadoc="trades/HistoricalTradesRequest.html" />
+&nbsp;
+<Badge label="TradeHistoryItem" javadoc="trades/TradeHistoryItem.html" />
+
+<Tabs>
+    <TabItem value="result-500" label="Default request (limit: 500)">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getHistoricalTrades"
+            responseType="List<TradeHistoryItem>"
+            requestType="HistoricalTradesRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="result-1000" label="Request with max limit">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getHistoricalTrades"
+            responseType="List<TradeHistoryItem>"
+            requestType="HistoricalTradesRequest"
+            requestParameters={['"BNBBTC"', 1000]}
+        />
+    </TabItem>
+    <TabItem value="result-trade-id" label="From specific trade id">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getHistoricalTrades"
+            responseType="List<TradeHistoryItem>"
+            requestType="HistoricalTradesRequest"
+            requestParameters={['"BNBBTC"', 1000, "654830L"]}
+        />
+    </TabItem>
+</Tabs>
+
+## Get compressed/aggregate trades List
+
+<Badges
+    label="getAggTrades()"
+    javadoc="client/MarketDataClient.html#getAggTrades(com.binance4j.market.trade.AggTradeRequest)"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/aggTrades"
+/>
+&nbsp;
+<Badge label="AggTradeRequest" javadoc="aggtrade/AggTradeRequest.html" />
+&nbsp;
+<CoreBadge label="AggTrade" javadoc="market/trade.html" />
+
+<Tabs>
+    <TabItem value="result-500" label="Default request (limit: 500)">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getAggTrades"
+            responseType="List<AggTrade>"
+            requestType="AggTradeRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="result-1000" label="Request with max limit">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getAggTrades"
+            responseType="List<AggTrade>"
+            requestType="AggTradeRequest"
+            requestParameters={['"BNBBTC"', 1000]}
+        />
+    </TabItem>
+    <TabItem value="result-trade-id" label="From specific id">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getAggTrades"
+            responseType="List<AggTrade>"
+            requestType="AggTradeRequest"
+            requestParameters={['"BNBBTC"', '"654830"']}
+        />
+    </TabItem>
+    <TabItem value="start-time-end-time" label="With start time and end time">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getAggTrades"
+            responseType="List<AggTrade>"
+            requestType="AggTradeRequest"
+            requestParameters={['"BNBBTC"', "1640769296641L", "1651769296641L"]}
+        />
+    </TabItem>
+</Tabs>
+
+## Get Klines / candlestick bars
+
+<Badges
+    label="getKlines()"
+    javadoc="client/MarketDataClient.html#getKlines(com.binance4j.market.kline.KlinesRequest)"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/klines"
+/>
+&nbsp;
+<Badge label="KlinesRequest" javadoc="kline/KlinesRequest.html" />
+&nbsp;
+<CoreBadge label="CandlestickBar" javadoc="market/CandlestickBar.html" />
+
+<Tabs>
+    <TabItem value="candlestick-interval" label="With CandlestickInterval">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getKlines"
+            responseType="List<CandlestickBar>"
+            requestType="KlinesRequest"
+            requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTES"]}
+        />
+    </TabItem>
+    <TabItem value="string-interval" label="With String interval">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getKlines"
+            responseType="List<CandlestickBar>"
+            requestType="KlinesRequest"
+            requestParameters={['"BNBBTC"', '"5m"']}
+        />
+    </TabItem>
+    <TabItem value="limit" label="With a limit">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getKlines"
+            responseType="List<CandlestickBar>"
+            requestType="KlinesRequest"
+            requestParameters={['"BNBBTC"', '"5m"', 1000]}
+        />
+    </TabItem>
+    <TabItem value="start-time-end-time" label="With start time and end time">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getKlines"
+            responseType="List<CandlestickBar>"
+            requestType="KlinesRequest"
+            requestParameters={['"BNBBTC"', "CandlestickInterval.FIVE_MINUTES", "1640769296641L", "1651769296641L"]}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Default limit is 500, max is 1000.
+:::
+
+:::caution
+The String interval must correspond to one of the `CandlestickInterval` else the request will throw an ApiException
+:::
+
+## Get average price
+
+<Badges
+    label="getAveragePrice()"
+    javadoc="client/MarketDataClient.html#getAveragePrice(com.binance4j.market.averageprice.AveragePriceRequest)"
+    weight="1 (IP)"
+    signature="none"
+    path="GET /api/v3/avgPrice"
+/>
+&nbsp;
+<Badge label="AveragePriceRequest" javadoc="averageprice/AveragePriceRequest.html" />
+&nbsp;
+<Badge label="AveragePrice" javadoc="averageprice/AveragePrice.html" />
+
+<Examples
+    client="MarketDataClient"
+    constructorParams={["key", "secret"]}
+    method="getAveragePrice"
+    responseType="AveragePrice"
+    requestType="AveragePriceRequest"
+    requestParameters={['"BNBBTC"']}
+/>
+
+## Get 24h ticker statistics
+
+<Badges
+    label="get24hTickerStatistics()"
+    javadoc="client/MarketDataClient.html#get24hTickerStatistics(com.binance4j.market.tickerstatistics.TickerStatisticsRequest)"
+    weight="1 to 40 (IP)"
+    signature="none"
+    path="GET /api/v3/24hr"
+/>
+&nbsp;
+<Badge label="TickerStatisticsRequest" javadoc="tickerstatistics/TickerStatisticsRequest.html" />
+&nbsp;
+<Badge label="TickerStatistics" javadoc="tickerstatistics/TickerStatistics.html" />
+
+<Tabs>
+    <TabItem value="one" label="One symbol">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="get24hTickerStatistics"
+            responseType="TickerStatistics"
+            requestType="TickerStatisticsRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="all" label="All symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="get24hTickerStatistics"
+            responseType="List<TickerStatistics>"
+        />
+    </TabItem>
+    <TabItem value="specific" label="Specific symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="get24hTickerStatistics"
+            responseType="List<TickerStatistics>"
+            requestType="TickersStatisticsRequest"
+            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Note the difference between `TickerStatisticsRequest` and `TickersStatisticsRequest`.
+The first is for one or all symbols, the other is for specific symbols.
+:::
+
+## Get price ticker
+
+<Badges
+    label="getTicker()"
+    javadoc="client/MarketDataClient.html#getTicker(com.binance4j.market.priceticker.PriceTickerRequest)"
+    weight="1 or 2 (IP)"
+    signature="none"
+    path="GET /api/v3/price"
+/>
+&nbsp;
+<Badge label="PriceTickerRequest" javadoc="priceticker/PriceTickerRequest.html" />
+&nbsp;
+<Badge label="PriceTicker" javadoc="priceticker/PriceTicker.html" />
+
+<Tabs>
+    <TabItem value="one" label="One symbol">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getTicker"
+            responseType="PriceTicker"
+            requestType="PriceTickerRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="all" label="All symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getTicker"
+            responseType="List<PriceTicker>"
+        />
+    </TabItem>
+    <TabItem value="specific" label="Specific symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getTicker"
+            responseType="List<PriceTicker>"
+            requestType="PriceTickersRequest"
+            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Note the difference between `PriceTickerRequest` and `PriceTickersRequest`.
+The first is for one or all symbols, the other is for specific symbols.
+:::
+
+
+## Get order book ticker
+
+<Badges
+    label="getBookTicker()"
+    javadoc="client/MarketDataClient.html#getBookTicker(com.binance4j.market.bookticker.BookTickerRequest)"
+    weight="1 or 2 (IP)"
+    signature="none"
+    path="GET /api/v3/bookTicker"
+/>
+&nbsp;
+<Badge label="BookTickerRequest" javadoc="bookticker/BookTickerRequest.html" />
+&nbsp;
+<Badge label="BookTicker" javadoc="bookticker/BookTicker.html" />
+
+<Tabs>
+    <TabItem value="one" label="One symbol">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getBookTicker"
+            responseType="BookTicker"
+            requestType="BookTickerRequest"
+            requestParameters={['"BNBBTC"']}
+        />
+    </TabItem>
+    <TabItem value="all" label="All symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getBookTicker"
+            responseType="List<BookTicker>"
+        />
+    </TabItem>
+    <TabItem value="specific" label="Specific symbols">
+        <Examples
+            client="MarketDataClient"
+            constructorParams={["key", "secret"]}
+            method="getBookTicker"
+            responseType="BookTicker"
+            requestType="BookTickersRequest"
+            requestParameters={['List.of("BNBBTC","BNBBUSD")']}
+        />
+    </TabItem>
+</Tabs>
+
+:::note
+Note the difference between `BookTickerRequest` and `BookTickersRequest`.
+The first is for one or all symbols, the other is for specific symbols.
+:::
