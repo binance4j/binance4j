@@ -7,6 +7,26 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.4] - 2022-06-14
+
+### Fixed
+
+- binance4j-core
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-market
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-nft
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-spot
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-strategy
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-vision
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-wallet
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
+- binance4j-websocket
+  - PATCH: Switched java 9+ methods to java 8 methods that were causing a compilation error 
 ## [1.7.3] - 2022-05-26
 
 ### Fixed
