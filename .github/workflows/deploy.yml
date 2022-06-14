@@ -368,7 +368,7 @@ jobs:
   # Javadoc
 
   deploy-javadocs:
-      name: Deploy javadoc
+      name: Deploy javadocs
       needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
       runs-on: ubuntu-latest
       steps:
