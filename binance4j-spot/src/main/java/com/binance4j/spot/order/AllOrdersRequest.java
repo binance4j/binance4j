@@ -15,7 +15,8 @@ public class AllOrdersRequest extends IntervalRequest {
    */
   private String symbol;
   /**
-   * @return If orderId is set, it will get orders >= that orderId. Otherwise most
+   * @return If orderId is set, it will get orders &gt= that orderId. Otherwise
+   *         most
    *         recent orders are returned. If startTime and/or endTime provided,
    *         orderId is not required.
    * 
@@ -52,7 +53,7 @@ public class AllOrdersRequest extends IntervalRequest {
    * Constructor with search after orderId
    * 
    * @param symbol  The symbol we want the orders
-   * @param orderId The order id to get >= orders
+   * @param orderId The order id to get &gt= orders
    */
   public AllOrdersRequest(String symbol, long orderId) {
     this(symbol);
