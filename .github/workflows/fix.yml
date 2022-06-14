@@ -52,29 +52,6 @@ jobs:
       - name: Deploy
         run: cd binance4j-spot && mvn -DskipTests=true deploy
 
-  deploy-wallet:
-    name: Deploy binance4j-wallet
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: ${{ env.FETCH_DEPTH }}
-      - name: Java Setup
-        uses: actions/setup-java@v2
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-          distribution: ${{ env.JAVA_DISTRIBUTION }}
-      - name: Import GPG Key
-        uses: crazy-max/ghaction-import-gpg@v1
-      - name: Configure Settings
-        uses: s4u/maven-settings-action@v2.6.0
-        with:
-          servers: ${{ env.SERVERS }}
-      - name: Install binance4j-core
-        run: ${{ env.CORE_INSTALLATION }}
-      - name: Deploy
-        run: cd binance4j-wallet && mvn -DskipTests=true deploy
-
   # Javadoc
 
   deploy-javadocs:
