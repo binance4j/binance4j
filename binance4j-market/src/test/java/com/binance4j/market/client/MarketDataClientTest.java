@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.exchangeinfo.ExchangeInfoRequest;
@@ -27,8 +29,6 @@ import com.binance4j.market.time.ServerTimeResponse;
 import com.binance4j.market.trades.HistoricalTradesRequest;
 import com.binance4j.market.trades.TradeHistoryItem;
 import com.binance4j.market.trades.TradesRequest;
-
-import org.junit.jupiter.api.Test;
 
 public class MarketDataClientTest {
     MarketDataClient client;

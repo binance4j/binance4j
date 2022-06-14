@@ -22,7 +22,7 @@ import org.ta4j.core.Rule;
  */
 public interface TradingStrategy {
 
-	/** Analysing */
+	/* Analysing */
 
 	// BarSeries
 
@@ -108,7 +108,7 @@ public interface TradingStrategy {
 	 */
 	boolean shouldExit(List<CandlestickBar> bars, CandlestickInterval interval);
 
-	/** Live trading */
+	/* Live trading */
 
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the
@@ -213,7 +213,7 @@ public interface TradingStrategy {
 	BackTestResult backTest(String symbol, CandlestickInterval interval, String year,
 			String month, String day) throws ApiException;
 
-	/** Mandatory methods */
+	/* Mandatory methods */
 
 	/**
 	 * The BUY signal {@link Rule}

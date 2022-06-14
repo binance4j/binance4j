@@ -57,7 +57,7 @@ public class MarketDataClient extends RestClient<MarketDataMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#test-connectivity">Documentation</a>
      */
     public RequestExecutor<Void> ping() {
-        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::ping).collect(Collectors.toList())));
+        return new RequestExecutor<>(getServices().stream().map(MarketDataMapping::ping).collect(Collectors.toList()));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-websocket</artifactId>
@@ -11,12 +12,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <binance4j.version>1.7.3</binance4j.version>
+    <binance4j.version>1.7.4</binance4j.version>
   </properties>
 
   <name>binance4j-websocket</name>
-  <description>A client to communicate with the Binance Websocket API</description>
-  <url>https://github.com/binance4j/binance4j-websocket</url>
+  <description>Websocket connectors for the Binance API</description>
+  <url>https://github.com/binance4j/binance4j</url>
 
   <licenses>
     <license>
@@ -47,7 +48,7 @@
   </developers>
 
   <scm>
-    <url>https://github.com/binance4j/binance4j-websocket.git</url>
+    <url>https://github.com/binance4j/binance4j.git</url>
   </scm>
 
   <dependencies>
@@ -59,10 +60,14 @@
     <dependency>
       <groupId>io.reactivex.rxjava3</groupId>
       <artifactId>rxjava</artifactId>
-      <version>3.1.5</version>
+      <version>3.1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.3</version>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <!-- Automatically delomboks the source code -->
@@ -179,7 +184,7 @@
         <executions>
           <execution>
             <id>sign-artifacts</id>
-            <phase>install</phase>
+            <phase>deploy</phase>
             <goals>
               <goal>sign</goal>
             </goals>
@@ -192,12 +197,20 @@
         <artifactId>nexus-staging-maven-plugin</artifactId>
         <version>1.6.12</version>
         <extensions>true</extensions>
-
         <configuration>
           <serverId>ossrh</serverId>
           <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <pluginManagement>
