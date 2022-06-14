@@ -146,7 +146,7 @@ public enum FilterType {
    * The {@code MAX_NUM_ICEBERG_ORDERS} filter defines the maximum number of
    * {@code ICEBERG} orders an account is allowed to have open on a symbol. An
    * {@code ICEBERG}
-   * order is any order where the icebergQty is > 0.
+   * order is any order where the icebergQty is &gt; 0.
    */
   MAX_NUM_ICEBERG_ORDERS,
   /**
