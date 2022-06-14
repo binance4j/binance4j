@@ -290,7 +290,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 
     /**
      * Get trades for a specific account and symbol.
-     * If fromId is set, it will get id &gt= fromId. Otherwise most
+     * If fromId is set, it will get id &gt;= fromId. Otherwise most
      * recent trades are returned.
      * 
      * @see <a href=
