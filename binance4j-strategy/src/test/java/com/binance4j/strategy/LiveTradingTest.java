@@ -16,10 +16,10 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.strategy.dto.StrategyCallback;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
-import com.binance4j.strategy.trading.StrategyCallback;
 
 class LiveTradingTest extends ConcurrentTest {
 	int count = 0;

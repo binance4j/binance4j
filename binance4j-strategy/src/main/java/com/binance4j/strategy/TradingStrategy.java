@@ -1,0 +1,78 @@
+package com.binance4j.strategy;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import org.ta4j.core.BarSeries;
+import org.ta4j.core.Indicator;
+import org.ta4j.core.Rule;
+
+import com.binance4j.core.market.Candle;
+
+/**
+ * A trading strategy with an entry and an exit {@link Rule Rules} based on
+ * technical {@link Indicator indicators}, able to analyse, backtest or live
+ * test a {@link BarSeries} / {@link Candle}
+ */
+public interface TradingStrategy {
+	/**
+	 * The BUY signal {@link Rule}
+	 *
+	 * @param series The {@link BarSeries}
+	 * @return the entry rule
+	 */
+	@NotNull
+	Rule entry(BarSeries series);
+
+	/**
+	 * The SELL signal {@link Rule}
+	 *
+	 * @param series The {@link BarSeries}
+	 * @return the exit rule
+	 */
+	@NotNull
+	Rule exit(BarSeries series);
+
+	/**
+	 * Returns an {@link AndStrategy} made of the current and the given ones
+	 * 
+	 * @param strategies The other strategies
+	 * @return The new {@link TradingStrategy}
+	 */
+	default TradingStrategy and(TradingStrategy... strategies) {
+		return new AndStrategy(concat(strategies));
+	}
+
+	/**
+	 * Returns an {@link OrStrategy} made of the current and the given ones
+	 * 
+	 * @param strategies The other strategies
+	 * @return The new {@link TradingStrategy}
+	 */
+	default TradingStrategy or(TradingStrategy... strategies) {
+		return new OrStrategy(concat(strategies));
+	}
+
+	/**
+	 * Returns an {@link XorStrategy} made of the current and the given ones
+	 * 
+	 * @param strategies The other strategies
+	 * @return The new {@link TradingStrategy}
+	 */
+	default TradingStrategy xor(TradingStrategy... strategies) {
+		return new XorStrategy(concat(strategies));
+	}
+
+	/**
+	 * Concats the current strategy with the given
+	 * 
+	 * @param strategies The other strategies
+	 * @return The concatenation
+	 */
+	default TradingStrategy[] concat(TradingStrategy... strategies) {
+		List<TradingStrategy> list = Arrays.asList(strategies);
+		list.add(this);
+		return list.toArray(new TradingStrategy[list.size()]);
+	}
+}

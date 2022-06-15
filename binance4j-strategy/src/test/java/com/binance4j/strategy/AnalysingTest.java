@@ -11,7 +11,7 @@ import org.ta4j.core.Position;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.strategy.backtesting.BackTestResult;
+import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.strategy.service.BackTestService;
 import com.binance4j.strategy.service.PositionService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;

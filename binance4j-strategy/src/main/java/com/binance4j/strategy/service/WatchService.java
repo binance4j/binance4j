@@ -14,9 +14,9 @@ import org.ta4j.core.Strategy;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.strategy.bar.SymbolBar;
-import com.binance4j.strategy.trading.StrategyCallback;
-import com.binance4j.strategy.trading.TradingStrategy;
+import com.binance4j.strategy.TradingStrategy;
+import com.binance4j.strategy.dto.StrategyCallback;
+import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 import com.binance4j.websocket.candle.CandlePayload;

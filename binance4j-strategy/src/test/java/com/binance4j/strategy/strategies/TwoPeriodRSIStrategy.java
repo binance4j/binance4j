@@ -10,7 +10,7 @@ import org.ta4j.core.rules.CrossedUpIndicatorRule;
 import org.ta4j.core.rules.OverIndicatorRule;
 import org.ta4j.core.rules.UnderIndicatorRule;
 
-import com.binance4j.strategy.trading.TradingStrategy;
+import com.binance4j.strategy.TradingStrategy;
 
 /**
  * Test Strategy

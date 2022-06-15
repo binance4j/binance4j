@@ -7,7 +7,7 @@ import org.ta4j.core.BarSeries;
 
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.strategy.trading.TradingStrategy;
+import com.binance4j.strategy.TradingStrategy;
 
 /**
  * A service to get the position of a {@link TradingStrategy} over a

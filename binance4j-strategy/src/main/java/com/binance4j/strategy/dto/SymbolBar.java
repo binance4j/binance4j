@@ -1,10 +1,11 @@
-package com.binance4j.strategy.bar;
+package com.binance4j.strategy.dto;
+
+import org.ta4j.core.Bar;
+import org.ta4j.core.BaseBar;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.ta4j.core.Bar;
-import org.ta4j.core.BaseBar;
 
 /**
  * A Bar with the name of its symbol

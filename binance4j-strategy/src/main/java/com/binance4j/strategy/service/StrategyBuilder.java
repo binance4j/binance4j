@@ -5,7 +5,7 @@ import org.ta4j.core.BaseStrategy;
 import org.ta4j.core.Rule;
 import org.ta4j.core.Strategy;
 
-import com.binance4j.strategy.trading.TradingStrategy;
+import com.binance4j.strategy.TradingStrategy;
 
 /** Service to build a ta4j stragtegy over a {@link TradingStrategy} */
 public class StrategyBuilder {
