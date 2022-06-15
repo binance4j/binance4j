@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.client.MarketClient;
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.test.ConcurrentTest;
 
 public class PrefixTest extends ConcurrentTest {
@@ -28,14 +27,14 @@ public class PrefixTest extends ConcurrentTest {
     void testNextPrefix() {
         MarketClient client = new MarketClient();
 
-        assertEquals(RestClient.getApiPrefixes().get(0), client.getPrefix());
+        assertEquals(client.getConfiguration().getApiPrefixes().get(0), client.getPrefix());
         client.next();
-        assertEquals(RestClient.getApiPrefixes().get(1), client.getPrefix());
+        assertEquals(client.getConfiguration().getApiPrefixes().get(1), client.getPrefix());
         client.next();
-        assertEquals(RestClient.getApiPrefixes().get(2), client.getPrefix());
+        assertEquals(client.getConfiguration().getApiPrefixes().get(2), client.getPrefix());
         client.next();
-        assertEquals(RestClient.getApiPrefixes().get(3), client.getPrefix());
+        assertEquals(client.getConfiguration().getApiPrefixes().get(3), client.getPrefix());
         client.next();
-        assertEquals(RestClient.getApiPrefixes().get(0), client.getPrefix());
+        assertEquals(client.getConfiguration().getApiPrefixes().get(0), client.getPrefix());
     }
 }

@@ -7,6 +7,6 @@ public class TestnetMarketClient extends MarketClient {
      */
     public TestnetMarketClient() {
         super();
-        useTestnet = true;
+        configuration.useTestnet(true);
     }
 }

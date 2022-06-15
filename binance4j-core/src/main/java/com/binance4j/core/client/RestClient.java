@@ -1,7 +1,8 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.misc.TimeInForce;
+import com.binance4j.core.configuration.RestClientConfiguration;
 import com.binance4j.core.security.AuthenticationInterceptor;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -12,10 +13,6 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * A base client for the Binance API
  *
@@ -24,42 +21,9 @@ import java.util.List;
  */
 @Data
 public abstract class RestClient<T> {
-    /**
-     * Available APIs defined by their prefix
-     */
-    @Getter
-    @Setter
-    private static List<String> apiPrefixes = new ArrayList<>(Arrays.asList("api", "api1", "api2", "api3"));
 
-    /** URL base domain */
-    @Getter
-    @Setter
-    private static String baseDomain = "binance.com";
-
-    /** Testnet URL base domain */
-    @Getter
-    @Setter
-    private static String testnetDomain = "testnet.binance.vision";
-
-    /** The default order time in force */
-    @Getter
-    @Setter
-    private static TimeInForce timeInForce = TimeInForce.GTC;
-
-    /** Max requests per host */
-    @Getter
-    @Setter
-    private static int maxRequestsPerHost = 500;
-
-    /** Max requests */
-    @Getter
-    @Setter
-    private static int maxRequests = 500;
-
-    /** Defines if the services use the test network */
-    @Getter(value = AccessLevel.NONE)
-    @Setter(value = AccessLevel.NONE)
-    protected boolean useTestnet = false;
+    /** The client configuration */
+    protected RestClientConfiguration configuration;
 
     /** The API public key */
     private String key;
@@ -99,7 +63,8 @@ public abstract class RestClient<T> {
         this.mapping = mapping;
         this.key = key;
         this.secret = secret;
-        this.prefix = getApiPrefixes().get(0);
+        this.configuration = new RestClientConfiguration();
+        this.prefix = configuration.getApiPrefixes().get(0);
         service = createService(prefix);
     }
 
@@ -108,8 +73,9 @@ public abstract class RestClient<T> {
      * list or to the first one if we were at the end
      */
     public void next() {
-        int index = apiPrefixes.indexOf(prefix);
-        prefix = apiPrefixes.get((index == apiPrefixes.size() - 1) ? 0 : index + 1);
+        int index = configuration.getApiPrefixes().indexOf(prefix);
+        prefix = configuration.getApiPrefixes()
+                .get((index == configuration.getApiPrefixes().size() - 1) ? 0 : index + 1);
     }
 
     /**
@@ -121,15 +87,15 @@ public abstract class RestClient<T> {
     protected T createService(String prefix) {
         Converter.Factory converterFactory = JacksonConverterFactory.create();
         Dispatcher dispatcher = new Dispatcher();
-        dispatcher.setMaxRequestsPerHost(getMaxRequestsPerHost());
-        dispatcher.setMaxRequests(getMaxRequests());
+        dispatcher.setMaxRequestsPerHost(configuration.getMaxRequestsPerHost());
+        dispatcher.setMaxRequests(configuration.getMaxRequests());
 
         OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
         AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);
 
-        String apiUrl = !useTestnet
-                ? String.format("https://%s.%s", prefix, getBaseDomain())
-                : String.format("https://%s", getTestnetDomain());
+        String apiUrl = !configuration.useTestnet()
+                ? String.format("https://%s.%s", prefix, configuration.getBaseDomain())
+                : String.format("https://%s", configuration.getTestnetDomain());
 
         OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
 

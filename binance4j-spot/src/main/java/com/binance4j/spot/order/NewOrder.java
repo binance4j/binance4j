@@ -1,14 +1,15 @@
 package com.binance4j.spot.order;
 
-import com.binance4j.core.client.RestClient;
+import java.math.BigDecimal;
+
+import com.binance4j.core.configuration.RestClientConfiguration;
 import com.binance4j.core.misc.TimeInForce;
 import com.binance4j.core.order.BaseOrder;
 import com.binance4j.core.order.OrderSide;
 import com.binance4j.core.order.OrderType;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.math.BigDecimal;
 
 /**
  * An order to open or close a position
@@ -98,7 +99,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #buyMarket(String, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder buyMarket(String symbol, BigDecimal quantity) {
-		return buyMarket(symbol, quantity, RestClient.getTimeInForce());
+		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
@@ -122,7 +123,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #buyMarket(String, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder sellMarket(String symbol, BigDecimal quantity) {
-		return sellMarket(symbol, quantity, RestClient.getTimeInForce());
+		return sellMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
@@ -149,7 +150,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #buyLimit(String, BigDecimal, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return buyLimit(symbol, quantity, price, RestClient.getTimeInForce());
+		return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
@@ -176,7 +177,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #sellLimit(String, BigDecimal, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return sellLimit(symbol, quantity, price, RestClient.getTimeInForce());
+		return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	// QUOTE ORDERS
@@ -204,7 +205,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #buyQuote(String, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder buyQuote(String symbol, BigDecimal quantity) {
-		return buyQuote(symbol, quantity, RestClient.getTimeInForce());
+		return buyQuote(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
@@ -230,7 +231,7 @@ public class NewOrder extends BaseOrder {
 	 * @see #buyMarket(String, BigDecimal, TimeInForce)
 	 */
 	public static NewOrder sellQuote(String symbol, BigDecimal quantity) {
-		return sellQuote(symbol, quantity, RestClient.getTimeInForce());
+		return sellQuote(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 }

@@ -15,7 +15,7 @@ public class TestnetNFTClient extends NFTClient {
 	 */
 	public TestnetNFTClient(String key, String secret) {
 		super(key, secret);
-		useTestnet = true;
+		configuration.useTestnet(true);
 	}
 
 }

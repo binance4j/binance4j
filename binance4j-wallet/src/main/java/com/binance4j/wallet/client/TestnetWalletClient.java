@@ -15,6 +15,6 @@ public class TestnetWalletClient extends WalletClient {
 	 */
 	public TestnetWalletClient(String key, String secret) {
 		super(key, secret);
-		useTestnet = true;
+		configuration.useTestnet(true);
 	}
 }

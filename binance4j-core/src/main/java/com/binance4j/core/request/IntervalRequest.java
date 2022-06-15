@@ -18,7 +18,7 @@ public class IntervalRequest extends FramedRequest {
      */
     protected Long endTime;
 
-    private IntervalRequest(){
+    public IntervalRequest() {
         super();
     }
 

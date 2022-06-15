@@ -15,6 +15,6 @@ public class TestnetMarketClient extends MarketClient {
 	 */
 	public TestnetMarketClient(String key, String secret) {
 		super(key, secret);
-		useTestnet = true;
+		configuration.useTestnet(true);
 	}
 }

@@ -2,7 +2,7 @@ package com.binance4j.websocket.configuration;
 
 import java.time.Duration;
 
-import com.binance4j.core.client.RestClient;
+import com.binance4j.core.configuration.RestClientConfiguration;
 
 import lombok.Data;
 
@@ -18,7 +18,8 @@ public class WebsocketClientConfiguration {
 	/**
 	 * The stream base url.
 	 */
-	private String baseUrl = String.format("wss://stream.%s:%s/ws", RestClient.getBaseDomain(), getWebsocketPort());
+	private String baseUrl = String.format("wss://stream.%s:%s/ws", RestClientConfiguration.getDefaultBaseDomain(),
+			getWebsocketPort());
 	/**
 	 * The interval the client will send a ping. Default: 3m.
 	 */
