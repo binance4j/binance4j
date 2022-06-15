@@ -1,6 +1,5 @@
 package com.binance4j.strategy.strategies;
 
-import com.binance4j.strategy.trading.BaseTradingStrategy;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.Rule;
 import org.ta4j.core.indicators.RSIIndicator;
@@ -11,13 +10,15 @@ import org.ta4j.core.rules.CrossedUpIndicatorRule;
 import org.ta4j.core.rules.OverIndicatorRule;
 import org.ta4j.core.rules.UnderIndicatorRule;
 
+import com.binance4j.strategy.trading.TradingStrategy;
+
 /**
  * Test Strategy
  */
-public class TwoPeriodRSIStrategy extends BaseTradingStrategy {
+public class TwoPeriodRSIStrategy implements TradingStrategy {
 
 	@Override
-	public Rule getEntry(BarSeries series) {
+	public Rule entry(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);
 		SMAIndicator shortSma = new SMAIndicator(closePrice, 5);
 		SMAIndicator longSma = new SMAIndicator(closePrice, 200);
@@ -34,7 +35,7 @@ public class TwoPeriodRSIStrategy extends BaseTradingStrategy {
 	}
 
 	@Override
-	public Rule getExit(BarSeries series) {
+	public Rule exit(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);
 		SMAIndicator shortSma = new SMAIndicator(closePrice, 5);
 		SMAIndicator longSma = new SMAIndicator(closePrice, 200);

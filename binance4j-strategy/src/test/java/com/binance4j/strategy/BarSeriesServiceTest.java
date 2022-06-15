@@ -1,24 +1,26 @@
 package com.binance4j.strategy;
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.strategy.service.BarSeriesService;
-import com.binance4j.vision.spot.VisionSpotClient;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.ta4j.core.Bar;
-import org.ta4j.core.BarSeries;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.ta4j.core.Bar;
+import org.ta4j.core.BarSeries;
 
-public class BarSeriesServiceTest {
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.market.Candle;
+import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.strategy.service.BarSeriesService;
+import com.binance4j.vision.spot.VisionSpotClient;
+
+public class BarSeriesServiceTest extends ConcurrentTest {
 	final VisionSpotClient client;
 	List<Candle> bars;
 
@@ -53,7 +55,7 @@ public class BarSeriesServiceTest {
 	/**
 	 * Compares input and output equality
 	 *
-	 * @param bars   the candlestick bars
+	 * @param bars   the candles
 	 * @param series the converted bars
 	 */
 	void makeAssertion(List<Candle> bars, BarSeries series) {

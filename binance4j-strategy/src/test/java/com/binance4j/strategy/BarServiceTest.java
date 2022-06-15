@@ -1,19 +1,21 @@
 package com.binance4j.strategy;
 
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.strategy.service.BarService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.ta4j.core.Bar;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.ta4j.core.Bar;
 
-public class BarServiceTest {
+import com.binance4j.core.market.Candle;
+import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.strategy.service.BarService;
+
+public class BarServiceTest extends ConcurrentTest {
 	final Candle candle = new Candle();
 
 	public BarServiceTest() {

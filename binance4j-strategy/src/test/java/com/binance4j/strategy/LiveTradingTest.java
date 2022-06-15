@@ -15,11 +15,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
 import com.binance4j.strategy.trading.StrategyCallback;
 
-class LiveTradingTest {
+class LiveTradingTest extends ConcurrentTest {
 	int count = 0;
 
 	@Test
@@ -30,6 +32,7 @@ class LiveTradingTest {
 
 		AlwaysEnterStrategy strategy = new AlwaysEnterStrategy();
 		StrategyCallback callback = new StrategyCallback();
+		WatchService service = new WatchService(strategy);
 
 		callback.onClosed(t -> {
 			assertNotNull(t);
@@ -56,7 +59,7 @@ class LiveTradingTest {
 		callback.onEnter(t -> {
 			assertNotNull(t);
 
-			strategy.unwatch();
+			service.unwatch();
 		});
 
 		callback.onExit(t -> {
@@ -70,7 +73,7 @@ class LiveTradingTest {
 			assertNotNull(t);
 		});
 
-		strategy.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
+		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
 
 		assertTrue(future.get());
 	}
@@ -83,6 +86,7 @@ class LiveTradingTest {
 
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();
 		StrategyCallback callback = new StrategyCallback();
+		WatchService service = new WatchService(strategy);
 
 		callback.onClosed(t -> {
 			assertNotNull(t);
@@ -99,7 +103,7 @@ class LiveTradingTest {
 		callback.onExit(t -> {
 			assertNotNull(t);
 
-			strategy.unwatch();
+			service.unwatch();
 		});
 
 		callback.onMessage(t -> {
@@ -108,7 +112,7 @@ class LiveTradingTest {
 			assertNotNull(t);
 		});
 
-		strategy.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
+		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
 
 		assertTrue(future.get());
 	}
@@ -119,6 +123,8 @@ class LiveTradingTest {
 		CompletableFuture<Boolean> future = new CompletableFuture<>();
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();
 		StrategyCallback callback = new StrategyCallback();
+		WatchService service = new WatchService(strategy);
+
 		Set<String> set = new HashSet<>();
 		List<String> symbols = Arrays.asList("BTCBUSD", "BNBBTC", "SHIBBUSD");
 
@@ -141,7 +147,7 @@ class LiveTradingTest {
 			}
 		});
 
-		strategy.watch(symbols, CandlestickInterval.ONE_MINUTE, callback);
+		service.watch(symbols, CandlestickInterval.ONE_MINUTE, callback);
 
 		assertTrue(future.get());
 	}
