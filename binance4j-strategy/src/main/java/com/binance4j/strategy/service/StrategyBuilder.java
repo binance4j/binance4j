@@ -2,7 +2,6 @@ package com.binance4j.strategy.service;
 
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BaseStrategy;
-import org.ta4j.core.Rule;
 import org.ta4j.core.Strategy;
 
 import com.binance4j.strategy.TradingStrategy;
@@ -20,13 +19,6 @@ public class StrategyBuilder {
      * @return The generated t4j {@link Strategy}
      */
     public static Strategy build(TradingStrategy strategy, BarSeries series) {
-        Rule enterRule = strategy.entry(series);
-        Rule exitRule = strategy.exit(series);
-
-        if (enterRule == null || exitRule == null) {
-            throw new NullPointerException("Rules cannot be null");
-        }
-
-        return new BaseStrategy(enterRule, exitRule);
+        return new BaseStrategy(strategy.entry(series), strategy.exit(series));
     }
 }
