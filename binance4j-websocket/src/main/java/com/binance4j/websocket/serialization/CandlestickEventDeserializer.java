@@ -1,14 +1,14 @@
 package com.binance4j.websocket.serialization;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+
 import com.binance4j.websocket.candle.CandlePayload;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-
-import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * {@link CandlePayload} deserializer
@@ -39,7 +39,7 @@ public class CandlestickEventDeserializer extends JsonDeserializer<CandlePayload
 		candlestickEvent.setLow(new BigDecimal(candlestickNode.get("l").asText()));
 		candlestickEvent.setVolume(new BigDecimal(candlestickNode.get("v").asText()));
 		candlestickEvent.setNumberOfTrades(candlestickNode.get("n").asLong());
-		candlestickEvent.setIsBarFinal(candlestickNode.get("x").asBoolean());
+		candlestickEvent.isBarFinal(candlestickNode.get("x").asBoolean());
 		candlestickEvent.setQuoteAssetVolume(new BigDecimal(candlestickNode.get("q").asText()));
 		candlestickEvent.setTakerBuyBaseAssetVolume(new BigDecimal(candlestickNode.get("V").asText()));
 		candlestickEvent.setTakerBuyQuoteAssetVolume(new BigDecimal(candlestickNode.get("Q").asText()));

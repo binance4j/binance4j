@@ -25,18 +25,18 @@ class GetAllCoinsInfoTest {
 
 			}
 			assertNotNull(i.getCoin());
-			assertNotNull(i.getDepositAllEnable());
+			assertNotNull(i.isDepositAllEnable());
 			assertNotNull(i.getFree());
 			assertNotNull(i.getFreeze());
 			assertNotNull(i.getIpoable());
 			assertNotNull(i.getIpoing());
-			assertNotNull(i.getIsLegalMoney());
+			assertNotNull(i.isLegalMoney());
 			assertNotNull(i.getLocked());
 			assertNotNull(i.getName());
 			assertNotNull(i.getNetworkList());
 			assertNotNull(i.getStorage());
-			assertNotNull(i.getTrading());
-			assertNotNull(i.getWithdrawAllEnable());
+			assertNotNull(i.isTrading());
+			assertNotNull(i.isWithdrawAllEnable());
 			assertNotNull(i.getWithdrawing());
 		});
 	}

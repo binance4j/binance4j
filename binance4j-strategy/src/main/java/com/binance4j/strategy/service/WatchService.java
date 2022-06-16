@@ -93,10 +93,11 @@ public class WatchService {
             public void onMessage(CandlePayload response) {
                 // let's convert the bar and give it the symbol name
                 Bar bar = BarService.convert(response, duration, zoneId);
-                callback.getOnMessageConsumer().call(new SymbolBar(bar, response.getSymbol()));
+
+                callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(),response.getSymbol()));
 
                 // we determinate what method to call according to the strategy
-                if (response.getIsBarFinal()) {
+                if (response.isBarFinal()) {
                     BarSeries series = barSeries.get(response.getSymbol());
                     series.addBar(bar);
                     int lastIndex = series.getBarCount() - 1;

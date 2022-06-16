@@ -7,7 +7,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /** The CancelOrder request result */
 @Data
@@ -69,5 +72,15 @@ public class CancelOrderResponse {
 	/**
 	 * Is the order margin isolated
 	 */
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private Boolean isIsolated;
+
+	public Boolean isIsolated() {
+		return isIsolated;
+	}
+
+	public void isIsolated(boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
 }

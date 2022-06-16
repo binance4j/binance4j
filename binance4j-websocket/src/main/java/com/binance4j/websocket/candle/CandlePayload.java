@@ -10,8 +10,11 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -52,5 +55,16 @@ public class CandlePayload extends Candle {
 	/**
 	 * is it the last bar of the interval?
 	 */
+	@Getter(value = AccessLevel.NONE)
+	@Setter(value = AccessLevel.NONE)
 	private Boolean isBarFinal;
+
+	public boolean isBarFinal() {
+		return isBarFinal;
+	}
+
+	public void isBarFinal(boolean isBarFinal) {
+		this.isBarFinal = isBarFinal;
+	}
+
 }

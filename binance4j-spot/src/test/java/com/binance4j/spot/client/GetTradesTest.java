@@ -1,16 +1,17 @@
 package com.binance4j.spot.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.Trade;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.MyTradesRequest;
 import com.binance4j.spot.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class GetTradesTest extends ConcurrentTest {
 	final SpotClient client = TestService.CLIENT;
@@ -25,9 +26,9 @@ public class GetTradesTest extends ConcurrentTest {
 			assertNotNull(trade.getCommission());
 			assertNotNull(trade.getCommissionAsset());
 			assertNotNull(trade.getId());
-			assertNotNull(trade.getIsBestMatch());
-			assertNotNull(trade.getIsBuyer());
-			assertNotNull(trade.getIsMaker());
+			assertNotNull(trade.isBestMatch());
+			assertNotNull(trade.isBuyer());
+			assertNotNull(trade.isMaker());
 			assertNotNull(trade.getOrderId());
 			assertNotNull(trade.getPrice());
 			assertNotNull(trade.getQty());

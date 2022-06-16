@@ -1,15 +1,16 @@
 package com.binance4j.market.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.exchangeinfo.ExchangeInfoRequest;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.market.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class GetExchangeInfoTest extends ConcurrentTest {
 
@@ -38,15 +39,15 @@ class GetExchangeInfoTest extends ConcurrentTest {
 					assertNotNull(s.getBaseAsset());
 					assertNotNull(s.getBaseAssetPrecision());
 					assertNotNull(s.getFilters());
-					assertNotNull(s.getIcebergAllowed());
-					assertNotNull(s.getIsMarginTradingAllowed());
-					assertNotNull(s.getIsSpotTradingAllowed());
-					assertNotNull(s.getOcoAllowed());
+					assertNotNull(s.icebergAllowed());
+					assertNotNull(s.isMarginTradingAllowed());
+					assertNotNull(s.isSpotTradingAllowed());
+					assertNotNull(s.isOcoAllowed());
 					assertNotNull(s.getOrderTypes());
 					assertNotNull(s.getPermissions());
 					assertNotNull(s.getQuoteAsset());
 					assertNotNull(s.getQuoteCommissionPrecision());
-					assertNotNull(s.getQuoteOrderQtyMarketAllowed());
+					assertNotNull(s.isQuoteOrderQtyMarketAllowed());
 					assertNotNull(s.getQuoteAssetPrecision());
 					assertNotNull(s.getStatus());
 					assertNotNull(s.getSymbol());

@@ -48,7 +48,7 @@ class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePaylo
 			assertNotNull(message.getFirstTradeId());
 			assertNotNull(message.getHigh());
 			assertNotNull(message.getIntervalId());
-			assertNotNull(message.getIsBarFinal());
+			assertNotNull(message.isBarFinal());
 			assertNotNull(message.getLastTradeId());
 			assertNotNull(message.getLow());
 			assertNotNull(message.getNumberOfTrades());

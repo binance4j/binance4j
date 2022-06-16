@@ -7,8 +7,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -70,15 +73,35 @@ public class OrderInfo extends MiniOrderInfo {
 	 */
 	private Long updateTime;
 	/**
-	 * ???
-	 */
-	private Boolean isWorking;
-	/**
 	 * Original quote order quantity.
 	 */
 	private BigDecimal origQuoteOrderQty;
 	/**
+	 * ???
+	 */
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
+	private Boolean isWorking;
+	/**
 	 * is isolated margin
 	 */
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private Boolean isIsolated;
+
+	public Boolean isIsolated() {
+		return isIsolated;
+	}
+
+	public void isIsolated(boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
+
+	public Boolean isWorking() {
+		return isWorking;
+	}
+
+	public void isWorking(boolean isWorking) {
+		this.isWorking = isWorking;
+	}
 }

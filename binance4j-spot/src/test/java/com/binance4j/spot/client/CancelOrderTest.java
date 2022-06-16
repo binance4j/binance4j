@@ -1,14 +1,15 @@
 package com.binance4j.spot.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.DisplayName;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.CancelOrderRequest;
 import com.binance4j.core.order.CancelOrderResponse;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CancelOrderTest extends ConcurrentTest {
 	final SpotClient client = TestService.CLIENT;
@@ -20,7 +21,7 @@ public class CancelOrderTest extends ConcurrentTest {
 		CancelOrderResponse order = client.cancelOrder(new CancelOrderRequest("APEBUSD",
 						56935218L))
 				.execute();
-		assertNull(order.getIsIsolated());
+		assertNull(order.isIsolated());
 		assertNotNull(order.getClientOrderId());
 		assertNotNull(order.getCummulativeQuoteQty());
 		assertNotNull(order.getExecutedQty());

@@ -6,7 +6,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /** The resposne of an OCO order */
 @Data
@@ -48,9 +51,19 @@ public class OCOResponse {
 	/**
 	 * if isolated margin
 	 */
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private Boolean isIsolated;
 	/**
 	 * The order reports
 	 */
 	private List<OrderReport> orderReports;
+
+	public Boolean isIsolated() {
+		return isIsolated;
+	}
+
+	public void isIsolated(boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
 }

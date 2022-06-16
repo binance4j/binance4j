@@ -1,16 +1,19 @@
 package com.binance4j.spot.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.OpenOrdersStatusRequest;
 import com.binance4j.spot.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class GetOpenOrdersTest extends ConcurrentTest {
 	final SpotClient client = TestService.CLIENT;
@@ -21,12 +24,12 @@ public class GetOpenOrdersTest extends ConcurrentTest {
 		List<OrderInfo> orders = client.getOpenOrders().execute();
 		if (!orders.isEmpty()) {
 			OrderInfo order = orders.get(0);
-			assertNull(order.getIsIsolated());
+			assertNull(order.isIsolated());
 			assertNotNull(order.getClientOrderId());
 			assertNotNull(order.getCummulativeQuoteQty());
 			assertNotNull(order.getExecutedQty());
 			assertNotNull(order.getIcebergQty());
-			assertNotNull(order.getIsWorking());
+			assertNotNull(order.isWorking());
 			assertNotNull(order.getOrderId());
 			assertNotNull(order.getOrigQty());
 			assertNotNull(order.getOrigQuoteOrderQty());
@@ -51,12 +54,12 @@ public class GetOpenOrdersTest extends ConcurrentTest {
 
 		if (!orders.isEmpty()) {
 			OrderInfo order = orders.get(0);
-			assertNull(order.getIsIsolated());
+			assertNull(order.isIsolated());
 			assertNotNull(order.getClientOrderId());
 			assertNotNull(order.getCummulativeQuoteQty());
 			assertNotNull(order.getExecutedQty());
 			assertNotNull(order.getIcebergQty());
-			assertNotNull(order.getIsWorking());
+			assertNotNull(order.isWorking());
 			assertNotNull(order.getOrderId());
 			assertNotNull(order.getOrigQty());
 			assertNotNull(order.getOrigQuoteOrderQty());

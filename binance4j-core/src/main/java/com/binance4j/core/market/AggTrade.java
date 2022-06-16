@@ -8,8 +8,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /** The representation of an aggregated trade */
 @Data
@@ -52,11 +55,15 @@ public class AggTrade {
      * Was it a buyer maker
      */
     @JsonProperty("m")
+    @Getter(value = AccessLevel.NONE)
+    @Setter(value = AccessLevel.NONE)
     private Boolean isBuyerMaker;
     /**
      * Was it the best price match?
      */
     @JsonProperty("M")
+    @Getter(value = AccessLevel.NONE)
+    @Setter(value = AccessLevel.NONE)
     private Boolean isBestMatch;
 
     public AggTrade(List<String> input) {
@@ -66,7 +73,23 @@ public class AggTrade {
         setFirstTradeId(Long.parseLong(input.get(3)));
         setLastTradeId(Long.parseLong(input.get(4)));
         setTime(Long.parseLong(input.get(5)));
-        setIsBuyerMaker(Boolean.parseBoolean(input.get(6)));
-        setIsBestMatch(Boolean.parseBoolean(input.get(7)));
+        isBuyerMaker(Boolean.parseBoolean(input.get(6)));
+        isBestMatch(Boolean.parseBoolean(input.get(7)));
+    }
+
+    public Boolean isBestMatch() {
+        return isBestMatch;
+    }
+
+    public void isBestMatch(boolean isBestMatch) {
+        this.isBestMatch = isBestMatch;
+    }
+
+    public Boolean isBuyerMaker() {
+        return isBuyerMaker;
+    }
+
+    public void isBuyerMaker(boolean isBuyerMaker) {
+        this.isBuyerMaker = isBuyerMaker;
     }
 }

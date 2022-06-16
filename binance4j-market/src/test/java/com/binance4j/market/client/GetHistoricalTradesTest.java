@@ -17,8 +17,8 @@ class GetHistoricalTradesTest extends ConcurrentTest {
 	static void test(List<TradeHistoryItem> history) {
 		history.forEach(h -> {
 			assertNotNull(h.getId());
-			assertNotNull(h.getIsBestMatch());
-			assertNotNull(h.getIsBuyerMaker());
+			assertNotNull(h.isBestMatch());
+			assertNotNull(h.isBuyerMaker());
 			assertNotNull(h.getPrice());
 			assertNotNull(h.getQuantity());
 			assertNotNull(h.getQuoteQuantity());

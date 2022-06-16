@@ -1,11 +1,11 @@
 package com.binance4j.websocket.serialization;
 
+import java.io.IOException;
+
 import com.binance4j.websocket.candle.CandlePayload;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-
-import java.io.IOException;
 
 /**
  * {@link CandlePayload} serializer
@@ -35,7 +35,7 @@ public class CandlestickEventSerializer extends JsonSerializer<CandlePayload> {
 		gen.writeStringField("l", candlestickEvent.getLow().toString());
 		gen.writeStringField("v", candlestickEvent.getVolume().toString());
 		gen.writeNumberField("n", candlestickEvent.getNumberOfTrades());
-		gen.writeBooleanField("x", candlestickEvent.getIsBarFinal());
+		gen.writeBooleanField("x", candlestickEvent.isBarFinal());
 		gen.writeStringField("q", candlestickEvent.getQuoteAssetVolume().toString());
 		gen.writeStringField("V", candlestickEvent.getTakerBuyBaseAssetVolume().toString());
 		gen.writeStringField("Q", candlestickEvent.getTakerBuyQuoteAssetVolume().toString());

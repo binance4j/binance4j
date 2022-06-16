@@ -50,8 +50,8 @@ public class GetAggTradesTest {
 
 		assertTrue(trades.size() > 0);
 		trades.forEach(c -> {
-			assertNotNull(c.getIsBestMatch());
-			assertNotNull(c.getIsBuyerMaker());
+			assertNotNull(c.isBestMatch());
+			assertNotNull(c.isBuyerMaker());
 			assertNotNull(c.getPrice());
 			assertNotNull(c.getQuantity());
 			assertNotNull(c.getTime());

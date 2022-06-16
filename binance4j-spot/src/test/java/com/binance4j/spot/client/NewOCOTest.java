@@ -33,7 +33,7 @@ public class NewOCOTest extends ConcurrentTest {
 			});
 
 			assertNotNull(resp.getContingencyType());
-			assertNull(resp.getIsIsolated());
+			assertNull(resp.isIsolated());
 			assertNotNull(resp.getListClientOrderId());
 			assertNotNull(resp.getListOrderStatus());
 			assertNotNull(resp.getListStatusType());
