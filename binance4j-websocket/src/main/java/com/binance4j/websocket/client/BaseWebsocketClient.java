@@ -117,7 +117,6 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 		return new OkHttpClient.Builder()
 				.dispatcher(new Dispatcher())
 				.pingInterval(configuration.getPingInterval())
-						.connect
 				.build()
 				.newWebSocket(request, listener);
 	}
