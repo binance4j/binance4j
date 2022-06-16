@@ -4,6 +4,7 @@ on:
   push:
     branches: 
      - main
+     - snapshot
 
 env:
   FETCH_DEPTH: 0
@@ -79,7 +80,7 @@ jobs:
         run: cd binance4j-nft && mvn test
 
   test-spot:
-    name: Test binance4jspot
+    name: Test binance4j-spot
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
