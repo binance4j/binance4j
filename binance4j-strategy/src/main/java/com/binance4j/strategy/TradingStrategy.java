@@ -36,36 +36,6 @@ public interface TradingStrategy {
 	Rule exit(BarSeries series);
 
 	/**
-	 * Returns an {@link AndStrategy} made of the current and the given ones
-	 * 
-	 * @param strategies The other strategies
-	 * @return The new {@link TradingStrategy}
-	 */
-	default TradingStrategy and(TradingStrategy... strategies) {
-		return new AndStrategy(concat(strategies));
-	}
-
-	/**
-	 * Returns an {@link OrStrategy} made of the current and the given ones
-	 * 
-	 * @param strategies The other strategies
-	 * @return The new {@link TradingStrategy}
-	 */
-	default TradingStrategy or(TradingStrategy... strategies) {
-		return new OrStrategy(concat(strategies));
-	}
-
-	/**
-	 * Returns an {@link XorStrategy} made of the current and the given ones
-	 * 
-	 * @param strategies The other strategies
-	 * @return The new {@link TradingStrategy}
-	 */
-	default TradingStrategy xor(TradingStrategy... strategies) {
-		return new XorStrategy(concat(strategies));
-	}
-
-	/**
 	 * Concats the current strategy with the given
 	 * 
 	 * @param strategies The other strategies
