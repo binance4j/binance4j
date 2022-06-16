@@ -1,8 +1,9 @@
-package com.binance4j.strategy.backtesting;
+package com.binance4j.strategy.dto;
 
-import lombok.Data;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.TradingRecord;
+
+import lombok.Data;
 
 /**
  * A backtest result wrapper containing the strategy positions and its

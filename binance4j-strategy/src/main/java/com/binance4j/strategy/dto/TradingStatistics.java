@@ -1,15 +1,41 @@
-package com.binance4j.strategy.backtesting;
-
-import lombok.Data;
-import lombok.ToString;
-import org.ta4j.core.BarSeries;
-import org.ta4j.core.Trade;
-import org.ta4j.core.TradingRecord;
-import org.ta4j.core.analysis.criteria.*;
-import org.ta4j.core.analysis.criteria.pnl.*;
+package com.binance4j.strategy.dto;
 
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
+
+import org.ta4j.core.BarSeries;
+import org.ta4j.core.Trade;
+import org.ta4j.core.TradingRecord;
+import org.ta4j.core.analysis.criteria.AbstractAnalysisCriterion;
+import org.ta4j.core.analysis.criteria.AverageReturnPerBarCriterion;
+import org.ta4j.core.analysis.criteria.BuyAndHoldReturnCriterion;
+import org.ta4j.core.analysis.criteria.ExpectancyCriterion;
+import org.ta4j.core.analysis.criteria.ExpectedShortfallCriterion;
+import org.ta4j.core.analysis.criteria.LinearTransactionCostCriterion;
+import org.ta4j.core.analysis.criteria.LosingPositionsRatioCriterion;
+import org.ta4j.core.analysis.criteria.MaximumDrawdownCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfBarsCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfBreakEvenPositionsCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfConsecutiveWinningPositionsCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfLosingPositionsCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfPositionsCriterion;
+import org.ta4j.core.analysis.criteria.NumberOfWinningPositionsCriterion;
+import org.ta4j.core.analysis.criteria.ReturnOverMaxDrawdownCriterion;
+import org.ta4j.core.analysis.criteria.ValueAtRiskCriterion;
+import org.ta4j.core.analysis.criteria.WinningPositionsRatioCriterion;
+import org.ta4j.core.analysis.criteria.pnl.AverageLossCriterion;
+import org.ta4j.core.analysis.criteria.pnl.AverageProfitCriterion;
+import org.ta4j.core.analysis.criteria.pnl.GrossLossCriterion;
+import org.ta4j.core.analysis.criteria.pnl.GrossProfitCriterion;
+import org.ta4j.core.analysis.criteria.pnl.GrossReturnCriterion;
+import org.ta4j.core.analysis.criteria.pnl.NetLossCriterion;
+import org.ta4j.core.analysis.criteria.pnl.NetProfitCriterion;
+import org.ta4j.core.analysis.criteria.pnl.ProfitLossCriterion;
+import org.ta4j.core.analysis.criteria.pnl.ProfitLossPercentageCriterion;
+import org.ta4j.core.analysis.criteria.pnl.ProfitLossRatioCriterion;
+
+import lombok.Data;
+import lombok.ToString;
 
 /**
  * Statistics results of a trading backtest
@@ -199,7 +225,7 @@ public class TradingStatistics {
 		try {
 			return new BigDecimal(criterion.getConstructor().newInstance().calculate(series, tradingRecord).toString());
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-		         | NoSuchMethodException | SecurityException e) {
+				| NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 			return null;
 		}

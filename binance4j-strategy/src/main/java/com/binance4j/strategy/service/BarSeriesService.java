@@ -36,7 +36,7 @@ public class BarSeriesService {
 	/**
 	 * Converts a list of {@link Candle}s into a {@link BarSeries}
 	 *
-	 * @param bars       The candlestick bars
+	 * @param bars       The candles
 	 * @param timePeriod The interval between two candles
 	 * @param name       The {@link BarSeries} name
 	 * @param zoneId     The end time {@link ZoneId}
@@ -55,7 +55,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default system {@link ZoneId}
 	 *
-	 * @param bars       The candlestick bars
+	 * @param bars       The candles
 	 * @param timePeriod The interval between two candles
 	 * @param name       The {@link BarSeries} name
 	 * @return The generated {@link BarSeries}
@@ -68,7 +68,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default name
 	 *
-	 * @param bars       The candlestick bars
+	 * @param bars       The candles
 	 * @param timePeriod The interval between two candles
 	 * @param zoneId     The end time {@link ZoneId}
 	 * @return The generated {@link BarSeries}
@@ -81,7 +81,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default name and system {@link ZoneId}
 	 *
-	 * @param bars       The candlestick bars
+	 * @param bars       The candles
 	 * @param timePeriod The interval between two candles
 	 * @return The generated {@link BarSeries}
 	 */
@@ -94,7 +94,7 @@ public class BarSeriesService {
 	/**
 	 * Converts a list of {@link Candle}s into a {@link BarSeries}
 	 *
-	 * @param bars     The candlestick bars
+	 * @param bars     The candles
 	 * @param interval The interval between two candles
 	 * @param name     The {@link BarSeries} name
 	 * @param zoneId   The end time {@link ZoneId}
@@ -109,7 +109,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default system {@link ZoneId}
 	 *
-	 * @param bars     The candlestick bars
+	 * @param bars     The candles
 	 * @param interval The interval between two candles
 	 * @param name     The {@link BarSeries} name
 	 * @return The generated {@link BarSeries}
@@ -122,7 +122,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default name
 	 *
-	 * @param bars     The candlestick bars
+	 * @param bars     The candles
 	 * @param interval The interval between two candles
 	 * @param zoneId   The end time {@link ZoneId}
 	 * @return The generated {@link BarSeries}
@@ -135,7 +135,7 @@ public class BarSeriesService {
 	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
 	 * default name and system {@link ZoneId}
 	 *
-	 * @param bars     The candlestick bars
+	 * @param bars     The candles
 	 * @param interval The interval between two candles
 	 * @return The generated {@link BarSeries}
 	 */

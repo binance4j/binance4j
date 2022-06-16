@@ -1,12 +1,13 @@
-package com.binance4j.strategy.trading;
+package com.binance4j.strategy.dto;
+
+import org.ta4j.core.BarSeries;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.strategy.bar.SymbolBar;
 import com.binance4j.websocket.callback.GenericCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
+
 import lombok.Getter;
 import okhttp3.Response;
-import org.ta4j.core.BarSeries;
 
 /**
  * Strategy Callback to handle stream events

@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-/** The representation of a candlestick bar for a symbol */
+/** The representation of a candle for a symbol */
 @Data
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()

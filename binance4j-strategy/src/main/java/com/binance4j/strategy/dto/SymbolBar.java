@@ -1,10 +1,11 @@
-package com.binance4j.strategy.bar;
+package com.binance4j.strategy.dto;
+
+import org.ta4j.core.Bar;
+import org.ta4j.core.BaseBar;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.ta4j.core.Bar;
-import org.ta4j.core.BaseBar;
 
 /**
  * A Bar with the name of its symbol
@@ -26,11 +27,11 @@ public class SymbolBar extends BaseBar {
 	public SymbolBar(Bar bar, String symbol) {
 		super(bar.getTimePeriod(),
 				bar.getEndTime(),
-				bar.getOpenPrice().longValue(),
-				bar.getHighPrice().longValue(),
-				bar.getLowPrice().longValue(),
-				bar.getClosePrice().longValue(),
-				bar.getVolume().longValue());
+				bar.getOpenPrice().doubleValue(),
+				bar.getHighPrice().doubleValue(),
+				bar.getLowPrice().doubleValue(),
+				bar.getClosePrice().doubleValue(),
+				bar.getVolume().doubleValue());
 		this.symbol = symbol;
 	}
 }

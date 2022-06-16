@@ -1,5 +1,8 @@
 package com.binance4j.market.client;
 
+import java.util.List;
+import java.util.Map;
+
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.exchangeinfo.ExchangeInfoRequest;
@@ -7,9 +10,17 @@ import com.binance4j.core.market.AggTrade;
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.request.Request;
 import com.binance4j.core.request.RequestExecutor;
-import com.binance4j.market.depth.*;
+import com.binance4j.market.depth.BookTicker;
+import com.binance4j.market.depth.BookTickerRequest;
+import com.binance4j.market.depth.BookTickersRequest;
+import com.binance4j.market.depth.OrderBook;
+import com.binance4j.market.depth.OrderBookRequest;
 import com.binance4j.market.kline.KlinesRequest;
-import com.binance4j.market.price.*;
+import com.binance4j.market.price.AveragePrice;
+import com.binance4j.market.price.AveragePriceRequest;
+import com.binance4j.market.price.PriceTicker;
+import com.binance4j.market.price.PriceTickerRequest;
+import com.binance4j.market.price.PriceTickersRequest;
 import com.binance4j.market.tickerstatistics.TickerStatistics;
 import com.binance4j.market.tickerstatistics.TickerStatisticsRequest;
 import com.binance4j.market.tickerstatistics.TickersStatisticsRequest;
@@ -18,9 +29,6 @@ import com.binance4j.market.trade.AggTradeRequest;
 import com.binance4j.market.trade.HistoricalTradesRequest;
 import com.binance4j.market.trade.TradeHistoryItem;
 import com.binance4j.market.trade.TradesRequest;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * API client for the market endpoints
@@ -136,7 +144,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Kline/candlestick bars for a symbol.
+	 * Kline/candles for a symbol.
 	 * <ul>
 	 * <li>
 	 * Klines are uniquely identified by their open time.
@@ -148,7 +156,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * </ul>
 	 *
 	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data">Documentation</a>
+	 *      "https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data">Documentation</a>
 	 */
 	public RequestExecutor<List<Candle>> getKlines(KlinesRequest req) {
 		Map<String, Object> map = req.toMap();

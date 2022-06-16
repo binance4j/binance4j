@@ -1,23 +1,26 @@
 package com.binance4j.strategy;
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.strategy.backtesting.BackTestResult;
-import com.binance4j.strategy.backtesting.TradingStatistics;
-import com.binance4j.strategy.service.BarSeriesService;
-import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
-import com.binance4j.vision.spot.VisionSpotClient;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.ta4j.core.BarSeries;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.ta4j.core.BarSeries;
 
-class BackTestingTest {
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.market.Candle;
+import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.strategy.dto.BackTestResult;
+import com.binance4j.strategy.dto.TradingStatistics;
+import com.binance4j.strategy.service.BackTestService;
+import com.binance4j.strategy.service.BarSeriesService;
+import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
+import com.binance4j.vision.spot.VisionSpotClient;
+
+class BackTestingTest extends ConcurrentTest {
 
 	@Test
 	@DisplayName("The backtest should generate non null statistics")
@@ -27,7 +30,7 @@ class BackTestingTest {
 				.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = strategy.backTest(series);
+		BackTestResult result = BackTestService.backTest(strategy, series);
 		assertStats(result.getStatistics());
 	}
 
@@ -35,7 +38,8 @@ class BackTestingTest {
 	@DisplayName("The backtest should generate non null statistics")
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = strategy.backTest("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01");
+		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
+				"01");
 		assertStats(result.getStatistics());
 	}
 

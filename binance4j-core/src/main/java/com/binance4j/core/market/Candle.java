@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/** The representation of a candlestick bar for a symbol */
+/** The representation of a candle for a symbol */
 @Data
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()

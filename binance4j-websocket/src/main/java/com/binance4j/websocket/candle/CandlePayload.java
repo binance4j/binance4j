@@ -9,12 +9,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
- * Kline/Candlestick bar for a symbol.
+ * Kline/candle for a symbol.
  */
 @Data
 @JsonFormat(shape = Shape.OBJECT)

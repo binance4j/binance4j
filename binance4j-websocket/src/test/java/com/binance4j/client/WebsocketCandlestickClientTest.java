@@ -1,5 +1,9 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.service.TestService;
 import com.binance4j.utils.BaseWebsocketClientTest;
@@ -8,9 +12,6 @@ import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.candle.WebsocketCandlestickClient;
 import com.binance4j.websocket.client.BaseWebsocketClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePayload> {
 	@Test
