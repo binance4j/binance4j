@@ -1,5 +1,6 @@
 package com.binance4j.strategy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public interface TradingStrategy {
 	 * @return The concatenation
 	 */
 	default TradingStrategy[] concat(TradingStrategy... strategies) {
-		List<TradingStrategy> list = Arrays.asList(strategies);
+		List<TradingStrategy> list = new ArrayList<>(Arrays.asList(strategies));
 		list.add(this);
 		return list.toArray(new TradingStrategy[list.size()]);
 	}

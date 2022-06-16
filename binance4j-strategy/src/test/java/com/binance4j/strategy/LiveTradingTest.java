@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,96 +23,59 @@ import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
 
 class LiveTradingTest extends ConcurrentTest {
-	int count = 0;
+	int count;
+	StrategyCallback callback;
+	CompletableFuture<Boolean> future;
+	AlwaysEnterStrategy strategy;
+	WatchService service;
 
-	@Test
-	@DisplayName("The client should receive data at every tick and should enter at first final bar")
-	void testEnter() throws InterruptedException, ExecutionException {
-
-		CompletableFuture<Boolean> future = new CompletableFuture<>();
-
-		AlwaysEnterStrategy strategy = new AlwaysEnterStrategy();
-		StrategyCallback callback = new StrategyCallback();
-		WatchService service = new WatchService(strategy);
+	LiveTradingTest() {
+		callback = new StrategyCallback();
 
 		callback.onClosed(t -> {
 			assertNotNull(t);
-
 			future.complete(true);
-		});
-
-		callback.onClosing(t -> {
-			assertNotNull(t);
-
-		});
-
-		callback.onOpen(t -> {
-			assertNotNull(t);
-
 		});
 
 		callback.onFailure(t -> {
 			assertNotNull(t);
-
 			future.complete(true);
 		});
 
 		callback.onEnter(t -> {
 			assertNotNull(t);
-
 			service.unwatch();
 		});
 
 		callback.onExit(t -> {
 			assertNotNull(t);
-
+			service.unwatch();
 		});
 
 		callback.onMessage(t -> {
 			assertNotNull(t);
 		});
+	}
 
+	@BeforeAll
+	void beforeAll() {
+		count = 0;
+		future = new CompletableFuture<>();
+		strategy = new AlwaysEnterStrategy();
+		service = new WatchService(strategy);
+	}
+
+	@Test
+	@DisplayName("The client should receive data at every tick and should enter at first final bar")
+	void testEnter() throws InterruptedException, ExecutionException {
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
-
 		assertTrue(future.get());
 	}
 
 	@Test
 	@DisplayName("The client should receive data at every tick and should exit at first final bar")
 	void testExit() throws InterruptedException, ExecutionException {
-
-		CompletableFuture<Boolean> future = new CompletableFuture<>();
-
-		AlwaysExitStrategy strategy = new AlwaysExitStrategy();
-		StrategyCallback callback = new StrategyCallback();
-		WatchService service = new WatchService(strategy);
-
-		callback.onClosed(t -> {
-			assertNotNull(t);
-
-			future.complete(true);
-		});
-
-		callback.onFailure(t -> {
-			assertNotNull(t);
-
-			future.complete(true);
-		});
-
-		callback.onExit(t -> {
-			assertNotNull(t);
-
-			service.unwatch();
-		});
-
-		callback.onMessage(t -> {
-			assertNotNull(t);
-
-			assertNotNull(t);
-		});
-
 		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
-
 		assertTrue(future.get());
 	}
 
