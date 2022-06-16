@@ -421,6 +421,9 @@ jobs:
           run: cd binance4j-documentation && yarn build
 
         # COPY JAVADOCS IN DIR
+        - name: Create javadocs dir
+          run: "mkdir javadocs"
+
         - name: Copy binance4j-core javadoc
           run: "cp -R binance4j-core/target/apidocs javadocs/binance4j-core"
 
