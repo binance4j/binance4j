@@ -7,6 +7,20 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.5] - 2022-06-16
+
+### Fixed
+
+- binance4j-strategy
+  - PATCH : Fixed SymbolBar conversion that was lower rounding decimals
+
+## [1.7.4] - 2022-06-14
+
+### Fixed
+
+- all
+  - PATCH : Fixed java 9+ methods.
+
 ## [1.7.3] - 2022-05-26
 
 ### Fixed
