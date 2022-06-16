@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -57,8 +57,8 @@ class LiveTradingTest extends ConcurrentTest {
 		});
 	}
 
-	@BeforeAll
-	void beforeAll() {
+	@BeforeEach
+	void beforeEach() {
 		count = 0;
 		future = new CompletableFuture<>();
 		strategy = new AlwaysEnterStrategy();
