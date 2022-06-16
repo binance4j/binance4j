@@ -369,24 +369,18 @@ jobs:
   # Javadoc
 
   deploy-javadocs:
-      name: Deploy javadocs
+      name: Deploy javadoc
       needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
           with:
             fetch-depth: ${{ env.FETCH_DEPTH }}
-        - name : Setup Java
+        - name: Java Setup
           uses: actions/setup-java@v2
           with:
             java-version: ${{ env.JAVA_VERSION }}
             distribution: ${{ env.JAVA_DISTRIBUTION }}
-        - name : Setup Node
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16.x
-            cache: yarn
-            cache-dependency-path: "./binance4j-documentation/yarn.lock"
 
         # ARTIFACTS INSTALLATIONS
         
@@ -414,44 +408,93 @@ jobs:
         - name: Install binance4j-strategy
           run: ${{ env.STRATEGY_INSTALLATION }}
 
-        - name: Install Docusaurus dependencies
-          run: cd binance4j-documentation && yarn install --frozen-lockfile
+        # ARTIFACTS DEPLOYMENTS
 
-        - name: Build Docusaurus documentation
-          run: cd binance4j-documentation && yarn build
-
-        # COPY JAVADOCS IN DIR
-        - name: Copy binance4j-core javadoc
-          run: "cp -R binance4j-core/target/apidocs javadocs/binance4j-core"
-
-        - name: Copy binance4j-market javadoc
-          run: "cp -R binance4j-market/target/apidocs javadocs/binance4j-market"
-
-        - name: Copy binance4j-nft javadoc
-          run: "cp -R binance4j-nft/target/apidocs javadocs/binance4j-nft"
-
-        - name: Copy binance4j-spot javadoc
-          run: "cp -R binance4j-spot/target/apidocs javadocs/binance4j-spot"
-
-        - name: Copy binance4j-vision javadoc
-          run: "cp -R binance4j-vision/target/apidocs javadocs/binance4j-vision"
-
-        - name: Copy binance4j-wallet javadoc
-          run: "cp -R binance4j-wallet/target/apidocs javadocs/binance4j-wallet"
-
-        - name: Copy binance4j-websocket javadoc
-          run: "cp -R binance4j-websocket/target/apidocs javadocs/binance4j-websocket"
-
-        - name: Copy binance4j-strategy javadoc
-          run: "cp -R binance4j-strategy/target/apidocs javadocs/binance4j-strategy"
-
-        - name: Copy docusaurus documentation
-          run: "cp -R binance4j-documentation/build ./"
-
-        - name: Deploy to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
+        - name: Deploy binance4j-core
+          uses: JamesIves/github-pages-deploy-action@4.1.8
           with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./
-            user_name: github-actions[bot]
-            user_email: 41898282+github-actions[bot]@users.noreply.github.com
+            branch: gh-pages
+            clean: true
+            folder: binance4j-core/target/apidocs
+            target-folder: binance4j-core
+            
+        - name: Deploy binance4j-market
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-market/target/apidocs
+            target-folder: binance4j-market
+            
+        - name: Deploy binance4j-nft javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-nft/target/apidocs
+            target-folder: binance4j-nft
+
+        - name: Deploy binance4j-spot javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-spot/target/apidocs
+            target-folder: binance4j-spot
+
+        - name: Deploy binance4j-vision javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-vision/target/apidocs
+            target-folder: binance4j-vision
+
+        - name: Deploy binance4j-wallet javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-wallet/target/apidocs
+            target-folder: binance4j-wallet
+
+        - name: Deploy binance4j-websocket javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-websocket/target/apidocs
+            target-folder: binance4j-websocket
+
+        - name: Deploy binance4j-strategy javadoc
+          uses: JamesIves/github-pages-deploy-action@4.1.8
+          with:
+            branch: gh-pages
+            clean: true
+            folder: binance4j-strategy/target/apidocs
+            target-folder: binance4j-strategy
+
+  ##### DOCUMENTATION #####
+
+  deploy-doc:
+    name: Deploy documentation
+    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+          cache-dependency-path: "./binance4j-documentation/yarn.lock"
+      - name: Install dependencies
+        run: cd binance4j-documentation && yarn install --frozen-lockfile
+      - name: Build website
+        run: cd binance4j-documentation && yarn build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./binance4j-documentation/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
