@@ -69,7 +69,8 @@ public abstract class RestClient<T> {
     }
 
     /**
-     * Updates the current prefix for the next in the {@link RestClient#apiPrefixes}
+     * Updates the current prefix for the next in the
+     * {@link RestClientConfiguration#apiPrefixes}
      * list or to the first one if we were at the end
      */
     public void next() {
