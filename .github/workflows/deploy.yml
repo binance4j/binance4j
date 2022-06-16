@@ -4,6 +4,7 @@ on:
   push:
     branches: 
      - main
+     - snapshot
 
 env:
   FETCH_DEPTH: 0
