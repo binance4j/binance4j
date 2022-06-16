@@ -69,11 +69,9 @@ class LiveTradingTest extends ConcurrentTest {
 
 		callback.onMessage(t -> {
 			assertNotNull(t);
-
-			assertNotNull(t);
 		});
 
-		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
+		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 
 		assertTrue(future.get());
 	}
