@@ -9,7 +9,7 @@ const config = {
   title: 'Binance4j',
   tagline: 'Java connectors and technical analysis for the Binance API',
   url: 'https://binance4j.github.io',
-  baseUrl: '/binance4j/',
+  baseUrl: '//binance4j/binance4j-documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
