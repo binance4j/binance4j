@@ -7,6 +7,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.service.TestService;
+import com.binance4j.websocket.stream.IsolatedUserDataStreamRequest;
+import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
 import com.binance4j.websocket.userdata.ListenKey;
 import com.binance4j.websocket.userdata.UserDataClient;
 
@@ -27,5 +30,33 @@ class UserDataClientTest {
 
 		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.getListenKey()));
 		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.getListenKey()).execute());
+	}
+
+	@Test
+	@DisplayName("The listen key should be a non empty string. keeping alive and closing the stream should not trigger an error")
+	void testMarginUserDataStream() throws ApiException {
+		ListenKey listenKey = client.startMarginUserDataStream().execute();
+		assertTrue(listenKey.getListenKey().length() > 0);
+
+		System.out.println(listenKey);
+		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.getListenKey()));
+		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.getListenKey()).execute());
+	}
+
+	// TODO remove comment when isolated account will be activated
+	// @Test
+	@DisplayName("The listen key should be a non empty string. keeping alive and closing the stream should not trigger an error")
+	void testIsolatedUserDataStream() throws ApiException {
+		IsolatedUserDataStreamRequest IsolatedUserDataStreamRequest = new IsolatedUserDataStreamRequest(
+				TestService.SYMBOL);
+		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
+		KeepAliveIsolatedUserDataStreamRequest keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamRequest(
+				TestService.SYMBOL, listenKey.getListenKey());
+
+		assertTrue(listenKey.getListenKey().length() > 0);
+
+		System.out.println(listenKey);
+		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
+		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).execute());
 	}
 }
