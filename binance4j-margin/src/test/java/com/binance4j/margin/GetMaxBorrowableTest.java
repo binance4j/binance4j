@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetMaxBorrowableTest {
+import org.junit.jupiter.api.Test;
 
+public class GetMaxBorrowableTest {
+    @Test
+    void test() {
+
+    }
 }

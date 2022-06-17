@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class ToggleBNBBurnOnSpotTradeAndMarginInterestTest {
+import org.junit.jupiter.api.Test;
 
+public class ToggleBNBBurnOnSpotTradeAndMarginInterestTest {
+    @Test
+    void test() {
+
+    }
 }

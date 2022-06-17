@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class CancelOCOTest {
+import org.junit.jupiter.api.Test;
 
+public class CancelOCOTest {
+    @Test
+    void test() {
+
+    }
 }

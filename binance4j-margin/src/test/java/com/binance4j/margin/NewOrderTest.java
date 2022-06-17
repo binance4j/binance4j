@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class NewOrderTest {
+import org.junit.jupiter.api.Test;
 
+public class NewOrderTest {
+    @Test
+    void test() {
+
+    }
 }

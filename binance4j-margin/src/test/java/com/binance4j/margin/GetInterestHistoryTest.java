@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetInterestHistoryTest {
+import org.junit.jupiter.api.Test;
 
+public class GetInterestHistoryTest {
+    @Test
+    void test() {
+
+    }
 }

@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetAllIsolatedSymbolsTest {
+import org.junit.jupiter.api.Test;
 
+public class GetAllIsolatedSymbolsTest {
+    @Test
+    void test() {
+
+    }
 }

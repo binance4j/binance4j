@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetOpenOCOTest {
+import org.junit.jupiter.api.Test;
 
+public class GetOpenOCOTest {
+    @Test
+    void test() {
+
+    }
 }

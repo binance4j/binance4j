@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetBNBBurnStatusTest {
+import org.junit.jupiter.api.Test;
 
+public class GetBNBBurnStatusTest {
+    @Test
+    void test() {
+
+    }
 }

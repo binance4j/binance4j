@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class EnableIsolatedAccountTest {
+import org.junit.jupiter.api.Test;
 
+public class EnableIsolatedAccountTest {
+    @Test
+    void test() {
+
+    }
 }

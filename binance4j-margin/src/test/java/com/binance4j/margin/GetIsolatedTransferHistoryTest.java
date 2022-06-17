@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetIsolatedTransferHistoryTest {
+import org.junit.jupiter.api.Test;
 
+public class GetIsolatedTransferHistoryTest {
+    @Test
+    void test() {
+
+    }
 }

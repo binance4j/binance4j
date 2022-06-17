@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetLoanRecordTest {
+import org.junit.jupiter.api.Test;
 
+public class GetLoanRecordTest {
+    @Test
+    void test() {
+
+    }
 }

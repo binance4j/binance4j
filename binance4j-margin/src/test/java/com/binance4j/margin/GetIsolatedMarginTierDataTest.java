@@ -1,5 +1,10 @@
 package com.binance4j.margin;
 
-public class GetIsolatedMarginTierDataTest {
+import org.junit.jupiter.api.Test;
 
+public class GetIsolatedMarginTierDataTest {
+    @Test
+    void test() {
+
+    }
 }
