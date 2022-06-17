@@ -20,7 +20,7 @@
 <h2 align="center">Java connectors and technical analysis for the Binance API</h2>
 
 <h3 align="center">
-	<a href="https://binance4j.github.io/binance4j/">
+	<a href="https://binance4j.github.io/binance4j/binance4j-documenation">
 		Documentation
 	</a>
 </h3>
