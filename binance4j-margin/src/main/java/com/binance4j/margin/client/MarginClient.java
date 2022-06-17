@@ -2,13 +2,12 @@ package com.binance4j.margin.client;
 
 import java.util.List;
 
-import com.binance4j.core.misc.ListenKey;
+import com.binance4j.core.client.RestClient;
+import com.binance4j.core.order.CancelOpenOrdersRequest;
+import com.binance4j.core.order.CancelOrderRequest;
+import com.binance4j.core.order.CancelOrderResponse;
 import com.binance4j.core.order.OrderInfo;
-import com.binance4j.core.order.cancelorder.CancelOpenOrdersRequest;
-import com.binance4j.core.order.cancelorder.CancelOrderRequest;
-import com.binance4j.core.order.cancelorder.CancelOrderResponse;
 import com.binance4j.core.request.RequestExecutor;
-import com.binance4j.core.request.RestClient;
 import com.binance4j.margin.account.MarginAccount;
 import com.binance4j.margin.account.MarginAccountRequest;
 import com.binance4j.margin.account.MarginIsolatedAccount;
@@ -54,8 +53,6 @@ import com.binance4j.margin.priceindex.PriceIndexRequest;
 import com.binance4j.margin.repay.RepayRecord;
 import com.binance4j.margin.repay.RepayRecordRequest;
 import com.binance4j.margin.repay.RepayRequest;
-import com.binance4j.margin.stream.HandleIsolatedUserDataStreamRequest;
-import com.binance4j.margin.stream.NewIsolatedUserDataStreamRequest;
 import com.binance4j.margin.symbol.MarginSymbol;
 import com.binance4j.margin.symbol.MarginSymbolRequest;
 import com.binance4j.margin.symbol.MarginSymbolsRequest;
@@ -77,8 +74,8 @@ public class MarginClient extends RestClient<MarginMapping> {
      * @param secret     The API secret key
      * @param useTestnet Are we using TestNet?
      */
-    public MarginClient(String key, String secret, Boolean useTestnet) {
-        super(MarginMapping.class, key, secret, useTestnet);
+    public MarginClient(String key, String secret) {
+        super(MarginMapping.class, key, secret);
     }
 
     /**
@@ -88,7 +85,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#cross-margin-account-transfer-margin">Documentation</a>
      */
     public RequestExecutor<MarginTransaction> transfer(MarginTransferRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.transfer(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.transfer(req.toMap()));
     }
 
     /**
@@ -98,7 +95,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-borrow-margin">Documentation</a>
      */
     public RequestExecutor<MarginTransaction> borrow(BorrowRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.borrow(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.borrow(req.toMap()));
     }
 
     /**
@@ -108,7 +105,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-repay-margin">Documentation</a>
      */
     public RequestExecutor<MarginTransaction> repay(RepayRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.repay(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.repay(req.toMap()));
     }
 
     /**
@@ -118,7 +115,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-asset-market_data">Documentation</a>
      */
     public RequestExecutor<MarginAsset> getAsset(MarginAssetRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAsset(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getAsset(req.toMap()));
     }
 
     /**
@@ -128,7 +125,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-all-margin-assets-market_data">Documentation</a>
      */
     public RequestExecutor<List<MarginAsset>> getAllAssets() {
-        return new RequestExecutor<>(getServices().stream().map(MarginMapping::getAllAssets).toList());
+        return new RequestExecutor<>(service.getAllAssets());
     }
 
     /**
@@ -138,7 +135,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-pair-market_data">Documentation</a>
      */
     public RequestExecutor<MarginSymbol> getSymbol(MarginSymbolRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getSymbol(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getSymbol(req.toMap()));
     }
 
     /**
@@ -148,7 +145,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-all-cross-margin-pairs-market_data">Documentation</a>
      */
     public RequestExecutor<List<MarginSymbol>> getAllSymbols() {
-        return new RequestExecutor<>(getServices().stream().map(MarginMapping::getAllSymbols).toList());
+        return new RequestExecutor<>(service.getAllSymbols());
     }
 
     /**
@@ -158,7 +155,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-priceindex-market_data">Documentation</a>
      */
     public RequestExecutor<PriceIndex> getPriceIndex(PriceIndexRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getPriceIndex(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getPriceIndex(req.toMap()));
     }
 
     /**
@@ -168,7 +165,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-new-order-trade">Documentation</a>
      */
     public RequestExecutor<MarginOrderResponse> newOrder(MarginOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOrder(pojoToMap(order))).toList());
+        return new RequestExecutor<>(service.newOrder(order.toMap()));
     }
 
     /**
@@ -178,7 +175,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-order-trade">Documentation</a>
      */
     public RequestExecutor<CancelOrderResponse> cancelOrder(CancelOrderRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOrder(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.cancelOrder(req.toMap()));
     }
 
     /**
@@ -189,7 +186,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-all-open-orders-on-a-symbol-trade">Documentation</a>
      */
     public RequestExecutor<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOpenOrders(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.cancelOpenOrders(req.toMap()));
     }
 
     /**
@@ -199,7 +196,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-cross-margin-transfer-history-user_data">Documentation</a>
      */
     public RequestExecutor<MarginTransferHistoryResponse> getTransferHistory(MarginTransferHistoryRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getTransferHistory(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getTransferHistory(req.toMap()));
     }
 
     /**
@@ -217,7 +214,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-loan-record-user_data">Documentation</a>
      */
     public RequestExecutor<LoanRecord> getLoanRecord(LoanRecordRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getLoanRecord(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getLoanRecord(req.toMap()));
     }
 
     /**
@@ -235,7 +232,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-repay-record-user_data">Documentation</a>
      */
     public RequestExecutor<RepayRecord> getRepayRecord(RepayRecordRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getRepayRecord(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getRepayRecord(req.toMap()));
     }
 
     /**
@@ -251,7 +248,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-interest-history-user_data">Documentation</a>
      */
     public RequestExecutor<InterestHistory> getInterestHistory(InterestHistoryRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getInterestHistory(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getInterestHistory(req.toMap()));
     }
 
     /**
@@ -264,7 +261,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<ForceLiquidationRecord> getForceLiquidationRecord(ForceLiquidationRecordRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getForceLiquidationRecord(pojoToMap(req))).toList());
+                service.getForceLiquidationRecord(req.toMap()));
     }
 
     /**
@@ -274,7 +271,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-account-details-user_data">Documentation</a>
      */
     public RequestExecutor<MarginAccount> getAccount(MarginAccountRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAccount(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getAccount(req.toMap()));
     }
 
     /**
@@ -284,7 +281,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-order-user_data">Documentation</a>
      */
     public RequestExecutor<OrderInfo> getOrder(MarginOrderRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOrder(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getOrder(req.toMap()));
     }
 
     /**
@@ -304,7 +301,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-orders-user_data">Documentation</a>
      */
     public RequestExecutor<List<OrderInfo>> getOpenOrders(MarginOpenOrdersRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOrders(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getOpenOrders(req.toMap()));
     }
 
     /**
@@ -323,7 +320,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-all-orders-user_data">Documentation</a>
      */
     public RequestExecutor<List<OrderInfo>> getAllOrders(MarginAllOrdersRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAllOrders(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getAllOrders(req.toMap()));
     }
 
     /**
@@ -349,7 +346,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-all-orders-user_data">Documentation</a>
      */
     public RequestExecutor<MarginOCOResponse> newOCO(MarginOCOOrder order) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.newOCO(pojoToMap(order))).toList());
+        return new RequestExecutor<>(service.newOCO(order.toMap()));
     }
 
     /**
@@ -363,7 +360,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-oco-trade">Documentation</a>
      */
     public RequestExecutor<MarginOCOResponse> cancelOCO(CancelMarginOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.cancelOCO(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.cancelOCO(req.toMap()));
     }
 
     /**
@@ -373,7 +370,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-oco-user_data">Documentation</a>
      */
     public RequestExecutor<GetMarginOCOResponse> getOCO(GetMarginOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOCO(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getOCO(req.toMap()));
     }
 
     /**
@@ -384,7 +381,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-oco-user_data">Documentation</a>
      */
     public RequestExecutor<List<GetMarginOCOResponse>> getAllOCO(GetAllMarginOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getAllOCO(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getAllOCO(req.toMap()));
     }
 
     /**
@@ -395,7 +392,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data">Documentation</a>
      */
     public RequestExecutor<List<GetMarginOCOResponse>> getOpenOCO(GetOpenMarginOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getOpenOCO(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getOpenOCO(req.toMap()));
     }
 
     /**
@@ -409,7 +406,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data">Documentation</a>
      */
     public RequestExecutor<List<MarginTrade>> getMyTrades(GetOpenMarginOCORequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getMyTrades(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getMyTrades(req.toMap()));
     }
 
     /**
@@ -425,7 +422,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-max-borrow-user_data">Documentation</a>
      */
     public RequestExecutor<MaxBorrowableResponse> getMaxBorrowable(MaxBorrowableRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getMaxBorrowable(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getMaxBorrowable(req.toMap()));
     }
 
     /**
@@ -438,7 +435,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-max-transfer-out-amount-user_data">Documentation</a>
      */
     public RequestExecutor<MaxTransferableResponse> getMaxTransferable(MaxTransferableRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.getMaxTransferable(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.getMaxTransferable(req.toMap()));
     }
 
     /**
@@ -448,7 +445,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#isolated-margin-account-transfer-margin">Documentation</a>
      */
     public RequestExecutor<MarginTransaction> isolatedTransfer(MarginIsolatedTransferRequest req) {
-        return new RequestExecutor<>(getServices().stream().map(a -> a.isolatedTransfer(pojoToMap(req))).toList());
+        return new RequestExecutor<>(service.isolatedTransfer(req.toMap()));
     }
 
     /**
@@ -460,7 +457,7 @@ public class MarginClient extends RestClient<MarginMapping> {
     public RequestExecutor<MarginIsolatedTransferHistory> getIsolatedTransferHistory(
             MarginIsolatedTransferRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getIsolatedTransferHistory(pojoToMap(req))).toList());
+                service.getIsolatedTransferHistory(req.toMap()));
     }
 
     /**
@@ -471,7 +468,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<MarginIsolatedAccount> getIsolatedAccount(MarginIsolatedAccountRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getIsolatedAccount(pojoToMap(req))).toList());
+                service.getIsolatedAccount(req.toMap()));
     }
 
     /**
@@ -483,7 +480,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<ToogleAccountResponse> disableIsolatedAccount(ToogleAccountRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.disableIsolatedAccount(pojoToMap(req))).toList());
+                service.disableIsolatedAccount(req.toMap()));
     }
 
     /**
@@ -495,7 +492,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<ToogleAccountResponse> enableIsolatedAccount(ToogleAccountRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.enableIsolatedAccount(pojoToMap(req))).toList());
+                service.enableIsolatedAccount(req.toMap()));
     }
 
     /**
@@ -507,7 +504,7 @@ public class MarginClient extends RestClient<MarginMapping> {
     public RequestExecutor<MarginIsolatedAccountLimit> getEnabledIsolatedAccountLimit(
             MarginIsolatedAccountLimitRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getEnabledIsolatedAccountLimit(pojoToMap(req))).toList());
+                service.getEnabledIsolatedAccountLimit(req.toMap()));
     }
 
     /**
@@ -518,7 +515,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<MarginSymbol> getIsolatedSymbol(MarginSymbolRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getIsolatedSymbol(pojoToMap(req))).toList());
+                service.getIsolatedSymbol(req.toMap()));
     }
 
     /**
@@ -529,7 +526,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<MarginSymbol>> getAllIsolatedSymbols(MarginSymbolsRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getAllIsolatedSymbols(pojoToMap(req))).toList());
+                service.getAllIsolatedSymbols(req.toMap()));
     }
 
     /**
@@ -543,7 +540,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.toggleBNBBurnOnSpotTradeAndMarginInterest(pojoToMap(req))).toList());
+                service.toggleBNBBurnOnSpotTradeAndMarginInterest(req.toMap()));
     }
 
     /**
@@ -554,7 +551,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<BNBBurnStatus> getBNBBurnStatus(ToggleBurnRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getBNBBurnStatus(pojoToMap(req))).toList());
+                service.getBNBBurnStatus(req.toMap()));
     }
 
     /**
@@ -565,7 +562,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<InterestRate>> getInterestRateHistory(ToggleBurnRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getInterestRateHistory(pojoToMap(req))).toList());
+                service.getInterestRateHistory(req.toMap()));
     }
 
     /**
@@ -582,7 +579,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<CrossMarginFee>> getMarginFeeData(CrossMarginFeeRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getMarginFeeData(pojoToMap(req))).toList());
+                service.getMarginFeeData(req.toMap()));
     }
 
     /**
@@ -599,7 +596,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<IsolatedMarginFee>> getIsolatedFeeData(IsolatedMarginFeeRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getIsolatedFeeData(pojoToMap(req))).toList());
+                service.getIsolatedFeeData(req.toMap()));
     }
 
     /**
@@ -614,96 +611,6 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<IsolatedMarginTierData>> getIsolatedMarginTierData(IsolatedMarginTierDataRequest req) {
         return new RequestExecutor<>(
-                getServices().stream().map(a -> a.getIsolatedMarginTierData(pojoToMap(req))).toList());
-    }
-
-    /**
-     * Create a ListenKey (Margin).
-     * 
-     * <p>
-     * The stream will close after 60 minutes unless a
-     * keepalive is sent.
-     * <p>
-     * If the account has an active listenKey, that listenKey
-     * will be returned and its validity will be extended for 60 minutes.
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
-     */
-    public RequestExecutor<ListenKey> startUserDataStream() {
-        return new RequestExecutor<>(
-                getServices().stream().map(MarginMapping::startUserDataStream).toList());
-    }
-
-    /**
-     * Keepalive a user data stream to prevent a time out (Margin).
-     * 
-     * <p>
-     * User data streams will close after 60 minutes.
-     * <p>
-     * It's recommended to send a ping about every 30 minutes.
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
-     */
-    public RequestExecutor<Void> keepAliveUserDataStream(String listenKey) {
-        return new RequestExecutor<>(
-                getServices().stream().map(a -> a.keepAliveUserDataStream(listenKey)).toList());
-    }
-
-    /**
-     * Close out a user data stream (Margin).
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
-     */
-    public RequestExecutor<Void> closeUserDataStream(String listenKey) {
-        return new RequestExecutor<>(
-                getServices().stream().map(a -> a.closeUserDataStream(listenKey)).toList());
-    }
-
-    /**
-     * Create a ListenKey (Isolated margin).
-     * 
-     * <p>
-     * The stream will close after 60 minutes unless a
-     * keepalive is sent.
-     * <p>
-     * If the account has an active listenKey, that listenKey
-     * will be returned and its validity will be extended for 60 minutes.
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
-     */
-    public RequestExecutor<ListenKey> startIsolatedUserDataStream(NewIsolatedUserDataStreamRequest req) {
-        return new RequestExecutor<>(
-                getServices().stream().map(a -> a.startIsolatedUserDataStream(pojoToMap(req))).toList());
-    }
-
-    /**
-     * Keepalive a user data stream to prevent a time out (Isolated margin).
-     * 
-     * <p>
-     * User data streams will close after 60 minutes.
-     * <p>
-     * It's recommended to send a ping about every 30 minutes.
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
-     */
-    public RequestExecutor<Void> keepAliveIsolatedUserDataStream(HandleIsolatedUserDataStreamRequest req) {
-        return new RequestExecutor<>(
-                getServices().stream().map(a -> a.keepAliveIsolatedUserDataStream(pojoToMap(req))).toList());
-    }
-
-    /**
-     * Close out a user data stream (Isolated margin).
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
-     */
-    public RequestExecutor<Void> closeIsolatedUserDataStream(HandleIsolatedUserDataStreamRequest req) {
-        return new RequestExecutor<>(
-                getServices().stream().map(a -> a.closeIsolatedUserDataStream(pojoToMap(req))).toList());
+                service.getIsolatedMarginTierData(req.toMap()));
     }
 }

@@ -2,7 +2,7 @@ package com.binance4j.margin.order;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.configuration.CoreConfiguration;
+import com.binance4j.core.configuration.RestClientConfiguration;
 import com.binance4j.core.misc.TimeInForce;
 import com.binance4j.core.order.BaseOrder;
 import com.binance4j.core.order.OrderSide;
@@ -97,7 +97,7 @@ public class MarginOrder extends BaseOrder {
      * @see #buyMarket(String, BigDecimal, TimeInForce)
      */
     public static MarginOrder buyMarket(String symbol, BigDecimal quantity) {
-        return buyMarket(symbol, quantity, CoreConfiguration.getTimeInForce());
+        return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
     }
 
     /**
@@ -117,7 +117,7 @@ public class MarginOrder extends BaseOrder {
      * @see #buyMarket(String, BigDecimal, TimeInForce)
      */
     public static MarginOrder sellMarket(String symbol, BigDecimal quantity) {
-        return buyMarket(symbol, quantity, CoreConfiguration.getTimeInForce());
+        return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
     }
 
     /**
@@ -139,7 +139,7 @@ public class MarginOrder extends BaseOrder {
      * @see #buyLimit(String, BigDecimal, BigDecimal, TimeInForce)
      */
     public static MarginOrder buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-        return buyLimit(symbol, quantity, price, CoreConfiguration.getTimeInForce());
+        return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
     }
 
     /**
@@ -161,6 +161,6 @@ public class MarginOrder extends BaseOrder {
      * @see #sellLimit(String, BigDecimal, BigDecimal, TimeInForce)
      */
     public static MarginOrder sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-        return sellLimit(symbol, quantity, price, CoreConfiguration.getTimeInForce());
+        return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
     }
 }

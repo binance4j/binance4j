@@ -1,4 +1,4 @@
-package com.binance4j.margin.stream;
+package com.binance4j.websocket.stream;
 
 import com.binance4j.core.request.Request;
 

@@ -3,10 +3,9 @@ package com.binance4j.margin.client;
 import java.util.List;
 import java.util.Map;
 
-import com.binance4j.core.configuration.CoreConfiguration;
-import com.binance4j.core.misc.ListenKey;
+import com.binance4j.core.order.CancelOrderResponse;
 import com.binance4j.core.order.OrderInfo;
-import com.binance4j.core.order.cancelorder.CancelOrderResponse;
+import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.margin.account.MarginAccount;
 import com.binance4j.margin.account.MarginIsolatedAccount;
 import com.binance4j.margin.account.MarginIsolatedAccountLimit;
@@ -38,14 +37,18 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface MarginMapping {
-    public static final String BASE = "/sapi/v1/margin/";
-    public static final String SIGNED_H = CoreConfiguration.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-    public static final String API_H = CoreConfiguration.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
+    String BASE = "/sapi/v1/margin/";
+    /**
+     * The signed http full header
+     */
+    String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
+    /**
+     * The API key http full header
+     */
+    String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
     @Headers({ API_H, SIGNED_H })
     @POST(BASE + "transfer")
@@ -214,28 +217,4 @@ public interface MarginMapping {
     @Headers({ API_H, SIGNED_H })
     @GET(BASE + "isolatedMarginTier")
     Call<List<IsolatedMarginTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
-
-    @Headers({ API_H, SIGNED_H })
-    @POST("/sapi/v1/userDataStream")
-    Call<ListenKey> startUserDataStream();
-
-    @Headers({ API_H, SIGNED_H })
-    @PUT("/sapi/v1/userDataStream")
-    Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
-
-    @Headers(API_H)
-    @DELETE("/sapi/v1/userDataStream")
-    Call<Void> closeUserDataStream(@Query("listenKey") String listenKey);
-
-    @Headers({ API_H, SIGNED_H })
-    @POST("/sapi/v1/userDataStream/isolated")
-    Call<ListenKey> startIsolatedUserDataStream(@QueryMap Map<String, Object> map);
-
-    @Headers({ API_H, SIGNED_H })
-    @PUT("/sapi/v1/userDataStream/isolated")
-    Call<Void> keepAliveIsolatedUserDataStream(@QueryMap Map<String, Object> map);
-
-    @Headers(API_H)
-    @DELETE("/sapi/v1/userDataStream/isolated")
-    Call<Void> closeIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 }

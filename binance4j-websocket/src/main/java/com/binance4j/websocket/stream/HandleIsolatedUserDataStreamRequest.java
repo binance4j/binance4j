@@ -1,4 +1,4 @@
-package com.binance4j.margin.stream;
+package com.binance4j.websocket.stream;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
