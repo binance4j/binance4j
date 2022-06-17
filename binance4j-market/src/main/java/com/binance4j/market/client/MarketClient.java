@@ -32,8 +32,6 @@ import com.binance4j.market.trade.TradesRequest;
 
 /**
  * API client for the market endpoints
- *
- * @see <a href="https://testnet.binance.vision/">...</a>
  */
 public class MarketClient extends RestClient<MarketMapping> {
 
