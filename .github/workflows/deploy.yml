@@ -386,7 +386,7 @@ jobs:
         with:
           servers: ${{ env.SERVERS }}
       - name: Deploy
-        run: cd binance4j-deploy && mvn -DskipTests=true deploy
+        run: cd binance4j-connectors && mvn -DskipTests=true deploy
 
   # Javadoc
 
