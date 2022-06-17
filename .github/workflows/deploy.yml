@@ -366,6 +366,28 @@ jobs:
       - name: Deploy
         run: cd binance4j-strategy && mvn -DskipTests=true deploy
 
+  deploy-connectors:
+    name: Deploy binance4j-connectors
+    needs: [deploy-core,deploy-market,deploy-nft,deploy-spot,deploy-strategy,deploy-vision,deploy-wallet,deploy-websocket]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v1
+      - name: Configure Settings
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: ${{ env.SERVERS }}
+      - name: Deploy
+        run: cd binance4j-deploy && mvn -DskipTests=true deploy
+
   # Javadoc
 
   deploy-doc:
