@@ -23,7 +23,7 @@
     </properties>
 
     <name>binance4j-vision</name>
-    <description>Connector for the public data endpoint of the Binance API</description>
+    <description>Connector for the public data endpoints ofthe Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>

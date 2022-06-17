@@ -23,7 +23,7 @@
     </properties>
 
     <name>binance4j-wallet</name>
-    <description>Connector for the wallet endpoint of the Binance API</description>
+    <description>Connector for the wallet endpoints ofthe Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>

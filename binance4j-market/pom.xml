@@ -23,7 +23,7 @@
     </properties>
 
     <name>binance4j-market</name>
-    <description>Connector for the Market endpoint of the Binance API</description>
+    <description>Connector for the Market endpoints ofthe Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>
