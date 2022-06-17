@@ -1,0 +1,7 @@
+com.binance4j.market.client
+com.binance4j.market.depth
+com.binance4j.market.kline
+com.binance4j.market.price
+com.binance4j.market.tickerstatistics
+com.binance4j.market.time
+com.binance4j.market.trade

@@ -1,0 +1,12 @@
+com.binance4j.websocket.callback
+com.binance4j.websocket.candle
+com.binance4j.websocket.client
+com.binance4j.websocket.configuration
+com.binance4j.websocket.depth
+com.binance4j.websocket.event
+com.binance4j.websocket.serialization
+com.binance4j.websocket.service
+com.binance4j.websocket.subscription
+com.binance4j.websocket.ticker
+com.binance4j.websocket.trade
+com.binance4j.websocket.userdata
