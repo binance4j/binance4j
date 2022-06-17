@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.binance4j</groupId>
+    <artifactId>binance4j-connectors</artifactId>
+    <version>${binance4j.version}</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <binance4j.version>2.0.1-SNAPSHOT</binance4j.version>
+    </properties>
+
+    <name>binance4j-connectors</name>
+    <description>All binance4j-connectors</description>
+    <url>https://github.com/binance4j/binance4j</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <email>contact@binance4j.com</email>
+            <name>Vivien Le Duc</name>
+            <url>https://github.com/vivienld</url>
+            <id>vivienld</id>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/binance4j/binance4j.git</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-market</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-nft</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-spot</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-strategy</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-vision</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-wallet</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-websocket</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- Signs the artifact for deployment -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <!-- Prevents from calling the passphrase dialog box -->
+                <configuration>
+                    <gpgArguments>
+                        <arg>--pinentry-mode</arg>
+                        <arg>loopback</arg>
+                    </gpgArguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin for deployment -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.12</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
