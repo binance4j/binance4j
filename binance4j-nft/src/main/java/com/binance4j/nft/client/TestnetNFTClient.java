@@ -2,8 +2,6 @@ package com.binance4j.nft.client;
 
 /**
  * API client for the testnet NFT endpoints
- *
- * @see <a href="https://testnet.binance.vision/">...</a>
  */
 public class TestnetNFTClient extends NFTClient {
 

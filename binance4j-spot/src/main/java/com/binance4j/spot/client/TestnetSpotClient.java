@@ -2,8 +2,6 @@ package com.binance4j.spot.client;
 
 /**
  * API client for the testnet SPOT endpoints
- *
- * @see <a href="https://testnet.binance.vision/">...</a>
  */
 public class TestnetSpotClient extends SpotClient {
 

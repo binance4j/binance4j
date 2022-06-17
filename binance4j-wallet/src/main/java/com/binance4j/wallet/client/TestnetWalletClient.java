@@ -2,8 +2,6 @@ package com.binance4j.wallet.client;
 
 /**
  * API client for the testnet Wallet endpoints
- *
- * @see <a href="https://testnet.binance.vision/">...</a>
  */
 public class TestnetWalletClient extends WalletClient {
 
