@@ -368,7 +368,7 @@ jobs:
 
   deploy-connectors:
     name: Deploy binance4j-connectors
-    needs: [deploy-core,deploy-market,deploy-nft,deploy-spot,deploy-strategy,deploy-vision,deploy-wallet,deploy-websocket]
+    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -385,6 +385,33 @@ jobs:
         uses: s4u/maven-settings-action@v2.6.0
         with:
           servers: ${{ env.SERVERS }}
+
+        # ARTIFACTS INSTALLATIONS
+        
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+
+      - name: Install binance4j-market
+        run: ${{ env.MARKET_INSTALLATION }}
+
+      - name: Install binance4j-nft
+        run: ${{ env.NFT_INSTALLATION }}
+
+      - name: Install binance4j-spot
+        run: ${{ env.SPOT_INSTALLATION }}
+
+      - name: Install binance4j-vision
+        run: ${{ env.VISION_INSTALLATION }}
+
+      - name: Install binance4j-wallet
+        run: ${{ env.WALLET_INSTALLATION }}
+
+      - name: Install binance4j-websocket
+        run: ${{ env.WEBSOCKET_INSTALLATION }}
+
+      - name: Install binance4j-strategy
+        run: ${{ env.STRATEGY_INSTALLATION }}
+
       - name: Deploy
         run: cd binance4j-connectors && mvn -DskipTests=true deploy
 
