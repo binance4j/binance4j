@@ -7,10 +7,10 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class NewIsolatedUserDataStreamRequest extends Request {
+public class IsolatedUserDataStreamRequest extends Request {
     private String symbol;
 
-    public NewIsolatedUserDataStreamRequest(String symbol) {
+    public IsolatedUserDataStreamRequest(String symbol) {
         super(1);
         this.symbol = symbol;
     }

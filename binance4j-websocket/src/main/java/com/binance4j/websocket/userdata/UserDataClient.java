@@ -2,8 +2,8 @@ package com.binance4j.websocket.userdata;
 
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.request.RequestExecutor;
-import com.binance4j.websocket.stream.HandleIsolatedUserDataStreamRequest;
-import com.binance4j.websocket.stream.NewIsolatedUserDataStreamRequest;
+import com.binance4j.websocket.stream.IsolatedUserDataStreamRequest;
+import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -109,7 +109,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
 	 */
 	public RequestExecutor<Void> closeMarginUserDataStream(String listenKey) {
-		return new RequestExecutor<>(service.closeUserDataStream(listenKey));
+		return new RequestExecutor<>(service.closeMarginUserDataStream(listenKey));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @see <a href=
 	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<ListenKey> startIsolatedUserDataStream(NewIsolatedUserDataStreamRequest req) {
+	public RequestExecutor<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamRequest req) {
 		return new RequestExecutor<>(service.startIsolatedUserDataStream(req.toMap()));
 	}
 
@@ -140,7 +140,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @see <a href=
 	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> keepAliveIsolatedUserDataStream(HandleIsolatedUserDataStreamRequest req) {
+	public RequestExecutor<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamRequest req) {
 		return new RequestExecutor<>(service.keepAliveIsolatedUserDataStream(req.toMap()));
 	}
 
@@ -150,7 +150,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @see <a href=
 	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> closeIsolatedUserDataStream(HandleIsolatedUserDataStreamRequest req) {
+	public RequestExecutor<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamRequest req) {
 		return new RequestExecutor<>(service.closeIsolatedUserDataStream(req.toMap()));
 	}
 }

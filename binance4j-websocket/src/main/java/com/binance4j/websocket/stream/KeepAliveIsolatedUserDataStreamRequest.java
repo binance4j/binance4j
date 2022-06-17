@@ -5,10 +5,10 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class HandleIsolatedUserDataStreamRequest extends NewIsolatedUserDataStreamRequest {
+public class KeepAliveIsolatedUserDataStreamRequest extends IsolatedUserDataStreamRequest {
     private String listenKey;
 
-    public HandleIsolatedUserDataStreamRequest(String symbol, String listenKey) {
+    public KeepAliveIsolatedUserDataStreamRequest(String symbol, String listenKey) {
         super(symbol);
         this.listenKey = listenKey;
     }
