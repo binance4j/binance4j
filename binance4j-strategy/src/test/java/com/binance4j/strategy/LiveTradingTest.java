@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ import com.binance4j.strategy.strategies.AlwaysExitStrategy;
 
 class LiveTradingTest extends ConcurrentTest {
 	int count;
-	StrategyCallback callback;
+	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;
 	AlwaysEnterStrategy strategy;
 	WatchService service;
@@ -52,9 +53,7 @@ class LiveTradingTest extends ConcurrentTest {
 			service.unwatch();
 		});
 
-		callback.onMessage(t -> {
-			assertNotNull(t);
-		});
+		callback.onMessage(Assertions::assertNotNull);
 	}
 
 	@BeforeEach

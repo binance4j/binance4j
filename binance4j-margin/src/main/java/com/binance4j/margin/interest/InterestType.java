@@ -8,5 +8,5 @@ public enum InterestType {
     /** interest charged per hour converted into BNB */
     PERIODIC_CONVERTED,
     /** first interest charged on borrow converted into BNB */
-    ON_BORROW_CONVERTED;
+    ON_BORROW_CONVERTED
 }

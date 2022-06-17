@@ -21,9 +21,6 @@ class GetAllCoinsInfoTest {
 		List<CoinInformation> infos = client.getAllCoinsInfo().execute();
 
 		infos.forEach(i -> {
-			if (i.getCoin().equals("BNB")) {
-
-			}
 			assertNotNull(i.getCoin());
 			assertNotNull(i.isDepositAllEnable());
 			assertNotNull(i.getFree());

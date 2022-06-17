@@ -27,10 +27,7 @@ class TimeoutEventTest extends ConcurrentTest {
     @Test
     @DisplayName("The event should execute")
     void testExecution() throws InterruptedException, ExecutionException {
-        new TimeoutEvent(Duration.ofSeconds(1), () -> {
-
-            future.complete(true);
-        });
+        new TimeoutEvent(Duration.ofSeconds(1), () -> future.complete(true));
 
         assertTrue(future.get());
     }
@@ -45,10 +42,7 @@ class TimeoutEventTest extends ConcurrentTest {
         new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis());
 
         // we program the event between the two schedules
-        event = new TimeoutEvent(Duration.ofSeconds(2), () -> {
-
-            future.complete(false);
-        });
+        event = new TimeoutEvent(Duration.ofSeconds(2), () -> future.complete(false));
 
         assertTrue(future.get());
     }

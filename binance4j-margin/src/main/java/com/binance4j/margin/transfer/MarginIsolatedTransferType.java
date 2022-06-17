@@ -4,5 +4,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum MarginIsolatedTransferType {
-    SPOT, ISOLATED_MARGIN;
+    SPOT, ISOLATED_MARGIN
 }

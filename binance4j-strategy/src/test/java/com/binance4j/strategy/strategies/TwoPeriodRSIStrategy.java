@@ -1,5 +1,6 @@
 package com.binance4j.strategy.strategies;
 
+import org.jetbrains.annotations.NotNull;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.Rule;
 import org.ta4j.core.indicators.RSIIndicator;
@@ -17,6 +18,7 @@ import com.binance4j.strategy.TradingStrategy;
  */
 public class TwoPeriodRSIStrategy implements TradingStrategy {
 
+	@NotNull
 	@Override
 	public Rule entry(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);
@@ -34,6 +36,7 @@ public class TwoPeriodRSIStrategy implements TradingStrategy {
 				.and(new OverIndicatorRule(shortSma, closePrice)); // Signal 2
 	}
 
+	@NotNull
 	@Override
 	public Rule exit(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);

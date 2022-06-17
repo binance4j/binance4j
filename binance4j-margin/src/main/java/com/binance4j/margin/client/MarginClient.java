@@ -70,9 +70,8 @@ public class MarginClient extends RestClient<MarginMapping> {
     /**
      * Instantiates a client for the margin endpoints
      *
-     * @param key        The API public key
-     * @param secret     The API secret key
-     * @param useTestnet Are we using TestNet?
+     * @param key    The API public key
+     * @param secret The API secret key
      */
     public MarginClient(String key, String secret) {
         super(MarginMapping.class, key, secret);

@@ -17,8 +17,8 @@ import okhttp3.Response;
 
 public class MyStrategyCallback extends StrategyCallback {
 
-    CompletableFuture<Boolean> future;
-    WatchService service;
+    final CompletableFuture<Boolean> future;
+    final WatchService service;
 
     /**
      * 
