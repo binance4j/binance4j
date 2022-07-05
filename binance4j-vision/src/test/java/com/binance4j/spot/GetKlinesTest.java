@@ -43,6 +43,6 @@ public class GetKlinesTest {
 	@DisplayName("It should return the klines")
 	void testGetKlines() throws ApiException {
 		client.getKlines(symbol, interval, year, month, day).getData()
-				.forEach(candle -> TestService.hasNoNullProperty(candle));
+				.forEach(candle -> assertTrue(TestService.hasNoNullProperty(candle)));
 	}
 }

@@ -62,6 +62,6 @@ public class GetChecksumTest {
 	}
 
 	void testChecksum(VisionChecksum checksum) {
-		TestService.hasNoNullProperty(checksum);
+		assertTrue(TestService.hasNoNullProperty(checksum));
 	}
 }

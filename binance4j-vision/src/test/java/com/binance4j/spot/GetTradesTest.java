@@ -43,6 +43,6 @@ public class GetTradesTest {
 	@DisplayName("It should return the trades")
 	void testGetTrades() throws ApiException {
 		client.getTrades(symbol, year, month, day).getData()
-				.forEach(trade -> TestService.hasNoNullProperty(trade));
+				.forEach(trade -> assertTrue(TestService.hasNoNullProperty(trade)));
 	}
 }
