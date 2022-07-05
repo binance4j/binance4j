@@ -1,5 +1,9 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.service.TestService;
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
@@ -7,9 +11,6 @@ import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.ticker.MiniTickerPayload;
 import com.binance4j.websocket.ticker.WebsocketMiniTickerClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class WebsocketMiniTickerClientTest extends BaseWebsocketClientTest<MiniTickerPayload> {
 
@@ -41,14 +42,16 @@ class WebsocketMiniTickerClientTest extends BaseWebsocketClientTest<MiniTickerPa
 
 		@Override
 		public void testMessageContent(MiniTickerPayload message) {
-			assertNotNull(message.getEventTime());
-			assertNotNull(message.getEventType());
-			assertNotNull(message.getHighPrice());
-			assertNotNull(message.getLowPrice());
-			assertNotNull(message.getOpenPrice());
-			assertNotNull(message.getSymbol());
-			assertNotNull(message.getTotalTradedBaseAssetVolume());
-			assertNotNull(message.getTotalTradedQuoteAssetVolume());
+			assertNotNull(message.getEventTime(), "error in getEventTime() assertion");
+			assertNotNull(message.getEventType(), "error in getEventType() assertion");
+			assertNotNull(message.getHighPrice(), "error in getHighPrice() assertion");
+			assertNotNull(message.getLowPrice(), "error in getLowPrice() assertion");
+			assertNotNull(message.getOpenPrice(), "error in getOpenPrice() assertion");
+			assertNotNull(message.getSymbol(), "error in getSymbol() assertion");
+			assertNotNull(message.getTotalTradedBaseAssetVolume(),
+					"error in getTotalTradedBaseAssetVolume() assertion");
+			assertNotNull(message.getTotalTradedQuoteAssetVolume(),
+					"error in getTotalTradedQuoteAssetVolume() assertion");
 		}
 	}
 }

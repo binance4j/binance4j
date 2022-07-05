@@ -62,7 +62,7 @@ class NoResponseTimeOutTest {
 
 		};
 
-		WebsocketClient<CandlePayload> client = new WebsocketCandlestickClient(TestService.SYMBOL,
+		WebsocketClient client = new WebsocketCandlestickClient(TestService.SYMBOL,
 				CandlestickInterval.ONE_MINUTE, callback);
 
 		client.getConfiguration().setNoResponseTimeout(Duration.ofSeconds(2));

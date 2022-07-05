@@ -1,5 +1,9 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.service.TestService;
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
@@ -7,9 +11,6 @@ import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.trade.TradePayload;
 import com.binance4j.websocket.trade.WebsocketTradeClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class WebsocketTradeClientTest extends BaseWebsocketClientTest<TradePayload> {
 
@@ -41,17 +42,17 @@ class WebsocketTradeClientTest extends BaseWebsocketClientTest<TradePayload> {
 
 		@Override
 		public void testMessageContent(TradePayload message) {
-			assertNotNull(message.getBuyerIsMarketMaker());
-			assertNotNull(message.getBuyerOrderId());
-			assertNotNull(message.getEventTime());
-			assertNotNull(message.getEventType());
-			assertNotNull(message.getIgnore());
-			assertNotNull(message.getPrice());
-			assertNotNull(message.getQuantity());
-			assertNotNull(message.getSellerOrderId());
-			assertNotNull(message.getSymbol());
-			assertNotNull(message.getTradeId());
-			assertNotNull(message.getTradeTime());
+			assertNotNull(message.getBuyerIsMarketMaker(), "error in getBuyerIsMarketMaker() assertion");
+			assertNotNull(message.getBuyerOrderId(), "error in getBuyerOrderId() assertion");
+			assertNotNull(message.getEventTime(), "error in getEventTime() assertion");
+			assertNotNull(message.getEventType(), "error in getEventType() assertion");
+			assertNotNull(message.getIgnore(), "error in getIgnore() assertion");
+			assertNotNull(message.getPrice(), "error in getPrice() assertion");
+			assertNotNull(message.getQuantity(), "error in getQuantity() assertion");
+			assertNotNull(message.getSellerOrderId(), "error in getSellerOrderId() assertion");
+			assertNotNull(message.getSymbol(), "error in getSymbol() assertion");
+			assertNotNull(message.getTradeId(), "error in getTradeId() assertion");
+			assertNotNull(message.getTradeTime(), "error in getTradeTime() assertion");
 		}
 	}
 }
