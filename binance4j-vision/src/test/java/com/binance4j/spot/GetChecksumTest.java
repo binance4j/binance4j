@@ -1,6 +1,5 @@
 package com.binance4j.spot;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -63,7 +62,6 @@ public class GetChecksumTest {
 	}
 
 	void testChecksum(VisionChecksum checksum) {
-		assertNotNull(checksum.getChecksum());
-		assertNotNull(checksum.getFileName());
+		TestService.hasNoNullProperty(checksum);
 	}
 }
