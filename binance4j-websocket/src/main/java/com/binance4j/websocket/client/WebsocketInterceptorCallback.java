@@ -11,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import okhttp3.Response;
+import okhttp3.WebSocket;
 
 /**
  * Interceptor callback for the {@link WebsocketClient} main callback to handle
@@ -43,6 +44,14 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	private boolean closedByClient;
 
 	/**
+	 * Has the onClosing handler been called
+	 */
+	private boolean onClosingCalled;
+
+	@Getter(AccessLevel.NONE)
+	private WebSocket socket;
+
+	/**
 	 * Constructor
 	 *
 	 * @param websocketClient The main ws client
@@ -62,6 +71,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 
 	@Override
 	public void onClosing(WebsocketCloseObject closeObject) {
+		onClosingCalled = true;
 		// we force disconnection
 		disconnectionHandler.run();
 		websocketClient.getCallback().onClosing(closeObject);
@@ -77,6 +87,8 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 		if (websocketClient.getConfiguration().isKeepAlive() && !closedByClient) {
 			websocketClient.open();
 		}
+
+		socket = null;
 	}
 
 	@Override
