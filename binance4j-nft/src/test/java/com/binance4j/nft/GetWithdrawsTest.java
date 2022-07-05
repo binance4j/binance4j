@@ -1,6 +1,5 @@
 package com.binance4j.nft;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -42,19 +41,8 @@ public class GetWithdrawsTest {
 	 */
 	NFTWithdrawHistory test(NFTWithdrawRequest req) throws ApiException {
 		NFTWithdrawHistory history = client.getWithdraws(req).execute();
-
-
-		assertNotNull(history.getTotal());
-
-		history.getList().forEach(withdraw -> {
-			assertNotNull(withdraw.getContractAddress());
-			assertNotNull(withdraw.getNetwork());
-			assertNotNull(withdraw.getTimestamp());
-			assertNotNull(withdraw.getTokenId());
-			assertNotNull(withdraw.getTransactionId());
-			assertNotNull(withdraw.getFee());
-			assertNotNull(withdraw.getFeeAsset());
-		});
+		assertTrue(TestService.hasNoNullProperty(history));
+		history.getList().forEach(withdraw -> assertTrue(TestService.hasNoNullProperty(withdraw)));
 		return history;
 	}
 
