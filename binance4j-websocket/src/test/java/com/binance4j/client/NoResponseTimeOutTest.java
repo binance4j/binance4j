@@ -1,60 +1,74 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.utils.BaseWebsocketClientTest;
-import com.binance4j.utils.TestCallback;
-import com.binance4j.utils.WebsocketTester;
-import com.binance4j.websocket.client.BaseWebsocketClient;
-import com.binance4j.websocket.userdata.UserDataClient;
-import com.binance4j.websocket.userdata.UserDataUpdatePayload;
-import com.binance4j.websocket.userdata.WebsocketUserDataClient;
+import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.service.TestService;
+import com.binance4j.websocket.callback.WebsocketCallback;
+import com.binance4j.websocket.callback.WebsocketCloseObject;
+import com.binance4j.websocket.candle.CandlePayload;
+import com.binance4j.websocket.candle.WebsocketCandlestickClient;
+import com.binance4j.websocket.client.WebsocketClient;
 
-class NoResponseTimeOutTest extends BaseWebsocketClientTest<UserDataUpdatePayload> {
+import okhttp3.Response;
+
+class NoResponseTimeOutTest {
+	static long startTime;
+	static long endTime;
 
 	@Test
-	@Override
-	public void test() {
-		super.test();
-	}
+	void test() throws InterruptedException, ExecutionException {
 
-	@Override
-	protected BaseWebsocketClient<UserDataUpdatePayload> newClient(TestCallback<UserDataUpdatePayload> callback) {
-		String key = System.getenv("BINANCE_API_KEY"), secret = System.getenv("BINANCE_API_SECRET");
-		try {
-			WebsocketUserDataClient client = new WebsocketUserDataClient(new UserDataClient(key, secret), callback);
-			client.getConfiguration().setKeepAlive(false);
-			client.getConfiguration().setNoResponseTimeout(Duration.ofSeconds(5));
-			return client;
-		} catch (ApiException e) {
-			fail();
-			return null;
-		}
-	}
+		CompletableFuture<Void> future = new CompletableFuture<>();
 
-	@Override
-	protected WebsocketTester<UserDataUpdatePayload> newTester(TestCallback<UserDataUpdatePayload> callback) {
-		return new Tester(callback);
-	}
+		WebsocketCallback<CandlePayload> callback = new WebsocketCallback<CandlePayload>() {
+			@Override
+			public void onMessage(CandlePayload message) {
+				startTime = System.currentTimeMillis();
+				System.out.println(message);
+			}
 
-	static class Tester extends WebsocketTester<UserDataUpdatePayload> {
+			@Override
+			public void onOpen(Response response) {
+				System.out.println(response);
+			}
 
-		public Tester(TestCallback<UserDataUpdatePayload> callback) {
-			super(callback);
-		}
+			@Override
+			public void onClosing(WebsocketCloseObject websocketCloseObject) {
+				endTime = System.currentTimeMillis();
+				double time = (endTime - startTime) / 1000;
+				System.out.println(time);
+				System.out.println(endTime);
 
-		@Override
-		public void testMessageContent(UserDataUpdatePayload message) {
+				future.complete(null);
+			}
 
-		}
+			@Override
+			public void onClosed(WebsocketCloseObject websocketCloseObject) {
 
-		@Override
-		public void assertFailure() {
-		}
+			}
+
+			@Override
+			public void onFailure(ApiException exception) {
+				System.out.println(exception);
+			}
+
+		};
+
+		WebsocketClient<CandlePayload> client = new WebsocketCandlestickClient(TestService.SYMBOL,
+				CandlestickInterval.ONE_MINUTE, callback);
+
+		client.getConfiguration().setNoResponseTimeout(Duration.ofSeconds(2));
+
+		client.open();
+
+		assertNull(future.get());
 	}
 }
