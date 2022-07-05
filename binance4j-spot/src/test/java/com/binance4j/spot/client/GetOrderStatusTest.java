@@ -1,8 +1,7 @@
 package com.binance4j.spot.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,24 +23,7 @@ public class GetOrderStatusTest extends ConcurrentTest {
 		Long id = 65293729L;
 
 		OrderInfo order = client.getOrderStatus(new OrderStatusRequest(symbol, id)).execute();
-		assertNull(order.isIsolated());
-		assertNotNull(order.getClientOrderId());
-		assertNotNull(order.getCummulativeQuoteQty());
-		assertNotNull(order.getExecutedQty());
-		assertNotNull(order.getIcebergQty());
-		assertNotNull(order.isWorking());
-		assertNotNull(order.getOrderId());
-		assertNotNull(order.getOrigQty());
-		assertNotNull(order.getOrigQuoteOrderQty());
-		assertNotNull(order.getPrice());
-		assertNotNull(order.getSide());
-		assertNotNull(order.getStatus());
-		assertNotNull(order.getStopPrice());
-		assertNotNull(order.getTime());
-		assertNotNull(order.getTimeInForce());
-		assertNotNull(order.getType());
-		assertNotNull(order.getUpdateTime());
-		assertNotNull(order.getSymbol());
+		assertTrue(TestService.hasNoNullProperty(order));
 		assertEquals(order.getSymbol(), symbol);
 	}
 }

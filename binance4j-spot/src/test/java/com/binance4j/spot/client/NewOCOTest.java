@@ -1,7 +1,6 @@
 package com.binance4j.spot.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
@@ -26,23 +25,9 @@ public class NewOCOTest extends ConcurrentTest {
 			OCOOrder req = new OCOOrder("BTCBUSD", OrderSide.BUY,
 					new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse resp = client.newOCO(req).execute();
-			resp.getOrders().forEach(o -> {
-				assertNotNull(o.getClientOrderId());
-				assertNotNull(o.getOrderId());
-				assertNotNull(o.getSymbol());
-			});
-
-			assertNotNull(resp.getContingencyType());
-			assertNull(resp.isIsolated());
-			assertNotNull(resp.getListClientOrderId());
-			assertNotNull(resp.getListOrderStatus());
-			assertNotNull(resp.getListStatusType());
-			assertNotNull(resp.getOrderListId());
-			assertNotNull(resp.getOrderReports());
-			assertNotNull(resp.getSymbol());
-			assertNotNull(resp.getTransactionTime());
+			resp.getOrders().forEach(order -> TestService.hasNoNullProperty(order));
+			assertTrue(TestService.getNullProperties(resp).contains("isIsolated"));
 		} catch (ApiException e) {
-
 			fail();
 		}
 	}

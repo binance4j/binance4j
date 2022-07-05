@@ -1,14 +1,11 @@
 package com.binance4j.spot.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.order.Trade;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.MyTradesRequest;
 import com.binance4j.spot.service.TestService;
@@ -19,23 +16,7 @@ public class GetTradesTest extends ConcurrentTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetMyTrades() throws ApiException {
-		List<Trade> trades = client.getMyTrades(new MyTradesRequest("APEBUSD")).execute();
-
-		if (!trades.isEmpty()) {
-			Trade trade = trades.get(0);
-			assertNotNull(trade.getCommission());
-			assertNotNull(trade.getCommissionAsset());
-			assertNotNull(trade.getId());
-			assertNotNull(trade.isBestMatch());
-			assertNotNull(trade.isBuyer());
-			assertNotNull(trade.isMaker());
-			assertNotNull(trade.getOrderId());
-			assertNotNull(trade.getPrice());
-			assertNotNull(trade.getQty());
-			assertNotNull(trade.getQuoteQty());
-			assertNotNull(trade.getSymbol());
-			assertNotNull(trade.getTime());
-		}
+		client.getMyTrades(new MyTradesRequest("APEBUSD")).execute().forEach(trade -> assertTrue(
+				TestService.hasNoNullProperty(trade)));
 	}
-
 }
