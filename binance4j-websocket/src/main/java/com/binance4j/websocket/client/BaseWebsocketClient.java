@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 import com.binance4j.websocket.callback.ApiWebSocketListener;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
+import com.binance4j.websocket.event.WebsocketForceClosingHandler;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -45,7 +48,8 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 	/**
 	 * The interceptor callback
 	 */
-	protected WebsocketInterceptorCallback<T> interceptor;
+	@Getter(AccessLevel.PUBLIC)
+	protected WebsocketInterceptorCallback<T> interceptorCallback;
 	/**
 	 * The channel to connect to
 	 */
@@ -58,6 +62,11 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 	 * The client configuration
 	 */
 	private WebsocketClientConfiguration configuration;
+
+	/**
+	 * Will call onClosing and onClosed of the interceptor callback if not
+	 */
+	protected WebsocketForceClosingHandler forceClosingHandler;
 
 	protected BaseWebsocketClient() {
 
@@ -76,18 +85,19 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 		this.stream = stream;
 		this.payloadClass = payloadClass;
 		this.callback = callback;
-		interceptor = new WebsocketInterceptorCallback<>(this);
+		interceptorCallback = new WebsocketInterceptorCallback<>(this);
 		channel = generateChannel(symbols, stream);
-		listener = new ApiWebSocketListener<>(interceptor, payloadClass);
+		listener = new ApiWebSocketListener<>(interceptorCallback, payloadClass);
 		configuration = new WebsocketClientConfiguration();
-
+		forceClosingHandler = new WebsocketForceClosingHandler(this);
 	}
 
 	@Override
 	public void open() {
 		close(false);
 		innerWebsocket = newWebSocket(configuration, channel, listener);
-		interceptor.getConnectionHandler().run();
+		interceptorCallback.setSocket(innerWebsocket);
+		interceptorCallback.getConnectionHandler().run();
 	}
 
 	@Override
@@ -95,11 +105,17 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 		close(true);
 	}
 
+	/**
+	 * Closes the stream
+	 * 
+	 * @param closedByClient Defines if the cloising is made by the client
+	 */
 	private void close(boolean closedByClient) {
-		this.interceptor.setClosedByClient(closedByClient);
+		this.interceptorCallback.setClosedByClient(closedByClient);
 		if (innerWebsocket != null) {
 			innerWebsocket.close(1000, null);
 		}
+		forceClosingHandler.run();
 	}
 
 	/**
