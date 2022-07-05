@@ -117,7 +117,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 * 
 	 * @param closedByClient Defines if the cloising is made by the client
 	 */
-	private void close(boolean closedByClient) {
+	public void close(boolean closedByClient) {
 		this.interceptorCallback.setClosedByClient(closedByClient);
 		if (innerWebsocket != null) {
 			innerWebsocket.close(1000, null);

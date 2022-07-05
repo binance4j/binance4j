@@ -50,7 +50,7 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 	public void disconnect(Duration timeout) {
 		ScheduledTask timeoutTask = () -> {
 			callback.onFailure(disconnectedException);
-			websocketClient.close();
+			websocketClient.close(false);
 		};
 
 		eventHandler = new TimeoutEvent(timeout, timeoutTask);

@@ -18,6 +18,13 @@ public interface WebsocketClient {
 	void close();
 
 	/**
+	 * Closes of the stream
+	 * 
+	 * @param force force the closing?
+	 */
+	void close(boolean force);
+
+	/**
 	 * The client configuration
 	 */
 	WebsocketClientConfiguration getConfiguration();
