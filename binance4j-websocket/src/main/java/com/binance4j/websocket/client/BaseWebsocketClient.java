@@ -102,6 +102,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 		close(false);
 		innerWebsocket = newWebSocket(configuration, channel, listener);
 		interceptorCallback.setSocket(innerWebsocket);
+		interceptorCallback.setForceClosingHandler(forceClosingHandler);
 		interceptorCallback.getConnectionHandler().run();
 		closeClientHandler.run();
 	}
@@ -120,8 +121,8 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 		this.interceptorCallback.setClosedByClient(closedByClient);
 		if (innerWebsocket != null) {
 			innerWebsocket.close(1000, null);
+			forceClosingHandler.run();
 		}
-		forceClosingHandler.run();
 	}
 
 	/**

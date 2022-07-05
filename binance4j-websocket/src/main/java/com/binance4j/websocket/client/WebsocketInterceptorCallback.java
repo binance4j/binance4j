@@ -5,6 +5,7 @@ import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 import com.binance4j.websocket.event.WebsocketConnectionHandler;
 import com.binance4j.websocket.event.WebsocketDisconnectionHandler;
+import com.binance4j.websocket.event.WebsocketEventHandler;
 import com.binance4j.websocket.event.WebsocketNoResponseHandler;
 
 import lombok.AccessLevel;
@@ -27,17 +28,22 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	 * Event to handle connection failure and try to reconnect
 	 */
 	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketConnectionHandler connectionHandler;
+	private WebsocketEventHandler connectionHandler;
 	/**
 	 * Event to handle no response from server
 	 */
 	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketNoResponseHandler noResponseHandler;
+	private WebsocketEventHandler noResponseHandler;
 	/**
 	 * Event to handle failure in the disconnection state
 	 */
 	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketDisconnectionHandler disconnectionHandler;
+	private WebsocketEventHandler disconnectionHandler;
+
+	/** Forces the call of onClosing and onClosed */
+	@Getter(value = AccessLevel.PROTECTED)
+	private WebsocketEventHandler forceClosingHandler;
+
 	/**
 	 * Tells the interceptor if th e closing has been made by the client
 	 */
@@ -74,6 +80,9 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 
 	@Override
 	public void onClosing(WebsocketCloseObject closeObject) {
+		if (forceClosingHandler != null) {
+			forceClosingHandler.cancel();
+		}
 		onClosingCalled = true;
 		// we force disconnection
 		disconnectionHandler.run();
