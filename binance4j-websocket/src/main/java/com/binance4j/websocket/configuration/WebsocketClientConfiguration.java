@@ -54,4 +54,10 @@ public class WebsocketClientConfiguration {
 	 * Time after which the client disconnects if stuck in closing state
 	 */
 	private Duration disconnectionTimeout = Duration.ofSeconds(5);
+
+	/**
+	 * Time after wich the client will disconnect.
+	 * Default: 1 day.
+	 */
+	private Duration closeAfter = Duration.ofDays(1);
 }

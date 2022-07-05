@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.binance4j.websocket.callback.ApiWebSocketListener;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
+import com.binance4j.websocket.event.WebsocketCloseClientHandler;
 import com.binance4j.websocket.event.WebsocketForceClosingHandler;
 
 import lombok.AccessLevel;
@@ -20,7 +21,7 @@ import okhttp3.WebSocket;
  * Websocket clients base class
  */
 @Data
-public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
+public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/**
 	 * The websocket client
 	 */
@@ -68,6 +69,9 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 	 */
 	protected WebsocketForceClosingHandler forceClosingHandler;
 
+	/** Will close the client after some time */
+	protected WebsocketCloseClientHandler closeClientHandler;
+
 	protected BaseWebsocketClient() {
 
 	}
@@ -85,11 +89,12 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 		this.stream = stream;
 		this.payloadClass = payloadClass;
 		this.callback = callback;
-		interceptorCallback = new WebsocketInterceptorCallback<>(this);
+		interceptorCallback = new WebsocketInterceptorCallback<>(this, callback);
 		channel = generateChannel(symbols, stream);
 		listener = new ApiWebSocketListener<>(interceptorCallback, payloadClass);
 		configuration = new WebsocketClientConfiguration();
-		forceClosingHandler = new WebsocketForceClosingHandler(this);
+		forceClosingHandler = new WebsocketForceClosingHandler(this, interceptorCallback);
+		closeClientHandler = new WebsocketCloseClientHandler(this, interceptorCallback);
 	}
 
 	@Override
@@ -98,6 +103,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient<T> {
 		innerWebsocket = newWebSocket(configuration, channel, listener);
 		interceptorCallback.setSocket(innerWebsocket);
 		interceptorCallback.getConnectionHandler().run();
+		closeClientHandler.run();
 	}
 
 	@Override
