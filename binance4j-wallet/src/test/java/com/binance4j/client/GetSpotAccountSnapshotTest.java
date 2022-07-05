@@ -24,22 +24,15 @@ class GetSpotAccountSnapshotTest {
 		assertNotNull(snapshot.getMsg());
 
 		snapshot.getSnapshotVos().forEach(s -> {
-			s.getData().getBalances().forEach(b -> {
-				assertNotNull(b.getClass());
-				assertNotNull(b.getFree());
-				assertNotNull(b.getLocked());
-			});
-			assertNotNull(s.getData().getTotalAssetOfBtc());
-			assertNotNull(s.getType());
-			assertNotNull(s.getUpdateTime());
-
+			assertTrue(TestService.hasNoNullProperty(s));
+			assertTrue(TestService.hasNoNullProperty(s.getData()));
+			s.getData().getBalances().forEach(b -> assertTrue(TestService.hasNoNullProperty(b)));
 		});
 	}
 
 	@Test
 	@DisplayName("It should return the snapshot with the good size or throw an exception if you don't have a margin account")
-	void testGetSpotAccountSnapshotWithLimit() {
-		try {
+	void testGetSpotAccountSnapshotWithLimit() throws ApiException {
 			int limit = 25;
 			AccountSnapshotRequest req = new AccountSnapshotRequest(limit);
 			SpotAccountSnapshotResponse snapshot = client.getSpotAccountSnapshot(req).execute();
@@ -47,19 +40,9 @@ class GetSpotAccountSnapshotTest {
 			assertNotNull(snapshot.getMsg());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				s.getData().getBalances().forEach(b -> {
-					assertNotNull(b.getClass());
-					assertNotNull(b.getFree());
-					assertNotNull(b.getLocked());
-				});
-				assertNotNull(s.getData().getTotalAssetOfBtc());
-				assertNotNull(s.getType());
-				assertNotNull(s.getUpdateTime());
-
+				assertTrue(TestService.hasNoNullProperty(s));
+				assertTrue(TestService.hasNoNullProperty(s.getData()));
+				s.getData().getBalances().forEach(b -> assertTrue(TestService.hasNoNullProperty(b)));
 			});
-		} catch (ApiException e) {
-
-			assertTrue(true);
-		}
 	}
 }

@@ -1,6 +1,6 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 
@@ -18,10 +18,7 @@ class GetDepositAddressTest {
 	@DisplayName("It should return the deposit address")
 	void testGetDepositAddress() throws ApiException {
 		DepositAddress address = client.getDepositAddress(new DepositAddressRequest("BNB")).execute();
-		assertNotNull(address.getAddress());
-		assertNotNull(address.getCoin());
-		assertNotNull(address.getTag());
-		assertNotNull(address.getUrl());
+		assertTrue(TestService.hasNoNullProperty(address));
 	}
 
 	// Test fails on Github Actions (USA restriction?)
@@ -29,10 +26,6 @@ class GetDepositAddressTest {
 	@DisplayName("It should return the deposit address of the given network")
 	void testGetDepositAddressWithNetwork() throws ApiException {
 		DepositAddress address = client.getDepositAddress(new DepositAddressRequest("BNB", "BNB")).execute();
-
-		assertNotNull(address.getAddress());
-		assertNotNull(address.getCoin());
-		assertNotNull(address.getTag());
-		assertNotNull(address.getUrl());
+		assertTrue(TestService.hasNoNullProperty(address));
 	}
 }

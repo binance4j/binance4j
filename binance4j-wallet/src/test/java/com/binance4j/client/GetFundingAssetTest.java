@@ -1,28 +1,25 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.funding.FundingAsset;
 import com.binance4j.wallet.funding.FundingAssetRequest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GetFundingAssetTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void test(List<FundingAsset> fundings) {
 		fundings.forEach(f -> {
-			assertNotNull(f.getAsset());
-			assertNotNull(f.getFree());
-			assertNotNull(f.getFreeze());
-			assertNotNull(f.getLocked());
-			assertNotNull(f.getWithdrawing());
+			assertTrue(TestService.hasNoNullProperty(f));
 			// is false if needBtcValuation is not defined
 			// assertNotNull(f.getBtcValuation());
 		});

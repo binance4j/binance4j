@@ -1,7 +1,6 @@
 package com.binance4j.client;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -24,17 +23,10 @@ class GetFuturesAccountSnapshotTest {
 			assertNotEquals(0, snapshot.getCode());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				assertNotNull(s.getType());
-				assertNotNull(s.getUpdateTime());
-				assertNotNull(s.getData().getPosition());
-				s.getData().getAssets().forEach(a -> {
-					assertNotNull(a.getAsset());
-					assertNotNull(a.getMarginBalance());
-					assertNotNull(a.getWalletBalance());
-				});
+				assertTrue(TestService.hasNoNullProperty(s));
+				s.getData().getAssets().forEach(a -> assertTrue(TestService.hasNoNullProperty(a)));
 			});
 		} catch (ApiException e) {
-
 			assertTrue(true);
 		}
 	}
@@ -51,14 +43,8 @@ class GetFuturesAccountSnapshotTest {
 			assertNotEquals(0, snapshot.getCode());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				assertNotNull(s.getType());
-				assertNotNull(s.getUpdateTime());
-				assertNotNull(s.getData().getPosition());
-				s.getData().getAssets().forEach(a -> {
-					assertNotNull(a.getAsset());
-					assertNotNull(a.getMarginBalance());
-					assertNotNull(a.getWalletBalance());
-				});
+				assertTrue(TestService.hasNoNullProperty(s));
+				s.getData().getAssets().forEach(a -> assertTrue(TestService.hasNoNullProperty(a)));
 			});
 		} catch (ApiException e) {
 

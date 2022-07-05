@@ -1,37 +1,25 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.deposit.DepositHistory;
 import com.binance4j.wallet.deposit.DepositHistoryRequest;
 import com.binance4j.wallet.deposit.DepositStatus;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GetDepositHistoryTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void test(List<DepositHistory> history) {
-		history.forEach(h -> {
-			assertNotNull(h.getAddress());
-			assertNotNull(h.getAddressTag());
-			assertNotNull(h.getAmount());
-			assertNotNull(h.getCoin());
-			assertNotNull(h.getConfirmTimes());
-			assertNotNull(h.getInsertTime());
-			assertNotNull(h.getNetwork());
-			assertNotNull(h.getDepositStatus());
-			assertNotNull(h.getStatus());
-			assertNotNull(h.getTransferType());
-			assertNotNull(h.getTxId());
-			assertNotNull(h.getUnlockConfirm());
-		});
+		history.forEach(h -> assertTrue(TestService.hasNoNullProperty(h)));
 	}
 
 	@Test

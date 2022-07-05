@@ -1,6 +1,6 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,11 +17,7 @@ public class GetApiTradingStatusTest {
 	@DisplayName("It should return the api trading status")
 	void testGetApiTradingStatusOfAll() throws ApiException {
 		ApiTradingStatus status = client.getApiTradingStatus().execute();
-		assertNotNull(status.getData().isLocked());
-		assertNotNull(status.getData().getPlannedRecoverTime());
-		assertNotNull(status.getData().getTriggerCondition().getGCR());
-		assertNotNull(status.getData().getTriggerCondition().getIFER());
-		assertNotNull(status.getData().getTriggerCondition().getUFR());
-		assertNotNull(status.getData().getUpdateTime());
+		assertTrue(TestService.hasNoNullProperty(status.getData()));
+		assertTrue(TestService.hasNoNullProperty(status.getData().getTriggerCondition()));
 	}
 }

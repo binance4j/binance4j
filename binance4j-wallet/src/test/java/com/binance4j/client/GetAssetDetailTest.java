@@ -1,26 +1,24 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Map;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.service.TestService;
 import com.binance4j.wallet.assetdetail.AssetDetail;
 import com.binance4j.wallet.assetdetail.AssetDetailRequest;
 import com.binance4j.wallet.client.WalletClient;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GetAssetDetailTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void testDetail(AssetDetail assetDetail) {
-		assertNotNull(assetDetail.getDepositStatus());
-		assertNotNull(assetDetail.getDepositTip());
-		assertNotNull(assetDetail.getMinWithdrawAmount());
-		assertNotNull(assetDetail.getWithdrawFee());
-		assertNotNull(assetDetail.getWithdrawStatus());
+		assertTrue(TestService.hasNoNullProperty(assetDetail));
 	}
 
 	@Test

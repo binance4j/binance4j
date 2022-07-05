@@ -1,16 +1,11 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.util.List;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
-import com.binance4j.wallet.coinsinfo.CoinInformation;
 
 class GetAllCoinsInfoTest {
 	final WalletClient client = TestService.CLIENT;
@@ -18,23 +13,6 @@ class GetAllCoinsInfoTest {
 	@Test
 	@DisplayName("It should return the coins info")
 	void testGetAllCoinsInfo() throws ApiException {
-		List<CoinInformation> infos = client.getAllCoinsInfo().execute();
-
-		infos.forEach(i -> {
-			assertNotNull(i.getCoin());
-			assertNotNull(i.isDepositAllEnable());
-			assertNotNull(i.getFree());
-			assertNotNull(i.getFreeze());
-			assertNotNull(i.getIpoable());
-			assertNotNull(i.getIpoing());
-			assertNotNull(i.isLegalMoney());
-			assertNotNull(i.getLocked());
-			assertNotNull(i.getName());
-			assertNotNull(i.getNetworkList());
-			assertNotNull(i.getStorage());
-			assertNotNull(i.isTrading());
-			assertNotNull(i.isWithdrawAllEnable());
-			assertNotNull(i.getWithdrawing());
-		});
+		client.getAllCoinsInfo().execute().forEach(info -> TestService.hasNoNullProperty(info));
 	}
 }

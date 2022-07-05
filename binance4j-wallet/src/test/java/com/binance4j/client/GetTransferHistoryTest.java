@@ -18,17 +18,11 @@ class GetTransferHistoryTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void test(WalletTransferHistory history) {
-
 		assertNotNull(history.getTotal());
+
 		if (history.getRows() != null) {
-			history.getRows().forEach(r -> {
-				assertNotNull(r.getAmount());
-				assertNotNull(r.getAsset());
-				assertNotNull(r.getStatus());
-				assertNotNull(r.getTimestamp());
-				assertNotNull(r.getTranId());
-				assertNotNull(r.getType());
-			});
+			history.getRows().forEach(r -> System.out.println(TestService.getNullProperties(r)));
+			history.getRows().forEach(r -> assertTrue(TestService.hasNoNullProperty(r)));
 		}
 	}
 

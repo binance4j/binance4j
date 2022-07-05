@@ -1,39 +1,32 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.withdraw.WithdrawHistory;
 import com.binance4j.wallet.withdraw.WithdrawHistoryRequest;
 import com.binance4j.wallet.withdraw.WithdrawStatus;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GetWithdrawHistoryTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void test(List<WithdrawHistory> history) {
-		if (history != null) {
-			history.forEach(h -> {
-				assertNotNull(h.getAddress());
-				assertNotNull(h.getAmount());
-				assertNotNull(h.getApplyTime());
-				assertNotNull(h.getCoin());
-				assertNotNull(h.getConfirmNo());
-				assertNotNull(h.getId());
-				assertNotNull(h.getInfo());
-				assertNotNull(h.getNetwork());
-				assertNotNull(h.getStatus());
-				assertNotNull(h.getTransactionFee());
-				assertNotNull(h.getTransferType());
-				assertNotNull(h.getTxId());
-				assertNotEquals("", h.getWithdrawOrderId());
-			});
-		}
+
+		history.forEach(h -> {
+			if (h.getWithdrawOrderId() != null) {
+				assertTrue(TestService.hasNoNullProperty(h));
+			} else {
+				assertTrue(TestService.getNullProperties(h).contains("withdrawOrderId"));
+			}
+		});
 	}
 
 	@Test
