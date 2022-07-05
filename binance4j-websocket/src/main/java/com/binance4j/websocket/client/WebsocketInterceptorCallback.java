@@ -22,7 +22,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	/**
 	 * The main ws client
 	 */
-	WebsocketClient<T> websocketClient;
+	WebsocketClient websocketClient;
 	/**
 	 * Event to handle connection failure and try to reconnect
 	 */
@@ -51,22 +51,25 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	@Getter(AccessLevel.NONE)
 	private WebSocket socket;
 
+	protected WebsocketCallback<T> callback;
+
 	/**
 	 * Constructor
 	 *
 	 * @param websocketClient The main ws client
 	 */
-	public WebsocketInterceptorCallback(WebsocketClient<T> websocketClient) {
+	public WebsocketInterceptorCallback(WebsocketClient websocketClient, WebsocketCallback<T> callback) {
 		this.websocketClient = websocketClient;
-		connectionHandler = new WebsocketConnectionHandler(websocketClient);
-		noResponseHandler = new WebsocketNoResponseHandler(websocketClient);
-		disconnectionHandler = new WebsocketDisconnectionHandler(websocketClient);
+		connectionHandler = new WebsocketConnectionHandler(websocketClient, this);
+		noResponseHandler = new WebsocketNoResponseHandler(websocketClient, this);
+		disconnectionHandler = new WebsocketDisconnectionHandler(websocketClient, this);
+		this.callback = callback;
 	}
 
 	@Override
 	public void onMessage(T payload) {
 		noResponseHandler.run();
-		websocketClient.getCallback().onMessage(payload);
+		callback.onMessage(payload);
 	}
 
 	@Override
@@ -74,14 +77,14 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 		onClosingCalled = true;
 		// we force disconnection
 		disconnectionHandler.run();
-		websocketClient.getCallback().onClosing(closeObject);
+		callback.onClosing(closeObject);
 	}
 
 	@Override
 	public void onClosed(WebsocketCloseObject closeObject) {
 		// we stop disconnection forcing
 		disconnectionHandler.cancel();
-		websocketClient.getCallback().onClosed(closeObject);
+		callback.onClosed(closeObject);
 
 		// Reconnect if server closed stream and keepAlive is on
 		if (websocketClient.getConfiguration().isKeepAlive() && !closedByClient) {
@@ -98,11 +101,11 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 		// we handle no response data
 		noResponseHandler.run();
 
-		websocketClient.getCallback().onOpen(response);
+		callback.onOpen(response);
 	}
 
 	@Override
 	public void onFailure(ApiException exception) {
-		websocketClient.getCallback().onFailure(exception);
+		callback.onFailure(exception);
 	}
 }
