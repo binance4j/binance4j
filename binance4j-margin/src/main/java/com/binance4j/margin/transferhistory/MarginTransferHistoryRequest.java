@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 public class MarginTransferHistoryRequest extends IntervalRequest {
     private String asset;
     private MarginTransferHistoryType type;
-    private long current;
-    private int size;
+    private Long current;
+    private Integer size;
     private Boolean archived;
 
     public MarginTransferHistoryRequest() {
