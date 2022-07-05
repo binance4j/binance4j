@@ -23,9 +23,9 @@ import com.binance4j.margin.loan.LoanRecord;
 import com.binance4j.margin.oco.GetMarginOCOResponse;
 import com.binance4j.margin.oco.MarginOCOResponse;
 import com.binance4j.margin.order.MarginOrderResponse;
+import com.binance4j.margin.pair.MarginPair;
 import com.binance4j.margin.priceindex.PriceIndex;
 import com.binance4j.margin.repay.RepayRecord;
-import com.binance4j.margin.symbol.MarginSymbol;
 import com.binance4j.margin.tier.IsolatedMarginTierData;
 import com.binance4j.margin.trade.MarginTrade;
 import com.binance4j.margin.transfer.MarginIsolatedTransferHistory;
@@ -67,16 +67,17 @@ public interface MarginMapping {
     Call<MarginAsset> getAsset(@QueryMap Map<String, Object> map);
 
     @Headers({ API_H })
+    @GET(BASE + "pair")
+    Call<MarginPair> getCrossMarginPair(@QueryMap Map<String, Object> map);
+
+    @Headers({ API_H })
+
+    @GET(BASE + "allPairs")
+    Call<List<MarginPair>> getAllCrossMarginPairs(@QueryMap Map<String, Object> map);
+
+    @Headers({ API_H })
     @GET(BASE + "allAssets")
     Call<List<MarginAsset>> getAllAssets();
-
-    @Headers({ API_H })
-    @GET(BASE + "pair")
-    Call<MarginSymbol> getSymbol(@QueryMap Map<String, Object> map);
-
-    @Headers({ API_H })
-    @GET(BASE + "allPairs")
-    Call<List<MarginSymbol>> getAllSymbols();
 
     @Headers({ API_H })
     @GET(BASE + "priceIndex")
@@ -188,11 +189,11 @@ public interface MarginMapping {
 
     @Headers({ API_H, SIGNED_H })
     @GET(BASE + "isolated/pair")
-    Call<MarginSymbol> getIsolatedSymbol(@QueryMap Map<String, Object> map);
+    Call<MarginPair> getIsolatedSymbol(@QueryMap Map<String, Object> map);
 
     @Headers({ API_H, SIGNED_H })
     @GET(BASE + "isolated/allPairs")
-    Call<List<MarginSymbol>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
+    Call<List<MarginPair>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
 
     @Headers({ API_H, SIGNED_H })
     @POST("/sapi/v1/bnbBurn")

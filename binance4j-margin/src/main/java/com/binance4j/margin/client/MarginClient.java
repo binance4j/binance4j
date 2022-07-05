@@ -48,14 +48,14 @@ import com.binance4j.margin.order.MarginOpenOrdersRequest;
 import com.binance4j.margin.order.MarginOrder;
 import com.binance4j.margin.order.MarginOrderRequest;
 import com.binance4j.margin.order.MarginOrderResponse;
+import com.binance4j.margin.pair.AllMarginPairsRequest;
+import com.binance4j.margin.pair.MarginPair;
+import com.binance4j.margin.pair.MarginPairRequest;
 import com.binance4j.margin.priceindex.PriceIndex;
 import com.binance4j.margin.priceindex.PriceIndexRequest;
 import com.binance4j.margin.repay.RepayRecord;
 import com.binance4j.margin.repay.RepayRecordRequest;
 import com.binance4j.margin.repay.RepayRequest;
-import com.binance4j.margin.symbol.MarginSymbol;
-import com.binance4j.margin.symbol.MarginSymbolRequest;
-import com.binance4j.margin.symbol.MarginSymbolsRequest;
 import com.binance4j.margin.tier.IsolatedMarginTierData;
 import com.binance4j.margin.tier.IsolatedMarginTierDataRequest;
 import com.binance4j.margin.trade.MarginTrade;
@@ -128,23 +128,33 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
-     * Gets the informations about an symbol
+     * Gets the informations about a cross margin pair
      * 
      * @see <a href=
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-pair-market_data">Documentation</a>
      */
-    public RequestExecutor<MarginSymbol> getSymbol(MarginSymbolRequest req) {
-        return new RequestExecutor<>(service.getSymbol(req.toMap()));
+    public RequestExecutor<MarginPair> getCrossMarginPair(MarginPairRequest req) {
+        return new RequestExecutor<>(service.getCrossMarginPair(req.toMap()));
     }
 
     /**
-     * Gets the informations about all symbols
+     * Gets the informations about all cross margin pairs
      * 
      * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#get-all-cross-margin-pairs-market_data">Documentation</a>
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-pair-market_data">Documentation</a>
      */
-    public RequestExecutor<List<MarginSymbol>> getAllSymbols() {
-        return new RequestExecutor<>(service.getAllSymbols());
+    public RequestExecutor<List<MarginPair>> getAllCrossMarginPairs() {
+        return getAllCrossMarginPairs(new AllMarginPairsRequest());
+    }
+
+    /**
+     * Gets the informations about all cross margin pairs
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-pair-market_data">Documentation</a>
+     */
+    public RequestExecutor<List<MarginPair>> getAllCrossMarginPairs(AllMarginPairsRequest req) {
+        return new RequestExecutor<>(service.getAllCrossMarginPairs(req.toMap()));
     }
 
     /**
@@ -271,6 +281,16 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<MarginAccount> getAccount(MarginAccountRequest req) {
         return new RequestExecutor<>(service.getAccount(req.toMap()));
+    }
+
+    /**
+     * Get Margin Account Details
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-account-details-user_data">Documentation</a>
+     */
+    public RequestExecutor<MarginAccount> getAccount() {
+        return new RequestExecutor<>(service.getAccount(new MarginAccountRequest().toMap()));
     }
 
     /**
@@ -512,7 +532,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      * @see <a href=
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-isolated-margin-symbol-user_data">Documentation</a>
      */
-    public RequestExecutor<MarginSymbol> getIsolatedSymbol(MarginSymbolRequest req) {
+    public RequestExecutor<MarginPair> getIsolatedSymbol(MarginPairRequest req) {
         return new RequestExecutor<>(
                 service.getIsolatedSymbol(req.toMap()));
     }
@@ -523,7 +543,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      * @see <a href=
      *      "https://binance-docs.github.io/apidocs/spot/en/#get-all-isolated-margin-symbol-user_data">Documentation</a>
      */
-    public RequestExecutor<List<MarginSymbol>> getAllIsolatedSymbols(MarginSymbolsRequest req) {
+    public RequestExecutor<List<MarginPair>> getAllIsolatedSymbols(AllMarginPairsRequest req) {
         return new RequestExecutor<>(
                 service.getAllIsolatedSymbols(req.toMap()));
     }
