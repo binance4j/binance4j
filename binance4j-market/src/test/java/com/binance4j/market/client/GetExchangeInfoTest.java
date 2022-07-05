@@ -1,7 +1,7 @@
 package com.binance4j.market.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,41 +17,10 @@ class GetExchangeInfoTest extends ConcurrentTest {
 	static final MarketClient client = TestService.CLIENT;
 
 	static void test(ExchangeInfo res) {
-		assertNotNull(res.getTimezone());
-		assertNotNull(res.getServerTime());
-
-		res.getExchangeFilters().forEach(
-				f -> {
-					assertNotNull(f.getFilterType());
-					assertNotNull(f.getLimit());
-				});
-
-		res.getRateLimits().forEach(
-				rl -> {
-					assertNotNull(rl.getInterval());
-					assertNotNull(rl.getIntervalNum());
-					assertNotNull(rl.getLimit());
-					assertNotNull(rl.getRateLimitType());
-				});
-
-		res.getSymbols().forEach(
-				s -> {
-					assertNotNull(s.getBaseAsset());
-					assertNotNull(s.getBaseAssetPrecision());
-					assertNotNull(s.getFilters());
-					assertNotNull(s.icebergAllowed());
-					assertNotNull(s.isMarginTradingAllowed());
-					assertNotNull(s.isSpotTradingAllowed());
-					assertNotNull(s.isOcoAllowed());
-					assertNotNull(s.getOrderTypes());
-					assertNotNull(s.getPermissions());
-					assertNotNull(s.getQuoteAsset());
-					assertNotNull(s.getQuoteCommissionPrecision());
-					assertNotNull(s.isQuoteOrderQtyMarketAllowed());
-					assertNotNull(s.getQuoteAssetPrecision());
-					assertNotNull(s.getStatus());
-					assertNotNull(s.getSymbol());
-				});
+		assertTrue(TestService.hasNoNullProperty(res));
+		res.getExchangeFilters().forEach(f -> assertTrue(TestService.hasNoNullProperty(f)));
+		res.getRateLimits().forEach(rl -> assertTrue(TestService.hasNoNullProperty(rl)));
+		res.getSymbols().forEach(s -> assertTrue(TestService.hasNoNullProperty(s)));
 	}
 
 	@Test

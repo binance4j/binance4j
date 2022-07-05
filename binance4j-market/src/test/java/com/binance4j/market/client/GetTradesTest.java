@@ -1,7 +1,7 @@
 package com.binance4j.market.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -18,15 +18,7 @@ class GetTradesTest extends ConcurrentTest {
 	final MarketClient client = TestService.CLIENT;
 
 	static void test(List<TradeHistoryItem> history) {
-		history.forEach(h -> {
-			assertNotNull(h.getId());
-			assertNotNull(h.isBestMatch());
-			assertNotNull(h.isBuyerMaker());
-			assertNotNull(h.getPrice());
-			assertNotNull(h.getQuantity());
-			assertNotNull(h.getQuoteQuantity());
-			assertNotNull(h.getTime());
-		});
+		assertTrue(TestService.hasNoNullProperty(history));
 	}
 
 	@Test

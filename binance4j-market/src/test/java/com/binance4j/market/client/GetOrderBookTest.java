@@ -1,31 +1,24 @@
 package com.binance4j.market.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.market.depth.OrderBook;
 import com.binance4j.market.depth.OrderBookRequest;
 import com.binance4j.market.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class GetOrderBookTest extends ConcurrentTest {
 	final MarketClient client = TestService.CLIENT;
 
 	static void test(OrderBook orderBook) {
-		orderBook.getAsks().forEach(a -> {
-			assertNotNull(a.getPrice());
-			assertNotNull(a.getQuantity());
-		});
-
-		orderBook.getBids().forEach(a -> {
-			assertNotNull(a.getPrice());
-			assertNotNull(a.getQuantity());
-		});
-
-		assertNotNull(orderBook.getLastUpdateId());
+		assertTrue(TestService.hasNoNullProperty(orderBook));
+		orderBook.getAsks().forEach(ask -> assertTrue(TestService.hasNoNullProperty(ask)));
+		orderBook.getBids().forEach(bid -> assertTrue(TestService.hasNoNullProperty(bid)));
 	}
 
 	@Test

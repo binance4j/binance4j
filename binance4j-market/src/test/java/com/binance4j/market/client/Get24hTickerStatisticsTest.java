@@ -1,17 +1,19 @@
 package com.binance4j.market.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.market.service.TestService;
 import com.binance4j.market.tickerstatistics.TickerStatistics;
 import com.binance4j.market.tickerstatistics.TickerStatisticsRequest;
 import com.binance4j.market.tickerstatistics.TickersStatisticsRequest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class Get24hTickerStatisticsTest extends ConcurrentTest {
 	final MarketClient client = TestService.CLIENT;
@@ -22,27 +24,7 @@ class Get24hTickerStatisticsTest extends ConcurrentTest {
 	 * @param stats The 24h stats
 	 */
 	static void testStats(TickerStatistics stats) {
-		assertNotNull(stats.getSymbol());
-		assertNotNull(stats.getAskPrice());
-		assertNotNull(stats.getAskQty());
-		assertNotNull(stats.getBidPrice());
-		assertNotNull(stats.getBidQty());
-		assertNotNull(stats.getCloseTime());
-		assertNotNull(stats.getCount());
-		assertNotNull(stats.getFirstId());
-		assertNotNull(stats.getHighPrice());
-		assertNotNull(stats.getLastId());
-		assertNotNull(stats.getLastPrice());
-		assertNotNull(stats.getLastQty());
-		assertNotNull(stats.getLowPrice());
-		assertNotNull(stats.getOpenPrice());
-		assertNotNull(stats.getOpenTime());
-		assertNotNull(stats.getPrevClosePrice());
-		assertNotNull(stats.getPriceChange());
-		assertNotNull(stats.getPriceChangePercent());
-		assertNotNull(stats.getQuoteVolume());
-		assertNotNull(stats.getVolume());
-		assertNotNull(stats.getWeightedAvgPrice());
+		assertTrue(TestService.hasNoNullProperty(stats));
 	}
 
 	@Test

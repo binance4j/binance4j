@@ -1,7 +1,6 @@
 package com.binance4j.market.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -44,17 +43,7 @@ public class GetAggTradesTests extends ConcurrentTest {
 
 	List<AggTrade> test(AggTradeRequest req) throws ApiException {
 		List<AggTrade> res = client.getAggTrades(req).execute();
-		res.forEach(r -> {
-			assertNotNull(r.getTradeId());
-			assertNotNull(r.getFirstTradeId());
-			assertNotNull(r.isBestMatch());
-			assertNotNull(r.isBuyerMaker());
-			assertNotNull(r.getLastTradeId());
-			assertNotNull(r.getPrice());
-			assertNotNull(r.getQuantity());
-			assertNotNull(r.getTime());
-		});
-
+		res.forEach(trade -> assertTrue(TestService.hasNoNullProperty(trade)));
 		return res;
 	}
 

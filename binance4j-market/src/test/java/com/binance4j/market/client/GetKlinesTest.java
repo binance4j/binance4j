@@ -1,38 +1,27 @@
 package com.binance4j.market.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.market.kline.KlinesRequest;
 import com.binance4j.market.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GetKlinesTest extends ConcurrentTest {
 	final MarketClient client = TestService.CLIENT;
 
 	static void test(List<Candle> candles) {
-		candles.forEach(candle -> {
-			assertNotNull(candle.getClose());
-			assertNotNull(candle.getCloseTime());
-			assertNotNull(candle.getHigh());
-			assertNotNull(candle.getLow());
-			assertNotNull(candle.getNumberOfTrades());
-			assertNotNull(candle.getOpen());
-			assertNotNull(candle.getOpenTime());
-			assertNotNull(candle.getQuoteAssetVolume());
-			assertNotNull(candle.getTakerBuyBaseAssetVolume());
-			assertNotNull(candle.getTakerBuyQuoteAssetVolume());
-			assertNotNull(candle.getVolume());
-		});
+		candles.forEach(candle -> assertTrue(TestService.hasNoNullProperty(candle)));
 	}
 
 	@Test

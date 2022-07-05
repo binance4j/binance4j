@@ -1,27 +1,25 @@
 package com.binance4j.market.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.market.depth.BookTicker;
 import com.binance4j.market.depth.BookTickerRequest;
 import com.binance4j.market.depth.BookTickersRequest;
 import com.binance4j.market.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GetBookTickerTest extends ConcurrentTest {
 	final MarketClient client = TestService.CLIENT;
 
 	static void test(BookTicker bookTicker) {
-		assertNotNull(bookTicker.getAskPrice());
-		assertNotNull(bookTicker.getAskQuantity());
-		assertNotNull(bookTicker.getBidPrice());
-		assertNotNull(bookTicker.getBidQuantity());
-		assertNotNull(bookTicker.getSymbol());
+		assertTrue(TestService.hasNoNullProperty(bookTicker));
 	}
 
 	static void test(List<BookTicker> bookTickers) {
