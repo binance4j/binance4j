@@ -1,11 +1,12 @@
 package com.binance4j.nft.asset;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.util.List;
+import lombok.Data;
 
 /**
  * A NFT withdraw history
@@ -19,7 +20,7 @@ public class NFTAssetHistory {
 	 */
 	private Long total;
 	/**
-	 * THe transactions
+	 * The transactions
 	 */
 	private List<NFTAsset> list;
 }

@@ -40,7 +40,7 @@ public class SymbolInfo {
    */
   private String symbol;
   /**
-   * THe quote coin of the pair
+   * The quote coin of the pair
    */
   private String quoteAsset;
   /**

@@ -24,7 +24,12 @@ public interface WebsocketClient<T> {
 	WebsocketClientConfiguration getConfiguration();
 
 	/**
-	 * The stream events handler
+	 * The inner stream events handler
 	 */
 	WebsocketCallback<T> getCallback();
+
+	/**
+	 * The main stream events handler
+	 */
+	WebsocketInterceptorCallback<T> getInterceptorCallback();
 }

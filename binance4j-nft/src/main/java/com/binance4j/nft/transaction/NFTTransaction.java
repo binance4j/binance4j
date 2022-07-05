@@ -1,12 +1,13 @@
 package com.binance4j.nft.transaction;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.List;
+import lombok.Data;
 
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
@@ -36,7 +37,7 @@ public class NFTTransaction {
 	 */
 	private BigDecimal tradeAmount;
 	/**
-	 * THe currency used to buy the NFT
+	 * The currency used to buy the NFT
 	 */
 	private String tradeCurrency;
 }

@@ -4,7 +4,7 @@ import java.time.Duration;
 
 /**
  * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask}
- * after the given timeout
+ * after the given {@link Duration timeout}
  */
 public class TimeoutEvent extends BaseScheduledEvent {
     public TimeoutEvent(Duration timeout, ScheduledTask scheduledTask) {
