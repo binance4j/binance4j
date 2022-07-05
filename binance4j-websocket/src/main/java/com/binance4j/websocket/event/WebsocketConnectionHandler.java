@@ -1,11 +1,12 @@
 package com.binance4j.websocket.event;
 
+import java.time.Duration;
+
 import com.binance4j.core.event.IntervalEvent;
 import com.binance4j.core.event.ScheduledTask;
 import com.binance4j.websocket.client.WebsocketClient;
+import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
-
-import java.time.Duration;
 
 /**
  * Reconnects or disconnects the client according to
@@ -13,8 +14,8 @@ import java.time.Duration;
  * {@link WebsocketClientConfiguration#getMaxReconnections()}
  */
 public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
-	public WebsocketConnectionHandler(WebsocketClient<?> websocketClient) {
-		super(websocketClient, "Connection failed", "Connection failed too many times");
+	public WebsocketConnectionHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
+		super(websocketClient, callback, "Connection failed", "Connection failed too many times");
 	}
 
 	public void run() {
@@ -25,7 +26,7 @@ public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
 		int maxReconnection = websocketClient.getConfiguration().getMaxReconnections();
 
 		ScheduledTask reconnectTask = () -> {
-			websocketClient.getCallback().onFailure(timeoutException);
+			callback.onFailure(timeoutException);
 
 			if (eventHandler.isFinalTick()) {
 				disconnect(timeoutInterval);

@@ -8,13 +8,14 @@ import com.binance4j.core.event.TimeoutEvent;
 import com.binance4j.core.exception.ApiErrorCode;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.client.WebsocketClient;
+import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 
 /**
  * The base class of every {@link WebsocketEventHandler}
  */
 public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler {
 	/** The websocket client handling this event handler */
-	protected final WebsocketClient<?> websocketClient;
+	protected final WebsocketClient websocketClient;
 
 	/** The timeout ApiException */
 	protected final ApiException timeoutException;
@@ -25,16 +26,19 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 	/** The inner scheduled event */
 	protected ScheduledEvent eventHandler;
 
+	protected WebsocketInterceptorCallback<?> callback;
 
-	protected BaseWebsocketEventHandler(WebsocketClient<?> websocketClient) {
-		this(websocketClient, "Timeout", "Disconnected");
+	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
+		this(websocketClient, callback, "Timeout", "Disconnected");
 	}
 
-	protected BaseWebsocketEventHandler(WebsocketClient<?> websocketClient, String timeoutMessage,
+	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback,
+			String timeoutMessage,
 			String disconnectedMessage) {
 		this.websocketClient = websocketClient;
 		timeoutException = new ApiException(ApiErrorCode.TIMEOUT, timeoutMessage);
 		disconnectedException = new ApiException(ApiErrorCode.DISCONNECTED, disconnectedMessage);
+		this.callback = callback;
 	}
 
 	public void cancel() {
@@ -45,7 +49,7 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 
 	public void disconnect(Duration timeout) {
 		ScheduledTask timeoutTask = () -> {
-			websocketClient.getCallback().onFailure(disconnectedException);
+			callback.onFailure(disconnectedException);
 			websocketClient.close();
 		};
 

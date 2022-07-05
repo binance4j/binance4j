@@ -1,6 +1,7 @@
 package com.binance4j.websocket.event;
 
 import com.binance4j.websocket.client.WebsocketClient;
+import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 
 /**
@@ -8,8 +9,8 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
  * {@link WebsocketClientConfiguration#getNoResponseTimeout()}
  */
 public class WebsocketNoResponseHandler extends BaseWebsocketEventHandler {
-	public WebsocketNoResponseHandler(WebsocketClient<?> websocketClient) {
-		super(websocketClient, "No response from the server", "Disconnected");
+	public WebsocketNoResponseHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
+		super(websocketClient, callback, "No response from the server", "Disconnected");
 	}
 
 	public void run() {
