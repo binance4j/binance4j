@@ -48,11 +48,8 @@ class WebsocketUserDataClientTest extends BaseWebsocketClientTest<UserDataUpdate
 
 		@Override
 		public void testMessageContent(UserDataUpdatePayload message) {
-
 			assertNotNull(message.getEventTime());
 			assertNotNull(message.getEventType());
-
-
 		}
 	}
 }

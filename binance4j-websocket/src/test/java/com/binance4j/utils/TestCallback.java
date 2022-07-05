@@ -30,33 +30,33 @@ public class TestCallback<T> implements WebsocketCallback<T> {
 
 	@Override
 	public void onClosing(WebsocketCloseObject websocketCloseObject) {
-
+		System.out.println(websocketCloseObject);
 		content.setOnClosingContent(websocketCloseObject);
 	}
 
 	@Override
 	public void onClosed(WebsocketCloseObject websocketCloseObject) {
-
+		System.out.println(websocketCloseObject);
 		content.setOnClosedContent(websocketCloseObject);
 		future.complete(null);
 	}
 
 	@Override
 	public void onOpen(Response response) {
-
+		System.out.println(response);
 		content.setOnOpenContent(response);
 	}
 
 	@Override
 	public void onFailure(ApiException exception) {
-
+		System.out.println(exception);
 		content.setOnFailureContent(exception);
 		client.close();
 	}
 
 	@Override
 	public void onMessage(T response) {
-
+		System.out.println(response);
 		content.setOnMessageContent(response);
 		client.close();
 	}

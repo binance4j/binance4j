@@ -41,41 +41,23 @@ class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePaylo
 
 		@Override
 		public void testMessageContent(CandlePayload message) {
-			System.out.println(message.getClose());
 			assertNotNull(message.getClose());
-			System.out.println(message.getCloseTime());
 			assertNotNull(message.getCloseTime());
-			System.out.println(message.getEventTime());
 			assertNotNull(message.getEventTime());
-			System.out.println(message.getEventType());
 			assertNotNull(message.getEventType());
-			System.out.println(message.getFirstTradeId());
 			assertNotNull(message.getFirstTradeId());
-			System.out.println(message.getHigh());
 			assertNotNull(message.getHigh());
-			System.out.println(message.getIntervalId());
 			assertNotNull(message.getIntervalId());
-			System.out.println(message.isBarFinal());
 			assertNotNull(message.isBarFinal());
-			System.out.println(message.getLastTradeId());
 			assertNotNull(message.getLastTradeId());
-			System.out.println(message.getLow());
 			assertNotNull(message.getLow());
-			System.out.println(message.getNumberOfTrades());
 			assertNotNull(message.getNumberOfTrades());
-			System.out.println(message.getOpen());
 			assertNotNull(message.getOpen());
-			System.out.println(message.getOpenTime());
 			assertNotNull(message.getOpenTime());
-			System.out.println(message.getQuoteAssetVolume());
 			assertNotNull(message.getQuoteAssetVolume());
-			System.out.println(message.getSymbol());
 			assertNotNull(message.getSymbol());
-			System.out.println(message.getTakerBuyBaseAssetVolume());
 			assertNotNull(message.getTakerBuyBaseAssetVolume());
-			System.out.println(message.getTakerBuyQuoteAssetVolume());
 			assertNotNull(message.getTakerBuyQuoteAssetVolume());
-			System.out.println(message.getVolume());
 			assertNotNull(message.getVolume());
 		}
 	}
