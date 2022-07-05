@@ -7,7 +7,7 @@ import com.binance4j.websocket.client.WebsocketClient;
  */
 public class WebsocketDisconnectionHandler extends BaseWebsocketEventHandler {
 	public WebsocketDisconnectionHandler(WebsocketClient<?> websocketClient) {
-		super(websocketClient, "Client stuck in closing state", "Disconnected");
+		super(websocketClient, "Client not closing", "Disconnected");
 	}
 
 	public void run() {
