@@ -29,7 +29,7 @@ public class WebsocketClientConfiguration {
 	 */
 	private boolean keepAlive = true;
 	/**
-	 * THe number of time the client tries to reconnect. Default: 10.
+	 * The number of time the client tries to reconnect. Default: 10.
 	 */
 	private int reconnectionRetries = 10;
 	/**
@@ -41,15 +41,15 @@ public class WebsocketClientConfiguration {
 	 */
 	private int maxReconnections = 5;
 	/**
-	 * The time the client waits for a server responser before triggering a timeout.
+	 * The time the client waits for a server response before triggering a timeout.
 	 * Default: 3min.
 	 */
 	private Duration noResponseTimeout = Duration.ofMinutes(3);
 	/**
 	 * Value added to {@link WebsocketClientConfiguration#noResponseTimeout} as
-	 * time margin error
+	 * time margin error. Default: 5s
 	 */
-	private Duration noResponseTimeoutMarginError = Duration.ofSeconds(10);
+	private Duration noResponseTimeoutMarginError = Duration.ofSeconds(5);
 	/**
 	 * Time after which the client disconnects if stuck in closing state
 	 */
