@@ -15,7 +15,7 @@ public class GetTransferHistoryTest {
         MarginTransferHistoryResponse res = TestService.CLIENT.getTransferHistory(new MarginTransferHistoryRequest())
                 .execute();
 
-        assertTrue(TestService.getNullProperties(res).isEmpty());
+        assertTrue(TestService.hasNoNullProperty(res));
         res.getRows().forEach(row -> assertTrue(TestService.getNullProperties(row).isEmpty()));
     }
 }
