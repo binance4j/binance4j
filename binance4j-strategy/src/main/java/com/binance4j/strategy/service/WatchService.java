@@ -21,6 +21,7 @@ import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.candle.WebsocketCandlestickClient;
+import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 import com.binance4j.websocket.service.DurationService;
 
 import lombok.Data;
@@ -29,6 +30,12 @@ import okhttp3.Response;
 /** Service to live trade a {@link TradingStrategy} */
 @Data
 public class WatchService {
+
+    /**
+     * The websocket client configuration
+     */
+    private WebsocketClientConfiguration configuration;
+
     /**
      * The websocket client
      */
@@ -53,6 +60,7 @@ public class WatchService {
      */
     public WatchService(TradingStrategy strategy) {
         this.tradingStrategy = strategy;
+        configuration = new WebsocketClientConfiguration();
     }
 
     /**
@@ -132,8 +140,8 @@ public class WatchService {
             }
         });
 
+        wsClient.setConfiguration(configuration);
         wsClient.open();
-
         return wsClient;
     }
 
