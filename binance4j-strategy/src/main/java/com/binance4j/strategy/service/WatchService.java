@@ -51,6 +51,9 @@ public class WatchService {
      */
     protected Map<String, BarSeries> barSeries;
 
+    /**
+     * The trading strategy
+     */
     protected TradingStrategy tradingStrategy;
 
     /**
