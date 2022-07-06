@@ -24,7 +24,9 @@ import com.binance4j.websocket.candle.WebsocketCandlestickClient;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 import com.binance4j.websocket.service.DurationService;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import okhttp3.Response;
 
 /** Service to live trade a {@link TradingStrategy} */
@@ -39,11 +41,13 @@ public class WatchService {
     /**
      * The websocket client
      */
+    @Getter(AccessLevel.NONE)
     private WebsocketCandlestickClient wsClient;
 
     /**
      * The series used in watch mode
      */
+    @Getter(AccessLevel.NONE)
     private Map<String, BarSeries> barSeries;
 
     /**
@@ -51,7 +55,7 @@ public class WatchService {
      */
     private int maximumBarCount = 500;
 
-    private TradingStrategy tradingStrategy;
+    protected TradingStrategy tradingStrategy;
 
     /**
      * Constructor
