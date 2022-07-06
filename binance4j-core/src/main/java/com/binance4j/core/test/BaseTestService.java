@@ -87,10 +87,10 @@ public abstract class BaseTestService {
     /**
      * Returns the bean properties in the map with a null walue
      * 
-     * @param collection The map we want the bean properties
+     * @param map The map we want the bean properties
      */
-    public static Set<String> getNullProperties(Map<String, ?> bean) {
-        return bean.entrySet().stream()
+    public static Set<String> getNullProperties(Map<String, ?> map) {
+        return map.entrySet().stream()
                 .map(es -> getNullProperties(es.getValue()).stream().map(np -> es.getKey() + "." + np)
                         .collect(Collectors.toSet()))
                 .flatMap(Collection::stream)
