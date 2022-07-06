@@ -12,8 +12,6 @@ public class MarginTransferHistoryRequest extends IntervalRequest {
     private String symbol;
     private MarginIsolatedTransferType transFrom;
     private MarginIsolatedTransferType transTo;
-    private Long startTime;
-    private Long endTime;
     /** Current page,default 1 */
     private Long current;
     /** Default 10, max 100 */
