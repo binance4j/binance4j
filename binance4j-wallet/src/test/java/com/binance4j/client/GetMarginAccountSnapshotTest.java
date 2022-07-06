@@ -39,7 +39,7 @@ class GetMarginAccountSnapshotTest {
 			// assertNotNull(s.getData().getMarginLevel());
 			assertTrue(TestService.hasNoNullProperty(s));
 			System.out.println(TestService.getNullProperties(s.getData()));
-			assertTrue(TestService.getNullProperties(s.getData()).contains("marginLevel"));
+			assertTrue(TestService.getNullProperties(s.getData()).contains("MarginAccountSnapshotData.marginLevel"));
 			s.getData().getUserAssets().forEach(ua -> assertTrue(TestService.hasNoNullProperty(ua)));
 		});
 	}

@@ -26,7 +26,7 @@ public class NewOCOTest extends ConcurrentTest {
 					new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse resp = client.newOCO(req).execute();
 			resp.getOrders().forEach(order -> TestService.hasNoNullProperty(order));
-			assertTrue(TestService.getNullProperties(resp).contains("isIsolated"));
+			assertTrue(TestService.getNullProperties(resp).contains("OCOResponse.isIsolated"));
 		} catch (ApiException e) {
 			fail();
 		}

@@ -19,12 +19,11 @@ class GetWithdrawHistoryTest {
 	final WalletClient client = TestService.CLIENT;
 
 	static void test(List<WithdrawHistory> history) {
-
 		history.forEach(h -> {
 			if (h.getWithdrawOrderId() != null) {
 				assertTrue(TestService.hasNoNullProperty(h));
 			} else {
-				assertTrue(TestService.getNullProperties(h).contains("withdrawOrderId"));
+				assertTrue(TestService.getNullProperties(h).contains("WithdrawHistory.withdrawOrderId"));
 			}
 		});
 	}
