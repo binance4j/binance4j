@@ -34,24 +34,20 @@ public class GetChecksumTest extends SpotTest {
 	@DisplayName("It should return the klines cheksum")
 	void testKlinesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getKlinesChecksum(symbol, interval, year, month, day).getChecksum();
-		testChecksum(checksum);
+		test(checksum);
 	}
 
 	@Test
 	@DisplayName("It should return the trades checksum")
 	void testTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getTradesChecksum(symbol, year, month, day).getChecksum();
-		testChecksum(checksum);
+		test(checksum);
 	}
 
 	@Test
 	@DisplayName("It should return the agg trades cheksum")
 	void testAggTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getAggTradesChecksum(symbol, year, month, day).getChecksum();
-		testChecksum(checksum);
-	}
-
-	void testChecksum(VisionChecksum checksum) {
-		assertTrue(hasNoNullProperty(checksum));
+		test(checksum);
 	}
 }

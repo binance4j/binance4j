@@ -32,7 +32,6 @@ public class GetKlinesTest extends SpotTest {
 	@Test
 	@DisplayName("It should return the klines")
 	void testGetKlines() throws ApiException {
-		client.getKlines(symbol, interval, year, month, day).getData()
-				.forEach(candle -> assertTrue(hasNoNullProperty(candle)));
+		test(client.getKlines(symbol, interval, year, month, day));
 	}
 }

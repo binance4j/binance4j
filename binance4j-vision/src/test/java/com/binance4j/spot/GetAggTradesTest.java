@@ -33,7 +33,6 @@ public class GetAggTradesTest extends SpotTest {
 	@Test
 	@DisplayName("It should return the trades")
 	void testgetAggTrades() throws ApiException {
-		client.getAggTrades(symbol, year, month, day).getData()
-				.forEach(trade -> assertTrue(hasNoNullProperty(trade)));
+		test(client.getAggTrades(symbol, year, month, day));
 	}
 }
