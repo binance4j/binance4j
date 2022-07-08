@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.NewOrder;
-import com.binance4j.spot.service.TestService;
 
 class TestNewOrderTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	@Test
 	@DisplayName("Test must not throw an exception")

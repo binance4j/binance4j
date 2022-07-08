@@ -10,16 +10,15 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.CancelOpenOrdersRequest;
 import com.binance4j.core.order.CancelOrderResponse;
 import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.spot.service.TestService;
 
 public class CancelOpenOrdersTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	// @Test
 	@DisplayName("Test must not throw an exception")
 	public void testCancelOpenOrdersTest() throws ApiException {
 		List<CancelOrderResponse> orders = client.cancelOpenOrders(new CancelOpenOrdersRequest("GMTBUSD"))
 				.execute();
-		orders.forEach(order -> assertTrue(TestService.hasNoNullProperty(order)));
+		orders.forEach(order -> assertTrue(SpothasNoNullProperty(order)));
 	}
 }

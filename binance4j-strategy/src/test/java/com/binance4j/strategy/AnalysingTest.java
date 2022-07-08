@@ -12,7 +12,6 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.dto.BackTestResult;
-import com.binance4j.strategy.service.BackTestService;
 import com.binance4j.strategy.service.PositionService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 
@@ -22,7 +21,7 @@ class AnalysingTest extends ConcurrentTest {
 	@DisplayName("Analyse and backtest positions should be the same")
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
+		BackTestResult result = BackbackTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
 				"01");
 		List<Position> positions = result.getTradingRecord().getPositions();
 

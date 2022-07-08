@@ -8,13 +8,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.snapshot.AccountSnapshotRequest;
 import com.binance4j.wallet.snapshot.spot.SpotAccountSnapshotResponse;
 
 class GetSpotAccountSnapshotTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	@Test
 	@DisplayName("It should return the snapshot")
@@ -24,9 +23,9 @@ class GetSpotAccountSnapshotTest {
 		assertNotNull(snapshot.getMsg());
 
 		snapshot.getSnapshotVos().forEach(s -> {
-			assertTrue(TestService.hasNoNullProperty(s));
-			assertTrue(TestService.hasNoNullProperty(s.getData()));
-			s.getData().getBalances().forEach(b -> assertTrue(TestService.hasNoNullProperty(b)));
+			assertTrue(hasNoNullProperty(s));
+			assertTrue(hasNoNullProperty(s.getData()));
+			s.getData().getBalances().forEach(b -> assertTrue(hasNoNullProperty(b)));
 		});
 	}
 
@@ -40,9 +39,9 @@ class GetSpotAccountSnapshotTest {
 			assertNotNull(snapshot.getMsg());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				assertTrue(TestService.hasNoNullProperty(s));
-				assertTrue(TestService.hasNoNullProperty(s.getData()));
-				s.getData().getBalances().forEach(b -> assertTrue(TestService.hasNoNullProperty(b)));
+				assertTrue(hasNoNullProperty(s));
+				assertTrue(hasNoNullProperty(s.getData()));
+				s.getData().getBalances().forEach(b -> assertTrue(hasNoNullProperty(b)));
 			});
 	}
 }

@@ -21,7 +21,11 @@ import com.binance4j.core.pojo.NestedObject;
 import com.binance4j.core.pojo.SubObject;
 import com.binance4j.core.pojo.SubSubObject;
 
-public class BaseTestServiceTest {
+public class BaseTestServiceTest extends ConcurrentTest<Void> {
+    protected BaseTestServiceTest(Class<? extends Void> client) {
+        super(client);
+    }
+
     AggTrade trade;
     AggTrade trade2;
 
@@ -46,14 +50,14 @@ public class BaseTestServiceTest {
 
     @Test
     void testGetProperties() throws IntrospectionException {
-        Map<String, Object> map = BaseTestService.getProperties(trade);
+        Map<String, Object> map = getProperties(trade);
 
         List<String> list = new ArrayList<String>();
         list.add("ok");
         list.add("lol");
         list.add("hihi");
 
-        System.out.println(BaseTestService.getProperties(list));
+        System.out.println(getProperties(list));
         assertEquals(map.get("firstTradeId"), trade.getFirstTradeId());
         assertEquals(map.get("lastTradeId"), trade.getLastTradeId());
         assertEquals(map.get("price"), trade.getPrice());
@@ -67,7 +71,7 @@ public class BaseTestServiceTest {
         trade.setFirstTradeId(null);
         trade.setPrice(null);
 
-        Set<String> list = BaseTestService.getNullProperties(trade);
+        Set<String> list = getNullProperties(trade);
         System.out.println(list);
         assertEquals(2, list.size());
         assertTrue(list.contains("AggTrade.firstTradeId"));
@@ -82,7 +86,7 @@ public class BaseTestServiceTest {
         List<AggTrade> listOfTrades = new ArrayList<>();
         listOfTrades.add(trade);
         listOfTrades.add(trade2);
-        Set<String> list = BaseTestService.getNullProperties(listOfTrades);
+        Set<String> list = getNullProperties(listOfTrades);
 
         System.out.println(list);
 
@@ -118,7 +122,7 @@ public class BaseTestServiceTest {
         nestedObject.getSubs().add(subsub1);
         nestedObject.getSubs().add(subsub2);
 
-        Set<String> list = BaseTestService.getNullProperties(nestedObject);
+        Set<String> list = getNullProperties(nestedObject);
         System.out.println(list);
 
         assertEquals(16, list.size());
@@ -142,43 +146,43 @@ public class BaseTestServiceTest {
 
     @Test
     void testHasNoNullProperty() throws IntrospectionException {
-        assertTrue(BaseTestService.hasNoNullProperty(trade));
+        assertTrue(hasNoNullProperty(trade));
     }
 
     @Test
     void testHasNullProperty() throws IntrospectionException {
         trade.setFirstTradeId(null);
-        assertFalse(BaseTestService.hasNoNullProperty(trade));
+        assertFalse(hasNoNullProperty(trade));
     }
 
     @Test
     void testHasBeanProperties() {
-        assertTrue(BaseTestService.hasProperties(trade));
+        assertTrue(hasProperties(trade));
     }
 
     @Test
     void testIsJava() {
-        assertTrue(BaseTestService.isJavaBean("test"));
-        assertTrue(BaseTestService.isJavaBean(new ArrayList<>()));
-        assertTrue(BaseTestService.isJavaBean(new HashMap<>()));
-        assertFalse(BaseTestService.isJavaBean(trade));
+        assertTrue(isJavaBean("test"));
+        assertTrue(isJavaBean(new ArrayList<>()));
+        assertTrue(isJavaBean(new HashMap<>()));
+        assertFalse(isJavaBean(trade));
     }
 
     @Test
     void testIsMap() {
-        assertTrue(BaseTestService.isMap(new HashMap<>()));
-        assertFalse(BaseTestService.isMap(new HashSet<>()));
-        assertFalse(BaseTestService.isMap(new ArrayList<>()));
-        assertFalse(BaseTestService.isMap("test"));
-        assertFalse(BaseTestService.isMap(trade));
+        assertTrue(isMap(new HashMap<>()));
+        assertFalse(isMap(new HashSet<>()));
+        assertFalse(isMap(new ArrayList<>()));
+        assertFalse(isMap("test"));
+        assertFalse(isMap(trade));
     }
 
     @Test
     void testIsCollection() {
-        assertTrue(BaseTestService.isCollection(new HashSet<>()));
-        assertTrue(BaseTestService.isCollection(new ArrayList<>()));
-        assertFalse(BaseTestService.isCollection(new HashMap<>()));
-        assertFalse(BaseTestService.isCollection("test"));
-        assertFalse(BaseTestService.isCollection(trade));
+        assertTrue(isCollection(new HashSet<>()));
+        assertTrue(isCollection(new ArrayList<>()));
+        assertFalse(isCollection(new HashMap<>()));
+        assertFalse(isCollection("test"));
+        assertFalse(isCollection(trade));
     }
 }

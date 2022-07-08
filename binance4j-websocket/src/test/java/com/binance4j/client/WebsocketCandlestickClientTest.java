@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.service.TestService;
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
@@ -22,7 +21,7 @@ class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePaylo
 
 	@Override
 	protected BaseWebsocketClient<CandlePayload> newClient(TestCallback<CandlePayload> callback) {
-		return new WebsocketCandlestickClient(TestService.SYMBOL, CandlestickInterval.ONE_MINUTE, callback);
+		return new WebsocketCandlestickClient(getSymbol(), CandlestickInterval.ONE_MINUTE, callback);
 	}
 
 	@Override
@@ -55,7 +54,7 @@ class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePaylo
 			assertNotNull(message.getOpen());
 			assertNotNull(message.getOpenTime());
 			assertNotNull(message.getQuoteAssetVolume());
-			assertNotNull(message.getSymbol());
+			assertNotNull(message.symbol);
 			assertNotNull(message.getTakerBuyBaseAssetVolume());
 			assertNotNull(message.getTakerBuyQuoteAssetVolume());
 			assertNotNull(message.getVolume());

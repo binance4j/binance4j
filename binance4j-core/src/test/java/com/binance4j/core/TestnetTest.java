@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.client.MarketClient;
 import com.binance4j.core.client.TestnetMarketClient;
-import com.binance4j.core.test.ConcurrentTest;
 
-public class TestnetTest extends ConcurrentTest {
+public class TestnetTest {
 
     @Test
     @DisplayName("It should not thrown an exception when using testnet")

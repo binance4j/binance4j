@@ -12,10 +12,9 @@ import com.binance4j.core.order.OCOOrder;
 import com.binance4j.core.order.OCOResponse;
 import com.binance4j.core.order.OrderSide;
 import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.spot.service.TestService;
 
 public class NewOCOTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	// @Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
@@ -25,8 +24,8 @@ public class NewOCOTest extends ConcurrentTest {
 			OCOOrder req = new OCOOrder("BTCBUSD", OrderSide.BUY,
 					new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse resp = client.newOCO(req).execute();
-			resp.getOrders().forEach(order -> TestService.hasNoNullProperty(order));
-			assertTrue(TestService.getNullProperties(resp).contains("OCOResponse.isIsolated"));
+			resp.getOrders().forEach(order -> SpothasNoNullProperty(order));
+			assertTrue(SpotgetNullProperties(resp).contains("OCOResponse.isIsolated"));
 		} catch (ApiException e) {
 			fail();
 		}

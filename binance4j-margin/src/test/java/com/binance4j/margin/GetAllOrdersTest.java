@@ -2,7 +2,7 @@ package com.binance4j.margin;
 
 import org.junit.jupiter.api.Test;
 
-public class GetAllOrdersTest {
+public class GetAllOrdersTest extends MarginTest {
     @Test
     void test() {
 

@@ -8,15 +8,14 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.MyTradesRequest;
-import com.binance4j.spot.service.TestService;
 
 public class GetTradesTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetMyTrades() throws ApiException {
 		client.getMyTrades(new MyTradesRequest("APEBUSD")).execute().forEach(trade -> assertTrue(
-				TestService.hasNoNullProperty(trade)));
+				SpothasNoNullProperty(trade)));
 	}
 }

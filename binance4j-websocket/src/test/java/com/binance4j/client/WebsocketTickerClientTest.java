@@ -1,15 +1,15 @@
 package com.binance4j.client;
 
-import com.binance4j.service.TestService;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.ticker.TickerPayload;
 import com.binance4j.websocket.ticker.WebsocketTickerClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class WebsocketTickerClientTest extends BaseWebsocketClientTest<TickerPayload> {
 
@@ -21,7 +21,7 @@ class WebsocketTickerClientTest extends BaseWebsocketClientTest<TickerPayload> {
 
 	@Override
 	protected BaseWebsocketClient<TickerPayload> newClient(TestCallback<TickerPayload> callback) {
-		return new WebsocketTickerClient(TestService.SYMBOL, callback);
+		return new WebsocketTickerClient(getSymbol(), callback);
 
 	}
 
@@ -60,7 +60,7 @@ class WebsocketTickerClientTest extends BaseWebsocketClientTest<TickerPayload> {
 			assertNotNull(message.getPriceChangePercent());
 			assertNotNull(message.getStatisticsCloseTime());
 			assertNotNull(message.getStatisticsOpenTime());
-			assertNotNull(message.getSymbol());
+			assertNotNull(message.symbol);
 			assertNotNull(message.getTotalNumberOfTrades());
 			assertNotNull(message.getTotalTradedBaseAssetVolume());
 			assertNotNull(message.getTotalTradedQuoteAssetVolume());

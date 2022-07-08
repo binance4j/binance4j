@@ -1,14 +1,15 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.ticker.MiniTickerPayload;
 import com.binance4j.websocket.ticker.WebsocketAllMiniTickersClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * endpoint doesn't seem to work
@@ -48,7 +49,7 @@ class WebsocketAllMiniTickersClientTest extends BaseWebsocketClientTest<MiniTick
 			assertNotNull(message.getHighPrice(), "HighPrice assertion");
 			assertNotNull(message.getLowPrice(), "LowPrice assertion");
 			assertNotNull(message.getOpenPrice(), "OpenPrice assertion");
-			assertNotNull(message.getSymbol(), "Symbol assertion");
+			assertNotNull(message.symbol, "Symbol assertion");
 			assertNotNull(message.getTotalTradedBaseAssetVolume(), "TotalTradedBaseAssetVolume assertion");
 			assertNotNull(message.getTotalTradedQuoteAssetVolume(), "TotalTradedQuoteAssetVolume assertion");
 		}

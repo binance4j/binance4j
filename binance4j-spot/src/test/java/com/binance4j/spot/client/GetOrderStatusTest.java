@@ -10,10 +10,9 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.OrderStatusRequest;
-import com.binance4j.spot.service.TestService;
 
 public class GetOrderStatusTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
@@ -23,7 +22,7 @@ public class GetOrderStatusTest extends ConcurrentTest {
 		Long id = 65293729L;
 
 		OrderInfo order = client.getOrderStatus(new OrderStatusRequest(symbol, id)).execute();
-		assertTrue(TestService.hasNoNullProperty(order));
-		assertEquals(order.getSymbol(), symbol);
+		assertTrue(SpothasNoNullProperty(order));
+		assertEquals(order.symbol, symbol);
 	}
 }

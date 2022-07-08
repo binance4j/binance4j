@@ -1,6 +1,9 @@
 package com.binance4j.client;
 
-import com.binance4j.service.TestService;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
@@ -8,9 +11,6 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.depth.DepthPayload;
 import com.binance4j.websocket.depth.DepthUpdateSpeed;
 import com.binance4j.websocket.depth.WebsocketDepthClient;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class WebsocketDepthClientTest extends BaseWebsocketClientTest<DepthPayload> {
 
@@ -22,7 +22,7 @@ class WebsocketDepthClientTest extends BaseWebsocketClientTest<DepthPayload> {
 
 	@Override
 	protected BaseWebsocketClient<DepthPayload> newClient(TestCallback<DepthPayload> callback) {
-		return new WebsocketDepthClient(TestService.SYMBOL, DepthUpdateSpeed.MS_100, callback);
+		return new WebsocketDepthClient(getSymbol(), DepthUpdateSpeed.MS_100, callback);
 	}
 
 	@Override

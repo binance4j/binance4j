@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.service.TestService;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 import com.binance4j.websocket.candle.CandlePayload;
@@ -62,7 +61,7 @@ class NoResponseTimeOutTest {
 
 		};
 
-		WebsocketClient client = new WebsocketCandlestickClient(TestService.SYMBOL,
+		WebsocketClient client = new WebsocketCandlestickClient(getSymbol(),
 				CandlestickInterval.ONE_MINUTE, callback);
 
 		client.getConfiguration().setNoResponseTimeout(Duration.ofSeconds(2));

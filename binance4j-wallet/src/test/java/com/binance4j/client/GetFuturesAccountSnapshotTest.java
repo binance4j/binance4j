@@ -7,13 +7,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.snapshot.AccountSnapshotRequest;
 import com.binance4j.wallet.snapshot.futures.FuturesAccountSnapshotResponse;
 
 class GetFuturesAccountSnapshotTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	@Test
 	@DisplayName("It should return the snapshot or throw an exception if you don't have a margin account")
@@ -23,8 +22,8 @@ class GetFuturesAccountSnapshotTest {
 			assertNotEquals(0, snapshot.getCode());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				assertTrue(TestService.hasNoNullProperty(s));
-				s.getData().getAssets().forEach(a -> assertTrue(TestService.hasNoNullProperty(a)));
+				assertTrue(hasNoNullProperty(s));
+				s.getData().getAssets().forEach(a -> assertTrue(hasNoNullProperty(a)));
 			});
 		} catch (ApiException e) {
 			assertTrue(true);
@@ -43,8 +42,8 @@ class GetFuturesAccountSnapshotTest {
 			assertNotEquals(0, snapshot.getCode());
 
 			snapshot.getSnapshotVos().forEach(s -> {
-				assertTrue(TestService.hasNoNullProperty(s));
-				s.getData().getAssets().forEach(a -> assertTrue(TestService.hasNoNullProperty(a)));
+				assertTrue(hasNoNullProperty(s));
+				s.getData().getAssets().forEach(a -> assertTrue(hasNoNullProperty(a)));
 			});
 		} catch (ApiException e) {
 

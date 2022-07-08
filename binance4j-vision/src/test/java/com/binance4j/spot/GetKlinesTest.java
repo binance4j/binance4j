@@ -10,16 +10,15 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.service.TestService;
 import com.binance4j.vision.spot.VisionSpotClient;
 
 public class GetKlinesTest {
-	final VisionSpotClient client = TestService.CLIENT;
-	final CandlestickInterval interval = TestService.INTERVAL;
-	final String symbol = TestService.SYMBOL;
-	final String year = TestService.YEAR;
-	final String month = TestService.MONTH;
-	final String day = TestService.DAY;
+	final VisionSpotClient client = CLIENT;
+	final CandlestickInterval interval = INTERVAL;
+	final String symbol = getSymbol();
+	final String year = YEAR;
+	final String month = MONTH;
+	final String day = DAY;
 
 	@Test
 	@DisplayName("It should throw an InvalidDateException")
@@ -43,6 +42,6 @@ public class GetKlinesTest {
 	@DisplayName("It should return the klines")
 	void testGetKlines() throws ApiException {
 		client.getKlines(symbol, interval, year, month, day).getData()
-				.forEach(candle -> assertTrue(TestService.hasNoNullProperty(candle)));
+				.forEach(candle -> assertTrue(hasNoNullProperty(candle)));
 	}
 }

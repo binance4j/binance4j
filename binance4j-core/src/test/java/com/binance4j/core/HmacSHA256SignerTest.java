@@ -7,9 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.security.HmacSHA256Signer;
-import com.binance4j.core.test.ConcurrentTest;
 
-class HmacSHA256SignerTest extends ConcurrentTest {
+class HmacSHA256SignerTest {
 
     @Test
     @DisplayName("It should generate a signed String and not throw an Exception")

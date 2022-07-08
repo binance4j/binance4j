@@ -1,19 +1,13 @@
 package com.binance4j.margin;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.priceindex.PriceIndexRequest;
-import com.binance4j.margin.service.TestService;
 
-public class GetPriceIndexTest {
+public class GetPriceIndexTest extends MarginTest {
     @Test
-    void test() {
-        TestService.CLIENT.getPriceIndex(new PriceIndexRequest(TestService.SYMBOL)).then(res -> {
-            assertNotNull(res.getCalcTime());
-            assertNotNull(res.getPrice());
-            assertNotNull(res.getSymbol());
-        });
+    void test() throws ApiException {
+        test(getClient().getPriceIndex(new PriceIndexRequest(getSymbol())).execute());
     }
 }

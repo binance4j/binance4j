@@ -13,9 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.test.ConcurrentTest;
-
-class IntervalEventTest extends ConcurrentTest {
+class IntervalEventTest {
     CompletableFuture<Integer> future;
     boolean completed;
     ScheduledEvent event;

@@ -1,18 +1,18 @@
 package com.binance4j.spot.client;
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.spot.order.NewOrder;
-import com.binance4j.spot.service.TestService;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.spot.order.NewOrder;
 
 public class FailedOrderTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	@Test
 	@DisplayName("It should throw an exception")

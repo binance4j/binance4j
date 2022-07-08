@@ -7,14 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.spot.service.TestService;
 
 public class GetAllOcoTest extends ConcurrentTest {
-	final SpotClient client = TestService.CLIENT;
+	final SpotClient client = SpotCLIENT;
 
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetAllOCO() throws ApiException {
-		client.getAllOCO().execute().forEach(oco -> assertTrue(TestService.hasNoNullProperty(oco)));
+		client.getAllOCO().execute().forEach(oco -> assertTrue(SpothasNoNullProperty(oco)));
 	}
 }

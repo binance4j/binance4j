@@ -15,7 +15,6 @@ import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.strategy.dto.TradingStatistics;
-import com.binance4j.strategy.service.BackTestService;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 import com.binance4j.vision.spot.VisionSpotClient;
@@ -30,7 +29,7 @@ class BackTestingTest extends ConcurrentTest {
 				.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, series);
+		BackTestResult result = BackbackTest(strategy, series);
 		assertStats(result.getStatistics());
 	}
 
@@ -38,7 +37,7 @@ class BackTestingTest extends ConcurrentTest {
 	@DisplayName("The backtest should generate non null statistics")
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
+		BackTestResult result = BackbackTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
 				"01");
 		assertStats(result.getStatistics());
 	}

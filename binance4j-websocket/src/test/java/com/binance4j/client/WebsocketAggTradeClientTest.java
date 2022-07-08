@@ -1,15 +1,16 @@
 package com.binance4j.client;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.concurrent.CompletableFuture;
+
+import org.junit.jupiter.api.Test;
+
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.trade.AggTradePayload;
 import com.binance4j.websocket.trade.WebsocketAggTradeClient;
-import org.junit.jupiter.api.Test;
-
-import java.util.concurrent.CompletableFuture;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 class WebsocketAggTradeClientTest {
 	CompletableFuture<Void> future;
@@ -55,7 +56,7 @@ class WebsocketAggTradeClientTest {
 			assertNotNull(message.getLastBreakdownTradeId(), "LastBreakdownTradeId assertion");
 			assertNotNull(message.getPrice(), "Price assertion");
 			assertNotNull(message.getQuantity(), "Quantity assertion");
-			assertNotNull(message.getSymbol(), "Symbol assertion");
+			assertNotNull(message.symbol, "Symbol assertion");
 			assertNotNull(message.getTradeTime(), "TradeTime assertion");
 		}
 	}

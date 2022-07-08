@@ -1,16 +1,16 @@
 package com.binance4j.client;
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
-import com.binance4j.wallet.client.WalletClient;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.wallet.client.WalletClient;
+
 class FastWithdrawSwitchTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	@Test
 	@DisplayName("It should not throw an ApiException")

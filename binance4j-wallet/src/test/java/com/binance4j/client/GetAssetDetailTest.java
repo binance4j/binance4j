@@ -9,16 +9,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
 import com.binance4j.wallet.assetdetail.AssetDetail;
 import com.binance4j.wallet.assetdetail.AssetDetailRequest;
 import com.binance4j.wallet.client.WalletClient;
 
 class GetAssetDetailTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	static void testDetail(AssetDetail assetDetail) {
-		assertTrue(TestService.hasNoNullProperty(assetDetail));
+		assertTrue(hasNoNullProperty(assetDetail));
 	}
 
 	@Test
@@ -31,7 +30,7 @@ class GetAssetDetailTest {
 	@Test
 	@DisplayName("It should return the details of given asset")
 	void testGetGivenAssetDetails() throws ApiException {
-		String asset = TestService.ASSET;
+		String asset = getAsset();
 		AssetDetailRequest req = new AssetDetailRequest(asset);
 		Map<String, AssetDetail> details = client.getAssetDetail(req).execute();
 

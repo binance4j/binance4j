@@ -5,20 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.deposit.DepositAddress;
 import com.binance4j.wallet.deposit.DepositAddressRequest;
 
 class GetDepositAddressTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	// Test fails on Github Actions (USA restriction?)
 	// @Test
 	@DisplayName("It should return the deposit address")
 	void testGetDepositAddress() throws ApiException {
 		DepositAddress address = client.getDepositAddress(new DepositAddressRequest("BNB")).execute();
-		assertTrue(TestService.hasNoNullProperty(address));
+		assertTrue(hasNoNullProperty(address));
 	}
 
 	// Test fails on Github Actions (USA restriction?)
@@ -26,6 +25,6 @@ class GetDepositAddressTest {
 	@DisplayName("It should return the deposit address of the given network")
 	void testGetDepositAddressWithNetwork() throws ApiException {
 		DepositAddress address = client.getDepositAddress(new DepositAddressRequest("BNB", "BNB")).execute();
-		assertTrue(TestService.hasNoNullProperty(address));
+		assertTrue(hasNoNullProperty(address));
 	}
 }

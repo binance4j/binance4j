@@ -10,16 +10,15 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.service.TestService;
 import com.binance4j.vision.spot.VisionSpotClient;
 
 public class GetAggTradesTest {
-	final VisionSpotClient client = TestService.CLIENT;
-	final String symbol = TestService.SYMBOL;
-	final String year = TestService.YEAR;
-	final String month = TestService.MONTH;
-	final String day = TestService.DAY;
-	CandlestickInterval interval = TestService.INTERVAL;
+	final VisionSpotClient client = CLIENT;
+	final String symbol = getSymbol();
+	final String year = YEAR;
+	final String month = MONTH;
+	final String day = DAY;
+	CandlestickInterval interval = INTERVAL;
 
 	@Test
 	@DisplayName("It should throw an InvalidDateException")
@@ -43,6 +42,6 @@ public class GetAggTradesTest {
 	@DisplayName("It should return the trades")
 	void testgetAggTrades() throws ApiException {
 		client.getAggTrades(symbol, year, month, day).getData()
-				.forEach(trade -> assertTrue(TestService.hasNoNullProperty(trade)));
+				.forEach(trade -> assertTrue(hasNoNullProperty(trade)));
 	}
 }

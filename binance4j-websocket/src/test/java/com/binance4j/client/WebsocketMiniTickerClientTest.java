@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.service.TestService;
 import com.binance4j.utils.BaseWebsocketClientTest;
 import com.binance4j.utils.TestCallback;
 import com.binance4j.utils.WebsocketTester;
@@ -22,7 +21,7 @@ class WebsocketMiniTickerClientTest extends BaseWebsocketClientTest<MiniTickerPa
 
 	@Override
 	protected BaseWebsocketClient<MiniTickerPayload> newClient(TestCallback<MiniTickerPayload> callback) {
-		return new WebsocketMiniTickerClient(TestService.SYMBOL, callback);
+		return new WebsocketMiniTickerClient(getSymbol(), callback);
 
 	}
 
@@ -47,7 +46,7 @@ class WebsocketMiniTickerClientTest extends BaseWebsocketClientTest<MiniTickerPa
 			assertNotNull(message.getHighPrice(), "error in getHighPrice() assertion");
 			assertNotNull(message.getLowPrice(), "error in getLowPrice() assertion");
 			assertNotNull(message.getOpenPrice(), "error in getOpenPrice() assertion");
-			assertNotNull(message.getSymbol(), "error in getSymbol() assertion");
+			assertNotNull(message.symbol, "error in symbol assertion");
 			assertNotNull(message.getTotalTradedBaseAssetVolume(),
 					"error in getTotalTradedBaseAssetVolume() assertion");
 			assertNotNull(message.getTotalTradedQuoteAssetVolume(),

@@ -8,27 +8,26 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.service.TestService;
 import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.tradefee.TradeFee;
 import com.binance4j.wallet.tradefee.TradeFeeRequest;
 
 class GetTradeFeeTest {
-	final WalletClient client = TestService.CLIENT;
+	final WalletClient client = CLIENT;
 
 	@Test
 	@DisplayName("It should return the trade fee of all assets")
 	void testGetTradeFeeOfAll() throws ApiException {
 		List<TradeFee> fees = client.getTradeFee().execute();
-		assertTrue(TestService.hasNoNullProperty(fees));
-		fees.forEach(f -> assertTrue(TestService.hasNoNullProperty(f)));
+		assertTrue(hasNoNullProperty(fees));
+		fees.forEach(f -> assertTrue(hasNoNullProperty(f)));
 	}
 
 	@Test
 	@DisplayName("It should return the trade fee of one asset")
 	void testGetTradeFeeOfOne() throws ApiException {
 		List<TradeFee> fees = client.getTradeFee(new TradeFeeRequest("BNBBTC")).execute();
-		assertTrue(TestService.hasNoNullProperty(fees));
-		fees.forEach(f -> assertTrue(TestService.hasNoNullProperty(f)));
+		assertTrue(hasNoNullProperty(fees));
+		fees.forEach(f -> assertTrue(hasNoNullProperty(f)));
 	}
 }

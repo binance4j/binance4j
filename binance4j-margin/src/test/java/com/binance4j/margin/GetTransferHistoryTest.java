@@ -5,17 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.margin.service.TestService;
 import com.binance4j.margin.transferhistory.MarginTransferHistoryRequest;
 import com.binance4j.margin.transferhistory.MarginTransferHistoryResponse;
 
-public class GetTransferHistoryTest {
+public class GetTransferHistoryTest extends MarginTest {
     @Test
     void test() throws ApiException {
-        MarginTransferHistoryResponse res = TestService.CLIENT.getTransferHistory(new MarginTransferHistoryRequest())
+        MarginTransferHistoryResponse res = getClient().getTransferHistory(new MarginTransferHistoryRequest())
                 .execute();
 
-        assertTrue(TestService.hasNoNullProperty(res));
-        res.getRows().forEach(row -> assertTrue(TestService.getNullProperties(row).isEmpty()));
+        assertTrue(hasNoNullProperty(res));
+        res.getRows().forEach(row -> assertTrue(getNullProperties(row).isEmpty()));
     }
 }

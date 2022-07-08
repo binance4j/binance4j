@@ -2,7 +2,7 @@ package com.binance4j.margin;
 
 import org.junit.jupiter.api.Test;
 
-public class GetIsolatedSymbolTest {
+public class GetIsolatedSymbolTest extends MarginTest {
     @Test
     void test() {
 
