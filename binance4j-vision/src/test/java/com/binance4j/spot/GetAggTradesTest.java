@@ -9,16 +9,8 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.vision.spot.VisionSpotClient;
 
-public class GetAggTradesTest {
-	final VisionSpotClient client = CLIENT;
-	final String symbol = getSymbol();
-	final String year = YEAR;
-	final String month = MONTH;
-	final String day = DAY;
-	CandlestickInterval interval = INTERVAL;
+public class GetAggTradesTest extends SpotTest {
 
 	@Test
 	@DisplayName("It should throw an InvalidDateException")
