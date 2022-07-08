@@ -1,9 +1,6 @@
 package com.binance4j.spot.client;
 
-import com.binance4j.core.test.ConcurrentTest;
-
-public class QueryOcoTest extends ConcurrentTest {
-	SpotClient client = SpotCLIENT;
+public class QueryOcoTest extends SpotTest {
 
 	// @Test
 	public void testQueryOCO() {

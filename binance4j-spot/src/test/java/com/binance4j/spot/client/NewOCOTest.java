@@ -11,21 +11,19 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.OCOOrder;
 import com.binance4j.core.order.OCOResponse;
 import com.binance4j.core.order.OrderSide;
-import com.binance4j.core.test.ConcurrentTest;
 
-public class NewOCOTest extends ConcurrentTest {
-	final SpotClient client = SpotCLIENT;
+public class NewOCOTest extends SpotTest {
 
 	// @Test
+	// TODO find a symbol authorizing STOP_LOSS
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testNewOCO() {
-		// TODO find a symbol authorizing STOP_LOSS
 		try {
 			OCOOrder req = new OCOOrder("BTCBUSD", OrderSide.BUY,
 					new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
-			OCOResponse resp = client.newOCO(req).execute();
-			resp.getOrders().forEach(order -> SpothasNoNullProperty(order));
-			assertTrue(SpotgetNullProperties(resp).contains("OCOResponse.isIsolated"));
+			OCOResponse res = client.newOCO(req).execute();
+			test(res);
+			assertTrue(getNullProperties(res).contains("OCOResponse.isIsolated"));
 		} catch (ApiException e) {
 			fail();
 		}

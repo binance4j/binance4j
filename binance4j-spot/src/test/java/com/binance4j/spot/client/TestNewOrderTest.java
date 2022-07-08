@@ -7,11 +7,9 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.spot.order.NewOrder;
 
-class TestNewOrderTest extends ConcurrentTest {
-	final SpotClient client = SpotCLIENT;
+class TestNewOrderTest extends SpotTest {
 
 	@Test
 	@DisplayName("Test must not throw an exception")
