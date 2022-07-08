@@ -17,6 +17,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.AggTrade;
+import com.binance4j.core.pojo.NestedObject;
+import com.binance4j.core.pojo.SubObject;
+import com.binance4j.core.pojo.SubSubObject;
 
 public class BaseTestServiceTest {
     AggTrade trade;
@@ -88,6 +91,53 @@ public class BaseTestServiceTest {
         assertTrue(list.contains("AggTrade[0].price"));
         assertTrue(list.contains("AggTrade[0].firstTradeId"));
         assertTrue(list.contains("AggTrade[0].price"));
+    }
+
+    @Test
+    void testGetNestedProperties() throws IntrospectionException {
+        trade.setFirstTradeId(null);
+        trade.setPrice(null);
+
+        SubSubObject subSubObject1 = new SubSubObject();
+        subSubObject1.getTrades().add(trade);
+        subSubObject1.getTrades().add(trade);
+
+        SubSubObject subSubObject2 = new SubSubObject();
+        subSubObject2.getTrades().add(trade);
+        subSubObject2.getTrades().add(trade);
+
+        SubObject subsub1 = new SubObject();
+        subsub1.getSubSubObjects().add(subSubObject1);
+        subsub1.getSubSubObjects().add(subSubObject2);
+
+        SubObject subsub2 = new SubObject();
+        subsub2.getSubSubObjects().add(subSubObject1);
+        subsub2.getSubSubObjects().add(subSubObject2);
+
+        NestedObject nestedObject = new NestedObject();
+        nestedObject.getSubs().add(subsub1);
+        nestedObject.getSubs().add(subsub2);
+
+        Set<String> list = BaseTestService.getNullProperties(nestedObject);
+        System.out.println(list);
+
+        assertEquals(16, list.size());
+        assertTrue(list.contains("subs[0].subSubObjects[0].trades[0].firstTradeId"));
+        assertTrue(list.contains("subs[0].subSubObjects[0].trades[0].price"));
+        assertTrue(list.contains("subs[0].subSubObjects[0].trades[1].firstTradeId"));
+        assertTrue(list.contains("subs[0].subSubObjects[0].trades[1].price"));
+        assertTrue(list.contains("subs[0].subSubObjects[1].trades[0].firstTradeId"));
+        assertTrue(list.contains("subs[0].subSubObjects[1].trades[0].price"));
+        assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].firstTradeId"));
+        assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].price"));
+        assertTrue(list.contains("subs[1].subSubObjects[0].trades[0].firstTradeId"));
+        assertTrue(list.contains("subs[1].subSubObjects[0].trades[0].price"));
+        assertTrue(list.contains("subs[1].subSubObjects[0].trades[1].firstTradeId"));
+        assertTrue(list.contains("subs[1].subSubObjects[0].trades[1].price"));
+        assertTrue(list.contains("subs[1].subSubObjects[1].trades[0].firstTradeId"));
+        assertTrue(list.contains("subs[1].subSubObjects[1].trades[0].price"));
+        assertTrue(list.contains("subs[1].subSubObjects[1].trades[1].firstTradeId"));
+        assertTrue(list.contains("subs[1].subSubObjects[1].trades[1].price"));
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.binance4j.core.test;
 
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -9,9 +10,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public abstract class BaseTestService {
@@ -56,45 +56,54 @@ public abstract class BaseTestService {
      * @param bean The bean we want the properties
      */
     public static Set<String> getNullProperties(Object bean) {
-        if (!isJavaBean(bean)) {
-            return getProperties(bean).entrySet().stream().filter(t -> Objects.isNull(t.getValue()))
-                    .map(Entry::getKey).map(k -> bean.getClass().getSimpleName() + "." + k).collect(Collectors.toSet());
-        }
-        return Collections.emptySet();
+        return getNullProperties(bean, bean.getClass().getSimpleName());
     }
 
     /**
-     * Returns the bean properties in the collection with a null walue
+     * Returns the bean properties with a null walue
      * 
-     * @param collection The collection we want the bean properties
+     * @param bean           The bean we want the properties
+     * @param enclosingClass The enclosing class
      */
-    public static Set<String> getNullProperties(Collection<?> collection) {
-        Set<String> set = new HashSet<>();
-        int i = 0;
+    public static Set<String> getNullProperties(Object bean, String enclosingClass) {
+        List<String> list = new ArrayList<>();
+        // Handling collections
+        if (bean instanceof Collection) {
+            int i = 0;
 
-        for (Object bean : collection) {
-            Set<String> nullProps = BaseTestService.getNullProperties(bean);
+            for (Object b : (Collection<?>) bean) {
+                Set<String> nullProps = BaseTestService.getNullProperties(b, bean.getClass().getSimpleName());
 
-            for (String np : nullProps) {
-                set.add(String.format("%s[%s].%s", np.split("\\.")[0], Integer.toString(i), np.split("\\.")[1]));
+                for (String np : nullProps) {
+                    list.add(String.format("%s[%s].%s", enclosingClass, Integer.toString(i), np));
+                }
+                i++;
+
             }
-            i++;
         }
-
-        return set;
-    }
-
-    /**
-     * Returns the bean properties in the map with a null walue
-     * 
-     * @param map The map we want the bean properties
-     */
-    public static Set<String> getNullProperties(Map<String, ?> map) {
-        return map.entrySet().stream()
-                .map(es -> getNullProperties(es.getValue()).stream().map(np -> es.getKey() + "." + np)
-                        .collect(Collectors.toSet()))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toSet());
+        // Handling maps
+        else if (bean instanceof Map) {
+            list = ((Map<?, ?>) bean).entrySet().stream()
+                    .map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName())
+                            .stream()
+                            .map(np -> es.getKey() + "." + np)
+                            .collect(Collectors.toSet()))
+                    .flatMap(Collection::stream)
+                    .collect(Collectors.toList());
+        }
+        // Handling custom objects
+        else if (!isJavaBean(bean)) {
+            list = getProperties(bean).entrySet().stream().map(o -> {
+                if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
+                    return getNullProperties(o.getValue(), o.getKey());
+                } else if (o.getValue() == null) {
+                    return new HashSet<>(Arrays.asList(o.getKey()));
+                }
+                return new HashSet<String>();
+            }).flatMap(Collection::stream).collect(Collectors.toList());
+        }
+        Collections.sort(list);
+        return new TreeSet<>(list);
     }
 
     /**
