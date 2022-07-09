@@ -22,8 +22,8 @@ import com.binance4j.core.pojo.SubObject;
 import com.binance4j.core.pojo.SubSubObject;
 
 public class BaseTestServiceTest extends ConcurrentTest<Void> {
-    protected BaseTestServiceTest(Class<? extends Void> client) {
-        super(client);
+    protected BaseTestServiceTest() {
+        super();
     }
 
     AggTrade trade;
@@ -49,7 +49,7 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
     }
 
     @Test
-    void testGetProperties() throws IntrospectionException {
+    void testGetProperties() {
         Map<String, Object> map = getProperties(trade);
 
         List<String> list = new ArrayList<String>();
@@ -67,19 +67,19 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
     }
 
     @Test
-    void testGetNullProperties() throws IntrospectionException {
+    void testGetNullProperties() {
         trade.setFirstTradeId(null);
         trade.setPrice(null);
 
         Set<String> list = getNullProperties(trade);
         System.out.println(list);
         assertEquals(2, list.size());
-        assertTrue(list.contains("AggTrade.firstTradeId"));
-        assertTrue(list.contains("AggTrade.price"));
+        assertTrue(list.contains("firstTradeId"));
+        assertTrue(list.contains("price"));
     }
 
     @Test
-    void testGetNullPropertiesOfList() throws IntrospectionException {
+    void testGetNullPropertiesOfList() {
         trade.setFirstTradeId(null);
         trade.setPrice(null);
 
@@ -91,14 +91,14 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         System.out.println(list);
 
         assertEquals(4, list.size());
-        assertTrue(list.contains("AggTrade[0].firstTradeId"));
-        assertTrue(list.contains("AggTrade[0].price"));
-        assertTrue(list.contains("AggTrade[0].firstTradeId"));
-        assertTrue(list.contains("AggTrade[0].price"));
+        assertTrue(list.contains("ArrayList[0].firstTradeId"));
+        assertTrue(list.contains("ArrayList[0].price"));
+        assertTrue(list.contains("ArrayList[1].quantity"));
+        assertTrue(list.contains("ArrayList[1].time"));
     }
 
     @Test
-    void testGetNestedProperties() throws IntrospectionException {
+    void testGetNestedProperties() {
         trade.setFirstTradeId(null);
         trade.setPrice(null);
 

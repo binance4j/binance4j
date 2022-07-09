@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
+import com.binance4j.websocket.depth.WebsocketAllBookTickersClient;
 import com.binance4j.websocket.userdata.UserDataClient;
 import com.binance4j.websocket.userdata.WebsocketUserDataClient;
 
@@ -49,10 +50,11 @@ public abstract class WebsocketClientTest<T> {
 				String key = System.getenv("BINANCE_API_KEY"), secret = System.getenv("BINANCE_API_SECRET");
 				client = clientClass.getDeclaredConstructor(UserDataClient.class, WebsocketCallback.class)
 						.newInstance(new UserDataClient(key, secret), callback);
+			} else if (clientClass.getSimpleName() == WebsocketAllBookTickersClient.class.getSimpleName()) {
+				client = clientClass.getDeclaredConstructor(WebsocketCallback.class).newInstance(callback);
 			} else {
 				client = clientClass.getDeclaredConstructor(String.class, WebsocketCallback.class).newInstance(
-						tester.getSymbol(),
-						callback);
+						tester.getSymbol(), callback);
 			}
 
 			callback.setClient(client);

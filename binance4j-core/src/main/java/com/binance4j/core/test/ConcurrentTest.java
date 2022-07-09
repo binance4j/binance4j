@@ -21,6 +21,7 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import lombok.Getter;
+import lombok.NonNull;
 
 @Execution(ExecutionMode.CONCURRENT)
 public abstract class ConcurrentTest<T> {
@@ -50,10 +51,16 @@ public abstract class ConcurrentTest<T> {
     protected ConcurrentTest() {
     }
 
-    protected ConcurrentTest(Class<? extends T> client) {
+    protected ConcurrentTest(T client) {
+        this.client = client;
+    }
+
+    protected ConcurrentTest(@NonNull Class<? extends T> client) {
         try {
-            this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+            this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(),
+                    getSecret());
+        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException
                 | NoSuchMethodException | SecurityException e) {
             e.printStackTrace();
         }

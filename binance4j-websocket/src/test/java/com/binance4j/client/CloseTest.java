@@ -9,17 +9,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.test.ConcurrentTest;
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.callback.WebsocketCloseObject;
+import com.binance4j.utils.TestCallback;
 import com.binance4j.websocket.trade.AggTradePayload;
 import com.binance4j.websocket.trade.WebsocketAggTradeClient;
-
-import okhttp3.Response;
 
 public class CloseTest extends ConcurrentTest<WebsocketAggTradeClient> {
 
 	protected CloseTest() {
-		super(WebsocketAggTradeClient.class);
+		super();
 	}
 
 	CompletableFuture<Void> future;
@@ -31,31 +28,9 @@ public class CloseTest extends ConcurrentTest<WebsocketAggTradeClient> {
 
 	@Test
 	public void test() throws InterruptedException, ExecutionException {
-		client = new WebsocketAggTradeClient(getSymbols(), new WebsocketCallback<AggTradePayload>() {
-
-			@Override
-			public void onOpen(Response response) {
-
-			}
-
-			@Override
-			public void onClosing(WebsocketCloseObject websocketCloseObject) {
-
-			}
-
-			@Override
-			public void onClosed(WebsocketCloseObject websocketCloseObject) {
-
-				future.complete(null);
-			}
-
-			@Override
-			public void onMessage(AggTradePayload message) {
-
-				client.close();
-			}
-		});
-
+		TestCallback<AggTradePayload> callback = new TestCallback<AggTradePayload>();
+		client = new WebsocketAggTradeClient(getSymbols(), callback);
+		callback.setClient(client);
 		client.open();
 		assertNull(future.get());
 	}

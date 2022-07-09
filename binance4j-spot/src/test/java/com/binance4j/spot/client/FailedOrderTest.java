@@ -1,6 +1,5 @@
 package com.binance4j.spot.client;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
@@ -16,9 +15,7 @@ public class FailedOrderTest extends SpotTest {
 	@Test
 	@DisplayName("It should throw an exception")
 	public void testNewFailedOrderTest() {
-		assertThrows(ApiException.class, () -> {
-			assertDoesNotThrow(
-					() -> client.newOrderTest(NewOrder.buyMarket("SHIBBUSD", new BigDecimal(1000))).execute());
-		});
+		assertThrows(ApiException.class,
+				() -> client.newOrderTest(NewOrder.buyMarket("SHIBBUSD", new BigDecimal(1000))).execute());
 	}
 }
