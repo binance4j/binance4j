@@ -18,12 +18,12 @@ import com.binance4j.websocket.client.WebsocketClient;
 
 import okhttp3.Response;
 
-class NoResponseTimeOutTest {
+class NoResponseTimeOutTest extends CloseTest {
 	static long startTime;
 	static long endTime;
 
 	@Test
-	void test() throws InterruptedException, ExecutionException {
+	public void test() throws InterruptedException, ExecutionException {
 
 		CompletableFuture<Void> future = new CompletableFuture<>();
 

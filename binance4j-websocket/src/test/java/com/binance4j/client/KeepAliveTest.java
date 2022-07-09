@@ -16,7 +16,7 @@ import com.binance4j.websocket.trade.WebsocketAggTradeClient;
 
 import okhttp3.Response;
 
-public class KeepAliveTest {
+public class KeepAliveTest extends CloseTest {
 	int i = 0;
 
 	WebsocketAggTradeClient client;

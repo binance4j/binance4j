@@ -47,6 +47,9 @@ public abstract class ConcurrentTest<T> {
     @Getter
     protected T testnetClient;
 
+    protected ConcurrentTest() {
+    }
+
     protected ConcurrentTest(Class<? extends T> client) {
         try {
             this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());

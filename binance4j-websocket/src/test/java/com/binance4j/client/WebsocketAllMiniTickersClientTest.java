@@ -1,57 +1,23 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.utils.BaseWebsocketClientTest;
-import com.binance4j.utils.TestCallback;
-import com.binance4j.utils.WebsocketTester;
-import com.binance4j.websocket.client.BaseWebsocketClient;
+import com.binance4j.utils.WebsocketClientTest;
 import com.binance4j.websocket.ticker.MiniTickerPayload;
 import com.binance4j.websocket.ticker.WebsocketAllMiniTickersClient;
 
 /**
  * endpoint doesn't seem to work
  */
-class WebsocketAllMiniTickersClientTest extends BaseWebsocketClientTest<MiniTickerPayload> {
+class WebsocketAllMiniTickersClientTest extends WebsocketClientTest<MiniTickerPayload> {
+
+	public WebsocketAllMiniTickersClientTest() {
+		super(WebsocketAllMiniTickersClient.class);
+	}
 
 	@Test
 	@Override
 	public void test() {
 		super.test();
-	}
-
-	@Override
-	protected BaseWebsocketClient<MiniTickerPayload> newClient(TestCallback<MiniTickerPayload> callback) {
-		return new WebsocketAllMiniTickersClient(callback);
-	}
-
-	@Override
-	protected WebsocketTester<MiniTickerPayload> newTester(TestCallback<MiniTickerPayload> callback) {
-		return new Tester(callback);
-	}
-
-	static class Tester extends WebsocketTester<MiniTickerPayload> {
-
-		/**
-		 *
-		 */
-		public Tester(TestCallback<MiniTickerPayload> callback) {
-			super(callback);
-		}
-
-		@Override
-		public void testMessageContent(MiniTickerPayload message) {
-			assertNotNull(message.getClosePrice(), "ClosePrice assertion");
-			assertNotNull(message.getEventTime(), "EventTime assertion");
-			assertNotNull(message.getEventType(), "EventType assertion");
-			assertNotNull(message.getHighPrice(), "HighPrice assertion");
-			assertNotNull(message.getLowPrice(), "LowPrice assertion");
-			assertNotNull(message.getOpenPrice(), "OpenPrice assertion");
-			assertNotNull(message.symbol, "Symbol assertion");
-			assertNotNull(message.getTotalTradedBaseAssetVolume(), "TotalTradedBaseAssetVolume assertion");
-			assertNotNull(message.getTotalTradedQuoteAssetVolume(), "TotalTradedQuoteAssetVolume assertion");
-		}
 	}
 }

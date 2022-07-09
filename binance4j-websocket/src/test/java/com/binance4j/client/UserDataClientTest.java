@@ -12,7 +12,7 @@ import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
 import com.binance4j.websocket.userdata.ListenKey;
 import com.binance4j.websocket.userdata.UserDataClient;
 
-class UserDataClientTest {
+class UserDataClientTest extends CloseTest {
 
 	final UserDataClient client;
 

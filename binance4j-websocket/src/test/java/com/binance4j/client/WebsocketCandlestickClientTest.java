@@ -1,63 +1,19 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.utils.BaseWebsocketClientTest;
-import com.binance4j.utils.TestCallback;
-import com.binance4j.utils.WebsocketTester;
+import com.binance4j.utils.WebsocketClientTest;
 import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.candle.WebsocketCandlestickClient;
-import com.binance4j.websocket.client.BaseWebsocketClient;
 
-class WebsocketCandlestickClientTest extends BaseWebsocketClientTest<CandlePayload> {
+class WebsocketCandlestickClientTest extends WebsocketClientTest<CandlePayload> {
+	public WebsocketCandlestickClientTest() {
+		super(WebsocketCandlestickClient.class);
+	}
+
 	@Test
 	@Override
 	public void test() {
 		super.test();
-	}
-
-	@Override
-	protected BaseWebsocketClient<CandlePayload> newClient(TestCallback<CandlePayload> callback) {
-		return new WebsocketCandlestickClient(getSymbol(), CandlestickInterval.ONE_MINUTE, callback);
-	}
-
-	@Override
-	protected WebsocketTester<CandlePayload> newTester(TestCallback<CandlePayload> callback) {
-		return new Tester(callback);
-	}
-
-	static class Tester extends WebsocketTester<CandlePayload> {
-
-		/**
-		 *
-		 */
-		public Tester(TestCallback<CandlePayload> callback) {
-			super(callback);
-		}
-
-		@Override
-		public void testMessageContent(CandlePayload message) {
-			assertNotNull(message.getClose());
-			assertNotNull(message.getCloseTime());
-			assertNotNull(message.getEventTime());
-			assertNotNull(message.getEventType());
-			assertNotNull(message.getFirstTradeId());
-			assertNotNull(message.getHigh());
-			assertNotNull(message.getIntervalId());
-			assertNotNull(message.isBarFinal());
-			assertNotNull(message.getLastTradeId());
-			assertNotNull(message.getLow());
-			assertNotNull(message.getNumberOfTrades());
-			assertNotNull(message.getOpen());
-			assertNotNull(message.getOpenTime());
-			assertNotNull(message.getQuoteAssetVolume());
-			assertNotNull(message.symbol);
-			assertNotNull(message.getTakerBuyBaseAssetVolume());
-			assertNotNull(message.getTakerBuyQuoteAssetVolume());
-			assertNotNull(message.getVolume());
-		}
 	}
 }

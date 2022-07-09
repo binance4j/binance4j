@@ -1,7 +1,6 @@
 package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -20,12 +19,11 @@ import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.vision.spot.VisionSpotClient;
 
-public class BarSeriesServiceTest extends ConcurrentTest {
-	final VisionSpotClient client;
+public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	List<Candle> bars;
 
 	public BarSeriesServiceTest() throws ApiException {
-		client = new VisionSpotClient();
+		super(VisionSpotClient.class);
 		// Let's get some public data
 		bars = client.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
 	}
@@ -65,33 +63,17 @@ public class BarSeriesServiceTest extends ConcurrentTest {
 			Long closeTime = Timestamp.valueOf(bar1.getEndTime().toLocalDateTime()).getTime();
 			long openTime = Timestamp.valueOf(bar1.getBeginTime().toLocalDateTime()).getTime();
 
-			assertNotNull(closeTime);
-			assertNotNull(bar2.getCloseTime());
 			assertEquals(closeTime, bar2.getCloseTime());
-
-			assertNotNull(bar2.getOpenTime());
 			// There is a 1 millisecond diff between the two bars
 			assertEquals(openTime + 1, bar2.getOpenTime());
-
-			assertNotNull(bar1.getOpenPrice());
-			assertNotNull(bar2.getOpen());
 			assertEquals(new BigDecimal(bar1.getOpenPrice().toString()), bar2.getOpen());
-
-			assertNotNull(bar1.getHighPrice());
-			assertNotNull(bar2.getHigh());
 			assertEquals(new BigDecimal(bar1.getHighPrice().toString()), bar2.getHigh());
-
-			assertNotNull(bar1.getLowPrice());
-			assertNotNull(bar2.getLow());
 			assertEquals(new BigDecimal(bar1.getLowPrice().toString()), bar2.getLow());
-
-			assertNotNull(bar1.getClosePrice());
-			assertNotNull(bar2.getClose());
 			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.getClose());
-
-			assertNotNull(bar1.getVolume());
-			assertNotNull(bar2.getVolume());
 			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.getVolume());
+
+			test(bar1);
+			test(bar2);
 		}
 	}
 }

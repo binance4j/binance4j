@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 import com.binance4j.websocket.trade.AggTradePayload;
@@ -15,9 +16,12 @@ import com.binance4j.websocket.trade.WebsocketAggTradeClient;
 
 import okhttp3.Response;
 
-public class CloseTest {
+public class CloseTest extends ConcurrentTest<WebsocketAggTradeClient> {
 
-	WebsocketAggTradeClient client;
+	protected CloseTest() {
+		super(WebsocketAggTradeClient.class);
+	}
+
 	CompletableFuture<Void> future;
 
 	@BeforeEach

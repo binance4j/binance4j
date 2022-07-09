@@ -1,18 +1,21 @@
 package com.binance4j.utils;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+
+import com.binance4j.core.test.ConcurrentTest;
 
 /**
  * Tests the server responses
  */
-public abstract class WebsocketTester<T> {
+public class WebsocketTester<T> extends ConcurrentTest<Void> {
+
 	final TestCallback<T> callback;
 
 	/**
 	 * @param callback The websocket callback
 	 */
 	public WebsocketTester(TestCallback<T> callback) {
+		super();
 		this.callback = callback;
 	}
 
@@ -31,41 +34,34 @@ public abstract class WebsocketTester<T> {
 	 * Tests the onOpen payload content
 	 */
 	public void assertOpen() {
-		assertNotNull(callback.getContent().getOnOpenContent(), "error in open assertion");
+		test(callback.getContent().getOnOpenContent());
 	}
 
 	/**
 	 * Tests the onClosing payload content
 	 */
 	public void assertClosing() {
-		assertNotNull(callback.getContent().getOnClosingContent(), "error in closing assertion");
+		test(callback.getContent().getOnClosingContent());
 	}
 
 	/**
 	 * Tests the onClosed payload content
 	 */
 	public void assertClosed() {
-		assertNotNull(callback.getContent().getOnClosedContent(), "error in closed assertion");
+		test(callback.getContent().getOnClosedContent());
 	}
 
 	/**
 	 * Tests the onFailure payload content
 	 */
 	public void assertFailure() {
-		assertNull(callback.getContent().getOnFailureContent(), "error in closed assertion");
+		assertNull(callback.getContent().getOnFailureContent());
 	}
 
 	/**
 	 * Tests the onMessage payload content
 	 */
 	public void assertMessage() {
-		testMessageContent(callback.getContent().getOnMessageContent());
+		test(callback.getContent().getOnMessageContent());
 	}
-
-	/**
-	 * Tests the onMessage payload content
-	 *
-	 * @param message the payload
-	 */
-	public abstract void testMessageContent(T message);
 }

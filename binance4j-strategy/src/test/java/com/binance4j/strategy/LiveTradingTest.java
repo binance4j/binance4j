@@ -100,7 +100,7 @@ class LiveTradingTest extends ConcurrentTest {
 
 
 			count++;
-			set.add(t.symbol);
+			set.add(t.getSymbol());
 
 			if (count >= 25) {
 				assertEquals(set.size(), symbols.size());

@@ -15,10 +15,11 @@ import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.BarService;
 
-public class BarServiceTest extends ConcurrentTest {
+public class BarServiceTest extends ConcurrentTest<Void> {
 	final Candle candle = new Candle();
 
 	public BarServiceTest() {
+		super();
 		long closeTime = new Date().getTime();
 		BigDecimal open = new BigDecimal(1);
 		BigDecimal high = new BigDecimal(2);

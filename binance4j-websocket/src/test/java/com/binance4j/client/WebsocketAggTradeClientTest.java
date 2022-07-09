@@ -1,6 +1,5 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.concurrent.CompletableFuture;
@@ -12,18 +11,18 @@ import com.binance4j.utils.WebsocketTester;
 import com.binance4j.websocket.trade.AggTradePayload;
 import com.binance4j.websocket.trade.WebsocketAggTradeClient;
 
-class WebsocketAggTradeClientTest {
+class WebsocketAggTradeClientTest extends CloseTest {
 	CompletableFuture<Void> future;
 	WebsocketAggTradeClient client;
 	TestCallback<AggTradePayload> callback;
-	Tester tester;
+	WebsocketTester<AggTradePayload> tester;
 
 	@Test
 	void testClient() {
 		future = new CompletableFuture<>();
 		callback = new TestCallback<>();
 		client = new WebsocketAggTradeClient("BTCBUSD", callback);
-		tester = new Tester(callback);
+		tester = new WebsocketTester<AggTradePayload>(callback);
 		callback.setClient(client);
 		callback.setFuture(future);
 		client.open();
@@ -34,30 +33,6 @@ class WebsocketAggTradeClientTest {
 		} catch (Exception e) {
 			future.complete(null);
 			fail(e.getMessage());
-		}
-	}
-
-	static class Tester extends WebsocketTester<AggTradePayload> {
-
-		/**
-		 *
-		 */
-		public Tester(TestCallback<AggTradePayload> callback) {
-			super(callback);
-		}
-
-		@Override
-		public void testMessageContent(AggTradePayload message) {
-			assertNotNull(message.getAggregatedTradeId(), "AggregatedTradeId assertion");
-			assertNotNull(message.getEventTime(), "EventTime assertion");
-			assertNotNull(message.getEventType(), "EventType assertion");
-			assertNotNull(message.getFirstBreakdownTradeId(), "FirstBreakdownTradeId assertion");
-			assertNotNull(message.getIsBuyerMaker(), "IsBuyerMaker assertion");
-			assertNotNull(message.getLastBreakdownTradeId(), "LastBreakdownTradeId assertion");
-			assertNotNull(message.getPrice(), "Price assertion");
-			assertNotNull(message.getQuantity(), "Quantity assertion");
-			assertNotNull(message.symbol, "Symbol assertion");
-			assertNotNull(message.getTradeTime(), "TradeTime assertion");
 		}
 	}
 }
