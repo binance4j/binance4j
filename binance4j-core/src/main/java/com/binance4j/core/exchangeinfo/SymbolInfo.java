@@ -3,9 +3,12 @@ package com.binance4j.core.exchangeinfo;
 import java.util.List;
 
 import com.binance4j.core.order.OrderType;
+import com.binance4j.core.symbolfilter.SymbolFilters;
+import com.binance4j.core.symbolfilter.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -30,7 +33,8 @@ public class SymbolInfo {
   /**
    * Trading rules of the symbol
    */
-  private List<SymbolFilter> filters;
+  @JsonDeserialize(using = SymbolFiltersDeserializer.class)
+  private SymbolFilters filters;
   /**
    * The trading permissions of a symbol
    */
@@ -93,14 +97,6 @@ public class SymbolInfo {
   @Getter(AccessLevel.NONE)
   @Setter(AccessLevel.NONE)
   private Boolean isMarginTradingAllowed;
-
-  /**
-   * symbol filter information for the provided filter type.
-   */
-  public SymbolFilter getSymbolFilter(FilterType filterType) {
-    return filters.stream().filter(symbolFilter -> symbolFilter.getFilterType() == filterType)
-        .findFirst().orElseThrow(() -> new NullPointerException("Filter not found"));
-  }
 
   public Boolean icebergAllowed() {
     return icebergAllowed;

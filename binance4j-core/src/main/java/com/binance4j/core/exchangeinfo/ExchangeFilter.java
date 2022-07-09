@@ -16,7 +16,7 @@ public class ExchangeFilter {
 	/**
 	 * The filter type
 	 */
-	private FilterType filterType;
+	private ExchangeFilterType filterType;
 	/**
 	 * The filter limit
 	 */
