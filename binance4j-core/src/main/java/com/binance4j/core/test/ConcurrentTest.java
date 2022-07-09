@@ -113,6 +113,21 @@ public abstract class ConcurrentTest<T> {
     /**
      * Returns the bean properties with a null walue
      * 
+     * @param bean    The bean we want the properties
+     * @param flatten Flatten the result to only show the properties names
+     */
+    protected Set<String> getNullProperties(Object bean, boolean flatten) {
+        Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
+
+        return !flatten ? set : set.stream().map(string -> {
+            String[] array = string.split("\\.");
+            return array[array.length - 1];
+        }).collect(Collectors.toSet());
+    }
+
+    /**
+     * Returns the bean properties with a null walue
+     * 
      * @param bean           The bean we want the properties
      * @param enclosingClass The enclosing class
      */
@@ -157,6 +172,7 @@ public abstract class ConcurrentTest<T> {
 
         return new TreeSet<>(list);
     }
+
 
     /**
      * Tells if the given object has no null property
@@ -203,17 +219,17 @@ public abstract class ConcurrentTest<T> {
         return bean instanceof Collection;
     }
 
+    /**
+     * Tests that the object has no null properties
+     * 
+     * @param bean
+     */
     public void test(Object bean) {
         System.out.println(String.format("Testing %s object", bean.getClass().getSimpleName()));
         System.out.println();
-        System.out.println(bean);
-        System.out.println();
-
-        assertTrue(hasNoNullProperty(bean));
-
         System.out.println("null properties:");
-        System.out.println();
         System.out.println(getNullProperties(bean));
         System.out.println();
+        assertTrue(hasNoNullProperty(bean));
     }
 }
