@@ -2,9 +2,12 @@ package com.binance4j.margin;
 
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.margin.interest.InterestHistoryRequest;
+
 public class GetInterestHistoryTest extends MarginTest {
     @Test
-    void test() {
-
+    void test1() throws ApiException {
+        test(client.getInterestHistory(new InterestHistoryRequest(asset)));
     }
 }

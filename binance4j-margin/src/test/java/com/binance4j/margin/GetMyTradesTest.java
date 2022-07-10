@@ -1,10 +1,11 @@
 package com.binance4j.margin;
 
-import org.junit.jupiter.api.Test;
+import com.binance4j.core.exception.ApiException;
 
 public class GetMyTradesTest extends MarginTest {
-    @Test
-    void test() {
-
+    // TODO make orders
+    // @Test
+    void test1() throws ApiException {
+        test(client.getMyTrades());
     }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 //TODO
 public class CancelOpenOrdersTest extends MarginTest {
     @Test
-    void test() {
+    void test1() {
 
     }
 }

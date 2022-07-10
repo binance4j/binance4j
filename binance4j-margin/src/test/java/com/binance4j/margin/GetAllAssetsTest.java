@@ -6,7 +6,7 @@ import com.binance4j.core.exception.ApiException;
 
 public class GetAllAssetsTest extends MarginTest {
     @Test
-    void test() throws ApiException {
-        test(getClient().getAllAssets().execute());
+    void test1() throws ApiException {
+        test(getClient().getAllAssets());
     }
 }

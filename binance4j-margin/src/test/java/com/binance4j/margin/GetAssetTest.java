@@ -8,7 +8,7 @@ import com.binance4j.margin.asset.MarginAssetRequest;
 
 public class GetAssetTest extends MarginTest {
     @Test
-    void test() throws ApiException {
+    void test1() throws ApiException {
         MarginAsset asset = getClient().getAsset(new MarginAssetRequest(getAsset())).execute();
         test(asset);
     }

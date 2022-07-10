@@ -1,10 +1,9 @@
 package com.binance4j.margin;
 
-import org.junit.jupiter.api.Test;
-
 public class GetOrderTest extends MarginTest {
-    @Test
-    void test() {
+    // TODO make an order
+    // @Test
+    void test1() {
 
     }
 }

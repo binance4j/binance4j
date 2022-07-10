@@ -8,6 +8,6 @@ import com.binance4j.margin.priceindex.PriceIndexRequest;
 public class GetPriceIndexTest extends MarginTest {
     @Test
     void test() throws ApiException {
-        test(getClient().getPriceIndex(new PriceIndexRequest(getSymbol())).execute());
+        test(getClient().getPriceIndex(new PriceIndexRequest(getSymbol())));
     }
 }

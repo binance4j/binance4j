@@ -1,20 +1,21 @@
 package com.binance4j.margin;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.transferhistory.MarginTransferHistoryRequest;
-import com.binance4j.margin.transferhistory.MarginTransferHistoryResponse;
 
 public class GetTransferHistoryTest extends MarginTest {
     @Test
-    void test() throws ApiException {
-        MarginTransferHistoryResponse res = getClient().getTransferHistory(new MarginTransferHistoryRequest())
-                .execute();
+    @DisplayName("Response properties should not be null")
+    void test1() throws ApiException {
+        test(getClient().getTransferHistory(new MarginTransferHistoryRequest()));
+    }
 
-        assertTrue(hasNoNullProperty(res));
-        res.getRows().forEach(row -> assertTrue(getNullProperties(row).isEmpty()));
+    @Test
+    @DisplayName("Response properties should not be null")
+    void test2() throws ApiException {
+        test(getClient().getTransferHistory());
     }
 }

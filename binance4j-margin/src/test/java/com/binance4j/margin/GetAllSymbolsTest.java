@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class GetAllSymbolsTest extends MarginTest {
     @Test
-    void test() {
+    void test1() {
 
     }
 }
