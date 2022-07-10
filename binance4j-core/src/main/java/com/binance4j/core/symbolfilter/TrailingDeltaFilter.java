@@ -10,8 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Defines the allowed maximum position an account can have on the base asset of
- * a symbol.
+ * Defines the minimum and maximum value for the parameter trailingDelta.
  * 
  * @see https://binance-docs.github.io/apidocs/spot/en/#filters
  */
@@ -20,12 +19,12 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class TrailingDeltaFilter {
-    // TODO javadoc
+    /** The min trailing above delta */
     private BigDecimal minTrailingAboveDelta;
-    // TODO javadoc
+    /** The max trailing above delta */
     private BigDecimal maxTrailingAboveDelta;
-    // TODO javadoc
+    /** The min trailing below delta */
     private BigDecimal minTrailingBelowDelta;
-    // TODO javadoc
+    /** The max trailing below delta */
     private BigDecimal maxTrailingBelowDelta;
 }

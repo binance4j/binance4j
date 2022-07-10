@@ -42,7 +42,7 @@ class UserDataClientTest extends CloseTest {
 		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.getListenKey()).execute());
 	}
 
-	// TODO remove comment when isolated account will be activated
+	// TODO activate isolated account
 	// @Test
 	@DisplayName("The listen key should be a non empty string. keeping alive and closing the stream should not trigger an error")
 	void testIsolatedUserDataStream() throws ApiException {
