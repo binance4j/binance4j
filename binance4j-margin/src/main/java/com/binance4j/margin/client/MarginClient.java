@@ -34,6 +34,7 @@ import com.binance4j.margin.forceliquidation.ForceLiquidationRecordRequest;
 import com.binance4j.margin.interest.InterestHistory;
 import com.binance4j.margin.interest.InterestHistoryRequest;
 import com.binance4j.margin.interest.InterestRate;
+import com.binance4j.margin.interest.InterestRateHistoryRequest;
 import com.binance4j.margin.loan.LoanRecord;
 import com.binance4j.margin.loan.LoanRecordRequest;
 import com.binance4j.margin.oco.CancelMarginOCORequest;
@@ -209,6 +210,16 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Get Cross Margin Transfer History
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#get-cross-margin-transfer-history-user_data">Documentation</a>
+     */
+    public RequestExecutor<MarginTransferHistoryResponse> getTransferHistory() {
+        return getTransferHistory(new MarginTransferHistoryRequest());
+    }
+
+    /**
      * Query Loan Record
      * <p>
      * txId or startTime must be sent. txId takes precedence.
@@ -290,7 +301,7 @@ public class MarginClient extends RestClient<MarginMapping> {
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-account-details-user_data">Documentation</a>
      */
     public RequestExecutor<MarginAccount> getAccount() {
-        return new RequestExecutor<>(service.getAccount(new MarginAccountRequest().toMap()));
+        return getAccount(new MarginAccountRequest());
     }
 
     /**
@@ -327,6 +338,26 @@ public class MarginClient extends RestClient<MarginMapping> {
      * Get Margin Account's Open Orders
      * 
      * <p>
+     * If the symbol is not sent, orders for all symbols will be returned
+     * in an array.
+     * <p>
+     * When all symbols are returned, the number of requests counted
+     * against the rate limiter is equal to the number of symbols currently
+     * trading on the exchange.
+     * <p>
+     * If isIsolated ="TRUE", symbol must be sent.
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-orders-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<OrderInfo>> getOpenOrders() {
+        return getOpenOrders(new MarginOpenOrdersRequest());
+    }
+
+    /**
+     * Get Margin Account's Open Orders
+     * 
+     * <p>
      * Request Limit: 60times/min per IP
      * <p>
      * If orderId is set, it will get orders&gt;= that orderId. Otherwise
@@ -340,6 +371,25 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<OrderInfo>> getAllOrders(MarginAllOrdersRequest req) {
         return new RequestExecutor<>(service.getAllOrders(req.toMap()));
+    }
+
+    /**
+     * Get Margin Account's Open Orders
+     * 
+     * <p>
+     * Request Limit: 60times/min per IP
+     * <p>
+     * If orderId is set, it will get orders&gt;= that orderId. Otherwise
+     * most recent orders are returned.
+     * <p>
+     * For some historical orders cummulativeQuoteQty will be &lt;0, meaning
+     * the data is not available at this time.
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-all-orders-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<OrderInfo>> getAllOrders() {
+        return getAllOrders(new MarginAllOrdersRequest());
     }
 
     /**
@@ -415,6 +465,17 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Retrieves all Open OCO for a specific margin account based on provided
+     * optional parameters
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<GetMarginOCOResponse>> getOpenOCO() {
+        return getOpenOCO(new GetOpenMarginOCORequest());
+    }
+
+    /**
      * Query Margin Account's Trade List
      * 
      * <p>
@@ -426,6 +487,20 @@ public class MarginClient extends RestClient<MarginMapping> {
      */
     public RequestExecutor<List<MarginTrade>> getMyTrades(GetOpenMarginOCORequest req) {
         return new RequestExecutor<>(service.getMyTrades(req.toMap()));
+    }
+
+    /**
+     * Query Margin Account's Trade List
+     * 
+     * <p>
+     * If fromId is set, it will get trades&gt;= that fromId. Otherwise most
+     * recent trades are returned.
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<MarginTrade>> getMyTrades() {
+        return getMyTrades(new GetOpenMarginOCORequest());
     }
 
     /**
@@ -491,6 +566,16 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Query Isolated Margin Account Info
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-isolated-margin-account-info-user_data">Documentation</a>
+     */
+    public RequestExecutor<MarginIsolatedAccount> getIsolatedAccount() {
+        return getIsolatedAccount(new MarginIsolatedAccountRequest());
+    }
+
+    /**
      * Disable isolated margin account for a specific symbol. Each trading pair can
      * only be deactivated once every 24 hours.
      * 
@@ -527,6 +612,16 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Query enabled isolated margin account limit.
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-enabled-isolated-margin-account-limit-user_data">Documentation</a>
+     */
+    public RequestExecutor<MarginIsolatedAccountLimit> getEnabledIsolatedAccountLimit() {
+        return getEnabledIsolatedAccountLimit(new MarginIsolatedAccountLimitRequest());
+    }
+
+    /**
      * Gets the informations about an isolated symbol
      * 
      * @see <a href=
@@ -549,6 +644,16 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Gets the informations about all the isolated symbols
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#get-all-isolated-margin-symbol-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<MarginPair>> getAllIsolatedSymbols() {
+        return getAllIsolatedSymbols(new AllMarginPairsRequest());
+    }
+
+    /**
      * Toggle BNB Burn On Spot Trade And Margin Interest
      * 
      * <p>
@@ -563,6 +668,19 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Toggle BNB Burn On Spot Trade And Margin Interest
+     * 
+     * <p>
+     * "spotBNBBurn" and "interestBNBBurn" should be sent at least one.
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#toggle-bnb-burn-on-spot-trade-and-margin-interest-user_data">Documentation</a>
+     */
+    public RequestExecutor<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest() {
+        return toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnRequest());
+    }
+
+    /**
      * Get BNB Burn Status
      * 
      * @see <a href=
@@ -574,12 +692,22 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Get BNB Burn Status
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#get-bnb-burn-status-user_data">Documentation</a>
+     */
+    public RequestExecutor<BNBBurnStatus> getBNBBurnStatus() {
+        return getBNBBurnStatus(new ToggleBurnRequest());
+    }
+
+    /**
      * Query Margin Interest Rate History
      * 
      * @see <a href=
      *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-interest-rate-history-user_data">Documentation</a>
      */
-    public RequestExecutor<List<InterestRate>> getInterestRateHistory(ToggleBurnRequest req) {
+    public RequestExecutor<List<InterestRate>> getInterestRateHistory(InterestRateHistoryRequest req) {
         return new RequestExecutor<>(
                 service.getInterestRateHistory(req.toMap()));
     }
@@ -602,6 +730,22 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
+     * Get cross margin fee data collection with any vip level or user's current
+     * specific data defined
+     * <a href="https://www.binance.com/en/margin-fee">here</a>
+     * 
+     * <p>
+     * User's current specific margin data will be returned if vipLevel is
+     * omitted
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-fee-data-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<CrossMarginFee>> getMarginFeeData() {
+        return getMarginFeeData(new CrossMarginFeeRequest());
+    }
+
+    /**
      * Get isolated margin fee data collection with any vip level or user's current
      * specific data defined
      * <a href="https://www.binance.com/en/margin-fee">here</a>
@@ -616,6 +760,22 @@ public class MarginClient extends RestClient<MarginMapping> {
     public RequestExecutor<List<IsolatedMarginFee>> getIsolatedFeeData(IsolatedMarginFeeRequest req) {
         return new RequestExecutor<>(
                 service.getIsolatedFeeData(req.toMap()));
+    }
+
+    /**
+     * Get isolated margin fee data collection with any vip level or user's current
+     * specific data defined
+     * <a href="https://www.binance.com/en/margin-fee">here</a>
+     * 
+     * <p>
+     * User's current specific margin data will be returned if vipLevel is
+     * omitted
+     * 
+     * @see <a href=
+     *      "https://binance-docs.github.io/apidocs/spot/en/#query-cross-margin-fee-data-user_data">Documentation</a>
+     */
+    public RequestExecutor<List<IsolatedMarginFee>> getIsolatedFeeData() {
+        return getIsolatedFeeData(new IsolatedMarginFeeRequest());
     }
 
     /**
