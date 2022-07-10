@@ -1,6 +1,7 @@
 package com.binance4j.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -32,8 +33,7 @@ class GetDepositHistoryTest extends WalletTest {
 		test(client.getDepositHistory(new DepositHistoryRequest(DepositStatus.SUCCESS)).execute());
 	}
 
-	// @Test
-	// TODO correct test
+	@Test
 	@DisplayName("It should return the deposit history of the given status")
 	void testGetDepositHistoryOfGivenAssetAndStatus() throws ApiException {
 		test(client.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS)).execute());
@@ -52,7 +52,7 @@ class GetDepositHistoryTest extends WalletTest {
 				.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS, limit, 0)).execute();
 		test(history);
 
-		assertEquals(history.size(), limit);
+		assertTrue(history.size() <= limit);
 		history.forEach(h -> {
 			assertEquals(asset, h.getCoin());
 			assertEquals(DepositStatus.SUCCESS, h.getDepositStatus());

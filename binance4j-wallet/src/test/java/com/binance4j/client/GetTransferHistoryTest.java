@@ -4,11 +4,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.wallet.transfer.WalletTransferHistory;
 import com.binance4j.wallet.transfer.WalletTransferHistoryRequest;
 import com.binance4j.wallet.transfer.WalletTransferType;
 
 class GetTransferHistoryTest extends WalletTest {
+
 	String asset = "BTC";
+
 	@Test
 	@DisplayName("It should return the transfer history")
 	void testGetTransferHistoryWithTransferType() throws ApiException {
@@ -22,15 +25,14 @@ class GetTransferHistoryTest extends WalletTest {
 				.execute());
 	}
 
-	// @Test
-	// TODO correct test
-
+	@Test
 	@DisplayName("It should return the transfer history with the given symbol")
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
-		test(client
+		WalletTransferHistory history = client
 				.getTransferHistory(
 						new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN, asset, asset, limit))
-				.execute());
+				.execute();
+		test(history);
 	}
 
 	@Test
