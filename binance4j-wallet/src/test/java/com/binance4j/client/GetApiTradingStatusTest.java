@@ -10,6 +10,6 @@ public class GetApiTradingStatusTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the api trading status")
 	void testGetApiTradingStatusOfAll() throws ApiException {
-		test(client.getApiTradingStatus().execute());
+		test(client.getApiTradingStatus());
 	}
 }

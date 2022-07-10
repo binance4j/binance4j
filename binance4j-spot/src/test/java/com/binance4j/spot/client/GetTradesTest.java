@@ -11,6 +11,6 @@ public class GetTradesTest extends SpotTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetMyTrades() throws ApiException {
-		test(client.getMyTrades(new MyTradesRequest("APEBUSD")).execute());
+		test(client.getMyTrades(new MyTradesRequest("APEBUSD")));
 	}
 }

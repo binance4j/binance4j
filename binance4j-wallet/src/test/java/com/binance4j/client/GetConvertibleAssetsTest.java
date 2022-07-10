@@ -10,6 +10,6 @@ public class GetConvertibleAssetsTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the convertible assets")
 	void testGetConvertibleAssets() throws ApiException {
-		test(client.getConvertibleAssets().execute());
+		test(client.getConvertibleAssets());
 	}
 }

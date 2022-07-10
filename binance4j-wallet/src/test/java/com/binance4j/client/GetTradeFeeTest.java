@@ -11,12 +11,12 @@ class GetTradeFeeTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the trade fee of all assets")
 	void testGetTradeFeeOfAll() throws ApiException {
-		test(client.getTradeFee().execute());
+		test(client.getTradeFee());
 	}
 
 	@Test
 	@DisplayName("It should return the trade fee of one asset")
 	void testGetTradeFeeOfOne() throws ApiException {
-		test(client.getTradeFee(new TradeFeeRequest("BNBBTC")).execute());
+		test(client.getTradeFee(new TradeFeeRequest("BNBBTC")));
 	}
 }

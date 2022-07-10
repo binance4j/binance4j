@@ -15,7 +15,7 @@ class GetTransferHistoryTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the transfer history")
 	void testGetTransferHistoryWithTransferType() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN)).execute());
+		test(client.getTransferHistory(new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN)));
 	}
 
 	@Test

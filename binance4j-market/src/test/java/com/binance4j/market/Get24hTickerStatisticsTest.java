@@ -17,7 +17,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	@DisplayName("Response must not contain null properties")
 	void test1() throws ApiException {
-		test(getClient().get24hTickerStatistics().execute());
+		test(getClient().get24hTickerStatistics());
 	}
 
 	@Test

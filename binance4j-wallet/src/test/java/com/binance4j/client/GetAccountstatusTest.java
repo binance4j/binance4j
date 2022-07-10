@@ -11,6 +11,6 @@ class GetAccountstatusTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the account status")
 	void testGetAccountstatus() throws ApiException {
-		test(client.getAccountstatus().execute());
+		test(client.getAccountstatus());
 	}
 }

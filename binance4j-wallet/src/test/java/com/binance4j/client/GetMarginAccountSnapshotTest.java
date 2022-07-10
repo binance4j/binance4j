@@ -12,6 +12,6 @@ class GetMarginAccountSnapshotTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the snapshot with the good size or throw an exception if you don't have a margin account")
 	void testMarginAccountSnapshotWithLimit() {
-		assertDoesNotThrow(() -> test(client.getMarginAccountSnapshot(new AccountSnapshotRequest(limit)).execute()));
+		assertDoesNotThrow(() -> test(client.getMarginAccountSnapshot(new AccountSnapshotRequest(limit))));
 	}
 }

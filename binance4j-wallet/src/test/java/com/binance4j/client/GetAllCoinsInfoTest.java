@@ -25,6 +25,6 @@ class GetAllCoinsInfoTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the coins info")
 	void testGetAllCoinsInfo() throws ApiException {
-		test(client.getAllCoinsInfo().execute());
+		test(client.getAllCoinsInfo());
 	}
 }

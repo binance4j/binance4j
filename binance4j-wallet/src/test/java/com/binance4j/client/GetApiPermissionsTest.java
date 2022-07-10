@@ -10,7 +10,7 @@ class GetApiPermissionsTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the API permissions")
 	void testGetApiPermissions() throws ApiException {
-		test(client.getApiPermissions().execute());
+		test(client.getApiPermissions());
 		// can be null if not configured to expire
 		// assertNotNull(permissions.getTradingAuthorityExpirationTime());
 	}

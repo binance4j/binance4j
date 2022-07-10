@@ -18,31 +18,31 @@ class GetDepositHistoryTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the deposit history")
 	void testGetDepositHistory() throws ApiException {
-		test(client.getDepositHistory().execute());
+		test(client.getDepositHistory());
 	}
 
 	@Test
 	@DisplayName("It should return the deposit history of the given asset")
 	void testGetDepositHistoryOfGivenCoin() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryRequest(asset)).execute());
+		test(client.getDepositHistory(new DepositHistoryRequest(asset)));
 	}
 
 	@Test
 	@DisplayName("It should return the deposit history of the given status")
 	void testGetDepositHistoryOfGivenStatus() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryRequest(DepositStatus.SUCCESS)).execute());
+		test(client.getDepositHistory(new DepositHistoryRequest(DepositStatus.SUCCESS)));
 	}
 
 	@Test
 	@DisplayName("It should return the deposit history of the given status")
 	void testGetDepositHistoryOfGivenAssetAndStatus() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS)).execute());
+		test(client.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS)));
 	}
 
 	@Test
 	@DisplayName("It should return the deposit history of the given status")
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimit() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS, limit)).execute());
+		test(client.getDepositHistory(new DepositHistoryRequest(asset, DepositStatus.SUCCESS, limit)));
 	}
 
 	@Test

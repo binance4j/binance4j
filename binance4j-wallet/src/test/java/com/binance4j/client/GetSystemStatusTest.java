@@ -10,6 +10,6 @@ class GetSystemStatusTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the system status")
 	void testGetSystemStatus() throws ApiException {
-		test(client.getSystemStatus().execute());
+		test(client.getSystemStatus());
 	}
 }

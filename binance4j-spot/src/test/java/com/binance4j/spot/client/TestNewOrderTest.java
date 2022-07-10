@@ -15,6 +15,6 @@ class TestNewOrderTest extends SpotTest {
 	@DisplayName("Test must not throw an exception")
 	void testNewOrderTest() {
 		NewOrder order = NewOrder.buyMarket("SHIBBUSD", new BigDecimal(10000000));
-		assertDoesNotThrow(() -> client.newOrderTest(order).execute());
+		assertDoesNotThrow(() -> client.newOrderTest(order));
 	}
 }

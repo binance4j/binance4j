@@ -17,7 +17,7 @@ class GetAssetDetailTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the details of all assets")
 	void testGetAllAssetsDetails() throws ApiException {
-		test(client.getAssetDetail().execute());
+		test(client.getAssetDetail());
 	}
 
 	@Test

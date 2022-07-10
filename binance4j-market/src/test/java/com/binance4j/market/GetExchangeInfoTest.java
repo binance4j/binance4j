@@ -11,7 +11,7 @@ class GetExchangeInfoTest extends MarketTest {
 	@Test
 	@DisplayName("Response must not contain null properties")
 	void test1() throws ApiException {
-		test(client.getExchangeInfo().execute());
+		test(client.getExchangeInfo());
 	}
 
 	@Test

@@ -11,13 +11,13 @@ class GetDepositAddressTest extends WalletTest {
 	// @Test
 	@DisplayName("It should return the deposit address")
 	void testGetDepositAddress() throws ApiException {
-		test(client.getDepositAddress(new DepositAddressRequest("BNB")).execute());
+		test(client.getDepositAddress(new DepositAddressRequest("BNB")));
 	}
 
 	// Test fails on Github Actions (USA restriction?)
 	// @Test
 	@DisplayName("It should return the deposit address of the given network")
 	void testGetDepositAddressWithNetwork() throws ApiException {
-		test(client.getDepositAddress(new DepositAddressRequest("BNB", "BNB")).execute());
+		test(client.getDepositAddress(new DepositAddressRequest("BNB", "BNB")));
 	}
 }

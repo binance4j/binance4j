@@ -10,18 +10,18 @@ class GetFundingAssetTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the funding of all assets")
 	void testGetAllAssets() throws ApiException {
-		test(client.getFundingAsset().execute());
+		test(client.getFundingAsset());
 	}
 
 	@Test
 	@DisplayName("It should return the funding of the given asset")
 	void testGetGivenAsset() throws ApiException {
-		test(client.getFundingAsset(new FundingAssetRequest(asset)).execute());
+		test(client.getFundingAsset(new FundingAssetRequest(asset)));
 	}
 
 	@Test
 	@DisplayName("It should return the funding of the given asset")
 	void testGetGivenAssetWithBtcValuation() throws ApiException {
-		test(client.getFundingAsset(new FundingAssetRequest(asset, true)).execute());
+		test(client.getFundingAsset(new FundingAssetRequest(asset, true)));
 	}
 }

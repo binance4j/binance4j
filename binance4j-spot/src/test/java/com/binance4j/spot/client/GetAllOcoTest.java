@@ -10,6 +10,6 @@ public class GetAllOcoTest extends SpotTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetAllOCO() throws ApiException {
-		test(client.getAllOCO().execute());
+		test(client.getAllOCO());
 	}
 }

@@ -11,12 +11,12 @@ public class GetOpenOrdersTest extends SpotTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetOpenOrders() throws ApiException {
-		test(client.getOpenOrders().execute());
+		test(client.getOpenOrders());
 	}
 
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetOpenOrders2() throws ApiException {
-		test(client.getOpenOrders(new OpenOrdersStatusRequest("APEBUSD")).execute());
+		test(client.getOpenOrders(new OpenOrdersStatusRequest("APEBUSD")));
 	}
 }

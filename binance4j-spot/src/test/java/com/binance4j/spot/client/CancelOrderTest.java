@@ -9,6 +9,6 @@ public class CancelOrderTest extends SpotTest {
 	// @Test
 	@DisplayName("Test must not throw an exception")
 	public void testCancelOrderTest() throws ApiException {
-		test(client.cancelOrder(new CancelOrderRequest("APEBUSD", 56935218L)).execute());
+		test(client.cancelOrder(new CancelOrderRequest("APEBUSD", 56935218L)));
 	}
 }

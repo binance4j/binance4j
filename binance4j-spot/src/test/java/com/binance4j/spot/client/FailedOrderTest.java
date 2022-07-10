@@ -16,6 +16,6 @@ public class FailedOrderTest extends SpotTest {
 	@DisplayName("It should throw an exception")
 	public void testNewFailedOrderTest() {
 		assertThrows(ApiException.class,
-				() -> client.newOrderTest(NewOrder.buyMarket("SHIBBUSD", new BigDecimal(1000))).execute());
+				() -> client.newOrderTest(NewOrder.buyMarket("SHIBBUSD", new BigDecimal(1000))));
 	}
 }

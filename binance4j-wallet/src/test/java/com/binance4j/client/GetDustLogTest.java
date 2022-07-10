@@ -11,6 +11,6 @@ class GetDustLogTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the dust transfer history")
 	void testGetDustLog() throws ApiException {
-		test(client.getDustLog(new DustLogRequest()).execute());
+		test(client.getDustLog(new DustLogRequest()));
 	}
 }

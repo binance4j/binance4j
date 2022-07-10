@@ -10,6 +10,6 @@ public class GetAccountTest extends SpotTest {
 	@Test
 	@DisplayName("It should return the account infos")
 	public void testGetAccount() throws ApiException {
-		test(client.getAccount().execute());
+		test(client.getAccount());
 	}
 }

@@ -26,13 +26,13 @@ class GetWithdrawHistoryTest extends WalletTest {
 	@Test
 	@DisplayName("Response properties should not be null except withdrawOrderId")
 	void testGetWithdrawHistory() throws ApiException {
-		test(client.getWithdrawHistory().execute());
+		test(client.getWithdrawHistory());
 	}
 
 	@Test
 	@DisplayName("It should return the WithdrawHistory of the given asset")
 	void testGetWithdrawHistoryWithAsset() throws ApiException {
-		test(client.getWithdrawHistory(new WithdrawHistoryRequest(getAsset())).execute());
+		test(client.getWithdrawHistory(new WithdrawHistoryRequest(getAsset())));
 	}
 
 	@Test

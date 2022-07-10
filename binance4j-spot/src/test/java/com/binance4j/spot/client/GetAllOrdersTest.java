@@ -11,6 +11,6 @@ public class GetAllOrdersTest extends SpotTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetAllOrders() throws ApiException {
-		test(client.getAllOrders(new AllOrdersRequest("APEBUSD")).execute());
+		test(client.getAllOrders(new AllOrdersRequest("APEBUSD")));
 	}
 }

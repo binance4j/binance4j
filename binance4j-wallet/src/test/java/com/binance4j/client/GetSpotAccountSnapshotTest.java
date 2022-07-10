@@ -11,12 +11,12 @@ class GetSpotAccountSnapshotTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the snapshot")
 	void testGetSpotAccountSnapshot() throws ApiException {
-		test(client.getSpotAccountSnapshot().execute());
+		test(client.getSpotAccountSnapshot());
 	}
 
 	@Test
 	@DisplayName("It should return the snapshot with the good size or throw an exception if you don't have a margin account")
 	void testGetSpotAccountSnapshotWithLimit() throws ApiException {
-		test(client.getSpotAccountSnapshot(new AccountSnapshotRequest(limit)).execute());
+		test(client.getSpotAccountSnapshot(new AccountSnapshotRequest(limit)));
 	}
 }

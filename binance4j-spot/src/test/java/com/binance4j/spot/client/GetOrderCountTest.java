@@ -9,6 +9,6 @@ public class GetOrderCountTest extends SpotTest {
 	@Test
 	@DisplayName("Properties shouldn't be null or ApiException should not be null")
 	public void testGetOrderCount() throws ApiException {
-		test(client.getOrderCount().execute());
+		test(client.getOrderCount());
 	}
 }

@@ -13,6 +13,6 @@ class NewOrderTest extends SpotTest {
 	@DisplayName("Test must not throw an exception")
 	void testNewOrder() throws ApiException {
 		NewOrder order = NewOrder.buyLimit("BTCBUSD", new BigDecimal("1"), new BigDecimal("25000"));
-		test(client.newOrder(order).execute());
+		test(client.newOrder(order));
 	}
 }
