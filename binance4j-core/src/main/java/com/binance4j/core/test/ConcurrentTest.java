@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.request.RequestExecutor;
+
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -225,11 +228,29 @@ public abstract class ConcurrentTest<T> {
      * @param bean
      */
     public void test(Object bean) {
-        System.out.println(String.format("Testing %s object", bean.getClass().getSimpleName()));
+        System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
+
+        Set<String> nulls = getNullProperties(bean);
+
+        if (nulls.isEmpty()) {
+            System.out.println("no null property");
+        } else {
+            System.out.println("null properties:");
+            System.out.println(getNullProperties(bean));
+        }
+
         System.out.println();
-        System.out.println("null properties:");
-        System.out.println(getNullProperties(bean));
-        System.out.println();
+
         assertTrue(hasNoNullProperty(bean));
+    }
+
+    /**
+     * Tests that the object has no null properties
+     * 
+     * @param bean
+     * @throws ApiException
+     */
+    public void test(RequestExecutor<?> executor) throws ApiException {
+        test(executor.execute());
     }
 }
