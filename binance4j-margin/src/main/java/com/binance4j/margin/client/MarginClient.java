@@ -374,25 +374,6 @@ public class MarginClient extends RestClient<MarginMapping> {
     }
 
     /**
-     * Get Margin Account's Open Orders
-     * 
-     * <p>
-     * Request Limit: 60times/min per IP
-     * <p>
-     * If orderId is set, it will get orders&gt;= that orderId. Otherwise
-     * most recent orders are returned.
-     * <p>
-     * For some historical orders cummulativeQuoteQty will be &lt;0, meaning
-     * the data is not available at this time.
-     * 
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-all-orders-user_data">Documentation</a>
-     */
-    public RequestExecutor<List<OrderInfo>> getAllOrders() {
-        return getAllOrders(new MarginAllOrdersRequest());
-    }
-
-    /**
      * Send in a new OCO for a margin account
      * 
      * <p>

@@ -13,7 +13,8 @@ public class MarginAllOrdersRequest extends IntervalRequest {
     private long orderId;
     private long limit;
 
-    public MarginAllOrdersRequest() {
+    public MarginAllOrdersRequest(String symbol) {
         super(200);
+        this.symbol = symbol;
     }
 }
