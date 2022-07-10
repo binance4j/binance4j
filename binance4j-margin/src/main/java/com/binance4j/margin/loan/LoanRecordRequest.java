@@ -14,7 +14,7 @@ public class LoanRecordRequest extends IntervalRequest {
     /** the tranId in POST /sapi/v1/margin/loan */
     private long txId;
     /** Currently querying page. Start from 1. Default:1 */
-    private long current;
+    private long current = 1;
     /** Default:10 Max:100 */
     private long size;
     /** Set to true for archived data from 6 months ago */
