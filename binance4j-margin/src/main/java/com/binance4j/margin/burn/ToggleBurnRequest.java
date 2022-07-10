@@ -13,7 +13,15 @@ public class ToggleBurnRequest extends FramedRequest {
     /** Determines whether to use BNB to pay for margin loan's interest */
     private Boolean interestBNBBurn;
 
+    /** Constructor */
     public ToggleBurnRequest() {
         super(1);
+    }
+
+    /** Constructor */
+    public ToggleBurnRequest(Boolean spotBNBBurn, Boolean interestBNBBurn) {
+        this();
+        this.spotBNBBurn = spotBNBBurn;
+        this.interestBNBBurn = interestBNBBurn;
     }
 }
