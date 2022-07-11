@@ -62,10 +62,6 @@ public class Candle {
      * Taker buy quote asset volume
      */
     private BigDecimal takerBuyQuoteAssetVolume;
-    /**
-     * Ignore
-     */
-    private BigDecimal ignore;
 
     /**
      * Constructor accepting a list of String acting like a line of data in a csv
@@ -85,6 +81,5 @@ public class Candle {
         setNumberOfTrades(Long.parseLong(input.get(8)));
         setTakerBuyBaseAssetVolume(new BigDecimal(input.get(9)));
         setTakerBuyQuoteAssetVolume(new BigDecimal(input.get(10)));
-        setIgnore(new BigDecimal(input.get(11)));
     }
 }

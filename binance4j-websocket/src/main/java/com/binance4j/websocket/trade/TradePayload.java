@@ -1,12 +1,13 @@
 package com.binance4j.websocket.trade;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * Pair trade data
@@ -65,9 +66,4 @@ public class TradePayload {
 	 */
 	@JsonProperty("m")
 	private Boolean buyerIsMarketMaker;
-	/**
-	 * Ignore
-	 */
-	@JsonProperty("M")
-	private Boolean ignore;
 }
