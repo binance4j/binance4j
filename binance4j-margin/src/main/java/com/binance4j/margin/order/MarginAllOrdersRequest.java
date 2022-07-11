@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 public class MarginAllOrdersRequest extends IntervalRequest {
     private String symbol;
     private Boolean isIsolated;
-    private long orderId;
-    private long limit;
+    private Long orderId;
+    private Long limit;
 
     public MarginAllOrdersRequest(String symbol) {
         super(200);
