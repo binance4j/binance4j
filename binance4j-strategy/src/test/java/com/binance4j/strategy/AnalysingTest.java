@@ -16,7 +16,7 @@ import com.binance4j.strategy.service.BackTestService;
 import com.binance4j.strategy.service.PositionService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 
-class AnalysingTest extends ConcurrentTest {
+class AnalysingTest extends ConcurrentTest<Void> {
 
 	@Test
 	@DisplayName("Analyse and backtest positions should be the same")

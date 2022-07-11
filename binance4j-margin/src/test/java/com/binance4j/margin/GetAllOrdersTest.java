@@ -8,6 +8,7 @@ import com.binance4j.margin.order.MarginAllOrdersRequest;
 public class GetAllOrdersTest extends MarginTest {
     @Test
     void test1() throws ApiException {
-        test(client.getAllOrders(new MarginAllOrdersRequest(symbol)));
+        MarginAllOrdersRequest req = new MarginAllOrdersRequest(symbol);
+        test(client.getAllOrders(req));
     }
 }

@@ -1,19 +1,21 @@
 package com.binance4j.client;
 
-import org.junit.jupiter.api.Test;
+import java.util.concurrent.ExecutionException;
 
-import com.binance4j.utils.WebsocketClientTest;
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.websocket.userdata.UserDataClient;
 import com.binance4j.websocket.userdata.UserDataUpdatePayload;
 import com.binance4j.websocket.userdata.WebsocketUserDataClient;
 
-class WebsocketUserDataClientTest extends WebsocketClientTest<UserDataUpdatePayload> {
-	public WebsocketUserDataClientTest() {
-		super(WebsocketUserDataClient.class);
-	}
+class WebsocketUserDataClientTest {
+	TestCallback<UserDataUpdatePayload> callback = new TestCallback<>();
 
-	@Test
-	@Override
-	public void test() {
-		super.test();
+	// @Test
+	void test1() throws ApiException, InterruptedException, ExecutionException {
+		WebsocketUserDataClient client = new WebsocketUserDataClient(
+				new UserDataClient(callback.getKey(), callback.getSecret()), callback);
+		callback.setWebsocketClient(client);
+		client.open();
+		callback.future.get();
 	}
 }

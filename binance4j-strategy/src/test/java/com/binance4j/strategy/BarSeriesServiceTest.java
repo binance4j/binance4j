@@ -23,7 +23,7 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	List<Candle> bars;
 
 	public BarSeriesServiceTest() throws ApiException {
-		super(VisionSpotClient.class);
+		super(new VisionSpotClient());
 		// Let's get some public data
 		bars = client.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
 	}
@@ -72,7 +72,6 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.getClose());
 			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.getVolume());
 
-			test(bar1);
 			test(bar2);
 		}
 	}

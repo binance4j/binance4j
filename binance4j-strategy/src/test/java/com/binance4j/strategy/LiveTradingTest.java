@@ -23,7 +23,7 @@ import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
 
-class LiveTradingTest extends ConcurrentTest {
+class LiveTradingTest extends ConcurrentTest<Void> {
 	int count;
 	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;
@@ -34,22 +34,22 @@ class LiveTradingTest extends ConcurrentTest {
 		callback = new StrategyCallback();
 
 		callback.onClosed(t -> {
-			assertNotNull(t);
+			test(t);
 			future.complete(true);
 		});
 
 		callback.onFailure(t -> {
-			assertNotNull(t);
+			test(t);
 			future.complete(true);
 		});
 
 		callback.onEnter(t -> {
-			assertNotNull(t);
+			test(t);
 			service.unwatch();
 		});
 
 		callback.onExit(t -> {
-			assertNotNull(t);
+			test(t);
 			service.unwatch();
 		});
 

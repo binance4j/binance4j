@@ -1,19 +1,22 @@
 package com.binance4j.client;
 
+import java.util.concurrent.ExecutionException;
+
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.utils.WebsocketClientTest;
+import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.ticker.TickerPayload;
 import com.binance4j.websocket.ticker.WebsocketTickerClient;
 
-class WebsocketTickerClientTest extends WebsocketClientTest<TickerPayload> {
-	public WebsocketTickerClientTest() {
-		super(WebsocketTickerClient.class);
-	}
+class WebsocketTickerClientTest {
+
+	TestCallback<TickerPayload> callback = new TestCallback<>();
 
 	@Test
-	@Override
-	public void test() {
-		super.test();
+	void test1() throws ApiException, InterruptedException, ExecutionException {
+		WebsocketTickerClient client = new WebsocketTickerClient(callback.getSymbol(), callback);
+		callback.setWebsocketClient(client);
+		client.open();
+		callback.future.get();
 	}
 }

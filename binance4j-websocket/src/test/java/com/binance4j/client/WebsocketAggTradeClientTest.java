@@ -1,38 +1,22 @@
 package com.binance4j.client;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.utils.TestCallback;
-import com.binance4j.utils.WebsocketTester;
+import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.trade.AggTradePayload;
 import com.binance4j.websocket.trade.WebsocketAggTradeClient;
 
-class WebsocketAggTradeClientTest extends CloseTest {
-	CompletableFuture<Void> future;
-	WebsocketAggTradeClient client;
-	TestCallback<AggTradePayload> callback;
-	WebsocketTester<AggTradePayload> tester;
+class WebsocketAggTradeClientTest {
+
+	TestCallback<AggTradePayload> callback = new TestCallback<>();
 
 	@Test
-	void testClient() {
-		future = new CompletableFuture<>();
-		callback = new TestCallback<>();
-		client = new WebsocketAggTradeClient("BTCBUSD", callback);
-		tester = new WebsocketTester<AggTradePayload>(callback);
-		callback.setClient(client);
-		callback.setFuture(future);
+	void test1() throws ApiException, InterruptedException, ExecutionException {
+		WebsocketAggTradeClient client = new WebsocketAggTradeClient(callback.getSymbol(), callback);
+		callback.setWebsocketClient(client);
 		client.open();
-
-		try {
-			future.get();
-			tester.assertContent();
-		} catch (Exception e) {
-			future.complete(null);
-			fail(e.getMessage());
-		}
+		callback.future.get();
 	}
 }

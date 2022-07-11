@@ -16,9 +16,8 @@ import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.dto.StrategyCallback;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
-import com.binance4j.websocket.candle.WebsocketCandlestickClient;
 
-class NoResponseTimeoutTest extends ConcurrentTest {
+class NoResponseTimeoutTest extends ConcurrentTest<Void> {
 	int count;
 	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;
@@ -74,7 +73,7 @@ class NoResponseTimeoutTest extends ConcurrentTest {
 	@Test
 	@DisplayName("The client should receive data at every tick and should enter at first final bar")
 	void test() throws InterruptedException, ExecutionException {
-		WebsocketCandlestickClient client = service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
+		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());
 	}
 

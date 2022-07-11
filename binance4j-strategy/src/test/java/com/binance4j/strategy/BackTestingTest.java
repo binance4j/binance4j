@@ -17,7 +17,7 @@ import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 import com.binance4j.vision.spot.VisionSpotClient;
 
-class BackTestingTest extends ConcurrentTest {
+class BackTestingTest extends ConcurrentTest<Void> {
 
 	@Test
 	@DisplayName("The backtest should generate non null statistics")

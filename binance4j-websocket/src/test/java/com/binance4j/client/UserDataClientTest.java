@@ -12,7 +12,7 @@ import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
 import com.binance4j.websocket.userdata.ListenKey;
 import com.binance4j.websocket.userdata.UserDataClient;
 
-class UserDataClientTest extends CloseTest {
+class UserDataClientTest {
 
 	final UserDataClient client;
 
@@ -47,10 +47,10 @@ class UserDataClientTest extends CloseTest {
 	@DisplayName("The listen key should be a non empty string. keeping alive and closing the stream should not trigger an error")
 	void testIsolatedUserDataStream() throws ApiException {
 		IsolatedUserDataStreamRequest IsolatedUserDataStreamRequest = new IsolatedUserDataStreamRequest(
-				getSymbol());
+				new TestCallback<>().getSymbol());
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
 		KeepAliveIsolatedUserDataStreamRequest keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamRequest(
-				getSymbol(), listenKey.getListenKey());
+				new TestCallback<>().getSymbol(), listenKey.getListenKey());
 
 		assertTrue(listenKey.getListenKey().length() > 0);
 

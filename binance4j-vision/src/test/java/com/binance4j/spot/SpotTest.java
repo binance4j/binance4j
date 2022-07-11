@@ -8,11 +8,9 @@ import lombok.Getter;
 
 public class SpotTest extends ConcurrentTest<VisionSpotClient> {
 	public SpotTest() {
-		super(VisionSpotClient.class);
+		super(new VisionSpotClient());
 	}
 
-	@Getter
-	protected final VisionSpotClient client = new VisionSpotClient();
 	@Getter
 	protected final String year = "2022";
 	@Getter
