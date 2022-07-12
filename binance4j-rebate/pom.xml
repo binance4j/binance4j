@@ -3,7 +3,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
-    <artifactId>binance4j-connectors</artifactId>
+    <artifactId>binance4j-rebate</artifactId>
     <version>${binance4j.version}</version>
     <packaging>jar</packaging>
 
@@ -21,9 +21,8 @@
         <binance4j.version>2.0.1-SNAPSHOT</binance4j.version>
     </properties>
 
-
-    <name>binance4j-connectors</name>
-    <description>All binance4j-connectors</description>
+    <name>binance4j-rebate</name>
+    <description>Connector for the rebate endpoints of the Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>
@@ -61,47 +60,111 @@
     <dependencies>
         <dependency>
             <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-margin</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-market</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-nft</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-spot</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-strategy</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-vision</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-wallet</artifactId>
-            <version>${binance4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-websocket</artifactId>
+            <artifactId>binance4j-core</artifactId>
             <version>${binance4j.version}</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
+            <!-- Automatically delomboks the source code -->
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>1.18.20.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!-- Defines input and output for code delombok -->
+                <configuration>
+                    <sourceDirectory>src/main/java</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/delombok</outputDirectory>
+                    <addOutputDirectory>false</addOutputDirectory>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- Allows Ant operations -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>generate-delomboked-sources-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <!-- generates the sources jar from the delombok directory -->
+                        <configuration>
+                            <target>
+                                <jar destfile="${project.build.directory}/${project.build.finalName}-sources.jar" basedir="${project.build.directory}/delombok" />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Add more sources to the project -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-source-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <!-- Defines the sources jar -->
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/${project.build.finalName}-sources.jar</file>
+                                    <type>jar</type>
+                                    <classifier>sources</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Attaches the sources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Configures the javadoc generation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <!-- Source directory for the javadoc genration (delomboked code else will throws error since annotations are not standard) -->
+                        <configuration>
+                            <sourcepath>target/delombok</sourcepath>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Signs the artifact for deployment -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -157,6 +220,10 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
