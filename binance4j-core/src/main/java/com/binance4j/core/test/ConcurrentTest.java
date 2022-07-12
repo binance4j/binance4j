@@ -142,7 +142,6 @@ public abstract class ConcurrentTest<T> {
 
             for (Object b : (Collection<?>) bean) {
                 Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
-
                 for (String np : nullProps) {
                     list.add(String.format("%s[%s].%s", enclosingClass, Integer.toString(i), np));
                 }
@@ -164,11 +163,12 @@ public abstract class ConcurrentTest<T> {
         else if (!isJavaBean(bean)) {
             list = getProperties(bean).entrySet().stream().map(o -> {
                 if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
-                    return getNullProperties(o.getValue(), enclosingClass + "." + o.getKey());
+                    return getNullProperties(o.getValue(), o.getKey());
                 } else if (o.getValue() == null) {
-                    return new HashSet<>(Arrays.asList(enclosingClass + "." + o.getKey()));
+                    return new HashSet<>(Arrays.asList(Character.isUpperCase(enclosingClass.charAt(0)) ? o.getKey()
+                            : enclosingClass + "." + o.getKey()));
                 } else {
-                    return getNullProperties(o.getValue(), enclosingClass + "." + o.getKey());
+                    return getNullProperties(o.getValue(), o.getKey());
                 }
             }).flatMap(Collection::stream).collect(Collectors.toList());
         }
