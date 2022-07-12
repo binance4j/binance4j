@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.beans.IntrospectionException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,7 +58,6 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         list.add("lol");
         list.add("hihi");
 
-        System.out.println(getProperties(list));
         assertEquals(map.get("firstTradeId"), trade.getFirstTradeId());
         assertEquals(map.get("lastTradeId"), trade.getLastTradeId());
         assertEquals(map.get("price"), trade.getPrice());
@@ -72,10 +72,8 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         trade.setPrice(null);
 
         Set<String> list = getNullProperties(trade);
-        System.out.println(list);
         assertEquals(2, list.size());
-        assertTrue(list.contains("firstTradeId"));
-        assertTrue(list.contains("price"));
+        assertTrue(list.containsAll(Arrays.asList("firstTradeId", "price")));
     }
 
     @Test
@@ -87,8 +85,6 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         listOfTrades.add(trade);
         listOfTrades.add(trade2);
         Set<String> list = getNullProperties(listOfTrades);
-
-        System.out.println(list);
 
         assertEquals(4, list.size());
         assertTrue(list.contains("ArrayList[0].firstTradeId"));
@@ -123,7 +119,6 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         nestedObject.getSubs().add(subsub2);
 
         Set<String> list = getNullProperties(nestedObject);
-        System.out.println(list);
 
         assertEquals(16, list.size());
         assertTrue(list.contains("subs[0].subSubObjects[0].trades[0].firstTradeId"));
