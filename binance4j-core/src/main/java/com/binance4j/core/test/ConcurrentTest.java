@@ -167,8 +167,9 @@ public abstract class ConcurrentTest<T> {
                     return getNullProperties(o.getValue(), o.getKey());
                 } else if (o.getValue() == null) {
                     return new HashSet<>(Arrays.asList(o.getKey()));
+                } else {
+                    return getNullProperties(o.getValue(), o.getKey());
                 }
-                return new HashSet<String>();
             }).flatMap(Collection::stream).collect(Collectors.toList());
         }
         Collections.sort(list);
