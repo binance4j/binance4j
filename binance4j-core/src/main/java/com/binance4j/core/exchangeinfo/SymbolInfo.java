@@ -38,7 +38,7 @@ public class SymbolInfo {
   /**
    * The trading permissions of a symbol
    */
-  private List<SymbolPermission> permissions;
+  private List<String> permissions;
   /**
    * The trading pair
    */
