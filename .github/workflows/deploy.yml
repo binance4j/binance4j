@@ -62,6 +62,23 @@ jobs:
       - name: Test
         run: cd binance4j-market && mvn test
 
+  test-margin:
+    name: Test binance4j-margin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Test
+        run: cd binance4j-margin && mvn test
+
   test-nft:
     name: Test binance4j-nft
     runs-on: ubuntu-latest
@@ -78,6 +95,23 @@ jobs:
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
         run: cd binance4j-nft && mvn test
+
+  test-rebate:
+    name: Test binance4j-rebate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Test
+        run: cd binance4j-rebate && mvn test
 
   test-spot:
     name: Test binance4j-spot
@@ -172,7 +206,7 @@ jobs:
 
   deploy-core:
     name: Deploy binance4j-core
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -196,7 +230,7 @@ jobs:
 
   deploy-market:
     name: Deploy binance4j-market
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -218,9 +252,33 @@ jobs:
       - name: Deploy
         run: cd binance4j-market && mvn -DskipTests=true deploy
 
+  deploy-margin:
+    name: Deploy binance4j-margin
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v1
+      - name: Configure Settings
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: ${{ env.SERVERS }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Deploy
+        run: cd binance4j-margin && mvn -DskipTests=true deploy
+
   deploy-nft:
     name: Deploy binance4j-nft
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -242,9 +300,33 @@ jobs:
       - name: Deploy
         run: cd binance4j-nft && mvn -DskipTests=true deploy
 
+  deploy-rebate:
+    name: Deploy binance4j-rebate
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v1
+      - name: Configure Settings
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: ${{ env.SERVERS }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Deploy
+        run: cd binance4j-rebate && mvn -DskipTests=true deploy
+
   deploy-spot:
     name: Deploy binance4j-spot
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -268,7 +350,7 @@ jobs:
 
   deploy-vision:
     name: Deploy binance4j-vision
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -292,7 +374,7 @@ jobs:
 
   deploy-wallet:
     name: Deploy binance4j-wallet
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -316,7 +398,7 @@ jobs:
 
   deploy-websocket:
     name: Deploy binance4j-websocket
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -340,7 +422,7 @@ jobs:
 
   deploy-strategy:
     name: Deploy binance4j-strategy
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -368,7 +450,7 @@ jobs:
 
   deploy-connectors:
     name: Deploy binance4j-connectors
-    needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -419,7 +501,7 @@ jobs:
 
   deploy-doc:
       name: Deploy doc
-      needs: [test-core,test-market,test-nft,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+      needs: [test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
