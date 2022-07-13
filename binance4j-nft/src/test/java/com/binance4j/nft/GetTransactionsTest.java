@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Arrays;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -18,7 +17,7 @@ import com.binance4j.nft.transaction.NFTTransactionHistoryParams;
  */
 public class GetTransactionsTest extends NFTTest {
 	@Test
-	@DisplayName("Response should not contain null properties for every type")
+
 	void testSellOrder() throws ApiException {
 		Arrays.asList(NFTOrderType.values()).forEach(v -> {
 			NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(v);
@@ -33,7 +32,7 @@ public class GetTransactionsTest extends NFTTest {
 	}
 
 	@Test
-	@DisplayName("It should return a non null result")
+
 	void testLimitAndPage() throws ApiException {
 		NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(NFTOrderType.SELL_ORDER, limit, page);
 		NFTTransactionHistory history = client.getTransactions(params).execute();

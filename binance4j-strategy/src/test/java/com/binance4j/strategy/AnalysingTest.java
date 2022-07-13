@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Position;
 
@@ -19,7 +18,7 @@ import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 class AnalysingTest extends ConcurrentTest<Void> {
 
 	@Test
-	@DisplayName("Analyse and backtest positions should be the same")
+
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",

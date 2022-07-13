@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 import java.util.Set;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -23,13 +22,13 @@ class GetExchangeInfoTest extends MarketTest {
 	}
 
 	@Test
-	@DisplayName("Response must not contain null properties")
+
 	void test1() throws ApiException {
 		test(client.getExchangeInfo().execute());
 	}
 
 	@Test
-	@DisplayName("Response must not contain null properties")
+
 	void test2() throws ApiException {
 		test(client.getExchangeInfo(new ExchangeInfoParams(symbol)).execute());
 	}

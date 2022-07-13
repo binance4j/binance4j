@@ -13,7 +13,6 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.CandlestickInterval;
@@ -65,21 +64,21 @@ class LiveTradingTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-	@DisplayName("The client should receive data at every tick and should enter at first final bar")
+
 	void testEnter() throws InterruptedException, ExecutionException {
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());
 	}
 
 	@Test
-	@DisplayName("The client should receive data at every tick and should exit at first final bar")
+
 	void testExit() throws InterruptedException, ExecutionException {
 		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());
 	}
 
 	@Test
-	@DisplayName("The strategy must watch all the given symbols")
+
 	void testMultipleSymbols() throws InterruptedException, ExecutionException {
 		CompletableFuture<Boolean> future = new CompletableFuture<>();
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();

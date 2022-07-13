@@ -8,7 +8,6 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.market.CandlestickInterval;
@@ -71,7 +70,7 @@ class NoResponseTimeoutTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-	@DisplayName("The client should receive data at every tick and should enter at first final bar")
+
 	void test() throws InterruptedException, ExecutionException {
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());

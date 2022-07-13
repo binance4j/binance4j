@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -17,7 +16,7 @@ import com.binance4j.market.kline.KlinesParams;
 class GetKlinesTest extends MarketTest {
 
 	@Test
-	@DisplayName("It sould return a candlestick for each interval")
+
 	void test1() throws ApiException {
 		List<CandlestickInterval> intervals = new LinkedList<>(Arrays.asList(CandlestickInterval.values()));
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
@@ -30,7 +29,7 @@ class GetKlinesTest extends MarketTest {
 	}
 
 	@Test
-	@DisplayName("It sould return a candlestick for the given symbol and interval with the asked size")
+
 	void test2() throws ApiException {
 		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY, limit);
 		List<Candle> res = client.getKlines(params).execute();

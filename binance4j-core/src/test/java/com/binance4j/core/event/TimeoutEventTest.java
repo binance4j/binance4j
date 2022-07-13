@@ -9,7 +9,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class TimeoutEventTest {
@@ -23,7 +22,7 @@ class TimeoutEventTest {
     }
 
     @Test
-    @DisplayName("The event should execute")
+
     void testExecution() throws InterruptedException, ExecutionException {
         new TimeoutEvent(Duration.ofSeconds(1), () -> future.complete(true));
 
@@ -31,7 +30,7 @@ class TimeoutEventTest {
     }
 
     @Test
-    @DisplayName("The event should be canceled before being triggered")
+
     void TestCancel() throws InterruptedException, ExecutionException {
         // cancels the event before it is triggered
         new Timer().schedule(new CancelTask(), Duration.ofSeconds(1).toMillis());

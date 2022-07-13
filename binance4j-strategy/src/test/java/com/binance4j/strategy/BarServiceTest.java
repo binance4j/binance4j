@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Date;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 
@@ -35,21 +34,21 @@ public class BarServiceTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-	@DisplayName("output properties should be the same as input properties")
+
 	void convertWithDuration() {
 		Bar bar = BarService.convert(candle, Duration.ofMinutes(5));
 		assertValues(bar, candle);
 	}
 
 	@Test
-	@DisplayName("output properties should be the same as input properties")
+
 	void testConvert2() {
 		Bar bar = BarService.convert(candle, CandlestickInterval.FIVE_MINUTES);
 		assertValues(bar, candle);
 	}
 
 	@Test
-	@DisplayName("output properties should be the same as input properties")
+
 	void testConvert3() {
 		Bar bar = BarService.convert(candle, CandlestickInterval.FIVE_MINUTES);
 		assertValues(bar, candle);

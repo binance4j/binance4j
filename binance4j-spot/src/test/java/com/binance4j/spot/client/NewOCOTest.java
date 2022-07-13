@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.DisplayName;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.OCOOrderParams;
 import com.binance4j.core.order.OCOResponse;
@@ -16,7 +14,7 @@ public class NewOCOTest extends SpotTest {
 
 	// @Test
 	// TODO find a symbol authorizing STOP_LOSS
-	@DisplayName("Properties shouldn't be null or ApiException should not be null")
+
 	public void testNewOCO() {
 		try {
 			OCOOrderParams params = new OCOOrderParams("BTCBUSD", OrderSide.BUY,

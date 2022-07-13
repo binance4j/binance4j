@@ -1,9 +1,13 @@
 package com.binance4j.strategy;
 
-import java.time.Duration;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.DisplayName;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.BarSeries;
 
@@ -19,24 +23,32 @@ import com.binance4j.vision.spot.VisionSpotClient;
 
 class BackTestingTest extends ConcurrentTest<Void> {
 
-	@Test
-	@DisplayName("The backtest should generate non null statistics")
-	void testBacktestWithInputBars() throws ApiException {
-		// Let's get some public data
-		List<Candle> bars = new VisionSpotClient()
-				.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
-		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
-		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, series);
-		test(result.getStatistics());
+	@Override
+	public void test(Object bean) {
+		Set<String> nulls = getNullProperties(bean, true);
+		List<String> expected = Arrays.asList("amount", "entry", "exit", "name");
+		System.out.println(nulls);
+		assertEquals(expected.size(), nulls.size());
+		assertTrue(nulls.containsAll(expected));
 	}
 
 	@Test
-	@DisplayName("The backtest should generate non null statistics")
+	void testBacktestWithInputBars() throws ApiException {
+		// Let's get some public data
+		List<Candle> bars = new VisionSpotClient()
+				.getKlines("BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01").getData();
+		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(1));
+		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
+		BackTestResult result = BackTestService.backTest(strategy, series);
+		test(result);
+	}
+
+	@Test
+
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
-				"01");
-		test(result.getStatistics());
+		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022",
+				"01", "01");
+		test(result);
 	}
 }

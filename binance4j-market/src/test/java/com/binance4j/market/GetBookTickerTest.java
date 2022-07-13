@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -16,14 +15,14 @@ import com.binance4j.market.depth.BookTickersParams;
 class GetBookTickerTest extends MarketTest {
 
 	@Test
-	@DisplayName("Response must not contain null properties")
+
 	void test1() throws ApiException {
 		List<BookTicker> bookTickers = client.getBookTicker().execute();
 		test(bookTickers);
 	}
 
 	@Test
-	@DisplayName("Response must not contain null properties and match the given symbol")
+
 	void test2() throws ApiException {
 		BookTickerParams params = new BookTickerParams(symbol);
 		BookTicker bookTicker = client.getBookTicker(params).execute();
@@ -33,7 +32,7 @@ class GetBookTickerTest extends MarketTest {
 	}
 
 	@Test
-	@DisplayName("Response must not contain null properties and match the given symbols")
+
 	void test3() throws ApiException {
 		BookTickersParams params = new BookTickersParams(symbols);
 		List<BookTicker> bookTickers = client.getBookTicker(params).execute();

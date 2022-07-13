@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -24,19 +23,19 @@ class GetWithdrawHistoryTest extends WalletTest {
 	}
 
 	@Test
-	@DisplayName("Response properties should not be null except withdrawOrderId")
+
 	void testGetWithdrawHistory() throws ApiException {
 		test(client.getWithdrawHistory());
 	}
 
 	@Test
-	@DisplayName("It should return the WithdrawHistory of the given asset")
+
 	void testGetWithdrawHistoryWithAsset() throws ApiException {
 		test(client.getWithdrawHistory(new WithdrawHistoryParams(getAsset())));
 	}
 
 	@Test
-	@DisplayName("It should return the WithdrawHistory of the given asset and status")
+
 	void testGetWithdrawHistoryWithAssetAndStatus() throws ApiException {
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
 		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(getAsset(), status))

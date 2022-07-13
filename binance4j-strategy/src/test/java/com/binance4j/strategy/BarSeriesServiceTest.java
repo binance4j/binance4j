@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.List;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
@@ -29,14 +28,14 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	}
 
 	@Test
-	@DisplayName("The series name should be the default name")
+
 	public void checkDefaultNameEquality() {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		assertEquals(series.getName(), BarSeriesService.getDefaultBarSeriesName());
 	}
 
 	@Test
-	@DisplayName("The series name should be the given name")
+
 	void convertWIthCustomName() {
 		String barName = " test";
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5), barName);
@@ -44,7 +43,7 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	}
 
 	@Test
-	@DisplayName("The conversion should return the same values in the same order")
+
 	public void convertWithDefaults() {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		makeAssertion(bars, series);

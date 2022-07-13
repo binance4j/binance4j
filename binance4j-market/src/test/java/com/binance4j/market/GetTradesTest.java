@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -14,7 +13,7 @@ import com.binance4j.market.trade.TradesParams;
 class GetTradesTest extends MarketTest {
 
 	@Test
-	@DisplayName("It should return the trade of the given symbol")
+
 	void test1() throws ApiException {
 		TradesParams params = new TradesParams(symbol);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();
@@ -22,7 +21,7 @@ class GetTradesTest extends MarketTest {
 	}
 
 	@Test
-	@DisplayName("It should return the trade of the given symbol with the given limit")
+
 	void test2() throws ApiException {
 		TradesParams params = new TradesParams(symbol, limit);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();

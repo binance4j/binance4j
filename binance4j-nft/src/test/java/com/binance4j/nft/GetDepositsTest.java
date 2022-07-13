@@ -2,7 +2,6 @@ package com.binance4j.nft;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -14,7 +13,7 @@ import com.binance4j.nft.deposit.NFTDepositHistoryParams;
  */
 public class GetDepositsTest extends NFTTest {
 	@Test
-	@DisplayName("It should return a non null result")
+
 	void test1() throws ApiException {
 		NFTDepositHistoryParams params = new NFTDepositHistoryParams();
 		NFTDepositHistory history = client.getDeposits(params).execute();
@@ -22,7 +21,7 @@ public class GetDepositsTest extends NFTTest {
 	}
 
 	@Test
-	@DisplayName("It should return a non null result")
+
 	void test2() throws ApiException {
 		NFTDepositHistoryParams params = new NFTDepositHistoryParams(limit, page);
 		NFTDepositHistory history = client.getDeposits(params).execute();

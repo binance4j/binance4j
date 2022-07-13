@@ -10,7 +10,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class IntervalEventTest {
@@ -25,7 +24,7 @@ class IntervalEventTest {
     }
 
     @Test
-    @DisplayName("The event should run the given number of times")
+
     void testFixedExecution() throws InterruptedException, ExecutionException {
 
         // completes after the event is supposed to be called
@@ -37,7 +36,7 @@ class IntervalEventTest {
     }
 
     @Test
-    @DisplayName("The event should run indefinitely")
+
     void testIndefinitelyExecution() throws InterruptedException, ExecutionException {
         event = new IntervalEvent(Duration.ofSeconds(1), () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
 

@@ -3,7 +3,6 @@ package com.binance4j.core;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.client.MarketClient;
@@ -11,7 +10,7 @@ import com.binance4j.core.client.MarketClient;
 public class PrefixTest {
 
     @Test
-    @DisplayName("It should not thrown an exception when calling next API")
+
     void testSwitchPrefix() {
         MarketClient client = new MarketClient();
 
@@ -22,7 +21,7 @@ public class PrefixTest {
     }
 
     @Test
-    @DisplayName("Prefixes should be incremented when calling next then going back to 0 at the end of the list")
+
     void testNextPrefix() {
         MarketClient client = new MarketClient();
 
