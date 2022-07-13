@@ -153,7 +153,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * You need to enable "trade" option for the api key which requests
 	 * this endpoint.
 	 * <p>
-	 * <li>When Fast Withdraw Switch is on, transferring funds to a Binance
+	 * When Fast Withdraw Switch is on, transferring funds to a Binance
 	 * account will be done instantly. There is no on-chain transaction, no
 	 * transaction ID and no withdrawal fee.
 	 */
