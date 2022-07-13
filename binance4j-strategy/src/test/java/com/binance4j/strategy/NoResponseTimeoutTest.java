@@ -70,7 +70,6 @@ class NoResponseTimeoutTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-
 	void test() throws InterruptedException, ExecutionException {
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());

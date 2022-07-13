@@ -12,7 +12,6 @@ import com.binance4j.wallet.snapshot.margin.MarginAccountSnapshotResponse;
 class GetMarginAccountSnapshotTest extends WalletTest {
 
 	@Test
-
 	void testMarginAccountSnapshotWithLimit() throws ApiException {
 		MarginAccountSnapshotResponse res = client.getMarginAccountSnapshot(new AccountSnapshotParams(limit))
 				.execute();

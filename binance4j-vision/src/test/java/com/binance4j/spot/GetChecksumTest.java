@@ -12,7 +12,6 @@ import com.binance4j.vision.spot.VisionChecksum;
 
 public class GetChecksumTest extends SpotTest {
 	@Test
-
 	void testInvalidDate() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getAggTradesChecksum(symbol, year, month, "32").getChecksum());
@@ -21,7 +20,6 @@ public class GetChecksumTest extends SpotTest {
 	}
 
 	@Test
-
 	void testNotFoundSync() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getAggTradesChecksum(symbol, "1995", month, day).getChecksum());
@@ -30,21 +28,18 @@ public class GetChecksumTest extends SpotTest {
 	}
 
 	@Test
-
 	void testKlinesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getKlinesChecksum(symbol, interval, year, month, day).getChecksum();
 		test(checksum);
 	}
 
 	@Test
-
 	void testTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getTradesChecksum(symbol, year, month, day).getChecksum();
 		test(checksum);
 	}
 
 	@Test
-
 	void testAggTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getAggTradesChecksum(symbol, year, month, day).getChecksum();
 		test(checksum);

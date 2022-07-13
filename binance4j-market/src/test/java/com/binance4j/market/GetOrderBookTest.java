@@ -11,7 +11,6 @@ import com.binance4j.market.depth.OrderBookParams;
 class GetOrderBookTest extends MarketTest {
 
 	@Test
-
 	void testGetTrades() throws ApiException {
 		OrderBookParams params = new OrderBookParams(symbol);
 		OrderBook history = client.getOrderBook(params).execute();
@@ -19,7 +18,6 @@ class GetOrderBookTest extends MarketTest {
 	}
 
 	@Test
-
 	void testGetTradesWithLimit() throws ApiException {
 		OrderBookParams params = new OrderBookParams(symbol, limit);
 		OrderBook orderBook = client.getOrderBook(params).execute();

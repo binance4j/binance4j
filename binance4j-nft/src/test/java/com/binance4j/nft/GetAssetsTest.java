@@ -13,7 +13,6 @@ import com.binance4j.nft.asset.NFTAssetParams;
  */
 public class GetAssetsTest extends NFTTest {
 	@Test
-
 	void testRequest() throws ApiException {
 		NFTAssetParams params = new NFTAssetParams();
 		NFTAssetHistory history = client.getAssets(params).execute();
@@ -21,7 +20,6 @@ public class GetAssetsTest extends NFTTest {
 	}
 
 	@Test
-
 	void testLimitAndPage() throws ApiException {
 		NFTAssetParams params = new NFTAssetParams(limit, page);
 		NFTAssetHistory history = client.getAssets(params).execute();

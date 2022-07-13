@@ -13,7 +13,6 @@ import com.binance4j.nft.withdraw.NFTWithdrawParams;
  */
 public class GetWithdrawsTest extends NFTTest {
 	@Test
-
 	void testRequest() throws ApiException {
 		NFTWithdrawParams params = new NFTWithdrawParams();
 		NFTWithdrawHistory history = client.getWithdraws(params).execute();
@@ -21,7 +20,6 @@ public class GetWithdrawsTest extends NFTTest {
 	}
 
 	@Test
-
 	void testLimitAndPage() throws ApiException {
 		NFTWithdrawParams params = new NFTWithdrawParams(limit, page);
 		NFTWithdrawHistory history = client.getWithdraws(params).execute();

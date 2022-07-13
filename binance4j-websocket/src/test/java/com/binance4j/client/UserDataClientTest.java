@@ -21,7 +21,6 @@ class UserDataClientTest {
 	}
 
 	@Test
-
 	void testUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startUserDataStream().execute();
 		assertTrue(listenKey.getListenKey().length() > 0);
@@ -31,7 +30,6 @@ class UserDataClientTest {
 	}
 
 	@Test
-
 	void testMarginUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startMarginUserDataStream().execute();
 		assertTrue(listenKey.getListenKey().length() > 0);

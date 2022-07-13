@@ -7,19 +7,16 @@ import com.binance4j.wallet.funding.FundingAssetParams;
 
 class GetFundingAssetTest extends WalletTest {
 	@Test
-
 	void testGetAllAssets() throws ApiException {
 		test(client.getFundingAsset());
 	}
 
 	@Test
-
 	void testGetGivenAsset() throws ApiException {
 		test(client.getFundingAsset(new FundingAssetParams(asset)));
 	}
 
 	@Test
-
 	void testGetGivenAssetWithBtcValuation() throws ApiException {
 		test(client.getFundingAsset(new FundingAssetParams(asset, true)));
 	}

@@ -18,7 +18,6 @@ import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 class AnalysingTest extends ConcurrentTest<Void> {
 
 	@Test
-
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",

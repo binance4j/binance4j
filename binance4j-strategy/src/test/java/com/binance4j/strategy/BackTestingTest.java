@@ -44,7 +44,6 @@ class BackTestingTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022",

@@ -35,7 +35,6 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	}
 
 	@Test
-
 	void convertWIthCustomName() {
 		String barName = " test";
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5), barName);

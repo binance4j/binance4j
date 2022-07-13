@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +25,8 @@ class LiveTradingTest extends ConcurrentTest<Void> {
 	int count;
 	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;
-	AlwaysEnterStrategy strategy;
+	AlwaysEnterStrategy enterStrategy = new AlwaysEnterStrategy();
+	AlwaysExitStrategy exitStrategy = new AlwaysExitStrategy();
 	WatchService service;
 
 	LiveTradingTest() {
@@ -43,42 +43,45 @@ class LiveTradingTest extends ConcurrentTest<Void> {
 		});
 
 		callback.onEnter(t -> {
-			test(t);
+			Set<String> nulls = getNullProperties(t, true);
+			assertEquals(1, nulls.size());
+			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
 
 		callback.onExit(t -> {
-			test(t);
+			Set<String> nulls = getNullProperties(t, true);
+			assertEquals(1, nulls.size());
+			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
 
-		callback.onMessage(Assertions::assertNotNull);
+		callback.onMessage(t -> {
+			test(t);
+		});
 	}
 
 	@BeforeEach
 	void beforeEach() {
 		count = 0;
 		future = new CompletableFuture<>();
-		strategy = new AlwaysEnterStrategy();
-		service = new WatchService(strategy);
 	}
 
 	@Test
-
 	void testEnter() throws InterruptedException, ExecutionException {
+		service = new WatchService(enterStrategy);
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());
 	}
 
 	@Test
-
 	void testExit() throws InterruptedException, ExecutionException {
+		service = new WatchService(exitStrategy);
 		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
 		assertTrue(future.get());
 	}
 
 	@Test
-
 	void testMultipleSymbols() throws InterruptedException, ExecutionException {
 		CompletableFuture<Boolean> future = new CompletableFuture<>();
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();

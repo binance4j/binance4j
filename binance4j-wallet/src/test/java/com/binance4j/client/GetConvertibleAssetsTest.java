@@ -7,7 +7,6 @@ import com.binance4j.core.exception.ApiException;
 public class GetConvertibleAssetsTest extends WalletTest {
 
 	@Test
-
 	void testGetConvertibleAssets() throws ApiException {
 		test(client.getConvertibleAssets());
 	}

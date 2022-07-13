@@ -22,7 +22,6 @@ class GetAllCoinsInfoTest extends WalletTest {
 	}
 
 	@Test
-
 	void testGetAllCoinsInfo() throws ApiException {
 		test(client.getAllCoinsInfo());
 	}

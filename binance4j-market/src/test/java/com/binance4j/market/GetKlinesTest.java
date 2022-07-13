@@ -16,7 +16,6 @@ import com.binance4j.market.kline.KlinesParams;
 class GetKlinesTest extends MarketTest {
 
 	@Test
-
 	void test1() throws ApiException {
 		List<CandlestickInterval> intervals = new LinkedList<>(Arrays.asList(CandlestickInterval.values()));
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
@@ -29,7 +28,6 @@ class GetKlinesTest extends MarketTest {
 	}
 
 	@Test
-
 	void test2() throws ApiException {
 		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY, limit);
 		List<Candle> res = client.getKlines(params).execute();

@@ -13,7 +13,6 @@ import com.binance4j.nft.deposit.NFTDepositHistoryParams;
  */
 public class GetDepositsTest extends NFTTest {
 	@Test
-
 	void test1() throws ApiException {
 		NFTDepositHistoryParams params = new NFTDepositHistoryParams();
 		NFTDepositHistory history = client.getDeposits(params).execute();
@@ -21,7 +20,6 @@ public class GetDepositsTest extends NFTTest {
 	}
 
 	@Test
-
 	void test2() throws ApiException {
 		NFTDepositHistoryParams params = new NFTDepositHistoryParams(limit, page);
 		NFTDepositHistory history = client.getDeposits(params).execute();

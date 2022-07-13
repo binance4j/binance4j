@@ -12,20 +12,17 @@ class GetTransferHistoryTest extends WalletTest {
 	String asset = "BTC";
 
 	@Test
-
 	void testGetTransferHistoryWithTransferType() throws ApiException {
 		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
 	}
 
 	@Test
-
 	void testGetTransferHistoryWithFromAndToSymbols() throws ApiException {
 		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
 				.execute());
 	}
 
 	@Test
-
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
 		WalletTransferHistory history = client
 				.getTransferHistory(
@@ -35,7 +32,6 @@ class GetTransferHistoryTest extends WalletTest {
 	}
 
 	@Test
-
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimitAndOffset() throws ApiException {
 		test(client
 				.getTransferHistory(

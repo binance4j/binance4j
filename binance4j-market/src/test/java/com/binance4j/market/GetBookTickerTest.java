@@ -15,14 +15,12 @@ import com.binance4j.market.depth.BookTickersParams;
 class GetBookTickerTest extends MarketTest {
 
 	@Test
-
 	void test1() throws ApiException {
 		List<BookTicker> bookTickers = client.getBookTicker().execute();
 		test(bookTickers);
 	}
 
 	@Test
-
 	void test2() throws ApiException {
 		BookTickerParams params = new BookTickerParams(symbol);
 		BookTicker bookTicker = client.getBookTicker(params).execute();
@@ -32,7 +30,6 @@ class GetBookTickerTest extends MarketTest {
 	}
 
 	@Test
-
 	void test3() throws ApiException {
 		BookTickersParams params = new BookTickersParams(symbols);
 		List<BookTicker> bookTickers = client.getBookTicker(params).execute();

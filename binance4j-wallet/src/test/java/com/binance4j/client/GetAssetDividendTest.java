@@ -11,7 +11,6 @@ import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordParams;
 
 class GetAssetDividendTest extends WalletTest {
 	@Test
-
 	void testGetAnyAssetDividend() throws ApiException {
 		AssetDividendRecord record = client.getAssetDividendRecord().execute();
 
@@ -20,7 +19,6 @@ class GetAssetDividendTest extends WalletTest {
 	}
 
 	@Test
-
 	void testGetGivenAssetDividend() throws ApiException {
 		AssetDividendRecordParams params = new AssetDividendRecordParams(getAsset());
 		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
@@ -30,7 +28,6 @@ class GetAssetDividendTest extends WalletTest {
 	}
 
 	@Test
-
 	void testGetGivenAssetDividendWithLimit() throws ApiException {
 		AssetDividendRecordParams params = new AssetDividendRecordParams(getAsset(), limit);
 		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();

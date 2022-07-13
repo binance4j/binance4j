@@ -8,13 +8,11 @@ import com.binance4j.wallet.tradefee.TradeFeeParams;
 class GetTradeFeeTest extends WalletTest {
 
 	@Test
-
 	void testGetTradeFeeOfAll() throws ApiException {
 		test(client.getTradeFee());
 	}
 
 	@Test
-
 	void testGetTradeFeeOfOne() throws ApiException {
 		test(client.getTradeFee(new TradeFeeParams("BNBBTC")));
 	}

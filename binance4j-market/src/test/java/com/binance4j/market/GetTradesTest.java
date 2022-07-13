@@ -13,7 +13,6 @@ import com.binance4j.market.trade.TradesParams;
 class GetTradesTest extends MarketTest {
 
 	@Test
-
 	void test1() throws ApiException {
 		TradesParams params = new TradesParams(symbol);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();
@@ -21,7 +20,6 @@ class GetTradesTest extends MarketTest {
 	}
 
 	@Test
-
 	void test2() throws ApiException {
 		TradesParams params = new TradesParams(symbol, limit);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();

@@ -15,37 +15,31 @@ import com.binance4j.wallet.deposit.DepositStatus;
 class GetDepositHistoryTest extends WalletTest {
 
 	@Test
-
 	void testGetDepositHistory() throws ApiException {
 		test(client.getDepositHistory());
 	}
 
 	@Test
-
 	void testGetDepositHistoryOfGivenCoin() throws ApiException {
 		test(client.getDepositHistory(new DepositHistoryParams(asset)));
 	}
 
 	@Test
-
 	void testGetDepositHistoryOfGivenStatus() throws ApiException {
 		test(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS)));
 	}
 
 	@Test
-
 	void testGetDepositHistoryOfGivenAssetAndStatus() throws ApiException {
 		test(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS)));
 	}
 
 	@Test
-
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimit() throws ApiException {
 		test(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit)));
 	}
 
 	@Test
-
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimitAndOffset() throws ApiException {
 		List<DepositHistory> history = client
 				.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit, 0)).execute();

@@ -14,13 +14,11 @@ import com.binance4j.wallet.assetdetail.AssetDetailParams;
 class GetAssetDetailTest extends WalletTest {
 
 	@Test
-
 	void testGetAllAssetsDetails() throws ApiException {
 		test(client.getAssetDetail());
 	}
 
 	@Test
-
 	void testGetGivenAssetDetails() throws ApiException {
 		String asset = getAsset();
 		AssetDetailParams params = new AssetDetailParams(asset);

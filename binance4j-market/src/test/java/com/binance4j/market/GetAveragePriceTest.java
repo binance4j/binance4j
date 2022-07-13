@@ -9,7 +9,6 @@ import com.binance4j.market.price.AveragePriceParams;
 class GetAveragePriceTest extends MarketTest {
 
 	@Test
-
 	void testGetAveragePrice() throws ApiException {
 		AveragePriceParams params = new AveragePriceParams(symbol);
 		AveragePrice res = client.getAveragePrice(params).execute();

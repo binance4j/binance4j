@@ -12,7 +12,6 @@ import com.binance4j.core.exception.NotFoundException;
 public class GetAggTradesTest extends SpotTest {
 
 	@Test
-
 	void testInvalidDate() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getAggTrades(symbol, year, month, "32").getData());
@@ -21,7 +20,6 @@ public class GetAggTradesTest extends SpotTest {
 	}
 
 	@Test
-
 	void testNotFoundSync() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getAggTrades(symbol, "1995", month, day).getData());
@@ -30,7 +28,6 @@ public class GetAggTradesTest extends SpotTest {
 	}
 
 	@Test
-
 	void testgetAggTrades() throws ApiException {
 		test(client.getAggTrades(symbol, year, month, day));
 	}

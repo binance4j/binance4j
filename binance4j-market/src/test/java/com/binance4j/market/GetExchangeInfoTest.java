@@ -22,13 +22,11 @@ class GetExchangeInfoTest extends MarketTest {
 	}
 
 	@Test
-
 	void test1() throws ApiException {
 		test(client.getExchangeInfo().execute());
 	}
 
 	@Test
-
 	void test2() throws ApiException {
 		test(client.getExchangeInfo(new ExchangeInfoParams(symbol)).execute());
 	}

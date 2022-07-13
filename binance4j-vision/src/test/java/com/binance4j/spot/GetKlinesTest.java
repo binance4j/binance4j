@@ -11,7 +11,6 @@ import com.binance4j.core.exception.NotFoundException;
 
 public class GetKlinesTest extends SpotTest {
 	@Test
-
 	void testInvalidDate() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getKlines(symbol, interval, year, month, "32").getData());
@@ -20,7 +19,6 @@ public class GetKlinesTest extends SpotTest {
 	}
 
 	@Test
-
 	void testNotFoundSync() {
 		Exception exception = assertThrows(ApiException.class,
 				() -> client.getKlines(symbol, interval, "1995", month, day).getData());
@@ -29,7 +27,6 @@ public class GetKlinesTest extends SpotTest {
 	}
 
 	@Test
-
 	void testGetKlines() throws ApiException {
 		test(client.getKlines(symbol, interval, year, month, day).getData());
 	}

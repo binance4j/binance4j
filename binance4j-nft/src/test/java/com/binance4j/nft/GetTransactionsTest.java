@@ -17,7 +17,6 @@ import com.binance4j.nft.transaction.NFTTransactionHistoryParams;
  */
 public class GetTransactionsTest extends NFTTest {
 	@Test
-
 	void testSellOrder() throws ApiException {
 		Arrays.asList(NFTOrderType.values()).forEach(v -> {
 			NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(v);
@@ -32,7 +31,6 @@ public class GetTransactionsTest extends NFTTest {
 	}
 
 	@Test
-
 	void testLimitAndPage() throws ApiException {
 		NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(NFTOrderType.SELL_ORDER, limit, page);
 		NFTTransactionHistory history = client.getTransactions(params).execute();

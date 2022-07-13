@@ -7,7 +7,6 @@ import com.binance4j.core.exception.ApiException;
 class GetApiPermissionsTest extends WalletTest {
 
 	@Test
-
 	void testGetApiPermissions() throws ApiException {
 		test(client.getApiPermissions());
 		// can be null if not configured to expire

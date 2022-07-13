@@ -12,7 +12,6 @@ import com.binance4j.wallet.snapshot.futures.FuturesAccountSnapshotResponse;
 class GetFuturesAccountSnapshotTest extends WalletTest {
 
 	@Test
-
 	void testGetFuturesAccountSnapshot() throws ApiException {
 		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot().execute();
 		test(snapshot);
@@ -20,7 +19,6 @@ class GetFuturesAccountSnapshotTest extends WalletTest {
 	}
 
 	@Test
-
 	void testGetFuturesAccountSnapshotWithLimit() throws ApiException {
 		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new AccountSnapshotParams(limit))
 				.execute();

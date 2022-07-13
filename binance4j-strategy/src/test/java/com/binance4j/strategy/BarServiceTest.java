@@ -34,21 +34,18 @@ public class BarServiceTest extends ConcurrentTest<Void> {
 	}
 
 	@Test
-
 	void convertWithDuration() {
 		Bar bar = BarService.convert(candle, Duration.ofMinutes(5));
 		assertValues(bar, candle);
 	}
 
 	@Test
-
 	void testConvert2() {
 		Bar bar = BarService.convert(candle, CandlestickInterval.FIVE_MINUTES);
 		assertValues(bar, candle);
 	}
 
 	@Test
-
 	void testConvert3() {
 		Bar bar = BarService.convert(candle, CandlestickInterval.FIVE_MINUTES);
 		assertValues(bar, candle);
