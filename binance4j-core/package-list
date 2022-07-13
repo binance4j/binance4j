@@ -8,6 +8,7 @@ com.binance4j.core.exchangeinfo
 com.binance4j.core.market
 com.binance4j.core.misc
 com.binance4j.core.order
-com.binance4j.core.request
+com.binance4j.core.param
 com.binance4j.core.security
+com.binance4j.core.symbolfilter
 com.binance4j.core.test
