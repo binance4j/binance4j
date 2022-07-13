@@ -4,51 +4,55 @@ import java.util.List;
 import java.util.Map;
 
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Request;
 import com.binance4j.wallet.accountstatus.AccountStatus;
-import com.binance4j.wallet.accountstatus.AccountStatusRequest;
+import com.binance4j.wallet.accountstatus.AccountStatusParams;
 import com.binance4j.wallet.assetdetail.AssetDetail;
-import com.binance4j.wallet.assetdetail.AssetDetailRequest;
+import com.binance4j.wallet.assetdetail.AssetDetailParams;
 import com.binance4j.wallet.assetdividendrecord.AssetDividendRecord;
-import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordRequest;
+import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordParams;
 import com.binance4j.wallet.coinsinfo.CoinInformation;
-import com.binance4j.wallet.coinsinfo.CoinInformationRequest;
+import com.binance4j.wallet.coinsinfo.CoinInformationParams;
 import com.binance4j.wallet.deposit.DepositAddress;
-import com.binance4j.wallet.deposit.DepositAddressRequest;
+import com.binance4j.wallet.deposit.DepositAddressParams;
 import com.binance4j.wallet.deposit.DepositHistory;
-import com.binance4j.wallet.deposit.DepositHistoryRequest;
-import com.binance4j.wallet.dust.ConvertibleAssetRequest;
+import com.binance4j.wallet.deposit.DepositHistoryParams;
+import com.binance4j.wallet.dust.ConvertibleAssetParams;
 import com.binance4j.wallet.dust.ConvertibleAssets;
 import com.binance4j.wallet.dust.DustLog;
-import com.binance4j.wallet.dust.DustLogRequest;
-import com.binance4j.wallet.dust.DustTransferRequest;
+import com.binance4j.wallet.dust.DustLogParams;
+import com.binance4j.wallet.dust.DustTransferParams;
 import com.binance4j.wallet.dust.DustTransferResponse;
 import com.binance4j.wallet.funding.FundingAsset;
-import com.binance4j.wallet.funding.FundingAssetRequest;
+import com.binance4j.wallet.funding.FundingAssetParams;
 import com.binance4j.wallet.permissions.ApiPermissions;
-import com.binance4j.wallet.permissions.ApiPermissionsRequest;
-import com.binance4j.wallet.snapshot.AccountSnapshotRequest;
+import com.binance4j.wallet.permissions.ApiPermissionsParams;
+import com.binance4j.wallet.snapshot.AccountSnapshotParams;
 import com.binance4j.wallet.snapshot.AccountSnapshotType;
 import com.binance4j.wallet.snapshot.futures.FuturesAccountSnapshotResponse;
 import com.binance4j.wallet.snapshot.margin.MarginAccountSnapshotResponse;
 import com.binance4j.wallet.snapshot.spot.SpotAccountSnapshotResponse;
 import com.binance4j.wallet.systemstatus.SystemStatus;
+import com.binance4j.wallet.systemstatus.SystemStatusParams;
 import com.binance4j.wallet.tradefee.TradeFee;
-import com.binance4j.wallet.tradefee.TradeFeeRequest;
+import com.binance4j.wallet.tradefee.TradeFeeParams;
 import com.binance4j.wallet.tradingstatus.ApiTradingStatus;
-import com.binance4j.wallet.tradingstatus.ApiTradingStatusRequest;
+import com.binance4j.wallet.tradingstatus.ApiTradingStatusParams;
 import com.binance4j.wallet.transfer.WalletTransferHistory;
-import com.binance4j.wallet.transfer.WalletTransferHistoryRequest;
-import com.binance4j.wallet.transfer.WalletTransferRequest;
+import com.binance4j.wallet.transfer.WalletTransferHistoryParams;
+import com.binance4j.wallet.transfer.WalletTransferParams;
 import com.binance4j.wallet.transfer.WalletTransferResponse;
-import com.binance4j.wallet.withdraw.FastWithdrawSwitchRequest;
+import com.binance4j.wallet.withdraw.FastWithdrawSwitchParams;
 import com.binance4j.wallet.withdraw.WithdrawHistory;
-import com.binance4j.wallet.withdraw.WithdrawHistoryRequest;
-import com.binance4j.wallet.withdraw.WithdrawRequest;
+import com.binance4j.wallet.withdraw.WithdrawHistoryParams;
+import com.binance4j.wallet.withdraw.WithdrawParams;
 import com.binance4j.wallet.withdraw.WithdrawResult;
 
 /**
  * The API client for the wallet endpoints
+ * 
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints">Documentation</a>
  */
 public class WalletClient extends RestClient<WalletMapping> {
 
@@ -64,102 +68,66 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/**
 	 * Fetches the system status.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en#system-status-system">Documentation</a>
 	 */
-	public RequestExecutor<SystemStatus> getSystemStatus() {
-		return new RequestExecutor<>(service.getSystemStatus());
+	public Request<SystemStatus> getSystemStatus() {
+		return new Request<>(service.getSystemStatus(), new SystemStatusParams());
 	}
 
 	/**
 	 * Gets information of coins (available for deposit and withdraw) for user.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#all-coins-39-information-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<CoinInformation>> getAllCoinsInfo(CoinInformationRequest req) {
-		return new RequestExecutor<>(service.getAllCoinsInfo(req.toMap()), req);
+	public Request<List<CoinInformation>> getAllCoinsInfo(CoinInformationParams params) {
+		return new Request<>(service.getAllCoinsInfo(params.toMap()), params);
 	}
 
 	/**
 	 * Gets the information of coins (available for deposit and withdraw) for user
-	 * with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getAllCoinsInfo(CoinInformationRequest)
+	 * .
 	 */
-	public RequestExecutor<List<CoinInformation>> getAllCoinsInfo() {
-		return getAllCoinsInfo(new CoinInformationRequest());
+	public Request<List<CoinInformation>> getAllCoinsInfo() {
+		return getAllCoinsInfo(new CoinInformationParams());
 	}
 
 	/**
 	 * Fetches the daily SPOT account snapshots.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#daily-account-snapshot-user_data">Documentation</a>
 	 */
-	public RequestExecutor<SpotAccountSnapshotResponse> getSpotAccountSnapshot(AccountSnapshotRequest req) {
-		return new RequestExecutor<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, req.toMap()), req);
+	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(AccountSnapshotParams params) {
+		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the last 5 daily SPOT account snapshots with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getSpotAccountSnapshot(AccountSnapshotRequest)
+	 * Fetches the last 5 daily SPOT account snapshots.
 	 */
-	public RequestExecutor<SpotAccountSnapshotResponse> getSpotAccountSnapshot() {
-		return getSpotAccountSnapshot(new AccountSnapshotRequest());
+	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot() {
+		return getSpotAccountSnapshot(new AccountSnapshotParams());
 	}
 
 	/**
 	 * Fetches the daily MARGIN account snapshots
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#daily-account-snapshot-user_data">Documentation</a>
 	 */
-	public RequestExecutor<MarginAccountSnapshotResponse> getMarginAccountSnapshot(AccountSnapshotRequest req) {
-		return new RequestExecutor<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, req.toMap()), req);
+	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(AccountSnapshotParams params) {
+		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the last 5 daily MARGIN account snapshots with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getMarginAccountSnapshot(AccountSnapshotRequest)
+	 * Fetches the last 5 daily MARGIN account snapshots.
 	 */
-	public RequestExecutor<MarginAccountSnapshotResponse> getMarginAccountSnapshot() {
-		return getMarginAccountSnapshot(new AccountSnapshotRequest());
+	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot() {
+		return getMarginAccountSnapshot(new AccountSnapshotParams());
 	}
 
 	/**
 	 * Fetches the daily FUTURES account snapshots
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#daily-account-snapshot-user_data">Documentation</a>
 	 */
-	public RequestExecutor<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(AccountSnapshotRequest req) {
-		return new RequestExecutor<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, req.toMap()), req);
+	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(AccountSnapshotParams params) {
+		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the last 5 daily FUTURES account snapshots with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getFuturesAccountSnapshot(AccountSnapshotRequest)
+	 * Fetches the last 5 daily FUTURES account snapshots.
 	 */
-	public RequestExecutor<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot() {
-		return getFuturesAccountSnapshot(new AccountSnapshotRequest());
+	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot() {
+		return getFuturesAccountSnapshot(new AccountSnapshotParams());
 	}
 
 	/**
@@ -167,108 +135,70 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * You need to enable {@code trade} option for the api key which
 	 * requests this endpoint.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#disable-fast-withdraw-switch-user_data">Documentation</a>
 	 */
-	public RequestExecutor<Void> disableFastWithdrawSwitch(FastWithdrawSwitchRequest req) {
-		return new RequestExecutor<>(service.disableFastWithdrawSwitch(req.toMap()), req);
+	public Request<Void> disableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
+		return new Request<>(service.disableFastWithdrawSwitch(params.toMap()), params);
 	}
 
 	/**
-	 * Disables fast withdraw switch under your account with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #disableFastWithdrawSwitch(FastWithdrawSwitchRequest)
+	 * Disables fast withdraw switch under your account.
 	 */
-	public RequestExecutor<Void> disableFastWithdrawSwitch() {
-		return disableFastWithdrawSwitch(new FastWithdrawSwitchRequest());
+	public Request<Void> disableFastWithdrawSwitch() {
+		return disableFastWithdrawSwitch(new FastWithdrawSwitchParams());
 	}
 
 	/**
 	 * Enables fast withdraw switch under your account.
-	 * <ul>
-	 * <li>You need to enable "trade" option for the api key which requests
+	 * <p>
+	 * You need to enable "trade" option for the api key which requests
 	 * this endpoint.
-	 * </li>
-	 *
+	 * <p>
 	 * <li>When Fast Withdraw Switch is on, transferring funds to a Binance
 	 * account will be done instantly. There is no on-chain transaction, no
 	 * transaction ID and no withdrawal fee.
-	 * </li>
-	 * </ul>
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#enable-fast-withdraw-switch-user_data">Documentation</a>
 	 */
-	public RequestExecutor<Void> enableFastWithdrawSwitch(FastWithdrawSwitchRequest req) {
-		return new RequestExecutor<>(service.enableFastWithdrawSwitch(req.toMap()), req);
+	public Request<Void> enableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
+		return new Request<>(service.enableFastWithdrawSwitch(params.toMap()), params);
 	}
 
 	/**
-	 * Enables fast withdraw switch under your account with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #enableFastWithdrawSwitch(FastWithdrawSwitchRequest)
+	 * Enables fast withdraw switch under your account.
 	 */
-	public RequestExecutor<Void> enableFastWithdrawSwitch() {
-		return enableFastWithdrawSwitch(new FastWithdrawSwitchRequest());
+	public Request<Void> enableFastWithdrawSwitch() {
+		return enableFastWithdrawSwitch(new FastWithdrawSwitchParams());
 	}
 
 	/**
 	 * Submits a withdraw request.
 	 * <p>
-	 * If network not send, return with default network of the coin.
+	 * If network not send, return
 	 * You can get {@code network} and {@code isDefault} in
 	 * networkList of a coin in the response of {@link #getAllCoinsInfo()}
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#withdraw-user_data">Documentation</a>
 	 */
-	public RequestExecutor<WithdrawResult> withdraw(WithdrawRequest req) {
-		return new RequestExecutor<>(service.withdraw(req.toMap()), req);
+	public Request<WithdrawResult> withdraw(WithdrawParams params) {
+		return new Request<>(service.withdraw(params.toMap()), params);
 	}
 
 	/**
 	 * Fetches the deposit history of one or multiple coins.
-	 *
-	 *
-	 * <ul>
-	 * <li>
+	 * <p>
 	 * Please notice the default {@code startTime} and
 	 * {@code endTime} to make sure that time interval is within 0-90
 	 * days.
-	 * </li>
-	 * <li>
+	 * <p>
 	 * If both {@code startTime</code> and <code>endTime} are sent,
 	 * time between {@code startTime</code> and <code>endTime} must be
 	 * less than 90 days.
-	 * </li>
-	 * </ul>
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#deposit-history-supporting-network-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<DepositHistory>> getDepositHistory(DepositHistoryRequest req) {
-		return new RequestExecutor<>(service.getDepositHistory(req.toMap()), req);
+	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params) {
+		return new Request<>(service.getDepositHistory(params.toMap()), params);
 	}
 
 	/**
 	 * Fetches the last deposit history of all coins.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getDepositHistory(DepositHistoryRequest)
 	 */
-	public RequestExecutor<List<DepositHistory>> getDepositHistory() {
-		return getDepositHistory(new DepositHistoryRequest());
+	public Request<List<DepositHistory>> getDepositHistory() {
+		return getDepositHistory(new DepositHistoryParams());
 	}
 
 	/**
@@ -283,277 +213,173 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * If both {@code startTime} and {@code endTime} are sent,
 	 * time between {@code startTime} and {@code endTime}
 	 * must be less than 90 days.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryRequest req) {
-		return new RequestExecutor<>(service.getWithdrawHistory(req.toMap()), req);
+	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
+		return new Request<>(service.getWithdrawHistory(params.toMap()), params);
 	}
 
 	/**
 	 * Fetches the last withdraw history of all coins.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getWithdrawHistory(WithdrawHistoryRequest)
 	 */
-	public RequestExecutor<List<WithdrawHistory>> getWithdrawHistory() {
-		return getWithdrawHistory(new WithdrawHistoryRequest());
+	public Request<List<WithdrawHistory>> getWithdrawHistory() {
+		return getWithdrawHistory(new WithdrawHistoryParams());
 
 	}
 
 	/**
 	 * Fetches deposit address
-	 * <ul>
-	 * <li>
-	 * If {@code network} is not sent, return with default network of
+	 * <p>
+	 * If {@code network} is not sent, return
 	 * the coin.
-	 * </li>
-	 * <li>
+	 * <p>
 	 * You can get {@code network} and {@code isDefault} in
 	 * {@code networkList} in the response of
-	 * {@link #getAllCoinsInfo(CoinInformationRequest)}
-	 * </li>
-	 * </ul>
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#deposit-address-supporting-network-user_data">
-	 * Documentation </a>
+	 * {@link #getAllCoinsInfo(CoinInformationParams)}
 	 */
-	public RequestExecutor<DepositAddress> getDepositAddress(DepositAddressRequest req) {
-		return new RequestExecutor<>(service.getDepositAddress(req.toMap()), req);
+	public Request<DepositAddress> getDepositAddress(DepositAddressParams params) {
+		return new Request<>(service.getDepositAddress(params.toMap()), params);
 	}
 
 	/**
 	 * Fetches the account status detail.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#deposit-address-supporting-network-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<AccountStatus> getAccountstatus(AccountStatusRequest req) {
-		return new RequestExecutor<>(service.getAccountstatus(req.toMap()), req);
+	public Request<AccountStatus> getAccountstatus(AccountStatusParams params) {
+		return new Request<>(service.getAccountstatus(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the account status detail with default request.
-	 *
-	 * @return The executor permitting sync/async API call
+	 * Fetches the account status detail.
 	 */
-	public RequestExecutor<AccountStatus> getAccountstatus() {
-		return getAccountstatus(new AccountStatusRequest());
+	public Request<AccountStatus> getAccountstatus() {
+		return getAccountstatus(new AccountStatusParams());
 	}
 
 	/**
 	 * Fetches the account api trading status detail.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#account-api-trading-status-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<ApiTradingStatus> getApiTradingStatus(ApiTradingStatusRequest req) {
-		return new RequestExecutor<>(service.getApiTradingStatus(req.toMap()), req);
+	public Request<ApiTradingStatus> getApiTradingStatus(ApiTradingStatusParams params) {
+		return new Request<>(service.getApiTradingStatus(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the account api trading status detail with default request.
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getApiTradingStatus(ApiTradingStatusRequest)
+	 * Fetches the account api trading status detail.
 	 */
-	public RequestExecutor<ApiTradingStatus> getApiTradingStatus() {
-		return getApiTradingStatus(new ApiTradingStatusRequest());
+	public Request<ApiTradingStatus> getApiTradingStatus() {
+		return getApiTradingStatus(new ApiTradingStatusParams());
 	}
 
 	/**
 	 * Fetches the dust transfer logs
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#dustlog-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<DustLog> getDustLog(DustLogRequest req) {
-		return new RequestExecutor<>(service.getDustLog(req.toMap()), req);
+	public Request<DustLog> getDustLog(DustLogParams params) {
+		return new Request<>(service.getDustLog(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the dust transfer logs with default paramters
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getDustLog(DustLogRequest)
+	 * Fetches the dust transfer logs
 	 */
-	public RequestExecutor<DustLog> getDustLog() {
-		return getDustLog(new DustLogRequest());
+	public Request<DustLog> getDustLog() {
+		return getDustLog(new DustLogParams());
 	}
 
 	/**
-	 * Retrieves the assets convertible into BNB
-	 *
-	 * @return The executor permitting sync/async API call
+	 * Retrieves the assets convertible into BNB.
 	 */
-	public RequestExecutor<ConvertibleAssets> getConvertibleAssets() {
-		ConvertibleAssetRequest req = new ConvertibleAssetRequest();
-		return new RequestExecutor<>(service.getConvertibleAssets(req.toMap()), req);
+	public Request<ConvertibleAssets> getConvertibleAssets() {
+		ConvertibleAssetParams params = new ConvertibleAssetParams();
+		return new Request<>(service.getConvertibleAssets(params.toMap()), params);
 	}
 
 	/**
-	 * Retrieves the assets convertible into BNB
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
+	 * Retrieves the assets convertible into BNB.
 	 */
-	public RequestExecutor<ConvertibleAssets> getConvertibleAssets(ConvertibleAssetRequest req) {
-		return new RequestExecutor<>(service.getConvertibleAssets(req.toMap()), req);
+	public Request<ConvertibleAssets> getConvertibleAssets(ConvertibleAssetParams params) {
+		return new Request<>(service.getConvertibleAssets(params.toMap()), params);
 	}
 
 	/**
 	 * Convert dust assets to BNB.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#dust-transfer-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<DustTransferResponse> dustTransfert(DustTransferRequest req) {
-		return new RequestExecutor<>(service.dustTransfert(req.toMap()), req);
+	public Request<DustTransferResponse> dustTransfert(DustTransferParams params) {
+		return new Request<>(service.dustTransfert(params.toMap()), params);
 	}
 
 	/**
 	 * Queries the dividend record of one or multiple assets.
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#asset-dividend-record-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordRequest req) {
-		return new RequestExecutor<>(service.getAssetDividendRecord(req.toMap()), req);
+	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params) {
+		return new Request<>(service.getAssetDividendRecord(params.toMap()), params);
 	}
 
 	/**
-	 * Queries the last 20 dividend asset records
-	 *
-	 * @return The executor permitting sync/async API call
+	 * Queries the last 20 dividend asset records.
 	 */
-	public RequestExecutor<AssetDividendRecord> getAssetDividendRecord() {
-		return getAssetDividendRecord(new AssetDividendRecordRequest());
+	public Request<AssetDividendRecord> getAssetDividendRecord() {
+		return getAssetDividendRecord(new AssetDividendRecordParams());
 	}
 
 	/**
 	 * Fetches the details of an asset supported on Binance.
 	 * Please get network and other deposit or withdraw details from
-	 * {@link #getAllCoinsInfo()}
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#asset-detail-user_data">
-	 * Documentation </a>
+	 * {@link #getAllCoinsInfo()}.
 	 */
-	public RequestExecutor<Map<String, AssetDetail>> getAssetDetail(AssetDetailRequest req) {
-		return new RequestExecutor<>(service.getAssetDetail(req.toMap()), req);
+	public Request<Map<String, AssetDetail>> getAssetDetail(AssetDetailParams params) {
+		return new Request<>(service.getAssetDetail(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the details of all assets supported on Binance
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getAssetDetail(AssetDetailRequest)
+	 * Fetches the details of all assets supported on Binance.
 	 */
-	public RequestExecutor<Map<String, AssetDetail>> getAssetDetail() {
-		return getAssetDetail(new AssetDetailRequest());
+	public Request<Map<String, AssetDetail>> getAssetDetail() {
+		return getAssetDetail(new AssetDetailParams());
 	}
 
 	/**
-	 * Fetches the trade fee
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#trade-fee-user_data">
-	 * Documentation </a>
+	 * Fetches the trade fee.
 	 */
-	public RequestExecutor<List<TradeFee>> getTradeFee(TradeFeeRequest req) {
-		return new RequestExecutor<>(service.getTradeFee(req.toMap()), req);
+	public Request<List<TradeFee>> getTradeFee(TradeFeeParams params) {
+		return new Request<>(service.getTradeFee(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the trade fee with default request
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getTradeFee(TradeFeeRequest)
+	 * Fetches the trade fee.
 	 */
-	public RequestExecutor<List<TradeFee>> getTradeFee() {
-		return getTradeFee(new TradeFeeRequest());
+	public Request<List<TradeFee>> getTradeFee() {
+		return getTradeFee(new TradeFeeParams());
 	}
 
 	/**
-	 * Make a universal transfer
-	 * <ul>
-	 * <li>
+	 * Make a universal transfer.
+	 * <p>
 	 * You need to enable {@code Permits Universal Transfer} option
 	 * for the api key which requests this endpoint.
-	 * </li>
-	 * <li>
+	 * <p>
 	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and
 	 * ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * </li>
-	 * <li>
+	 * <p>
 	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and
 	 * ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * </li>
-	 * </ul>
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<WalletTransferResponse> transfer(WalletTransferRequest req) {
-		return new RequestExecutor<>(service.transfer(req.toMap()), req);
+	public Request<WalletTransferResponse> transfer(WalletTransferParams params) {
+		return new Request<>(service.transfer(params.toMap()), params);
 	}
 
 	/**
 	 * Fetches the user universal transfer history
-	 * <ul>
-	 * <li>
+	 * <p>
 	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and
 	 * ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * </li>
-	 * <li>
+	 * <p>
 	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and
 	 * ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * </li>
-	 * <li>
+	 * <p>
 	 * Support query within the last 6 months only
-	 * </li>
-	 * <li>
+	 * <p>
 	 * If startTime and endTime not sent, return records of the last 7 days
 	 * by default
-	 * </li>
-	 * </ul>
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-user-universal-transfer-history-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<WalletTransferHistory> getTransferHistory(WalletTransferHistoryRequest req) {
-		return new RequestExecutor<>(service.getTransferHistory(req.toMap()), req);
+	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
+		return new Request<>(service.getTransferHistory(params.toMap()), params);
 	}
 
 	/**
@@ -561,47 +387,29 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * Currently supports querying the following business assets：Binance
 	 * Pay, Binance Card, Binance Gift Card, Stock Token
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#funding-wallet-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<List<FundingAsset>> getFundingAsset(FundingAssetRequest req) {
-		return new RequestExecutor<>(service.getFundingAsset(req.toMap()), req);
+	public Request<List<FundingAsset>> getFundingAsset(FundingAssetParams params) {
+		return new Request<>(service.getFundingAsset(params.toMap()), params);
 	}
 
 	/**
-	 * Fetches the funding wallet asset balance with default request
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getFundingAsset(FundingAssetRequest)
+	 * Fetches the funding wallet asset balance
 	 */
-	public RequestExecutor<List<FundingAsset>> getFundingAsset() {
-		return getFundingAsset(new FundingAssetRequest());
+	public Request<List<FundingAsset>> getFundingAsset() {
+		return getFundingAsset(new FundingAssetParams());
 	}
 
 	/**
 	 * Fetches the API Key Permission
-	 *
-	 * @param req The request params
-	 * @return The executor permitting sync/async API call
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#get-api-key-permission-user_data">
-	 * Documentation </a>
 	 */
-	public RequestExecutor<ApiPermissions> getApiPermissions(ApiPermissionsRequest req) {
-		return new RequestExecutor<>(service.getApiPermissions(req.toMap()));
+	public Request<ApiPermissions> getApiPermissions(ApiPermissionsParams params) {
+		return new Request<>(service.getApiPermissions(params.toMap()));
 	}
 
 	/**
-	 * Fetches the API Key Permission with default request
-	 *
-	 * @return The executor permitting sync/async API call
-	 * @see #getApiPermissions(ApiPermissionsRequest)
+	 * Fetches the API Key Permission
 	 */
-	public RequestExecutor<ApiPermissions> getApiPermissions() {
-		return getApiPermissions(new ApiPermissionsRequest());
+	public Request<ApiPermissions> getApiPermissions() {
+		return getApiPermissions(new ApiPermissionsParams());
 	}
 }

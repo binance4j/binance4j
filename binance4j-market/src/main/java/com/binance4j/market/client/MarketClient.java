@@ -5,33 +5,36 @@ import java.util.Map;
 
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
-import com.binance4j.core.exchangeinfo.ExchangeInfoRequest;
+import com.binance4j.core.exchangeinfo.ExchangeInfoParams;
 import com.binance4j.core.market.AggTrade;
 import com.binance4j.core.market.Candle;
-import com.binance4j.core.request.Request;
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.Request;
 import com.binance4j.market.depth.BookTicker;
-import com.binance4j.market.depth.BookTickerRequest;
-import com.binance4j.market.depth.BookTickersRequest;
+import com.binance4j.market.depth.BookTickerParams;
+import com.binance4j.market.depth.BookTickersParams;
 import com.binance4j.market.depth.OrderBook;
-import com.binance4j.market.depth.OrderBookRequest;
-import com.binance4j.market.kline.KlinesRequest;
+import com.binance4j.market.depth.OrderBookParams;
+import com.binance4j.market.kline.KlinesParams;
 import com.binance4j.market.price.AveragePrice;
-import com.binance4j.market.price.AveragePriceRequest;
+import com.binance4j.market.price.AveragePriceParams;
 import com.binance4j.market.price.PriceTicker;
-import com.binance4j.market.price.PriceTickerRequest;
-import com.binance4j.market.price.PriceTickersRequest;
+import com.binance4j.market.price.PriceTickerParams;
+import com.binance4j.market.price.PriceTickersParams;
 import com.binance4j.market.tickerstatistics.TickerStatistics;
-import com.binance4j.market.tickerstatistics.TickerStatisticsRequest;
-import com.binance4j.market.tickerstatistics.TickersStatisticsRequest;
+import com.binance4j.market.tickerstatistics.TickerStatisticsParams;
+import com.binance4j.market.tickerstatistics.TickersStatisticsParams;
 import com.binance4j.market.time.ServerTimeResponse;
-import com.binance4j.market.trade.AggTradeRequest;
-import com.binance4j.market.trade.HistoricalTradesRequest;
+import com.binance4j.market.trade.AggTradeParams;
+import com.binance4j.market.trade.HistoricalTradesParams;
 import com.binance4j.market.trade.TradeHistoryItem;
-import com.binance4j.market.trade.TradesRequest;
+import com.binance4j.market.trade.TradesParams;
 
 /**
  * API client for the market endpoints
+ * 
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints">Documentation</a>
  */
 public class MarketClient extends RestClient<MarketMapping> {
 
@@ -47,22 +50,16 @@ public class MarketClient extends RestClient<MarketMapping> {
 
 	/**
 	 * Test connectivity to the Rest API.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#test-connectivity">Documentation</a>
 	 */
-	public RequestExecutor<Void> ping() {
-		return new RequestExecutor<>(service.ping());
+	public Request<Void> ping() {
+		return new Request<>(service.ping());
 	}
 
 	/**
 	 * Test connectivity to the Rest API and get the current server time.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#check-server-time">Documentation</a>
 	 */
-	public RequestExecutor<ServerTimeResponse> getServerTime() {
-		return new RequestExecutor<>(service.getServerTime());
+	public Request<ServerTimeResponse> getServerTime() {
+		return new Request<>(service.getServerTime());
 	}
 
 	/**
@@ -70,52 +67,38 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If any symbol provided in either {@code symbol} or
 	 * {@code symbols} do not exist, the endpoint will throw an error.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#exchange-information">Documentation</a>
 	 */
-	public RequestExecutor<ExchangeInfo> getExchangeInfo(ExchangeInfoRequest req) {
-		return new RequestExecutor<>(service.getExchangeInfo(req.toMap()), req);
+	public Request<ExchangeInfo> getExchangeInfo(ExchangeInfoParams params) {
+		return new Request<>(service.getExchangeInfo(params.toMap()), params);
 	}
 
 	/**
 	 * Get current exchange trading rules and all symbols informations
-	 *
-	 * @see #getExchangeInfo(ExchangeInfoRequest)
 	 */
-	public RequestExecutor<ExchangeInfo> getExchangeInfo() {
-		return getExchangeInfo(new ExchangeInfoRequest());
+	public Request<ExchangeInfo> getExchangeInfo() {
+		return getExchangeInfo(new ExchangeInfoParams());
 	}
 
 	/**
 	 * Get the symbol order book
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#order-book">Documentation</a>
 	 */
-	public RequestExecutor<OrderBook> getOrderBook(OrderBookRequest req) {
-		return new RequestExecutor<>(service.getOrderBook(req.toMap()), req);
+	public Request<OrderBook> getOrderBook(OrderBookParams params) {
+		return new Request<>(service.getOrderBook(params.toMap()), params);
 	}
 
 	/**
 	 * Get recent trades.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list">Documentation</a>
 	 */
-	public RequestExecutor<List<TradeHistoryItem>> getTrades(TradesRequest req) {
-		return new RequestExecutor<>(service.getTrades(req.toMap()), req);
+	public Request<List<TradeHistoryItem>> getTrades(TradesParams params) {
+		return new Request<>(service.getTrades(params.toMap()), params);
 	}
 
 	/**
 	 * Get older market trades.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#old-trade-lookup-market_data">Documentation</a>
 	 */
-	public RequestExecutor<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesRequest req) {
-		return new RequestExecutor<>(service.getHistoricalTrades(req.toMap()),
-				req);
+	public Request<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesParams params) {
+		return new Request<>(service.getHistoricalTrades(params.toMap()),
+				params);
 	}
 
 	/**
@@ -133,12 +116,9 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * will be returned.
 	 * </li>
 	 * </ul>
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#compressed-aggregate-trades-list">Documentation</a>
 	 */
-	public RequestExecutor<List<AggTrade>> getAggTrades(AggTradeRequest req) {
-		return new RequestExecutor<>(service.getAggTrades(req.toMap()), req);
+	public Request<List<AggTrade>> getAggTrades(AggTradeParams params) {
+		return new Request<>(service.getAggTrades(params.toMap()), params);
 	}
 
 	/**
@@ -152,116 +132,83 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * most recent klines are returned.
 	 * </li>
 	 * </ul>
-	 *
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data">Documentation</a>
 	 */
-	public RequestExecutor<List<Candle>> getKlines(KlinesRequest req) {
-		Map<String, Object> map = req.toMap();
+	public Request<List<Candle>> getKlines(KlinesParams params) {
+		Map<String, Object> map = params.toMap();
 		// present in IntervalRequest through FramedRequest but not required by the API
 		map.remove("timestamp");
 		map.remove("recvWindow");
-		return new RequestExecutor<>(service.getKlines(map), req);
+		return new Request<>(service.getKlines(map), params);
 	}
 
 	/**
 	 * Get Current average price for a symbol.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#current-average-price">Documentation</a>
 	 */
-	public RequestExecutor<AveragePrice> getAveragePrice(AveragePriceRequest req) {
-		return new RequestExecutor<>(service.getAveragePrice(req.toMap()), req);
+	public Request<AveragePrice> getAveragePrice(AveragePriceParams params) {
+		return new Request<>(service.getAveragePrice(params.toMap()), params);
 	}
 
 	/**
 	 * Get 24 hour rolling window price change statistics of a symbol.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">Documentation</a>
 	 */
-	public RequestExecutor<TickerStatistics> get24hTickerStatistics(TickerStatisticsRequest req) {
-		return new RequestExecutor<>(service.get24hTickerStatistics(req.toMap()),
-				req);
+	public Request<TickerStatistics> get24hTickerStatistics(TickerStatisticsParams params) {
+		return new Request<>(service.get24hTickerStatistics(params.toMap()),
+				params);
 	}
 
 	/**
 	 * Get 24 hour rolling window price change statistics of all symbols
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">Documentation</a>
 	 */
-	public RequestExecutor<List<TickerStatistics>> get24hTickerStatistics() {
-		return new RequestExecutor<>(service.get24hTickerStatistics(), new Request(40));
+	public Request<List<TickerStatistics>> get24hTickerStatistics() {
+		return new Request<>(service.get24hTickerStatistics(), new Params(40));
 	}
 
 	/**
 	 * Get 24 hour rolling window price change statistics of specific symbols
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">Documentation</a>
 	 */
-	public RequestExecutor<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsRequest req) {
-		return new RequestExecutor<>(service.get24hTickersStatistics(req.toMap()), req);
+	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
+		return new Request<>(service.get24hTickersStatistics(params.toMap()), params);
 	}
 
 	/**
 	 * Latest price for all symbols.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker">Documentation</a>
 	 */
-	public RequestExecutor<List<PriceTicker>> getTicker() {
-		return new RequestExecutor<>(service.getTicker(), new Request(2));
+	public Request<List<PriceTicker>> getTicker() {
+		return new Request<>(service.getTicker(), new Params(2));
 	}
 
 	/**
 	 * Latest price for a symbol or symbols.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker">Documentation</a>
 	 */
-	public RequestExecutor<PriceTicker> getTicker(PriceTickerRequest req) {
-		return new RequestExecutor<>(service.getTicker(req.toMap()), req);
+	public Request<PriceTicker> getTicker(PriceTickerParams params) {
+		return new Request<>(service.getTicker(params.toMap()), params);
 	}
 
 	/**
 	 * Latest price for a symbol or symbols.
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-price-ticker">Documentation</a>
 	 */
-	public RequestExecutor<List<PriceTicker>> getTicker(PriceTickersRequest req) {
-		return new RequestExecutor<>(service.getTickers(req.toMap()), req);
+	public Request<List<PriceTicker>> getTicker(PriceTickersParams params) {
+		return new Request<>(service.getTickers(params.toMap()), params);
 	}
 
 	/**
 	 * Get best price/qty on the order book for a symbol
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">Documentation</a>
 	 */
-	public RequestExecutor<BookTicker> getBookTicker(BookTickerRequest req) {
-		return new RequestExecutor<>(service.getBookTicker(req.toMap()), req);
+	public Request<BookTicker> getBookTicker(BookTickerParams params) {
+		return new Request<>(service.getBookTicker(params.toMap()), params);
 	}
 
 	/**
 	 * Get best price/qty on the order book for all symbols
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">Documentation</a>
 	 */
-	public RequestExecutor<List<BookTicker>> getBookTicker() {
-		return new RequestExecutor<>(service.getBookTicker(), new Request(2));
+	public Request<List<BookTicker>> getBookTicker() {
+		return new Request<>(service.getBookTicker(), new Params(2));
 	}
 
 	/**
 	 * Get best price/qty on the order book for the given symbols
-	 *
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">Documentation</a>
 	 */
-	public RequestExecutor<List<BookTicker>> getBookTicker(BookTickersRequest req) {
-		return new RequestExecutor<>(service.getBookTickers(req.toMap()), req);
+	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {
+		return new Request<>(service.getBookTickers(params.toMap()), params);
 	}
 }

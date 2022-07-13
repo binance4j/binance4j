@@ -93,8 +93,6 @@ public class MarginOrder extends BaseOrder {
 
     /**
      * Produit un ordre d'achat MARKET avec timeInForce par défaut
-     *
-     * @see #buyMarket(String, BigDecimal, TimeInForce)
      */
     public static MarginOrder buyMarket(String symbol, BigDecimal quantity) {
         return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
@@ -113,8 +111,6 @@ public class MarginOrder extends BaseOrder {
 
     /**
      * Produit un ordre de vent MARKET avec timeInForce par défaut
-     *
-     * @see #buyMarket(String, BigDecimal, TimeInForce)
      */
     public static MarginOrder sellMarket(String symbol, BigDecimal quantity) {
         return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
@@ -135,8 +131,6 @@ public class MarginOrder extends BaseOrder {
 
     /**
      * Produit un ordre d'achat LIMIT avec timeInForce par défaut
-     *
-     * @see #buyLimit(String, BigDecimal, BigDecimal, TimeInForce)
      */
     public static MarginOrder buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
         return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
@@ -157,8 +151,6 @@ public class MarginOrder extends BaseOrder {
 
     /**
      * Produit un ordre de vente LIMIT avec timeInForce par défaut
-     *
-     * @see #sellLimit(String, BigDecimal, BigDecimal, TimeInForce)
      */
     public static MarginOrder sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
         return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());

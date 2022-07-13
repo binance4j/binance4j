@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.wallet.assetdividendrecord.AssetDividendRecord;
-import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordRequest;
+import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordParams;
 
 class GetAssetDividendTest extends WalletTest {
 	@Test
@@ -23,8 +23,8 @@ class GetAssetDividendTest extends WalletTest {
 	@Test
 	@DisplayName("It should return dividend record of the given asset")
 	void testGetGivenAssetDividend() throws ApiException {
-		AssetDividendRecordRequest req = new AssetDividendRecordRequest(getAsset());
-		AssetDividendRecord record = client.getAssetDividendRecord(req).execute();
+		AssetDividendRecordParams params = new AssetDividendRecordParams(getAsset());
+		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
 
 		assertNotNull(record.getTotal());
 		test(record);
@@ -33,8 +33,8 @@ class GetAssetDividendTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the given size (or less) of dividend records of the given asset")
 	void testGetGivenAssetDividendWithLimit() throws ApiException {
-		AssetDividendRecordRequest req = new AssetDividendRecordRequest(getAsset(), limit);
-		AssetDividendRecord record = client.getAssetDividendRecord(req).execute();
+		AssetDividendRecordParams params = new AssetDividendRecordParams(getAsset(), limit);
+		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
 
 		assertTrue(record.getTotal() <= limit);
 		test(record);

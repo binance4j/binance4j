@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.wallet.withdraw.WithdrawHistory;
-import com.binance4j.wallet.withdraw.WithdrawHistoryRequest;
+import com.binance4j.wallet.withdraw.WithdrawHistoryParams;
 import com.binance4j.wallet.withdraw.WithdrawStatus;
 
 class GetWithdrawHistoryTest extends WalletTest {
@@ -32,14 +32,14 @@ class GetWithdrawHistoryTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the WithdrawHistory of the given asset")
 	void testGetWithdrawHistoryWithAsset() throws ApiException {
-		test(client.getWithdrawHistory(new WithdrawHistoryRequest(getAsset())));
+		test(client.getWithdrawHistory(new WithdrawHistoryParams(getAsset())));
 	}
 
 	@Test
 	@DisplayName("It should return the WithdrawHistory of the given asset and status")
 	void testGetWithdrawHistoryWithAssetAndStatus() throws ApiException {
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryRequest(getAsset(), status))
+		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(getAsset(), status))
 				.execute();
 
 		test(history);

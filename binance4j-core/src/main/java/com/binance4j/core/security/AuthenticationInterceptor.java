@@ -2,6 +2,8 @@ package com.binance4j.core.security;
 
 import java.io.IOException;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.binance4j.core.exception.ApiException;
 
 import okhttp3.HttpUrl;
@@ -10,10 +12,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.Buffer;
-import org.jetbrains.annotations.NotNull;
 
 /**
- * A request interceptor that injects the API Key Header into requests, and
+ * The parameters interceptor that injects the API Key Header into requests, and
  * signs messages, whenever required.
  */
 public class AuthenticationInterceptor implements Interceptor {

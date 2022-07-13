@@ -1,12 +1,5 @@
 package com.binance4j.vision.executor;
 
-import com.binance4j.core.callback.ApiCallback;
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.core.request.RequestExecutor;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,10 +7,18 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.zip.ZipInputStream;
 
+import com.binance4j.core.callback.ApiCallback;
+import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.exception.NotFoundException;
+import com.binance4j.core.param.Request;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+
 /**
  * Base executor implementation for the public data enpoint
  */
-public abstract class VisionRequestExecutor<T> extends RequestExecutor<ResponseBody> {
+public abstract class VisionRequestExecutor<T> extends Request<ResponseBody> {
 
 	/**
 	 * Constructor

@@ -1,6 +1,6 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Request;
 
 public class MarketClient extends RestClient<MarketDataMapping> {
 
@@ -14,11 +14,10 @@ public class MarketClient extends RestClient<MarketDataMapping> {
     /**
      * Test connectivity to the Rest API.
      *
-     * @see <a href=
-     *      "https://binance-docs.github.io/apidocs/spot/en/#test-connectivity">Documentation</a>
+     * 
      */
-    public RequestExecutor<Void> ping() {
-        return new RequestExecutor<>(service.ping());
+    public Request<Void> ping() {
+        return new Request<>(service.ping());
     }
 
 }

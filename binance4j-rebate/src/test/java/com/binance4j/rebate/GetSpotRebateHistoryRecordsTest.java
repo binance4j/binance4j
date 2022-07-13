@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.rebate.record.SpotRebateHistoryRequest;
+import com.binance4j.rebate.record.SpotRebateHistoryParams;
 
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
@@ -21,11 +21,11 @@ public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
     @Test
     void testWithoutPage() throws ApiException {
-        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryRequest()));
+        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()));
     }
 
     @Test
     void testWithPage() throws ApiException {
-        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryRequest(1)));
+        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)));
     }
 }

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Request;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -246,10 +246,9 @@ public abstract class ConcurrentTest<T> {
     /**
      * Tests that the object has no null properties
      * 
-     * @param bean
      * @throws ApiException
      */
-    public void test(RequestExecutor<?> executor) throws ApiException {
+    public void test(Request<?> executor) throws ApiException {
         test(executor.execute());
     }
 }

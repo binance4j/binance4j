@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 /**
- * A request rate limit for the Binance API defined by a type and an interval
+ * The parameters rate limit for the Binance API defined by a type and an
+ * interval
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

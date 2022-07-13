@@ -1,9 +1,9 @@
 package com.binance4j.websocket.userdata;
 
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.request.RequestExecutor;
-import com.binance4j.websocket.stream.IsolatedUserDataStreamRequest;
-import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
+import com.binance4j.core.param.Request;
+import com.binance4j.websocket.stream.IsolatedUserDataStreamParams;
+import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamParams;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,13 +33,9 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * If the account has an active listenKey, that listenKey
 	 * <p>
 	 * will be returned and its validity will be extended for 60 minutes
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#listen-key-spot">Documentation</a>
 	 */
-	public RequestExecutor<ListenKey> startUserDataStream() {
-		return new RequestExecutor<>(service.startUserDataStream());
+	public Request<ListenKey> startUserDataStream() {
+		return new Request<>(service.startUserDataStream());
 	}
 
 	/**
@@ -48,24 +44,16 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * User data streams will close after 60 minutes.
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#listen-key-spot">Documentation</a>
 	 */
-	public RequestExecutor<Void> keepAliveUserDataStream(String listenKey) {
-		return new RequestExecutor<>(service.keepAliveUserDataStream(listenKey));
+	public Request<Void> keepAliveUserDataStream(String listenKey) {
+		return new Request<>(service.keepAliveUserDataStream(listenKey));
 	}
 
 	/**
 	 * Close out a user data stream.
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#listen-key-spot">Documentation</a>
 	 */
-	public RequestExecutor<Void> closeUserDataStream(String listenKey) {
-		return new RequestExecutor<>(service.closeUserDataStream(listenKey));
+	public Request<Void> closeUserDataStream(String listenKey) {
+		return new Request<>(service.closeUserDataStream(listenKey));
 	}
 
 	/**
@@ -78,11 +66,9 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * If the account has an active listenKey, that listenKey
 	 * will be returned and its validity will be extended for 60 minutes.
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
 	 */
-	public RequestExecutor<ListenKey> startMarginUserDataStream() {
-		return new RequestExecutor<>(service.startMarginUserDataStream());
+	public Request<ListenKey> startMarginUserDataStream() {
+		return new Request<>(service.startMarginUserDataStream());
 	}
 
 	// MARGIN
@@ -95,21 +81,17 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> keepAliveMarginUserDataStream(String listenKey) {
-		return new RequestExecutor<>(service.keepAliveMarginUserDataStream(listenKey));
+	public Request<Void> keepAliveMarginUserDataStream(String listenKey) {
+		return new Request<>(service.keepAliveMarginUserDataStream(listenKey));
 	}
 
 	/**
 	 * Close out a user data stream (Margin).
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> closeMarginUserDataStream(String listenKey) {
-		return new RequestExecutor<>(service.closeMarginUserDataStream(listenKey));
+	public Request<Void> closeMarginUserDataStream(String listenKey) {
+		return new Request<>(service.closeMarginUserDataStream(listenKey));
 	}
 
 	/**
@@ -122,11 +104,9 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * If the account has an active listenKey, that listenKey
 	 * will be returned and its validity will be extended for 60 minutes.
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamRequest req) {
-		return new RequestExecutor<>(service.startIsolatedUserDataStream(req.toMap()));
+	public Request<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamParams params) {
+		return new Request<>(service.startIsolatedUserDataStream(params.toMap()));
 	}
 
 	/**
@@ -137,20 +117,16 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamRequest req) {
-		return new RequestExecutor<>(service.keepAliveIsolatedUserDataStream(req.toMap()));
+	public Request<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
+		return new Request<>(service.keepAliveIsolatedUserDataStream(params.toMap()));
 	}
 
 	/**
 	 * Close out a user data stream (Isolated margin).
 	 * 
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Documentation</a>
 	 */
-	public RequestExecutor<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamRequest req) {
-		return new RequestExecutor<>(service.closeIsolatedUserDataStream(req.toMap()));
+	public Request<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
+		return new Request<>(service.closeIsolatedUserDataStream(params.toMap()));
 	}
 }

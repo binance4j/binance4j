@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.tickerstatistics.TickerStatistics;
-import com.binance4j.market.tickerstatistics.TickerStatisticsRequest;
-import com.binance4j.market.tickerstatistics.TickersStatisticsRequest;
+import com.binance4j.market.tickerstatistics.TickerStatisticsParams;
+import com.binance4j.market.tickerstatistics.TickersStatisticsParams;
 
 class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
@@ -23,18 +23,18 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	@DisplayName("Response must not contain null properties and symbol must match")
 	void test2() throws ApiException {
-		TickerStatisticsRequest req = new TickerStatisticsRequest(symbol);
-		TickerStatistics res = getClient().get24hTickerStatistics(req).execute();
+		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
+		TickerStatistics res = getClient().get24hTickerStatistics(params).execute();
 
-		assertEquals(res.getSymbol(), req.getSymbol());
+		assertEquals(res.getSymbol(), params.getSymbol());
 		test(res);
 	}
 
 	@Test
 	@DisplayName("Response must not contain null properties and symbols must match")
 	void test3() throws ApiException {
-		TickersStatisticsRequest req = new TickersStatisticsRequest(symbols);
-		List<TickerStatistics> res = getClient().get24hTickerStatistics(req).execute();
+		TickersStatisticsParams params = new TickersStatisticsParams(symbols);
+		List<TickerStatistics> res = getClient().get24hTickerStatistics(params).execute();
 
 		test(res);
 		res.forEach(stats -> assertTrue(symbols.contains((stats.getSymbol()))));

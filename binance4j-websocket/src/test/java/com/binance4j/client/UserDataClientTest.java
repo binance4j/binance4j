@@ -7,8 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.stream.IsolatedUserDataStreamRequest;
-import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamRequest;
+import com.binance4j.websocket.stream.IsolatedUserDataStreamParams;
+import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamParams;
 import com.binance4j.websocket.userdata.ListenKey;
 import com.binance4j.websocket.userdata.UserDataClient;
 
@@ -46,10 +46,10 @@ class UserDataClientTest {
 	// @Test
 	@DisplayName("The listen key should be a non empty string. keeping alive and closing the stream should not trigger an error")
 	void testIsolatedUserDataStream() throws ApiException {
-		IsolatedUserDataStreamRequest IsolatedUserDataStreamRequest = new IsolatedUserDataStreamRequest(
+		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(
 				new TestCallback<>().getSymbol());
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
-		KeepAliveIsolatedUserDataStreamRequest keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamRequest(
+		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(
 				new TestCallback<>().getSymbol(), listenKey.getListenKey());
 
 		assertTrue(listenKey.getListenKey().length() > 0);

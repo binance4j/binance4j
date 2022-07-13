@@ -1,18 +1,25 @@
 package com.binance4j.vision.spot;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.market.AggTrade;
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.vision.executor.*;
-import retrofit2.Retrofit;
+import com.binance4j.vision.executor.AggTradeRequestExecutor;
+import com.binance4j.vision.executor.CandlestickRequestExecutor;
+import com.binance4j.vision.executor.ChecksumRequestExecutor;
+import com.binance4j.vision.executor.TradeRequestExecutor;
+import com.binance4j.vision.executor.VisionRequestExecutor;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import retrofit2.Retrofit;
 
 /**
  * The client for retrieving the SPOT public data (trades, aggTrades and klines)
+ * 
+ * @see <a href="https://data.binance.vision/">Documentation</a>
  */
 public class VisionSpotClient {
 	private final VisionSpotMapping service;

@@ -8,7 +8,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.margin.pair.MarginPairRequest;
+import com.binance4j.margin.pair.MarginPairPrams;
 
 public class GetIsolatedSymbolTest extends MarginTest {
 
@@ -21,6 +21,6 @@ public class GetIsolatedSymbolTest extends MarginTest {
 
     @Test
     void test1() throws ApiException {
-        test(client.getIsolatedSymbol(new MarginPairRequest(symbol)));
+        test(client.getIsolatedSymbol(new MarginPairPrams(symbol)));
     }
 }

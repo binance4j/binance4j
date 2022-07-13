@@ -3,35 +3,38 @@ package com.binance4j.spot.client;
 import java.util.List;
 
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.order.CancelOpenOrdersRequest;
-import com.binance4j.core.order.CancelOrderRequest;
+import com.binance4j.core.order.CancelOpenOrdersParams;
+import com.binance4j.core.order.CancelOrderParams;
 import com.binance4j.core.order.CancelOrderResponse;
-import com.binance4j.core.order.OCOOrder;
+import com.binance4j.core.order.OCOOrderParams;
 import com.binance4j.core.order.OCOResponse;
 import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.order.Trade;
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Request;
 import com.binance4j.spot.account.Account;
-import com.binance4j.spot.account.AccountRequest;
-import com.binance4j.spot.order.AllOCOInfoRequest;
-import com.binance4j.spot.order.AllOrdersRequest;
-import com.binance4j.spot.order.CancelOCORequest;
-import com.binance4j.spot.order.MyTradesRequest;
-import com.binance4j.spot.order.NewOrder;
+import com.binance4j.spot.account.AccountParams;
+import com.binance4j.spot.order.AllOCOInfoParams;
+import com.binance4j.spot.order.AllOrdersParams;
+import com.binance4j.spot.order.CancelOCOParams;
+import com.binance4j.spot.order.MyTradesParams;
+import com.binance4j.spot.order.NewOrderParams;
 import com.binance4j.spot.order.NewOrderResponse;
 import com.binance4j.spot.order.OCOInfo;
-import com.binance4j.spot.order.OCOInfoRequest;
-import com.binance4j.spot.order.OpenOCORequest;
-import com.binance4j.spot.order.OpenOrdersStatusRequest;
+import com.binance4j.spot.order.OCOInfoParams;
+import com.binance4j.spot.order.OpenOCOParams;
+import com.binance4j.spot.order.OpenOrdersStatusParams;
 import com.binance4j.spot.order.OrderCount;
-import com.binance4j.spot.order.OrderCountRequest;
-import com.binance4j.spot.order.OrderStatusRequest;
+import com.binance4j.spot.order.OrderCountParams;
+import com.binance4j.spot.order.OrderStatusParams;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * The API client for the SPOT endpoints
+ * API client for the SPOT endpoints
+ * 
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade">Documentation</a>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -49,52 +52,32 @@ public class SpotClient extends RestClient<SpotMapping> {
 
 	/**
 	 * Send in a new order.
-	 *
-	 * @param order The order to execute
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#new-order-trade">Documentation</a>
 	 */
-	public RequestExecutor<NewOrderResponse> newOrder(NewOrder order) {
-		return new RequestExecutor<>(service.newOrder(order.toMap()), order);
+	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
+		return new Request<>(service.newOrder(params.toMap()), params);
 	}
 
 	/**
 	 * Test new order creation and signature/recvWindow long. Creates and validates
 	 * a new order but does not send it into the matching engine.
-	 *
-	 * @param order The order to execute
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#new-order-trade">Documentation</a>
 	 */
-	public RequestExecutor<Void> newOrderTest(NewOrder order) {
-		return new RequestExecutor<>(service.newOrderTest(order.toMap()), order);
+	public Request<Void> newOrderTest(NewOrderParams params) {
+		return new Request<>(service.newOrderTest(params.toMap()), params);
 	}
 
 	/**
 	 * Cancel an active order.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#cancel-order-trade">Documentation</a>
 	 */
-	public RequestExecutor<CancelOrderResponse> cancelOrder(CancelOrderRequest req) {
-		return new RequestExecutor<>(service.cancelOrder(req.toMap()), req);
+	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
+		return new Request<>(service.cancelOrder(params.toMap()), params);
 	}
 
 	/**
 	 * Cancels all active orders on a symbol.
 	 * This includes OCO orders.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#cancel-all-open-orders-on-a-symbol-trade">Documentation</a>
 	 */
-	public RequestExecutor<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersRequest req) {
-		return new RequestExecutor<>(service.cancelOpenOrders(req.toMap()), req);
+	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
+		return new Request<>(service.cancelOpenOrders(params.toMap()), params);
 	}
 
 	/**
@@ -104,197 +87,122 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * <li>For some historical orders cummulativeQuoteQty will be &lt; 0, meaning
 	 * the data is not available at this time.</li>
 	 * </ul>
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-order-user_data">Documentation</a>
 	 */
-	public RequestExecutor<OrderInfo> getOrderStatus(OrderStatusRequest req) {
-		return new RequestExecutor<>(service.getOrderStatus(req.toMap()), req);
+	public Request<OrderInfo> getOrderStatus(OrderStatusParams params) {
+		return new Request<>(service.getOrderStatus(params.toMap()), params);
 	}
 
 	/**
 	 * Get all open orders on a symbol.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#current-open-orders-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<OrderInfo>> getOpenOrders(OpenOrdersStatusRequest req) {
-		return new RequestExecutor<>(service.getOpenOrders(req.toMap()), req);
+	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
+		return new Request<>(service.getOpenOrders(params.toMap()), params);
 	}
 
 	/**
 	 * Get all open orders.
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#current-open-orders-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<OrderInfo>> getOpenOrders() {
-		OpenOrdersStatusRequest req = new OpenOrdersStatusRequest();
-		return new RequestExecutor<>(service.getOpenOrders(req.toMap()), req);
+	public Request<List<OrderInfo>> getOpenOrders() {
+		OpenOrdersStatusParams params = new OpenOrdersStatusParams();
+		return new Request<>(service.getOpenOrders(params.toMap()), params);
 	}
 
 	/**
 	 * Get all orders on a symbol.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#all-orders-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<OrderInfo>> getAllOrders(AllOrdersRequest req) {
-		return new RequestExecutor<>(service.getAllOrders(req.toMap()), req);
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
+		return new Request<>(service.getAllOrders(params.toMap()), params);
 	}
 
 	/**
 	 * Send in an OCO order
-	 *
-	 * @param order The order to execute
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#new-oco-trade">Documentation</a>
 	 */
-	public RequestExecutor<OCOResponse> newOCO(OCOOrder order) {
-		return new RequestExecutor<>(service.newOCO(order.toMap()), order);
+	public Request<OCOResponse> newOCO(OCOOrderParams params) {
+		return new Request<>(service.newOCO(params.toMap()), params);
 	}
 
 	/**
 	 * Cancel an entire Order List.
 	 * Canceling an individual leg will cancel the entire OCO
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#cancel-oco-trade">Documentation</a>
 	 */
-	public RequestExecutor<List<OCOResponse>> cancelOCO(CancelOCORequest req) {
-		return new RequestExecutor<>(service.cancelOCO(req.toMap()), req);
+	public Request<List<OCOResponse>> cancelOCO(CancelOCOParams params) {
+		return new Request<>(service.cancelOCO(params.toMap()), params);
 	}
 
 	/**
 	 * Retrieves a specific OCO based on provided optional parameters
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-oco-user_data">Documentation</a>
 	 */
-	public RequestExecutor<OCOInfo> queryOCO(OCOInfoRequest req) {
-		return new RequestExecutor<>(service.queryOCO(req.toMap()), req);
+	public Request<OCOInfo> queryOCO(OCOInfoParams params) {
+		return new Request<>(service.queryOCO(params.toMap()), params);
 	}
 
 	/**
 	 * Retrieves all OCO based on provided optional parameters
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-oco-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<OCOInfo>> getAllOCO(AllOCOInfoRequest req) {
-		return new RequestExecutor<>(service.getAllOCO(req.toMap()), req);
+	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
+		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
 	/**
-	 * Retrieves all OCO based on provided optional parameters with default request
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-oco-user_data">Documentation</a>
+	 * Retrieves all OCO based on provided optional parameters
 	 */
-	public RequestExecutor<List<OCOInfo>> getAllOCO() {
-		AllOCOInfoRequest req = new AllOCOInfoRequest();
-		return new RequestExecutor<>(service.getAllOCO(req.toMap()), req);
+	public Request<List<OCOInfo>> getAllOCO() {
+		AllOCOInfoParams params = new AllOCOInfoParams();
+		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
 	/**
 	 * Retrieves all open OCO
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-oco-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<OCOInfo>> getOpenOCO(OpenOCORequest req) {
-		return new RequestExecutor<>(service.getOpenOCO(req.toMap()), req);
+	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
+		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
 	/**
-	 * Retrieves all open OCO with default request
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-oco-user_data">Documentation</a>
+	 * Retrieves all open OCO
 	 */
-	public RequestExecutor<List<OCOInfo>> getOpenOCO() {
-		OpenOCORequest req = new OpenOCORequest();
-		return new RequestExecutor<>(service.getOpenOCO(req.toMap()), req);
+	public Request<List<OCOInfo>> getOpenOCO() {
+		OpenOCOParams params = new OpenOCOParams();
+		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
 	/**
 	 * Get current account information.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data">Documentation</a>
 	 */
-	public RequestExecutor<Account> getAccount(AccountRequest req) {
-		return new RequestExecutor<>(service.getAccount(req.toMap()), req);
+	public Request<Account> getAccount(AccountParams params) {
+		return new Request<>(service.getAccount(params.toMap()), params);
 	}
 
 	/**
-	 * Get current account information with default AccountRequest
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data">Documentation</a>
+	 * Get current account information
 	 */
-	public RequestExecutor<Account> getAccount() {
-		AccountRequest req = new AccountRequest();
-		return new RequestExecutor<>(service.getAccount(req.toMap()), req);
+	public Request<Account> getAccount() {
+		AccountParams params = new AccountParams();
+		return new Request<>(service.getAccount(params.toMap()), params);
 	}
 
 	/**
 	 * Get trades for a specific account and symbol.
 	 * If fromId is set, it will get id &gt;= fromId. Otherwise most
 	 * recent trades are returned.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 *      "https://binance-docs.github.io/apidocs/spot/en/#account-trade-list-user_data">Documentation</a>
 	 */
-	public RequestExecutor<List<Trade>> getMyTrades(MyTradesRequest req) {
-		return new RequestExecutor<>(service.getMyTrades(req.toMap()), req);
+	public Request<List<Trade>> getMyTrades(MyTradesParams params) {
+		return new Request<>(service.getMyTrades(params.toMap()), params);
 	}
 
 	/**
 	 * Displays the user's current order count usage for all intervals.
-	 *
-	 * @param req The request configuration
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-current-order-count-usage-trade">Documentation</a>
 	 */
-	public RequestExecutor<List<OrderCount>> getOrderCount(OrderCountRequest req) {
-		return new RequestExecutor<>(service.getOrderCount(req.toMap()), req);
+	public Request<List<OrderCount>> getOrderCount(OrderCountParams params) {
+		return new Request<>(service.getOrderCount(params.toMap()), params);
 	}
 
 	/**
 	 * Displays the user's current order count usage for all intervals with default
 	 * request
-	 *
-	 * @return The executor to make sync/async request
-	 * @see <a href=
-	 * "https://binance-docs.github.io/apidocs/spot/en/#query-current-order-count-usage-trade">Documentation</a>
 	 */
-	public RequestExecutor<List<OrderCount>> getOrderCount() {
-		OrderCountRequest req = new OrderCountRequest();
-		return new RequestExecutor<>(service.getOrderCount(req.toMap()), req);
+	public Request<List<OrderCount>> getOrderCount() {
+		OrderCountParams params = new OrderCountParams();
+		return new Request<>(service.getOrderCount(params.toMap()), params);
 	}
 }

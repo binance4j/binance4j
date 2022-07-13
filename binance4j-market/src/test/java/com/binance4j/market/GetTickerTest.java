@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.price.PriceTicker;
-import com.binance4j.market.price.PriceTickerRequest;
-import com.binance4j.market.price.PriceTickersRequest;
+import com.binance4j.market.price.PriceTickerParams;
+import com.binance4j.market.price.PriceTickersParams;
 
 class GetTickerTest extends MarketTest {
 
@@ -22,16 +22,16 @@ class GetTickerTest extends MarketTest {
 	@Test
 	@DisplayName("It should return the ticker of the given symbol")
 	void test2() throws ApiException {
-		PriceTickerRequest req = new PriceTickerRequest(symbol);
-		PriceTicker priceTicker = client.getTicker(req).execute();
+		PriceTickerParams params = new PriceTickerParams(symbol);
+		PriceTicker priceTicker = client.getTicker(params).execute();
 		test(priceTicker);
 	}
 
 	@Test
 	@DisplayName("It should return the ticker of the given symbols")
 	void test3() throws ApiException {
-		PriceTickersRequest req = new PriceTickersRequest(symbols);
-		List<PriceTicker> priceTickers = client.getTicker(req).execute();
+		PriceTickersParams params = new PriceTickersParams(symbols);
+		List<PriceTicker> priceTickers = client.getTicker(params).execute();
 		test(priceTickers);
 	}
 }

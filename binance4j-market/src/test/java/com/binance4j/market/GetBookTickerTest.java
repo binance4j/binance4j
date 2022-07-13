@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.depth.BookTicker;
-import com.binance4j.market.depth.BookTickerRequest;
-import com.binance4j.market.depth.BookTickersRequest;
+import com.binance4j.market.depth.BookTickerParams;
+import com.binance4j.market.depth.BookTickersParams;
 
 class GetBookTickerTest extends MarketTest {
 
@@ -25,8 +25,8 @@ class GetBookTickerTest extends MarketTest {
 	@Test
 	@DisplayName("Response must not contain null properties and match the given symbol")
 	void test2() throws ApiException {
-		BookTickerRequest req = new BookTickerRequest(symbol);
-		BookTicker bookTicker = client.getBookTicker(req).execute();
+		BookTickerParams params = new BookTickerParams(symbol);
+		BookTicker bookTicker = client.getBookTicker(params).execute();
 
 		assertEquals(bookTicker.getSymbol(), symbol);
 		test(bookTicker);
@@ -35,8 +35,8 @@ class GetBookTickerTest extends MarketTest {
 	@Test
 	@DisplayName("Response must not contain null properties and match the given symbols")
 	void test3() throws ApiException {
-		BookTickersRequest req = new BookTickersRequest(symbols);
-		List<BookTicker> bookTickers = client.getBookTicker(req).execute();
+		BookTickersParams params = new BookTickersParams(symbols);
+		List<BookTicker> bookTickers = client.getBookTicker(params).execute();
 
 		bookTickers.forEach(bt -> assertTrue(symbols.contains(bt.getSymbol())));
 		test(bookTickers);

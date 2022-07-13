@@ -1,16 +1,17 @@
 package com.binance4j.vision.executor;
 
+import java.util.Scanner;
+
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.core.request.RequestExecutor;
+import com.binance4j.core.param.Request;
 import com.binance4j.vision.spot.VisionChecksum;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
-import java.util.Scanner;
-
-public class ChecksumRequestExecutor extends RequestExecutor<ResponseBody> {
+public class ChecksumRequestExecutor extends Request<ResponseBody> {
 	/**
 	 * Constructor
 	 *

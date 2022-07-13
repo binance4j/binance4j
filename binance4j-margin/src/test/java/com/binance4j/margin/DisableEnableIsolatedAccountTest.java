@@ -1,13 +1,13 @@
 package com.binance4j.margin;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.margin.account.ToogleAccountRequest;
+import com.binance4j.margin.account.ToogleAccountParams;
 
 public class DisableEnableIsolatedAccountTest extends MarginTest {
     // TODO activate isolated account
     // @Test
     void test1() throws ApiException {
-        test(client.disableIsolatedAccount(new ToogleAccountRequest(symbol)));
-        test(client.enableIsolatedAccount(new ToogleAccountRequest(symbol)));
+        test(client.disableIsolatedAccount(new ToogleAccountParams(symbol)));
+        test(client.enableIsolatedAccount(new ToogleAccountParams(symbol)));
     }
 }

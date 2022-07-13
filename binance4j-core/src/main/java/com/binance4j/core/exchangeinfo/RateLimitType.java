@@ -3,7 +3,7 @@ package com.binance4j.core.exchangeinfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * A request rate limit type
+ * The parameters rate limit type
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum RateLimitType {

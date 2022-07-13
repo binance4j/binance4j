@@ -2,7 +2,7 @@ package com.binance4j.core.order;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.request.FramedRequest;
+import com.binance4j.core.param.FramedParams;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 /** A trading order */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public abstract class Order extends FramedRequest {
+public abstract class Order extends FramedParams {
     /**
      * The order symbol
      */

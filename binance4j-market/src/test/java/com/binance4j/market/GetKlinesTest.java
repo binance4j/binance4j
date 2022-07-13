@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.market.CandlestickInterval;
-import com.binance4j.market.kline.KlinesRequest;
+import com.binance4j.market.kline.KlinesParams;
 
 class GetKlinesTest extends MarketTest {
 
@@ -23,8 +23,8 @@ class GetKlinesTest extends MarketTest {
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
 
 		for (CandlestickInterval interval : intervals) {
-			KlinesRequest req = new KlinesRequest(symbol, interval);
-			List<Candle> res = client.getKlines(req).execute();
+			KlinesParams params = new KlinesParams(symbol, interval);
+			List<Candle> res = client.getKlines(params).execute();
 			test(res);
 		}
 	}
@@ -32,8 +32,8 @@ class GetKlinesTest extends MarketTest {
 	@Test
 	@DisplayName("It sould return a candlestick for the given symbol and interval with the asked size")
 	void test2() throws ApiException {
-		KlinesRequest req = new KlinesRequest(symbol, CandlestickInterval.HOURLY, limit);
-		List<Candle> res = client.getKlines(req).execute();
+		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY, limit);
+		List<Candle> res = client.getKlines(params).execute();
 
 		assertEquals(limit, res.size());
 		test(res);

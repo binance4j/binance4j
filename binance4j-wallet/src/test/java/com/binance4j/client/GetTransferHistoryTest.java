@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.wallet.transfer.WalletTransferHistory;
-import com.binance4j.wallet.transfer.WalletTransferHistoryRequest;
+import com.binance4j.wallet.transfer.WalletTransferHistoryParams;
 import com.binance4j.wallet.transfer.WalletTransferType;
 
 class GetTransferHistoryTest extends WalletTest {
@@ -15,13 +15,13 @@ class GetTransferHistoryTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the transfer history")
 	void testGetTransferHistoryWithTransferType() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN)));
+		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
 	}
 
 	@Test
 	@DisplayName("It should return the transfer history with the given symbol")
 	void testGetTransferHistoryWithFromAndToSymbols() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN, asset, asset))
+		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
 				.execute());
 	}
 
@@ -30,7 +30,7 @@ class GetTransferHistoryTest extends WalletTest {
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
 		WalletTransferHistory history = client
 				.getTransferHistory(
-						new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN, asset, asset, limit))
+						new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit))
 				.execute();
 		test(history);
 	}
@@ -40,7 +40,7 @@ class GetTransferHistoryTest extends WalletTest {
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimitAndOffset() throws ApiException {
 		test(client
 				.getTransferHistory(
-						new WalletTransferHistoryRequest(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1))
+						new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1))
 				.execute());
 	}
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.snapshot.AccountSnapshotRequest;
+import com.binance4j.wallet.snapshot.AccountSnapshotParams;
 
 class GetSpotAccountSnapshotTest extends WalletTest {
 
@@ -17,6 +17,6 @@ class GetSpotAccountSnapshotTest extends WalletTest {
 	@Test
 	@DisplayName("It should return the snapshot with the good size or throw an exception if you don't have a margin account")
 	void testGetSpotAccountSnapshotWithLimit() throws ApiException {
-		test(client.getSpotAccountSnapshot(new AccountSnapshotRequest(limit)));
+		test(client.getSpotAccountSnapshot(new AccountSnapshotParams(limit)));
 	}
 }

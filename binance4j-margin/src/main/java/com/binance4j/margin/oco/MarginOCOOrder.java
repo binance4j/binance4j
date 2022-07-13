@@ -2,7 +2,7 @@ package com.binance4j.margin.oco;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.order.OCOOrder;
+import com.binance4j.core.order.OCOOrderParams;
 import com.binance4j.core.order.OrderSide;
 
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class MarginOCOOrder extends OCOOrder {
+public class MarginOCOOrder extends OCOOrderParams {
     private Boolean isIsolated;
 
     /**
