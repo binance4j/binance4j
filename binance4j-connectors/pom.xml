@@ -76,6 +76,11 @@
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
+            <artifactId>binance4j-rebate</artifactId>
+            <version>${binance4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.binance4j</groupId>
             <artifactId>binance4j-spot</artifactId>
             <version>${binance4j.version}</version>
         </dependency>
