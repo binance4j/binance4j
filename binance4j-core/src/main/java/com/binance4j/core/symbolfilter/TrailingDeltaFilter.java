@@ -12,7 +12,8 @@ import lombok.Data;
 /**
  * Defines the minimum and maximum value for the parameter trailingDelta.
  * 
- * @see https://binance-docs.github.io/apidocs/spot/en/#filters
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

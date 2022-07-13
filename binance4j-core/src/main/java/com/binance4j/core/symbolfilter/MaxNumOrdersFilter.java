@@ -12,7 +12,8 @@ import lombok.Data;
  * symbol. Note that both "algo" orders and normal orders are counted for this
  * filter.
  * 
- * @see https://binance-docs.github.io/apidocs/spot/en/#filters
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

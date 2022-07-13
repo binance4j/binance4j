@@ -13,7 +13,8 @@ import lombok.Data;
  * Defines the quantity (aka "lots" in auction terms) rules for MARKET orders on
  * a symbol.
  * 
- * @see https://binance-docs.github.io/apidocs/spot/en/#filters
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

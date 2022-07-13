@@ -14,7 +14,8 @@ import lombok.Data;
  * There is a different range depending on whether the order is placed on the
  * BUY side or the SELL side.
  * 
- * @see https://binance-docs.github.io/apidocs/spot/en/#filters
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

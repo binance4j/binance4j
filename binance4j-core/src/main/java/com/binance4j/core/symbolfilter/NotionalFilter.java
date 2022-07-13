@@ -12,7 +12,8 @@ import lombok.Data;
 /**
  * Defines the acceptable notional range allowed for an order on a symbol.
  * 
- * @see https://binance-docs.github.io/apidocs/spot/en/#filters
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
