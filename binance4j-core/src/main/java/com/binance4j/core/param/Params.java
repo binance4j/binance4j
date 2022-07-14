@@ -76,8 +76,4 @@ public class Params {
         map.values().removeAll(Collections.singleton(null));
         return map;
     }
-
-    // public Request<?> generateRequest() {
-
-    // }
 }
