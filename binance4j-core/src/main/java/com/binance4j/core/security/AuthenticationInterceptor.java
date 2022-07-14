@@ -18,15 +18,15 @@ import okio.Buffer;
  * signs messages, whenever required.
  */
 public class AuthenticationInterceptor implements Interceptor {
-    /** The API key http header */
+    /** The API key http header. */
     public static final String API_KEY_HEADER = "X-MBX-APIKEY";
-    /** The API key http header decorator */
+    /** The API key http header decorator. */
     public static final String ENDPOINT_SECURITY_TYPE_APIKEY = "APIKEY";
-    /** The API key http full header */
+    /** The API key http full header. */
     public static final String ENDPOINT_SECURITY_TYPE_APIKEY_HEADER = ENDPOINT_SECURITY_TYPE_APIKEY + ": #";
-    /** The signed http header decorator */
+    /** The signed http header decorator. */
     public static final String ENDPOINT_SECURITY_TYPE_SIGNED = "SIGNED";
-    /** The signed http full header */
+    /** The signed http full header. */
     public static final String ENDPOINT_SECURITY_TYPE_SIGNED_HEADER = ENDPOINT_SECURITY_TYPE_SIGNED + ": #";
     /**
      * The API public key

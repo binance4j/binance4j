@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DepositHistoryParams extends IntervalParams {
-	/** The deposited coin */
+	/** The deposited coin. */
 	private String coin;
 	/**
 	 * The deposit status. 0(0:pending,6: credited but cannot withdraw,
@@ -19,12 +19,12 @@ public class DepositHistoryParams extends IntervalParams {
 	 */
 	private Integer status;
 
-	/** The history offset */
+	/** The history offset. */
 	private Integer offset;
 	/** The history size. Default:1000, Max:1000 */
 	private Integer limit = 1000;
 
-	/** Default constructor */
+	/** Default constructor. */
 	public DepositHistoryParams() {
 		super(1);
 	}

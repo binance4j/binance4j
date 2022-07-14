@@ -12,14 +12,14 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RepayParams extends FramedParams {
-	/** Asset to repay */
+	/** Asset to repay. */
 	private String asset;
-	/** Isolated symbol */
+	/** Isolated symbol. */
 	private String symbol;
-	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
+	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isIsolated;
-	/** Amount to repay */
+	/** Amount to repay. */
 	private BigDecimal amount;
 
 	public RepayParams(String asset, BigDecimal amount) {
@@ -38,7 +38,7 @@ public class RepayParams extends FramedParams {
 		this.symbol = symbol;
 	}
 
-	/** Crossed margin repay */
+	/** Crossed margin repay. */
 	public void isNotIsolated() {
 		this.isIsolated = false;
 		this.symbol = null;

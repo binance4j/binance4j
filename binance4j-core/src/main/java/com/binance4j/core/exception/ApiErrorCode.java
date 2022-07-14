@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/** The Error codes sent by the Binance API */
+/** The Error codes sent by the Binance API. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public enum ApiErrorCode {
@@ -61,7 +61,7 @@ public enum ApiErrorCode {
      * unknown; execution status unknown.
      */
     TIMEOUT(-1007),
-    /** CANCEL_REJECTED */
+    /** CANCEL_REJECTED. */
     STATUS_IS_NOT_TRADING(-1013),
     /**
      * Unsupported order combination.
@@ -837,7 +837,7 @@ public enum ApiErrorCode {
      */
     TOO_MANY_INVALID_REDEEM_ATTEMPTS(-450022);
 
-    /** The error code */
+    /** The error code. */
     @Getter
     private final int value;
 

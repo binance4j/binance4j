@@ -7,18 +7,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OrderStatus {
-  /** The order is a new order */
+  /** The order is a new order. */
   NEW,
-  /** The order is partially filled. Some quantity is not sold/bought yet */
+  /** The order is partially filled. Some quantity is not sold/bought yet. */
   PARTIALLY_FILLED,
-  /** The order is totally filled */
+  /** The order is totally filled. */
   FILLED,
-  /** The order is canceled */
+  /** The order is canceled. */
   CANCELED,
-  /** The order is waiting for cancelation */
+  /** The order is waiting for cancelation. */
   PENDING_CANCEL,
-  /** The order has been rejected */
+  /** The order has been rejected. */
   REJECTED,
-  /** The order has expired */
+  /** The order has expired. */
   EXPIRED
 }

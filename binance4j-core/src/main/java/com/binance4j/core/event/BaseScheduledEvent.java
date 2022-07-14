@@ -6,7 +6,7 @@ import java.util.TimerTask;
 
 import lombok.Getter;
 
-/** A scheduled event calling a {@link ScheduledTask} */
+/** A scheduled event calling a {@link ScheduledTask}. */
 public abstract class BaseScheduledEvent implements ScheduledEvent {
     @Getter
     protected final long initTime;
@@ -17,10 +17,10 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
     @Getter
     protected boolean isRunning;
 
-    /** The event's inner {@link Timer} */
+    /** The event's inner {@link Timer}. */
     protected final Timer timer;
 
-    /** The task to execute */
+    /** The task to execute. */
     protected Task task;
 
     protected BaseScheduledEvent() {
@@ -28,7 +28,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
         timer = new Timer();
     }
 
-    /** Cancels the event */
+    /** Cancels the event. */
     public void cancel() {
         if (timer != null) {
             timer.cancel();
@@ -49,14 +49,14 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
      * The inner timer task
      */
     protected class Task extends TimerTask {
-        /** The task to execute */
+        /** The task to execute. */
         private final ScheduledTask innerTask;
-        /** The event wrapper */
+        /** The event wrapper. */
         private final BaseScheduledEvent scheduledEvent;
-        /** The number of time the task was called */
+        /** The number of time the task was called. */
         @Getter
         private int ticks;
-        /** The max times the task can be called */
+        /** The max times the task can be called. */
         @Getter
         private int maxTicks;
 

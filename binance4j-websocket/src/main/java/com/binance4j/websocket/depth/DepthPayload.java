@@ -17,25 +17,25 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DepthPayload {
-	/** The event type */
+	/** The event type. */
 	@JsonProperty("e")
 	private String eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("E")
 	private Long eventTime;
-	/** The trading pair */
+	/** The trading pair. */
 	@JsonProperty("s")
 	private String symbol;
-	/** first update id */
+	/** first update id. */
 	@JsonProperty("U")
 	private Long firstUpdateId;
-	/** last update id */
+	/** last update id. */
 	@JsonProperty("u")
 	private Long finalUpdateId;
-	/** The offers */
+	/** The offers. */
 	@JsonProperty("b")
 	private List<OrderBookEntry> bids;
-	/** The demands */
+	/** The demands. */
 	@JsonProperty("a")
 	private List<OrderBookEntry> asks;
 }

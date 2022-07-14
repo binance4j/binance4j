@@ -21,11 +21,11 @@ import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
 public interface SpotMapping {
-	/** The API base url */
+	/** The API base url. */
 	String BASE = "/api/v3/";
-	/** The signed http full header */
+	/** The signed http full header. */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-	/** The API key http full header */
+	/** The API key http full header. */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**

@@ -20,8 +20,8 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class NFTWithdraw extends NFTDeposit {
-	/** The withdraw fee */
+	/** The withdraw fee. */
 	private BigDecimal fee;
-	/** The fee asset */
+	/** The fee asset. */
 	private String feeAsset;
 }

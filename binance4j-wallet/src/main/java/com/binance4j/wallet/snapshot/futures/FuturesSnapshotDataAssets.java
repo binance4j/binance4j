@@ -15,10 +15,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FuturesSnapshotDataAssets {
-	/** The asset abbreviation */
+	/** The asset abbreviation. */
 	private String asset;
-	/** The margin balance */
+	/** The margin balance. */
 	private BigDecimal marginBalance;
-	/** The wallet balance */
+	/** The wallet balance. */
 	private BigDecimal walletBalance;
 }

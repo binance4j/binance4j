@@ -17,23 +17,23 @@ import lombok.Setter;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeHistoryItem {
-	/** The trade id */
+	/** The trade id. */
 	private Long id;
-	/** The trad price */
+	/** The trad price. */
 	private String price;
-	/** The trade volume */
+	/** The trade volume. */
 	@JsonProperty("qty")
 	private String quantity;
-	/** The trade opposite volume */
+	/** The trade opposite volume. */
 	@JsonProperty("quoteQty")
 	private String quoteQuantity;
-	/** The trade execution in ms */
+	/** The trade execution in ms. */
 	private Long time;
-	/** Is the trade a buyer maker trade */
+	/** Is the trade a buyer maker trade. */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isBuyerMaker;
-	/** Was the trade the best price match? */
+	/** Was the trade the best price match?. */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isBestMatch;

@@ -15,48 +15,48 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CoinNetworkInformation {
-	/** The address pattern */
+	/** The address pattern. */
 	private String addressRegex;
 	/** ? */
 	private String addressRule;
-	/** The coin abbreviation */
+	/** The coin abbreviation. */
 	private String coin;
-	/** The deposit description */
+	/** The deposit description. */
 	private String depositDesc;
-	/** The withdra description */
+	/** The withdra description. */
 	private String withdrawDesc;
-	/** The network name */
+	/** The network name. */
 	private String name;
-	/** The memo pattern */
+	/** The memo pattern. */
 	private String memoRegex;
 	/** ? */
 	private String network;
-	/** Tips about the network */
+	/** Tips about the network. */
 	private String specialTips;
-	/** Tips about the withdraw */
+	/** Tips about the withdraw. */
 	private String specialWithdrawTips;
 	/** ? */
 	private BigDecimal depositDust;
-	/** The withdraw fee */
+	/** The withdraw fee. */
 	private BigDecimal withdrawFee;
 	/** ? */
 	private BigDecimal withdrawIntegerMultiple;
-	/** The maximal amount authorized to be withdrawn */
+	/** The maximal amount authorized to be withdrawn. */
 	private BigDecimal withdrawMax;
-	/** The minimal amount authorized to be withdrawn */
+	/** The minimal amount authorized to be withdrawn. */
 	private BigDecimal withdrawMin;
-	/** The min number for balance confirmation */
+	/** The min number for balance confirmation. */
 	private int minConfirm;
-	/** The confirmation number for balance unlock */
+	/** The confirmation number for balance unlock. */
 	private int unLockConfirm;
-	/** If deposit is enabled */
+	/** If deposit is enabled. */
 	private Boolean depositEnable;
-	/** if is the default network */
+	/** if is the default network. */
 	private Boolean isDefault;
 	/** ? */
 	private Boolean resetAddressStatus;
-	/** If withdraw is enabled */
+	/** If withdraw is enabled. */
 	private Boolean withdrawEnable;
-	/** If the coin needs to provide memo to withdraw */
+	/** If the coin needs to provide memo to withdraw. */
 	private Boolean sameAddress;
 }

@@ -15,7 +15,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DustLog {
-	/** Total counts of exchange */
+	/** Total counts of exchange. */
 	private Integer total;
 	/** ??? */
 	private List<DustLogUserAssetDribblets> userAssetDribblets;

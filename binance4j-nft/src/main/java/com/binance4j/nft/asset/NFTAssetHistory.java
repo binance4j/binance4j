@@ -15,8 +15,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NFTAssetHistory {
-	/** total records */
+	/** total records. */
 	private Long total;
-	/** The transactions */
+	/** The transactions. */
 	private List<NFTAsset> list;
 }

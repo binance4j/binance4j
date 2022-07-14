@@ -24,13 +24,13 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountUpdatePayload {
-	/** The event type */
+	/** The event type. */
 	@JsonProperty("e")
 	private String eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("E")
 	private Long eventTime;
-	/** The assets balance */
+	/** The assets balance. */
 	@JsonProperty("B")
 	@JsonDeserialize(contentUsing = AssetBalanceDeserializer.class)
 	private List<AssetBalance> balances;

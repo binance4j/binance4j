@@ -13,7 +13,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MiniOrderInfo {
-	/** The order symbol */
+	/** The order symbol. */
 	private String symbol;
 
 	/** Order id. */

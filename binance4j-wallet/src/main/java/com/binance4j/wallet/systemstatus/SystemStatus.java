@@ -14,7 +14,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SystemStatus {
-	/** The system status code (0: normal，1：maintenance) */
+	/** The system status code (0: normal，1：maintenance). */
 	private Integer status;
 	/** The system status message ("normal" or "system_maintenance") */
 	@JsonProperty("msg")

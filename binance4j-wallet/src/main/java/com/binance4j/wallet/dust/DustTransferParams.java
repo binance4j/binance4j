@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DustTransferParams extends FramedParams {
-	/** The list of assets to convert into BNB */
+	/** The list of assets to convert into BNB. */
 	private List<String> assets;
 
 	/**

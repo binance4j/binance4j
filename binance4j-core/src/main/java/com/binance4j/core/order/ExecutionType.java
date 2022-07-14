@@ -7,16 +7,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum ExecutionType {
-  /** Order is new */
+  /** Order is new. */
   NEW,
-  /** Order is canceled */
+  /** Order is canceled. */
   CANCELED,
-  /** Order is replaced */
+  /** Order is replaced. */
   REPLACED,
-  /** Order is rejected */
+  /** Order is rejected. */
   REJECTED,
-  /** Order is trade */
+  /** Order is trade. */
   TRADE,
-  /** Order is expired */
+  /** Order is expired. */
   EXPIRED
 }

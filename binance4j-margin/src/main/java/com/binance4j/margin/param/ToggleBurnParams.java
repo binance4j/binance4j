@@ -8,9 +8,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ToggleBurnParams extends FramedParams {
-	/** Determines whether to use BNB to pay for trading fees on SPOT */
+	/** Determines whether to use BNB to pay for trading fees on SPOT. */
 	private Boolean spotBNBBurn;
-	/** Determines whether to use BNB to pay for margin loan's interest */
+	/** Determines whether to use BNB to pay for margin loan's interest. */
 	private Boolean interestBNBBurn;
 
 	/* */

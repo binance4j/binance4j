@@ -13,12 +13,12 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DepositAddress {
-	/** The deposit url */
+	/** The deposit url. */
 	private String url;
-	/** The deposit address */
+	/** The deposit address. */
 	private String address;
-	/** The deposit tag */
+	/** The deposit tag. */
 	private String tag;
-	/** The coin abbreviation */
+	/** The coin abbreviation. */
 	private String coin;
 }

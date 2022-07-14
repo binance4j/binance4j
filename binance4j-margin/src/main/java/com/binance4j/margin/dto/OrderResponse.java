@@ -15,20 +15,36 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderResponse(
+		/** TODO JAVADOC. */
 		OrderSide side,
+		/** TODO JAVADOC. */
 		OrderStatus status,
+		/** TODO JAVADOC. */
 		OrderType type,
+		/** TODO JAVADOC. */
 		TimeInForce timeInForce,
+		/** TODO JAVADOC. */
 		String symbol,
+		/** TODO JAVADOC. */
 		Long orderId,
+		/** TODO JAVADOC. */
 		Long transactTime,
+		/** TODO JAVADOC. */
 		BigDecimal clientOrderId,
+		/** TODO JAVADOC. */
 		BigDecimal price,
+		/** TODO JAVADOC. */
 		BigDecimal origQty,
+		/** TODO JAVADOC. */
 		BigDecimal executedQty,
+		/** TODO JAVADOC. */
 		BigDecimal cummulativeQuoteQty,
+		/** TODO JAVADOC. */
 		BigDecimal marginBuyBorrowAmount,
+		/** TODO JAVADOC. */
 		BigDecimal marginBuyBorrowAsset,
+		/** TODO JAVADOC. */
 		Boolean isIsolated,
+		/** TODO JAVADOC. */
 		List<Trade> fills) {
 }

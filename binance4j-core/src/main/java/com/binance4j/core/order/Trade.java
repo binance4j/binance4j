@@ -17,17 +17,17 @@ public record Trade(
 		String quoteQty,
 		/** Commission. */
 		String commission,
-		/** Asset on which commission is taken */
+		/** Asset on which commission is taken. */
 		String commissionAsset,
 		/** Trade execution time. */
 		Long time,
 		/** The symbol of the trade. */
 		String symbol,
-		/** The order id */
+		/** The order id. */
 		String orderId,
-		/** is buyer trade */
+		/** is buyer trade. */
 		Boolean isBuyer,
-		/** is maker trade */
+		/** is maker trade. */
 		Boolean isMaker,
 		/** ??? */
 		Boolean isBestMatch) {

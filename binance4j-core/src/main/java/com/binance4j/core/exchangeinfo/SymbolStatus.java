@@ -47,10 +47,10 @@ public enum SymbolStatus {
    * </ul>
    */
   BREAK,
-  /** Binance devs reserved status */
+  /** Binance devs reserved status. */
   AUCTION_MATCH,
-  /** Binance devs reserved status */
+  /** Binance devs reserved status. */
   PRE_TRADING,
-  /** Binance devs reserved status */
+  /** Binance devs reserved status. */
   POST_TRADING
 }

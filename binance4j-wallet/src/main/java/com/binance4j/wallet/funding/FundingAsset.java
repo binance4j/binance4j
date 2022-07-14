@@ -10,16 +10,16 @@ import lombok.Data;
  */
 @Data
 public class FundingAsset {
-	/** The asset abbreviation */
+	/** The asset abbreviation. */
 	private String asset;
-	/** The available balancve */
+	/** The available balancve. */
 	private BigDecimal free;
-	/** The locked balance (volume in the order book) */
+	/** The locked balance (volume in the order book). */
 	private BigDecimal locked;
 	/** The freezed balance. Locked by binance (?) */
 	private BigDecimal freeze;
-	/** The pending volume withdrawing */
+	/** The pending volume withdrawing. */
 	private BigDecimal withdrawing;
-	/** The value of the balance in BTC */
+	/** The value of the balance in BTC. */
 	private BigDecimal btcValuation;
 }

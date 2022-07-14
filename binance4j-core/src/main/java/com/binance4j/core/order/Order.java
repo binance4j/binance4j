@@ -7,7 +7,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/** A trading order */
+/** A trading order. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public abstract class Order extends FramedParams {

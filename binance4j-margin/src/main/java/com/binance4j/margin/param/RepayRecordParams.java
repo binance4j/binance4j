@@ -9,15 +9,15 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class RepayRecordParams extends IntervalParams {
 	private String asset;
-	/** isolated symbol */
+	/** isolated symbol. */
 	private String isolatedSymbol;
-	/** the tranId in POST /sapi/v1/margin/repay */
+	/** the tranId in POST /sapi/v1/margin/repay. */
 	private long txId;
 	/** Currently querying page. Start from 1. Default:1 */
 	private long current;
 	/** Default:10 Max:100 */
 	private long size;
-	/** Set to true for archived data from 6 months ago */
+	/** Set to true for archived data from 6 months ago. */
 	private Boolean archived;
 
 	public RepayRecordParams(String asset) {

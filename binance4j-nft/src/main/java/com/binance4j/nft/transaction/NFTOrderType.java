@@ -17,7 +17,7 @@ public enum NFTOrderType {
 	PRIMARY_MARKET_ORDER(3),
 	MINT_FEE(4);
 
-	/** The error code */
+	/** The error code. */
 	@Getter
 	private final int value;
 

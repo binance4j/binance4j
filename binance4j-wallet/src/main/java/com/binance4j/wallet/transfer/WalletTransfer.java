@@ -15,16 +15,16 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WalletTransfer {
-	/** The transfered asset */
+	/** The transfered asset. */
 	private String asset;
-	/** The transfered amount */
+	/** The transfered amount. */
 	private BigDecimal amount;
-	/** The transfer type (origin wallet to destination wallet) */
+	/** The transfer type (origin wallet to destination wallet). */
 	private WalletTransferType type;
-	/** The transfer status */
+	/** The transfer status. */
 	private String status;
-	/** The transaction id */
+	/** The transaction id. */
 	private Long tranId;
-	/** The transfer timestamp */
+	/** The transfer timestamp. */
 	private Long timestamp;
 }

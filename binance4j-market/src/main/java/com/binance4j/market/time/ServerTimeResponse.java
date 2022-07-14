@@ -13,6 +13,6 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerTimeResponse {
-	/** The server time in ms */
+	/** The server time in ms. */
 	private Long serverTime;
 }

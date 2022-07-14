@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxBorrowableResponse(
+		/** TODO JAVADOC. */
 		BigDecimal amount,
+		/** TODO JAVADOC. */
 		BigDecimal borrowLimit) {
 }

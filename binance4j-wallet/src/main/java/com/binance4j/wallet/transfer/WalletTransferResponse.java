@@ -14,7 +14,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WalletTransferResponse {
-	/** The transaction id */
+	/** The transaction id. */
 	@JsonProperty("tranId")
 	private Long transactionId;
 }

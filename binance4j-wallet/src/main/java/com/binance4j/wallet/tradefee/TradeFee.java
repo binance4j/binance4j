@@ -15,10 +15,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeFee {
-	/** The trading pair */
+	/** The trading pair. */
 	private String symbol;
-	/** The maker fees (limit order) */
+	/** The maker fees (limit order). */
 	private BigDecimal makerCommission;
-	/** The taker fees (market order) */
+	/** The taker fees (market order). */
 	private BigDecimal takerCommission;
 }

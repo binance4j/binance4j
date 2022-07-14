@@ -11,6 +11,6 @@ public enum NewOrderResponseType {
     ACK,
     /** ??? */
     RESULT,
-    /** The full response */
+    /** The full response. */
     FULL
 }

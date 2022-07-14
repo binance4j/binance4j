@@ -17,10 +17,10 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ConvertibleAssets {
 	private List<ConvertibleAsset> details;
-	/** The BTC valuation */
+	/** The BTC valuation. */
 	private BigDecimal totalTransferBtc;
-	/** The BNB valuation */
+	/** The BNB valuation. */
 	private BigDecimal totalTransferBNB;
-	/** The commission fee */
+	/** The commission fee. */
 	private BigDecimal dribbletPercentage;
 }

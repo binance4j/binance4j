@@ -22,32 +22,32 @@ import okhttp3.WebSocket;
  */
 @Data
 public abstract class BaseWebsocketClient<T> implements WebsocketClient {
-	/** The websocket client */
+	/** The websocket client. */
 	protected BaseWebsocketClient<T> innerClient;
-	/** The response data sent by the API */
+	/** The response data sent by the API. */
 	protected Class<T> payloadClass;
-	/** The stream symbols */
+	/** The stream symbols. */
 	protected String symbols;
-	/** The stream to connect to */
+	/** The stream to connect to. */
 	protected String stream;
-	/** The wrapped websocket */
+	/** The wrapped websocket. */
 	protected WebSocket innerWebsocket;
-	/** The user events handler */
+	/** The user events handler. */
 	protected WebsocketCallback<T> callback;
-	/** The interceptor callback */
+	/** The interceptor callback. */
 	@Getter(AccessLevel.PUBLIC)
 	protected WebsocketInterceptorCallback<T> interceptorCallback;
-	/** The channel to connect to */
+	/** The channel to connect to. */
 	protected String channel;
-	/** The listenr using the interceptor callback */
+	/** The listenr using the interceptor callback. */
 	protected ApiWebSocketListener<T> listener;
-	/** The client configuration */
+	/** The client configuration. */
 	private WebsocketClientConfiguration configuration;
 
-	/** Will call onClosing and onClosed of the interceptor callback if not */
+	/** Will call onClosing and onClosed of the interceptor callback if not. */
 	protected WebsocketForceClosingHandler forceClosingHandler;
 
-	/** Will close the client after some time */
+	/** Will close the client after some time. */
 	protected WebsocketCloseClientHandler closeClientHandler;
 
 	protected BaseWebsocketClient() {

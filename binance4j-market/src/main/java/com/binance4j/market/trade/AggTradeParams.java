@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AggTradeParams extends Params {
-	/** The agg trade pair */
+	/** The agg trade pair. */
 	private String symbol;
 	/** id to get aggregate trades from (inclusive). */
 	private Long fromId;

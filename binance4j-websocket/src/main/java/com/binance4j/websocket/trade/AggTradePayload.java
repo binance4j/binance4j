@@ -14,34 +14,34 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AggTradePayload {
-	/** The agg trade id */
+	/** The agg trade id. */
 	@JsonProperty("a")
 	private Long aggregatedTradeId;
-	/** The price */
+	/** The price. */
 	@JsonProperty("p")
 	private String price;
-	/** The volume */
+	/** The volume. */
 	@JsonProperty("q")
 	private String quantity;
-	/** first trade id */
+	/** first trade id. */
 	@JsonProperty("f")
 	private Long firstBreakdownTradeId;
-	/** last trade id */
+	/** last trade id. */
 	@JsonProperty("l")
 	private Long lastBreakdownTradeId;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("T")
 	private Long tradeTime;
-	/** Was the buyer the maker? */
+	/** Was the buyer the maker?. */
 	@JsonProperty("m")
 	private Boolean isBuyerMaker;
-	/** The event type */
+	/** The event type. */
 	@JsonProperty("e")
 	private String eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("E")
 	private Long eventTime;
-	/** The trading pair */
+	/** The trading pair. */
 	@JsonProperty("s")
 	private String symbol;
 }

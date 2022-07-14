@@ -16,10 +16,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MiniDepthPayload {
-	/** The last update id */
+	/** The last update id. */
 	private Long lastUpdateId;
-	/** Bids */
+	/** Bids. */
 	private List<OrderBookEntry> bids;
-	/** Asks */
+	/** Asks. */
 	private List<OrderBookEntry> asks;
 }

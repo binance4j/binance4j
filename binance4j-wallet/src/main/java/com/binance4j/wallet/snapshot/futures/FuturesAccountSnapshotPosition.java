@@ -12,14 +12,14 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FuturesAccountSnapshotPosition {
-	/** The asset pair */
+	/** The asset pair. */
 	private String symbol;
-	/** The entry price */
+	/** The entry price. */
 	private BigDecimal entryPrice;
 	/** ??? */
 	private BigDecimal markPrice;
-	/** The position amount */
+	/** The position amount. */
 	private BigDecimal positionAmt;
-	/** Only show the value at the time of opening the position */
+	/** Only show the value at the time of opening the position. */
 	private BigDecimal unRealizedProfit;
 }

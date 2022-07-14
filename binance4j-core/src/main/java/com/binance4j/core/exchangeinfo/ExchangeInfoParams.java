@@ -20,7 +20,7 @@ public class ExchangeInfoParams extends Params {
      */
     private String symbols;
 
-    /** Default Constructor */
+    /** Default Constructor. */
     public ExchangeInfoParams() {
         super(10);
     }

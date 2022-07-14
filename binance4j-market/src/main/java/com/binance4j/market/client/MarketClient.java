@@ -68,12 +68,12 @@ public class MarketClient extends RestClient<MarketMapping> {
 		return new Request<>(service.getExchangeInfo(params.toMap()), params);
 	}
 
-	/** Get current exchange trading rules and all symbols informations */
+	/** Get current exchange trading rules and all symbols informations. */
 	public Request<ExchangeInfo> getExchangeInfo() {
 		return getExchangeInfo(new ExchangeInfoParams());
 	}
 
-	/** Get the symbol order book */
+	/** Get the symbol order book. */
 	public Request<OrderBook> getOrderBook(OrderBookParams params) {
 		return new Request<>(service.getOrderBook(params.toMap()), params);
 	}
@@ -140,12 +140,12 @@ public class MarketClient extends RestClient<MarketMapping> {
 				params);
 	}
 
-	/** Get 24 hour rolling window price change statistics of all symbols */
+	/** Get 24 hour rolling window price change statistics of all symbols. */
 	public Request<List<TickerStatistics>> get24hTickerStatistics() {
 		return new Request<>(service.get24hTickerStatistics(), new Params(40));
 	}
 
-	/** Get 24 hour rolling window price change statistics of specific symbols */
+	/** Get 24 hour rolling window price change statistics of specific symbols. */
 	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
 		return new Request<>(service.get24hTickersStatistics(params.toMap()), params);
 	}
@@ -165,17 +165,17 @@ public class MarketClient extends RestClient<MarketMapping> {
 		return new Request<>(service.getTickers(params.toMap()), params);
 	}
 
-	/** Get best price/qty on the order book for a symbol */
+	/** Get best price/qty on the order book for a symbol. */
 	public Request<BookTicker> getBookTicker(BookTickerParams params) {
 		return new Request<>(service.getBookTicker(params.toMap()), params);
 	}
 
-	/** Get best price/qty on the order book for all symbols */
+	/** Get best price/qty on the order book for all symbols. */
 	public Request<List<BookTicker>> getBookTicker() {
 		return new Request<>(service.getBookTicker(), new Params(2));
 	}
 
-	/** Get best price/qty on the order book for the given symbols */
+	/** Get best price/qty on the order book for the given symbols. */
 	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {
 		return new Request<>(service.getBookTickers(params.toMap()), params);
 	}

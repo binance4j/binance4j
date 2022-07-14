@@ -16,7 +16,7 @@ public class BookTickerParams extends Params {
 	/** Ticker symbol. */
 	private String symbol;
 
-	/** to get the ticker of all symbols */
+	/** to get the ticker of all symbols. */
 	public BookTickerParams() {
 		super(2);
 	}

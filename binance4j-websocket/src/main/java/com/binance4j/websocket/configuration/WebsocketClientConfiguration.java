@@ -18,7 +18,7 @@ public class WebsocketClientConfiguration {
 			getWebsocketPort());
 	/** The interval the client will send a ping. Default: 3m. */
 	private Duration pingInterval = Duration.ofMinutes(3);
-	/** Reconnect if stream is closed by server. Default: true */
+	/** Reconnect if stream is closed by server. Default: true. */
 	private boolean keepAlive = true;
 	/** The number of time the client tries to reconnect. Default: 10. */
 	private int reconnectionRetries = 10;
@@ -36,7 +36,7 @@ public class WebsocketClientConfiguration {
 	 * time margin error. Default: 5s
 	 */
 	private Duration noResponseTimeoutMarginError = Duration.ofSeconds(5);
-	/** Time after which the client disconnects if stuck in closing state */
+	/** Time after which the client disconnects if stuck in closing state. */
 	private Duration disconnectionTimeout = Duration.ofSeconds(5);
 
 	/**

@@ -20,26 +20,26 @@ import okhttp3.WebSocket;
  */
 @Data
 public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
-	/** The main ws client */
+	/** The main ws client. */
 	WebsocketClient websocketClient;
-	/** Event to handle connection failure and try to reconnect */
+	/** Event to handle connection failure and try to reconnect. */
 	@Getter(value = AccessLevel.PROTECTED)
 	private WebsocketEventHandler connectionHandler;
-	/** Event to handle no response from server */
+	/** Event to handle no response from server. */
 	@Getter(value = AccessLevel.PROTECTED)
 	private WebsocketEventHandler noResponseHandler;
-	/** Event to handle failure in the disconnection state */
+	/** Event to handle failure in the disconnection state. */
 	@Getter(value = AccessLevel.PROTECTED)
 	private WebsocketEventHandler disconnectionHandler;
 
-	/** Forces the call of onClosing and onClosed */
+	/** Forces the call of onClosing and onClosed. */
 	@Getter(value = AccessLevel.PROTECTED)
 	private WebsocketEventHandler forceClosingHandler;
 
-	/** Tells the interceptor if th e closing has been made by the client */
+	/** Tells the interceptor if th e closing has been made by the client. */
 	private boolean closedByClient;
 
-	/** Has the onClosing handler been called */
+	/** Has the onClosing handler been called. */
 	private boolean onClosingCalled;
 
 	@Getter(AccessLevel.NONE)

@@ -20,12 +20,12 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class TrailingDeltaFilter {
-    /** The min trailing above delta */
+    /** The min trailing above delta. */
     private BigDecimal minTrailingAboveDelta;
-    /** The max trailing above delta */
+    /** The max trailing above delta. */
     private BigDecimal maxTrailingAboveDelta;
-    /** The min trailing below delta */
+    /** The min trailing below delta. */
     private BigDecimal minTrailingBelowDelta;
-    /** The max trailing below delta */
+    /** The max trailing below delta. */
     private BigDecimal maxTrailingBelowDelta;
 }

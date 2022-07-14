@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum SideEffectType {
-    /** normal trade order */
+    /** normal trade order. */
     NO_SIDE_EFFECT,
-    /** margin trade order */
+    /** margin trade order. */
     MARGIN_BUY,
-    /** for making auto repayment after order filled */
+    /** for making auto repayment after order filled. */
     AUTO_REPAY
 }

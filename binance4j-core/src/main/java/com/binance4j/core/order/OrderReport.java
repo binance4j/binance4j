@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.binance4j.core.misc.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** An order report */
+/** An order report. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderReport(
 		/**

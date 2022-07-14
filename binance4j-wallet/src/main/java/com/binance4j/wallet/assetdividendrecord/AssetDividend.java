@@ -15,16 +15,16 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AssetDividend {
-	/** The divident amount */
+	/** The divident amount. */
 	private BigDecimal amount;
 	/** ??? */
 	private String enInfo;
-	/** The asset abbreviation */
+	/** The asset abbreviation. */
 	private String asset;
-	/** The id */
+	/** The id. */
 	private Long id;
 	/** ??? */
 	private Long divTime;
-	/** The transaction id */
+	/** The transaction id. */
 	private Long tranId;
 }

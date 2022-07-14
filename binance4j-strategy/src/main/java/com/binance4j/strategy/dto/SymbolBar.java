@@ -18,10 +18,10 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class SymbolBar extends BaseBar {
 
-	/** The name of the symbol of the bar */
+	/** The name of the symbol of the bar. */
 	private String symbol;
 
-	/** is it the last bar of the interval? */
+	/** is it the last bar of the interval?. */
 	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isBarFinal;

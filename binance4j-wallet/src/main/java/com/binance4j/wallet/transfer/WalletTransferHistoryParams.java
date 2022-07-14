@@ -11,11 +11,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WalletTransferHistoryParams extends IntervalParams {
-	/** The User universal transfer type */
+	/** The User universal transfer type. */
 	private WalletTransferType type;
-	/** The offset */
+	/** The offset. */
 	private Integer current = 1;
-	/** The result size */
+	/** The result size. */
 	private Integer size = 10;
 	/**
 	 * Must be sent when type are ISOLATEDMARGIN_MARGIN and

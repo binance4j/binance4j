@@ -26,16 +26,16 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderTradeUpdatePayload {
-	/** The event type */
+	/** The event type. */
 	@JsonProperty("e")
 	private String eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("E")
 	private Long eventTime;
-	/** The trading pair */
+	/** The trading pair. */
 	@JsonProperty("s")
 	private String symbol;
-	/** Client order id */
+	/** Client order id. */
 	@JsonProperty("c")
 	private String newClientOrderId;
 	/** Buy/Sell order side. */
@@ -77,7 +77,7 @@ public class OrderTradeUpdatePayload {
 	/** Commission. */
 	@JsonProperty("n")
 	private BigDecimal commission;
-	/** Asset on which commission is taken */
+	/** Asset on which commission is taken. */
 	@JsonProperty("N")
 	private String commissionAsset;
 	/** Order/trade time. */

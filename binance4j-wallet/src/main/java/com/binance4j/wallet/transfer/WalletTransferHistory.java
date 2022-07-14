@@ -15,8 +15,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WalletTransferHistory {
-	/** The list of transfers */
+	/** The list of transfers. */
 	private List<WalletTransfer> rows;
-	/** The result size */
+	/** The result size. */
 	private Long total;
 }

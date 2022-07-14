@@ -18,6 +18,6 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class SpotAccountSnapshot extends Snapshot {
-	/** The account snapshot data */
+	/** The account snapshot data. */
 	private SpotAccountSnapshotData data;
 }

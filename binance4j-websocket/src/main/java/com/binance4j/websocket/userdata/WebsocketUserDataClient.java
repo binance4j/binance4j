@@ -19,7 +19,7 @@ import lombok.Setter;
 public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdatePayload> {
 	private final UserDataClient userDataClient;
 
-	/** The timer responsible to schedule the keep alive task */
+	/** The timer responsible to schedule the keep alive task. */
 	@Getter
 	private Timer timer;
 
@@ -56,7 +56,7 @@ public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdateP
 		timer.cancel();
 	}
 
-	/** The task responsible of keeping alive the listenKey */
+	/** The task responsible of keeping alive the listenKey. */
 	private class KeepAliveTask extends TimerTask {
 		@Override
 		public void run() {

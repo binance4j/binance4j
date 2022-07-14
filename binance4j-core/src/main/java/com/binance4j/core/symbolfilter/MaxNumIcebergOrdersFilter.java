@@ -19,6 +19,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class MaxNumIcebergOrdersFilter {
-    /** Max iceberg orders */
+    /** Max iceberg orders. */
     private Integer maxNumIcebergOrders;
 }

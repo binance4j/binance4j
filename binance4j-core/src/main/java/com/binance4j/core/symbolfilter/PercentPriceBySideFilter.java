@@ -22,19 +22,19 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class PercentPriceBySideFilter {
-    /** Bid multiplier up */
+    /** Bid multiplier up. */
     private BigDecimal bidMultiplierUp;
 
-    /** Bid multiplier down */
+    /** Bid multiplier down. */
     private BigDecimal bidMultiplierDown;
 
-    /** Ask multiplier up */
+    /** Ask multiplier up. */
     private BigDecimal askMultiplierUp;
 
-    /** Ask multiplier down */
+    /** Ask multiplier down. */
     private BigDecimal askMultiplierDown;
 
-    /** Weighted average price */
+    /** Weighted average price. */
     private BigDecimal avgPriceMins;
 
 }

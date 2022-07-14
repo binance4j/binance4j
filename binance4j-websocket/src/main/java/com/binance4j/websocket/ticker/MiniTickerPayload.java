@@ -16,31 +16,31 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MiniTickerPayload {
-	/** The event type */
+	/** The event type. */
 	@JsonProperty("e")
 	private String eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	@JsonProperty("E")
 	private Long eventTime;
-	/** The trading pair */
+	/** The trading pair. */
 	@JsonProperty("s")
 	private String symbol;
-	/** The close price */
+	/** The close price. */
 	@JsonProperty("c")
 	private BigDecimal closePrice;
-	/** The open price */
+	/** The open price. */
 	@JsonProperty("o")
 	private BigDecimal openPrice;
-	/** The highest price */
+	/** The highest price. */
 	@JsonProperty("h")
 	private BigDecimal highPrice;
-	/** The lowest price */
+	/** The lowest price. */
 	@JsonProperty("l")
 	private BigDecimal lowPrice;
-	/** Total traded base asset volume */
+	/** Total traded base asset volume. */
 	@JsonProperty("v")
 	private BigDecimal totalTradedBaseAssetVolume;
-	/** Total traded quote asset volume */
+	/** Total traded quote asset volume. */
 	@JsonProperty("q")
 	private BigDecimal totalTradedQuoteAssetVolume;
 }

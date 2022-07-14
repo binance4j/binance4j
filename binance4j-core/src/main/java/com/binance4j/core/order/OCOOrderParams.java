@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-/** An order made of two when one cancels the other */
+/** An order made of two when one cancels the other. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

@@ -11,12 +11,12 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AssetDividendRecordParams extends IntervalParams {
-	/** The asset abbreviation */
+	/** The asset abbreviation. */
 	private String asset;
 	/** The result limit. Default 20, max 500 */
 	private Integer limit = 20;
 
-	/** Default constructor */
+	/** Default constructor. */
 	public AssetDividendRecordParams() {
 		super(10);
 	}

@@ -6,16 +6,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedAssets(
+		/** TODO JAVADOC. */
 		IsolatedAsset baseAsset,
+		/** TODO JAVADOC. */
 		IsolatedAsset quoteAsset,
+		/** TODO JAVADOC. */
 		String symbol,
+		/** TODO JAVADOC. */
 		Boolean isolatedCreated,
+		/** TODO JAVADOC. */
 		Boolean tradeEnabled,
+		/** TODO JAVADOC. */
 		Boolean enabled,
+		/** TODO JAVADOC. */
 		LevelStatus marginLevelStatus,
+		/** TODO JAVADOC. */
 		BigDecimal marginLevel,
+		/** TODO JAVADOC. */
 		BigDecimal marginRatio,
+		/** TODO JAVADOC. */
 		BigDecimal indexPrice,
+		/** TODO JAVADOC. */
 		BigDecimal liquidatePrice,
+		/** TODO JAVADOC. */
 		BigDecimal liquidateRate) {
 }

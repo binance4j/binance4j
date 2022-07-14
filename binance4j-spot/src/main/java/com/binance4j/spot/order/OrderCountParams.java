@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OrderCountParams extends FramedParams {
-	/** Default constructor */
+	/** Default constructor. */
 	public OrderCountParams() {
 		super(20);
 	}

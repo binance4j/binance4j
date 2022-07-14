@@ -11,10 +11,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OpenOrdersStatusParams extends FramedParams {
-	/** The pair we want the open orders */
+	/** The pair we want the open orders. */
 	private String symbol;
 
-	/** toi get all open orders */
+	/** toi get all open orders. */
 	public OpenOrdersStatusParams() {
 		super(1);
 	}

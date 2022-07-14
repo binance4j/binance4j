@@ -1,13 +1,14 @@
 package com.binance4j.core.order;
 
+import java.math.BigDecimal;
+
 import com.binance4j.core.misc.TimeInForce;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.math.BigDecimal;
-
-/** The base of a SPOT and MARGIN order */
+/** The base of a SPOT and MARGIN order. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

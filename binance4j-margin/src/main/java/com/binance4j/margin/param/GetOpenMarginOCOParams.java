@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class GetOpenMarginOCOParams extends FramedParams {
 	private Boolean isIsolated;
-	/** mandatory for isolated margin, not supported for cross margin */
+	/** mandatory for isolated margin, not supported for cross margin. */
 	private String symbol;
 
 	public GetOpenMarginOCOParams() {

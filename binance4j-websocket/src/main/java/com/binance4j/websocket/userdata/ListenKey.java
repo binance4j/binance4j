@@ -13,6 +13,6 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListenKey {
-	/** The key used to open a user data stream */
+	/** The key used to open a user data stream. */
 	private String listenKey;
 }

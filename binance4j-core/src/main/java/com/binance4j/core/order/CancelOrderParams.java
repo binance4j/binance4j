@@ -5,7 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/** The request to cancel an order */
+/** The request to cancel an order. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class CancelOrderParams extends FramedParams {

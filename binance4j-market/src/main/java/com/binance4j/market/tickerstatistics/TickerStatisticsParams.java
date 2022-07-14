@@ -12,10 +12,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TickerStatisticsParams extends Params {
-	/** The trading pair we want the ticker stats */
+	/** The trading pair we want the ticker stats. */
 	private String symbol;
 
-	/** to get all ticker stats */
+	/** to get all ticker stats. */
 	public TickerStatisticsParams() {
 		super(40);
 	}

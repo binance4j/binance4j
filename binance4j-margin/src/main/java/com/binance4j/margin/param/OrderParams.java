@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class OrderParams extends FramedParams {
 	private String symbol;
-	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
+	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
 	private Boolean isIsolated;
 	private long orderId;
 	private String origClientOrderId;

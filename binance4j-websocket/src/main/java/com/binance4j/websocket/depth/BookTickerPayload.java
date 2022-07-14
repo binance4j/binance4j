@@ -15,22 +15,22 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookTickerPayload {
-	/** The update id */
+	/** The update id. */
 	@JsonProperty("u")
 	private Long updateId;
-	/** The trading pair */
+	/** The trading pair. */
 	@JsonProperty("s")
 	private String symbol;
-	/** The bid price */
+	/** The bid price. */
 	@JsonProperty("b")
 	private String bidPrice;
-	/** The bid quantity */
+	/** The bid quantity. */
 	@JsonProperty("B")
 	private String bidQuantity;
-	/** The ask price */
+	/** The ask price. */
 	@JsonProperty("a")
 	private String askPrice;
-	/** The ask quantity */
+	/** The ask quantity. */
 	@JsonProperty("A")
 	private String askQuantity;
 }

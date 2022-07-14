@@ -12,11 +12,11 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class WebsocketSubscription {
-	/** The subscription method */
+	/** The subscription method. */
 	private WebsocketSubscriptionMethod method;
-	/** The subscription params */
+	/** The subscription params. */
 	private String[] params;
-	/** The subscription id */
+	/** The subscription id. */
 	private Long id;
 
 	/**
@@ -30,7 +30,7 @@ public class WebsocketSubscription {
 		this.params = symbols;
 	}
 
-	/** Converts the object into a string */
+	/** Converts the object into a string. */
 	public String toString() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {

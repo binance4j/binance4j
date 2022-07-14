@@ -14,16 +14,16 @@ import com.binance4j.websocket.client.WebsocketInterceptorCallback;
  * The base class of every {@link WebsocketEventHandler}
  */
 public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler {
-	/** The websocket client handling this event handler */
+	/** The websocket client handling this event handler. */
 	protected final WebsocketClient websocketClient;
 
-	/** The timeout ApiException */
+	/** The timeout ApiException. */
 	protected final ApiException timeoutException;
 
-	/** The disconnected ApiException */
+	/** The disconnected ApiException. */
 	protected final ApiException disconnectedException;
 
-	/** The inner scheduled event */
+	/** The inner scheduled event. */
 	protected ScheduledEvent eventHandler;
 
 	protected WebsocketInterceptorCallback<?> callback;

@@ -94,7 +94,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 		return getSpotAccountSnapshot(new AccountSnapshotParams());
 	}
 
-	/** Fetches the daily MARGIN account snapshots */
+	/** Fetches the daily MARGIN account snapshots. */
 	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(AccountSnapshotParams params) {
 		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap()), params);
 	}
@@ -104,7 +104,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 		return getMarginAccountSnapshot(new AccountSnapshotParams());
 	}
 
-	/** Fetches the daily FUTURES account snapshots */
+	/** Fetches the daily FUTURES account snapshots. */
 	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(AccountSnapshotParams params) {
 		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap()), params);
 	}
@@ -236,12 +236,12 @@ public class WalletClient extends RestClient<WalletMapping> {
 		return getApiTradingStatus(new ApiTradingStatusParams());
 	}
 
-	/** Fetches the dust transfer logs */
+	/** Fetches the dust transfer logs. */
 	public Request<DustLog> getDustLog(DustLogParams params) {
 		return new Request<>(service.getDustLog(params.toMap()), params);
 	}
 
-	/** Fetches the dust transfer logs */
+	/** Fetches the dust transfer logs. */
 	public Request<DustLog> getDustLog() {
 		return getDustLog(new DustLogParams());
 	}
@@ -340,17 +340,17 @@ public class WalletClient extends RestClient<WalletMapping> {
 		return new Request<>(service.getFundingAsset(params.toMap()), params);
 	}
 
-	/** Fetches the funding wallet asset balance */
+	/** Fetches the funding wallet asset balance. */
 	public Request<List<FundingAsset>> getFundingAsset() {
 		return getFundingAsset(new FundingAssetParams());
 	}
 
-	/** Fetches the API Key Permission */
+	/** Fetches the API Key Permission. */
 	public Request<ApiPermissions> getApiPermissions(ApiPermissionsParams params) {
 		return new Request<>(service.getApiPermissions(params.toMap()));
 	}
 
-	/** Fetches the API Key Permission */
+	/** Fetches the API Key Permission. */
 	public Request<ApiPermissions> getApiPermissions() {
 		return getApiPermissions(new ApiPermissionsParams());
 	}

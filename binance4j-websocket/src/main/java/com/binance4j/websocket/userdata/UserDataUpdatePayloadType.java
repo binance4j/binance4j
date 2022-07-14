@@ -18,7 +18,7 @@ public enum UserDataUpdatePayloadType {
 	/** Corresponds to "executionReport" events. */
 	ORDER_TRADE_UPDATE("executionReport");
 
-	/** The enum string value */
+	/** The enum string value. */
 	@Getter
 	private final String eventTypeId;
 

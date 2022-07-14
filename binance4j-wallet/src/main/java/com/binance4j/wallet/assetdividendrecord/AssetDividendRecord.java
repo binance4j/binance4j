@@ -15,8 +15,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AssetDividendRecord {
-	/** The records */
+	/** The records. */
 	private List<AssetDividend> rows;
-	/** The number of record */
+	/** The number of record. */
 	private Long total;
 }

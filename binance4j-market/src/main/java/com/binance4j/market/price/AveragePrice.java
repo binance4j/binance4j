@@ -17,6 +17,6 @@ import lombok.Data;
 public class AveragePrice {
 	/** ??? */
 	private Integer mins;
-	/** The average price of the asset */
+	/** The average price of the asset. */
 	private BigDecimal price;
 }

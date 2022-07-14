@@ -15,6 +15,6 @@ import lombok.Data;
 public abstract class Snapshot {
 	/** The snapshot type ("spot/margin/futures") */
 	private String type;
-	/** The snapshot update timestamp */
+	/** The snapshot update timestamp. */
 	private Long updateTime;
 }

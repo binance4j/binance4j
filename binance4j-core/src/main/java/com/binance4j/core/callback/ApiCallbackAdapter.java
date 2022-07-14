@@ -2,9 +2,10 @@ package com.binance4j.core.callback;
 
 import java.io.IOException;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.binance4j.core.exception.ApiException;
 
-import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -14,7 +15,7 @@ import retrofit2.Response;
  */
 public class ApiCallbackAdapter<T> implements Callback<T> {
 
-    /** The wrapped callback */
+    /** The wrapped callback. */
     private final ApiCallback<T> callback;
 
     /**

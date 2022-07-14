@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TradeFeeParams extends FramedParams {
-	/** The trading pair we want the fees */
+	/** The trading pair we want the fees. */
 	private String symbol;
 
 	public TradeFeeParams() {

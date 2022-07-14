@@ -7,26 +7,26 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OrderRejectReason {
-  /** none */
+  /** none. */
   NONE,
-  /** unknown instrument */
+  /** unknown instrument. */
   UNKNOWN_INSTRUMENT,
-  /** market closed */
+  /** market closed. */
   MARKET_CLOSED,
-  /** price quantity exceed hard limits */
+  /** price quantity exceed hard limits. */
   PRICE_QTY_EXCEED_HARD_LIMITS,
-  /** unknown order */
+  /** unknown order. */
   UNKNOWN_ORDER,
-  /** duplicate order */
+  /** duplicate order. */
   DUPLICATE_ORDER,
-  /** unknown account */
+  /** unknown account. */
   UNKNOWN_ACCOUNT,
-  /** insufficient balance */
+  /** insufficient balance. */
   INSUFFICIENT_BALANCE,
-  /** account inactive */
+  /** account inactive. */
   ACCOUNT_INACTIVE,
-  /** account cannot settle */
+  /** account cannot settle. */
   ACCOUNT_CANNOT_SETTLE,
-  /** order would trigger immediately */
+  /** order would trigger immediately. */
   ORDER_WOULD_TRIGGER_IMMEDIATELY
 }

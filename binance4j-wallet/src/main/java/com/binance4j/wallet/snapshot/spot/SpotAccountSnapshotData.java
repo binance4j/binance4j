@@ -17,8 +17,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SpotAccountSnapshotData {
-	/** The wallet asset balances */
+	/** The wallet asset balances. */
 	private List<AssetBalance> balances;
-	/** The cumulated value of the wallet in Bitcoin */
+	/** The cumulated value of the wallet in Bitcoin. */
 	private BigDecimal totalAssetOfBtc;
 }

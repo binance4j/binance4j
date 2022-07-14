@@ -11,11 +11,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class MyTradesParams extends IntervalParams {
-	/** The symbol of the trade */
+	/** The symbol of the trade. */
 	private String symbol;
-	/** The order id of the trade */
+	/** The order id of the trade. */
 	private Long orderId;
-	/** The id from which we search trades */
+	/** The id from which we search trades. */
 	private Long fromId;
 	/** The size of the result. Default 500; max 1000. */
 	private Integer limit;

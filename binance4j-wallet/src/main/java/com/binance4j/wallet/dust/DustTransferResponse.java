@@ -16,10 +16,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DustTransferResponse {
-	/** The fees */
+	/** The fees. */
 	private BigDecimal totalServiceCharge;
-	/** The volume converted into BNB after fees */
+	/** The volume converted into BNB after fees. */
 	private BigDecimal totalTransfered;
-	/** Detailed transfer result asset by asset */
+	/** Detailed transfer result asset by asset. */
 	private List<DustTransferResult> transferResult;
 }

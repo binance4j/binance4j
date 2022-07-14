@@ -14,31 +14,31 @@ import okhttp3.Response;
  */
 @Getter
 public class StrategyCallback {
-	/** The callback to trigger when receiving a message from the websocket */
+	/** The callback to trigger when receiving a message from the websocket. */
 	private GenericCallback<SymbolBar> onMessageConsumer = (SymbolBar bar) -> {
 	};
 
-	/** The callback to trigger when the strategy sends a BUY signal */
+	/** The callback to trigger when the strategy sends a BUY signal. */
 	private GenericCallback<BarSeries> onEnterConsumer = (BarSeries series) -> {
 	};
 
-	/** The callback to trigger when the strategy sends a SELL signal */
+	/** The callback to trigger when the strategy sends a SELL signal. */
 	private GenericCallback<BarSeries> onExitConsumer = (BarSeries series) -> {
 	};
 
-	/** The callback to trigger when the stream opens */
+	/** The callback to trigger when the stream opens. */
 	private GenericCallback<Response> onOpenConsumer = (Response response) -> {
 	};
 
-	/** The callback to trigger when the stream is closing */
+	/** The callback to trigger when the stream is closing. */
 	private GenericCallback<WebsocketCloseObject> onClosingConsumer = (WebsocketCloseObject closeObject) -> {
 	};
 
-	/** The callback to trigger when the stream is closed */
+	/** The callback to trigger when the stream is closed. */
 	private GenericCallback<WebsocketCloseObject> onClosedConsumer = (WebsocketCloseObject closeObject) -> {
 	};
 
-	/** The callback to trigger when the connection fails */
+	/** The callback to trigger when the connection fails. */
 	private GenericCallback<ApiException> onFailureConsumer = (ApiException response) -> {
 	};
 

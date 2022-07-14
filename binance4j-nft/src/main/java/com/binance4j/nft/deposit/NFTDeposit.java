@@ -19,9 +19,9 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class NFTDeposit extends NFTAsset {
-	/** Transaction ID */
+	/** Transaction ID. */
 	@JsonProperty("txID")
 	private String transactionId;
-	/** Deposit time in ms */
+	/** Deposit time in ms. */
 	private Long timestamp;
 }

@@ -18,7 +18,7 @@ public class BookTicker {
 	private String symbol;
 	/** Bid price. */
 	private String bidPrice;
-	/** Bid quantity */
+	/** Bid quantity. */
 	@JsonProperty("bidQty")
 	private String bidQuantity;
 	/** Ask price. */

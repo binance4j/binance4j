@@ -3,7 +3,7 @@ package com.binance4j.core.exception;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/** API response error containing a code and a message */
+/** API response error containing a code and a message. */
 @Data
 @NoArgsConstructor
 public class ApiError {

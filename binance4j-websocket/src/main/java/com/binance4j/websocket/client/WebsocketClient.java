@@ -7,10 +7,10 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
  */
 public interface WebsocketClient {
 
-	/** Opens the stream */
+	/** Opens the stream. */
 	void open();
 
-	/** Forces the closing of the stream */
+	/** Forces the closing of the stream. */
 	void close();
 
 	/**
@@ -20,6 +20,6 @@ public interface WebsocketClient {
 	 */
 	void close(boolean force);
 
-	/** The client configuration */
+	/** The client configuration. */
 	WebsocketClientConfiguration getConfiguration();
 }

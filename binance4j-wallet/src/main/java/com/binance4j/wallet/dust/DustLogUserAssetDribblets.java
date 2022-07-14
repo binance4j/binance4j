@@ -13,13 +13,13 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DustLogUserAssetDribblets {
-	/** The operation timestamp */
+	/** The operation timestamp. */
 	private Long operateTime;
-	/** The volume of asset converted */
+	/** The volume of asset converted. */
 	private BigDecimal totalTransferedAmount;
-	/** The fees */
+	/** The fees. */
 	private BigDecimal totalServiceChargeAmount;
-	/** The transaction id */
+	/** The transaction id. */
 	private Long transId;
 	/** ??? */
 	private List<DustLogUserAssetDribbletDetails> userAssetDribbletDetails;

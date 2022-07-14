@@ -15,14 +15,14 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderTrade {
-	/** The price */
+	/** The price. */
 	BigDecimal price;
-	/** The quantity */
+	/** The quantity. */
 	BigDecimal qty;
-	/** The commission */
+	/** The commission. */
 	BigDecimal commission;
-	/** The commission asset */
+	/** The commission asset. */
 	String commissionAsset;
-	/** The trade id */
+	/** The trade id. */
 	Long tradeId;
 }

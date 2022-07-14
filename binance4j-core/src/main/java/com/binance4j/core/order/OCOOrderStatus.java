@@ -2,7 +2,7 @@ package com.binance4j.core.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** The OCO order status */
+/** The OCO order status. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OCOOrderStatus {
     /** ??? */

@@ -8,5 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Transaction(
+		/** TODO JAVADOC. */
 		@JsonProperty("tranId") String transactionId) {
 }

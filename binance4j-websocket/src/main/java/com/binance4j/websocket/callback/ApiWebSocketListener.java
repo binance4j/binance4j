@@ -15,11 +15,11 @@ import okhttp3.WebSocketListener;
  * Binance API WebSocket listener.
  */
 public class ApiWebSocketListener<T> extends WebSocketListener {
-	/** The jackson object mapper */
+	/** The jackson object mapper. */
 	private static final ObjectMapper MAPPER = new ObjectMapper();
-	/** The websocket callback */
+	/** The websocket callback. */
 	private final WebsocketCallback<T> callback;
-	/** Changes a string into an object */
+	/** Changes a string into an object. */
 	private final ObjectReader objectReader;
 	/**
 	 * Makes it able to make the difference between a closing event and a

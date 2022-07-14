@@ -14,7 +14,7 @@ public class PriceTickerParams extends Params {
 	/** Ticker symbol. */
 	private String symbol;
 
-	/** for all symbols ticker */
+	/** for all symbols ticker. */
 	public PriceTickerParams() {
 		super(2);
 	}

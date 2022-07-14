@@ -42,57 +42,57 @@ import lombok.ToString;
  */
 @Data
 public class TradingStatistics {
-	/** The trading record */
+	/** The trading record. */
 	@ToString.Exclude
 	private TradingRecord tradingRecord;
-	/** The bar series */
+	/** The bar series. */
 	@ToString.Exclude
 	private BarSeries series;
-	/** The gross return */
+	/** The gross return. */
 	private BigDecimal grossReturn;
-	/** The gross profit */
+	/** The gross profit. */
 	private BigDecimal grossProfit;
-	/** The gross loss */
+	/** The gross loss. */
 	private BigDecimal grossLoss;
-	/** The average loss */
+	/** The average loss. */
 	private BigDecimal averageLoss;
-	/** The average profit */
+	/** The average profit. */
 	private BigDecimal averageProfit;
-	/** The average return per bar */
+	/** The average return per bar. */
 	private BigDecimal averageReturnPerBar;
-	/** The net loss */
+	/** The net loss. */
 	private BigDecimal netLoss;
-	/** The net profit */
+	/** The net profit. */
 	private BigDecimal netProfit;
-	/** The profit loss */
+	/** The profit loss. */
 	private BigDecimal profitLoss;
-	/** The profit/loss percentage */
+	/** The profit/loss percentage. */
 	private BigDecimal profitLossPercentage;
-	/** The profit/loss ratio */
+	/** The profit/loss ratio. */
 	private BigDecimal profitLossRatio;
-	/** The buy and hold return */
+	/** The buy and hold return. */
 	private BigDecimal buyAndHoldReturn;
-	/** The expectancy */
+	/** The expectancy. */
 	private BigDecimal expectancy;
 	/** The percentage of positions which are not profitable. */
 	private BigDecimal losingPositionsRatio;
-	/** The maximum drawdown */
+	/** The maximum drawdown. */
 	private BigDecimal maximumDrawdown;
-	/** The number of bars */
+	/** The number of bars. */
 	private BigDecimal numberOfBars;
-	/** The number of breakeven positions */
+	/** The number of breakeven positions. */
 	private BigDecimal numberOfBreakEvenPositions;
-	/** The number of positions */
+	/** The number of positions. */
 	private BigDecimal numberOfPositions;
-	/** The number of losing positions */
+	/** The number of losing positions. */
 	private BigDecimal numberOfLosingPositions;
-	/** The number of winning positions */
+	/** The number of winning positions. */
 	private BigDecimal numberOfWinningPositions;
-	/** The number of consecutive winning positions */
+	/** The number of consecutive winning positions. */
 	private BigDecimal numberOfConsecutiveWinningPositions;
-	/** The return over max drawdown */
+	/** The return over max drawdown. */
 	private BigDecimal returnOverMaxDrawdown;
-	/** The winning positions ratio */
+	/** The winning positions ratio. */
 	private BigDecimal winningPositionsRatio;
 
 	/**

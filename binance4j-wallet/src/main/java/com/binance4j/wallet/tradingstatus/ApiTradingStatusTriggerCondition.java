@@ -10,10 +10,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiTradingStatusTriggerCondition {
-	/** Number of GTC orders */
+	/** Number of GTC orders. */
 	private Long GCR;
-	/** Number of FOK/IOC orders */
+	/** Number of FOK/IOC orders. */
 	private Long IFER;
-	/** Number of FOK/IOC orders */
+	/** Number of FOK/IOC orders. */
 	private Long UFR;
 }

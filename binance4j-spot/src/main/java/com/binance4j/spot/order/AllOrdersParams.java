@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AllOrdersParams extends IntervalParams {
-	/** The trading pair we want the orders */
+	/** The trading pair we want the orders. */
 	private String symbol;
 	/**
 	 * If orderId is set, it will get orders &gt;= that orderId. Otherwise, most

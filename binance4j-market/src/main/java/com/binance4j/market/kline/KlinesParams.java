@@ -12,9 +12,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class KlinesParams extends IntervalParams {
-	/** The trading pair we want the data */
+	/** The trading pair we want the data. */
 	private String symbol;
-	/** The candlestick interval */
+	/** The candlestick interval. */
 	private String interval;
 	/** The result size. Default 500; max 1000. */
 	private Integer limit;

@@ -10,10 +10,10 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NFT {
-	/** NFT Network */
+	/** NFT Network. */
 	private String network;
-	/** NFT Token ID */
+	/** NFT Token ID. */
 	private String tokenId;
-	/** NFT Contract Address */
+	/** NFT Contract Address. */
 	private String contractAddress;
 }

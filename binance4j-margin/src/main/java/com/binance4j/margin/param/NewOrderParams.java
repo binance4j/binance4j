@@ -86,7 +86,7 @@ public class NewOrderParams extends BaseOrder {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity, timeInForce);
 	}
 
-	/** Produit un ordre d'achat MARKET avec timeInForce par défaut */
+	/** Produit un ordre d'achat MARKET avec timeInForce par défaut. */
 	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity) {
 		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
@@ -102,7 +102,7 @@ public class NewOrderParams extends BaseOrder {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity, timeInForce);
 	}
 
-	/** Produit un ordre de vent MARKET avec timeInForce par défaut */
+	/** Produit un ordre de vent MARKET avec timeInForce par défaut. */
 	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity) {
 		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
@@ -119,7 +119,7 @@ public class NewOrderParams extends BaseOrder {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price, timeInForce);
 	}
 
-	/** Produit un ordre d'achat LIMIT avec timeInForce par défaut */
+	/** Produit un ordre d'achat LIMIT avec timeInForce par défaut. */
 	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
 		return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}
@@ -136,7 +136,7 @@ public class NewOrderParams extends BaseOrder {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, timeInForce);
 	}
 
-	/** Produit un ordre de vente LIMIT avec timeInForce par défaut */
+	/** Produit un ordre de vente LIMIT avec timeInForce par défaut. */
 	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
 		return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}

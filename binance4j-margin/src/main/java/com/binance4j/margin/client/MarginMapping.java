@@ -41,9 +41,9 @@ import retrofit2.http.QueryMap;
 
 public interface MarginMapping {
 	String BASE = "/sapi/v1/margin/";
-	/** The signed http full header */
+	/** The signed http full header. */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-	/** The API key http full header */
+	/** The API key http full header. */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	@Headers({ API_H, SIGNED_H })

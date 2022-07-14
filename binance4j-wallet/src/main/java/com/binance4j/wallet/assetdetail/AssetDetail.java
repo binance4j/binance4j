@@ -15,15 +15,15 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AssetDetail {
-	/** The minimal withdraw amount */
+	/** The minimal withdraw amount. */
 	private BigDecimal minWithdrawAmount;
-	/** The deposit status (false if ALL of networks' are false) */
+	/** The deposit status (false if ALL of networks' are false). */
 	private Boolean depositStatus;
-	/** The withdraw fee */
+	/** The withdraw fee. */
 	private Float withdrawFee;
-	/** The withdraw status (false if ALL of networks' are false) */
+	/** The withdraw status (false if ALL of networks' are false). */
 	private Boolean withdrawStatus;
-	/** The reason of the status */
+	/** The reason of the status. */
 	private String depositTip;
 
 	public String getDepositTip() {

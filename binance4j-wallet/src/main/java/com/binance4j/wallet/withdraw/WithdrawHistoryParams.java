@@ -11,13 +11,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WithdrawHistoryParams extends IntervalParams {
-	/** The coin we want the history */
+	/** The coin we want the history. */
 	private String coin;
-	/** The withdraw order id to fetch */
+	/** The withdraw order id to fetch. */
 	private String withdrawOrderId;
-	/** The status to look for */
+	/** The status to look for. */
 	private Integer status;
-	/** The offset */
+	/** The offset. */
 	private Integer offset;
 
 	/** Default:1000, Max:1000 */

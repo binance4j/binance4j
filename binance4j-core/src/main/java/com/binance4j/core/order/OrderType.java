@@ -7,18 +7,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OrderType {
-  /** The order is a limit order */
+  /** The order is a limit order. */
   LIMIT,
-  /** The order is a market order */
+  /** The order is a market order. */
   MARKET,
-  /** The order is a stop loss order */
+  /** The order is a stop loss order. */
   STOP_LOSS,
-  /** The order is a stop loss limit order */
+  /** The order is a stop loss limit order. */
   STOP_LOSS_LIMIT,
-  /** The order is a take profit order */
+  /** The order is a take profit order. */
   TAKE_PROFIT,
-  /** The order is a take profit limit order */
+  /** The order is a take profit limit order. */
   TAKE_PROFIT_LIMIT,
-  /** The order is a limit maker order */
+  /** The order is a limit maker order. */
   LIMIT_MAKER
 }

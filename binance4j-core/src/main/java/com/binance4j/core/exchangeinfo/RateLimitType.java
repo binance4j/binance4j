@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum RateLimitType {
-  /** The request weight (!= count) */
+  /** The request weight (!= count). */
   REQUEST_WEIGHT,
-  /** The orders count */
+  /** The orders count. */
   ORDERS,
-  /** The requests that are not orders count */
+  /** The requests that are not orders count. */
   RAW_REQUESTS
 }

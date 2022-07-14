@@ -11,9 +11,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TransferParams extends FramedParams {
-	/** The asset being transferred, e.g., BTC */
+	/** The asset being transferred, e.g., BTC. */
 	private String asset;
-	/** The amount to be transferred */
+	/** The amount to be transferred. */
 	private BigDecimal amount;
 	/**
 	 * The transfer type

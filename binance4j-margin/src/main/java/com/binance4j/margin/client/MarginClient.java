@@ -102,32 +102,32 @@ public class MarginClient extends RestClient<MarginMapping> {
 		return new Request<>(service.repay(params.toMap()), params);
 	}
 
-	/** Gets the informations about an asset */
+	/** Gets the informations about an asset. */
 	public Request<Asset> getAsset(AssetParams params) {
 		return new Request<>(service.getAsset(params.toMap()), params);
 	}
 
-	/** Gets the informations about all assets */
+	/** Gets the informations about all assets. */
 	public Request<List<Asset>> getAllAssets() {
 		return new Request<>(service.getAllAssets());
 	}
 
-	/** Gets the informations about a cross margin pair */
+	/** Gets the informations about a cross margin pair. */
 	public Request<Pair> getCrossMarginPair(PairPrams params) {
 		return new Request<>(service.getCrossMarginPair(params.toMap()), params);
 	}
 
-	/** Gets the informations about all cross margin pairs */
+	/** Gets the informations about all cross margin pairs. */
 	public Request<List<Pair>> getAllCrossMarginPairs() {
 		return getAllCrossMarginPairs(new AllMarginPairsParams());
 	}
 
-	/** Gets the informations about all cross margin pairs */
+	/** Gets the informations about all cross margin pairs. */
 	public Request<List<Pair>> getAllCrossMarginPairs(AllMarginPairsParams params) {
 		return new Request<>(service.getAllCrossMarginPairs(params.toMap()), params);
 	}
 
-	/** Gets the price Index of a symbol */
+	/** Gets the price Index of a symbol. */
 	public Request<PriceIndex> getPriceIndex(PriceIndexParams params) {
 		return new Request<>(service.getPriceIndex(params.toMap()), params);
 	}
@@ -147,79 +147,55 @@ public class MarginClient extends RestClient<MarginMapping> {
 		return new Request<>(service.cancelOpenOrders(params.toMap()), params);
 	}
 
-	/** Get Cross Margin Transfer History */
+	/** Get Cross Margin Transfer History. */
 	public Request<TransferHistoryResponse> getTransferHistory(TransferHistoryParams params) {
 		return new Request<>(service.getTransferHistory(params.toMap()), params);
 	}
 
-	/** Get Cross Margin Transfer History */
+	/** Get Cross Margin Transfer History. */
 	public Request<TransferHistoryResponse> getTransferHistory() {
 		return getTransferHistory(new TransferHistoryParams());
 	}
 
 	/**
 	 * Query Loan Record
-	 * <p>
-	 * txId or startTime must be sent. txId takes precedence.
-	 * <p>
-	 * Response in descending order
-	 * <p>
-	 * If isolatedSymbol is not sent, crossed margin data will be returned
-	 * <p>
-	 * Set archived to true to query data from 6 months ago
 	 */
 	public Request<LoanRecord> getLoanRecord(LoanRecordParams params) {
 		return new Request<>(service.getLoanRecord(params.toMap()), params);
 	}
 
 	/**
-	 * Query Repay Record
-	 * <p>
-	 * txId or startTime must be sent. txId takes precedence.
-	 * <p>
-	 * Response in descending order
-	 * <p>
-	 * If isolatedSymbol is not sent, crossed margin data will be returned
-	 * <p>
-	 * Set archived to true to query data from 6 months ago
+	 * Query Repay Record.
 	 */
 	public Request<RepayRecord> getRepayRecord(RepayRecordParams params) {
 		return new Request<>(service.getRepayRecord(params.toMap()), params);
 	}
 
 	/**
-	 * Query Repay Record
-	 * <p>
-	 * Response in descending order
-	 * <p>
-	 * If isolatedSymbol is not sent, crossed margin data will be returned
-	 * <p>
-	 * Set archived to true to query data from 6 months ago
+	 * Query Repay Record.
 	 */
 	public Request<InterestHistory> getInterestHistory(InterestHistoryParams params) {
 		return new Request<>(service.getInterestHistory(params.toMap()), params);
 	}
 
 	/**
-	 * Get Force Liquidation Record
-	 * <p>
-	 * Response in descending order
+	 * Get Force Liquidation Record. Response in descending order.
 	 */
 	public Request<ForceLiquidationRecord> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
 		return new Request<>(service.getForceLiquidationRecord(params.toMap()), params);
 	}
 
-	/** Get Margin Account Details */
+	/** Get Margin Account Details. */
 	public Request<Account> getAccount(GetMarginAccountParams params) {
 		return new Request<>(service.getAccount(params.toMap()), params);
 	}
 
-	/** Get Margin Account Details */
+	/** Get Margin Account Details. */
 	public Request<Account> getAccount() {
 		return getAccount(new GetMarginAccountParams());
 	}
 
-	/** Get Margin Account's Order Status */
+	/** Get Margin Account's Order Status. */
 	public Request<OrderInfo> getOrder(OrderParams params) {
 		return new Request<>(service.getOrder(params.toMap()), params);
 	}
@@ -267,20 +243,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Send in a new OCO for a margin account
-	 * <p>
-	 * Price Restrictions:
-	 * <ul>
-	 * <li>SELL: Limit Price&gt; Last Price&gt; Stop Price</li>
-	 * <li>BUY: Limit Price &lt;Last Price &lt;Stop Price</li>
-	 * </ul>
-	 * <p>
-	 * Quantity Restrictions:
-	 * <ul>
-	 * <li>Both legs must have the same quantity</li>
-	 * <li>ICEBERG quantities however do not have to be the same.</li>
-	 * </ul>
-	 * <p>
-	 * Order Rate Limit: OCO counts as 2 orders against the order rate limit
 	 */
 	public Request<OCOResponse> newOCO(NewOCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()), params);
@@ -288,37 +250,33 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Cancel an entire Order List
-	 * <p>
-	 * Additional notes: Canceling an individual leg will cancel the entire OCO
 	 */
 	public Request<OCOResponse> cancelOCO(CancelMarginOCOParams params) {
 		return new Request<>(service.cancelOCO(params.toMap()), params);
 	}
 
-	/** Retrieves a specific OCO based on provided optional parameters */
+	/** Retrieves a specific OCO based on provided optional parameters. */
 	public Request<GetMarginOCOResponse> getOCO(GetMarginOCOParams params) {
 		return new Request<>(service.getOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all OCO for a specific margin account based on provided optional parameters */
+	/** Retrieves all OCO for a specific margin account based on provided optional parameters. */
 	public Request<List<GetMarginOCOResponse>> getAllOCO(GetAllMarginOCOParams params) {
 		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all Open OCO for a specific margin account based on provided optional parameters */
+	/** Retrieves all Open OCO for a specific margin account based on provided optional parameters. */
 	public Request<List<GetMarginOCOResponse>> getOpenOCO(GetOpenMarginOCOParams params) {
 		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all Open OCO for a specific margin account based on provided optional parameters */
+	/** Retrieves all Open OCO for a specific margin account based on provided optional parameters. */
 	public Request<List<GetMarginOCOResponse>> getOpenOCO() {
 		return getOpenOCO(new GetOpenMarginOCOParams());
 	}
 
 	/**
 	 * Query Margin Account's Trade List
-	 * <p>
-	 * If fromId is set, it will get trades&gt;= that fromId. Otherwise most recent trades are returned.
 	 */
 	public Request<List<Trade>> getMyTrades(TradeParams params) {
 		return new Request<>(service.getMyTrades(params.toMap()), params);
@@ -326,8 +284,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Query Margin Account's Trade List
-	 * <p>
-	 * If fromId is set, it will get trades&gt;= that fromId. Otherwise most recent trades are returned.
 	 */
 	public Request<List<Trade>> getMyTrades() {
 		return getMyTrades(new TradeParams());
@@ -335,10 +291,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Query Max Borrow
-	 * <p>
-	 * If isolatedSymbol is not sent, crossed margin data will be sent.
-	 * <p>
-	 * borrowLimit is also available <a href="https://www.binance.com/en/margin-fee">here</a>
 	 */
 	public Request<MaxBorrowableResponse> getMaxBorrowable(MaxBorrowableParams params) {
 		return new Request<>(service.getMaxBorrowable(params.toMap()), params);
@@ -346,29 +298,27 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Query Max Transfer-Out Amount
-	 * <p>
-	 * If isolatedSymbol is not sent, crossed margin data will be sent.
 	 */
 	public Request<MaxTransferableResponse> getMaxTransferable(MaxTransferableParams params) {
 		return new Request<>(service.getMaxTransferable(params.toMap()), params);
 	}
 
-	/** Make an Isolated Margin Account Transfer */
+	/** Make an Isolated Margin Account Transfer. */
 	public Request<Transaction> newIsolatedTransfer(NewIsolatedTransferParams params) {
 		return new Request<>(service.isolatedTransfer(params.toMap()), params);
 	}
 
-	/** Get Isolated Margin Transfer History */
+	/** Get Isolated Margin Transfer History. */
 	public Request<IsolatedTransferHistory> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
 		return new Request<>(service.getIsolatedTransferHistory(params.toMap()), params);
 	}
 
-	/** Query Isolated Margin Account Info */
+	/** Query Isolated Margin Account Info. */
 	public Request<IsolatedAccount> getIsolatedAccount(IsolatedAccountParams params) {
 		return new Request<>(service.getIsolatedAccount(params.toMap()), params);
 	}
 
-	/** Query Isolated Margin Account Info */
+	/** Query Isolated Margin Account Info. */
 	public Request<IsolatedAccount> getIsolatedAccount() {
 		return getIsolatedAccount(new IsolatedAccountParams());
 	}
@@ -395,25 +345,23 @@ public class MarginClient extends RestClient<MarginMapping> {
 		return getEnabledIsolatedAccountLimit(new IsolatedAccountLimitParams());
 	}
 
-	/** Gets the informations about an isolated symbol */
+	/** Gets the informations about an isolated symbol. */
 	public Request<Pair> getIsolatedSymbol(PairPrams params) {
 		return new Request<>(service.getIsolatedSymbol(params.toMap()), params);
 	}
 
-	/** Gets the informations about all the isolated symbols */
+	/** Gets the informations about all the isolated symbols. */
 	public Request<List<Pair>> getAllIsolatedSymbols(AllMarginPairsParams params) {
 		return new Request<>(service.getAllIsolatedSymbols(params.toMap()), params);
 	}
 
-	/** Gets the informations about all the isolated symbols */
+	/** Gets the informations about all the isolated symbols. */
 	public Request<List<Pair>> getAllIsolatedSymbols() {
 		return getAllIsolatedSymbols(new AllMarginPairsParams());
 	}
 
 	/**
 	 * Toggle BNB Burn On Spot Trade And Margin Interest
-	 * <p>
-	 * "spotBNBBurn" and "interestBNBBurn" should be sent at least one.
 	 */
 	public Request<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams params) {
 		return new Request<>(service.toggleBNBBurnOnSpotTradeAndMarginInterest(params.toMap()), params);
@@ -421,24 +369,22 @@ public class MarginClient extends RestClient<MarginMapping> {
 
 	/**
 	 * Toggle BNB Burn On Spot Trade And Margin Interest
-	 * <p>
-	 * "spotBNBBurn" and "interestBNBBurn" should be sent at least one.
 	 */
 	public Request<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest() {
 		return toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams());
 	}
 
-	/** Get BNB Burn Status */
+	/** Get BNB Burn Status. */
 	public Request<BNBBurnStatus> getBNBBurnStatus(BurnStatusParams params) {
 		return new Request<>(service.getBNBBurnStatus(params.toMap()), params);
 	}
 
-	/** Get BNB Burn Status */
+	/** Get BNB Burn Status. */
 	public Request<BNBBurnStatus> getBNBBurnStatus() {
 		return getBNBBurnStatus(new BurnStatusParams());
 	}
 
-	/** Query Margin Interest Rate History */
+	/** Query Margin Interest Rate History. */
 	public Request<List<InterestRate>> getInterestRateHistory(InterestRateHistoryParams params) {
 		return new Request<>(service.getInterestRateHistory(params.toMap()), params);
 	}
@@ -446,8 +392,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get cross margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>
-	 * <p>
-	 * User's current specific margin data will be returned if vipLevel is omitted
 	 */
 	public Request<List<CrossMarginFee>> getMarginFeeData(CrossMarginFeeParams params) {
 		return new Request<>(service.getMarginFeeData(params.toMap()), params);
@@ -456,8 +400,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get cross margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>
-	 * <p>
-	 * User's current specific margin data will be returned if vipLevel is omitted
 	 */
 	public Request<List<CrossMarginFee>> getMarginFeeData() {
 		return getMarginFeeData(new CrossMarginFeeParams());
@@ -466,8 +408,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get isolated margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>
-	 * <p>
-	 * User's current specific margin data will be returned if vipLevel is omitted
 	 */
 	public Request<List<IsolatedMarginFee>> getIsolatedFeeData(IsolatedMarginFeeParams params) {
 		return new Request<>(service.getIsolatedFeeData(params.toMap()), params);
@@ -476,8 +416,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get isolated margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>
-	 * <p>
-	 * User's current specific margin data will be returned if vipLevel is omitted
 	 */
 	public Request<List<IsolatedMarginFee>> getIsolatedFeeData() {
 		return getIsolatedFeeData(new IsolatedMarginFeeParams());
@@ -486,8 +424,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get isolated margin tier data collection with any tier defined
 	 * <a href="https://www.binance.com/en/margin-data">here</a>
-	 * <p>
-	 * All margin tier data will be returned if tier is omitted
 	 */
 	public Request<List<IsolatedMarginTierData>> getIsolatedMarginTierData(IsolatedMarginTierDataParams params) {
 		return new Request<>(service.getIsolatedMarginTierData(params.toMap()), params);

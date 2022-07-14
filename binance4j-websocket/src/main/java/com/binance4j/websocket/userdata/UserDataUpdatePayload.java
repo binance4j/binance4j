@@ -34,14 +34,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDataUpdatePayload {
-	/** The event type */
+	/** The event type. */
 	private UserDataUpdatePayloadType eventType;
-	/** The timestamp */
+	/** The timestamp. */
 	private Long eventTime;
-	/** The account update */
+	/** The account update. */
 	private AccountUpdatePayload outboundAccountPositionUpdateEvent;
-	/** The balance update */
+	/** The balance update. */
 	private BalanceUpdatePayload balanceUpdateEvent;
-	/** The order trade update */
+	/** The order trade update. */
 	private OrderTradeUpdatePayload orderTradeUpdateEvent;
 }

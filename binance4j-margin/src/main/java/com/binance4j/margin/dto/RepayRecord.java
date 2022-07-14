@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /** History of account withdrawals. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
+		/** TODO JAVADOC. */
 		Integer total,
+		/** TODO JAVADOC. */
 		List<Repay> rows) {
 }

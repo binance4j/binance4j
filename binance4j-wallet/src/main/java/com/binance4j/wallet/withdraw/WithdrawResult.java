@@ -13,6 +13,6 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WithdrawResult {
-	/** The withdraw id */
+	/** The withdraw id. */
 	private String id;
 }

@@ -7,18 +7,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedTransfer(
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		BigDecimal amount,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		String asset,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		String status,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		long timestamp,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		long txId,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		@JsonProperty("transFrom") IsolatedTransferType transferFrom,
-		/** TODO JAVADOC */
+		/** TODO JAVADOC. */
 		@JsonProperty("transTo") IsolatedTransferType transferTo) {
 }

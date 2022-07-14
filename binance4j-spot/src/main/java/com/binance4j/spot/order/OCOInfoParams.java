@@ -12,10 +12,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class OCOInfoParams extends FramedParams {
 
-	/** Either orderListId or origClientOrderId must be provided */
+	/** Either orderListId or origClientOrderId must be provided. */
 	private Long orderListId;
 
-	/** Either orderListId or origClientOrderId must be provided */
+	/** Either orderListId or origClientOrderId must be provided. */
 	private String origClientOrderId;
 
 	/**

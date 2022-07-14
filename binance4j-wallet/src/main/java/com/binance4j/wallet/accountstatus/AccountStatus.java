@@ -13,6 +13,6 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountStatus {
-	/** The account status */
+	/** The account status. */
 	private String data;
 }

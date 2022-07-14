@@ -11,11 +11,11 @@ import lombok.Data;
  */
 @Data
 public class BackTestResult {
-	/** The series the backtest run */
+	/** The series the backtest run. */
 	BarSeries series;
-	/** The backtest positions statistics */
+	/** The backtest positions statistics. */
 	TradingStatistics statistics;
-	/** The positions record */
+	/** The positions record. */
 	TradingRecord tradingRecord;
 
 	/**

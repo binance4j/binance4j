@@ -22,16 +22,16 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 @Data
 public abstract class RestClient<T> {
 
-    /** The client configuration */
+    /** The client configuration. */
     protected RestClientConfiguration configuration;
 
-    /** The API public key */
+    /** The API public key. */
     private String key;
 
-    /** The API private key */
+    /** The API private key. */
     private String secret;
 
-    /** The retrofit API mapping */
+    /** The retrofit API mapping. */
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
     protected Class<T> mapping;

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ForceLiquidationRecordParams extends IntervalParams {
-	/** isolated symbol */
+	/** isolated symbol. */
 	private String isolatedSymbol;
 	/** Currently querying page. Start from 1. Default:1 */
 	private long current;

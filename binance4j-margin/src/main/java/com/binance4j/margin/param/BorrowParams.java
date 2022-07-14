@@ -12,14 +12,14 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BorrowParams extends FramedParams {
-	/** Asset to borrow */
+	/** Asset to borrow. */
 	private String asset;
-	/** Isolated symbol */
+	/** Isolated symbol. */
 	private String symbol;
-	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
+	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isIsolated;
-	/** Amount to borrow */
+	/** Amount to borrow. */
 	private BigDecimal amount;
 
 	public BorrowParams(String asset, BigDecimal amount) {
@@ -38,7 +38,7 @@ public class BorrowParams extends FramedParams {
 		this.symbol = symbol;
 	}
 
-	/** Crossed margin loan */
+	/** Crossed margin loan. */
 	public void isNotIsolated() {
 		this.isIsolated = false;
 		this.symbol = null;

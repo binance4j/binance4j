@@ -104,7 +104,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.getAllOrders(params.toMap()), params);
 	}
 
-	/** Send in an OCO order */
+	/** Send in an OCO order. */
 	public Request<OCOResponse> newOCO(OCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()), params);
 	}
@@ -117,28 +117,28 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.cancelOCO(params.toMap()), params);
 	}
 
-	/** Retrieves a specific OCO based on provided optional parameters */
+	/** Retrieves a specific OCO based on provided optional parameters. */
 	public Request<OCOInfo> queryOCO(OCOInfoParams params) {
 		return new Request<>(service.queryOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all OCO based on provided optional parameters */
+	/** Retrieves all OCO based on provided optional parameters. */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
 		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all OCO based on provided optional parameters */
+	/** Retrieves all OCO based on provided optional parameters. */
 	public Request<List<OCOInfo>> getAllOCO() {
 		AllOCOInfoParams params = new AllOCOInfoParams();
 		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all open OCO */
+	/** Retrieves all open OCO. */
 	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
 		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
-	/** Retrieves all open OCO */
+	/** Retrieves all open OCO. */
 	public Request<List<OCOInfo>> getOpenOCO() {
 		OpenOCOParams params = new OpenOCOParams();
 		return new Request<>(service.getOpenOCO(params.toMap()), params);
@@ -149,7 +149,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.getAccount(params.toMap()), params);
 	}
 
-	/** Get current account information */
+	/** Get current account information. */
 	public Request<Account> getAccount() {
 		AccountParams params = new AccountParams();
 		return new Request<>(service.getAccount(params.toMap()), params);

@@ -12,10 +12,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class FundingAssetParams extends FramedParams {
 
-	/** The asset we want the balance */
+	/** The asset we want the balance. */
 	private String asset;
 
-	/** Get the BTC value of the asset */
+	/** Get the BTC value of the asset. */
 	private Boolean needBtcValuation;
 
 	/**

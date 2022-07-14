@@ -30,7 +30,7 @@ import lombok.Getter;
 import lombok.Setter;
 import okhttp3.Response;
 
-/** Service to live trade a {@link TradingStrategy} */
+/** Service to live trade a {@link TradingStrategy}. */
 @Data
 public class WatchService {
 

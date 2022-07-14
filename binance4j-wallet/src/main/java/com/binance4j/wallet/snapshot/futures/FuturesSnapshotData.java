@@ -15,7 +15,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FuturesSnapshotData {
-	/** The assets balances */
+	/** The assets balances. */
 	List<FuturesSnapshotDataAssets> assets;
 	/** ??? */
 	List<FuturesAccountSnapshotPosition> position;

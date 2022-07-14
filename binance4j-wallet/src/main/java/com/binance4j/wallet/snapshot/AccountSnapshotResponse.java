@@ -20,8 +20,8 @@ public abstract class AccountSnapshotResponse<T> {
 	 * codes)
 	 */
 	private Integer code;
-	/** The potential response error message */
+	/** The potential response error message. */
 	private String msg;
-	/** A list of account snapshots */
+	/** A list of account snapshots. */
 	private List<T> snapshotVos;
 }

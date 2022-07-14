@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OrderSide {
-  /** You want to buy */
+  /** You want to buy. */
   BUY,
-  /** You want to sell */
+  /** You want to sell. */
   SELL
 }

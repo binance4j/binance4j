@@ -13,6 +13,6 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiTradingStatus {
-	/** The trading status data */
+	/** The trading status data. */
 	private ApiTradingStatusData data;
 }
