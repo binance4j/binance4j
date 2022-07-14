@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Request to retrieve all OCO based on provided optional parameters
- */
+/** Request to retrieve all OCO based on provided optional parameters */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AllOCOInfoParams extends IntervalParams {

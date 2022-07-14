@@ -2,9 +2,7 @@ package com.binance4j.core.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Status of a submitted order.
- */
+/** Status of a submitted order. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OrderStatus {
   /** The order is a new order. */

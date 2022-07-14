@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Request to fetch open OCO orders
- */
+/** Request to fetch open OCO orders */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OpenOCOParams extends FramedParams {

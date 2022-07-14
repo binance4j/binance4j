@@ -3,9 +3,7 @@ package com.binance4j.websocket.depth;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 
-/**
- * Websocket client handling depth events on one or many symbols
- */
+/** Websocket client handling depth events on one or many symbols */
 public class WebsocketDepthClient extends BaseWebsocketClient<DepthPayload> {
 	/**
 	 *

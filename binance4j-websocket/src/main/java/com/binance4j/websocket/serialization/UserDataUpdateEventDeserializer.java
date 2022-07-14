@@ -1,6 +1,12 @@
 package com.binance4j.websocket.serialization;
 
-import com.binance4j.websocket.userdata.*;
+import java.io.IOException;
+
+import com.binance4j.websocket.userdata.AccountUpdatePayload;
+import com.binance4j.websocket.userdata.BalanceUpdatePayload;
+import com.binance4j.websocket.userdata.OrderTradeUpdatePayload;
+import com.binance4j.websocket.userdata.UserDataUpdatePayload;
+import com.binance4j.websocket.userdata.UserDataUpdatePayloadType;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -8,11 +14,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-
-/**
- * {@link UserDataUpdatePayload} deserializer
- */
+/** {@link UserDataUpdatePayload} deserializer */
 public class UserDataUpdateEventDeserializer extends JsonDeserializer<UserDataUpdatePayload> {
 
 	@Override

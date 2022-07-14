@@ -3,9 +3,7 @@ package com.binance4j.websocket.depth;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The order book update speed
- */
+/** The order book update speed */
 @AllArgsConstructor
 public enum DepthUpdateSpeed {
 

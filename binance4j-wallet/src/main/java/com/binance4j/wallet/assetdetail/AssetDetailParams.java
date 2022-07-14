@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get details about a supported asset
- */
+/** The parameters to get details about a supported asset */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AssetDetailParams extends FramedParams {

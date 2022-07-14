@@ -37,9 +37,7 @@ import org.ta4j.core.analysis.criteria.pnl.ProfitLossRatioCriterion;
 import lombok.Data;
 import lombok.ToString;
 
-/**
- * Statistics results of a trading backtest
- */
+/** Statistics results of a trading backtest */
 @Data
 public class TradingStatistics {
 	/** The trading record. */

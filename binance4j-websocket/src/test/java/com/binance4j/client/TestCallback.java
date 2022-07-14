@@ -11,9 +11,7 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 import lombok.Data;
 import okhttp3.Response;
 
-/**
- * Event handler callback.
- */
+/** Event handler callback. */
 @Data
 public class TestCallback<T> extends ConcurrentTest<Void> implements WebsocketCallback<T> {
 

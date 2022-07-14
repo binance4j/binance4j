@@ -17,9 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 
-/**
- * Websocket clients base class
- */
+/** Websocket clients base class */
 @Data
 public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/** The websocket client. */

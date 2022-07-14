@@ -10,9 +10,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
-/**
- * {@link CandlePayload} deserializer
- */
+/** {@link CandlePayload} deserializer */
 public class CandlestickEventDeserializer extends JsonDeserializer<CandlePayload> {
 
 	@Override

@@ -3,9 +3,7 @@ package com.binance4j.websocket.trade;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 
-/**
- * Websocket client handling Aggregate trade events on a symbol or symbols
- */
+/** Websocket client handling Aggregate trade events on a symbol or symbols */
 public class WebsocketAggTradeClient extends BaseWebsocketClient<AggTradePayload> {
 	/**
 	 *

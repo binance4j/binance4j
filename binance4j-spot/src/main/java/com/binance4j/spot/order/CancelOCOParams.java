@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to cancel an OCO request
- */
+/** The parameters to cancel an OCO request */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class CancelOCOParams extends FramedParams {

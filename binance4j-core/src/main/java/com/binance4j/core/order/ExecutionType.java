@@ -2,9 +2,7 @@ package com.binance4j.core.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Order execution type.
- */
+/** Order execution type. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum ExecutionType {
   /** Order is new. */

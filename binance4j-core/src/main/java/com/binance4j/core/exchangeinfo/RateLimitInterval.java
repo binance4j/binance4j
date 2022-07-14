@@ -2,9 +2,7 @@ package com.binance4j.core.exchangeinfo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * The parameters rate limit interval.
- */
+/** The parameters rate limit interval. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum RateLimitInterval {
   /** Interval will be in seconds. */

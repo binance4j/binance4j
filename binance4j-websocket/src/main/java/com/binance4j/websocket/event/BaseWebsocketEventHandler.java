@@ -10,9 +10,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.client.WebsocketClient;
 import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 
-/**
- * The base class of every {@link WebsocketEventHandler}
- */
+/** The base class of every {@link WebsocketEventHandler} */
 public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler {
 	/** The websocket client handling this event handler. */
 	protected final WebsocketClient websocketClient;

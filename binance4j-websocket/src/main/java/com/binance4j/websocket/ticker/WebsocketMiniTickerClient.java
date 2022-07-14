@@ -3,9 +3,7 @@ package com.binance4j.websocket.ticker;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 
-/**
- * Websocket client handling mini events on one or many symbols
- */
+/** Websocket client handling mini events on one or many symbols */
 public class WebsocketMiniTickerClient extends BaseWebsocketClient<MiniTickerPayload> {
 	/**
 	 *

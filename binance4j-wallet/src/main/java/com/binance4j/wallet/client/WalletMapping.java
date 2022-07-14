@@ -1,5 +1,8 @@
 package com.binance4j.wallet.client;
 
+import java.util.List;
+import java.util.Map;
+
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.wallet.accountstatus.AccountStatus;
 import com.binance4j.wallet.assetdetail.AssetDetail;
@@ -23,15 +26,15 @@ import com.binance4j.wallet.transfer.WalletTransferHistory;
 import com.binance4j.wallet.transfer.WalletTransferResponse;
 import com.binance4j.wallet.withdraw.WithdrawHistory;
 import com.binance4j.wallet.withdraw.WithdrawResult;
+
 import retrofit2.Call;
-import retrofit2.http.*;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
-import java.util.List;
-import java.util.Map;
-
-/**
- * Binance Wallet endpoints mapping
- */
+/** Binance Wallet endpoints mapping */
 public interface WalletMapping {
 
 	String BASE = "/sapi/v1/";

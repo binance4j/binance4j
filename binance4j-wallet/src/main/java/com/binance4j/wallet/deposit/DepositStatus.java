@@ -5,9 +5,7 @@ import java.util.Arrays;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The coin deposit status
- */
+/** The coin deposit status */
 @AllArgsConstructor
 public enum DepositStatus {
 	PENDING(0), CANNOT_WITHDRAW(6), SUCCESS(1);

@@ -8,9 +8,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.nft.asset.NFTAssetHistory;
 import com.binance4j.nft.asset.NFTAssetParams;
 
-/**
- * Tests the Deposit history request
- */
+/** Tests the Deposit history request */
 public class GetAssetsTest extends NFTTest {
 	@Test
 	void testRequest() throws ApiException {

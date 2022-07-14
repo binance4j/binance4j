@@ -11,9 +11,7 @@ import com.binance4j.core.order.OrderType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * An order to open or close a position
- */
+/** An order to open or close a position */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class NewOrderParams extends BaseOrder {

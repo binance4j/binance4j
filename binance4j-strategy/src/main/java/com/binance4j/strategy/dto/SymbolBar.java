@@ -10,9 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * A Bar with the name of its symbol
- */
+/** A Bar with the name of its symbol */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

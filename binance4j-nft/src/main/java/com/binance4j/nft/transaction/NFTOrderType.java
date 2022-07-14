@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The NFT order type
- */
+/** The NFT order type */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public enum NFTOrderType {

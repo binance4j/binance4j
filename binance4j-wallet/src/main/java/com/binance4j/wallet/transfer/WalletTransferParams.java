@@ -7,9 +7,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to operate an asset transfer between two accounts
- */
+/** The parameters to operate an asset transfer between two accounts */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WalletTransferParams extends FramedParams {

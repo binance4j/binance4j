@@ -15,9 +15,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Symbol information (base/quote).
- */
+/** Symbol information (base/quote). */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)

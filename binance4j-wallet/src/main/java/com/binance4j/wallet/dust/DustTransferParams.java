@@ -7,9 +7,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to convert small volumes (dust) into BNB
- */
+/** The parameters to convert small volumes (dust) into BNB */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DustTransferParams extends FramedParams {

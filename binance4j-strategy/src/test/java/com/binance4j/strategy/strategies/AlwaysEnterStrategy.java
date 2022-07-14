@@ -8,9 +8,7 @@ import org.ta4j.core.rules.BooleanIndicatorRule;
 
 import com.binance4j.strategy.TradingStrategy;
 
-/**
- * A strategy that always enters
- */
+/** A strategy that always enters */
 public class AlwaysEnterStrategy implements TradingStrategy {
 	@NotNull
 	@Override

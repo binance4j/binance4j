@@ -18,9 +18,7 @@ import com.binance4j.websocket.service.DurationService;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-/**
- * A service for manipulating {@link Bar Bars}
- */
+/** A service for manipulating {@link Bar Bars} */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BarService {
 

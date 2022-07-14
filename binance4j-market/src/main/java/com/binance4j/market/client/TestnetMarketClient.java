@@ -1,8 +1,6 @@
 package com.binance4j.market.client;
 
-/**
- * API client for the testnet market endpoints
- */
+/** API client for the testnet market endpoints */
 public class TestnetMarketClient extends MarketClient {
 
 	/**

@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Request to retrieve a specific OCO based on provided optional parameters
- */
+/** Request to retrieve a specific OCO based on provided optional parameters */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OCOInfoParams extends FramedParams {

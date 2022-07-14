@@ -9,9 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * The API trading status detail
- */
+/** The API trading status detail */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -10,9 +10,7 @@ import com.binance4j.websocket.service.DurationService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Websocket client handling Kline events on one or many symbols
- */
+/** Websocket client handling Kline events on one or many symbols */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WebsocketCandlestickClient extends BaseWebsocketClient<CandlePayload> {

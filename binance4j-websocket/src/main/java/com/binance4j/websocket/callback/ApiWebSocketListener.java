@@ -11,9 +11,7 @@ import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
-/**
- * Binance API WebSocket listener.
- */
+/** Binance API WebSocket listener. */
 public class ApiWebSocketListener<T> extends WebSocketListener {
 	/** The jackson object mapper. */
 	private static final ObjectMapper MAPPER = new ObjectMapper();

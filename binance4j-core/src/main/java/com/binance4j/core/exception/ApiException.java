@@ -2,9 +2,7 @@ package com.binance4j.core.exception;
 
 import lombok.Getter;
 
-/**
- * An exception which can occur while invoking methods of the Binance API.
- */
+/** An exception which can occur while invoking methods of the Binance API. */
 public class ApiException extends Exception {
 
   /**

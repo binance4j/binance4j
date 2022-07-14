@@ -5,9 +5,7 @@ import com.binance4j.core.param.Params;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get the latest price for a symbol or symbols.
- */
+/** The parameters to get the latest price for a symbol or symbols. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class PriceTickerParams extends Params {

@@ -1,11 +1,10 @@
 package com.binance4j.websocket.callback;
 
 import com.binance4j.core.exception.ApiException;
+
 import okhttp3.Response;
 
-/**
- * Websocket client stream events handler
- */
+/** Websocket client stream events handler */
 @FunctionalInterface
 public interface WebsocketCallback<T> {
 	/**

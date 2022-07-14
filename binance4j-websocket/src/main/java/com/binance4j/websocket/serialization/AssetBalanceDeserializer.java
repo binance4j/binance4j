@@ -1,5 +1,8 @@
 package com.binance4j.websocket.serialization;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+
 import com.binance4j.core.account.AssetBalance;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -7,12 +10,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-
-/**
- * {@link AssetBalance} deserializer
- */
+/** {@link AssetBalance} deserializer */
 public class AssetBalanceDeserializer extends JsonDeserializer<AssetBalance> {
 
 	@Override

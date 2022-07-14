@@ -2,9 +2,7 @@ package com.binance4j.core.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Represents an executed trade.
- */
+/** Represents an executed trade. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** Trade id. */

@@ -13,9 +13,7 @@ import org.ta4j.core.rules.UnderIndicatorRule;
 
 import com.binance4j.strategy.TradingStrategy;
 
-/**
- * Test Strategy
- */
+/** Test Strategy */
 public class TwoPeriodRSIStrategy implements TradingStrategy {
 
 	@NotNull

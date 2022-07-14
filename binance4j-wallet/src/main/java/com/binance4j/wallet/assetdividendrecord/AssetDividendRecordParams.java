@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get a list of asset dividends
- */
+/** The parameters to get a list of asset dividends */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AssetDividendRecordParams extends IntervalParams {

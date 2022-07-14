@@ -1,15 +1,14 @@
 package com.binance4j.vision.executor;
 
+import java.util.List;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.Candle;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
-import java.util.List;
-
-/**
- * The candlestick request executor
- */
+/** The candlestick request executor */
 public class CandlestickRequestExecutor extends VisionRequestExecutor<Candle> {
 	/**
 	 *

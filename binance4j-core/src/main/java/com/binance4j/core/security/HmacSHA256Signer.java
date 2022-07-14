@@ -5,9 +5,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Hex;
 
-/**
- * Utility class to sign messages using HMAC-SHA256.
- */
+/** Utility class to sign messages using HMAC-SHA256. */
 public class HmacSHA256Signer {
 
     private HmacSHA256Signer() {

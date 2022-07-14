@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to fetch the user withdraw history
- */
+/** The parameters to fetch the user withdraw history */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WithdrawHistoryParams extends IntervalParams {

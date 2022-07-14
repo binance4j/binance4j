@@ -1,12 +1,11 @@
 package com.binance4j.market.depth;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The order book result size
- */
+/** The order book result size */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public enum OrderBookLimit {

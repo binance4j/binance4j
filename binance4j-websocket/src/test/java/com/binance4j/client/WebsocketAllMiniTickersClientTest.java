@@ -8,9 +8,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.ticker.MiniTickerPayload;
 import com.binance4j.websocket.ticker.WebsocketAllMiniTickersClient;
 
-/**
- * endpoint doesn't seem to work
- */
+/** endpoint doesn't seem to work */
 class WebsocketAllMiniTickersClientTest {
 
 	TestCallback<MiniTickerPayload> callback = new TestCallback<>();

@@ -1,8 +1,6 @@
 package com.binance4j.wallet.client;
 
-/**
- * API client for the testnet Wallet endpoints
- */
+/** API client for the testnet Wallet endpoints */
 public class TestnetWalletClient extends WalletClient {
 
 	/**

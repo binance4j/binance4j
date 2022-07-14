@@ -8,9 +8,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.nft.withdraw.NFTWithdrawHistory;
 import com.binance4j.nft.withdraw.NFTWithdrawParams;
 
-/**
- * Tests the Deposit history request
- */
+/** Tests the Deposit history request */
 public class GetWithdrawsTest extends NFTTest {
 	@Test
 	void testRequest() throws ApiException {

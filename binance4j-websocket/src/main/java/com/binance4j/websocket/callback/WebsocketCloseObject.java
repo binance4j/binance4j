@@ -3,9 +3,7 @@ package com.binance4j.websocket.callback;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/**
- * Contains the code and the reason of the websocket closing
- */
+/** Contains the code and the reason of the websocket closing */
 @Data
 @AllArgsConstructor
 public class WebsocketCloseObject {

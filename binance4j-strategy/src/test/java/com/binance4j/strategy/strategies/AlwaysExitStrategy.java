@@ -8,9 +8,7 @@ import org.ta4j.core.rules.BooleanIndicatorRule;
 
 import com.binance4j.strategy.TradingStrategy;
 
-/**
- * A strategy that always exits
- */
+/** A strategy that always exits */
 public class AlwaysExitStrategy implements TradingStrategy {
 
 	@NotNull

@@ -10,9 +10,7 @@ import com.binance4j.core.order.OrderType;
 import com.binance4j.core.order.Trade;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Data returned after an order
- */
+/** Data returned after an order */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderResponse(
 		/** TODO JAVADOC. */

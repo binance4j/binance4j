@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to display past orders
- */
+/** The parameters to display past orders */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AllOrdersParams extends IntervalParams {

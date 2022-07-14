@@ -1,12 +1,11 @@
 package com.binance4j.wallet.withdraw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The status of a withdraw
- */
+/** The status of a withdraw */
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum WithdrawStatus {

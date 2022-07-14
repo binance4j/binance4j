@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to check an order status
- */
+/** The parameters to check an order status */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OrderStatusParams extends FramedParams {

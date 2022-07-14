@@ -6,9 +6,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get candlestick data about a trading pair
- */
+/** The parameters to get candlestick data about a trading pair */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class KlinesParams extends IntervalParams {

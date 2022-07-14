@@ -7,9 +7,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to operate a withdraw
- */
+/** The parameters to operate a withdraw */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WithdrawParams extends FramedParams {

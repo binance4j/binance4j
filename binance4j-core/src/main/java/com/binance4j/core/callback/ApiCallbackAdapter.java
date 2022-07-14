@@ -10,9 +10,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A wrapper for the {@link ApiCallback}
- */
+/** A wrapper for the {@link ApiCallback} */
 public class ApiCallbackAdapter<T> implements Callback<T> {
 
     /** The wrapped callback. */

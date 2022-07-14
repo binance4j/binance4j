@@ -11,9 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 import retrofit2.http.QueryMap;
 
-/**
- * The base of every Binance Request
- */
+/** The base of every Binance Request */
 @Data
 public class Params {
     /**

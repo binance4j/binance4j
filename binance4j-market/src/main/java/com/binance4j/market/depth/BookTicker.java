@@ -7,9 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
-/**
- * Represents the best price/qty on the order book for a given symbol.
- */
+/** Represents the best price/qty on the order book for a given symbol. */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)

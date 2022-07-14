@@ -3,9 +3,7 @@ package com.binance4j.core.param;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * A Request with a result interval
- */
+/** A Request with a result interval */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class IntervalParams extends FramedParams {

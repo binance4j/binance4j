@@ -2,9 +2,7 @@ package com.binance4j.wallet.transfer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * User universal transfer type
- */
+/** User universal transfer type */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum WalletTransferType {
 	/** Spot account transfer to USDⓈ-M Futures account. */

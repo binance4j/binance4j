@@ -2,9 +2,7 @@ package com.binance4j.core.callback;
 
 import com.binance4j.core.exception.ApiException;
 
-/**
- * A functional interface wrapping the response of a Binance API request
- */
+/** A functional interface wrapping the response of a Binance API request */
 @FunctionalInterface
 public interface ApiCallback<T> {
 

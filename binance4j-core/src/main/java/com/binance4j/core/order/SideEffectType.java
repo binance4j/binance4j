@@ -2,9 +2,7 @@ package com.binance4j.core.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Desired side-effect for margin orders
- */
+/** Desired side-effect for margin orders */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum SideEffectType {
     /** normal trade order. */

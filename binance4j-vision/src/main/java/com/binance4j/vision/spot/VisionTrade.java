@@ -9,9 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * The representation of a trade
- */
+/** The representation of a trade */
 @Data
 @NoArgsConstructor
 public class VisionTrade {

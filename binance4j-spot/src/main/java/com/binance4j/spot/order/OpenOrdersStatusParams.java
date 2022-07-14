@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to fetch open orders from one or all pairs
- */
+/** The parameters to fetch open orders from one or all pairs */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OpenOrdersStatusParams extends FramedParams {

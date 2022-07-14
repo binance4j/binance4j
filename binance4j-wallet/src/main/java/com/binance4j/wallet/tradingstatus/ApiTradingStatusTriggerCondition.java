@@ -3,6 +3,7 @@ package com.binance4j.wallet.tradingstatus;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -11,9 +12,12 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiTradingStatusTriggerCondition {
 	/** Number of GTC orders. */
-	private Long GCR;
+	@JsonProperty("GCR")
+	private Long gcr;
 	/** Number of FOK/IOC orders. */
-	private Long IFER;
+	@JsonProperty("IFER")
+	private Long ifer;
 	/** Number of FOK/IOC orders. */
-	private Long UFR;
+	@JsonProperty("UFR")
+	private Long ufr;
 }

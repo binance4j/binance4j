@@ -2,9 +2,7 @@ package com.binance4j.core.exchangeinfo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * The status of a symbol on the exchange.
- */
+/** The status of a symbol on the exchange. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum SymbolStatus {
   /**

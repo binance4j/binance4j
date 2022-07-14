@@ -12,9 +12,7 @@ import lombok.Data;
 import retrofit2.Call;
 import retrofit2.Response;
 
-/**
- * A class that receives and executes sync and async retrofit calls.
- */
+/** A class that receives and executes sync and async retrofit calls. */
 @Data
 public class Request<T> {
     /**

@@ -1,12 +1,11 @@
 package com.binance4j.wallet.general;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * Status of a submitted order.
- */
+/** Status of a submitted order. */
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum TransferType {

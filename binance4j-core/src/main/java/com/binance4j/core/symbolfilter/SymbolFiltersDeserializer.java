@@ -9,9 +9,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-/**
- * {@link SymbolFilters} deserializer
- */
+/** {@link SymbolFilters} deserializer */
 public class SymbolFiltersDeserializer extends JsonDeserializer<SymbolFilters> {
 
 	@Override

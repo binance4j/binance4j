@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get a coin deposit history
- */
+/** The parameters to get a coin deposit history */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DepositHistoryParams extends IntervalParams {

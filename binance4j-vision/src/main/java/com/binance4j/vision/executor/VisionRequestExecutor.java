@@ -15,9 +15,7 @@ import com.binance4j.core.param.Request;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
-/**
- * Base executor implementation for the public data enpoint
- */
+/** Base executor implementation for the public data enpoint */
 public abstract class VisionRequestExecutor<T> extends Request<ResponseBody> {
 
 	/**

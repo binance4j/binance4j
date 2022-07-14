@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get trades for a specific account and symbol.
- */
+/** The parameters to get trades for a specific account and symbol. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class MyTradesParams extends IntervalParams {

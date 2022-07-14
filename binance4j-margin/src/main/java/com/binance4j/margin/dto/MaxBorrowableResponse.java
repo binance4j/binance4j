@@ -4,9 +4,7 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Max Borrow Query Result
- */
+/** Max Borrow Query Result */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxBorrowableResponse(
 		/** TODO JAVADOC. */

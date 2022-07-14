@@ -5,9 +5,7 @@ import com.binance4j.core.param.FramedParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get a coin deposit address
- */
+/** The parameters to get a coin deposit address */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DepositAddressParams extends FramedParams {

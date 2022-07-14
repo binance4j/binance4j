@@ -9,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * An asset balance in a wallet.
- */
+/** An asset balance in a wallet. */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

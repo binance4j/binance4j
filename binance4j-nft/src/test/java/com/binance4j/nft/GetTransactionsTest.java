@@ -12,9 +12,7 @@ import com.binance4j.nft.transaction.NFTOrderType;
 import com.binance4j.nft.transaction.NFTTransactionHistory;
 import com.binance4j.nft.transaction.NFTTransactionHistoryParams;
 
-/**
- * Tests the transaction history request
- */
+/** Tests the transaction history request */
 public class GetTransactionsTest extends NFTTest {
 	@Test
 	void testSellOrder() throws ApiException {

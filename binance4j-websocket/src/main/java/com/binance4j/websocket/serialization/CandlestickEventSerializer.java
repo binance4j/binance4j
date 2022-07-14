@@ -7,9 +7,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-/**
- * {@link CandlePayload} serializer
- */
+/** {@link CandlePayload} serializer */
 public class CandlestickEventSerializer extends JsonSerializer<CandlePayload> {
 
 	@Override

@@ -8,9 +8,7 @@ import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The API client for the user data endpoints
- */
+/** The API client for the user data endpoints */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class UserDataClient extends RestClient<UserDataMapping> {

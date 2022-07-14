@@ -13,9 +13,7 @@ import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.vision.spot.VisionSpotClient;
 import com.binance4j.websocket.service.DurationService;
 
-/**
- * Service to backtest a {@link TradingStrategy}
- */
+/** Service to backtest a {@link TradingStrategy} */
 public class BackTestService {
 
     private BackTestService() {

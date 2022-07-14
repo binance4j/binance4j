@@ -9,9 +9,7 @@ import com.binance4j.websocket.callback.WebsocketCloseObject;
 import lombok.Getter;
 import okhttp3.Response;
 
-/**
- * Strategy Callback to handle stream events
- */
+/** Strategy Callback to handle stream events */
 @Getter
 public class StrategyCallback {
 	/** The callback to trigger when receiving a message from the websocket. */

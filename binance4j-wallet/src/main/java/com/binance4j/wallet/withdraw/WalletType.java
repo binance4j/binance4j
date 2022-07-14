@@ -1,11 +1,10 @@
 package com.binance4j.wallet.withdraw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 
-/**
- * A wallet type
- */
+/** A wallet type */
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum WalletType {

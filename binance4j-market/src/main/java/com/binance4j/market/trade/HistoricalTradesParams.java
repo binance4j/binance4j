@@ -5,9 +5,7 @@ import com.binance4j.core.param.Params;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get the historical trades of a trading pair
- */
+/** The parameters to get the historical trades of a trading pair */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class HistoricalTradesParams extends Params {

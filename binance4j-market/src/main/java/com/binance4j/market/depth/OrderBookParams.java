@@ -5,9 +5,7 @@ import com.binance4j.core.param.Params;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get the market depth of a symbol
- */
+/** The parameters to get the market depth of a symbol */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OrderBookParams extends Params {

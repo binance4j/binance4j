@@ -17,9 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * A service for manipulating {@link BarSeries}
- */
+/** A service for manipulating {@link BarSeries} */
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BarSeriesService {

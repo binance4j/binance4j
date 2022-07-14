@@ -3,9 +3,7 @@ package com.binance4j.websocket.depth;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * The order book size
- */
+/** The order book size */
 @AllArgsConstructor
 public enum DepthLevel {
 	/** Depth of 5 results. */

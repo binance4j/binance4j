@@ -5,9 +5,7 @@ import com.binance4j.core.param.Params;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * The parameters to get recent trades
- */
+/** The parameters to get recent trades */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TradesParams extends Params {

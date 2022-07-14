@@ -6,9 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/**
- * Websocket subscription
- */
+/** Websocket subscription */
 @Data
 @AllArgsConstructor
 public class WebsocketSubscription {

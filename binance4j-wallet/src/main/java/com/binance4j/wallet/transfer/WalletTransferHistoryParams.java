@@ -5,9 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Request to fetch User Universal Transfer History
- */
+/** Request to fetch User Universal Transfer History */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WalletTransferHistoryParams extends IntervalParams {

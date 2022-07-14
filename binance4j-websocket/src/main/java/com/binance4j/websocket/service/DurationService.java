@@ -1,14 +1,13 @@
 package com.binance4j.websocket.service;
 
+import java.time.Duration;
+
 import com.binance4j.core.market.CandlestickInterval;
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.time.Duration;
-
-/**
- * Service for converting data into a duration
- */
+/** Service for converting data into a duration */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DurationService {
 	/**

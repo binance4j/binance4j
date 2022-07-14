@@ -17,9 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * Kline/candle for a symbol.
- */
+/** Kline/candle for a symbol. */
 @Data
 @JsonFormat(shape = Shape.OBJECT)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)

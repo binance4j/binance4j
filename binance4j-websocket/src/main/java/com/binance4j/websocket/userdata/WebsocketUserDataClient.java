@@ -12,9 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Websocket client handling user data / balance events
- */
+/** Websocket client handling user data / balance events */
 @EqualsAndHashCode(callSuper = true)
 public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdatePayload> {
 	private final UserDataClient userDataClient;

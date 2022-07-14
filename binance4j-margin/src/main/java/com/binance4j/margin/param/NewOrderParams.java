@@ -12,9 +12,7 @@ import com.binance4j.core.order.SideEffectType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * A trade order to enter or exit a position.
- */
+/** A trade order to enter or exit a position. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class NewOrderParams extends BaseOrder {

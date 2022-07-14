@@ -6,9 +6,7 @@ import com.binance4j.core.configuration.RestClientConfiguration;
 
 import lombok.Data;
 
-/**
- * The websocket client ocnfiguration
- */
+/** The websocket client ocnfiguration */
 @Data
 public class WebsocketClientConfiguration {
 	/** The websocket connection port. Default: 9443. */
