@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.client.MarketClient;
 
+/** TODO JAVADOC */
 public class PrefixTest {
 
     @Test
-
     void testSwitchPrefix() {
         MarketClient client = new MarketClient();
 
@@ -21,7 +21,6 @@ public class PrefixTest {
     }
 
     @Test
-
     void testNextPrefix() {
         MarketClient client = new MarketClient();
 

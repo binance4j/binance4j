@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.binance4j.core.market.AggTrade;
 
+/** TODO JAVADOC */
 public class SubSubObject {
     private List<AggTrade> trades = new ArrayList<>();
 

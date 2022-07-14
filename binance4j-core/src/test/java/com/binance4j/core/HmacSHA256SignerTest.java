@@ -10,7 +10,6 @@ import com.binance4j.core.security.HmacSHA256Signer;
 class HmacSHA256SignerTest {
 
     @Test
-
     void testSignature() {
         assertDoesNotThrow(() -> {
             String signature = HmacSHA256Signer.sign("Hello World!", "keyboard cat");

@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.time.ServerTimeResponse;
 
+/** TODO JAVADOC */
 public class ServerTimeTest extends MarketTest {
 
 	@Test
-
 	public void testGetServerTime() throws ApiException {
 		ServerTimeResponse res = client.getServerTime().execute();
 		assertTrue(hasNoNullProperty(res));

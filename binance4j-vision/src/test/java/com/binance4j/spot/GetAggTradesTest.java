@@ -9,6 +9,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 
+/** TODO JAVADOC */
 public class GetAggTradesTest extends SpotTest {
 
 	@Test

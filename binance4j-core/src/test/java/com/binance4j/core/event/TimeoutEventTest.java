@@ -22,7 +22,6 @@ class TimeoutEventTest {
     }
 
     @Test
-
     void testExecution() throws InterruptedException, ExecutionException {
         new TimeoutEvent(Duration.ofSeconds(1), () -> future.complete(true));
 
@@ -30,7 +29,6 @@ class TimeoutEventTest {
     }
 
     @Test
-
     void TestCancel() throws InterruptedException, ExecutionException {
         // cancels the event before it is triggered
         new Timer().schedule(new CancelTask(), Duration.ofSeconds(1).toMillis());

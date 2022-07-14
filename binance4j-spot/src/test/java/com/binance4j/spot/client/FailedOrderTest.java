@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.spot.order.NewOrderParams;
 
+/** TODO JAVADOC */
 public class FailedOrderTest extends SpotTest {
 
 	@Test
-
 	public void testNewFailedOrderTest() {
 		assertThrows(ApiException.class,
 				() -> client.newOrderTest(NewOrderParams.buyMarket("SHIBBUSD", new BigDecimal(1))).execute());

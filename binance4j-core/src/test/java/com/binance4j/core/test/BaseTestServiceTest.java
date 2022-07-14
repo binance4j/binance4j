@@ -22,6 +22,7 @@ import com.binance4j.core.pojo.NestedObject;
 import com.binance4j.core.pojo.SubObject;
 import com.binance4j.core.pojo.SubSubObject;
 
+/** TODO JAVADOC */
 public class BaseTestServiceTest extends ConcurrentTest<Void> {
     protected BaseTestServiceTest() {
         super();

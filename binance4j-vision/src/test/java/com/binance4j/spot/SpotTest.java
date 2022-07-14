@@ -6,6 +6,7 @@ import com.binance4j.vision.spot.VisionSpotClient;
 
 import lombok.Getter;
 
+/** TODO JAVADOC */
 public class SpotTest extends ConcurrentTest<VisionSpotClient> {
 	public SpotTest() {
 		super(new VisionSpotClient());

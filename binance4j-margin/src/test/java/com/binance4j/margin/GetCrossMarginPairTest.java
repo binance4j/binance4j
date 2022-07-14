@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.param.PairPrams;
 
+/** TODO JAVADOC */
 public class GetCrossMarginPairTest extends MarginTest {
 
     @Test

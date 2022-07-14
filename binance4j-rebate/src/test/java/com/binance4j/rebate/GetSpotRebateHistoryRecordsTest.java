@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.rebate.record.SpotRebateHistoryParams;
 
+/** TODO JAVADOC */
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
     @Override

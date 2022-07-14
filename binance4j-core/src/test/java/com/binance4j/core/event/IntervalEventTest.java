@@ -24,7 +24,6 @@ class IntervalEventTest {
     }
 
     @Test
-
     void testFixedExecution() throws InterruptedException, ExecutionException {
 
         // completes after the event is supposed to be called
@@ -36,7 +35,6 @@ class IntervalEventTest {
     }
 
     @Test
-
     void testIndefinitelyExecution() throws InterruptedException, ExecutionException {
         event = new IntervalEvent(Duration.ofSeconds(1), () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
 

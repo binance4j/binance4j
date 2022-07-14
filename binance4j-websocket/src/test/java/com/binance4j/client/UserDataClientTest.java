@@ -41,7 +41,6 @@ class UserDataClientTest {
 
 	// TODO activate isolated account
 	// @Test
-
 	void testIsolatedUserDataStream() throws ApiException {
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(
 				new TestCallback<>().getSymbol());

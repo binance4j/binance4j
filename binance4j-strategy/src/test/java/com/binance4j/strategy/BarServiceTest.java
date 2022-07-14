@@ -14,6 +14,7 @@ import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.BarService;
 
+/** TODO JAVADOC */
 public class BarServiceTest extends ConcurrentTest<Void> {
 	final Candle candle = new Candle();
 

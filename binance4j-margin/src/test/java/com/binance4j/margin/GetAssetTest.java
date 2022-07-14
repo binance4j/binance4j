@@ -6,6 +6,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.param.AssetParams;
 
+/** TODO JAVADOC */
 public class GetAssetTest extends MarginTest {
     @Test
     void test1() throws ApiException {

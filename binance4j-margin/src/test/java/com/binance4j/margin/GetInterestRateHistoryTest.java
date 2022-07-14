@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.param.InterestRateHistoryParams;
 
+/** TODO JAVADOC */
 public class GetInterestRateHistoryTest extends MarginTest {
     @Test
     void test1() throws ApiException {

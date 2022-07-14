@@ -2,6 +2,7 @@ package com.binance4j.margin;
 
 import com.binance4j.core.exception.ApiException;
 
+/** TODO JAVADOC */
 public class GetAllIsolatedSymbolsTest extends MarginTest {
     // TODO see why i'm unauthorized
     // @Test

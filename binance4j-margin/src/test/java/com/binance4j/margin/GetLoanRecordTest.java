@@ -3,6 +3,7 @@ package com.binance4j.margin;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.margin.param.LoanRecordParams;
 
+/** TODO JAVADOC */
 public class GetLoanRecordTest extends MarginTest {
 
     // TODO borrow

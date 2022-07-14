@@ -10,6 +10,7 @@ import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 import com.binance4j.vision.spot.VisionChecksum;
 
+/** TODO JAVADOC */
 public class GetChecksumTest extends SpotTest {
 	@Test
 	void testInvalidDate() {

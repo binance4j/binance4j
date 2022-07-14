@@ -18,6 +18,7 @@ import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.vision.spot.VisionSpotClient;
 
+/** TODO JAVADOC */
 public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	List<Candle> bars;
 
@@ -28,7 +29,6 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	}
 
 	@Test
-
 	public void checkDefaultNameEquality() {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		assertEquals(series.getName(), BarSeriesService.getDefaultBarSeriesName());
@@ -42,7 +42,6 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 	}
 
 	@Test
-
 	public void convertWithDefaults() {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(5));
 		makeAssertion(bars, series);

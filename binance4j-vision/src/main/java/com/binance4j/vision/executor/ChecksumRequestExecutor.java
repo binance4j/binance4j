@@ -11,6 +11,7 @@ import com.binance4j.vision.spot.VisionChecksum;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
+/** TODO JAVADOC */
 public class ChecksumRequestExecutor extends Request<ResponseBody> {
 	/**
 	 *
