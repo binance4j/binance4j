@@ -9,16 +9,12 @@ import com.binance4j.core.market.AggTrade;
 public class SubSubObject {
     private List<AggTrade> trades = new ArrayList<>();
 
-    /**
-     * @return the trades
-     */
+    /** @return the trades */
     public List<AggTrade> getTrades() {
         return trades;
     }
 
-    /**
-     * @param trades the trades to set
-     */
+    /** @param trades the trades to set */
     public void setTrades(List<AggTrade> trades) {
         this.trades = trades;
     }

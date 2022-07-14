@@ -16,9 +16,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
     /** The wrapped callback. */
     private final ApiCallback<T> callback;
 
-    /**
-     * @param callback The wrapped callback
-     */
+    /** @param callback The wrapped callback */
     public ApiCallbackAdapter(ApiCallback<T> callback) {
         this.callback = callback;
     }

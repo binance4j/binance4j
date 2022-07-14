@@ -20,8 +20,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class MaxNumOrdersFilter {
-    /**
-     * The max number of orders allowed
-     */
+    /** The max number of orders allowed */
     private Integer maxNumOrders;
 }

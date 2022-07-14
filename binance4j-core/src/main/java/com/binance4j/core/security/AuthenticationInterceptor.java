@@ -28,14 +28,10 @@ public class AuthenticationInterceptor implements Interceptor {
     public static final String ENDPOINT_SECURITY_TYPE_SIGNED = "SIGNED";
     /** The signed http full header. */
     public static final String ENDPOINT_SECURITY_TYPE_SIGNED_HEADER = ENDPOINT_SECURITY_TYPE_SIGNED + ": #";
-    /**
-     * The API public key
-     */
+    /** The API public key */
     private final String key;
 
-    /**
-     * The API private key
-     */
+    /** The API private key */
     private final String secret;
 
     /**

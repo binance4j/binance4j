@@ -13,9 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ExchangeInfoParams extends Params {
-    /**
-     * The symbols we want info about
-     */
+    /** The symbols we want info about */
     private String symbols;
 
     /** Default Constructor. */

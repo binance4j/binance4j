@@ -15,30 +15,18 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeInfo {
-    /**
-     * The server timezone
-     */
+    /** The server timezone */
     private String timezone;
-    /**
-     * The server time
-     */
+    /** The server time */
     private Long serverTime;
-    /**
-     * The request limits (weight, orders, raw...)
-     */
+    /** The request limits (weight, orders, raw...) */
     private List<RateLimit> rateLimits;
-    /**
-     * The trading rules of the exchange
-     */
+    /** The trading rules of the exchange */
     private List<ExchangeFilter> exchangeFilters;
-    /**
-     * The available symbols on the exchange
-     */
+    /** The available symbols on the exchange */
     private List<SymbolInfo> symbols;
 
-    /**
-     * The symbol exchange information
-     */
+    /** The symbol exchange information */
     public SymbolInfo getSymbolInfo(String symbol) throws ApiException {
         return symbols.stream()
                 .filter(symbolInfo -> symbolInfo.getSymbol().equals(symbol))

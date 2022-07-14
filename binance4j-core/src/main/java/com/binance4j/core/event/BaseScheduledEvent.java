@@ -45,9 +45,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
         return task.getTicks() == task.getMaxTicks();
     }
 
-    /**
-     * The inner timer task
-     */
+    /** The inner timer task */
     protected class Task extends TimerTask {
         /** The task to execute. */
         private final ScheduledTask innerTask;

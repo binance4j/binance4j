@@ -36,16 +36,12 @@ public abstract class RestClient<T> {
     @Setter(value = AccessLevel.NONE)
     protected Class<T> mapping;
 
-    /**
-     * The current API service
-     */
+    /** The current API service */
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
     protected T service;
 
-    /**
-     * The current API prefix
-     */
+    /** The current API prefix */
     @Setter(value = AccessLevel.NONE)
     private String prefix;
 

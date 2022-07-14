@@ -13,25 +13,15 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class BaseOrder extends Order {
-    /**
-     * The order type
-     */
+    /** The order type */
     protected OrderType type;
-    /**
-     * Le order lifetime
-     */
+    /** Le order lifetime */
     protected TimeInForce timeInForce;
-    /**
-     * The quote order quantity
-     */
+    /** The quote order quantity */
     protected BigDecimal quoteOrderQty;
-    /**
-     * The iceberg quantity
-     */
+    /** The iceberg quantity */
     protected BigDecimal icebergQty;
-    /**
-     * The order unique id. Else is produced automatically.
-     */
+    /** The order unique id. Else is produced automatically. */
     protected String newClientOrderId;
 
     protected BaseOrder() {

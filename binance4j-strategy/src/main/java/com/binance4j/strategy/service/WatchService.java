@@ -34,33 +34,23 @@ import okhttp3.Response;
 @Data
 public class WatchService {
 
-    /**
-     * The websocket client configuration
-     */
+    /** The websocket client configuration */
     private WebsocketClientConfiguration configuration;
 
-    /**
-     * The BarSeries max size. Default 500
-     */
+    /** The BarSeries max size. Default 500 */
     private int maximumBarCount = 500;
 
-    /**
-     * The websocket client
-     */
+    /** The websocket client */
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     protected WebsocketCandlestickClient wsClient;
 
-    /**
-     * The series used in watch mode
-     */
+    /** The series used in watch mode */
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     protected Map<String, BarSeries> barSeries;
 
-    /**
-     * The trading strategy
-     */
+    /** The trading strategy */
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     protected TradingStrategy tradingStrategy;
@@ -200,9 +190,7 @@ public class WatchService {
         return watch(String.join(",", symbols), interval, callback);
     }
 
-    /**
-     * Closes the websocket transaction
-     */
+    /** Closes the websocket transaction */
     public void unwatch() {
         if (wsClient != null)
             wsClient.close();

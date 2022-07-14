@@ -26,9 +26,7 @@ public class MinNotionalFilter {
      */
     private BigDecimal minNotional;
 
-    /**
-     * Whether or not the filter is applied to MARKET orders
-     */
+    /** Whether or not the filter is applied to MARKET orders */
     private Boolean applyToMarket;
 
     /**

@@ -19,8 +19,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class IcebergPartsFilter {
-    /**
-     * The filter limit number
-     */
+    /** The filter limit number */
     private Integer limit;
 }

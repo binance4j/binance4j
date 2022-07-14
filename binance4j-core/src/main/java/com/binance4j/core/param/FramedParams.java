@@ -7,9 +7,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public abstract class FramedParams extends Params {
-    /**
-     * The request timestamp
-     */
+    /** The request timestamp */
     protected long timestamp = System.currentTimeMillis();
 
     protected FramedParams() {

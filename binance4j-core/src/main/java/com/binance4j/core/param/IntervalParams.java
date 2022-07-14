@@ -7,13 +7,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class IntervalParams extends FramedParams {
-    /**
-     * The starting timestamp of the results
-     */
+    /** The starting timestamp of the results */
     protected Long startTime;
-    /**
-     * The ending timestamp of the results
-     */
+    /** The ending timestamp of the results */
     protected Long endTime;
 
     public IntervalParams() {

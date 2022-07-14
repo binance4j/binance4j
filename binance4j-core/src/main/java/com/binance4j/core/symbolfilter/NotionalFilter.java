@@ -32,14 +32,10 @@ public class NotionalFilter {
      */
     private BigDecimal maxNotional;
 
-    /**
-     * Determines whether the minNotional will be applied to MARKET orders.
-     */
+    /** Determines whether the minNotional will be applied to MARKET orders. */
     private Boolean applyMinToMarket;
 
-    /**
-     * determines whether the maxNotional will be applied to MARKET orders.
-     */
+    /** determines whether the maxNotional will be applied to MARKET orders. */
     private Boolean applyMaxToMarket;
 
     /**

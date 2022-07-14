@@ -18,49 +18,27 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class Candle {
-    /**
-     * The candlestick open timestamp in milliseconds
-     */
+    /** The candlestick open timestamp in milliseconds */
     private Long openTime;
-    /**
-     * The Open value
-     */
+    /** The Open value */
     private BigDecimal open;
-    /**
-     * The High value
-     */
+    /** The High value */
     private BigDecimal high;
-    /**
-     * The Low value
-     */
+    /** The Low value */
     private BigDecimal low;
-    /**
-     * The Close value
-     */
+    /** The Close value */
     private BigDecimal close;
-    /**
-     * The traded volume in the interval
-     */
+    /** The traded volume in the interval */
     private BigDecimal volume;
-    /**
-     * The candlestick close timestamp in milliseconds
-     */
+    /** The candlestick close timestamp in milliseconds */
     private Long closeTime;
-    /**
-     * The quote asset traded volume
-     */
+    /** The quote asset traded volume */
     private BigDecimal quoteAssetVolume;
-    /**
-     * The number of trades
-     */
+    /** The number of trades */
     private Long numberOfTrades;
-    /**
-     * Taker buy base asset volume
-     */
+    /** Taker buy base asset volume */
     private BigDecimal takerBuyBaseAssetVolume;
-    /**
-     * Taker buy quote asset volume
-     */
+    /** Taker buy quote asset volume */
     private BigDecimal takerBuyQuoteAssetVolume;
 
     /**

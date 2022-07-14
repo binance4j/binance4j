@@ -20,47 +20,31 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class AggTrade {
-    /**
-     * The trade id
-     */
+    /** The trade id */
     @JsonProperty("a")
     private Long tradeId;
-    /**
-     * The first trade id
-     */
+    /** The first trade id */
     @JsonProperty("f")
     private Long firstTradeId;
-    /**
-     * The last trade id
-     */
+    /** The last trade id */
     @JsonProperty("l")
     private Long lastTradeId;
-    /**
-     * The timestamp
-     */
+    /** The timestamp */
     @JsonProperty("T")
     private Long time;
-    /**
-     * The price
-     */
+    /** The price */
     @JsonProperty("p")
     private BigDecimal price;
-    /**
-     * The quantity
-     */
+    /** The quantity */
     @JsonProperty("q")
     private BigDecimal quantity;
 
-    /**
-     * Was it a buyer maker
-     */
+    /** Was it a buyer maker */
     @JsonProperty("m")
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
     private Boolean isBuyerMaker;
-    /**
-     * Was it the best price match?
-     */
+    /** Was it the best price match? */
     @JsonProperty("M")
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)

@@ -21,8 +21,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class MaxPositionFilter {
-    /**
-     * The max positions allowed
-     */
+    /** The max positions allowed */
     private BigDecimal maxPosition;
 }

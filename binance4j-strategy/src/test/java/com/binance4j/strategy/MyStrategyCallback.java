@@ -21,9 +21,7 @@ public class MyStrategyCallback extends StrategyCallback {
     final CompletableFuture<Boolean> future;
     final WatchService service;
 
-    /**
-     * 
-     */
+    /**  */
     public MyStrategyCallback(CompletableFuture<Boolean> future, WatchService service) {
         this.future = future;
         this.service = service;

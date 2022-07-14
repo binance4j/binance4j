@@ -16,16 +16,10 @@ import lombok.NoArgsConstructor;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AssetBalance {
-    /**
-     * The Asset symbol.
-     */
+    /** The Asset symbol. */
     private String asset;
-    /**
-     * The available balance.
-     */
+    /** The available balance. */
     private BigDecimal free;
-    /**
-     * The balance locked by open orders.
-     */
+    /** The balance locked by open orders. */
     private BigDecimal locked;
 }

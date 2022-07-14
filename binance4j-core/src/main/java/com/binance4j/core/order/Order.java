@@ -11,29 +11,17 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public abstract class Order extends FramedParams {
-    /**
-     * The order symbol
-     */
+    /** The order symbol */
     protected String symbol;
-    /**
-     * The order side
-     */
+    /** The order side */
     protected OrderSide side;
-    /**
-     * The order quantity
-     */
+    /** The order quantity */
     protected BigDecimal quantity;
-    /**
-     * The order price
-     */
+    /** The order price */
     protected BigDecimal price;
-    /**
-     * The stop price
-     */
+    /** The stop price */
     protected BigDecimal stopPrice;
-    /**
-     * The order response type Default: RESULT.
-     */
+    /** The order response type Default: RESULT. */
     protected NewOrderResponseType newOrderRespType;
 
     protected Order(){

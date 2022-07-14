@@ -13,33 +13,19 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class OCOOrderParams extends Order {
-    /**
-     * A unique Id for the entire orderList
-     */
+    /** A unique Id for the entire orderList */
     private String listClientOrderId;
-    /**
-     * A unique Id for the limit order
-     */
+    /** A unique Id for the limit order */
     private String limitClientOrderId;
-    /**
-     * Used to make the LIMIT_MAKER leg an iceberg order.
-     */
+    /** Used to make the LIMIT_MAKER leg an iceberg order. */
     private BigDecimal limitIcebergQty;
-    /**
-     * A unique Id for the stop loss/stop loss limit leg
-     */
+    /** A unique Id for the stop loss/stop loss limit leg */
     private String stopClientOrderId;
-    /**
-     * If provided, stopLimitTimeInForce is required.
-     */
+    /** If provided, stopLimitTimeInForce is required. */
     private BigDecimal stopLimitPrice;
-    /**
-     * Used with STOP_LOSS_LIMIT leg to make an iceberg order.
-     */
+    /** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
     private BigDecimal stopIcebergQty;
-    /**
-     * Valid values are GTC/FOK/IOC
-     */
+    /** Valid values are GTC/FOK/IOC */
     private TimeInForce stopLimitTimeInForce;
 
     /**

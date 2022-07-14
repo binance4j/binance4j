@@ -14,26 +14,18 @@ import retrofit2.http.QueryMap;
 /** The base of every Binance Request */
 @Data
 public class Params {
-    /**
-     * Jackson object mapper used to convert a POJO into a {@link QueryMap}
-     */
+    /** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    /**
-     * The default receiving window
-     */
+    /** The default receiving window */
     @Getter
     @Setter
     private static long recvWindow = 60_000L;
 
-    /**
-     * The request weight
-     */
+    /** The request weight */
     protected int weight;
 
-    /**
-     * Is this request generating an order?
-     */
+    /** Is this request generating an order? */
     private boolean isOrderRequest;
 
     protected Params() {
