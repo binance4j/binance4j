@@ -11,13 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VisionChecksum {
-	/**
-	 * The MD5 checksum
-	 */
+	/** The MD5 checksum */
 	private String checksum;
 
-	/**
-	 * The file name
-	 */
+	/** The file name */
 	private String fileName;
 }

@@ -17,9 +17,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class NewOrderParams extends BaseOrder {
-	/**
-	 * Stop Limit price
-	 */
+	/** Stop Limit price */
 	BigDecimal stopLimitPrice;
 
 	/**

@@ -5,6 +5,7 @@ import com.binance4j.core.exchangeinfo.RateLimitType;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 /**
@@ -14,24 +15,14 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderCount {
-	/**
-	 * The type of order
-	 */
+	/** The type of order */
 	private RateLimitType rateLimitType;
-	/**
-	 * The order interval
-	 */
+	/** The order interval */
 	private RateLimitInterval interval;
-	/**
-	 * The order interval num
-	 */
+	/** The order interval num */
 	private Integer intervalNum;
-	/**
-	 * The order limit
-	 */
+	/** The order limit */
 	private Integer limit;
-	/**
-	 * The current order count
-	 */
+	/** The current order count */
 	private Integer count;
 }

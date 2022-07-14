@@ -64,7 +64,7 @@ public class Candle {
     private BigDecimal takerBuyQuoteAssetVolume;
 
     /**
-     * Constructor accepting a list of String acting like a line of data in a csv
+     * accepting a list of String acting like a line of data in a csv
      * file
      * 
      * @param input The String input

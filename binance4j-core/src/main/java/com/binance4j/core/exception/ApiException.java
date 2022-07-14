@@ -20,7 +20,7 @@ public class ApiException extends Exception {
   private final ApiErrorCode errorCode;
 
   /**
-   * Constructor
+   * 
    * 
    * @param code    The API response code
    * @param message The API response message
@@ -32,7 +32,7 @@ public class ApiException extends Exception {
   }
 
   /**
-   * Constructor
+   * 
    * 
    * @param code    The API response code
    * @param message The API response message
@@ -44,7 +44,7 @@ public class ApiException extends Exception {
   }
 
   /**
-   * Constructor
+   * 
    * 
    * @param error The API response error
    */

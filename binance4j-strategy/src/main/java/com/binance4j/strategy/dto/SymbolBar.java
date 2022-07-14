@@ -1,8 +1,14 @@
 package com.binance4j.strategy.dto;
 
-import lombok.*;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BaseBar;
+
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * A Bar with the name of its symbol
@@ -12,14 +18,10 @@ import org.ta4j.core.BaseBar;
 @ToString(callSuper = true)
 public class SymbolBar extends BaseBar {
 
-	/**
-	 * The name of the symbol of the bar
-	 */
+	/** The name of the symbol of the bar */
 	private String symbol;
 
-	/**
-	 * is it the last bar of the interval?
-	 */
+	/** is it the last bar of the interval? */
 	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isBarFinal;

@@ -11,13 +11,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DepositAddressParams extends FramedParams {
-	/**
-	 * The coin abbreviation
-	 */
+	/** The coin abbreviation */
 	private String coin;
-	/**
-	 * The transfer network
-	 */
+	/** The transfer network */
 	private String network;
 
 	/**
@@ -31,8 +27,8 @@ public class DepositAddressParams extends FramedParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin    The coin we need the address
 	 * @param network The transfer network
 	 */

@@ -66,7 +66,7 @@ public class WatchService {
     protected TradingStrategy tradingStrategy;
 
     /**
-     * Constructor
+     * 
      * 
      * @param strategy The strategy used to live trade
      */

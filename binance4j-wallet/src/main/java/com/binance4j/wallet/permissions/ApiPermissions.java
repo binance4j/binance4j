@@ -3,6 +3,7 @@ package com.binance4j.wallet.permissions;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 /**
@@ -12,9 +13,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiPermissions {
-	/**
-	 * is the key restricted to an ip address?
-	 */
+	/** is the key restricted to an ip address? */
 	private Boolean ipRestrict;
 	/**
 	 * This option allows you to withdraw via API. You must apply the IP
@@ -32,13 +31,9 @@ public class ApiPermissions {
 	 * transfer API rights are not affected by this authorization
 	 */
 	private Boolean permitsUniversalTransfer;
-	/**
-	 * Authorizes this key to Vanilla options trading
-	 */
+	/** Authorizes this key to Vanilla options trading */
 	private Boolean enableVanillaOptions;
-	/**
-	 * Does the key enables reading ?
-	 */
+	/** Does the key enables reading ? */
 	private Boolean enableReading;
 	/**
 	 * API Key created before your futures account opened does not support
@@ -50,16 +45,10 @@ public class ApiPermissions {
 	 * is completed
 	 */
 	private Boolean enableMargin;
-	/**
-	 * Spot and margin trading
-	 */
+	/** Spot and margin trading */
 	private Boolean enableSpotAndMarginTrading;
-	/**
-	 * The API key creation timestamp
-	 */
+	/** The API key creation timestamp */
 	private Long createTime;
-	/**
-	 * Expiration time for spot and margin trading permission
-	 */
+	/** Expiration time for spot and margin trading permission */
 	private Long tradingAuthorityExpirationTime;
 }

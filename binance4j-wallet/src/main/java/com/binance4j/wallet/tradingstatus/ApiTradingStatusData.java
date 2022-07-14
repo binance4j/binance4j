@@ -16,23 +16,15 @@ import lombok.Setter;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiTradingStatusData {
-	/**
-	 * API trading function is locked or not
-	 */
+	/** API trading function is locked or not */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isLocked;
-	/**
-	 * If API trading function is locked, this is the planned recover time
-	 */
+	/** If API trading function is locked, this is the planned recover time */
 	private Long plannedRecoverTime;
-	/**
-	 * The details update timestamps
-	 */
+	/** The details update timestamps */
 	private Long updateTime;
-	/**
-	 * Trigger condition
-	 */
+	/** Trigger condition */
 	private ApiTradingStatusTriggerCondition triggerCondition;
 
 	public Boolean isLocked() {

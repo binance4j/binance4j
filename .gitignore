@@ -16,7 +16,6 @@ nb-configuration.xml
 nbactions.xml
 
 # VSCode
-.vscode
 .apt_**
 # Generated
 target/

@@ -11,20 +11,16 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class PriceTickerParams extends Params {
-	/**
-	 * Ticker symbol.
-	 */
+	/** Ticker symbol. */
 	private String symbol;
 
-	/**
-	 * Constructor for all symbols ticker
-	 */
+	/** for all symbols ticker */
 	public PriceTickerParams() {
 		super(2);
 	}
 
 	/**
-	 * Constructor for a unique symbol
+	 * for a unique symbol
 	 *
 	 * @param symbol The symbol we want the ticker
 	 */

@@ -8,8 +8,8 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
  */
 public class WebsocketAggTradeClient extends BaseWebsocketClient<AggTradePayload> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  trading pair separated by a coma
 	 * @param callback The events handler
 	 */
@@ -18,8 +18,8 @@ public class WebsocketAggTradeClient extends BaseWebsocketClient<AggTradePayload
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The trading pair iterable
 	 * @param callback The events handler
 	 */

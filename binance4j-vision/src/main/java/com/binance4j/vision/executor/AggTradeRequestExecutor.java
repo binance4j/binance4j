@@ -13,8 +13,8 @@ import java.util.List;
 public class AggTradeRequestExecutor extends VisionRequestExecutor<AggTrade> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param call The API call
 	 */
 	public AggTradeRequestExecutor(Call<ResponseBody> call) {

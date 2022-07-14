@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 /**
@@ -16,29 +17,19 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BalanceUpdatePayload {
-	/**
-	 * The event type
-	 */
+	/** The event type */
 	@JsonProperty("e")
 	private String eventType;
-	/**
-	 * The timestamp
-	 */
+	/** The timestamp */
 	@JsonProperty("E")
 	private Long eventTime;
-	/**
-	 * The asset
-	 */
+	/** The asset */
 	@JsonProperty("a")
 	private String asset;
-	/**
-	 * ???
-	 */
+	/** ??? */
 	@JsonProperty("d")
 	private String balanceDelta;
-	/**
-	 * ???
-	 */
+	/** ??? */
 	@JsonProperty("T")
 	private Long clearTime;
 }

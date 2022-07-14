@@ -20,8 +20,8 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<CandlePayloa
 	Duration noResponseMarginError = Duration.ofSeconds(10);
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The symbols we want the klines
 	 * @param interval The candlestick interval
 	 * @param callback The events handler
@@ -35,8 +35,8 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<CandlePayloa
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The trading pair iterable
 	 * @param interval The candlestick interval
 	 * @param callback The events handler

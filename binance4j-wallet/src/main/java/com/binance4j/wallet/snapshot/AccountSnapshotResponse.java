@@ -1,11 +1,12 @@
 package com.binance4j.wallet.snapshot;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.util.List;
+import lombok.Data;
 
 /**
  * The base of an account snapshot response
@@ -19,12 +20,8 @@ public abstract class AccountSnapshotResponse<T> {
 	 * codes)
 	 */
 	private Integer code;
-	/**
-	 * The potential response error message
-	 */
+	/** The potential response error message */
 	private String msg;
-	/**
-	 * A list of account snapshots
-	 */
+	/** A list of account snapshots */
 	private List<T> snapshotVos;
 }

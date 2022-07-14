@@ -26,7 +26,7 @@ public class ExchangeInfoParams extends Params {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param symbols The trading pair list
      */
@@ -37,7 +37,7 @@ public class ExchangeInfoParams extends Params {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param symbol The trading pair
      */

@@ -11,21 +11,15 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OrderStatusParams extends FramedParams {
-	/**
-	 * The trading pair we want the order status
-	 */
+	/** The trading pair we want the order status */
 	private String symbol;
-	/**
-	 * The client id we want the order status
-	 */
+	/** The client id we want the order status */
 	private String origClientOrderId;
-	/**
-	 * The order id we want the order status
-	 */
+	/** The order id we want the order status */
 	private Long orderId;
 
 	/**
-	 * Constructor with orderId
+	 * with orderId
 	 *
 	 * @param symbol  The trading pair we want the order status
 	 * @param orderId The order id
@@ -37,7 +31,7 @@ public class OrderStatusParams extends FramedParams {
 	}
 
 	/**
-	 * Constructor with origClientOrderId
+	 * with origClientOrderId
 	 *
 	 * @param symbol            The trading pair we want the order status
 	 * @param origClientOrderId The client id

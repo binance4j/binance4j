@@ -2,6 +2,7 @@ package com.binance4j.websocket.subscription;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,22 +12,16 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class WebsocketSubscription {
-	/**
-	 * The subscription method
-	 */
+	/** The subscription method */
 	private WebsocketSubscriptionMethod method;
-	/**
-	 * The subscription params
-	 */
+	/** The subscription params */
 	private String[] params;
-	/**
-	 * The subscription id
-	 */
+	/** The subscription id */
 	private Long id;
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param method  The subscription method
 	 * @param symbols The symbols to subscribe to
 	 */
@@ -35,9 +30,7 @@ public class WebsocketSubscription {
 		this.params = symbols;
 	}
 
-	/**
-	 * Converts the object into a string
-	 */
+	/** Converts the object into a string */
 	public String toString() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {

@@ -42,8 +42,8 @@ public class Params {
     }
 
     /**
-     * Constructor
      *
+     * 
      * @param weight The Request weight
      */
     public Params(int weight) {
@@ -51,7 +51,7 @@ public class Params {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param weight         The Request weight
      * @param isOrderRequest Is the request a trading order

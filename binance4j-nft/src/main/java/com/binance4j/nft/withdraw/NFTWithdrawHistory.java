@@ -15,12 +15,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NFTWithdrawHistory {
-	/**
-	 * total records
-	 */
+	/** total records */
 	private Long total;
-	/**
-	 * The transactions
-	 */
+	/** The transactions */
 	private List<NFTWithdraw> list;
 }

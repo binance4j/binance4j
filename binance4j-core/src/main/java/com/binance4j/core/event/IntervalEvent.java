@@ -9,7 +9,7 @@ import java.time.Duration;
 public class IntervalEvent extends BaseScheduledEvent {
 
     /**
-     * Constructor
+     * 
      * 
      * @param interval      The event's interval
      * @param delay         The event's delay
@@ -23,7 +23,7 @@ public class IntervalEvent extends BaseScheduledEvent {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param interval      The event's interval (used as delay)
      * @param scheduledTask The event's task
@@ -34,7 +34,7 @@ public class IntervalEvent extends BaseScheduledEvent {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param interval      The event's interval
      * @param delay         The event's delay
@@ -45,7 +45,7 @@ public class IntervalEvent extends BaseScheduledEvent {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param interval      The event's interval (used as delay)
      * @param maxTicks      The max times the task can be called

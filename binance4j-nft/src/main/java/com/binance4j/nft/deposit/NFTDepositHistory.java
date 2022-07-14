@@ -15,12 +15,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NFTDepositHistory {
-	/**
-	 * total records
-	 */
+	/** total records */
 	private Long total;
-	/**
-	 * The transactions
-	 */
+	/** The transactions */
 	private List<NFTDeposit> list;
 }

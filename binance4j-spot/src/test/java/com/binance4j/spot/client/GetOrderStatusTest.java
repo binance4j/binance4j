@@ -18,6 +18,6 @@ public class GetOrderStatusTest extends SpotTest {
 
 		OrderInfo order = client.getOrderStatus(new OrderStatusParams(symbol, id)).execute();
 		test(order);
-		assertEquals(order.getSymbol(), symbol);
+		assertEquals(order.symbol(), symbol);
 	}
 }

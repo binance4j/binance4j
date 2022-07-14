@@ -21,8 +21,8 @@ import retrofit2.Call;
 public abstract class VisionRequestExecutor<T> extends Request<ResponseBody> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param call The API call
 	 */
 	protected VisionRequestExecutor(Call<ResponseBody> call) {

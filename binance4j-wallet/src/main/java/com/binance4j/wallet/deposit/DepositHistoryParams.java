@@ -11,9 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DepositHistoryParams extends IntervalParams {
-	/**
-	 * The deposited coin
-	 */
+	/** The deposited coin */
 	private String coin;
 	/**
 	 * The deposit status. 0(0:pending,6: credited but cannot withdraw,
@@ -21,25 +19,19 @@ public class DepositHistoryParams extends IntervalParams {
 	 */
 	private Integer status;
 
-	/**
-	 * The history offset
-	 */
+	/** The history offset */
 	private Integer offset;
-	/**
-	 * The history size. Default:1000, Max:1000
-	 */
+	/** The history size. Default:1000, Max:1000 */
 	private Integer limit = 1000;
 
-	/**
-	 * Default constructor
-	 */
+	/** Default constructor */
 	public DepositHistoryParams() {
 		super(1);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin The coin we need deposit history
 	 */
 	public DepositHistoryParams(String coin) {
@@ -48,10 +40,9 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
-	 * @param status The coin status (0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * 
+	 * @param status The coin status (0:pending,6: credited but cannot withdraw, 1:success)
 	 */
 	public DepositHistoryParams(int status) {
 		this();
@@ -59,8 +50,8 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param status The coin status
 	 */
 	public DepositHistoryParams(DepositStatus status) {
@@ -69,11 +60,10 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 */
 	public DepositHistoryParams(String coin, int status) {
 		this(coin);
@@ -81,22 +71,20 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 */
 	public DepositHistoryParams(String coin, DepositStatus status) {
 		this(coin, status.getValue());
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 * @param limit  The history size. Default:1000, Max:1000
 	 */
 	public DepositHistoryParams(String coin, DepositStatus status, int limit) {
@@ -105,11 +93,10 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 * @param limit  The history size. Default:1000, Max:1000
 	 */
 	public DepositHistoryParams(String coin, int status, int limit) {
@@ -118,11 +105,10 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 * @param limit  The history size. Default:1000, Max:1000
 	 * @param offset The history offset
 	 */
@@ -132,11 +118,10 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 * @param limit  The history size. Default:1000, Max:1000
 	 * @param offset The history offset
 	 */

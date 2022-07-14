@@ -21,13 +21,9 @@ import lombok.Data;
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()
 public class OrderBookEntry {
-	/**
-	 * The price
-	 */
+	/** The price */
 	private BigDecimal price;
-	/**
-	 * The quantity
-	 */
+	/** The quantity */
 	@JsonProperty("qt")
 	private BigDecimal quantity;
 }

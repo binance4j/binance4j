@@ -11,13 +11,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TradesParams extends Params {
-	/**
-	 * The symbol we want the trades
-	 */
+	/** The symbol we want the trades */
 	private String symbol;
-	/**
-	 * The trades size. Default 500; max 1000.
-	 */
+	/** The trades size. Default 500; max 1000. */
 	private Integer limit = 500;
 
 	/**
@@ -31,8 +27,8 @@ public class TradesParams extends Params {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbol The symbol we want the trades
 	 * @param limit  The trades size. Default 500; max 1000.
 	 */

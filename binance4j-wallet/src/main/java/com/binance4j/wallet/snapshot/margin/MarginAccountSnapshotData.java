@@ -13,24 +13,14 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginAccountSnapshotData {
-	/**
-	 * Margin level
-	 */
+	/** Margin level */
 	private BigDecimal marginLevel;
-	/**
-	 * Total asset of Bitcoin
-	 */
+	/** Total asset of Bitcoin */
 	private BigDecimal totalAssetOfBtc;
-	/**
-	 * Total liability Of Bitcoin
-	 */
+	/** Total liability Of Bitcoin */
 	private BigDecimal totalLiabilityOfBtc;
-	/**
-	 * Total net Asset of Bitcoin
-	 */
+	/** Total net Asset of Bitcoin */
 	private BigDecimal totalNetAssetOfBtc;
-	/**
-	 * User assets
-	 */
+	/** User assets */
 	private List<MarginAccountSnapshotUserAssets> userAssets;
 }

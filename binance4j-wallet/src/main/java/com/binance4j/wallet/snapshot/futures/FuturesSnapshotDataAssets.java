@@ -1,11 +1,12 @@
 package com.binance4j.wallet.snapshot.futures;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * The snapshot assets balances
@@ -14,16 +15,10 @@ import java.math.BigDecimal;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FuturesSnapshotDataAssets {
-	/**
-	 * The asset abbreviation
-	 */
+	/** The asset abbreviation */
 	private String asset;
-	/**
-	 * The margin balance
-	 */
+	/** The margin balance */
 	private BigDecimal marginBalance;
-	/**
-	 * The wallet balance
-	 */
+	/** The wallet balance */
 	private BigDecimal walletBalance;
 }

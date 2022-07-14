@@ -11,25 +11,19 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AllOCOInfoParams extends IntervalParams {
-	/**
-	 * The id to search from
-	 */
+	/** The id to search from */
 	private Long fromId;
-	/**
-	 * The result size. Default Value: 500; Max Value: 1000
-	 */
+	/** The result size. Default Value: 500; Max Value: 1000 */
 	private Integer limit;
 
-	/**
-	 * Default constructor
-	 */
+	/** Default constructor */
 	public AllOCOInfoParams() {
 		super(10);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param fromId The id to search from
 	 */
 	public AllOCOInfoParams(Long fromId) {
@@ -38,8 +32,8 @@ public class AllOCOInfoParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param limit The result size
 	 */
 	public AllOCOInfoParams(Integer limit) {
@@ -48,8 +42,8 @@ public class AllOCOInfoParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param fromId The id to search from
 	 * @param limit  The result size
 	 */

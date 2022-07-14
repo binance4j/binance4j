@@ -28,33 +28,19 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class CandlePayload extends Candle {
-	/**
-	 * The event type
-	 */
+	/** The event type */
 	private String eventType;
-	/**
-	 * The timestamp in ms
-	 */
+	/** The timestamp in ms */
 	private Long eventTime;
-	/**
-	 * The trading pair
-	 */
+	/** The trading pair */
 	private String symbol;
-	/**
-	 * The interval id
-	 */
+	/** The interval id */
 	private String intervalId;
-	/**
-	 * The first trade id
-	 */
+	/** The first trade id */
 	private Long firstTradeId;
-	/**
-	 * The last trade id
-	 */
+	/** The last trade id */
 	private Long lastTradeId;
-	/**
-	 * is it the last bar of the interval?
-	 */
+	/** is it the last bar of the interval? */
 	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isBarFinal;

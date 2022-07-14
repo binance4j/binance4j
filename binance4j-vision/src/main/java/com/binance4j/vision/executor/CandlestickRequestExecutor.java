@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class CandlestickRequestExecutor extends VisionRequestExecutor<Candle> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param call The API call
 	 */
 	public CandlestickRequestExecutor(Call<ResponseBody> call) {

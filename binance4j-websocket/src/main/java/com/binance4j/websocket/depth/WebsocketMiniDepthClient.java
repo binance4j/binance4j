@@ -9,8 +9,8 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
  */
 public class WebsocketMiniDepthClient extends BaseWebsocketClient<MiniDepthPayload> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The symbols we want the data
 	 * @param level    The order book size
 	 * @param speed    the update speed
@@ -23,8 +23,8 @@ public class WebsocketMiniDepthClient extends BaseWebsocketClient<MiniDepthPaylo
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The trading pair iterable
 	 * @param level    The order book size
 	 * @param speed    the update speed

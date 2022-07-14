@@ -12,21 +12,19 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AccountSnapshotParams extends IntervalParams {
-	/**
-	 * The snapshot limit. min 5, max 30, default 5
-	 */
+	/** The snapshot limit. min 5, max 30, default 5 */
 	private int limit = 5;
 
 	/**
-	 * Constructor
+	 
 	 */
 	public AccountSnapshotParams() {
 		super(2400);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param limit The snapshot limit. min 5, max 30, default 5/
 	 */
 	public AccountSnapshotParams(int limit) {

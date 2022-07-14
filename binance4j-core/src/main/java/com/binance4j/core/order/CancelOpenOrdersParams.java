@@ -19,7 +19,7 @@ public class CancelOpenOrdersParams extends FramedParams {
     private Boolean isIsolated;
 
     /**
-     * Constructor
+     * 
      * 
      * @param symbol The trade symbol
      */

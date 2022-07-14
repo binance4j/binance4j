@@ -11,9 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AveragePriceParams extends Params {
-	/**
-	 * The trading pair we want the price
-	 */
+	/** The trading pair we want the price */
 	private String symbol;
 
 	/**

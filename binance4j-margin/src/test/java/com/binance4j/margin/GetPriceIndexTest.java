@@ -3,7 +3,7 @@ package com.binance4j.margin;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.margin.priceindex.PriceIndexParams;
+import com.binance4j.margin.param.PriceIndexParams;
 
 public class GetPriceIndexTest extends MarginTest {
     @Test

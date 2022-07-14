@@ -21,13 +21,14 @@ import lombok.ToString;
 public class CandlestickBar extends Candle {
 
     /**
-     * Constructor
+     
      */
     public CandlestickBar() {
         super();
     }
+    
     /**
-     * Constructor accepting a list of String acting like a line of data in a csv
+     * accepting a list of String acting like a line of data in a csv
      * file
      * 
      * @param input The String input

@@ -8,8 +8,8 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
  */
 public class WebsocketDepthClient extends BaseWebsocketClient<DepthPayload> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The symbols we want the data
 	 * @param speed    the update speed
 	 * @param callback The events handler
@@ -19,8 +19,8 @@ public class WebsocketDepthClient extends BaseWebsocketClient<DepthPayload> {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param symbols  The trading pair iterable
 	 * @param speed    the update speed
 	 * @param callback The events handler

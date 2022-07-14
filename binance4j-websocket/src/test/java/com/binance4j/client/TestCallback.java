@@ -17,18 +17,12 @@ import okhttp3.Response;
 @Data
 public class TestCallback<T> extends ConcurrentTest<Void> implements WebsocketCallback<T> {
 
-	/**
-	 * The CompletableFuture preventing the process to end before the tests
-	 */
+	/** The CompletableFuture preventing the process to end before the tests */
 	protected CompletableFuture<Void> future;
-	/**
-	 * The ws client
-	 */
+	/** The ws client */
 	protected BaseWebsocketClient<T> websocketClient;
 
-	/**
-	 * @param client
-	 */
+	/** @param client */
 	public TestCallback() {
 		super();
 		future = new CompletableFuture<>();

@@ -16,25 +16,21 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class NFTDepositHistoryParams extends IntervalParams {
-	/**
-	 * The result size. Default 50, Max 50.
-	 */
+	/** The result size. Default 50, Max 50. */
 	private Integer limit = 50;
-	/**
-	 * The result page. Default 1.
-	 */
+	/** The result page. Default 1. */
 	private Integer page = 1;
 
 	/**
-	 * Constructor
+	 
 	 */
 	public NFTDepositHistoryParams() {
 		super(3000);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param limit The result size. Default 50, Max 50.
 	 * @param page  The result page. Default 1.
 	 */
@@ -45,8 +41,8 @@ public class NFTDepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
 	 * @param startTime The result start time in ms

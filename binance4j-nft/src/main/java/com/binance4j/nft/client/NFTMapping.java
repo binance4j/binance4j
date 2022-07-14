@@ -1,26 +1,23 @@
 package com.binance4j.nft.client;
 
+import java.util.Map;
+
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.nft.asset.NFTAssetHistory;
 import com.binance4j.nft.deposit.NFTDepositHistory;
 import com.binance4j.nft.transaction.NFTTransactionHistory;
 import com.binance4j.nft.withdraw.NFTWithdrawHistory;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-import java.util.Map;
-
 public interface NFTMapping {
 	String BASE = "/sapi/v1/nft/";
-	/**
-	 * The signed http full header
-	 */
+	/** The signed http full header */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-	/**
-	 * The API key http full header
-	 */
+	/** The API key http full header */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	@GET(BASE + "history/transactions")

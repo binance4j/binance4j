@@ -61,7 +61,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
         private int maxTicks;
 
         /**
-         * Constructor
+         * 
          * 
          * @param task           The task to execute
          * @param scheduledEvent The event wrapper
@@ -72,7 +72,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
         }
 
         /**
-         * Constructor
+         * 
          * 
          * @param task           The task to execute
          * @param scheduledEvent The event wrapper

@@ -12,7 +12,7 @@
 	<a href="https://opensource.org/licenses/MIT">
 		<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/>
 	</a>
-	<img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Blue_JDK_1.8%2B_Shield_Badge.svg" alt="JDK" />
+	<img src="https://img.shields.io/badge/jdk-17-blue" alt="JDK" />
 </p>
 
 <!-- description -->
@@ -87,7 +87,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-market</artifactId>
-	<version>1.7.5</version>
+	<version>2.0.1</version>
 </dependency>
 ```
 
@@ -129,7 +129,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-nft</artifactId>
-	<version>1.7.5</version>
+	<version>2.0.1</version>
 </dependency>
 ```
 
@@ -173,7 +173,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-spot</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -228,7 +228,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-wallet</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -279,7 +279,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-websocket</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -326,7 +326,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-vision</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -369,7 +369,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-strategy</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -409,6 +409,6 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-core</artifactId>
-  <version>1.7.5</version>
+  <version>2.0.1</version>
 </dependency>
 ```

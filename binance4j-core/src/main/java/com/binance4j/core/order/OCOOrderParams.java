@@ -43,7 +43,7 @@ public class OCOOrderParams extends Order {
     private TimeInForce stopLimitTimeInForce;
 
     /**
-     * Constructor - Produces an OCO order
+     * - Produces an OCO order
      *
      * @param symbol    The symbol the order is made on
      * @param side      The order side (BUY/SELL)

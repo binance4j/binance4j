@@ -13,45 +13,25 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Asset {
-	/**
-	 * The asset id
-	 */
+	/** The asset id */
 	private String id;
-	/**
-	 * The asset abbreviation
-	 */
+	/** The asset abbreviation */
 	private String assetCode;
-	/**
-	 * The asset full name
-	 */
+	/** The asset full name */
 	private String assetName;
-	/**
-	 * ???
-	 */
+	/** ??? */
 	private String unit;
-	/**
-	 * The cost of a transaction
-	 */
+	/** The cost of a transaction */
 	private BigDecimal transactionFee;
-	/**
-	 * The payment associated with a certain amount of sale
-	 */
+	/** The payment associated with a certain amount of sale */
 	private BigDecimal commissionRate;
-	/**
-	 * ???
-	 */
+	/** ??? */
 	private BigDecimal freeAuditWithdrawAmount;
-	/**
-	 * ???
-	 */
+	/** ??? */
 	private BigDecimal freeUserChargeAmount;
-	/**
-	 * The minimal amount you can withdraw
-	 */
+	/** The minimal amount you can withdraw */
 	private BigDecimal minProductWithdraw;
-	/**
-	 * The smallest withdraw multiple
-	 */
+	/** The smallest withdraw multiple */
 	private BigDecimal withdrawIntegerMultiple;
 	/**
 	 * the time elapsed between the moment a blockchain transaction is
@@ -59,12 +39,8 @@ public class Asset {
 	 * confirmed block
 	 */
 	private Long confirmTimes;
-	/**
-	 * is the withdrawal of the asset enabled
-	 */
+	/** is the withdrawal of the asset enabled */
 	private Boolean enableWithdraw;
-	/**
-	 * is it issued by a government
-	 */
+	/** is it issued by a government */
 	private Boolean isLegalMoney;
 }

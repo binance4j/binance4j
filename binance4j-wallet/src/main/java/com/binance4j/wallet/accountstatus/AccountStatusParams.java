@@ -7,7 +7,7 @@ import com.binance4j.core.param.FramedParams;
  */
 public class AccountStatusParams extends FramedParams {
 	/**
-	 * Constructor
+	 
 	 */
 	public AccountStatusParams() {
 		super(1);

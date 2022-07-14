@@ -11,17 +11,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class HistoricalTradesParams extends Params {
-	/**
-	 * The trading pair to get the trades
-	 */
+	/** The trading pair to get the trades */
 	private String symbol;
-	/**
-	 * Default 500; max 1000.
-	 */
+	/** Default 500; max 1000. */
 	private Integer limit;
-	/**
-	 * Trade id to fetch from. Default gets most recent trades.
-	 */
+	/** Trade id to fetch from. Default gets most recent trades. */
 	private Long fromId;
 
 	/**
@@ -35,8 +29,8 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * COnstructor
 	 *
+	 * 
 	 * @param symbol The symbol we want the trades
 	 * @param limit  The trades size
 	 */

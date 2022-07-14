@@ -1,11 +1,12 @@
 package com.binance4j.spot.order;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * The partial trade of an order
@@ -14,24 +15,14 @@ import java.math.BigDecimal;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderTrade {
-	/**
-	 * The price
-	 */
+	/** The price */
 	BigDecimal price;
-	/**
-	 * The quantity
-	 */
+	/** The quantity */
 	BigDecimal qty;
-	/**
-	 * The commission
-	 */
+	/** The commission */
 	BigDecimal commission;
-	/**
-	 * The commission asset
-	 */
+	/** The commission asset */
 	String commissionAsset;
-	/**
-	 * The trade id
-	 */
+	/** The trade id */
 	Long tradeId;
 }

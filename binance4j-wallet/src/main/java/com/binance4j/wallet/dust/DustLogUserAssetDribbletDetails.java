@@ -1,11 +1,12 @@
 package com.binance4j.wallet.dust;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * Dust log details
@@ -14,28 +15,16 @@ import java.math.BigDecimal;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DustLogUserAssetDribbletDetails {
-	/**
-	 * The transaction id
-	 */
+	/** The transaction id */
 	private Long transId;
-	/**
-	 * The timestamp
-	 */
+	/** The timestamp */
 	private Long operateTime;
-	/**
-	 * The fees
-	 */
+	/** The fees */
 	private BigDecimal serviceChargeAmount;
-	/**
-	 * The volume
-	 */
+	/** The volume */
 	private BigDecimal amount;
-	/**
-	 * The transfered amount
-	 */
+	/** The transfered amount */
 	private BigDecimal transferedAmount;
-	/**
-	 * The transfered asset
-	 */
+	/** The transfered asset */
 	private String fromAsset;
 }

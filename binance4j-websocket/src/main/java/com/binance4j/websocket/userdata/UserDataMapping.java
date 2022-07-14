@@ -14,16 +14,12 @@ import retrofit2.http.QueryMap;
 
 public interface UserDataMapping {
 
-	/**
-	 * The API key http full header
-	 */
+	/** The API key http full header */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	// SPOT
 
-	/**
-	 * @return The query result
-	 */
+	/** @return The query result */
 	@Headers(API_H)
 	@POST("/api/v3/userDataStream")
 	Call<ListenKey> startUserDataStream();

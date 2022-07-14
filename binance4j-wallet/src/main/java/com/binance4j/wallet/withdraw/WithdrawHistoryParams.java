@@ -11,38 +11,28 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WithdrawHistoryParams extends IntervalParams {
-	/**
-	 * The coin we want the history
-	 */
+	/** The coin we want the history */
 	private String coin;
-	/**
-	 * The withdraw order id to fetch
-	 */
+	/** The withdraw order id to fetch */
 	private String withdrawOrderId;
-	/**
-	 * The status to look for
-	 */
+	/** The status to look for */
 	private Integer status;
-	/**
-	 * The offset
-	 */
+	/** The offset */
 	private Integer offset;
 
-	/**
-	 * Default:1000, Max:1000
-	 */
+	/** Default:1000, Max:1000 */
 	private Integer limit = 1000;
 
 	/**
-	 * Constructor
+	 
 	 */
 	public WithdrawHistoryParams() {
 		super(1);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin The coin we need deposit history
 	 */
 	public WithdrawHistoryParams(String coin) {
@@ -51,10 +41,9 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * 
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 */
 	public WithdrawHistoryParams(int status) {
 		this();
@@ -62,10 +51,9 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw,
-	 *               1:success)
+	 * 
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
 	 */
 	public WithdrawHistoryParams(WithdrawStatus status) {
 		this();
@@ -73,12 +61,11 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
-	 * @param status The coin status (EMAIL_SENT(0), CANCELLED(1),
-	 *               AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4), FAILURE(5),
-	 *               COMPLETED(6);
+	 * @param status The coin status (EMAIL_SENT(0), CANCELLED(1), AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4),
+	 *               FAILURE(5), COMPLETED(6);
 	 */
 	public WithdrawHistoryParams(String coin, int status) {
 		this(coin);
@@ -86,8 +73,8 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin   The coin we need deposit history
 	 * @param status The coin status
 	 */
@@ -96,8 +83,8 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param status The withdraw status
 	 */
 	public void setStatus(WithdrawStatus status) {

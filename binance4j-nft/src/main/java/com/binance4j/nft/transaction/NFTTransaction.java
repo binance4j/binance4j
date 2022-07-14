@@ -24,20 +24,12 @@ public class NFTTransaction {
 	 * </ul>
 	 */
 	private String orderNo;
-	/**
-	 * The tokens
-	 */
+	/** The tokens */
 	private List<NFT> tokens;
-	/**
-	 * The trade time in ms
-	 */
+	/** The trade time in ms */
 	private Long tradeTime;
-	/**
-	 * The trade amount
-	 */
+	/** The trade amount */
 	private BigDecimal tradeAmount;
-	/**
-	 * The currency used to buy the NFT
-	 */
+	/** The currency used to buy the NFT */
 	private String tradeCurrency;
 }

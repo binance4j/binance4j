@@ -31,7 +31,7 @@ public class Request<T> {
     private final Params params;
 
     /**
-     * Constructor
+     * 
      * 
      * @param call The retrofit call
      */
@@ -41,7 +41,7 @@ public class Request<T> {
     }
 
     /**
-     * Constructor with custom request
+     * with custom request
      * 
      * @param call   The retrofit calls
      * @param params The request parameters

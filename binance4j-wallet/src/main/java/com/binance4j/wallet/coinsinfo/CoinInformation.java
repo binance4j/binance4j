@@ -19,69 +19,41 @@ import lombok.Setter;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CoinInformation {
-	/**
-	 * The coin abbreviation
-	 */
+	/** The coin abbreviation */
 	private String coin;
-	/**
-	 * The coin name
-	 */
+	/** The coin name */
 	private String name;
-	/**
-	 * The deposit permission
-	 */
+	/** The deposit permission */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean depositAllEnable;
-	/**
-	 * if the coin is a legal money
-	 */
+	/** if the coin is a legal money */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isLegalMoney;
-	/**
-	 * if the coin can be traded
-	 */
+	/** if the coin can be traded */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean trading;
-	/**
-	 * The withdraw permission
-	 */
+	/** The withdraw permission */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean withdrawAllEnable;
-	/**
-	 * The free balance
-	 */
+	/** The free balance */
 	private BigDecimal free;
-	/**
-	 * The freezed balance
-	 */
+	/** The freezed balance */
 	private BigDecimal freeze;
-	/**
-	 * The Initial Public Offering balance (?)
-	 */
+	/** The Initial Public Offering balance (?) */
 	private BigDecimal ipoable;
-	/**
-	 * The Initial Public Offering freezed balance (?)
-	 */
+	/** The Initial Public Offering freezed balance (?) */
 	private BigDecimal ipoing;
-	/**
-	 * The locked balance
-	 */
+	/** The locked balance */
 	private BigDecimal locked;
-	/**
-	 * ?
-	 */
+	/** ? */
 	private BigDecimal storage;
-	/**
-	 * The withdrawing balance
-	 */
+	/** The withdrawing balance */
 	private BigDecimal withdrawing;
-	/**
-	 * The coin network information
-	 */
+	/** The coin network information */
 	private List<CoinNetworkInformation> networkList;
 
 	public Boolean isDepositAllEnable() {

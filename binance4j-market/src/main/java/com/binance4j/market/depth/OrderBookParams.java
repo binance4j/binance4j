@@ -11,13 +11,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OrderBookParams extends Params {
-	/**
-	 * The trading pair we want the depth
-	 */
+	/** The trading pair we want the depth */
 	private String symbol;
-	/**
-	 * The market depth size
-	 */
+	/** The market depth size */
 	private Integer limit;
 
 	/**
@@ -31,7 +27,7 @@ public class OrderBookParams extends Params {
 	}
 
 	/**
-	 * Constructor with limit
+	 * with limit
 	 *
 	 * @param symbol The trading pair we want the depth
 	 * @param limit  The depth size
@@ -43,7 +39,7 @@ public class OrderBookParams extends Params {
 	}
 
 	/**
-	 * Constructor with limit
+	 * with limit
 	 *
 	 * @param symbol The trading pair we want the depth
 	 * @param limit  The depth size

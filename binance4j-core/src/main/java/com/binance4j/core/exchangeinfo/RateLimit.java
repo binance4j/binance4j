@@ -14,20 +14,12 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RateLimit {
-	/**
-	 * The rate limit type
-	 */
+	/** The rate limit type */
 	private RateLimitType rateLimitType;
-	/**
-	 * The limit interval type
-	 */
+	/** The limit interval type */
 	private RateLimitInterval interval;
-	/**
-	 * The limit interval number
-	 */
+	/** The limit interval number */
 	private Integer intervalNum;
-	/**
-	 * The limit for the given interval
-	 */
+	/** The limit for the given interval */
 	private Integer limit;
 }

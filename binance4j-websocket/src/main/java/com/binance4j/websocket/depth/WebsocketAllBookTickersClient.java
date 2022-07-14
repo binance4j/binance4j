@@ -8,8 +8,8 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
  */
 public class WebsocketAllBookTickersClient extends BaseWebsocketClient<BookTickerPayload> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param callback The events handler
 	 */
 	public WebsocketAllBookTickersClient(WebsocketCallback<BookTickerPayload> callback) {

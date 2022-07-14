@@ -1,6 +1,7 @@
 package com.binance4j.websocket.userdata;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,22 +11,14 @@ import lombok.Getter;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum UserDataUpdatePayloadType {
-	/**
-	 * Corresponds to "outboundAccountPosition" events.
-	 */
+	/** Corresponds to "outboundAccountPosition" events. */
 	ACCOUNT_POSITION_UPDATE("outboundAccountPosition"),
-	/**
-	 * Corresponds to "balanceUpdate" events.
-	 */
+	/** Corresponds to "balanceUpdate" events. */
 	BALANCE_UPDATE("balanceUpdate"),
-	/**
-	 * Corresponds to "executionReport" events.
-	 */
+	/** Corresponds to "executionReport" events. */
 	ORDER_TRADE_UPDATE("executionReport");
 
-	/**
-	 * The enum string value
-	 */
+	/** The enum string value */
 	@Getter
 	private final String eventTypeId;
 

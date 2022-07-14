@@ -13,20 +13,16 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BookTickerParams extends Params {
-	/**
-	 * Ticker symbol.
-	 */
+	/** Ticker symbol. */
 	private String symbol;
 
-	/**
-	 * Constructor to get the ticker of all symbols
-	 */
+	/** to get the ticker of all symbols */
 	public BookTickerParams() {
 		super(2);
 	}
 
 	/**
-	 * Constructor to get the ticker of a symbol
+	 * to get the ticker of a symbol
 	 *
 	 * @param symbol The trading pair we want the ticker
 	 */

@@ -11,21 +11,17 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AssetDetailParams extends FramedParams {
-	/**
-	 * The asset abbreviation
-	 */
+	/** The asset abbreviation */
 	private String asset;
 
-	/**
-	 * Default constructor
-	 */
+	/** Default constructor */
 	public AssetDetailParams() {
 		super(1);
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param asset the asset we want the details
 	 */
 	public AssetDetailParams(String asset) {

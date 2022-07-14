@@ -1,5 +1,8 @@
 package com.binance4j.spot.client;
 
+import java.util.List;
+import java.util.Map;
+
 import com.binance4j.core.order.CancelOrderResponse;
 import com.binance4j.core.order.OCOResponse;
 import com.binance4j.core.order.OrderInfo;
@@ -9,24 +12,20 @@ import com.binance4j.spot.account.Account;
 import com.binance4j.spot.order.NewOrderResponse;
 import com.binance4j.spot.order.OCOInfo;
 import com.binance4j.spot.order.OrderCount;
-import retrofit2.Call;
-import retrofit2.http.*;
 
-import java.util.List;
-import java.util.Map;
+import retrofit2.Call;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 
 public interface SpotMapping {
-	/**
-	 * The API base url
-	 */
+	/** The API base url */
 	String BASE = "/api/v3/";
-	/**
-	 * The signed http full header
-	 */
+	/** The signed http full header */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-	/**
-	 * The API key http full header
-	 */
+	/** The API key http full header */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**

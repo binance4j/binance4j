@@ -19,8 +19,8 @@ public abstract class FramedParams extends Params {
     }
 
     /**
-     * Constructor
      *
+     * 
      * @param weight The Request weight
      */
     protected FramedParams(int weight) {
@@ -28,7 +28,7 @@ public abstract class FramedParams extends Params {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param weight         The Request weight
      * @param isOrderRequest Is the request a trading order

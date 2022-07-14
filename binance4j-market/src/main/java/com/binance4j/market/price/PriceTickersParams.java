@@ -16,13 +16,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class PriceTickersParams extends Params {
-	/**
-	 * Ticker symbol.
-	 */
+	/** Ticker symbol. */
 	private String symbols;
 
 	/**
-	 * Constructor.
+	 * .
 	 *
 	 * @param symbols The trading pairs we want the ticker
 	 */
@@ -34,7 +32,7 @@ public class PriceTickersParams extends Params {
 	}
 
 	/**
-	 * Constructor.
+	 * .
 	 *
 	 * @param symbols The trading pairs we want the ticker
 	 */

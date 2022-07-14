@@ -23,7 +23,7 @@ public class IntervalParams extends FramedParams {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param weight The Request weight
      */
@@ -32,7 +32,7 @@ public class IntervalParams extends FramedParams {
     }
 
     /**
-     * Constructor
+     * 
      * 
      * @param weight         The Request weight
      * @param isOrderRequest Is the request a trading order

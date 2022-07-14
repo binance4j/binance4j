@@ -13,12 +13,8 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExchangeFilter {
-	/**
-	 * The filter type
-	 */
+	/** The filter type */
 	private ExchangeFilterType filterType;
-	/**
-	 * The filter limit
-	 */
+	/** The filter limit */
 	private Integer limit;
 }

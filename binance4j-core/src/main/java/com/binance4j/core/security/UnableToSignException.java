@@ -6,7 +6,7 @@ package com.binance4j.core.security;
 public class UnableToSignException extends RuntimeException {
 
     /**
-     * Constructor
+     * 
      * 
      * @param e The original exception
      */

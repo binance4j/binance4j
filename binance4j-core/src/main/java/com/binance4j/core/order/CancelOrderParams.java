@@ -27,7 +27,7 @@ public class CancelOrderParams extends FramedParams {
   private String newClientOrderId;
 
   /**
-   * Constructor
+   
    * 
    * 
    * 
@@ -39,7 +39,7 @@ public class CancelOrderParams extends FramedParams {
   }
 
   /**
-   * Constructor
+   
    * 
    * 
    * 

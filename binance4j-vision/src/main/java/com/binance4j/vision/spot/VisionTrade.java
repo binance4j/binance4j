@@ -15,35 +15,21 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 public class VisionTrade {
-	/**
-	 * The trade id
-	 */
+	/** The trade id */
 	private Long tradeId;
-	/**
-	 * The timestamp
-	 */
+	/** The timestamp */
 	private Long time;
-	/**
-	 * The price
-	 */
+	/** The price */
 	private BigDecimal price;
-	/**
-	 * The quantity
-	 */
+	/** The quantity */
 	private BigDecimal quantity;
-	/**
-	 * The quote asset quantity
-	 */
+	/** The quote asset quantity */
 	private BigDecimal quoteQuantity;
-	/**
-	 * Was it a buyer maker
-	 */
+	/** Was it a buyer maker */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isBuyerMaker;
-	/**
-	 * Was it the best price match?
-	 */
+	/** Was it the best price match? */
 	@Getter(AccessLevel.NONE)
 	@Setter(AccessLevel.NONE)
 	private Boolean isBestMatch;

@@ -17,7 +17,7 @@ public class ApiError {
     private String msg;
 
     /**
-     * Constructor
+     * 
      * 
      * @param code The error code
      * @param msg  The error message

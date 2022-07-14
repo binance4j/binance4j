@@ -13,8 +13,8 @@ import retrofit2.Call;
 
 public class ChecksumRequestExecutor extends Request<ResponseBody> {
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param call The API call
 	 */
 	public ChecksumRequestExecutor(Call<ResponseBody> call) {

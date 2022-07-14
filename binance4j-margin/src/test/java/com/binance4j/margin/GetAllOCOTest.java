@@ -1,7 +1,7 @@
 package com.binance4j.margin;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.margin.oco.GetAllMarginOCOParams;
+import com.binance4j.margin.param.GetAllMarginOCOParams;
 
 public class GetAllOCOTest extends MarginTest {
     // TODO make OCO

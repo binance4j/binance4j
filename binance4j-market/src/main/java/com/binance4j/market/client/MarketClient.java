@@ -39,8 +39,8 @@ import com.binance4j.market.trade.TradesParams;
 public class MarketClient extends RestClient<MarketMapping> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param key    The API public key
 	 * @param secret The API secret key
 	 */
@@ -48,16 +48,12 @@ public class MarketClient extends RestClient<MarketMapping> {
 		super(MarketMapping.class, key, secret);
 	}
 
-	/**
-	 * Test connectivity to the Rest API.
-	 */
+	/** Test connectivity to the Rest API. */
 	public Request<Void> ping() {
 		return new Request<>(service.ping());
 	}
 
-	/**
-	 * Test connectivity to the Rest API and get the current server time.
-	 */
+	/** Test connectivity to the Rest API and get the current server time. */
 	public Request<ServerTimeResponse> getServerTime() {
 		return new Request<>(service.getServerTime());
 	}
@@ -72,30 +68,22 @@ public class MarketClient extends RestClient<MarketMapping> {
 		return new Request<>(service.getExchangeInfo(params.toMap()), params);
 	}
 
-	/**
-	 * Get current exchange trading rules and all symbols informations
-	 */
+	/** Get current exchange trading rules and all symbols informations */
 	public Request<ExchangeInfo> getExchangeInfo() {
 		return getExchangeInfo(new ExchangeInfoParams());
 	}
 
-	/**
-	 * Get the symbol order book
-	 */
+	/** Get the symbol order book */
 	public Request<OrderBook> getOrderBook(OrderBookParams params) {
 		return new Request<>(service.getOrderBook(params.toMap()), params);
 	}
 
-	/**
-	 * Get recent trades.
-	 */
+	/** Get recent trades. */
 	public Request<List<TradeHistoryItem>> getTrades(TradesParams params) {
 		return new Request<>(service.getTrades(params.toMap()), params);
 	}
 
-	/**
-	 * Get older market trades.
-	 */
+	/** Get older market trades. */
 	public Request<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesParams params) {
 		return new Request<>(service.getHistoricalTrades(params.toMap()),
 				params);
@@ -141,73 +129,53 @@ public class MarketClient extends RestClient<MarketMapping> {
 		return new Request<>(service.getKlines(map), params);
 	}
 
-	/**
-	 * Get Current average price for a symbol.
-	 */
+	/** Get Current average price for a symbol. */
 	public Request<AveragePrice> getAveragePrice(AveragePriceParams params) {
 		return new Request<>(service.getAveragePrice(params.toMap()), params);
 	}
 
-	/**
-	 * Get 24 hour rolling window price change statistics of a symbol.
-	 */
+	/** Get 24 hour rolling window price change statistics of a symbol. */
 	public Request<TickerStatistics> get24hTickerStatistics(TickerStatisticsParams params) {
 		return new Request<>(service.get24hTickerStatistics(params.toMap()),
 				params);
 	}
 
-	/**
-	 * Get 24 hour rolling window price change statistics of all symbols
-	 */
+	/** Get 24 hour rolling window price change statistics of all symbols */
 	public Request<List<TickerStatistics>> get24hTickerStatistics() {
 		return new Request<>(service.get24hTickerStatistics(), new Params(40));
 	}
 
-	/**
-	 * Get 24 hour rolling window price change statistics of specific symbols
-	 */
+	/** Get 24 hour rolling window price change statistics of specific symbols */
 	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
 		return new Request<>(service.get24hTickersStatistics(params.toMap()), params);
 	}
 
-	/**
-	 * Latest price for all symbols.
-	 */
+	/** Latest price for all symbols. */
 	public Request<List<PriceTicker>> getTicker() {
 		return new Request<>(service.getTicker(), new Params(2));
 	}
 
-	/**
-	 * Latest price for a symbol or symbols.
-	 */
+	/** Latest price for a symbol or symbols. */
 	public Request<PriceTicker> getTicker(PriceTickerParams params) {
 		return new Request<>(service.getTicker(params.toMap()), params);
 	}
 
-	/**
-	 * Latest price for a symbol or symbols.
-	 */
+	/** Latest price for a symbol or symbols. */
 	public Request<List<PriceTicker>> getTicker(PriceTickersParams params) {
 		return new Request<>(service.getTickers(params.toMap()), params);
 	}
 
-	/**
-	 * Get best price/qty on the order book for a symbol
-	 */
+	/** Get best price/qty on the order book for a symbol */
 	public Request<BookTicker> getBookTicker(BookTickerParams params) {
 		return new Request<>(service.getBookTicker(params.toMap()), params);
 	}
 
-	/**
-	 * Get best price/qty on the order book for all symbols
-	 */
+	/** Get best price/qty on the order book for all symbols */
 	public Request<List<BookTicker>> getBookTicker() {
 		return new Request<>(service.getBookTicker(), new Params(2));
 	}
 
-	/**
-	 * Get best price/qty on the order book for the given symbols
-	 */
+	/** Get best price/qty on the order book for the given symbols */
 	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {
 		return new Request<>(service.getBookTickers(params.toMap()), params);
 	}

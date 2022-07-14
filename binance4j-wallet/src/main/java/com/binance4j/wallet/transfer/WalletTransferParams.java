@@ -13,17 +13,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WalletTransferParams extends FramedParams {
-	/**
-	 * The asset
-	 */
+	/** The asset */
 	private String asset;
-	/**
-	 * The transfer type
-	 */
+	/** The transfer type */
 	private WalletTransferType type;
-	/**
-	 * The volume
-	 */
+	/** The volume */
 	private BigDecimal amount;
 	/**
 	 * must be sent when type are ISOLATEDMARGIN_MARGIN and
@@ -37,8 +31,8 @@ public class WalletTransferParams extends FramedParams {
 	private String toSymbol;
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param type   The transfer type
 	 * @param asset  The asset to transfer
 	 * @param amount The volume to transfer

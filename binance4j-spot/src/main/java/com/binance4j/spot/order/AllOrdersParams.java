@@ -11,9 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AllOrdersParams extends IntervalParams {
-	/**
-	 * The trading pair we want the orders
-	 */
+	/** The trading pair we want the orders */
 	private String symbol;
 	/**
 	 * If orderId is set, it will get orders &gt;= that orderId. Otherwise, most
@@ -22,9 +20,7 @@ public class AllOrdersParams extends IntervalParams {
 	 */
 	private Long orderId;
 
-	/**
-	 * The result size. Default 500; max 1000.
-	 */
+	/** The result size. Default 500; max 1000. */
 	private Integer limit = 500;
 
 	/**
@@ -48,7 +44,7 @@ public class AllOrdersParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor with search after orderId
+	 * with search after orderId
 	 *
 	 * @param symbol  The symbol we want the orders
 	 * @param orderId The order id to get &gt;= orders
@@ -59,7 +55,7 @@ public class AllOrdersParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor with startTime and endTime
+	 * with startTime and endTime
 	 *
 	 * @param symbol    The symbol we want the orders
 	 * @param startTime The starting time of results

@@ -6,8 +6,8 @@ package com.binance4j.spot.client;
 public class TestnetSpotClient extends SpotClient {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param key    The Testnet public key
 	 * @param secret The Testnet secret key
 	 */

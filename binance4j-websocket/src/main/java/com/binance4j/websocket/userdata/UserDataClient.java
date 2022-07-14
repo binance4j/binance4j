@@ -49,9 +49,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 		return new Request<>(service.keepAliveUserDataStream(listenKey));
 	}
 
-	/**
-	 * Close out a user data stream.
-	 */
+	/** Close out a user data stream. */
 	public Request<Void> closeUserDataStream(String listenKey) {
 		return new Request<>(service.closeUserDataStream(listenKey));
 	}

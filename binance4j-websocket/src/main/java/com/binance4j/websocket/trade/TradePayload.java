@@ -16,54 +16,34 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradePayload {
-	/**
-	 * The event type
-	 */
+	/** The event type */
 	@JsonProperty("e")
 	private String eventType;
-	/**
-	 * The timestamp
-	 */
+	/** The timestamp */
 	@JsonProperty("E")
 	private Long eventTime;
-	/**
-	 * The trading pair
-	 */
+	/** The trading pair */
 	@JsonProperty("s")
 	private String symbol;
-	/**
-	 * The trade id
-	 */
+	/** The trade id */
 	@JsonProperty("t")
 	private String tradeId;
-	/**
-	 * The price
-	 */
+	/** The price */
 	@JsonProperty("p")
 	private BigDecimal price;
-	/**
-	 * The price
-	 */
+	/** The price */
 	@JsonProperty("q")
 	private BigDecimal quantity;
-	/**
-	 * The buyer order id
-	 */
+	/** The buyer order id */
 	@JsonProperty("b")
 	private Long buyerOrderId;
-	/**
-	 * The seller order id
-	 */
+	/** The seller order id */
 	@JsonProperty("a")
 	private Long sellerOrderId;
-	/**
-	 * The timestamp
-	 */
+	/** The timestamp */
 	@JsonProperty("T")
 	private Long tradeTime;
-	/**
-	 * Is the buyer the market maker?
-	 */
+	/** Is the buyer the market maker? */
 	@JsonProperty("m")
 	private Boolean buyerIsMarketMaker;
 }

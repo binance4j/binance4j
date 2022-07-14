@@ -7,7 +7,7 @@ import com.binance4j.core.param.FramedParams;
  */
 public class ApiTradingStatusParams extends FramedParams {
 	/**
-	 * Constructor
+	 
 	 */
 	public ApiTradingStatusParams() {
 		super(1);

@@ -13,25 +13,15 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AggTradeParams extends Params {
-	/**
-	 * The agg trade pair
-	 */
+	/** The agg trade pair */
 	private String symbol;
-	/**
-	 * id to get aggregate trades from (inclusive).
-	 */
+	/** id to get aggregate trades from (inclusive). */
 	private Long fromId;
-	/**
-	 * Default 500; max 1000.
-	 */
+	/** Default 500; max 1000. */
 	private Integer limit;
-	/**
-	 * Timestamp in ms to get aggregate trades from (inclusive).
-	 */
+	/** Timestamp in ms to get aggregate trades from (inclusive). */
 	private Long startTime;
-	/**
-	 * Timestamp in ms to get aggregate trades until (inclusive).
-	 */
+	/** Timestamp in ms to get aggregate trades until (inclusive). */
 	private Long endTime;
 
 	/**
@@ -45,7 +35,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with limit
+	 * with limit
 	 *
 	 * @param symbol The agg trade pair
 	 * @param limit  The result size. Default 500; max 1000.
@@ -56,7 +46,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with fromId
+	 * with fromId
 	 *
 	 * @param symbol The agg trade pair
 	 * @param fromId The id to get aggregate trades from (inclusive).
@@ -67,7 +57,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with fromId and limit
+	 * with fromId and limit
 	 *
 	 * @param symbol The agg trade pair
 	 * @param fromId The id to get aggregate trades from (inclusive).
@@ -79,7 +69,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with fromId
+	 * with fromId
 	 *
 	 * @param symbol The agg trade pair
 	 * @param fromId The id to get aggregate trades from (inclusive).
@@ -89,7 +79,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with fromId and limit
+	 * with fromId and limit
 	 *
 	 * @param symbol The agg trade pair
 	 * @param fromId The id to get aggregate trades from (inclusive).
@@ -101,7 +91,7 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * Constructor with start and end time (time interval must be lower to one hour)
+	 * with start and end time (time interval must be lower to one hour)
 	 *
 	 * @param symbol    The agg trade pair
 	 * @param startTime Timestamp in ms to get aggregate trades from (inclusive).

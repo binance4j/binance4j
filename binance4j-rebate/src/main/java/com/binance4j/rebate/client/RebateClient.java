@@ -19,8 +19,8 @@ import lombok.EqualsAndHashCode;
 public class RebateClient extends RestClient<RebateMapping> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param key    The API public key
 	 * @param secret The API secret key
 	 */
@@ -28,9 +28,7 @@ public class RebateClient extends RestClient<RebateMapping> {
 		super(RebateMapping.class, key, secret);
 	}
 
-	/**
-	 * Get the spot rebate history records
-	 */
+	/** Get the spot rebate history records */
 	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(SpotRebateHistoryParams params) {
 		return new Request<>(service.getSpotRebateHistoryRecords(params.toMap()), params);
 	}

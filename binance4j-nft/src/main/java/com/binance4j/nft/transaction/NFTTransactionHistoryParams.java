@@ -16,22 +16,16 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class NFTTransactionHistoryParams extends IntervalParams {
-	/**
-	 * The order type.
-	 */
+	/** The order type. */
 	private Integer orderType;
-	/**
-	 * The result size. Default 50, Max 50.
-	 */
+	/** The result size. Default 50, Max 50. */
 	private Integer limit = 50;
-	/**
-	 * The result page. Default 1.
-	 */
+	/** The result page. Default 1. */
 	private Integer page = 1;
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param orderType The order type
 	 */
 	public NFTTransactionHistoryParams(NFTOrderType orderType) {
@@ -40,8 +34,8 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param orderType The order type
 	 */
 	public NFTTransactionHistoryParams(int orderType) {
@@ -50,8 +44,8 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param orderType The order type.
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
@@ -63,8 +57,8 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param orderType The order type.
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.

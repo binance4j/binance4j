@@ -13,8 +13,8 @@ import java.util.List;
 public class TradeRequestExecutor extends VisionRequestExecutor<VisionTrade> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param call The API call
 	 */
 	public TradeRequestExecutor(Call<ResponseBody> call) {

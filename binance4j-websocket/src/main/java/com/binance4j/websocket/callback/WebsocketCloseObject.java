@@ -9,12 +9,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class WebsocketCloseObject {
-	/**
-	 * The closing code
-	 */
+	/** The closing code */
 	private int code;
-	/**
-	 * The closing reason
-	 */
+	/** The closing reason */
 	private String reason;
 }

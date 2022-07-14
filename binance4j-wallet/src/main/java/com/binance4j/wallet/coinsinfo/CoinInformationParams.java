@@ -9,7 +9,7 @@ import com.binance4j.core.param.FramedParams;
  */
 public class CoinInformationParams extends FramedParams {
 	/**
-	 * Constructor
+	 
 	 */
 	public CoinInformationParams() {
 		super(10);

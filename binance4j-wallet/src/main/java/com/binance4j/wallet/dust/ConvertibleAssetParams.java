@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ConvertibleAssetParams extends FramedParams {
 	/**
-	 * Constructor
+	 
 	 */
 	public ConvertibleAssetParams() {
 		super(1);

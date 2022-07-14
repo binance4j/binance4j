@@ -1,11 +1,12 @@
 package com.binance4j.wallet.dust;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  * Asset that can be converted into BNB
@@ -14,32 +15,18 @@ import java.math.BigDecimal;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ConvertibleAsset {
-	/**
-	 * The asset name
-	 */
+	/** The asset name */
 	private String asset;
-	/**
-	 * The asset full name
-	 */
+	/** The asset full name */
 	private String assetFullName;
-	/**
-	 * The free balance
-	 */
+	/** The free balance */
 	private BigDecimal amountFree;
-	/**
-	 * The BTC valuation
-	 */
+	/** The BTC valuation */
 	private BigDecimal toBTC;
-	/**
-	 * The BNB valuation
-	 */
+	/** The BNB valuation */
 	private BigDecimal toBNB;
-	/**
-	 * The BNB valuation commissions fees deducted
-	 */
+	/** The BNB valuation commissions fees deducted */
 	private BigDecimal toBNBOffExchange;
-	/**
-	 * Commission fees
-	 */
+	/** Commission fees */
 	private BigDecimal exchange;
 }

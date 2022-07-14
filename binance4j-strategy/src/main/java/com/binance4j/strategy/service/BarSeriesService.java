@@ -24,9 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BarSeriesService {
 
-	/**
-	 * The default bar series name
-	 */
+	/** The default bar series name */
 	@Getter
 	@Setter
 	private static String defaultBarSeriesName = "Bar series";

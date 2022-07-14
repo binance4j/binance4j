@@ -28,30 +28,22 @@ public class NFTClient extends RestClient<NFTMapping> {
 		super(NFTMapping.class, key, secret);
 	}
 
-	/**
-	 * Get NFT Transaction History.
-	 */
+	/** Get NFT Transaction History. */
 	public Request<NFTTransactionHistory> getTransactions(NFTTransactionHistoryParams params) {
 		return new Request<>(service.getTransactions(params.toMap()));
 	}
 
-	/**
-	 * Get NFT deposit History.
-	 */
+	/** Get NFT deposit History. */
 	public Request<NFTDepositHistory> getDeposits(NFTDepositHistoryParams params) {
 		return new Request<>(service.getDeposits(params.toMap()));
 	}
 
-	/**
-	 * Get NFT withdraw History.
-	 */
+	/** Get NFT withdraw History. */
 	public Request<NFTWithdrawHistory> getWithdraws(NFTWithdrawParams params) {
 		return new Request<>(service.getWithdraws(params.toMap()));
 	}
 
-	/**
-	 * Get NFT assets.
-	 */
+	/** Get NFT assets. */
 	public Request<NFTAssetHistory> getAssets(NFTAssetParams params) {
 		return new Request<>(service.getAssets(params.toMap()));
 	}

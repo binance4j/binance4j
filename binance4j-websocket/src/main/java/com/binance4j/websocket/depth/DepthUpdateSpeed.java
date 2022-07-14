@@ -9,18 +9,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum DepthUpdateSpeed {
 
-	/**
-	 * Update of 1000ms
-	 */
+	/** Update of 1000ms */
 	MS_1000("1000ms"),
-	/**
-	 * Update of 100ms
-	 */
+	/** Update of 100ms */
 	MS_100("100ms");
 
-	/**
-	 * The result update speed
-	 */
+	/** The result update speed */
 	@Getter
 	private final String speed;
 }

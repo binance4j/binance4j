@@ -41,8 +41,8 @@ import lombok.EqualsAndHashCode;
 public class SpotClient extends RestClient<SpotMapping> {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param key    The API public key
 	 * @param secret The API secret key
 	 */
@@ -50,9 +50,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 		super(SpotMapping.class, key, secret);
 	}
 
-	/**
-	 * Send in a new order.
-	 */
+	/** Send in a new order. */
 	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
 		return new Request<>(service.newOrder(params.toMap()), params);
 	}
@@ -65,9 +63,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.newOrderTest(params.toMap()), params);
 	}
 
-	/**
-	 * Cancel an active order.
-	 */
+	/** Cancel an active order. */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
 		return new Request<>(service.cancelOrder(params.toMap()), params);
 	}
@@ -92,31 +88,23 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.getOrderStatus(params.toMap()), params);
 	}
 
-	/**
-	 * Get all open orders on a symbol.
-	 */
+	/** Get all open orders on a symbol. */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
 		return new Request<>(service.getOpenOrders(params.toMap()), params);
 	}
 
-	/**
-	 * Get all open orders.
-	 */
+	/** Get all open orders. */
 	public Request<List<OrderInfo>> getOpenOrders() {
 		OpenOrdersStatusParams params = new OpenOrdersStatusParams();
 		return new Request<>(service.getOpenOrders(params.toMap()), params);
 	}
 
-	/**
-	 * Get all orders on a symbol.
-	 */
+	/** Get all orders on a symbol. */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
 		return new Request<>(service.getAllOrders(params.toMap()), params);
 	}
 
-	/**
-	 * Send in an OCO order
-	 */
+	/** Send in an OCO order */
 	public Request<OCOResponse> newOCO(OCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()), params);
 	}
@@ -129,53 +117,39 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.cancelOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Retrieves a specific OCO based on provided optional parameters
-	 */
+	/** Retrieves a specific OCO based on provided optional parameters */
 	public Request<OCOInfo> queryOCO(OCOInfoParams params) {
 		return new Request<>(service.queryOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Retrieves all OCO based on provided optional parameters
-	 */
+	/** Retrieves all OCO based on provided optional parameters */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
 		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Retrieves all OCO based on provided optional parameters
-	 */
+	/** Retrieves all OCO based on provided optional parameters */
 	public Request<List<OCOInfo>> getAllOCO() {
 		AllOCOInfoParams params = new AllOCOInfoParams();
 		return new Request<>(service.getAllOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Retrieves all open OCO
-	 */
+	/** Retrieves all open OCO */
 	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
 		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Retrieves all open OCO
-	 */
+	/** Retrieves all open OCO */
 	public Request<List<OCOInfo>> getOpenOCO() {
 		OpenOCOParams params = new OpenOCOParams();
 		return new Request<>(service.getOpenOCO(params.toMap()), params);
 	}
 
-	/**
-	 * Get current account information.
-	 */
+	/** Get current account information. */
 	public Request<Account> getAccount(AccountParams params) {
 		return new Request<>(service.getAccount(params.toMap()), params);
 	}
 
-	/**
-	 * Get current account information
-	 */
+	/** Get current account information */
 	public Request<Account> getAccount() {
 		AccountParams params = new AccountParams();
 		return new Request<>(service.getAccount(params.toMap()), params);
@@ -190,9 +164,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 		return new Request<>(service.getMyTrades(params.toMap()), params);
 	}
 
-	/**
-	 * Displays the user's current order count usage for all intervals.
-	 */
+	/** Displays the user's current order count usage for all intervals. */
 	public Request<List<OrderCount>> getOrderCount(OrderCountParams params) {
 		return new Request<>(service.getOrderCount(params.toMap()), params);
 	}

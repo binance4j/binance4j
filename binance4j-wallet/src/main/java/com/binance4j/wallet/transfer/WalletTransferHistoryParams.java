@@ -11,17 +11,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WalletTransferHistoryParams extends IntervalParams {
-	/**
-	 * The User universal transfer type
-	 */
+	/** The User universal transfer type */
 	private WalletTransferType type;
-	/**
-	 * The offset
-	 */
+	/** The offset */
 	private Integer current = 1;
-	/**
-	 * The result size
-	 */
+	/** The result size */
 	private Integer size = 10;
 	/**
 	 * Must be sent when type are ISOLATEDMARGIN_MARGIN and
@@ -35,8 +29,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	private String toSymbol;
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param type The transfer type
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type) {
@@ -45,8 +39,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param type The transfer type
 	 * @param size The result size
 	 */
@@ -56,8 +50,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param type    The transfer type
 	 * @param size    The result size
 	 * @param current The offest (starts at 1)
@@ -68,8 +62,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param fromSymbol The transfered symbol
 	 * @param toSymbol   The converted symbol
 	 */
@@ -80,8 +74,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param fromSymbol The transfered symbol
 	 * @param toSymbol   The converted symbol
 	 * @param size       The result size
@@ -92,8 +86,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param fromSymbol The transfered symbol
 	 * @param toSymbol   The converted symbol
 	 * @param size       The result size

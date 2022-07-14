@@ -6,8 +6,8 @@ package com.binance4j.nft.client;
 public class TestnetNFTClient extends NFTClient {
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param key    The Testnet public key
 	 * @param secret The Testnet secret key
 	 */

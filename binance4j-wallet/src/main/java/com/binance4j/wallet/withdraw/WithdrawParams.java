@@ -13,29 +13,17 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class WithdrawParams extends FramedParams {
-	/**
-	 * The coin to withdraw
-	 */
+	/** The coin to withdraw */
 	private String coin;
-	/**
-	 * Client id for withdraw
-	 */
+	/** Client id for withdraw */
 	private String withdrawOrderId;
-	/**
-	 * The network to use
-	 */
+	/** The network to use */
 	private String network;
-	/**
-	 * The destination address
-	 */
+	/** The destination address */
 	private String address;
-	/**
-	 * Secondary address identifier for coins like XRP,XMR etc.
-	 */
+	/** Secondary address identifier for coins like XRP,XMR etc. */
 	private String addressTag;
-	/**
-	 * The volume
-	 */
+	/** The volume */
 	private BigDecimal amount;
 	/**
 	 * When making internal transfer, true for returning the fee to the
@@ -43,18 +31,14 @@ public class WithdrawParams extends FramedParams {
 	 * departure account. Default false.
 	 */
 	private Boolean transactionFeeFlag;
-	/**
-	 * Description of the address. Space in name should be encoded into %20.
-	 */
+	/** Description of the address. Space in name should be encoded into %20. */
 	private String name;
-	/**
-	 * The wallet type for withdraw
-	 */
+	/** The wallet type for withdraw */
 	private Integer walletType;
 
 	/**
-	 * Constructor
 	 *
+	 * 
 	 * @param coin    The coin to withdraw
 	 * @param address The destination address
 	 * @param amount  The volume to withdraw
@@ -66,9 +50,7 @@ public class WithdrawParams extends FramedParams {
 		this.amount = amount;
 	}
 
-	/**
-	 * @param type The wallet type to withdraw to
-	 */
+	/** @param type The wallet type to withdraw to */
 	public void setWalletType(WalletType type) {
 		walletType = type.getValue();
 	}

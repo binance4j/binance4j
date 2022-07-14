@@ -11,44 +11,24 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubAccountTransfer {
-	/**
-	 * Counter party name
-	 */
+	/** Counter party name */
 	private String counterParty;
-	/**
-	 * Counter party email
-	 */
+	/** Counter party email */
 	private String email;
-	/**
-	 * Transfer in or transfer out
-	 */
+	/** Transfer in or transfer out */
 	private int type; // 1 for transfer in; 2 for transfer out
-	/**
-	 * Transfer asset
-	 */
+	/** Transfer asset */
 	private String asset;
-	/**
-	 * Quantity of transfer asset
-	 */
+	/** Quantity of transfer asset */
 	private String qty;
-	/**
-	 * Type of from account
-	 */
+	/** Type of from account */
 	private String fromAccountType;
-	/**
-	 * Type of to account
-	 */
+	/** Type of to account */
 	private String toAccountType;
-	/**
-	 * Transfer status
-	 */
+	/** Transfer status */
 	private String status;
-	/**
-	 * Transfer ID
-	 */
+	/** Transfer ID */
 	private long tranId;
-	/**
-	 * Transfer time
-	 */
+	/** Transfer time */
 	private long time;
 }
