@@ -1,23 +1,22 @@
 package com.binance4j.margin.dto;
 
-import java.util.Optional;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/** An {@link Asset} pair. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Pair(
-		/** TODO JAVADOC. */
-		Optional<Long> id,
-		/** TODO JAVADOC. */
+		/** The pair id. */
+		long id,
+		/** The asset pair. */
 		String symbol,
-		/** TODO JAVADOC. */
+		/** The base asset. */
 		String base,
-		/** TODO JAVADOC. */
+		/** The quote asset. */
 		String quote,
-		/** TODO JAVADOC. */
+		/** Is margin trade allowed? */
 		boolean isMarginTrade,
-		/** TODO JAVADOC. */
+		/** Is purchase allowed? */
 		boolean isBuyAllowed,
-		/** TODO JAVADOC. */
+		/** Is sale allowed? */
 		boolean isSellAllowed) {
 }

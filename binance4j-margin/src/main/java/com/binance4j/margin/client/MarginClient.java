@@ -60,7 +60,7 @@ import com.binance4j.margin.param.NewOCOOrderParams;
 import com.binance4j.margin.param.NewOrderParams;
 import com.binance4j.margin.param.OpenOrdersParams;
 import com.binance4j.margin.param.OrderParams;
-import com.binance4j.margin.param.PairPrams;
+import com.binance4j.margin.param.PairParams;
 import com.binance4j.margin.param.PriceIndexParams;
 import com.binance4j.margin.param.RepayParams;
 import com.binance4j.margin.param.RepayRecordParams;
@@ -140,7 +140,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Pair> getCrossMarginPair(PairPrams params) {
+	public Request<Pair> getCrossMarginPair(PairParams params) {
 		return new Request<>(service.getCrossMarginPair(params.toMap()), params);
 	}
 
@@ -510,7 +510,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Pair> getIsolatedSymbol(PairPrams params) {
+	public Request<Pair> getIsolatedSymbol(PairParams params) {
 		return new Request<>(service.getIsolatedSymbol(params.toMap()), params);
 	}
 

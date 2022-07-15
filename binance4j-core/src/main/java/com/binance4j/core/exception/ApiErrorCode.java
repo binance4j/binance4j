@@ -11,7 +11,7 @@ import lombok.Getter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public enum ApiErrorCode {
-    /** Client was unable to deserialize the server response */
+    /** Client was unable to deserialize the server response. */
     DESERIALIZATION_FAILURE(-2000),
     /**
      * <ul>

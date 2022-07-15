@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
-/** The {@link MarginClient#borrow} params */
+/** The {@link MarginClient#borrow} params. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BorrowParams extends FramedParams {

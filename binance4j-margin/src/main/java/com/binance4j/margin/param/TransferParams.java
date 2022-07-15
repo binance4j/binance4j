@@ -9,7 +9,7 @@ import com.binance4j.margin.dto.TransferType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/** The {@link MarginClient#transfer} params */
+/** The {@link MarginClient#transfer} params. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TransferParams extends FramedParams {

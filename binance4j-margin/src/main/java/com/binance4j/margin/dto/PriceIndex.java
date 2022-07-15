@@ -4,12 +4,13 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/** A symbol price index. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record PriceIndex(
-		/** TODO JAVADOC. */
+		/** The last price calculation timestamp in ms. */
 		long calcTime,
-		/** TODO JAVADOC. */
+		/** The price. */
 		BigDecimal price,
-		/** TODO JAVADOC. */
+		/** The asset pair. */
 		String symbol) {
 }

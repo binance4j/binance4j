@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/** The {@link MarginClient#repay} params */
+/** The {@link MarginClient#repay} params. */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RepayParams extends FramedParams {

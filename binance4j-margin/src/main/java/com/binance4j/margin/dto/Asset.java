@@ -5,18 +5,19 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/** An asset on the platform */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Asset(
-		/** Asset full name. */
+		/** The asset full name. */
 		String assetFullName,
-		/** Asset name. */
+		/** The asset name. */
 		String assetName,
 		/** Is it borrowable? */
 		boolean isBorrowable,
 		/** Is it mortgageable? */
 		boolean isMortgageable,
-		/** User minimum borrow. */
+		/** The user minimum borrow. */
 		@JsonProperty("userMinBorrow") BigDecimal userMinimumBorrow,
-		/** User minimum repay. */
+		/** The user minimum repay. */
 		@JsonProperty("userMinRepay") BigDecimal userMinimumRepay) {
 }
