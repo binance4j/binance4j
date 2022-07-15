@@ -7,20 +7,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
-		/** TODO JAVADOC. */
+		/** The user assets. */
 		List<AssetBalance> userAssets,
-		/** TODO JAVADOC. */
+		/** The margin level. */
 		BigDecimal marginLevel,
-		/** TODO JAVADOC. */
+		/** The total asset of Bitcoin. */
 		BigDecimal totalAssetOfBtc,
-		/** TODO JAVADOC. */
+		/** The total liability of Bitcoin. */
 		BigDecimal totalLiabilityOfBtc,
-		/** TODO JAVADOC. */
+		/** The total net asset of Bitcoin */
 		BigDecimal totalNetAssetOfBtc,
-		/** TODO JAVADOC. */
+		/** Is borrow enabled? */
 		boolean borrowEnabled,
-		/** TODO JAVADOC. */
+		/** Is trade enabled? */
 		boolean tradeEnabled,
-		/** TODO JAVADOC. */
+		/** Is transfer Enabled? */
 		boolean transferEnabled) {
 }

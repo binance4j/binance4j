@@ -12,7 +12,7 @@ public record InterestData(
 		/** TODO JAVADOC. */
 		String asset,
 		/** TODO JAVADOC. */
-		Long interestAccuredTime,
+		long interestAccuredTime,
 		/** TODO JAVADOC. */
 		BigDecimal interest,
 		/** TODO JAVADOC. */

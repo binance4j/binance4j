@@ -24,9 +24,9 @@ public record OrderResponse(
 		/** TODO JAVADOC. */
 		String symbol,
 		/** TODO JAVADOC. */
-		Long orderId,
+		long orderId,
 		/** TODO JAVADOC. */
-		Long transactTime,
+		long transactTime,
 		/** TODO JAVADOC. */
 		BigDecimal clientOrderId,
 		/** TODO JAVADOC. */
@@ -42,7 +42,7 @@ public record OrderResponse(
 		/** TODO JAVADOC. */
 		BigDecimal marginBuyBorrowAsset,
 		/** TODO JAVADOC. */
-		Boolean isIsolated,
+		boolean isIsolated,
 		/** TODO JAVADOC. */
 		List<Trade> fills) {
 }

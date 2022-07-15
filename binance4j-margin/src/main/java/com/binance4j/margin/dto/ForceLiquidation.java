@@ -28,5 +28,5 @@ public record ForceLiquidation(
 		/** TODO JAVADOC. */
 		@JsonProperty("qty") BigDecimal quantity,
 		/** TODO JAVADOC. */
-		Boolean isIsolated) {
+		boolean isIsolated) {
 }

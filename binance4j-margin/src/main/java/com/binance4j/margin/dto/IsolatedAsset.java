@@ -9,9 +9,9 @@ public record IsolatedAsset(
 		/** TODO JAVADOC. */
 		String asset,
 		/** TODO JAVADOC. */
-		Boolean borrowEnabled,
+		boolean borrowEnabled,
 		/** TODO JAVADOC. */
-		Boolean repayEnabled,
+		boolean repayEnabled,
 		/** TODO JAVADOC. */
 		BigDecimal borrowed,
 		/** TODO JAVADOC. */

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record InterestHistory(
 		/** TODO JAVADOC. */
-		Integer total,
+		int total,
 		/** TODO JAVADOC. */
 		List<InterestData> rows) {
 }

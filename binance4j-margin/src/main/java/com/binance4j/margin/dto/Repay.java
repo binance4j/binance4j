@@ -20,7 +20,7 @@ public record Repay(
 		/** TODO JAVADOC. */
 		LoanStatus status,
 		/** TODO JAVADOC. */
-		Long timestamp,
+		long timestamp,
 		/** TODO JAVADOC. */
-		@JsonProperty("txId") Long transactionId) {
+		@JsonProperty("txId") long transactionId) {
 }

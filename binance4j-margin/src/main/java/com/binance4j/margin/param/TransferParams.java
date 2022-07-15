@@ -3,11 +3,13 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.param.FramedParams;
+import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/** The {@link MarginClient#transfer} params */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TransferParams extends FramedParams {
@@ -25,22 +27,6 @@ public class TransferParams extends FramedParams {
 	private int type;
 
 	/**
-	 * 
-	 * 
-	 * @param asset  The asset to transfer
-	 * @param amount The amout to transfer
-	 * @param type   The transfer type
-	 */
-	public TransferParams(String asset, BigDecimal amount, TransferType type) {
-		super(600);
-		this.asset = asset;
-		this.amount = amount;
-		this.type = type.getValue();
-	}
-
-	/**
-	 * 
-	 * 
 	 * @param asset  The asset to transfer
 	 * @param amount The amout to transfer
 	 * @param type   The transfer type. 1: transfer from main account to cross margin account, 2: transfer from cross margin
@@ -51,5 +37,14 @@ public class TransferParams extends FramedParams {
 		this.asset = asset;
 		this.amount = amount;
 		this.type = type;
+	}
+
+	/**
+	 * @param asset  The asset to transfer
+	 * @param amount The amout to transfer
+	 * @param type   The transfer type
+	 */
+	public TransferParams(String asset, BigDecimal amount, TransferType type) {
+		this(asset, amount, type.getValue());
 	}
 }

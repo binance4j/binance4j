@@ -3,12 +3,14 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.param.FramedParams;
+import com.binance4j.margin.client.MarginClient;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
+/** The {@link MarginClient#borrow} params */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class BorrowParams extends FramedParams {

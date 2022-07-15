@@ -18,7 +18,7 @@ public record OCOResponse(
 		/** will not return if no margin trade happens. */
 		BigDecimal marginBuyBorrowAsset,
 		/** The order list id. */
-		Long orderListId,
+		long orderListId,
 		/** ??? */
 		ContingencyType contingencyType,
 		/** The list status. */
@@ -28,13 +28,13 @@ public record OCOResponse(
 		/** The list client order id. */
 		String listClientOrderId,
 		/** The order timestamp. */
-		Long transactionTime,
+		long transactionTime,
 		/** The order symbol. */
 		String symbol,
 		/** The 2 orders. */
 		List<MiniOrderInfo> orders,
 		/** Is isolated margin. */
-		Boolean isIsolated,
+		boolean isIsolated,
 		/** The order reports. */
 		List<OrderReport> orderReports) {
 }

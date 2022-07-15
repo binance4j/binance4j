@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ToogleAccountResponse(
 		/** TODO JAVADOC. */
-		Boolean success,
+		boolean success,
 		/** TODO JAVADOC. */
 		String symbol) {
 }

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
 		/** TODO JAVADOC. */
-		Integer total,
+		int total,
 		/** TODO JAVADOC. */
 		List<Repay> rows) {
 }

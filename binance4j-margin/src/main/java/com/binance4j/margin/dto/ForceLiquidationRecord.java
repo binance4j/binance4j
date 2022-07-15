@@ -9,5 +9,5 @@ public record ForceLiquidationRecord(
 		/** TODO JAVADOC. */
 		List<ForceLiquidation> rows,
 		/** TODO JAVADOC. */
-		Integer total) {
+		int total) {
 }

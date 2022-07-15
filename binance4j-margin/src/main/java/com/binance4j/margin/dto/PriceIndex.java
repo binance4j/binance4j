@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record PriceIndex(
 		/** TODO JAVADOC. */
-		Long calcTime,
+		long calcTime,
 		/** TODO JAVADOC. */
 		BigDecimal price,
 		/** TODO JAVADOC. */

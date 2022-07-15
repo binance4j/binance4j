@@ -13,7 +13,7 @@ public record MarginOCO(
 		/** TODO JAVADOC. */
 		String symbol,
 		/** TODO JAVADOC. */
-		Boolean isIsolated,
+		boolean isIsolated,
 		/** TODO JAVADOC. */
 		String listClientOrderId,
 		/** TODO JAVADOC. */

@@ -7,15 +7,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /** Asset balance in an {@link Account}. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetBalance(
-		/** TODO JAVADOC. */
+		/** THe asset name. */
 		String asset,
-		/** TODO JAVADOC. */
+		/** The borrowed quantity. */
 		BigDecimal borrowed,
-		/** TODO JAVADOC. */
+		/** The free quantity. */
 		BigDecimal free,
-		/** TODO JAVADOC. */
+		/** The borrow interest. */
 		BigDecimal interest,
-		/** TODO JAVADOC. */
+		/** The locked quantity. */
 		BigDecimal locked,
 		/** TODO JAVADOC. */
 		BigDecimal netAsset) {

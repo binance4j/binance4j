@@ -13,11 +13,11 @@ public record IsolatedAssets(
 		/** TODO JAVADOC. */
 		String symbol,
 		/** TODO JAVADOC. */
-		Boolean isolatedCreated,
+		boolean isolatedCreated,
 		/** TODO JAVADOC. */
-		Boolean tradeEnabled,
+		boolean tradeEnabled,
 		/** TODO JAVADOC. */
-		Boolean enabled,
+		boolean enabled,
 		/** TODO JAVADOC. */
 		LevelStatus marginLevelStatus,
 		/** TODO JAVADOC. */

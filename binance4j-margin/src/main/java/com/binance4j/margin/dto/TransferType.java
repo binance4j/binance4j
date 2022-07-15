@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public enum TransferType {
 	MAIN_TO_MARGIN(1), MARGIN_TO_MAIN(2);
 
+	private final int value;
+
 	private TransferType(int value) {
 		this.value = value;
 	}
-
-	private final int value;
 
 	public int getValue() {
 		return value;

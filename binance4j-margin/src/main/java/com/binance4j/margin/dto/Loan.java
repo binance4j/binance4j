@@ -16,7 +16,7 @@ public record Loan(
 		/** TODO JAVADOC. */
 		String asset,
 		/** TODO JAVADOC. */
-		Long timestamp,
+		long timestamp,
 		/** TODO JAVADOC. */
-		Long txId) {
+		long txId) {
 }

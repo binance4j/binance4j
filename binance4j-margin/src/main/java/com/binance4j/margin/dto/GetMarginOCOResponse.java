@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record GetMarginOCOResponse(
 		/** TODO JAVADOC. */
-		Long orderListId,
+		long orderListId,
 		/** TODO JAVADOC. */
 		ContingencyType contingencyType,
 		/** TODO JAVADOC. */
@@ -21,11 +21,11 @@ public record GetMarginOCOResponse(
 		/** TODO JAVADOC. */
 		String listClientOrderId,
 		/** TODO JAVADOC. */
-		Long transactionTime,
+		long transactionTime,
 		/** TODO JAVADOC. */
 		String symbol,
 		/** TODO JAVADOC. */
-		Boolean isIsoslated,
+		boolean isIsoslated,
 		/** TODO JAVADOC. */
 		List<OrderInfo> orders) {
 }

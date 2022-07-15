@@ -3,23 +3,27 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.param.FramedParams;
+import com.binance4j.margin.client.MarginClient;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.Setter;
 
+/** The {@link MarginClient#repay} params */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RepayParams extends FramedParams {
-	/** Asset to repay. */
+	/** The asset to repay. */
 	private String asset;
-	/** Isolated symbol. */
+	/** The isolated symbol. */
 	private String symbol;
-	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
+	/** For isolated margin or not. Default {@code false}. */
+	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
 	private Boolean isIsolated;
-	/** Amount to repay. */
+	/** The amount to repay. */
 	private BigDecimal amount;
 
 	public RepayParams(String asset, BigDecimal amount) {
@@ -42,5 +46,9 @@ public class RepayParams extends FramedParams {
 	public void isNotIsolated() {
 		this.isIsolated = false;
 		this.symbol = null;
+	}
+
+	public Boolean isIsolated() {
+		return isIsolated;
 	}
 }
