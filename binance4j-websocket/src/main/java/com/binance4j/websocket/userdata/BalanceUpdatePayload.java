@@ -26,10 +26,10 @@ public class BalanceUpdatePayload {
 	/** The asset. */
 	@JsonProperty("a")
 	private String asset;
-	/** ??? */
+	/** TODO JAVADOC */
 	@JsonProperty("d")
 	private String balanceDelta;
-	/** ??? */
+	/** TODO JAVADOC */
 	@JsonProperty("T")
 	private Long clearTime;
 }

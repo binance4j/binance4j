@@ -33,12 +33,8 @@ public class BarService {
 	public static Bar convert(Candle bar, Duration timePeriod, ZoneId zoneId) {
 		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class)
 				.timePeriod(timePeriod)
-				.endTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(bar.getCloseTime()), zoneId))
-				.openPrice(bar.getOpen())
-				.highPrice(bar.getHigh())
-				.lowPrice(bar.getLow())
-				.closePrice(bar.getClose())
-				.volume(bar.getVolume())
+				.endTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(bar.closeTime()), zoneId)).openPrice(bar.open()).highPrice(bar.high()).lowPrice(bar.low())
+				.closePrice(bar.close()).volume(bar.volume())
 				.build();
 	}
 

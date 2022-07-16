@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /** The OCO order status. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum OCOOrderStatus {
-    /** ??? */
-    EXECUTING,
-    /** ??? */
-    ALL_DONE,
-    /** ??? */
-    REJECT
+	/** Is executing */
+	EXECUTING,
+	/** Is done */
+	ALL_DONE,
+	/** Is rejected */
+	REJECT
 }

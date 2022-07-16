@@ -30,14 +30,14 @@ public class GetAggTradesTests extends MarketTest {
 	@Test
 	public void test3() throws ApiException {
 		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol, 1640991600000L, 1640994900000L)).execute();
-		res.forEach(at -> assertTrue(at.getTime() >= 1640991600000L && at.getTime() <= 1640994900000L));
+		res.forEach(at -> assertTrue(at.time() >= 1640991600000L && at.time() <= 1640994900000L));
 		test(res);
 	}
 
 	@Test
 	public void test4() throws ApiException {
 		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol, 244397449L)).execute();
-		res.forEach(at -> assertTrue(at.getTradeId() >= 244397449L));
+		res.forEach(at -> assertTrue(at.tradeId() >= 244397449L));
 		test(res);
 	}
 }

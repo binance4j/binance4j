@@ -21,6 +21,6 @@ public class DustLogUserAssetDribblets {
 	private BigDecimal totalServiceChargeAmount;
 	/** The transaction id. */
 	private Long transId;
-	/** ??? */
+	/** TODO JAVADOC */
 	private List<DustLogUserAssetDribbletDetails> userAssetDribbletDetails;
 }

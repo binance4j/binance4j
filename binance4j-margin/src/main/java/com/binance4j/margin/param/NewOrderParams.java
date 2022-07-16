@@ -3,15 +3,15 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.client.RestClientConfiguration;
-import com.binance4j.core.dto.BaseOrder;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.SideEffectType;
 import com.binance4j.core.dto.TimeInForce;
+import com.binance4j.core.param.BaseOrderParams;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#newOrder} params. */
-public class NewOrderParams extends BaseOrder {
+public class NewOrderParams extends BaseOrderParams {
 	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
 	private SideEffectType sideEffectType;
 

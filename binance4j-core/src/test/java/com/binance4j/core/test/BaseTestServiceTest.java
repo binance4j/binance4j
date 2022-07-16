@@ -22,7 +22,7 @@ import com.binance4j.core.pojo.NestedObject;
 import com.binance4j.core.pojo.SubObject;
 import com.binance4j.core.pojo.SubSubObject;
 
-/** TODO JAVADOC */
+/** TODO REDO TESTS!!!! */
 public class BaseTestServiceTest extends ConcurrentTest<Void> {
     protected BaseTestServiceTest() {
         super();
@@ -33,21 +33,8 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
 
     @BeforeEach
     void beforeEach() {
-        trade = new AggTrade();
-        trade.setFirstTradeId(1L);
-        trade.setLastTradeId(2L);
-        trade.setPrice(new BigDecimal(1));
-        trade.setQuantity(new BigDecimal(1));
-        trade.setTime(100L);
-        trade.setTradeId(123L);
-
-        trade2 = new AggTrade();
-        trade2.setFirstTradeId(1L);
-        trade2.setLastTradeId(2L);
-        trade2.setPrice(new BigDecimal(1));
-        trade2.setQuantity(null);
-        trade2.setTime(null);
-        trade2.setTradeId(123L);
+        trade = new AggTrade(123L, 1L, 2L, 100L, new BigDecimal(1), new BigDecimal(1), false, false);
+        trade2 = new AggTrade(123L, 0L, 2L, 100L, null, new BigDecimal(1), false, false);
     }
 
     @Test
@@ -59,29 +46,24 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         list.add("lol");
         list.add("hihi");
 
-        assertEquals(map.get("firstTradeId"), trade.getFirstTradeId());
-        assertEquals(map.get("lastTradeId"), trade.getLastTradeId());
-        assertEquals(map.get("price"), trade.getPrice());
-        assertEquals(map.get("quantity"), trade.getQuantity());
-        assertEquals(map.get("time"), trade.getTime());
-        assertEquals(map.get("tradeId"), trade.getTradeId());
+        assertEquals(map.get("firstTradeId"), trade.firstTradeId());
+        assertEquals(map.get("lastTradeId"), trade.lastTradeId());
+        assertEquals(map.get("price"), trade.price());
+        assertEquals(map.get("quantity"), trade.quantity());
+        assertEquals(map.get("time"), trade.time());
+        assertEquals(map.get("tradeId"), trade.tradeId());
     }
 
     @Test
     void testGetNullProperties() {
-        trade.setFirstTradeId(null);
-        trade.setPrice(null);
 
-        Set<String> list = getNullProperties(trade);
+        Set<String> list = getNullProperties(trade2);
         assertEquals(2, list.size());
         assertTrue(list.containsAll(Arrays.asList("firstTradeId", "price")));
     }
 
     @Test
     void testGetNullPropertiesOfList() {
-        trade.setFirstTradeId(null);
-        trade.setPrice(null);
-
         List<AggTrade> listOfTrades = new ArrayList<>();
         listOfTrades.add(trade);
         listOfTrades.add(trade2);
@@ -96,8 +78,6 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
 
     @Test
     void testGetNestedProperties() {
-        trade.setFirstTradeId(null);
-        trade.setPrice(null);
 
         SubSubObject subSubObject1 = new SubSubObject();
         subSubObject1.getTrades().add(trade);
@@ -122,12 +102,6 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
         Set<String> list = getNullProperties(nestedObject);
 
         assertEquals(16, list.size());
-        assertTrue(list.contains("subs[0].subSubObjects[0].trades[0].firstTradeId"));
-        assertTrue(list.contains("subs[0].subSubObjects[0].trades[0].price"));
-        assertTrue(list.contains("subs[0].subSubObjects[0].trades[1].firstTradeId"));
-        assertTrue(list.contains("subs[0].subSubObjects[0].trades[1].price"));
-        assertTrue(list.contains("subs[0].subSubObjects[1].trades[0].firstTradeId"));
-        assertTrue(list.contains("subs[0].subSubObjects[1].trades[0].price"));
         assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].firstTradeId"));
         assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].price"));
         assertTrue(list.contains("subs[1].subSubObjects[0].trades[0].firstTradeId"));
@@ -147,12 +121,13 @@ public class BaseTestServiceTest extends ConcurrentTest<Void> {
 
     @Test
     void testHasNullProperty() throws IntrospectionException {
-        trade.setFirstTradeId(null);
-        assertFalse(hasNoNullProperty(trade));
+        System.out.println(trade2);
+        assertFalse(hasNoNullProperty(trade2));
     }
 
     @Test
     void testHasBeanProperties() {
+        System.out.println(trade);
         assertTrue(hasProperties(trade));
     }
 

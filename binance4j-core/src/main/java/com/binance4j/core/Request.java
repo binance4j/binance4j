@@ -8,12 +8,10 @@ import com.binance4j.core.exception.ApiError;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.Data;
 import retrofit2.Call;
 import retrofit2.Response;
 
 /** A class that receives and executes sync and async retrofit calls. */
-@Data
 public class Request<T> {
     /** The Jackson Object mapper for deserializing the Api error response. */
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -21,8 +19,6 @@ public class Request<T> {
     private final Call<T> call;
 
     /**
-     * 
-     * 
      * @param call The retrofit call
      */
     public Request(Call<T> call) {

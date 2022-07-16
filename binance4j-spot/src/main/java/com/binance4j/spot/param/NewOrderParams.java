@@ -3,10 +3,10 @@ package com.binance4j.spot.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.client.RestClientConfiguration;
-import com.binance4j.core.dto.BaseOrder;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.TimeInForce;
+import com.binance4j.core.param.BaseOrderParams;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 /** An order to open or close a position */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class NewOrderParams extends BaseOrder {
+public class NewOrderParams extends BaseOrderParams {
 	/** Stop Limit price. */
 	BigDecimal stopLimitPrice;
 

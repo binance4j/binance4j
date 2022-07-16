@@ -15,13 +15,13 @@ import lombok.Data;
 public class AssetDividend {
 	/** The divident amount. */
 	private BigDecimal amount;
-	/** ??? */
+	/** TODO JAVADOC */
 	private String enInfo;
 	/** The asset abbreviation. */
 	private String asset;
 	/** The id. */
 	private Long id;
-	/** ??? */
+	/** TODO JAVADOC */
 	private Long divTime;
 	/** The transaction id. */
 	private Long tranId;

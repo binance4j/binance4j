@@ -27,7 +27,7 @@ public class DepositHistory {
 	private String txId;
 	/** confirm times for unlocking. */
 	private String unlockConfirm;
-	/** ??? */
+	/** TODO JAVADOC */
 	private String confirmTimes;
 	/** The withdraw status code. */
 	private Integer status;

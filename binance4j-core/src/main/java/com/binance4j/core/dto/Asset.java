@@ -2,44 +2,35 @@ package com.binance4j.core.dto;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** An asset on binance. */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Asset {
-	/** The asset id. */
-	private String id;
-	/** The asset abbreviation. */
-	private String assetCode;
-	/** The asset full name. */
-	private String assetName;
-	/** ??? */
-	private String unit;
-	/** The cost of a transaction. */
-	private BigDecimal transactionFee;
-	/** The payment associated with a certain amount of sale. */
-	private BigDecimal commissionRate;
-	/** ??? */
-	private BigDecimal freeAuditWithdrawAmount;
-	/** ??? */
-	private BigDecimal freeUserChargeAmount;
-	/** The minimal amount you can withdraw. */
-	private BigDecimal minProductWithdraw;
-	/** The smallest withdraw multiple. */
-	private BigDecimal withdrawIntegerMultiple;
-	/**
-	 * the time elapsed between the moment a blockchain transaction is submitted to the network and the time it is finally
-	 * recorded into a confirmed block
-	 */
-	private Long confirmTimes;
-	/** is the withdrawal of the asset enabled. */
-	private Boolean enableWithdraw;
-	/** is it issued by a government. */
-	private Boolean isLegalMoney;
+public record Asset(
+		/** The asset id. */
+		String id,
+		/** The asset abbreviation. */
+		String assetCode,
+		/** The asset full name. */
+		String assetName,
+		/** Unit */
+		String unit,
+		/** The cost of a transaction. */
+		BigDecimal transactionFee,
+		/** The payment associated with a certain amount of sale. */
+		BigDecimal commissionRate,
+		/** Free audit withdraw amount */
+		BigDecimal freeAuditWithdrawAmount,
+		/** Free user charge amount */
+		BigDecimal freeUserChargeAmount,
+		/** The minimal amount you can withdraw. */
+		BigDecimal minProductWithdraw,
+		/** The smallest withdraw multiple. */
+		BigDecimal withdrawIntegerMultiple,
+		/** Time elapsed between the moment a blockchain transaction is submitted and recorded into a confirmed block */
+		Long confirmTimes,
+		/** is the withdrawal of the asset enabled. */
+		Boolean enableWithdraw,
+		/** is it issued by a government. */
+		Boolean isLegalMoney) {
 }

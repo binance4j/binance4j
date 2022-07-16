@@ -1,79 +1,188 @@
 package com.binance4j.core.client;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.binance4j.core.dto.TimeInForce;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
+/** The configuration of every {@link RestClient} */
 @Data
 public class RestClientConfiguration {
+	/** URL base domain. */
+	private static String defaultBaseDomain = "api.binance.com";
+	/** Testnet URL base domain. */
+	private static String defaultTestnetDomain = "testnet.binance.vision";
+	/** The default order time in force. */
+	private static TimeInForce defaultTimeInforce = TimeInForce.GTC;
+	/** Max requests per host. */
+	private static int defaultMaxRequestsPerHost = 500;
+	/** Max requests. */
+	private static int defaultMaxRequests = 500;
+	/** Defines if the services use the test network. */
+	private static boolean defaultUseTestnet = false;
+	/** URL base domain. */
+	private String baseDomain = defaultBaseDomain;
+	/** Testnet URL base domain. */
+	private String testnetDomain = defaultTestnetDomain;
+	/** The default order time in force. */
+	private TimeInForce timeInForce = defaultTimeInforce;
+	/** Max requests per host. */
+	private int maxRequestsPerHost = defaultMaxRequestsPerHost;
+	/** Max requests. */
+	private int maxRequests = defaultMaxRequests;
+	/** Defines if the services use the test network. */
+	private boolean useTestnet = defaultUseTestnet;
 
-    /** Available APIs defined by their prefix. */
-    @Getter
-    @Setter
-    private static List<String> defaultApiPrefixes = new ArrayList<>(Arrays.asList("api", "api1", "api2", "api3"));
+	/**
+	 * @return the defaultBaseDomain
+	 */
+	public static String getDefaultBaseDomain() {
+		return defaultBaseDomain;
+	}
 
-    /** URL base domain. */
-    @Getter
-    @Setter
-    private static String defaultBaseDomain = "binance.com";
+	/**
+	 * @param defaultBaseDomain the defaultBaseDomain to set
+	 */
+	public static void setDefaultBaseDomain(String defaultBaseDomain) {
+		RestClientConfiguration.defaultBaseDomain = defaultBaseDomain;
+	}
 
-    /** Testnet URL base domain. */
-    @Getter
-    @Setter
-    private static String defaultTestnetDomain = "testnet.binance.vision";
+	/**
+	 * @return the defaultTestnetDomain
+	 */
+	public static String getDefaultTestnetDomain() {
+		return defaultTestnetDomain;
+	}
 
-    /** The default order time in force. */
-    @Getter
-    @Setter
-    private static TimeInForce defaultTimeInforce = TimeInForce.GTC;
+	/**
+	 * @param defaultTestnetDomain the defaultTestnetDomain to set
+	 */
+	public static void setDefaultTestnetDomain(String defaultTestnetDomain) {
+		RestClientConfiguration.defaultTestnetDomain = defaultTestnetDomain;
+	}
 
-    /** Max requests per host. */
-    @Getter
-    @Setter
-    private static int defaultMaxRequestsPerHost = 500;
+	/**
+	 * @return the defaultTimeInforce
+	 */
+	public static TimeInForce getDefaultTimeInforce() {
+		return defaultTimeInforce;
+	}
 
-    /** Max requests. */
-    @Getter
-    @Setter
-    private static int defaultMaxRequests = 500;
+	/**
+	 * @param defaultTimeInforce the defaultTimeInforce to set
+	 */
+	public static void setDefaultTimeInforce(TimeInForce defaultTimeInforce) {
+		RestClientConfiguration.defaultTimeInforce = defaultTimeInforce;
+	}
 
-    /** Defines if the services use the test network. */
-    @Getter
-    @Setter
-    private static boolean defaultUseTestnet = false;
+	/**
+	 * @return the defaultMaxRequestsPerHost
+	 */
+	public static int getDefaultMaxRequestsPerHost() {
+		return defaultMaxRequestsPerHost;
+	}
 
-    /** Available APIs defined by their prefix. */
-    private List<String> apiPrefixes = defaultApiPrefixes;
+	/**
+	 * @param defaultMaxRequestsPerHost the defaultMaxRequestsPerHost to set
+	 */
+	public static void setDefaultMaxRequestsPerHost(int defaultMaxRequestsPerHost) {
+		RestClientConfiguration.defaultMaxRequestsPerHost = defaultMaxRequestsPerHost;
+	}
 
-    /** URL base domain. */
-    private String baseDomain = defaultBaseDomain;
+	/**
+	 * @return the defaultMaxRequests
+	 */
+	public static int getDefaultMaxRequests() {
+		return defaultMaxRequests;
+	}
 
-    /** Testnet URL base domain. */
-    private String testnetDomain = defaultTestnetDomain;
+	/**
+	 * @param defaultMaxRequests the defaultMaxRequests to set
+	 */
+	public static void setDefaultMaxRequests(int defaultMaxRequests) {
+		RestClientConfiguration.defaultMaxRequests = defaultMaxRequests;
+	}
 
-    /** The default order time in force. */
-    private TimeInForce timeInForce = defaultTimeInforce;
+	/**
+	 * @return the defaultUseTestnet
+	 */
+	public static boolean isDefaultUseTestnet() {
+		return defaultUseTestnet;
+	}
 
-    /** Max requests per host. */
-    private int maxRequestsPerHost = defaultMaxRequestsPerHost;
+	/**
+	 * @param defaultUseTestnet the defaultUseTestnet to set
+	 */
+	public static void setDefaultUseTestnet(boolean defaultUseTestnet) {
+		RestClientConfiguration.defaultUseTestnet = defaultUseTestnet;
+	}
 
-    /** Max requests. */
-    private int maxRequests = defaultMaxRequests;
+	/**
+	 * @return the BaseDomain
+	 */
+	public String getBaseDomain() {
+		return baseDomain;
+	}
 
-    /** Defines if the services use the test network. */
-    private boolean useTestnet = defaultUseTestnet;
+	/**
+	 * @param BaseDomain the BaseDomain to set
+	 */
+	public void setBaseDomain(String baseDomain) {
+		this.baseDomain = baseDomain;
+	}
 
-    public void useTestnet(boolean useTestnet) {
-        this.useTestnet = useTestnet;
-    }
+	/**
+	 * @return the TestnetDomain
+	 */
+	public String getTestnetDomain() {
+		return testnetDomain;
+	}
 
-    public boolean useTestnet() {
-        return useTestnet;
-    }
+	/**
+	 * @param TestnetDomain the TestnetDomain to set
+	 */
+	public void setTestnetDomain(String testnetDomain) {
+		this.testnetDomain = testnetDomain;
+	}
+
+	/**
+	 * @return the MaxRequestsPerHost
+	 */
+	public int getMaxRequestsPerHost() {
+		return maxRequestsPerHost;
+	}
+
+	/**
+	 * @param MaxRequestsPerHost the MaxRequestsPerHost to set
+	 */
+	public void setMaxRequestsPerHost(int maxRequestsPerHost) {
+		this.maxRequestsPerHost = maxRequestsPerHost;
+	}
+
+	/**
+	 * @return the MaxRequests
+	 */
+	public int getMaxRequests() {
+		return maxRequests;
+	}
+
+	/**
+	 * @param MaxRequests the MaxRequests to set
+	 */
+	public void setMaxRequests(int maxRequests) {
+		this.maxRequests = maxRequests;
+	}
+
+	/**
+	 * @return the UseTestnet
+	 */
+	public boolean useTestnet() {
+		return useTestnet;
+	}
+
+	/**
+	 * @param UseTestnet the UseTestnet to set
+	 */
+	public void useTestnet(boolean useTestnet) {
+		this.useTestnet = useTestnet;
+	}
 }

@@ -15,6 +15,6 @@ import lombok.Data;
 public class DustLog {
 	/** Total counts of exchange. */
 	private Integer total;
-	/** ??? */
+	/** TODO JAVADOC */
 	private List<DustLogUserAssetDribblets> userAssetDribblets;
 }

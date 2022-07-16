@@ -2,7 +2,6 @@ package com.binance4j.core.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.dto.Order;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
 
@@ -14,7 +13,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class OCOOrderParams extends Order {
+public class OCOOrderParams extends OrderParams {
     /** A unique Id for the entire orderList */
     private String listClientOrderId;
     /** A unique Id for the limit order */

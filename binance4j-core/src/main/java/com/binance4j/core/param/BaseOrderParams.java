@@ -1,6 +1,10 @@
-package com.binance4j.core.dto;
+package com.binance4j.core.param;
 
 import java.math.BigDecimal;
+
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.TimeInForce;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +14,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class BaseOrder extends Order {
+public class BaseOrderParams extends OrderParams {
     /** The order type */
     protected OrderType type;
     /** Le order lifetime */
@@ -22,7 +26,7 @@ public class BaseOrder extends Order {
     /** The order unique id. Else is produced automatically. */
     protected String newClientOrderId;
 
-    protected BaseOrder() {
+    protected BaseOrderParams() {
     }
 
     /**
@@ -35,7 +39,7 @@ public class BaseOrder extends Order {
      * @param quantity    The order quantity
      * @param timeInForce The order lifetime
      */
-    public BaseOrder(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, TimeInForce timeInForce) {
+    public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, TimeInForce timeInForce) {
         super(weight, symbol, side, quantity);
         this.type = type;
         // timeInForce useless for market order
@@ -51,7 +55,7 @@ public class BaseOrder extends Order {
      * @param side     The order side (BUY/SELL)
      * @param quantity The order quantity
      */
-    public BaseOrder(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
+    public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
         super(weight, symbol, side, quantity);
         this.type = type;
         this.timeInForce = TimeInForce.GTC;
@@ -68,7 +72,7 @@ public class BaseOrder extends Order {
      * @param price       The order price
      * @param timeInForce The order lifetime
      */
-    public BaseOrder(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
+    public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
         this(weight, symbol, type, side, quantity, timeInForce);
         this.price = price;
     }
@@ -83,7 +87,7 @@ public class BaseOrder extends Order {
      * @param quantity The order quantity
      * @param price    The order price
      */
-    public BaseOrder(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
+    public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
         this(weight, symbol, type, side, quantity);
         this.price = price;
     }

@@ -4,31 +4,25 @@ import java.util.List;
 
 import com.binance4j.core.exception.ApiErrorCode;
 import com.binance4j.core.exception.ApiException;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** The current exchange trading rules and symbol information. */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ExchangeInfo {
-    /** The server timezone */
-    private String timezone;
-    /** The server time */
-    private Long serverTime;
-    /** The request limits (weight, orders, raw...) */
-    private List<RateLimit> rateLimits;
-    /** The trading rules of the exchange */
-    private List<ExchangeFilter> exchangeFilters;
-    /** The available symbols on the exchange */
-    private List<SymbolInfo> symbols;
+public record ExchangeInfo(
+		/** The server timezone */
+		String timezone,
+		/** The server time */
+		Long serverTime,
+		/** The request limits (weight, orders, raw...) */
+		List<RateLimit> rateLimits,
+		/** The trading rules of the exchange */
+		List<ExchangeFilter> exchangeFilters,
+		/** The available symbols on the exchange */
+		List<SymbolInfo> symbols) {
 
-    /** The symbol exchange information */
-    public SymbolInfo getSymbolInfo(String symbol) throws ApiException {
-        return symbols.stream().filter(symbolInfo -> symbolInfo.getSymbol().equals(symbol)).findFirst()
-                .orElseThrow(() -> new ApiException(ApiErrorCode.UNKNOWN, String.format("Unable to obtain information for symbol %s", symbol)));
-    }
+	/** The symbol exchange information */
+	public SymbolInfo ymbolInfo(String symbol) throws ApiException {
+		return symbols.stream().filter(symbolInfo -> symbolInfo.symbol().equals(symbol)).findFirst()
+				.orElseThrow(() -> new ApiException(ApiErrorCode.UNKNOWN, String.format("Unable to obtain information for symbol %s", symbol)));
+	}
 }

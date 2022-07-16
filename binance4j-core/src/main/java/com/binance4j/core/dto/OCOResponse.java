@@ -2,36 +2,29 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
-/** The resposne of an OCO order. */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
+/** The response of an OCO order. */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OCOResponse {
-	/** The order list id. */
-	private Long orderListId;
-	/** ??? */
-	private ContingencyType contingencyType;
-	/** The list status. */
-	private OCOStatus listStatusType;
-	/** The list order status. */
-	private OCOOrderStatus listOrderStatus;
-	/** The list client order id. */
-	private String listClientOrderId;
-	/** The order timestamp. */
-	private Long transactionTime;
-	/** The order symbol. */
-	private String symbol;
-	/** The 2 orders. */
-	private List<MiniOrderInfo> orders;
-	/** if isolated margin. */
-	private Boolean isIsolated;
-	/** The order reports. */
-	private List<OrderReport> orderReports;
-
+public record OCOResponse(
+		/** The order list id. */
+		Long orderListId,
+		/** ??? */
+		ContingencyType contingencyType,
+		/** The list status. */
+		OCOStatus listStatusType,
+		/** The list order status. */
+		OCOOrderStatus listOrderStatus,
+		/** The list client order id. */
+		String listClientOrderId,
+		/** The order timestamp. */
+		Long transactionTime,
+		/** The order symbol. */
+		String symbol,
+		/** The 2 orders. */
+		List<MiniOrderInfo> orders,
+		/** if isolated margin. */
+		Boolean isIsolated,
+		/** The order reports. */
+		List<OrderReport> orderReports) {
 }
