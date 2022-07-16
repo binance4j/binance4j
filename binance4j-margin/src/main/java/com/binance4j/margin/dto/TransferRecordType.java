@@ -1,5 +1,9 @@
 package com.binance4j.margin.dto;
 
+/** The transfer record type */
 public enum TransferRecordType {
-	ROLL_IN, ROLL_OUT
+	/** Roll in */
+	ROLL_IN,
+	/** Roll out */
+	ROLL_OUT
 }

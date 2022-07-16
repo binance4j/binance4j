@@ -1,14 +1,8 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.param.FramedParams;
+import com.binance4j.margin.client.MarginClient;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-@Data
-@EqualsAndHashCode(callSuper = true)
+/** The {@link MarginClient#getEnabledIsolatedAccountLimit} params. */
 public class IsolatedAccountLimitParams extends FramedParams {
-	public IsolatedAccountLimitParams() {
-		super(1);
-	}
 }

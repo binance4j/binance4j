@@ -8,134 +8,172 @@ import com.binance4j.core.order.BaseOrder;
 import com.binance4j.core.order.OrderSide;
 import com.binance4j.core.order.OrderType;
 import com.binance4j.core.order.SideEffectType;
+import com.binance4j.margin.client.MarginClient;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-/** A trade order to enter or exit a position. */
-@Data
-@EqualsAndHashCode(callSuper = true)
+/** The {@link MarginClient#newOrder} params. */
 public class NewOrderParams extends BaseOrder {
-	/** Set the margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
+	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
 	private SideEffectType sideEffectType;
 
 	/**
-	 * Produit un ordre sans prix
-	 *
-	 * @param symbol      la paire d'asset sur laquelle passer l'ordre
-	 * @param type        le type d'ordre
-	 * @param side        le sens de l'ordre
-	 * @param quantity    la quantité de l'ordre
-	 * @param timeInForce la durée de vie de l'ordre
+	 * Produces an order
+	 * 
+	 * @param symbol      The symbol
+	 * @param type        The order type
+	 * @param side        The order side
+	 * @param quantity    The quantity
+	 * @param timeInForce The timeInforce
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, TimeInForce timeInForce) {
 		super(6, symbol, type, side, quantity, timeInForce);
 	}
 
 	/**
-	 * Produit un ordre sans prix avec time in force GTC par défaut
-	 *
-	 * @param symbol   la paire d'asset sur laquelle passer l'ordre
-	 * @param type     le type d'ordre
-	 * @param side     le sens de l'ordre
-	 * @param quantity la quantité de l'ordre
+	 * Produces an order
+	 * 
+	 * @param symbol   The symbol
+	 * @param type     The order type
+	 * @param side     The order side
+	 * @param quantity The quantity
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
 		super(6, symbol, type, side, quantity);
 	}
 
 	/**
-	 * Produit un ordre avec un prix
-	 *
-	 * @param symbol      la paire d'asset sur laquelle passer l'ordre
-	 * @param type        le type d'ordre
-	 * @param side        le sens de l'ordre
-	 * @param quantity    la quantité de l'ordre
-	 * @param price       le prix de l'ordre
-	 * @param timeInForce la durée de vie de l'ordre
+	 * Produces an order
+	 * 
+	 * @param symbol      The symbol
+	 * @param type        The order type
+	 * @param side        The order side
+	 * @param quantity    The quantity
+	 * @param price       The price
+	 * @param timeInForce The timeInforce
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
 		super(6, symbol, type, side, quantity, price, timeInForce);
 	}
 
 	/**
-	 * Produit un ordre avec un prix et time in force GTC par défaut
-	 *
-	 * @param symbol   la paire d'asset sur laquelle passer l'ordre
-	 * @param type     le type d'ordre
-	 * @param side     le sens de l'ordre
-	 * @param quantity la quantité de l'ordre
-	 * @param price    le prix de l'ordre
+	 * Produces an order
+	 * 
+	 * @param symbol   The symbol
+	 * @param type     The order type
+	 * @param side     The order side
+	 * @param quantity The quantity
+	 * @param price    The price
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
 		super(6, symbol, type, side, quantity, price);
 	}
 
-	// STATIQUE //
-
 	/**
-	 * Produit un ordre d'achat MARKET
-	 *
-	 * @param symbol      La paire d'asset
-	 * @param quantity    La quantité
-	 * @param timeInForce La durée de vie de l'ordre
+	 * Produces a buy market order
+	 * 
+	 * @param symbol      The symbol
+	 * @param quantity    The quantity
+	 * @param timeInForce The timeInforce
+	 * @return The generated {@link NewOrderParams}
 	 */
 	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity, timeInForce);
 	}
 
-	/** Produit un ordre d'achat MARKET avec timeInForce par défaut. */
+	/**
+	 * Produces a buy market order
+	 * 
+	 * @param symbol   The symbol
+	 * @param quantity The quantity
+	 * @return The generated {@link NewOrderParams}
+	 */
 	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity) {
 		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
-	 * Produit un ordre de vent MARKET
-	 *
-	 * @param symbol      La paire d'asset
-	 * @param quantity    La quantité
-	 * @param timeInForce La durée de vie de l'ordre
+	 * Produces a sell market order
+	 * 
+	 * @param symbol      The symbol
+	 * @param quantity    The quantity
+	 * @param timeInForce The timeInforce
+	 * @return The generated {@link NewOrderParams}
 	 */
 	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity, timeInForce);
 	}
 
-	/** Produit un ordre de vent MARKET avec timeInForce par défaut. */
+	/**
+	 * Produces a sell market order
+	 * 
+	 * @param symbol   The symbol
+	 * @param quantity The quantity
+	 * @return The generated {@link NewOrderParams}
+	 */
 	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity) {
 		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
-	 * Produit un ordre d'achat LIMIT
-	 *
-	 * @param symbol      La paire d'asset
-	 * @param quantity    La quantité
-	 * @param price       Le prix d'achat
-	 * @param timeInForce La durée de vie de l'ordre
+	 * Produces a buy limit order
+	 * 
+	 * @param symbol      The symbol
+	 * @param quantity    The quantity
+	 * @param price       The price
+	 * @param timeInForce The timeInforce
+	 * @return The generated {@link NewOrderParams}
 	 */
 	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price, timeInForce);
 	}
 
-	/** Produit un ordre d'achat LIMIT avec timeInForce par défaut. */
+	/**
+	 * Produces a buy limit order
+	 * 
+	 * @param symbol   The symbol
+	 * @param quantity The quantity
+	 * @param price    The price
+	 * @return The generated {@link NewOrderParams}
+	 */
 	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
 		return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
 	/**
-	 * Produit un ordre de vente LIMIT
-	 *
-	 * @param symbol      La paire d'asset
-	 * @param quantity    La quantité
-	 * @param price       Le prix de vente
-	 * @param timeInForce La durée de vie de l'ordre
+	 * Produces a sell limit order
+	 * 
+	 * @param symbol      The symbol
+	 * @param quantity    The quantity
+	 * @param price       The price
+	 * @param timeInForce The timeInforce
+	 * @return The generated {@link NewOrderParams}
 	 */
 	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, timeInForce);
 	}
 
-	/** Produit un ordre de vente LIMIT avec timeInForce par défaut. */
+	/**
+	 * Produces a sell limit order
+	 * 
+	 * @param symbol   The symbol
+	 * @param quantity The quantity
+	 * @param price    The price
+	 * @return The generated {@link NewOrderParams}
+	 */
 	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
 		return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
+	}
+
+	/**
+	 * @return The sideEffectType
+	 */
+	public SideEffectType getSideEffectType() {
+		return sideEffectType;
+	}
+
+	/**
+	 * @param sideEffectType The sideEffectType to set
+	 */
+	public void setSideEffectType(SideEffectType sideEffectType) {
+		this.sideEffectType = sideEffectType;
 	}
 }

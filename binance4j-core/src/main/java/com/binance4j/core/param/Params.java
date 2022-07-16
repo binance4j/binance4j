@@ -17,7 +17,7 @@ public class Params {
 	public static long recvWindow = 60_000L;
 
     /** The request weight */
-	protected int weight;
+    protected int weight = 1;
 
     /** Is this request generating an order? */
     private boolean isOrderRequest;
@@ -67,7 +67,14 @@ public class Params {
 	/**
 	 * @param recvWindow the recvWindow to set
 	 */
-	public static void setRecvWindow(long recvWindow) {
-		Params.recvWindow = recvWindow;
-	}
+    public static void setRecvWindow(long recvWindow) {
+        Params.recvWindow = recvWindow;
+    }
+
+    /**
+     * @return the weight
+     */
+    public int getWeight() {
+        return weight;
+    }
 }

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-margin</artifactId>
-  <version>${binance4j.version}</version>
+  <version>2.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <repositories>
@@ -18,7 +18,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <binance4j.version>2.0.1-SNAPSHOT</binance4j.version>
   </properties>
 
   <name>binance4j-margin</name>
@@ -61,78 +60,11 @@
     <dependency>
       <groupId>com.binance4j</groupId>
       <artifactId>binance4j-core</artifactId>
-      <version>${binance4j.version}</version>
+      <version>2.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <build>
     <plugins>
-      <!-- Automatically delomboks the source code -->
-      <plugin>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok-maven-plugin</artifactId>
-        <version>1.18.20.0</version>
-        <executions>
-          <execution>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>delombok</goal>
-            </goals>
-          </execution>
-        </executions>
-        <!-- Defines input and output for code delombok -->
-        <configuration>
-          <sourceDirectory>src/main/java</sourceDirectory>
-          <outputDirectory>${project.build.directory}/delombok</outputDirectory>
-          <addOutputDirectory>false</addOutputDirectory>
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
-      <!-- Allows Ant operations -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
-        <executions>
-          <execution>
-            <id>generate-delomboked-sources-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <!-- generates the sources jar from the delombok directory -->
-            <configuration>
-              <target>
-                <jar destfile="${project.build.directory}/${project.build.finalName}-sources.jar" basedir="${project.build.directory}/delombok" />
-              </target>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Add more sources to the project -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <id>attach-source-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>attach-artifact</goal>
-            </goals>
-            <!-- Defines the sources jar -->
-            <configuration>
-              <artifacts>
-                <artifact>
-                  <file>${project.build.directory}/${project.build.finalName}-sources.jar</file>
-                  <type>jar</type>
-                  <classifier>sources</classifier>
-                </artifact>
-              </artifacts>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <!-- Attaches the sources -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -158,10 +90,6 @@
             <goals>
               <goal>jar</goal>
             </goals>
-            <!-- Source directory for the javadoc genration (delomboked code else will throws error since annotations are not standard) -->
-            <configuration>
-              <sourcepath>target/delombok</sourcepath>
-            </configuration>
           </execution>
         </executions>
       </plugin>

@@ -3,16 +3,18 @@ package com.binance4j.margin.param;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#enableIsolatedAccount},{@link MarginClient#disableIsolatedAccount} params. */
-public class ToogleAccountParams extends FramedParams {
+/** The {@link MarginClient#getIsolatedMarginTierData} params. */
+public class IsolatedTierDataParams extends FramedParams {
 	/** The symbol */
 	private String symbol;
+	/** The tier */
+	private String tier;
 
 	/**
 	 * @param symbol The symbol
 	 */
-	public ToogleAccountParams(String symbol) {
-		super(300);
+	public IsolatedTierDataParams(String symbol) {
+		super();
 		this.symbol = symbol;
 	}
 
@@ -29,4 +31,19 @@ public class ToogleAccountParams extends FramedParams {
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
+
+	/**
+	 * @return the tier
+	 */
+	public String getTier() {
+		return tier;
+	}
+
+	/**
+	 * @param tier the tier to set
+	 */
+	public void setTier(String tier) {
+		this.tier = tier;
+	}
+
 }

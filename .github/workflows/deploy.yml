@@ -19,8 +19,10 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   SERVERS: '[{  "id": "ossrh",  "username": "${{ secrets.OSSRH_USERNAME }}",   "password": "${{ secrets.OSSRH_PASSWORD }}"}]'
   CORE_INSTALLATION: cd binance4j-core && mvn install -DskipTests=true 
+  MARGIN_INSTALLATION: cd binance4j-margin && mvn install -DskipTests=true 
   MARKET_INSTALLATION: cd binance4j-market && mvn install -DskipTests=true 
   NFT_INSTALLATION: cd binance4j-nft && mvn install -DskipTests=true 
+  REBATE_INSTALLATION: cd binance4j-rebate && mvn install -DskipTests=true 
   SPOT_INSTALLATION: cd binance4j-spot && mvn install -DskipTests=true 
   STRATEGY_INSTALLATION: cd binance4j-strategy && mvn install -DskipTests=true 
   VISION_INSTALLATION: cd binance4j-vision && mvn install -DskipTests=true 
@@ -474,10 +476,16 @@ jobs:
         run: ${{ env.CORE_INSTALLATION }}
 
       - name: Install binance4j-market
+        run: ${{ env.MARGIN_INSTALLATION }}
+
+      - name: Install binance4j-market
         run: ${{ env.MARKET_INSTALLATION }}
 
       - name: Install binance4j-nft
         run: ${{ env.NFT_INSTALLATION }}
+
+      - name: Install binance4j-nft
+        run: ${{ env.REBATE_INSTALLATION }}
 
       - name: Install binance4j-spot
         run: ${{ env.SPOT_INSTALLATION }}

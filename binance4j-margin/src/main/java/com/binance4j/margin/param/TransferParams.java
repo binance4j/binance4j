@@ -6,12 +6,7 @@ import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferType;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The {@link MarginClient#transfer} params. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class TransferParams extends FramedParams {
 	/** The asset being transferred, e.g., BTC. */
 	private String asset;
@@ -47,4 +42,47 @@ public class TransferParams extends FramedParams {
 	public TransferParams(String asset, BigDecimal amount, TransferType type) {
 		this(asset, amount, type.getValue());
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public int getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(int type) {
+		this.type = type;
+	}
+
 }

@@ -10,6 +10,7 @@ import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.param.Request;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
+import com.binance4j.margin.dto.BNBBurnStatus;
 import com.binance4j.margin.dto.CrossFee;
 import com.binance4j.margin.dto.CrossSymbol;
 import com.binance4j.margin.dto.ForceLiquidationRecords;
@@ -36,22 +37,21 @@ import com.binance4j.margin.dto.TransferRecords;
 import com.binance4j.margin.param.AllMarginPairsParams;
 import com.binance4j.margin.param.AllOrdersParams;
 import com.binance4j.margin.param.AssetParams;
-import com.binance4j.margin.param.BNBBurnStatus;
 import com.binance4j.margin.param.BorrowParams;
 import com.binance4j.margin.param.BurnStatusParams;
-import com.binance4j.margin.param.CancelMarginOCOParams;
-import com.binance4j.margin.param.CrossMarginFeeParams;
+import com.binance4j.margin.param.CancelOCOParams;
+import com.binance4j.margin.param.CrossFeeParams;
 import com.binance4j.margin.param.ForceLiquidationRecordParams;
-import com.binance4j.margin.param.GetAllMarginOCOParams;
-import com.binance4j.margin.param.GetMarginAccountParams;
-import com.binance4j.margin.param.GetMarginOCOParams;
-import com.binance4j.margin.param.GetOpenMarginOCOParams;
+import com.binance4j.margin.param.GetAccountParams;
+import com.binance4j.margin.param.GetAllOCOParams;
+import com.binance4j.margin.param.GetOCOParams;
+import com.binance4j.margin.param.GetOpenOCOParams;
 import com.binance4j.margin.param.InterestHistoryParams;
 import com.binance4j.margin.param.InterestRateHistoryParams;
 import com.binance4j.margin.param.IsolatedAccountLimitParams;
 import com.binance4j.margin.param.IsolatedAccountParams;
-import com.binance4j.margin.param.IsolatedMarginFeeParams;
-import com.binance4j.margin.param.IsolatedMarginTierDataParams;
+import com.binance4j.margin.param.IsolatedFeeParams;
+import com.binance4j.margin.param.IsolatedTierDataParams;
 import com.binance4j.margin.param.IsolatedTransferHistoryParams;
 import com.binance4j.margin.param.LoanRecordParams;
 import com.binance4j.margin.param.MaxBorrowableParams;
@@ -268,7 +268,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Account> getAccount(GetMarginAccountParams params) {
+	public Request<Account> getAccount(GetAccountParams params) {
 		return new Request<>(service.getAccount(params.toMap()));
 	}
 
@@ -278,7 +278,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Account> getAccount() {
-		return getAccount(new GetMarginAccountParams());
+		return getAccount(new GetAccountParams());
 	}
 
 	/**
@@ -336,7 +336,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<NewOCOOrderRecord> cancelOCO(CancelMarginOCOParams params) {
+	public Request<NewOCOOrderRecord> cancelOCO(CancelOCOParams params) {
 		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
@@ -346,7 +346,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<OCOOrderRecord> getOCO(GetMarginOCOParams params) {
+	public Request<OCOOrderRecord> getOCO(GetOCOParams params) {
 		return new Request<>(service.getOCO(params.toMap()));
 	}
 
@@ -356,7 +356,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOOrderRecord>> getAllOCO(GetAllMarginOCOParams params) {
+	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params) {
 		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
@@ -366,7 +366,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOOrderRecord>> getOpenOCO(GetOpenMarginOCOParams params) {
+	public Request<List<OCOOrderRecord>> getOpenOCO(GetOpenOCOParams params) {
 		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
@@ -376,7 +376,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getOpenOCO() {
-		return getOpenOCO(new GetOpenMarginOCOParams());
+		return getOpenOCO(new GetOpenOCOParams());
 	}
 
 	/**
@@ -580,7 +580,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<CrossFee>> getMarginFeeData(CrossMarginFeeParams params) {
+	public Request<List<CrossFee>> getMarginFeeData(CrossFeeParams params) {
 		return new Request<>(service.getMarginFeeData(params.toMap()));
 	}
 
@@ -591,7 +591,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<CrossFee>> getMarginFeeData() {
-		return getMarginFeeData(new CrossMarginFeeParams());
+		return getMarginFeeData(new CrossFeeParams());
 	}
 
 	/**
@@ -601,7 +601,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<IsolatedFee>> getIsolatedFeeData(IsolatedMarginFeeParams params) {
+	public Request<List<IsolatedFee>> getIsolatedFeeData(IsolatedFeeParams params) {
 		return new Request<>(service.getIsolatedFeeData(params.toMap()));
 	}
 
@@ -612,7 +612,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedFee>> getIsolatedFeeData() {
-		return getIsolatedFeeData(new IsolatedMarginFeeParams());
+		return getIsolatedFeeData(new IsolatedFeeParams());
 	}
 
 	/**
@@ -622,7 +622,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<IsolatedTierData>> getIsolatedMarginTierData(IsolatedMarginTierDataParams params) {
+	public Request<List<IsolatedTierData>> getIsolatedMarginTierData(IsolatedTierDataParams params) {
 		return new Request<>(service.getIsolatedMarginTierData(params.toMap()));
 	}
 }

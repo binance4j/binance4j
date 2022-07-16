@@ -1,26 +1,130 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.param.IntervalParams;
+import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-@Data
-@EqualsAndHashCode(callSuper = true)
+/** The {@link MarginClient#getIsolatedTransferHistory} params. */
 public class IsolatedTransferHistoryParams extends IntervalParams {
+	/** The asset. */
 	private String asset;
+	/** The symbol. */
 	private String symbol;
+	/** The transfer origin. */
 	private IsolatedTransferAccount transFrom;
+	/** The transfer destination. */
 	private IsolatedTransferAccount transTo;
-	/** Current page,default 1 */
+	/** Current page, default 1. */
 	private Long current;
-	/** Default 10, max 100 */
+	/** The paresult size. Default 10, max 100 */
 	private Integer size;
+	/** Set to true for archived data from 6 months ago. */
 	private Boolean archived;
 
+	/**
+	 * @param symbol The symbol
+	 */
 	public IsolatedTransferHistoryParams(String symbol) {
-		super(1);
+		super();
 		this.symbol = symbol;
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the transFrom
+	 */
+	public IsolatedTransferAccount getTransFrom() {
+		return transFrom;
+	}
+
+	/**
+	 * @param transFrom the transFrom to set
+	 */
+	public void setTransFrom(IsolatedTransferAccount transFrom) {
+		this.transFrom = transFrom;
+	}
+
+	/**
+	 * @return the transTo
+	 */
+	public IsolatedTransferAccount getTransTo() {
+		return transTo;
+	}
+
+	/**
+	 * @param transTo the transTo to set
+	 */
+	public void setTransTo(IsolatedTransferAccount transTo) {
+		this.transTo = transTo;
+	}
+
+	/**
+	 * @return the current
+	 */
+	public Long getCurrent() {
+		return current;
+	}
+
+	/**
+	 * @param current the current to set
+	 */
+	public void setCurrent(Long current) {
+		this.current = current;
+	}
+
+	/**
+	 * @return the size
+	 */
+	public Integer getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+
+	/**
+	 * @return the archived
+	 */
+	public Boolean getArchived() {
+		return archived;
+	}
+
+	/**
+	 * @param archived the archived to set
+	 */
+	public void setArchived(Boolean archived) {
+		this.archived = archived;
+	}
+
 }

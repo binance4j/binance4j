@@ -5,27 +5,21 @@ import java.math.BigDecimal;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-
 /** The {@link MarginClient#repay} params. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class RepayParams extends FramedParams {
 	/** The asset to repay. */
 	private String asset;
 	/** The isolated symbol. */
 	private String symbol;
 	/** For isolated margin or not. Default {@code false}. */
-	@Getter(value = AccessLevel.NONE)
-	@Setter(value = AccessLevel.NONE)
 	private Boolean isIsolated;
 	/** The amount to repay. */
 	private BigDecimal amount;
 
+	/**
+	 * @param asset  The asset to repay.
+	 * @param amount The amount to repay.
+	 */
 	public RepayParams(String asset, BigDecimal amount) {
 		super(300);
 		this.asset = asset;
@@ -48,7 +42,60 @@ public class RepayParams extends FramedParams {
 		this.symbol = null;
 	}
 
-	public Boolean isIsolated() {
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the isIsolated
+	 */
+	public Boolean getIsIsolated() {
 		return isIsolated;
 	}
+
+	/**
+	 * @param isIsolated the isIsolated to set
+	 */
+	public void setIsIsolated(Boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
 }
