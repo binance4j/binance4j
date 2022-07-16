@@ -21,9 +21,7 @@ public class WithdrawHistory {
 	private String coin;
 	/** The withdraw id. */
 	private String id;
-	/**
-	 * The withdraw order id. will not be returned if there's no withdrawOrderId for this withdraw.
-	 */
+	/** The withdraw order id. will not be returned if there's no withdrawOrderId for this withdraw. */
 	private String withdrawOrderId;
 	/** The network to withdraw on. */
 	private String network;
@@ -33,9 +31,7 @@ public class WithdrawHistory {
 	private String txId;
 	/** 1 for internal transfer, 0 for external transfer. */
 	private Integer transferType;
-	/**
-	 * (0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)
-	 */
+	/** (0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed) */
 	private Integer status;
 	/** Confirm times for withdraw. */
 	private Integer confirmNo;

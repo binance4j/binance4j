@@ -37,21 +37,15 @@ public enum CandlestickInterval {
 	/** 1-month interval for vision data. */
 	MONTHLY_VISION("1mo");
 
-	/**
-	 * @param value
-	 */
+	/** @param value The value */
 	private CandlestickInterval(String value) {
 		this.value = value;
 	}
 
-	/**
-	 * The interval id
-	 */
+	/** The interval id */
 	private final String value;
 
-	/**
-	 * @return the value
-	 */
+	/** @return the value */
 	public String getValue() {
 		return value;
 	}

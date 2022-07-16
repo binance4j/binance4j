@@ -19,58 +19,42 @@ public class GetOCOParams extends FramedParams {
 		super(10);
 	}
 
-	/**
-	 * @return the isIsolated
-	 */
+	/** @return the isIsolated */
 	public Boolean getIsIsolated() {
 		return isIsolated;
 	}
 
-	/**
-	 * @param isIsolated the isIsolated to set
-	 */
+	/** @param isIsolated the isIsolated to set */
 	public void setIsIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}
 
-	/**
-	 * @return the symbol
-	 */
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/**
-	 * @param symbol the symbol to set
-	 */
+	/** @param symbol the symbol to set */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/**
-	 * @return the orderListId
-	 */
+	/** @return the orderListId */
 	public Long getOrderListId() {
 		return orderListId;
 	}
 
-	/**
-	 * @param orderListId the orderListId to set
-	 */
+	/** @param orderListId the orderListId to set */
 	public void setOrderListId(Long orderListId) {
 		this.orderListId = orderListId;
 	}
 
-	/**
-	 * @return the origClientOrderId
-	 */
+	/** @return the origClientOrderId */
 	public String getOrigClientOrderId() {
 		return origClientOrderId;
 	}
 
-	/**
-	 * @param origClientOrderId the origClientOrderId to set
-	 */
+	/** @param origClientOrderId the origClientOrderId to set */
 	public void setOrigClientOrderId(String origClientOrderId) {
 		this.origClientOrderId = origClientOrderId;
 	}

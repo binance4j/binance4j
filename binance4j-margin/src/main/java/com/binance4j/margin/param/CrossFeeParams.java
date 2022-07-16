@@ -16,31 +16,23 @@ public class CrossFeeParams extends FramedParams {
 		coin = null;
 	}
 
-	/**
-	 * @param coin The related coin
-	 */
+	/** @param coin The related coin */
 	public CrossFeeParams(String coin) {
 		super();
 		this.coin = coin;
 	}
 
-	/**
-	 * @return the coin
-	 */
+	/** @return the coin */
 	public String getCoin() {
 		return coin;
 	}
 
-	/**
-	 * @return the vipLevel
-	 */
+	/** @return the vipLevel */
 	public Integer getVipLevel() {
 		return vipLevel;
 	}
 
-	/**
-	 * @param vipLevel the vipLevel to set
-	 */
+	/** @param vipLevel the vipLevel to set */
 	public void setVipLevel(Integer vipLevel) {
 		this.vipLevel = vipLevel;
 	}

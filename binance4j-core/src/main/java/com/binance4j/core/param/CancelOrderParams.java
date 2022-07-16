@@ -7,21 +7,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class CancelOrderParams extends FramedParams {
-	/**
-	 * The trade symbol
-	 */
+	/** The trade symbol */
 	private String symbol;
-	/**
-	 * The order id
-	 */
+	/** The order id */
 	private Long orderId;
-	/**
-	 * The original client order id
-	 */
+	/** The original client order id */
 	private String origClientOrderId;
-	/**
-	 * The new client order id
-	 */
+	/** The new client order id */
 	private String newClientOrderId;
 
 	/**

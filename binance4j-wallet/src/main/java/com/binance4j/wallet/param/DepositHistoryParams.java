@@ -12,9 +12,7 @@ import lombok.EqualsAndHashCode;
 public class DepositHistoryParams extends IntervalParams {
 	/** The deposited coin. */
 	private String coin;
-	/**
-	 * The deposit status. 0(0:pending,6: credited but cannot withdraw, 1:success)
-	 */
+	/** The deposit status. 0(0:pending,6: credited but cannot withdraw, 1:success) */
 	private Integer status;
 
 	/** The history offset. */

@@ -12,72 +12,52 @@ public class TransferHistoryParams extends IntervalParams {
 	private Integer size;
 	private Boolean archived;
 
-	/**
-	 * @return the asset
-	 */
+	/** @return the asset */
 	public String getAsset() {
 		return asset;
 	}
 
-	/**
-	 * @param asset the asset to set
-	 */
+	/** @param asset the asset to set */
 	public void setAsset(String asset) {
 		this.asset = asset;
 	}
 
-	/**
-	 * @return the type
-	 */
+	/** @return the type */
 	public TransferRecordType getType() {
 		return type;
 	}
 
-	/**
-	 * @param type the type to set
-	 */
+	/** @param type the type to set */
 	public void setType(TransferRecordType type) {
 		this.type = type;
 	}
 
-	/**
-	 * @return the current
-	 */
+	/** @return the current */
 	public Long getCurrent() {
 		return current;
 	}
 
-	/**
-	 * @param current the current to set
-	 */
+	/** @param current the current to set */
 	public void setCurrent(Long current) {
 		this.current = current;
 	}
 
-	/**
-	 * @return the size
-	 */
+	/** @return the size */
 	public Integer getSize() {
 		return size;
 	}
 
-	/**
-	 * @param size the size to set
-	 */
+	/** @param size the size to set */
 	public void setSize(Integer size) {
 		this.size = size;
 	}
 
-	/**
-	 * @return the archived
-	 */
+	/** @return the archived */
 	public Boolean getArchived() {
 		return archived;
 	}
 
-	/**
-	 * @param archived the archived to set
-	 */
+	/** @param archived the archived to set */
 	public void setArchived(Boolean archived) {
 		this.archived = archived;
 	}

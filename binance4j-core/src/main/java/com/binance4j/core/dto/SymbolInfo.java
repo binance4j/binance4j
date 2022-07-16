@@ -6,39 +6,58 @@ import com.binance4j.core.serialization.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-/** Symbol information (base/quote). */
+/**
+ * Symbol information (base/quote).
+ * 
+ * @param status                     The symbol status.
+ * @param orderTypes                 The allowed orders on the symbol*.
+ * @param filters                    The symbol filters.
+ * @param permissions                The symbol permission.
+ * @param symbol                     The symbol name.
+ * @param quoteAsset                 The quote asset.
+ * @param baseAsset                  The base asset.
+ * @param baseAssetPrecision         The base asset precision.
+ * @param baseCommissionPrecision    The base asset commission precision.
+ * @param quoteAssetPrecision        The quote asset precision.
+ * @param quoteCommissionPrecision   The quote asset commission precision.
+ * @param icebergAllowed             Are iceberg orders allowed?
+ * @param ocoAllowed                 Are OCO orders allowed?
+ * @param quoteOrderQtyMarketAllowed Are orders by quote quantity allowed?
+ * @param isSpotTradingAllowed       Is spot trading allowed?
+ * @param isMarginTradingAllowed     Is margin trading allowed?
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolInfo(
-		/** TODO JAVADOC */
+		/** The symbol status. */
 		SymbolStatus status,
-		/** TODO JAVADOC */
+		/** The allowed orders on the symbol*. */
 		List<OrderType> orderTypes,
-		/** TODO JAVADOC */
+		/** The symbol filters. */
 		@JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
-		/** TODO JAVADOC */
+		/** The symbol permission. */
 		List<String> permissions,
-		/** TODO JAVADOC */
+		/** The symbol name. */
 		String symbol,
-		/** TODO JAVADOC */
+		/** The quote asset. */
 		String quoteAsset,
-		/** TODO JAVADOC */
+		/** The base asset. */
 		String baseAsset,
-		/** TODO JAVADOC */
+		/** The base asset precision. */
 		Integer baseAssetPrecision,
-		/** TODO JAVADOC */
+		/** The base asset commission precision. */
 		Integer baseCommissionPrecision,
-		/** TODO JAVADOC */
+		/** The quote asset precision. */
 		Integer quoteAssetPrecision,
-		/** TODO JAVADOC */
+		/** The quote asset commission precision. */
 		Integer quoteCommissionPrecision,
-		/** TODO JAVADOC */
+		/** Are iceberg orders allowed? */
 		Boolean icebergAllowed,
-		/** TODO JAVADOC */
+		/** Are OCO orders allowed? */
 		Boolean ocoAllowed,
-		/** TODO JAVADOC */
+		/** Are orders by quote quantity allowed? */
 		Boolean quoteOrderQtyMarketAllowed,
-		/** TODO JAVADOC */
+		/** Is spot trading allowed? */
 		Boolean isSpotTradingAllowed,
-		/** TODO JAVADOC */
+		/** Is margin trading allowed? */
 		Boolean isMarginTradingAllowed) {
 }

@@ -36,72 +36,52 @@ public class NewIsolatedTransferParams extends FramedParams {
 		this.amount = amount;
 	}
 
-	/**
-	 * @return the asset
-	 */
+	/** @return the asset */
 	public String getAsset() {
 		return asset;
 	}
 
-	/**
-	 * @param asset the asset to set
-	 */
+	/** @param asset the asset to set */
 	public void setAsset(String asset) {
 		this.asset = asset;
 	}
 
-	/**
-	 * @return the symbol
-	 */
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/**
-	 * @param symbol the symbol to set
-	 */
+	/** @param symbol the symbol to set */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/**
-	 * @return the transFrom
-	 */
+	/** @return the transFrom */
 	public IsolatedTransferAccount getTransFrom() {
 		return transFrom;
 	}
 
-	/**
-	 * @param transFrom the transFrom to set
-	 */
+	/** @param transFrom the transFrom to set */
 	public void setTransFrom(IsolatedTransferAccount transFrom) {
 		this.transFrom = transFrom;
 	}
 
-	/**
-	 * @return the transTo
-	 */
+	/** @return the transTo */
 	public IsolatedTransferAccount getTransTo() {
 		return transTo;
 	}
 
-	/**
-	 * @param transTo the transTo to set
-	 */
+	/** @param transTo the transTo to set */
 	public void setTransTo(IsolatedTransferAccount transTo) {
 		this.transTo = transTo;
 	}
 
-	/**
-	 * @return the amount
-	 */
+	/** @return the amount */
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	/**
-	 * @param amount the amount to set
-	 */
+	/** @param amount the amount to set */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}

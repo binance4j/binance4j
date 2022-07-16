@@ -3,6 +3,20 @@ package com.binance4j.core.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 // TODO transfer to sub account module when created
+/**
+ * Sub account transfer
+ * 
+ * @param counterParty    Counter party name.
+ * @param email           Counter party email.
+ * @param type            Transfer in or transfer out.
+ * @param asset           Transfer asset.
+ * @param qty             Quantity of transfer asset.
+ * @param fromAccountType Type of from account.
+ * @param toAccountType   Type of to account.
+ * @param status          Transfer status.
+ * @param tranId          Transfer ID.
+ * @param time            Transfer time.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SubAccountTransfer(
 		/** Counter party name. */

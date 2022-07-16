@@ -2,26 +2,26 @@ package com.binance4j.core.dto;
 
 /** Order reject reason values. */
 public enum OrderRejectReason {
-	/** none. */
+	/** None. */
 	NONE,
-	/** unknown instrument. */
+	/** Unknown instrument. */
 	UNKNOWN_INSTRUMENT,
-	/** market closed. */
+	/** Market closed. */
 	MARKET_CLOSED,
-	/** price quantity exceed hard limits. */
+	/** Price quantity exceed hard limits. */
 	PRICE_QTY_EXCEED_HARD_LIMITS,
-	/** unknown order. */
+	/** Unknown order. */
 	UNKNOWN_ORDER,
-	/** duplicate order. */
+	/** Duplicate order. */
 	DUPLICATE_ORDER,
-	/** unknown account. */
+	/** Unknown account. */
 	UNKNOWN_ACCOUNT,
-	/** insufficient balance. */
+	/** Insufficient balance. */
 	INSUFFICIENT_BALANCE,
-	/** account inactive. */
+	/** Account inactive. */
 	ACCOUNT_INACTIVE,
-	/** account cannot settle. */
+	/** Account cannot settle. */
 	ACCOUNT_CANNOT_SETTLE,
-	/** order would trigger immediately. */
+	/** Order would trigger immediately. */
 	ORDER_WOULD_TRIGGER_IMMEDIATELY
 }

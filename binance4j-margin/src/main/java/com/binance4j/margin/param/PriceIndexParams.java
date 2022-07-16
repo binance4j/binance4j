@@ -17,16 +17,12 @@ public class PriceIndexParams extends Params {
 		this.symbol = symbol;
 	}
 
-	/**
-	 * @return the symbol
-	 */
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/**
-	 * @param symbol the symbol to set
-	 */
+	/** @param symbol the symbol to set */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}

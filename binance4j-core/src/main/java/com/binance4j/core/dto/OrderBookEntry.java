@@ -8,7 +8,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/** An order book entry consisting of price and quantity. */
+/**
+ * An order book entry consisting of price and quantity.
+ * 
+ * @param price    The price.
+ * @param quantity The quantity.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()

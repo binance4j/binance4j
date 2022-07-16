@@ -5,15 +5,11 @@ import lombok.Getter;
 /** An exception which can occur while invoking methods of the Binance API. */
 public class ApiException extends Exception {
 
-	/**
-	 * The error code
-	 */
+	/** The error code */
 	@Getter
 	private final int code;
 
-	/**
-	 * The error code explanation
-	 */
+	/** The error code explanation */
 	@Getter
 	private final ApiErrorCode errorCode;
 

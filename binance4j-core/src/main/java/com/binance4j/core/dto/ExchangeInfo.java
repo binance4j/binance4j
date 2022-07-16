@@ -6,7 +6,15 @@ import com.binance4j.core.exception.ApiErrorCode;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** The current exchange trading rules and symbol information. */
+/**
+ * The current exchange trading rules and symbol information.
+ * 
+ * @param timezone        The server timezone
+ * @param serverTime      The server time
+ * @param rateLimits      The request limits (weight, orders, raw...)
+ * @param exchangeFilters The trading rules of the exchange
+ * @param symbols         The available symbols on the exchange
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ExchangeInfo(
 		/** The server timezone */

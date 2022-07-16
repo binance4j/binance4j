@@ -4,12 +4,25 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** The response of an OCO order. */
+/**
+ * The response of an OCO order.
+ * 
+ * @param orderListId       The order list id.
+ * @param contingencyType   The contingency type
+ * @param listStatusType    The list status.
+ * @param listOrderStatus   The list order status.
+ * @param listClientOrderId The list client order id.
+ * @param transactionTime   The order timestamp.
+ * @param symbol            The order symbol.
+ * @param orders            The 2 orders.
+ * @param isIsolated        is it an isolated trade?
+ * @param orderReports      The order reports.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOResponse(
 		/** The order list id. */
 		Long orderListId,
-		/** ??? */
+		/** The contingency type */
 		ContingencyType contingencyType,
 		/** The list status. */
 		OCOStatus listStatusType,
@@ -23,7 +36,7 @@ public record OCOResponse(
 		String symbol,
 		/** The 2 orders. */
 		List<MiniOrderInfo> orders,
-		/** if isolated margin. */
+		/** is it an isolated trade? */
 		Boolean isIsolated,
 		/** The order reports. */
 		List<OrderReport> orderReports) {

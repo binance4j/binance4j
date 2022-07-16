@@ -7,9 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * normal orders are counted for this filter.
  * 
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ * @param maxNumOrders The max number of orders allowed.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxNumOrdersFilter(
-		/** The max number of orders allowed */
+		/** The max number of orders allowed. */
 		Integer maxNumOrders) {
 }

@@ -18,9 +18,7 @@ public class ApiPermissions {
 	 * withdrawals
 	 */
 	private Boolean enableWithdrawals;
-	/**
-	 * This option authorizes this key to transfer funds between your master account and your sub account instantly
-	 */
+	/** This option authorizes this key to transfer funds between your master account and your sub account instantly */
 	private Boolean enableInternalTransfer;
 	/**
 	 * Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each
@@ -31,13 +29,9 @@ public class ApiPermissions {
 	private Boolean enableVanillaOptions;
 	/** Does the key enables reading ? */
 	private Boolean enableReading;
-	/**
-	 * API Key created before your futures account opened does not support futures API service
-	 */
+	/** API Key created before your futures account opened does not support futures API service */
 	private Boolean enableFutures;
-	/**
-	 * This option can be adjusted after the Cross Margin account transfer is completed
-	 */
+	/** This option can be adjusted after the Cross Margin account transfer is completed */
 	private Boolean enableMargin;
 	/** Spot and margin trading. */
 	private Boolean enableSpotAndMarginTrading;

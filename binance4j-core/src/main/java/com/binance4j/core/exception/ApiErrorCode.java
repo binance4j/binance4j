@@ -43,13 +43,9 @@ public enum ApiErrorCode {
 	TOO_MANY_REQUESTS(-1003),
 	/** Server is busy, please wait and try again. */
 	SERVER_BUSY(-1004),
-	/**
-	 * An unexpected response was received from the message bus. Execution status unknown.
-	 */
+	/** An unexpected response was received from the message bus. Execution status unknown. */
 	UNEXPECTED_RESP(-1006),
-	/**
-	 * Timeout waiting for response from backend server. Send status unknown; execution status unknown.
-	 */
+	/** Timeout waiting for response from backend server. Send status unknown; execution status unknown. */
 	TIMEOUT(-1007),
 	/** CANCEL_REJECTED. */
 	STATUS_IS_NOT_TRADING(-1013),
@@ -174,9 +170,7 @@ public enum ApiErrorCode {
 	BAD_API_KEY_FMT(-2014),
 	/** Invalid API-key, IP, or permissions for action. */
 	REJECTED_MBX_KEY(-2015),
-	/**
-	 * No trading window could be found for the symbol. Try ticker/24hrs instead.
-	 */
+	/** No trading window could be found for the symbol. Try ticker/24hrs instead. */
 	NO_TRADING_WINDOW(-2016),
 	/** Internal server error. */
 	INNER_FAILURE(-3000),
@@ -196,9 +190,7 @@ public enum ApiErrorCode {
 	HAS_PENDING_TRANSACTION(-3007),
 	/** Borrow not allowed. */
 	BORROW_NOT_ALLOWED(-3008),
-	/**
-	 * This asset are not allowed to transfer into margin account currently.
-	 */
+	/** This asset are not allowed to transfer into margin account currently. */
 	ASSET_NOT_MORTGAGEABLE(-3009),
 	/** Repay not allowed. */
 	REPAY_NOT_ALLOWED(-3010),
@@ -214,9 +206,7 @@ public enum ApiErrorCode {
 	REPAY_EXCEED_LIABILITY(-3015),
 	/** Repay amount less than minimum repay amount. */
 	LT_MIN_REPAY(-3016),
-	/**
-	 * This asset are not allowed to transfer into margin account currently.
-	 */
+	/** This asset are not allowed to transfer into margin account currently. */
 	ASSET_ADMIN_BAN_MORTGAGE(-3017),
 	/** Transferring in has been banned for this account. */
 	ACCOUNT_BAN_MORTGAGE(-3018),
@@ -288,9 +278,7 @@ public enum ApiErrorCode {
 	CAPITAL_WITHDRAW_LOGIN_DELAY(-4014),
 	/** Withdraw is limited. */
 	CAPITAL_WITHDRAW_RESTRICTED_MINUTE(-4015),
-	/**
-	 * Within 24 hours after password modification, withdrawal is prohibited.
-	 */
+	/** Within 24 hours after password modification, withdrawal is prohibited. */
 	CAPITAL_WITHDRAW_RESTRICTED_PASSWORD(-4016),
 	/** Within 24 hours after the release of 2FA, withdrawal is prohibited. */
 	CAPITAL_WITHDRAW_RESTRICTED_UNBIND_2FA(-4017),
@@ -363,9 +351,7 @@ public enum ApiErrorCode {
 	 * Please re-choose.
 	 */
 	USER_OUT_OF_TRANSFER_FLOAT(-5004),
-	/**
-	 * The residual balances of the BTC is too low The residual balances of %s is too low, Please re-choose.
-	 */
+	/** The residual balances of the BTC is too low The residual balances of %s is too low, Please re-choose. */
 	USER_ASSET_AMOUNT_IS_TOO_LOW(-5005),
 	/** Only transfer once in 24 hours. */
 	USER_CAN_NOT_REQUEST_IN_24_HOURS(-5006),
@@ -425,27 +411,17 @@ public enum ApiErrorCode {
 	FUTURES_BAD_DATE_RANGE(-7001),
 	/** Data request type is not supported. */
 	FUTURES_BAD_TYPE(-7002),
-	/**
-	 * price is too high, too low, and/or not following the tick size rule for the symbol.
-	 */
+	/** price is too high, too low, and/or not following the tick size rule for the symbol. */
 	PRICE_FILTER(-9001),
-	/**
-	 * price is X% too high or X% too low from the average weighted price over the last Y minutes.
-	 */
+	/** price is X% too high or X% too low from the average weighted price over the last Y minutes. */
 	PERCENT_PRICE(-9002),
-	/**
-	 * quantity is too high, too low, and/or not following the step size rule for the symbol.
-	 */
+	/** quantity is too high, too low, and/or not following the step size rule for the symbol. */
 	LOT_SIZE(-9003),
 	/** price * quantity is too low to be a valid order for the symbol. */
 	MIN_NOTIONAL(-9004),
-	/**
-	 * ICEBERG order would break into too many parts; icebergQty is too small.
-	 */
+	/** ICEBERG order would break into too many parts; icebergQty is too small. */
 	ICEBERG_PARTS(-9005),
-	/**
-	 * MARKET order's quantity is too high, too low, and/or not following the step size rule for the symbol.
-	 */
+	/** MARKET order's quantity is too high, too low, and/or not following the step size rule for the symbol. */
 	MARKET_LOT_SIZE(-9006),
 	/**
 	 * The account's position has reached the maximum defined limit. This is composed of the sum of the balance of the base
@@ -454,17 +430,13 @@ public enum ApiErrorCode {
 	MAX_POSITION(-9007),
 	/** Account has too many open orders on the symbol. */
 	MAX_NUM_ORDERS(-9008),
-	/**
-	 * Account has too many open stop loss and/or take profit orders on the symbol.
-	 */
+	/** Account has too many open stop loss and/or take profit orders on the symbol. */
 	MAX_NUM_ALGO_ORDERS(-9009),
 	/** Account has too many open iceberg orders on the symbol. */
 	MAX_NUM_ICEBERG_ORDERS(-9010),
 	/** Account has too many open orders on the exchange. */
 	EXCHANGE_MAX_NUM_ORDERS(-9011),
-	/**
-	 * Account has too many open stop loss and/or take profit orders on the exchange.
-	 */
+	/** Account has too many open stop loss and/or take profit orders on the exchange. */
 	EXCHANGE_MAX_NUM_ALGO_ORDERS(-9012),
 	/** Repay amount should not be larger than liability. */
 	REPAY_CHECK_BEYOND_LIABILITY(-10017),
@@ -488,21 +460,15 @@ public enum ApiErrorCode {
 	SWAP_TOO_MANY_REQUESTS(-12014),
 	/** This token is not currently supported, please re-enter */
 	TOKEN_NOT_SUPPORTED(-450001),
-	/**
-	 * Amount cannot be 0, please re-enter The amount is too small, please re-enter
-	 */
+	/** Amount cannot be 0, please re-enter The amount is too small, please re-enter */
 	WRONG_AMOUNT(-450005),
-	/**
-	 * The total amount of codes you created has exceeded the 24-hour limit, please try again after UTC 0
-	 */
+	/** The total amount of codes you created has exceeded the 24-hour limit, please try again after UTC 0 */
 	CODES_EXPIRED(-450017),
 	/** Too many codes created in 24 hours, please try again after UTC 0 */
 	TOO_MANY_CODES(-450018),
 	/** Too many invalid verify attempts, please try later */
 	TOO_MANY_INVALID_VERIFY_ATTEMPTS(-450020),
-	/**
-	 * Too many invalid redeem attempts in 24 hours, please try again after UTC 0
-	 */
+	/** Too many invalid redeem attempts in 24 hours, please try again after UTC 0 */
 	TOO_MANY_INVALID_REDEEM_ATTEMPTS(-450022);
 
 	/** The error code. */

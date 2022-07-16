@@ -4,16 +4,40 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** An order report. */
+/**
+ * An order report.
+ * 
+ * @param orderListId         /** The order list id.
+ * @param origClientOrderId   /** The original client order id.
+ * @param transactTime        /** The order timestamp.
+ * @param side                /** The order side.
+ * @param price               /** Price.
+ * @param origQty             /** Original quantity.
+ * @param executedQty         /** Original quantity.
+ * @param cummulativeQuoteQty /** Used to calculate the average price.
+ * @param status              /** Order status.
+ * @param timeInForce         /** Time in force to indicate how Long will the order remain active.
+ * @param type                /** Type of order.
+ * @param stopPrice           /** Used with stop orders.
+ * @param icebergQty          /** Used with iceberg orders.
+ * @param time                /** Order timestamp.
+ * @param updateTime          /** Update timestamp.
+ * @param origQuoteOrderQty   /** Original quote order quantity.
+ * @param isWorking           /** Is working.
+ * @param isIsolated          /** is isolated margin.
+ * @param symbol              /** The order symbol.
+ * @param orderId             /** Order id.
+ * @param clientOrderId       /** Client order id.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderReport(
-		/** The order list id */
+		/** The order list id. */
 		Long orderListId,
-		/** The original client order id */
+		/** The original client order id. */
 		String origClientOrderId,
-		/** The order timestamp */
+		/** The order timestamp. */
 		Long transactTime,
-		/** The order side */
+		/** The order side. */
 		OrderSide side,
 		/** Price. */
 		BigDecimal price,
@@ -21,7 +45,7 @@ public record OrderReport(
 		BigDecimal origQty,
 		/** Original quantity. */
 		BigDecimal executedQty,
-		/** Used to calculate the average price */
+		/** Used to calculate the average price. */
 		BigDecimal cummulativeQuoteQty,
 		/** Order status. */
 		OrderStatus status,
@@ -33,21 +57,18 @@ public record OrderReport(
 		BigDecimal stopPrice,
 		/** Used with iceberg orders. */
 		BigDecimal icebergQty,
-		/** Order timestamp */
+		/** Order timestamp. */
 		Long time,
-
 		/** Update timestamp. */
 		Long updateTime,
 		/** Original quote order quantity. */
 		BigDecimal origQuoteOrderQty,
-		/** ??? */
+		/** Is working */
 		Boolean isWorking,
-		/** is isolated margin */
+		/** is isolated margin. */
 		Boolean isIsolated,
-
-		/** The order symbol */
+		/** The order symbol. */
 		String symbol,
-
 		/** Order id. */
 		Long orderId,
 		/** Client order id. */

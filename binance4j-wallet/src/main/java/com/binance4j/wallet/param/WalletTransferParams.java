@@ -18,13 +18,9 @@ public class WalletTransferParams extends FramedParams {
 	private WalletTransferType type;
 	/** The volume. */
 	private BigDecimal amount;
-	/**
-	 * must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 */
+	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	private String fromSymbol;
-	/**
-	 * must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 */
+	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	private String toSymbol;
 
 	/**

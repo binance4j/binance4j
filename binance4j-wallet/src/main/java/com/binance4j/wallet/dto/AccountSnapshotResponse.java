@@ -13,9 +13,7 @@ import lombok.Data;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AccountSnapshotResponse<T> {
-	/**
-	 * The response status code (200 for success; others are error codes)
-	 */
+	/** The response status code (200 for success; others are error codes) */
 	private Integer code;
 	/** The potential response error message. */
 	private String msg;

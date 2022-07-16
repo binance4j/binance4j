@@ -2,33 +2,49 @@ package com.binance4j.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** The trading rules of a symbol */
+/**
+ * The trading rules of a symbol.
+ * 
+ * @param icebergParts        The {@link IcebergPartsFilter}
+ * @param lotSize             The {@link LotSizeFilter}
+ * @param marketLotSize       The {@link MarketLotSizeFilter}
+ * @param maxNumAlgoOrders    The {@link MaxNumAlgoOrdersFilter}
+ * @param maxNumIcebergOrders The {@link MaxNumIcebergOrdersFilter}
+ * @param maxNumOrders        The {@link MaxNumOrdersFilter}
+ * @param maxPosition         The {@link MaxPositionFilter}
+ * @param minNotional         The {@link MinNotionalFilter}
+ * @param notional            The {@link NotionalFilter}
+ * @param percentPriceBySide  The {@link PercentPriceBySideFilter}
+ * @param percentPrice        The {@link PercentPriceFilter}
+ * @param price               The {@link PriceFilter}
+ * @param trailingDelta       The {@link TrailingDeltaFilter}
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolFilters(
-		/** TODO JAVADOC */
+		/** The {@link IcebergPartsFilter} */
 		IcebergPartsFilter icebergParts,
-		/** TODO JAVADOC */
+		/** The {@link LotSizeFilter} */
 		LotSizeFilter lotSize,
-		/** TODO JAVADOC */
+		/** The {@link MarketLotSizeFilter} */
 		MarketLotSizeFilter marketLotSize,
-		/** TODO JAVADOC */
+		/** The {@link MaxNumAlgoOrdersFilter} */
 		MaxNumAlgoOrdersFilter maxNumAlgoOrders,
-		/** TODO JAVADOC */
+		/** The {@link MaxNumIcebergOrdersFilter} */
 		MaxNumIcebergOrdersFilter maxNumIcebergOrders,
-		/** TODO JAVADOC */
+		/** The {@link MaxNumOrdersFilter} */
 		MaxNumOrdersFilter maxNumOrders,
-		/** TODO JAVADOC */
+		/** The {@link MaxPositionFilter} */
 		MaxPositionFilter maxPosition,
-		/** TODO JAVADOC */
+		/** The {@link MinNotionalFilter} */
 		MinNotionalFilter minNotional,
-		/** TODO JAVADOC */
+		/** The {@link NotionalFilter} */
 		NotionalFilter notional,
-		/** TODO JAVADOC */
+		/** The {@link PercentPriceBySideFilter} */
 		PercentPriceBySideFilter percentPriceBySide,
-		/** TODO JAVADOC */
+		/** The {@link PercentPriceFilter} */
 		PercentPriceFilter percentPrice,
-		/** TODO JAVADOC */
+		/** The {@link PriceFilter} */
 		PriceFilter price,
-		/** TODO JAVADOC */
+		/** The {@link TrailingDeltaFilter} */
 		TrailingDeltaFilter trailingDelta) {
 }

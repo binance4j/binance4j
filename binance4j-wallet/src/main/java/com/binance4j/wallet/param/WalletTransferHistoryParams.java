@@ -16,13 +16,9 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	private Integer current = 1;
 	/** The result size. */
 	private Integer size = 10;
-	/**
-	 * Must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 */
+	/** Must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	private String fromSymbol;
-	/**
-	 * Must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 */
+	/** Must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	private String toSymbol;
 
 	/**
