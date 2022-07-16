@@ -32,11 +32,11 @@ public class TickersStatisticsParams extends Params {
 				.collect(Collectors.toList());
 
 		if (list.size() <= 21) {
-			setWeight(1);
+			weight = 1;
 		} else if (list.size() <= 101) {
-			setWeight(20);
+			weight = 20;
 		} else {
-			setWeight(40);
+			weight = 40;
 		}
 
 		this.symbols = "[" + String.join(",", list) + "]";

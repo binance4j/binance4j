@@ -6,24 +6,18 @@ import java.util.Map;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import retrofit2.http.QueryMap;
 
 /** The base of every Binance Request */
-@Data
 public class Params {
     /** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /** The default receiving window */
-    @Getter
-    @Setter
-    private static long recvWindow = 60_000L;
+	public static long recvWindow = 60_000L;
 
     /** The request weight */
-    protected int weight;
+	protected int weight;
 
     /** Is this request generating an order? */
     private boolean isOrderRequest;
@@ -31,21 +25,17 @@ public class Params {
     protected Params() {
     }
 
-    /**
-     *
-     * 
-     * @param weight The Request weight
-     */
+	/**
+	 * @param weight The Request weight
+	 */
     public Params(int weight) {
         this(weight, false);
     }
 
-    /**
-     * 
-     * 
-     * @param weight         The Request weight
-     * @param isOrderRequest Is the request a trading order
-     */
+	/**
+	 * @param weight         The Request weight
+	 * @param isOrderRequest Is the request a trading order
+	 */
     public Params(int weight, Boolean isOrderRequest) {
         this.weight = weight;
         this.isOrderRequest = isOrderRequest;
@@ -66,4 +56,18 @@ public class Params {
         map.values().removeAll(Collections.singleton(null));
         return map;
     }
+
+	/**
+	 * @return the recvWindow
+	 */
+	public static long getRecvWindow() {
+		return recvWindow;
+	}
+
+	/**
+	 * @param recvWindow the recvWindow to set
+	 */
+	public static void setRecvWindow(long recvWindow) {
+		Params.recvWindow = recvWindow;
+	}
 }
