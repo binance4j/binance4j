@@ -1,26 +1,22 @@
 package com.binance4j.margin.dto;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record CrossMarginFee(
+public record TransferHistory(
 		/** TODO JAVADOC. */
-		int vipLevel,
+		BigDecimal amount,
 		/** TODO JAVADOC. */
-		String coin,
+		String asset,
 		/** TODO JAVADOC. */
-		boolean transferIn,
+		String status,
 		/** TODO JAVADOC. */
-		boolean borrowable,
+		long timestamp,
 		/** TODO JAVADOC. */
-		BigDecimal dailyInterest,
+		@JsonProperty("txId") long transactionId,
 		/** TODO JAVADOC. */
-		BigDecimal yearlyInterest,
-		/** TODO JAVADOC. */
-		BigDecimal borrowLimit,
-		/** TODO JAVADOC. */
-		List<String> marginablePairs) {
+		TransferHistoryType type) {
 }

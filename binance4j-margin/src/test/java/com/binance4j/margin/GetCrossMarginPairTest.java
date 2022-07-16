@@ -10,6 +10,6 @@ public class GetCrossMarginPairTest extends MarginTest {
 
     @Test
     void test1() throws ApiException {
-        test(getClient().getCrossMarginPair(new PairParams(getSymbol())).execute());
+        test(getClient().getCrossMarginPair(new PairParams(getSymbol())));
     }
 }

@@ -2,9 +2,19 @@ package com.binance4j.margin.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** An {@link Asset} pair. */
+/**
+ * A Cross margin {@link Asset} pair.
+ * 
+ * @param id            The pair id.
+ * @param symbol        The asset pair.
+ * @param base          The base asset.
+ * @param quote         The quote asset.
+ * @param isMarginTrade Is margin trade allowed?
+ * @param isBuyAllowed  Is purchase allowed?
+ * @param isSellAllowed Is sale allowed?
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record Pair(
+public record CrossSymbol(
 		/** The pair id. */
 		long id,
 		/** The asset pair. */

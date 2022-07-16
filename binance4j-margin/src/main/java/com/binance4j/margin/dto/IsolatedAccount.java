@@ -5,14 +5,22 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Isolated margin account info
+ * 
+ * @param assets              The owned assets.
+ * @param totalAssetOfBtc     Total asset of Bitcoin.
+ * @param totalLiabilityOfBtc Total liability of Bitcoin.
+ * @param totalNetAssetOfBtc  Total net asset of Bitcoin.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedAccount(
-		/** TODO JAVADOC. */
-		List<IsolatedAssets> assets,
-		/** TODO JAVADOC. */
+		/** The owned assets. */
+		List<IsolatedPair> assets,
+		/** Total asset of Bitcoin. */
 		BigDecimal totalAssetOfBtc,
-		/** TODO JAVADOC. */
+		/** Total liability of Bitcoin. */
 		BigDecimal totalLiabilityOfBtc,
-		/** TODO JAVADOC. */
+		/** Total net asset of Bitcoin. */
 		BigDecimal totalNetAssetOfBtc) {
 }

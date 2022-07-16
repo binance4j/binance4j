@@ -8,28 +8,29 @@ import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
-import com.binance4j.margin.dto.CrossMarginFee;
+import com.binance4j.margin.dto.CrossFee;
+import com.binance4j.margin.dto.CrossSymbol;
 import com.binance4j.margin.dto.ForceLiquidationRecord;
-import com.binance4j.margin.dto.GetMarginOCOResponse;
 import com.binance4j.margin.dto.InterestHistory;
 import com.binance4j.margin.dto.InterestRate;
 import com.binance4j.margin.dto.IsolatedAccount;
 import com.binance4j.margin.dto.IsolatedAccountLimit;
-import com.binance4j.margin.dto.IsolatedMarginFee;
-import com.binance4j.margin.dto.IsolatedMarginTierData;
+import com.binance4j.margin.dto.IsolatedFee;
+import com.binance4j.margin.dto.IsolatedSymbol;
+import com.binance4j.margin.dto.IsolatedTierData;
 import com.binance4j.margin.dto.IsolatedTransferHistory;
 import com.binance4j.margin.dto.LoanRecord;
 import com.binance4j.margin.dto.MaxBorrowableResponse;
 import com.binance4j.margin.dto.MaxTransferableResponse;
+import com.binance4j.margin.dto.OCOOrderRecord;
 import com.binance4j.margin.dto.OCOResponse;
 import com.binance4j.margin.dto.OrderResponse;
-import com.binance4j.margin.dto.Pair;
 import com.binance4j.margin.dto.PriceIndex;
 import com.binance4j.margin.dto.RepayRecord;
 import com.binance4j.margin.dto.ToogleAccountResponse;
 import com.binance4j.margin.dto.Trade;
 import com.binance4j.margin.dto.Transaction;
-import com.binance4j.margin.dto.TransferHistoryResponse;
+import com.binance4j.margin.dto.TransferHistoryRecord;
 import com.binance4j.margin.param.BNBBurnStatus;
 
 import retrofit2.Call;
@@ -64,12 +65,12 @@ public interface MarginMapping {
 
 	@Headers({ API_H })
 	@GET(BASE + "pair")
-	Call<Pair> getCrossMarginPair(@QueryMap Map<String, Object> map);
+	Call<CrossSymbol> getCrossMarginPair(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H })
 
 	@GET(BASE + "allPairs")
-	Call<List<Pair>> getAllCrossMarginPairs(@QueryMap Map<String, Object> map);
+	Call<List<CrossSymbol>> getAllCrossMarginPairs(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H })
 	@GET(BASE + "allAssets")
@@ -93,7 +94,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "transfer")
-	Call<TransferHistoryResponse> getTransferHistory(@QueryMap Map<String, Object> map);
+	Call<TransferHistoryRecord> getTransferHistory(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "loan")
@@ -137,15 +138,15 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "orderList")
-	Call<GetMarginOCOResponse> getOCO(@QueryMap Map<String, Object> map);
+	Call<OCOOrderRecord> getOCO(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrderList")
-	Call<List<GetMarginOCOResponse>> getAllOCO(@QueryMap Map<String, Object> map);
+	Call<List<OCOOrderRecord>> getAllOCO(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrderList")
-	Call<List<GetMarginOCOResponse>> getOpenOCO(@QueryMap Map<String, Object> map);
+	Call<List<OCOOrderRecord>> getOpenOCO(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "myTrades")
@@ -185,11 +186,11 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/pair")
-	Call<Pair> getIsolatedSymbol(@QueryMap Map<String, Object> map);
+	Call<IsolatedSymbol> getIsolatedSymbol(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/allPairs")
-	Call<List<Pair>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
+	Call<List<IsolatedSymbol>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@POST("/sapi/v1/bnbBurn")
@@ -205,13 +206,13 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "crossMarginData")
-	Call<List<CrossMarginFee>> getMarginFeeData(@QueryMap Map<String, Object> map);
+	Call<List<CrossFee>> getMarginFeeData(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolatedMarginData")
-	Call<List<IsolatedMarginFee>> getIsolatedFeeData(@QueryMap Map<String, Object> map);
+	Call<List<IsolatedFee>> getIsolatedFeeData(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolatedMarginTier")
-	Call<List<IsolatedMarginTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
+	Call<List<IsolatedTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
 }

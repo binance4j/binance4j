@@ -1,13 +1,15 @@
 package com.binance4j.margin.dto;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record TransferHistoryResponse(
+public record IsolatedFeeData(
 		/** TODO JAVADOC. */
-		int total,
+		String coin,
 		/** TODO JAVADOC. */
-		List<MarginTransferHistory> rows) {
+		BigDecimal dailyInterest,
+		/** TODO JAVADOC. */
+		BigDecimal borrowLimit) {
 }

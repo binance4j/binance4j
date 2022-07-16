@@ -9,7 +9,7 @@ import com.binance4j.core.order.OrderInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record GetMarginOCOResponse(
+public record OCOOrderRecord(
 		/** TODO JAVADOC. */
 		long orderListId,
 		/** TODO JAVADOC. */

@@ -7,26 +7,40 @@ import com.binance4j.core.order.OrderSide;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Market order to exit leveraged position
+ * 
+ * @param orderId          The order id
+ * @param updatedTime      The liquidation timestamp in ms.
+ * @param averagePrice     The symbol average price.
+ * @param executedQuantity The executed quantity.
+ * @param timeInForce      The order time in force.
+ * @param side             The order side.
+ * @param symbol           The order symbol.
+ * @param price            The order price.
+ * @param quantity         The order total quantity.
+ * @param isIsolated       Is is isolated?
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ForceLiquidation(
-		/** TODO JAVADOC. */
-		@JsonProperty("avgPrice") BigDecimal averagePrice,
-		/** TODO JAVADOC. */
-		@JsonProperty("executedQty") BigDecimal executedQuantity,
-		/** TODO JAVADOC. */
+		/** The order id */
 		long orderId,
-		/** TODO JAVADOC. */
+		/** The liquidation timestamp in ms. */
 		long updatedTime,
-		/** TODO JAVADOC. */
+		/** The symbol average price. */
+		@JsonProperty("avgPrice") BigDecimal averagePrice,
+		/** The executed quantity. */
+		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		/** The order time in force. */
 		TimeInForce timeInForce,
-		/** TODO JAVADOC. */
+		/** The order side. */
 		OrderSide side,
-		/** TODO JAVADOC. */
+		/** The order symbol. */
 		String symbol,
-		/** TODO JAVADOC. */
+		/** The order price. */
 		BigDecimal price,
-		/** TODO JAVADOC. */
+		/** The order total quantity. */
 		@JsonProperty("qty") BigDecimal quantity,
-		/** TODO JAVADOC. */
+		/** Is is isolated? */
 		boolean isIsolated) {
 }

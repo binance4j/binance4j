@@ -4,10 +4,16 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * A {@link ForceLiquidation} record
+ * 
+ * @param rows  The records.
+ * @param total The total number of records.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ForceLiquidationRecord(
-		/** TODO JAVADOC. */
+		/** The records. */
 		List<ForceLiquidation> rows,
-		/** TODO JAVADOC. */
+		/** The total number of records. */
 		int total) {
 }

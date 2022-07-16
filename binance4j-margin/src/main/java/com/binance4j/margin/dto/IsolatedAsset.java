@@ -4,26 +4,40 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Isolated asset in {@link IsolatedPair}
+ * 
+ * @param asset         The asset name.
+ * @param borrowEnabled The borrowed quantity.
+ * @param repayEnabled  The free quantity.
+ * @param borrowed      The loan interest.
+ * @param free          The locked quantity.
+ * @param interest      The net asset quantity.
+ * @param locked        The net asset of Bitcoin.
+ * @param netAsset      The asset total quantity.
+ * @param netAssetOfBtc Can the account borrow this asset?
+ * @param totalAsset    Can the account repay this asset?
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedAsset(
-		/** TODO JAVADOC. */
+		/** The asset name. */
 		String asset,
-		/** TODO JAVADOC. */
-		boolean borrowEnabled,
-		/** TODO JAVADOC. */
-		boolean repayEnabled,
-		/** TODO JAVADOC. */
+		/** The borrowed quantity. */
 		BigDecimal borrowed,
-		/** TODO JAVADOC. */
+		/** The free quantity. */
 		BigDecimal free,
-		/** TODO JAVADOC. */
+		/** The loan interest. */
 		BigDecimal interest,
-		/** TODO JAVADOC. */
+		/** The locked quantity. */
 		BigDecimal locked,
-		/** TODO JAVADOC. */
+		/** The net asset quantity. */
 		BigDecimal netAsset,
-		/** TODO JAVADOC. */
+		/** The net asset of Bitcoin. */
 		BigDecimal netAssetOfBtc,
-		/** TODO JAVADOC. */
-		BigDecimal totalAsset) {
+		/** The asset total quantity. */
+		BigDecimal totalAsset,
+		/** Can the account borrow this asset? */
+		boolean borrowEnabled,
+		/** Can the account repay this asset? */
+		boolean repayEnabled) {
 }

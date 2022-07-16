@@ -4,14 +4,22 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * A loan interest rate
+ * 
+ * @param asset             The related coin.
+ * @param dailyInterestRate The daily interest rate.
+ * @param timestamp         The timestamp of the applied interest rate in ms.
+ * @param vipLevel          The account VIP level.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record InterestRate(
-		/** TODO JAVADOC. */
+		/** The related coin. */
 		String asset,
-		/** TODO JAVADOC. */
+		/** The daily interest rate. */
 		BigDecimal dailyInterestRate,
-		/** TODO JAVADOC. */
+		/** The timestamp of the applied interest rate in ms. */
 		long timestamp,
-		/** TODO JAVADOC. */
+		/** The account VIP level. */
 		int vipLevel) {
 }
