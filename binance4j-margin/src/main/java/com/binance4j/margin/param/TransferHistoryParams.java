@@ -1,7 +1,7 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.param.IntervalParams;
-import com.binance4j.margin.dto.TransferHistoryType;
+import com.binance4j.margin.dto.TransferRecordType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class TransferHistoryParams extends IntervalParams {
 	private String asset;
-	private TransferHistoryType type;
+	private TransferRecordType type;
 	private Long current;
 	private Integer size;
 	private Boolean archived;

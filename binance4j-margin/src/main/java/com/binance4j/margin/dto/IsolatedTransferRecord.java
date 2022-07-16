@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferTo   The account the asset is transfered to.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record IsolatedTransfer(
+public record IsolatedTransferRecord(
 		/** The transfered amount. */
 		BigDecimal amount,
 		/** The transfered asset. */

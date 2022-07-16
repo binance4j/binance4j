@@ -12,7 +12,7 @@ import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.CrossFee;
 import com.binance4j.margin.dto.CrossSymbol;
-import com.binance4j.margin.dto.ForceLiquidationRecord;
+import com.binance4j.margin.dto.ForceLiquidationRecords;
 import com.binance4j.margin.dto.InterestHistory;
 import com.binance4j.margin.dto.InterestRate;
 import com.binance4j.margin.dto.IsolatedAccount;
@@ -20,7 +20,7 @@ import com.binance4j.margin.dto.IsolatedAccountLimit;
 import com.binance4j.margin.dto.IsolatedFee;
 import com.binance4j.margin.dto.IsolatedSymbol;
 import com.binance4j.margin.dto.IsolatedTierData;
-import com.binance4j.margin.dto.IsolatedTransferHistory;
+import com.binance4j.margin.dto.IsolatedTransferRecords;
 import com.binance4j.margin.dto.LoanRecord;
 import com.binance4j.margin.dto.MaxBorrowable;
 import com.binance4j.margin.dto.MaxTransferable;
@@ -28,11 +28,11 @@ import com.binance4j.margin.dto.NewOCOOrderRecord;
 import com.binance4j.margin.dto.NewOrderRecord;
 import com.binance4j.margin.dto.OCOOrderRecord;
 import com.binance4j.margin.dto.PriceIndex;
-import com.binance4j.margin.dto.RepayRecord;
+import com.binance4j.margin.dto.RepayRecords;
 import com.binance4j.margin.dto.ToogleAccountResponse;
 import com.binance4j.margin.dto.Trade;
 import com.binance4j.margin.dto.Transaction;
-import com.binance4j.margin.dto.TransferHistoryRecord;
+import com.binance4j.margin.dto.TransferRecords;
 import com.binance4j.margin.param.AllMarginPairsParams;
 import com.binance4j.margin.param.AllOrdersParams;
 import com.binance4j.margin.param.AssetParams;
@@ -209,7 +209,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<TransferHistoryRecord> getTransferHistory(TransferHistoryParams params) {
+	public Request<TransferRecords> getTransferHistory(TransferHistoryParams params) {
 		return new Request<>(service.getTransferHistory(params.toMap()), params);
 	}
 
@@ -218,7 +218,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<TransferHistoryRecord> getTransferHistory() {
+	public Request<TransferRecords> getTransferHistory() {
 		return getTransferHistory(new TransferHistoryParams());
 	}
 
@@ -238,7 +238,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<RepayRecord> getRepayRecord(RepayRecordParams params) {
+	public Request<RepayRecords> getRepayRecord(RepayRecordParams params) {
 		return new Request<>(service.getRepayRecord(params.toMap()), params);
 	}
 
@@ -258,7 +258,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<ForceLiquidationRecord> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
+	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
 		return new Request<>(service.getForceLiquidationRecord(params.toMap()), params);
 	}
 
@@ -434,7 +434,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<IsolatedTransferHistory> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
+	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
 		return new Request<>(service.getIsolatedTransferHistory(params.toMap()), params);
 	}
 

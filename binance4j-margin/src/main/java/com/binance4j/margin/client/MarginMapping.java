@@ -10,7 +10,7 @@ import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.CrossFee;
 import com.binance4j.margin.dto.CrossSymbol;
-import com.binance4j.margin.dto.ForceLiquidationRecord;
+import com.binance4j.margin.dto.ForceLiquidationRecords;
 import com.binance4j.margin.dto.InterestHistory;
 import com.binance4j.margin.dto.InterestRate;
 import com.binance4j.margin.dto.IsolatedAccount;
@@ -18,7 +18,7 @@ import com.binance4j.margin.dto.IsolatedAccountLimit;
 import com.binance4j.margin.dto.IsolatedFee;
 import com.binance4j.margin.dto.IsolatedSymbol;
 import com.binance4j.margin.dto.IsolatedTierData;
-import com.binance4j.margin.dto.IsolatedTransferHistory;
+import com.binance4j.margin.dto.IsolatedTransferRecords;
 import com.binance4j.margin.dto.LoanRecord;
 import com.binance4j.margin.dto.MaxBorrowable;
 import com.binance4j.margin.dto.MaxTransferable;
@@ -26,11 +26,11 @@ import com.binance4j.margin.dto.NewOCOOrderRecord;
 import com.binance4j.margin.dto.NewOrderRecord;
 import com.binance4j.margin.dto.OCOOrderRecord;
 import com.binance4j.margin.dto.PriceIndex;
-import com.binance4j.margin.dto.RepayRecord;
+import com.binance4j.margin.dto.RepayRecords;
 import com.binance4j.margin.dto.ToogleAccountResponse;
 import com.binance4j.margin.dto.Trade;
 import com.binance4j.margin.dto.Transaction;
-import com.binance4j.margin.dto.TransferHistoryRecord;
+import com.binance4j.margin.dto.TransferRecords;
 import com.binance4j.margin.param.BNBBurnStatus;
 
 import retrofit2.Call;
@@ -94,7 +94,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "transfer")
-	Call<TransferHistoryRecord> getTransferHistory(@QueryMap Map<String, Object> map);
+	Call<TransferRecords> getTransferHistory(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "loan")
@@ -102,7 +102,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "repay")
-	Call<RepayRecord> getRepayRecord(@QueryMap Map<String, Object> map);
+	Call<RepayRecords> getRepayRecord(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "interestHistory")
@@ -110,7 +110,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "forceLiquidationRec")
-	Call<ForceLiquidationRecord> getForceLiquidationRecord(@QueryMap Map<String, Object> map);
+	Call<ForceLiquidationRecords> getForceLiquidationRecord(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "account")
@@ -166,7 +166,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/transfer")
-	Call<IsolatedTransferHistory> getIsolatedTransferHistory(@QueryMap Map<String, Object> map);
+	Call<IsolatedTransferRecords> getIsolatedTransferHistory(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/account")

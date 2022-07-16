@@ -5,15 +5,15 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Isolated margin transfer history
+ * Isolated margin transfer records
  * 
  * @param rows  The transfers.
  * @param total The total records.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record IsolatedTransferHistory(
+public record IsolatedTransferRecords(
 		/** The transfers. */
-		List<IsolatedTransfer> rows,
+		List<IsolatedTransferRecord> rows,
 		/** The total records. */
 		int total) {
 }

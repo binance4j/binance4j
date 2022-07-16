@@ -1,19 +1,46 @@
 package com.binance4j.margin.dto;
 
-import java.util.List;
+import java.math.BigDecimal;
 
+import com.binance4j.core.misc.TimeInForce;
+import com.binance4j.core.order.OrderSide;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * A {@link ForceLiquidation} record
+ * Market order to exit leveraged position
  * 
- * @param rows  The records.
- * @param total The total number of records.
+ * @param orderId          The order id
+ * @param updatedTime      The liquidation timestamp in ms.
+ * @param averagePrice     The symbol average price.
+ * @param executedQuantity The executed quantity.
+ * @param timeInForce      The order time in force.
+ * @param side             The order side.
+ * @param symbol           The order symbol.
+ * @param price            The order price.
+ * @param quantity         The order total quantity.
+ * @param isIsolated       Is is isolated?
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ForceLiquidationRecord(
-		/** The records. */
-		List<ForceLiquidation> rows,
-		/** The total number of records. */
-		int total) {
+		/** The order id */
+		long orderId,
+		/** The liquidation timestamp in ms. */
+		long updatedTime,
+		/** The symbol average price. */
+		@JsonProperty("avgPrice") BigDecimal averagePrice,
+		/** The executed quantity. */
+		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		/** The order time in force. */
+		TimeInForce timeInForce,
+		/** The order side. */
+		OrderSide side,
+		/** The order symbol. */
+		String symbol,
+		/** The order price. */
+		BigDecimal price,
+		/** The order total quantity. */
+		@JsonProperty("qty") BigDecimal quantity,
+		/** Is is isolated? */
+		boolean isIsolated) {
 }

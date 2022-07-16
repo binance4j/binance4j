@@ -1,5 +1,5 @@
 package com.binance4j.margin.dto;
 
-public enum TransferHistoryType {
+public enum TransferRecordType {
 	ROLL_IN, ROLL_OUT
 }

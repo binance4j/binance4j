@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * A transfer history
+ * A transfer history record
  * 
  * @param id        The transaction id.
  * @param amount    The transfered amount.
@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param type      The transfer history type.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record TransferHistory(
+public record TransferRecord(
 		/** The transaction id. */
 		@JsonProperty("txId") long id,
 		/** The transfered amount. */
@@ -28,5 +28,5 @@ public record TransferHistory(
 		/** The transaction time in ms. */
 		long timestamp,
 		/** The transfer history type. */
-		TransferHistoryType type) {
+		TransferRecordType type) {
 }
