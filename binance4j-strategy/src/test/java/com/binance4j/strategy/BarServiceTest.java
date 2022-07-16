@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 import java.time.Duration;
-import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
@@ -16,22 +15,17 @@ import com.binance4j.strategy.service.BarService;
 
 /** TODO JAVADOC */
 public class BarServiceTest extends ConcurrentTest<Void> {
-	final Candle candle = new Candle();
+	final Candle candle;
 
 	public BarServiceTest() {
 		super();
-		long closeTime = new Date().getTime();
 		BigDecimal open = new BigDecimal(1);
 		BigDecimal high = new BigDecimal(2);
 		BigDecimal low = new BigDecimal(1);
 		BigDecimal close = new BigDecimal(2);
 		BigDecimal volume = new BigDecimal(10);
-		candle.setCloseTime(closeTime);
-		candle.setOpen(open);
-		candle.setHigh(high);
-		candle.setLow(low);
-		candle.setClose(close);
-		candle.setVolume(volume);
+		candle = new Candle(System.currentTimeMillis(), open, high, low, close, volume, System.currentTimeMillis(), new BigDecimal(1), 0L, new BigDecimal(1),
+				new BigDecimal(1));
 	}
 
 	@Test
@@ -53,11 +47,11 @@ public class BarServiceTest extends ConcurrentTest<Void> {
 	}
 
 	void assertValues(Bar bar, Candle candle) {
-		assertEquals(new BigDecimal(bar.getOpenPrice().toString()), candle.getOpen());
-		assertEquals(new BigDecimal(bar.getHighPrice().toString()), candle.getHigh());
-		assertEquals(new BigDecimal(bar.getLowPrice().toString()), candle.getLow());
-		assertEquals(new BigDecimal(bar.getClosePrice().toString()), candle.getClose());
-		assertEquals(new BigDecimal(bar.getVolume().toString()), candle.getVolume());
-		assertEquals(bar.getEndTime().toInstant().toEpochMilli(), candle.getCloseTime());
+		assertEquals(new BigDecimal(bar.getOpenPrice().toString()), candle.open());
+		assertEquals(new BigDecimal(bar.getHighPrice().toString()), candle.high());
+		assertEquals(new BigDecimal(bar.getLowPrice().toString()), candle.low());
+		assertEquals(new BigDecimal(bar.getClosePrice().toString()), candle.close());
+		assertEquals(new BigDecimal(bar.getVolume().toString()), candle.volume());
+		assertEquals(bar.getEndTime().toInstant().toEpochMilli(), candle.closeTime());
 	}
 }

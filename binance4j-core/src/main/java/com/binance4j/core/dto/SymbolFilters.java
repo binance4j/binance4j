@@ -1,27 +1,34 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** The trading rules of a symbol */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SymbolFilters {
-	private IcebergPartsFilter icebergParts;
-	private LotSizeFilter lotSize;
-	private MarketLotSizeFilter marketLotSize;
-	private MaxNumAlgoOrdersFilter maxNumAlgoOrders;
-	private MaxNumIcebergOrdersFilter maxNumIcebergOrders;
-	private MaxNumOrdersFilter maxNumOrders;
-	private MaxPositionFilter maxPosition;
-	private MinNotionalFilter minNotional;
-	private NotionalFilter notional;
-	private PercentPriceBySideFilter percentPriceBySide;
-	private PercentPriceFilter percentPrice;
-	private PriceFilter price;
-	private TrailingDeltaFilter trailingDelta;
+public record SymbolFilters(
+		/** TODO JAVADOC */
+		IcebergPartsFilter icebergParts,
+		/** TODO JAVADOC */
+		LotSizeFilter lotSize,
+		/** TODO JAVADOC */
+		MarketLotSizeFilter marketLotSize,
+		/** TODO JAVADOC */
+		MaxNumAlgoOrdersFilter maxNumAlgoOrders,
+		/** TODO JAVADOC */
+		MaxNumIcebergOrdersFilter maxNumIcebergOrders,
+		/** TODO JAVADOC */
+		MaxNumOrdersFilter maxNumOrders,
+		/** TODO JAVADOC */
+		MaxPositionFilter maxPosition,
+		/** TODO JAVADOC */
+		MinNotionalFilter minNotional,
+		/** TODO JAVADOC */
+		NotionalFilter notional,
+		/** TODO JAVADOC */
+		PercentPriceBySideFilter percentPriceBySide,
+		/** TODO JAVADOC */
+		PercentPriceFilter percentPrice,
+		/** TODO JAVADOC */
+		PriceFilter price,
+		/** TODO JAVADOC */
+		TrailingDeltaFilter trailingDelta) {
 }

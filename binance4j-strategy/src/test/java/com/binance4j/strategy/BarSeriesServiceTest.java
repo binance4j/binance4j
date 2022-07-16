@@ -60,14 +60,14 @@ public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
 			Long closeTime = Timestamp.valueOf(bar1.getEndTime().toLocalDateTime()).getTime();
 			long openTime = Timestamp.valueOf(bar1.getBeginTime().toLocalDateTime()).getTime();
 
-			assertEquals(closeTime, bar2.getCloseTime());
+			assertEquals(closeTime, bar2.closeTime());
 			// There is a 1 millisecond diff between the two bars
-			assertEquals(openTime + 1, bar2.getOpenTime());
-			assertEquals(new BigDecimal(bar1.getOpenPrice().toString()), bar2.getOpen());
-			assertEquals(new BigDecimal(bar1.getHighPrice().toString()), bar2.getHigh());
-			assertEquals(new BigDecimal(bar1.getLowPrice().toString()), bar2.getLow());
-			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.getClose());
-			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.getVolume());
+			assertEquals(openTime + 1, bar2.openTime());
+			assertEquals(new BigDecimal(bar1.getOpenPrice().toString()), bar2.open());
+			assertEquals(new BigDecimal(bar1.getHighPrice().toString()), bar2.high());
+			assertEquals(new BigDecimal(bar1.getLowPrice().toString()), bar2.low());
+			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.close());
+			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.volume());
 
 			test(bar2);
 		}

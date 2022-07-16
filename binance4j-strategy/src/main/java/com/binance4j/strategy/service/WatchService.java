@@ -104,11 +104,11 @@ public class WatchService {
                 // let's convert the bar and give it the symbol name
                 Bar bar = BarService.convert(response, duration, zoneId);
 
-                callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(),response.getSymbol()));
+                callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(), response.symbol()));
 
                 // we determinate what method to call according to the strategy
                 if (response.isBarFinal()) {
-                    BarSeries series = barSeries.get(response.getSymbol());
+                    BarSeries series = barSeries.get(response.symbol());
                     series.addBar(bar);
                     int lastIndex = series.getBarCount() - 1;
                     // we add the bar to the series

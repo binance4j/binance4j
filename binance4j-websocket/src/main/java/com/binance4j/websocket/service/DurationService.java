@@ -17,40 +17,23 @@ public class DurationService {
 	 * @return The corresponding duration
 	 */
 	public static Duration convert(CandlestickInterval interval) {
-		switch (interval) {
-			case DAILY:
-				return Duration.ofDays(1);
-			case EIGHT_HOURLY:
-				return Duration.ofHours(8);
-			case FIFTEEN_MINUTES:
-				return Duration.ofMinutes(15);
-			case FIVE_MINUTES:
-				return Duration.ofMinutes(5);
-			case FOUR_HOURLY:
-				return Duration.ofHours(4);
-			case HALF_HOURLY:
-				return Duration.ofMinutes(30);
-			case HOURLY:
-				return Duration.ofHours(1);
-			case MONTHLY_MARKET:
-			case MONTHLY_VISION:
-				return Duration.ofDays(30);
-			case ONE_MINUTE:
-				return Duration.ofMinutes(1);
-			case SIX_HOURLY:
-				return Duration.ofHours(6);
-			case THREE_DAILY:
-				return Duration.ofDays(3);
-			case THREE_MINUTES:
-				return Duration.ofMinutes(3);
-			case TWELVE_HOURLY:
-				return Duration.ofHours(12);
-			case TWO_HOURLY:
-				return Duration.ofHours(2);
-			case WEEKLY:
-				return Duration.ofDays(7);
-			default:
-				return null;
-		}
+		return switch (interval) {
+		case DAILY -> Duration.ofDays(1);
+		case EIGHT_HOURLY -> Duration.ofHours(8);
+		case FIFTEEN_MINUTES -> Duration.ofMinutes(15);
+		case FIVE_MINUTES -> Duration.ofMinutes(5);
+		case FOUR_HOURLY -> Duration.ofHours(4);
+		case HALF_HOURLY -> Duration.ofMinutes(30);
+		case HOURLY -> Duration.ofHours(1);
+		case MONTHLY_MARKET, MONTHLY_VISION -> Duration.ofDays(30);
+		case ONE_MINUTE -> Duration.ofMinutes(1);
+		case SIX_HOURLY -> Duration.ofHours(6);
+		case THREE_DAILY -> Duration.ofDays(3);
+		case THREE_MINUTES -> Duration.ofMinutes(3);
+		case TWELVE_HOURLY -> Duration.ofHours(12);
+		case TWO_HOURLY -> Duration.ofHours(2);
+		case WEEKLY -> Duration.ofDays(7);
+		default -> null;
+		};
 	}
 }

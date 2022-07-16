@@ -2,42 +2,43 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
+import com.binance4j.core.serialization.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /** Symbol information (base/quote). */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolInfo(
-		/** $1 */
+		/** TODO JAVADOC */
 		SymbolStatus status,
-		/** $1 */
+		/** TODO JAVADOC */
 		List<OrderType> orderTypes,
-		/** $1 */
+		/** TODO JAVADOC */
 		@JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
-		/** $1 */
+		/** TODO JAVADOC */
 		List<String> permissions,
-		/** $1 */
+		/** TODO JAVADOC */
 		String symbol,
-		/** $1 */
+		/** TODO JAVADOC */
 		String quoteAsset,
-		/** $1 */
+		/** TODO JAVADOC */
 		String baseAsset,
-		/** $1 */
+		/** TODO JAVADOC */
 		Integer baseAssetPrecision,
-		/** $1 */
+		/** TODO JAVADOC */
 		Integer baseCommissionPrecision,
-		/** $1 */
+		/** TODO JAVADOC */
 		Integer quoteAssetPrecision,
-		/** $1 */
+		/** TODO JAVADOC */
 		Integer quoteCommissionPrecision,
-		/** $1 */
+		/** TODO JAVADOC */
 		Boolean icebergAllowed,
-		/** $1 */
+		/** TODO JAVADOC */
 		Boolean ocoAllowed,
-		/** $1 */
+		/** TODO JAVADOC */
 		Boolean quoteOrderQtyMarketAllowed,
-		/** $1 */
+		/** TODO JAVADOC */
 		Boolean isSpotTradingAllowed,
-		/** $1 */
+		/** TODO JAVADOC */
 		Boolean isMarginTradingAllowed) {
 }

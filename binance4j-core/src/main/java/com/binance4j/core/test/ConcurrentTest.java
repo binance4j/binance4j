@@ -28,227 +28,213 @@ import lombok.NonNull;
 
 @Execution(ExecutionMode.CONCURRENT)
 public abstract class ConcurrentTest<T> {
-    @Getter
-    protected String key = System.getenv("BINANCE_API_KEY");
-    @Getter
-    protected String secret = System.getenv("BINANCE_API_SECRET");
-    @Getter
-    protected String testnetKey = System.getenv("BINANCE_TESTNET_API_KEY");
-    @Getter
-    protected String testnetSecret = System.getenv("BINANCE_TESTNET_API_SECRET");
-    @Getter
-    protected String symbol = "BNBBTC";
-    @Getter
-    protected String asset = "BNB";
-    @Getter
-    protected int limit = 25;
-    @Getter
-    protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
-    @Getter
-    protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
-    @Getter
-    protected T client;
-    @Getter
-    protected T testnetClient;
+	@Getter
+	protected String key = System.getenv("BINANCE_API_KEY");
+	@Getter
+	protected String secret = System.getenv("BINANCE_API_SECRET");
+	@Getter
+	protected String testnetKey = System.getenv("BINANCE_TESTNET_API_KEY");
+	@Getter
+	protected String testnetSecret = System.getenv("BINANCE_TESTNET_API_SECRET");
+	@Getter
+	protected String symbol = "BNBBTC";
+	@Getter
+	protected String asset = "BNB";
+	@Getter
+	protected int limit = 25;
+	@Getter
+	protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
+	@Getter
+	protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
+	@Getter
+	protected T client;
+	@Getter
+	protected T testnetClient;
 
-    protected ConcurrentTest() {
-    }
+	protected ConcurrentTest() {
+	}
 
-    protected ConcurrentTest(T client) {
-        this.client = client;
-    }
+	protected ConcurrentTest(T client) {
+		this.client = client;
+	}
 
-    protected ConcurrentTest(@NonNull Class<? extends T> client) {
-        try {
-            this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(),
-                    getSecret());
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException
-                | NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
-        }
-    }
+	protected ConcurrentTest(@NonNull Class<? extends T> client) {
+		try {
+			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+				| SecurityException e) {
+			e.printStackTrace();
+		}
+	}
 
-    protected ConcurrentTest(Class<? extends T> client, Class<? extends T> testnetClient) {
-        try {
-            this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
-            this.testnetClient = testnetClient.getDeclaredConstructor(String.class, String.class).newInstance(
-                    getTestnetKey(),
-                    getTestnetSecret());
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-                | NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
-        }
-    }
+	protected ConcurrentTest(Class<? extends T> client, Class<? extends T> testnetClient) {
+		try {
+			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
+			this.testnetClient = testnetClient.getDeclaredConstructor(String.class, String.class).newInstance(getTestnetKey(), getTestnetSecret());
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+				| SecurityException e) {
+			e.printStackTrace();
+		}
+	}
 
-    /**
-     * Returns the properties of the given bean
-     * 
-     * @param bean The bean we want the properties
-     */
-    protected Map<String, Object> getProperties(Object bean) {
-        Map<String, Object> map = new HashMap<>();
-        try {
-            Arrays.asList(Introspector.getBeanInfo(bean.getClass(), Object.class)
-                    .getPropertyDescriptors())
-                    .stream()
-                    .forEach(pd -> {
-                        try {
-                            map.put(pd.getName(), pd.getReadMethod().invoke(bean));
-                        } catch (Exception e) {
-                        }
-                    });
-            return map;
-        } catch (IntrospectionException e) {
-            return Collections.emptyMap();
-        }
-    }
+	/**
+	 * Returns the properties of the given bean
+	 * 
+	 * @param bean The bean we want the properties
+	 */
+	protected Map<String, Object> getProperties(Object bean) {
+		Map<String, Object> map = new HashMap<>();
+		try {
+			Arrays.asList(Introspector.getBeanInfo(bean.getClass(), Object.class).getPropertyDescriptors()).stream().forEach(pd -> {
+				try {
+					map.put(pd.getName(), pd.getReadMethod().invoke(bean));
+				} catch (Exception e) {
+				}
+			});
+			return map;
+		} catch (IntrospectionException e) {
+			return Collections.emptyMap();
+		}
+	}
 
-    /**
-     * Returns the bean properties with a null walue
-     * 
-     * @param bean The bean we want the properties
-     */
-    protected Set<String> getNullProperties(Object bean) {
-        return getNullProperties(bean, bean.getClass().getSimpleName());
-    }
+	/**
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean The bean we want the properties
+	 */
+	protected Set<String> getNullProperties(Object bean) {
+		return getNullProperties(bean, bean.getClass().getSimpleName());
+	}
 
-    /**
-     * Returns the bean properties with a null walue
-     * 
-     * @param bean    The bean we want the properties
-     * @param flatten Flatten the result to only show the properties names
-     */
-    protected Set<String> getNullProperties(Object bean, boolean flatten) {
-        Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
+	/**
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean    The bean we want the properties
+	 * @param flatten Flatten the result to only show the properties names
+	 */
+	protected Set<String> getNullProperties(Object bean, boolean flatten) {
+		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
 
-        return !flatten ? set : set.stream().map(string -> {
-            String[] array = string.split("\\.");
-            return array[array.length - 1];
-        }).collect(Collectors.toSet());
-    }
+		return !flatten ? set : set.stream().map(string -> {
+			String[] array = string.split("\\.");
+			return array[array.length - 1];
+		}).collect(Collectors.toSet());
+	}
 
-    /**
-     * Returns the bean properties with a null walue
-     * 
-     * @param bean           The bean we want the properties
-     * @param enclosingClass The enclosing class
-     */
-    protected Set<String> getNullProperties(Object bean, String enclosingClass) {
-        List<String> list = new ArrayList<>();
-        // Handling collections
-        if (bean instanceof Collection) {
-            int i = 0;
+	/**
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean           The bean we want the properties
+	 * @param enclosingClass The enclosing class
+	 */
+	protected Set<String> getNullProperties(Object bean, String enclosingClass) {
+		List<String> list = new ArrayList<>();
+		// Handling collections
+		if (bean instanceof Collection) {
+			int i = 0;
 
-            for (Object b : (Collection<?>) bean) {
-                Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
-                for (String np : nullProps) {
-                    list.add(String.format("%s[%s].%s", enclosingClass, Integer.toString(i), np));
-                }
-                i++;
+			for (Object b : (Collection<?>) bean) {
+				Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
+				for (String np : nullProps) {
+					list.add(String.format("%s[%s].%s", enclosingClass, Integer.toString(i), np));
+				}
+				i++;
 
-            }
-        }
-        // Handling maps
-        else if (bean instanceof Map) {
-            list = ((Map<?, ?>) bean).entrySet().stream()
-                    .map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName())
-                            .stream()
-                            .map(np -> es.getKey() + "." + np)
-                            .collect(Collectors.toSet()))
-                    .flatMap(Collection::stream)
-                    .collect(Collectors.toList());
-        }
-        // Handling custom objects
-        else if (!isJavaBean(bean)) {
-            list = getProperties(bean).entrySet().stream().map(o -> {
-                if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
-                    return getNullProperties(o.getValue(), o.getKey());
-                } else if (o.getValue() == null) {
-                    return new HashSet<>(Arrays.asList(Character.isUpperCase(enclosingClass.charAt(0)) ? o.getKey()
-                            : enclosingClass + "." + o.getKey()));
-                } else {
-                    return getNullProperties(o.getValue(), o.getKey());
-                }
-            }).flatMap(Collection::stream).collect(Collectors.toList());
-        }
-        Collections.sort(list);
+			}
+		}
+		// Handling maps
+		else if (bean instanceof Map) {
+			list = ((Map<?, ?>) bean).entrySet().stream().map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName()).stream()
+					.map(np -> es.getKey() + "." + np).collect(Collectors.toSet())).flatMap(Collection::stream).collect(Collectors.toList());
+		}
+		// Handling custom objects
+		else if (!isJavaBean(bean)) {
+			list = getProperties(bean).entrySet().stream().map(o -> {
+				if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
+					return getNullProperties(o.getValue(), o.getKey());
+				} else if (o.getValue() == null) {
+					return new HashSet<>(Arrays.asList(Character.isUpperCase(enclosingClass.charAt(0)) ? o.getKey() : enclosingClass + "." + o.getKey()));
+				} else {
+					return getNullProperties(o.getValue(), o.getKey());
+				}
+			}).flatMap(Collection::stream).collect(Collectors.toList());
+		}
+		Collections.sort(list);
 
-        return new TreeSet<>(list);
-    }
+		return new TreeSet<>(list);
+	}
 
+	/**
+	 * Tells if the given object has no null property
+	 * 
+	 * @param bean The bean to verify
+	 */
+	protected boolean hasNoNullProperty(Object bean) {
+		return getNullProperties(bean).isEmpty();
+	}
 
-    /**
-     * Tells if the given object has no null property
-     * 
-     * @param bean The bean to verify
-     */
-    protected boolean hasNoNullProperty(Object bean) {
-        return getNullProperties(bean).isEmpty();
-    }
+	/**
+	 * Tells if the bean has properties
+	 * 
+	 * @param bean The bean we want to inspect
+	 */
+	protected boolean hasProperties(Object bean) {
+		return getProperties(bean).size() != 0;
+	}
 
-    /**
-     * Tells if the bean has properties
-     * 
-     * @param bean The bean we want to inspect
-     */
-    protected boolean hasProperties(Object bean) {
-        return getProperties(bean).size() != 0;
-    }
+	/**
+	 * Tells if the object is from the java lang package
+	 * 
+	 * @param bean The bean to inspect
+	 */
+	protected boolean isJavaBean(Object bean) {
+		return bean.getClass().getName().startsWith("java");
+	}
 
-    /**
-     * Tells if the object is from the java lang package
-     * 
-     * @param bean The bean to inspect
-     */
-    protected boolean isJavaBean(Object bean) {
-        return bean.getClass().getName().startsWith("java");
-    }
+	/**
+	 * Tells if the object is a Map
+	 * 
+	 * @param bean The bean to inspect
+	 */
+	protected boolean isMap(Object bean) {
+		return bean instanceof Map;
+	}
 
-    /**
-     * Tells if the object is a Map
-     * 
-     * @param bean The bean to inspect
-     */
-    protected boolean isMap(Object bean) {
-        return bean instanceof Map;
-    }
+	/**
+	 * Tells if the object is a Collection (Map excluded)
+	 * 
+	 * @param bean The bean to inspect
+	 */
+	protected boolean isCollection(Object bean) {
+		return bean instanceof Collection;
+	}
 
-    /**
-     * Tells if the object is a Collection (Map excluded)
-     * 
-     * @param bean The bean to inspect
-     */
-    protected boolean isCollection(Object bean) {
-        return bean instanceof Collection;
-    }
+	/**
+	 * Tests that the object has no null properties
+	 * 
+	 * @param bean
+	 */
+	public void test(Object bean) {
+		System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
 
-    /**
-     * Tests that the object has no null properties
-     * 
-     * @param bean
-     */
-    public void test(Object bean) {
-        System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
+		Set<String> nulls = getNullProperties(bean);
 
-        Set<String> nulls = getNullProperties(bean);
+		if (nulls.isEmpty()) {
+			System.out.println("no null property");
+		} else {
+			System.out.println("null properties:");
+			System.out.println(nulls + "\n");
+		}
 
-        if (nulls.isEmpty()) {
-            System.out.println("no null property");
-        } else {
-            System.out.println("null properties:");
-            System.out.println(nulls + "\n");
-        }
+		assertTrue(hasNoNullProperty(bean));
+	}
 
-        assertTrue(hasNoNullProperty(bean));
-    }
-
-    /**
-     * Tests that the object has no null properties
-     * 
-     * @throws ApiException
-     */
-    public void test(Request<?> executor) throws ApiException {
-        test(executor.execute());
-    }
+	/**
+	 * Tests that the object has no null properties
+	 * 
+	 * @throws ApiException
+	 */
+	public void test(Request<?> executor) throws ApiException {
+		test(executor.execute());
+	}
 }
