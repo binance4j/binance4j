@@ -1,6 +1,6 @@
 package com.binance4j.spot;
 
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.vision.client.VisionSpotClient;
 

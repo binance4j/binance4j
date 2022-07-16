@@ -2,7 +2,7 @@ package com.binance4j.websocket.configuration;
 
 import java.time.Duration;
 
-import com.binance4j.core.configuration.RestClientConfiguration;
+import com.binance4j.core.client.RestClientConfiguration;
 
 import lombok.Data;
 

@@ -17,7 +17,7 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.market.AggTrade;
+import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.pojo.NestedObject;
 import com.binance4j.core.pojo.SubObject;
 import com.binance4j.core.pojo.SubSubObject;

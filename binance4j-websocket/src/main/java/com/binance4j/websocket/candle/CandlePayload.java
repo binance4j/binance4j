@@ -1,6 +1,6 @@
 package com.binance4j.websocket.candle;
 
-import com.binance4j.core.market.Candle;
+import com.binance4j.core.dto.Candle;
 import com.binance4j.websocket.serialization.CandlestickEventDeserializer;
 import com.binance4j.websocket.serialization.CandlestickEventSerializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

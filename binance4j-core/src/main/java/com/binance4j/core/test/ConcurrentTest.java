@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.param.Request;
 
 import lombok.Getter;
 import lombok.NonNull;

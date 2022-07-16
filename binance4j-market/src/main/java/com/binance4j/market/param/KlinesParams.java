@@ -1,6 +1,6 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.param.IntervalParams;
 
 import lombok.Data;

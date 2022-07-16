@@ -3,8 +3,8 @@ package com.binance4j.margin.client;
 import java.util.List;
 import java.util.Map;
 
-import com.binance4j.core.order.CancelOrderResponse;
-import com.binance4j.core.order.OrderInfo;
+import com.binance4j.core.dto.CancelOrderResponse;
+import com.binance4j.core.dto.OrderInfo;
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;

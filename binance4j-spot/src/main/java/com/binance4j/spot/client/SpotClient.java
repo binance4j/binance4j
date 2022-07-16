@@ -2,15 +2,15 @@ package com.binance4j.spot.client;
 
 import java.util.List;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.order.CancelOpenOrdersParams;
-import com.binance4j.core.order.CancelOrderParams;
-import com.binance4j.core.order.CancelOrderResponse;
-import com.binance4j.core.order.OCOOrderParams;
-import com.binance4j.core.order.OCOResponse;
-import com.binance4j.core.order.OrderInfo;
-import com.binance4j.core.order.Trade;
-import com.binance4j.core.param.Request;
+import com.binance4j.core.dto.CancelOrderResponse;
+import com.binance4j.core.dto.OCOResponse;
+import com.binance4j.core.dto.OrderInfo;
+import com.binance4j.core.dto.Trade;
+import com.binance4j.core.param.CancelOpenOrdersParams;
+import com.binance4j.core.param.CancelOrderParams;
+import com.binance4j.core.param.OCOOrderParams;
 import com.binance4j.spot.dto.Account;
 import com.binance4j.spot.dto.NewOrderResponse;
 import com.binance4j.spot.dto.OCOInfo;

@@ -3,7 +3,7 @@ package com.binance4j.core.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.binance4j.core.market.AggTrade;
+import com.binance4j.core.dto.AggTrade;
 
 /** TODO JAVADOC */
 public class SubSubObject {

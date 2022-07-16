@@ -2,7 +2,7 @@ package com.binance4j.websocket.userdata;
 
 import java.util.List;
 
-import com.binance4j.core.account.AssetBalance;
+import com.binance4j.core.dto.AssetBalance;
 import com.binance4j.websocket.serialization.AssetBalanceDeserializer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;

@@ -5,8 +5,8 @@ import java.util.List;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
 
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.Candle;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.strategy.TradingStrategy;
 
 /**

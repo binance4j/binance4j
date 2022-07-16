@@ -2,9 +2,9 @@ package com.binance4j.margin.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.Order;
-import com.binance4j.core.order.OrderSide;
+import com.binance4j.core.dto.Order;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#newOCO} params. */

@@ -5,9 +5,9 @@ import java.util.List;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BarSeriesManager;
 
+import com.binance4j.core.dto.Candle;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.strategy.TradingStrategy;
 import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.vision.client.VisionSpotClient;

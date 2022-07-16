@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import com.binance4j.core.order.ContingencyType;
-import com.binance4j.core.order.MiniOrderInfo;
-import com.binance4j.core.order.OCOOrderStatus;
-import com.binance4j.core.order.OCOStatus;
-import com.binance4j.core.order.OrderReport;
+import com.binance4j.core.dto.ContingencyType;
+import com.binance4j.core.dto.MiniOrderInfo;
+import com.binance4j.core.dto.OCOOrderStatus;
+import com.binance4j.core.dto.OCOStatus;
+import com.binance4j.core.dto.OrderReport;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 

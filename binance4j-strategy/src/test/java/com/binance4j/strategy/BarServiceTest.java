@@ -9,8 +9,8 @@ import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.Candle;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.BarService;
 

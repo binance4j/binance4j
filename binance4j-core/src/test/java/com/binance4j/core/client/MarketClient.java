@@ -1,6 +1,6 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.param.Request;
+import com.binance4j.core.Request;
 
 /** TODO JAVADOC */
 public class MarketClient extends RestClient<MarketDataMapping> {

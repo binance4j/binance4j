@@ -3,7 +3,7 @@ package com.binance4j.wallet.param;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.binance4j.core.account.AssetBalance;
+import com.binance4j.core.dto.AssetBalance;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

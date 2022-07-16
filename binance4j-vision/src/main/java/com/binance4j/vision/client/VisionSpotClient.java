@@ -3,11 +3,11 @@ package com.binance4j.vision.client;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import com.binance4j.core.dto.AggTrade;
+import com.binance4j.core.dto.Candle;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
-import com.binance4j.core.market.AggTrade;
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.vision.dto.VisionTrade;
 import com.binance4j.vision.request.AggTradeRequest;
 import com.binance4j.vision.request.CandlestickRequest;

@@ -1,7 +1,7 @@
 package com.binance4j.websocket.userdata;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Request;
 import com.binance4j.websocket.stream.IsolatedUserDataStreamParams;
 import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamParams;
 

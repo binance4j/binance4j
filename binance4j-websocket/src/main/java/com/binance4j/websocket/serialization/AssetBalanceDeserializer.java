@@ -3,7 +3,7 @@ package com.binance4j.websocket.serialization;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import com.binance4j.core.account.AssetBalance;
+import com.binance4j.core.dto.AssetBalance;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;

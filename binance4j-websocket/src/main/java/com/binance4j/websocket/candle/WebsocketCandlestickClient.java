@@ -2,7 +2,7 @@ package com.binance4j.websocket.candle;
 
 import java.time.Duration;
 
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 import com.binance4j.websocket.service.DurationService;

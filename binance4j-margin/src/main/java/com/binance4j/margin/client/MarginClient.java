@@ -2,12 +2,12 @@ package com.binance4j.margin.client;
 
 import java.util.List;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.order.CancelOpenOrdersParams;
-import com.binance4j.core.order.CancelOrderParams;
-import com.binance4j.core.order.CancelOrderResponse;
-import com.binance4j.core.order.OrderInfo;
-import com.binance4j.core.param.Request;
+import com.binance4j.core.dto.CancelOrderResponse;
+import com.binance4j.core.dto.OrderInfo;
+import com.binance4j.core.param.CancelOpenOrdersParams;
+import com.binance4j.core.param.CancelOrderParams;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.BNBBurnStatus;

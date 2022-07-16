@@ -12,8 +12,8 @@ import org.ta4j.core.BarSeries;
 import org.ta4j.core.BaseBarSeries;
 import org.ta4j.core.Strategy;
 
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.strategy.StrategyCallback;
 import com.binance4j.strategy.TradingStrategy;
 import com.binance4j.strategy.dto.SymbolBar;

@@ -1,6 +1,5 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.configuration.RestClientConfiguration;
 import com.binance4j.core.security.AuthenticationInterceptor;
 
 import lombok.AccessLevel;

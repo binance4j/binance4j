@@ -2,8 +2,8 @@ package com.binance4j.margin.dto;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.OrderSide;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

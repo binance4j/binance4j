@@ -1,7 +1,7 @@
 package com.binance4j.spot.client;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.order.CancelOrderParams;
+import com.binance4j.core.param.CancelOrderParams;
 
 /** TODO JAVADOC */
 public class CancelOrderTest extends SpotTest {

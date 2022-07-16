@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.OrderSide;
-import com.binance4j.core.order.OrderStatus;
-import com.binance4j.core.order.OrderType;
-import com.binance4j.core.order.Trade;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.OrderStatus;
+import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.TimeInForce;
+import com.binance4j.core.dto.Trade;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

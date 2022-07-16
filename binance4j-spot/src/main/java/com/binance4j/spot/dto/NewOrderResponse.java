@@ -3,10 +3,10 @@ package com.binance4j.spot.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.OrderSide;
-import com.binance4j.core.order.OrderStatus;
-import com.binance4j.core.order.OrderType;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.OrderStatus;
+import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

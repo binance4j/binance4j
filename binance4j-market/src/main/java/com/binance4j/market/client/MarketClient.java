@@ -3,12 +3,12 @@ package com.binance4j.market.client;
 import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.exchangeinfo.ExchangeInfo;
-import com.binance4j.core.exchangeinfo.ExchangeInfoParams;
-import com.binance4j.core.market.AggTrade;
-import com.binance4j.core.market.Candle;
-import com.binance4j.core.param.Request;
+import com.binance4j.core.dto.AggTrade;
+import com.binance4j.core.dto.Candle;
+import com.binance4j.core.dto.ExchangeInfo;
+import com.binance4j.core.param.ExchangeInfoParams;
 import com.binance4j.market.dto.AveragePrice;
 import com.binance4j.market.dto.BookTicker;
 import com.binance4j.market.dto.OrderBook;

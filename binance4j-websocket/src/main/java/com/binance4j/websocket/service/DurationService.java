@@ -2,7 +2,7 @@ package com.binance4j.websocket.service;
 
 import java.time.Duration;
 
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.CandlestickInterval;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

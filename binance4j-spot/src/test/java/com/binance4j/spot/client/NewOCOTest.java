@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
 
+import com.binance4j.core.dto.OCOResponse;
+import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.order.OCOOrderParams;
-import com.binance4j.core.order.OCOResponse;
-import com.binance4j.core.order.OrderSide;
+import com.binance4j.core.param.OCOOrderParams;
 
 /** TODO JAVADOC */
 public class NewOCOTest extends SpotTest {

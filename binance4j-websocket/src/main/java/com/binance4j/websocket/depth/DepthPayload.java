@@ -2,7 +2,7 @@ package com.binance4j.websocket.depth;
 
 import java.util.List;
 
-import com.binance4j.core.market.OrderBookEntry;
+import com.binance4j.core.dto.OrderBookEntry;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

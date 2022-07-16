@@ -9,7 +9,7 @@ import org.ta4j.core.BarSeries;
 import org.ta4j.core.Indicator;
 import org.ta4j.core.Rule;
 
-import com.binance4j.core.market.Candle;
+import com.binance4j.core.dto.Candle;
 
 /**
  * A trading strategy with an entry and an exit {@link Rule Rules} based on

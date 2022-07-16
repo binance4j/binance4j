@@ -2,12 +2,12 @@ package com.binance4j.margin.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.configuration.RestClientConfiguration;
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.BaseOrder;
-import com.binance4j.core.order.OrderSide;
-import com.binance4j.core.order.OrderType;
-import com.binance4j.core.order.SideEffectType;
+import com.binance4j.core.client.RestClientConfiguration;
+import com.binance4j.core.dto.BaseOrder;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.SideEffectType;
+import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#newOrder} params. */

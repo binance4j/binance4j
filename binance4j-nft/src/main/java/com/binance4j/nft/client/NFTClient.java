@@ -1,7 +1,7 @@
 package com.binance4j.nft.client;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Request;
 import com.binance4j.nft.dto.NFTAssetHistory;
 import com.binance4j.nft.dto.NFTDepositHistory;
 import com.binance4j.nft.dto.NFTTransactionHistory;

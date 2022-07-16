@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.market.CandlestickInterval;
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;

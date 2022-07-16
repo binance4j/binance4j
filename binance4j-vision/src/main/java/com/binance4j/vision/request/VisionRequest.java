@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.zip.ZipInputStream;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.core.param.Request;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

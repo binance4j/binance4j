@@ -2,8 +2,8 @@ package com.binance4j.vision.request;
 
 import java.util.List;
 
+import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.AggTrade;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

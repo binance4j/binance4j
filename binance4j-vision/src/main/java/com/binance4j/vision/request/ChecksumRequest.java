@@ -2,10 +2,10 @@ package com.binance4j.vision.request;
 
 import java.util.Scanner;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.core.param.Request;
 import com.binance4j.vision.dto.VisionChecksum;
 
 import okhttp3.ResponseBody;

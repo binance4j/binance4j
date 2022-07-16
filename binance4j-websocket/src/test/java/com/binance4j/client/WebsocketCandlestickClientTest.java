@@ -4,8 +4,8 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.candle.WebsocketCandlestickClient;
 

@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Position;
 
+import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.core.test.ConcurrentTest;
 import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.strategy.service.BackTestService;

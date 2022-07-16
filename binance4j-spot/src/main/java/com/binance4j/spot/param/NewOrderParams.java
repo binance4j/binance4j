@@ -2,11 +2,11 @@ package com.binance4j.spot.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.configuration.RestClientConfiguration;
-import com.binance4j.core.misc.TimeInForce;
-import com.binance4j.core.order.BaseOrder;
-import com.binance4j.core.order.OrderSide;
-import com.binance4j.core.order.OrderType;
+import com.binance4j.core.client.RestClientConfiguration;
+import com.binance4j.core.dto.BaseOrder;
+import com.binance4j.core.dto.OrderSide;
+import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.TimeInForce;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
