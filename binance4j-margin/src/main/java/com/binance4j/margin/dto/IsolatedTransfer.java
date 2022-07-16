@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An asset transfer between two accounts.
+ * An asset transfer record between two accounts.
  * 
  * @param amount        The transfered amount.
  * @param asset         The transfered asset.
@@ -29,7 +29,7 @@ public record IsolatedTransfer(
 		/** The transaction id. */
 		@JsonProperty("txId") long transactionId,
 		/** The account the asset is transfered from. */
-		@JsonProperty("transFrom") IsolatedTransferType transferFrom,
+		@JsonProperty("transFrom") IsolatedTransferAccount transferFrom,
 		/** The account the asset is transfered to. */
-		@JsonProperty("transTo") IsolatedTransferType transferTo) {
+		@JsonProperty("transTo") IsolatedTransferAccount transferTo) {
 }

@@ -20,8 +20,8 @@ import com.binance4j.margin.dto.IsolatedSymbol;
 import com.binance4j.margin.dto.IsolatedTierData;
 import com.binance4j.margin.dto.IsolatedTransferHistory;
 import com.binance4j.margin.dto.LoanRecord;
-import com.binance4j.margin.dto.MaxBorrowableResponse;
-import com.binance4j.margin.dto.MaxTransferableResponse;
+import com.binance4j.margin.dto.MaxBorrowable;
+import com.binance4j.margin.dto.MaxTransferable;
 import com.binance4j.margin.dto.OCOOrderRecord;
 import com.binance4j.margin.dto.OCOResponse;
 import com.binance4j.margin.dto.OrderResponse;
@@ -154,11 +154,11 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "maxBorrowable")
-	Call<MaxBorrowableResponse> getMaxBorrowable(@QueryMap Map<String, Object> map);
+	Call<MaxBorrowable> getMaxBorrowable(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "maxTransferable")
-	Call<MaxTransferableResponse> getMaxTransferable(@QueryMap Map<String, Object> map);
+	Call<MaxTransferable> getMaxTransferable(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "isolated/transfer")

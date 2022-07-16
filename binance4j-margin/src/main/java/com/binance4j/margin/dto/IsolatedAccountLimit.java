@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * Enabled Isolated account limit
  * 
- * @param enabledAccount
- * @param maxAccount
+ * @param enabledAccount Enabled account.
+ * @param maxAccount     Account limit.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedAccountLimit(

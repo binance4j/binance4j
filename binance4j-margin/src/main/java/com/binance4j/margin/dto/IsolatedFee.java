@@ -8,10 +8,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * Isolated margin fee
  * 
- * @param vipLevel
- * @param symbol
- * @param leverage
- * @param data
+ * @param vipLevel The VIP level.
+ * @param symbol   The related symbol.
+ * @param leverage The leverage.
+ * @param data     The isolated fee data.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedFee(
@@ -21,6 +21,6 @@ public record IsolatedFee(
 		String symbol,
 		/** The leverage. */
 		BigDecimal leverage,
-		/** TODO JAVADOC. */
+		/** The isolated fee data. */
 		List<IsolatedFeeData> data) {
 }

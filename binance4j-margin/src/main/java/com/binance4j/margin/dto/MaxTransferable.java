@@ -4,9 +4,13 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** Max Borrow Query Result */
+/**
+ * Max transferable amount
+ * 
+ * @param amount The max transferable amount
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record MaxTransferableResponse(
-		/** TODO JAVADOC. */
+public record MaxTransferable(
+		/** The max transferable amount. */
 		BigDecimal amount) {
 }

@@ -5,11 +5,16 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** History of account withdrawals. */
+/**
+ * A loan record.
+ * 
+ * @param total The total records.
+ * @param rows  The records.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record LoanRecord(
-		/** TODO JAVADOC. */
+		/** The total number of loans. */
 		@JsonProperty("totalclas") int total,
-		/** TODO JAVADOC. */
+		/** The loans. */
 		@JsonProperty("rowsclas") List<Loan> rows) {
 }

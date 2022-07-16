@@ -4,12 +4,19 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Isolated fee data
+ * 
+ * @param coin          The related coin.
+ * @param dailyInterest The daily interest.
+ * @param borrowLimit   The borrow limit.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedFeeData(
-		/** TODO JAVADOC. */
+		/** The related coin. */
 		String coin,
-		/** TODO JAVADOC. */
+		/** The daily interest. */
 		BigDecimal dailyInterest,
-		/** TODO JAVADOC. */
+		/** The borrow limit. */
 		BigDecimal borrowLimit) {
 }

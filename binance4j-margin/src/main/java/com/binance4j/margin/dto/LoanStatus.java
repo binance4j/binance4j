@@ -5,5 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /** Status of a submitted order. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum LoanStatus {
-	PENDING, CONFIRMED, FAILED
+	/** Pending execution */
+	PENDING,
+	/** Successfully loaned */
+	CONFIRMED,
+	/** Execution failed, nothing happened to your account */
+	FAILED
 }

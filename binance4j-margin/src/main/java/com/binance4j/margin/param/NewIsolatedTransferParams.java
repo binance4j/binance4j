@@ -3,7 +3,7 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.param.FramedParams;
-import com.binance4j.margin.dto.IsolatedTransferType;
+import com.binance4j.margin.dto.IsolatedTransferAccount;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,11 +13,11 @@ import lombok.EqualsAndHashCode;
 public class NewIsolatedTransferParams extends FramedParams {
 	private String asset;
 	private String symbol;
-	private IsolatedTransferType transFrom;
-	private IsolatedTransferType transTo;
+	private IsolatedTransferAccount transFrom;
+	private IsolatedTransferAccount transTo;
 	private BigDecimal amount;
 
-	public NewIsolatedTransferParams(String asset, String symbol, IsolatedTransferType transFrom, IsolatedTransferType transTo, BigDecimal amount) {
+	public NewIsolatedTransferParams(String asset, String symbol, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo, BigDecimal amount) {
 		super(600);
 		this.asset = asset;
 		this.symbol = symbol;

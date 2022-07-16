@@ -4,10 +4,16 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Isolated margin transfer history
+ * 
+ * @param rows  The transfers.
+ * @param total The total records.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedTransferHistory(
-		/** TODO JAVADOC. */
+		/** The transfers. */
 		List<IsolatedTransfer> rows,
-		/** TODO JAVADOC. */
+		/** The total records. */
 		int total) {
 }

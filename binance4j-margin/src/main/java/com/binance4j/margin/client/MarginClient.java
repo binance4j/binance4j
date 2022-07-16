@@ -22,8 +22,8 @@ import com.binance4j.margin.dto.IsolatedSymbol;
 import com.binance4j.margin.dto.IsolatedTierData;
 import com.binance4j.margin.dto.IsolatedTransferHistory;
 import com.binance4j.margin.dto.LoanRecord;
-import com.binance4j.margin.dto.MaxBorrowableResponse;
-import com.binance4j.margin.dto.MaxTransferableResponse;
+import com.binance4j.margin.dto.MaxBorrowable;
+import com.binance4j.margin.dto.MaxTransferable;
 import com.binance4j.margin.dto.OCOOrderRecord;
 import com.binance4j.margin.dto.OCOResponse;
 import com.binance4j.margin.dto.OrderResponse;
@@ -404,7 +404,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<MaxBorrowableResponse> getMaxBorrowable(MaxBorrowableParams params) {
+	public Request<MaxBorrowable> getMaxBorrowable(MaxBorrowableParams params) {
 		return new Request<>(service.getMaxBorrowable(params.toMap()), params);
 	}
 
@@ -414,7 +414,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<MaxTransferableResponse> getMaxTransferable(MaxTransferableParams params) {
+	public Request<MaxTransferable> getMaxTransferable(MaxTransferableParams params) {
 		return new Request<>(service.getMaxTransferable(params.toMap()), params);
 	}
 
