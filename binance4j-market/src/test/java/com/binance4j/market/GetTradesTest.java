@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.market.trade.TradeHistoryItem;
-import com.binance4j.market.trade.TradesParams;
+import com.binance4j.market.dto.TradeHistoryItem;
+import com.binance4j.market.param.TradesParams;
 
 class GetTradesTest extends MarketTest {
 

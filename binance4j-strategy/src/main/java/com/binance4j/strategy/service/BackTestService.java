@@ -10,7 +10,7 @@ import com.binance4j.core.market.Candle;
 import com.binance4j.core.market.CandlestickInterval;
 import com.binance4j.strategy.TradingStrategy;
 import com.binance4j.strategy.dto.BackTestResult;
-import com.binance4j.vision.spot.VisionSpotClient;
+import com.binance4j.vision.client.VisionSpotClient;
 import com.binance4j.websocket.service.DurationService;
 
 /** Service to backtest a {@link TradingStrategy} */

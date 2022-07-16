@@ -1,7 +1,7 @@
 package com.binance4j.client;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.deposit.DepositAddressParams;
+import com.binance4j.wallet.param.DepositAddressParams;
 
 class GetDepositAddressTest extends WalletTest {
 

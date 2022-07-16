@@ -3,7 +3,7 @@ package com.binance4j.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.tradefee.TradeFeeParams;
+import com.binance4j.wallet.param.TradeFeeParams;
 
 class GetTradeFeeTest extends WalletTest {
 

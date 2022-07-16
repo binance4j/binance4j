@@ -8,10 +8,10 @@ import com.binance4j.core.order.OCOResponse;
 import com.binance4j.core.order.OrderInfo;
 import com.binance4j.core.order.Trade;
 import com.binance4j.core.security.AuthenticationInterceptor;
-import com.binance4j.spot.account.Account;
-import com.binance4j.spot.order.NewOrderResponse;
-import com.binance4j.spot.order.OCOInfo;
-import com.binance4j.spot.order.OrderCount;
+import com.binance4j.spot.dto.Account;
+import com.binance4j.spot.dto.NewOrderResponse;
+import com.binance4j.spot.dto.OCOInfo;
+import com.binance4j.spot.dto.OrderCount;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;

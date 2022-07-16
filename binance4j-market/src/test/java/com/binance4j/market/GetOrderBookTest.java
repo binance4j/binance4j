@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.market.depth.OrderBook;
-import com.binance4j.market.depth.OrderBookParams;
+import com.binance4j.market.dto.OrderBook;
+import com.binance4j.market.param.OrderBookParams;
 
 class GetOrderBookTest extends MarketTest {
 

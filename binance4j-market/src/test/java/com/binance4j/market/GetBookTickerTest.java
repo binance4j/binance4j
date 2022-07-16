@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.market.depth.BookTicker;
-import com.binance4j.market.depth.BookTickerParams;
-import com.binance4j.market.depth.BookTickersParams;
+import com.binance4j.market.dto.BookTicker;
+import com.binance4j.market.param.BookTickerParams;
+import com.binance4j.market.param.BookTickersParams;
 
 class GetBookTickerTest extends MarketTest {
 

@@ -1,23 +1,24 @@
 package com.binance4j.market.client;
 
+import java.util.List;
+import java.util.Map;
+
 import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.market.AggTrade;
 import com.binance4j.core.market.Candle;
 import com.binance4j.core.security.AuthenticationInterceptor;
-import com.binance4j.market.depth.BookTicker;
-import com.binance4j.market.depth.OrderBook;
-import com.binance4j.market.price.AveragePrice;
-import com.binance4j.market.price.PriceTicker;
-import com.binance4j.market.tickerstatistics.TickerStatistics;
-import com.binance4j.market.time.ServerTimeResponse;
-import com.binance4j.market.trade.TradeHistoryItem;
+import com.binance4j.market.dto.AveragePrice;
+import com.binance4j.market.dto.BookTicker;
+import com.binance4j.market.dto.OrderBook;
+import com.binance4j.market.dto.PriceTicker;
+import com.binance4j.market.dto.ServerTimeResponse;
+import com.binance4j.market.dto.TickerStatistics;
+import com.binance4j.market.dto.TradeHistoryItem;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
-
-import java.util.List;
-import java.util.Map;
 
 public interface MarketMapping {
 	String BASE = "/api/v3/";

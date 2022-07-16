@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.market.AggTrade;
-import com.binance4j.market.trade.AggTradeParams;
+import com.binance4j.market.param.AggTradeParams;
 
 /** TODO JAVADOC */
 public class GetAggTradesTests extends MarketTest {

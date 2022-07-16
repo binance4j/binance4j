@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.rebate.record.SpotRebateHistoryParams;
+import com.binance4j.rebate.param.SpotRebateHistoryParams;
 
 /** TODO JAVADOC */
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {

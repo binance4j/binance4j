@@ -8,8 +8,8 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.assetdetail.AssetDetail;
-import com.binance4j.wallet.assetdetail.AssetDetailParams;
+import com.binance4j.wallet.dto.AssetDetail;
+import com.binance4j.wallet.param.AssetDetailParams;
 
 class GetAssetDetailTest extends WalletTest {
 

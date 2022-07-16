@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
-import com.binance4j.vision.spot.VisionChecksum;
+import com.binance4j.vision.dto.VisionChecksum;
 
 /** TODO JAVADOC */
 public class GetChecksumTest extends SpotTest {

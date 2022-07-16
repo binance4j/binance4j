@@ -2,8 +2,8 @@ package com.binance4j.rebate.client;
 
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.Request;
-import com.binance4j.rebate.record.SpotRebateHistoryParams;
-import com.binance4j.rebate.record.SpotRebateHistoryResponse;
+import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
+import com.binance4j.rebate.param.SpotRebateHistoryParams;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

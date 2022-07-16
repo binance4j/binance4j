@@ -3,7 +3,7 @@ package com.binance4j.spot.client;
 import java.math.BigDecimal;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.spot.order.NewOrderParams;
+import com.binance4j.spot.param.NewOrderParams;
 
 class NewOrderTest extends SpotTest {
 

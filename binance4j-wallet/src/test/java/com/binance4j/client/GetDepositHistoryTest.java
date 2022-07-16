@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.deposit.DepositHistory;
-import com.binance4j.wallet.deposit.DepositHistoryParams;
-import com.binance4j.wallet.deposit.DepositStatus;
+import com.binance4j.wallet.dto.DepositHistory;
+import com.binance4j.wallet.dto.DepositStatus;
+import com.binance4j.wallet.param.DepositHistoryParams;
 
 class GetDepositHistoryTest extends WalletTest {
 

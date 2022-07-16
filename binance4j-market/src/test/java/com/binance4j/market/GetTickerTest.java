@@ -5,9 +5,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.market.price.PriceTicker;
-import com.binance4j.market.price.PriceTickerParams;
-import com.binance4j.market.price.PriceTickersParams;
+import com.binance4j.market.dto.PriceTicker;
+import com.binance4j.market.param.PriceTickerParams;
+import com.binance4j.market.param.PriceTickersParams;
 
 class GetTickerTest extends MarketTest {
 

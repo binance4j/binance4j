@@ -3,10 +3,10 @@ package com.binance4j.nft.client;
 import java.util.Map;
 
 import com.binance4j.core.security.AuthenticationInterceptor;
-import com.binance4j.nft.asset.NFTAssetHistory;
-import com.binance4j.nft.deposit.NFTDepositHistory;
-import com.binance4j.nft.transaction.NFTTransactionHistory;
-import com.binance4j.nft.withdraw.NFTWithdrawHistory;
+import com.binance4j.nft.dto.NFTAssetHistory;
+import com.binance4j.nft.dto.NFTDepositHistory;
+import com.binance4j.nft.dto.NFTTransactionHistory;
+import com.binance4j.nft.dto.NFTWithdrawHistory;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

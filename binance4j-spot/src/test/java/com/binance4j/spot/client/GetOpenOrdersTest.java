@@ -3,7 +3,7 @@ package com.binance4j.spot.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.spot.order.OpenOrdersStatusParams;
+import com.binance4j.spot.param.OpenOrdersStatusParams;
 
 /** TODO JAVADOC */
 public class GetOpenOrdersTest extends SpotTest {

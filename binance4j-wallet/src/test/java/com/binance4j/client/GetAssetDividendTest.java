@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.assetdividendrecord.AssetDividendRecord;
-import com.binance4j.wallet.assetdividendrecord.AssetDividendRecordParams;
+import com.binance4j.wallet.dto.AssetDividendRecord;
+import com.binance4j.wallet.param.AssetDividendRecordParams;
 
 class GetAssetDividendTest extends WalletTest {
 	@Test

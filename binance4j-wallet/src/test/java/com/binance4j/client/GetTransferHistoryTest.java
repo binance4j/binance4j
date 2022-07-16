@@ -3,9 +3,9 @@ package com.binance4j.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.transfer.WalletTransferHistory;
-import com.binance4j.wallet.transfer.WalletTransferHistoryParams;
-import com.binance4j.wallet.transfer.WalletTransferType;
+import com.binance4j.wallet.dto.WalletTransferHistory;
+import com.binance4j.wallet.dto.WalletTransferType;
+import com.binance4j.wallet.param.WalletTransferHistoryParams;
 
 class GetTransferHistoryTest extends WalletTest {
 

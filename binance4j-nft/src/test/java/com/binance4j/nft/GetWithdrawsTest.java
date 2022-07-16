@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.nft.withdraw.NFTWithdrawHistory;
-import com.binance4j.nft.withdraw.NFTWithdrawParams;
+import com.binance4j.nft.dto.NFTWithdrawHistory;
+import com.binance4j.nft.param.NFTWithdrawParams;
 
 /** Tests the Deposit history request */
 public class GetWithdrawsTest extends NFTTest {

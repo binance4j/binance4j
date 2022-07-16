@@ -2,14 +2,14 @@ package com.binance4j.nft.client;
 
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.Request;
-import com.binance4j.nft.asset.NFTAssetHistory;
-import com.binance4j.nft.asset.NFTAssetParams;
-import com.binance4j.nft.deposit.NFTDepositHistory;
-import com.binance4j.nft.deposit.NFTDepositHistoryParams;
-import com.binance4j.nft.transaction.NFTTransactionHistory;
-import com.binance4j.nft.transaction.NFTTransactionHistoryParams;
-import com.binance4j.nft.withdraw.NFTWithdrawHistory;
-import com.binance4j.nft.withdraw.NFTWithdrawParams;
+import com.binance4j.nft.dto.NFTAssetHistory;
+import com.binance4j.nft.dto.NFTDepositHistory;
+import com.binance4j.nft.dto.NFTTransactionHistory;
+import com.binance4j.nft.dto.NFTWithdrawHistory;
+import com.binance4j.nft.param.NFTAssetParams;
+import com.binance4j.nft.param.NFTDepositHistoryParams;
+import com.binance4j.nft.param.NFTTransactionHistoryParams;
+import com.binance4j.nft.param.NFTWithdrawParams;
 
 /**
  * Api client for the NFT endpoints

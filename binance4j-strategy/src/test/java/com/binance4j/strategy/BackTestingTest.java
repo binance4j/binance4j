@@ -19,7 +19,7 @@ import com.binance4j.strategy.dto.BackTestResult;
 import com.binance4j.strategy.service.BackTestService;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
-import com.binance4j.vision.spot.VisionSpotClient;
+import com.binance4j.vision.client.VisionSpotClient;
 
 class BackTestingTest extends ConcurrentTest<Void> {
 

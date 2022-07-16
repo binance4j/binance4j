@@ -3,7 +3,7 @@ package com.binance4j.rebate.client;
 import java.util.Map;
 
 import com.binance4j.core.security.AuthenticationInterceptor;
-import com.binance4j.rebate.record.SpotRebateHistoryResponse;
+import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

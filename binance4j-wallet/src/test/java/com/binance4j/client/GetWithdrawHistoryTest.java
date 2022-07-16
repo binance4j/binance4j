@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.withdraw.WithdrawHistory;
-import com.binance4j.wallet.withdraw.WithdrawHistoryParams;
-import com.binance4j.wallet.withdraw.WithdrawStatus;
+import com.binance4j.wallet.dto.WithdrawHistory;
+import com.binance4j.wallet.dto.WithdrawStatus;
+import com.binance4j.wallet.param.WithdrawHistoryParams;
 
 class GetWithdrawHistoryTest extends WalletTest {
 

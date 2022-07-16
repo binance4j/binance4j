@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.market.time.ServerTimeResponse;
+import com.binance4j.market.dto.ServerTimeResponse;
 
 /** TODO JAVADOC */
 public class ServerTimeTest extends MarketTest {

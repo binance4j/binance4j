@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.snapshot.AccountSnapshotParams;
-import com.binance4j.wallet.snapshot.margin.MarginAccountSnapshotResponse;
+import com.binance4j.wallet.param.AccountSnapshotParams;
+import com.binance4j.wallet.param.MarginAccountSnapshotResponse;
 
 class GetMarginAccountSnapshotTest extends WalletTest {
 

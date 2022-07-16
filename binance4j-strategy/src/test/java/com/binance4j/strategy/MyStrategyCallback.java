@@ -7,7 +7,6 @@ import java.util.concurrent.CompletableFuture;
 import org.ta4j.core.BarSeries;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.strategy.dto.StrategyCallback;
 import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.websocket.callback.GenericCallback;

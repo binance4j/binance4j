@@ -3,7 +3,7 @@ package com.binance4j.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.snapshot.AccountSnapshotParams;
+import com.binance4j.wallet.param.AccountSnapshotParams;
 
 class GetSpotAccountSnapshotTest extends WalletTest {
 

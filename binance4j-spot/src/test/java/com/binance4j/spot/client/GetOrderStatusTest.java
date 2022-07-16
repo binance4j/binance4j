@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.order.OrderInfo;
-import com.binance4j.spot.order.OrderStatusParams;
+import com.binance4j.spot.param.OrderStatusParams;
 
 /** TODO JAVADOC */
 public class GetOrderStatusTest extends SpotTest {

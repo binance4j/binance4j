@@ -3,7 +3,7 @@ package com.binance4j.spot.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.spot.order.MyTradesParams;
+import com.binance4j.spot.param.MyTradesParams;
 
 /** TODO JAVADOC */
 public class GetTradesTest extends SpotTest {

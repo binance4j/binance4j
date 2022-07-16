@@ -8,9 +8,9 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.nft.transaction.NFTOrderType;
-import com.binance4j.nft.transaction.NFTTransactionHistory;
-import com.binance4j.nft.transaction.NFTTransactionHistoryParams;
+import com.binance4j.nft.dto.NFTOrderType;
+import com.binance4j.nft.dto.NFTTransactionHistory;
+import com.binance4j.nft.param.NFTTransactionHistoryParams;
 
 /** Tests the transaction history request */
 public class GetTransactionsTest extends NFTTest {
