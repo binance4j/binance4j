@@ -4,21 +4,21 @@ import java.util.TimerTask;
 
 /** An scheduled event calling a {@link TimerTask}. */
 public interface ScheduledEvent {
-    /** The event instantiation time in ms. */
-    long getInitTime();
+	/** The event instantiation time in ms. */
+	long getInitTime();
 
-    /** The event last call time in ms. */
-    long getLastCall();
+	/** The event last call time in ms. */
+	long getLastCall();
 
-    /** Cancels the event. */
-    void cancel();
+	/** Cancels the event. */
+	void cancel();
 
-    /** The number of times the task was called. */
-    int getTicks();
+	/** The number of times the task was called. */
+	int getTicks();
 
-    /** Tells if the last tick is the final one. */
-    boolean isFinalTick();
+	/** Tells if the last tick is the final one. */
+	boolean isFinalTick();
 
-    /** Tells if the event is running. */
-    boolean isRunning();
+	/** Tells if the event is running. */
+	boolean isRunning();
 }

@@ -2,31 +2,31 @@ package com.binance4j.core.param;
 
 /** A Request with a result interval */
 public abstract class IntervalParams extends FramedParams {
-    /** The starting timestamp of the results */
-    protected Long startTime;
-    /** The ending timestamp of the results */
-    protected Long endTime;
+	/** The starting timestamp of the results */
+	protected Long startTime;
+	/** The ending timestamp of the results */
+	protected Long endTime;
 
 	protected IntervalParams() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * @param weight The Request weight
 	 */
 	protected IntervalParams(int weight) {
-        super(weight);
-    }
+		super(weight);
+	}
 
-    /**
-     * 
-     * 
-     * @param weight         The Request weight
-     * @param isOrderRequest Is the request a trading order
-     */
+	/**
+	 * 
+	 * 
+	 * @param weight         The Request weight
+	 * @param isOrderRequest Is the request a trading order
+	 */
 	protected IntervalParams(int weight, Boolean isOrderRequest) {
-        super(weight, isOrderRequest);
-    }
+		super(weight, isOrderRequest);
+	}
 
 	/**
 	 * @return the startTime

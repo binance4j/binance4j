@@ -7,19 +7,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ApiError {
-    /** The error code. */
-    private int code;
-    /** The error message. */
-    private String msg;
+	/** The error code. */
+	private int code;
+	/** The error message. */
+	private String msg;
 
-    /**
-     * 
-     * 
-     * @param code The error code
-     * @param msg  The error message
-     */
-    public ApiError(int code, String msg) {
-        this.msg = msg;
-        this.code = code;
-    }
+	/**
+	 * 
+	 * 
+	 * @param code The error code
+	 * @param msg  The error message
+	 */
+	public ApiError(int code, String msg) {
+		this.msg = msg;
+		this.code = code;
+	}
 }

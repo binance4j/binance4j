@@ -10,52 +10,52 @@ import retrofit2.http.QueryMap;
 
 /** The base of every Binance Request */
 public class Params {
-    /** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+	/** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
+	private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    /** The default receiving window */
+	/** The default receiving window */
 	public static long recvWindow = 60_000L;
 
-    /** The request weight */
-    protected int weight = 1;
+	/** The request weight */
+	protected int weight = 1;
 
-    /** Is this request generating an order? */
-    private boolean isOrderRequest;
+	/** Is this request generating an order? */
+	private boolean isOrderRequest;
 
-    protected Params() {
-    }
+	protected Params() {
+	}
 
 	/**
 	 * @param weight The Request weight
 	 */
-    public Params(int weight) {
-        this(weight, false);
-    }
+	public Params(int weight) {
+		this(weight, false);
+	}
 
 	/**
 	 * @param weight         The Request weight
 	 * @param isOrderRequest Is the request a trading order
 	 */
-    public Params(int weight, Boolean isOrderRequest) {
-        this.weight = weight;
-        this.isOrderRequest = isOrderRequest;
-    }
+	public Params(int weight, Boolean isOrderRequest) {
+		this.weight = weight;
+		this.isOrderRequest = isOrderRequest;
+	}
 
-    /**
-     * Converts the request into a {@link QueryMap}
-     *
-     * @return The generated {@link QueryMap}
-     */
-    public Map<String, Object> toMap() {
-        Map<String, Object> map = MAPPER.convertValue(this, new TypeReference<Map<String, Object>>() {
-        });
+	/**
+	 * Converts the request into a {@link QueryMap}
+	 *
+	 * @return The generated {@link QueryMap}
+	 */
+	public Map<String, Object> toMap() {
+		Map<String, Object> map = MAPPER.convertValue(this, new TypeReference<Map<String, Object>>() {
+		});
 
-        // Removing null and useless parameters from the query map
-        map.remove("weight");
-        map.remove("orderRequest");
-        map.values().removeAll(Collections.singleton(null));
-        return map;
-    }
+		// Removing null and useless parameters from the query map
+		map.remove("weight");
+		map.remove("orderRequest");
+		map.values().removeAll(Collections.singleton(null));
+		return map;
+	}
 
 	/**
 	 * @return the recvWindow
@@ -67,14 +67,14 @@ public class Params {
 	/**
 	 * @param recvWindow the recvWindow to set
 	 */
-    public static void setRecvWindow(long recvWindow) {
-        Params.recvWindow = recvWindow;
-    }
+	public static void setRecvWindow(long recvWindow) {
+		Params.recvWindow = recvWindow;
+	}
 
-    /**
-     * @return the weight
-     */
-    public int getWeight() {
-        return weight;
-    }
+	/**
+	 * @return the weight
+	 */
+	public int getWeight() {
+		return weight;
+	}
 }

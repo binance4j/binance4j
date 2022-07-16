@@ -1,4 +1,4 @@
-package com.binance4j.core.symbolfilter;
+package com.binance4j.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -8,18 +8,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Defines the maximum number of orders an account is allowed to have open on a
- * symbol. Note that both "algo" orders and normal orders are counted for this
- * filter.
+ * Defines the maximum number of orders an account is allowed to have open on a symbol. Note that both "algo" orders and
+ * normal orders are counted for this filter.
  * 
- * @see <a href=
- *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @Data
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class MaxNumOrdersFilter {
-    /** The max number of orders allowed */
-    private Integer maxNumOrders;
+	/** The max number of orders allowed */
+	private Integer maxNumOrders;
 }

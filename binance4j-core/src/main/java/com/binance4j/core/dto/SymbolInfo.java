@@ -2,8 +2,6 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
-import com.binance4j.core.symbolfilter.SymbolFilters;
-import com.binance4j.core.symbolfilter.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 

@@ -7,18 +7,18 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class CancelOpenOrdersParams extends FramedParams {
-    /** The trade symbol */
-    private String symbol;
-    /** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
-    private Boolean isIsolated;
+	/** The trade symbol */
+	private String symbol;
+	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
+	private Boolean isIsolated;
 
-    /**
-     * 
-     * 
-     * @param symbol The trade symbol
-     */
-    public CancelOpenOrdersParams(String symbol) {
-        super(1);
-        this.symbol = symbol;
-    }
+	/**
+	 * 
+	 * 
+	 * @param symbol The trade symbol
+	 */
+	public CancelOpenOrdersParams(String symbol) {
+		super(1);
+		this.symbol = symbol;
+	}
 }
