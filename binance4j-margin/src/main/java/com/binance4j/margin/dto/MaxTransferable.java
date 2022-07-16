@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Max transferable amount
+ * Max transferable amount.
  * 
  * @param amount The max transferable amount
  */

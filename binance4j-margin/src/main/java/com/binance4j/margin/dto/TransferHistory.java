@@ -5,18 +5,28 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * A transfer history
+ * 
+ * @param id        The transaction id.
+ * @param amount    The transfered amount.
+ * @param asset     The transfered asset.
+ * @param status    The transfer status.
+ * @param timestamp The transaction time in ms.
+ * @param type      The transfer history type.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TransferHistory(
-		/** TODO JAVADOC. */
+		/** The transaction id. */
+		@JsonProperty("txId") long id,
+		/** The transfered amount. */
 		BigDecimal amount,
-		/** TODO JAVADOC. */
+		/** The transfered asset. */
 		String asset,
-		/** TODO JAVADOC. */
+		/** The transfer status. */
 		String status,
-		/** TODO JAVADOC. */
+		/** The transaction time in ms. */
 		long timestamp,
-		/** TODO JAVADOC. */
-		@JsonProperty("txId") long transactionId,
-		/** TODO JAVADOC. */
+		/** The transfer history type. */
 		TransferHistoryType type) {
 }

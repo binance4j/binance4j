@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Max Borrowable amount
+ * Max Borrowable amount.
  * 
  * @param amount      Account's currently max borrowable amount with sufficient system availability.
  * @param borrowLimit Max borrowable amount limited by the account level.

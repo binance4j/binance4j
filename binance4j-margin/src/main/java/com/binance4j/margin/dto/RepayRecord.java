@@ -4,11 +4,16 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** History of account withdrawals. */
+/**
+ * A repay record.
+ * 
+ * @param total The total of repays.
+ * @param rows  The repays.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
-		/** TODO JAVADOC. */
+		/** The total of repays. */
 		int total,
-		/** TODO JAVADOC. */
+		/** The repays. */
 		List<Repay> rows) {
 }

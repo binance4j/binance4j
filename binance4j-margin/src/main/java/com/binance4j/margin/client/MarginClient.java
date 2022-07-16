@@ -24,9 +24,9 @@ import com.binance4j.margin.dto.IsolatedTransferHistory;
 import com.binance4j.margin.dto.LoanRecord;
 import com.binance4j.margin.dto.MaxBorrowable;
 import com.binance4j.margin.dto.MaxTransferable;
+import com.binance4j.margin.dto.NewOCOOrderRecord;
+import com.binance4j.margin.dto.NewOrderRecord;
 import com.binance4j.margin.dto.OCOOrderRecord;
-import com.binance4j.margin.dto.OCOResponse;
-import com.binance4j.margin.dto.OrderResponse;
 import com.binance4j.margin.dto.PriceIndex;
 import com.binance4j.margin.dto.RepayRecord;
 import com.binance4j.margin.dto.ToogleAccountResponse;
@@ -179,7 +179,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<OrderResponse> newOrder(NewOrderParams params) {
+	public Request<NewOrderRecord> newOrder(NewOrderParams params) {
 		return new Request<>(service.newOrder(params.toMap()), params);
 	}
 
@@ -326,7 +326,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<OCOResponse> newOCO(NewOCOOrderParams params) {
+	public Request<NewOCOOrderRecord> newOCO(NewOCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()), params);
 	}
 
@@ -336,7 +336,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<OCOResponse> cancelOCO(CancelMarginOCOParams params) {
+	public Request<NewOCOOrderRecord> cancelOCO(CancelMarginOCOParams params) {
 		return new Request<>(service.cancelOCO(params.toMap()), params);
 	}
 

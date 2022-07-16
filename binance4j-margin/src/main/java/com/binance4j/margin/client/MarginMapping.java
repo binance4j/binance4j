@@ -22,9 +22,9 @@ import com.binance4j.margin.dto.IsolatedTransferHistory;
 import com.binance4j.margin.dto.LoanRecord;
 import com.binance4j.margin.dto.MaxBorrowable;
 import com.binance4j.margin.dto.MaxTransferable;
+import com.binance4j.margin.dto.NewOCOOrderRecord;
+import com.binance4j.margin.dto.NewOrderRecord;
 import com.binance4j.margin.dto.OCOOrderRecord;
-import com.binance4j.margin.dto.OCOResponse;
-import com.binance4j.margin.dto.OrderResponse;
 import com.binance4j.margin.dto.PriceIndex;
 import com.binance4j.margin.dto.RepayRecord;
 import com.binance4j.margin.dto.ToogleAccountResponse;
@@ -82,7 +82,7 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order")
-	Call<OrderResponse> newOrder(@QueryMap Map<String, Object> map);
+	Call<NewOrderRecord> newOrder(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "order")
@@ -130,11 +130,11 @@ public interface MarginMapping {
 
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/oco")
-	Call<OCOResponse> newOCO(@QueryMap Map<String, Object> map);
+	Call<NewOCOOrderRecord> newOCO(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "orderList")
-	Call<OCOResponse> cancelOCO(@QueryMap Map<String, Object> map);
+	Call<NewOCOOrderRecord> cancelOCO(@QueryMap Map<String, Object> map);
 
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "orderList")

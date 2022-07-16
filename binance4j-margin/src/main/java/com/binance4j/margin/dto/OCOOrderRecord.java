@@ -9,7 +9,7 @@ import com.binance4j.core.order.OrderInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * An OCO order record
+ * An OCO order record.
  * 
  * @param orderListId       The order list id.
  * @param transactionTime   The transaction timestamp in ms.
