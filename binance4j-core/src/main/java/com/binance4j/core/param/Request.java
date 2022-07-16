@@ -19,8 +19,6 @@ public class Request<T> {
     private static final ObjectMapper MAPPER = new ObjectMapper();
     /** The current API call */
     private final Call<T> call;
-    /** The call's paramters */
-    private final Params params;
 
     /**
      * 
@@ -29,18 +27,6 @@ public class Request<T> {
      */
     public Request(Call<T> call) {
         this.call = call;
-        this.params = new Params(0);
-    }
-
-    /**
-     * with custom request
-     * 
-     * @param call   The retrofit calls
-     * @param params The request parameters
-     */
-    public Request(Call<T> call, Params params) {
-        this.call = call;
-        this.params = params;
     }
 
     /**

@@ -92,7 +92,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> transfer(TransferParams params) {
-		return new Request<>(service.transfer(params.toMap()), params);
+		return new Request<>(service.transfer(params.toMap()));
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> borrow(BorrowParams params) {
-		return new Request<>(service.borrow(params.toMap()), params);
+		return new Request<>(service.borrow(params.toMap()));
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> repay(RepayParams params) {
-		return new Request<>(service.repay(params.toMap()), params);
+		return new Request<>(service.repay(params.toMap()));
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Asset> getAsset(AssetParams params) {
-		return new Request<>(service.getAsset(params.toMap()), params);
+		return new Request<>(service.getAsset(params.toMap()));
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<CrossSymbol> getCrossMarginPair(PairParams params) {
-		return new Request<>(service.getCrossMarginPair(params.toMap()), params);
+		return new Request<>(service.getCrossMarginPair(params.toMap()));
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<CrossSymbol>> getAllCrossMarginPairs(AllMarginPairsParams params) {
-		return new Request<>(service.getAllCrossMarginPairs(params.toMap()), params);
+		return new Request<>(service.getAllCrossMarginPairs(params.toMap()));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<PriceIndex> getPriceIndex(PriceIndexParams params) {
-		return new Request<>(service.getPriceIndex(params.toMap()), params);
+		return new Request<>(service.getPriceIndex(params.toMap()));
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<NewOrderRecord> newOrder(NewOrderParams params) {
-		return new Request<>(service.newOrder(params.toMap()), params);
+		return new Request<>(service.newOrder(params.toMap()));
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
-		return new Request<>(service.cancelOrder(params.toMap()), params);
+		return new Request<>(service.cancelOrder(params.toMap()));
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
-		return new Request<>(service.cancelOpenOrders(params.toMap()), params);
+		return new Request<>(service.cancelOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -210,7 +210,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<TransferRecords> getTransferHistory(TransferHistoryParams params) {
-		return new Request<>(service.getTransferHistory(params.toMap()), params);
+		return new Request<>(service.getTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -229,7 +229,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<LoanRecord> getLoanRecord(LoanRecordParams params) {
-		return new Request<>(service.getLoanRecord(params.toMap()), params);
+		return new Request<>(service.getLoanRecord(params.toMap()));
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<RepayRecords> getRepayRecord(RepayRecordParams params) {
-		return new Request<>(service.getRepayRecord(params.toMap()), params);
+		return new Request<>(service.getRepayRecord(params.toMap()));
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<InterestHistory> getInterestHistory(InterestHistoryParams params) {
-		return new Request<>(service.getInterestHistory(params.toMap()), params);
+		return new Request<>(service.getInterestHistory(params.toMap()));
 	}
 
 	/**
@@ -259,7 +259,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
-		return new Request<>(service.getForceLiquidationRecord(params.toMap()), params);
+		return new Request<>(service.getForceLiquidationRecord(params.toMap()));
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Account> getAccount(GetMarginAccountParams params) {
-		return new Request<>(service.getAccount(params.toMap()), params);
+		return new Request<>(service.getAccount(params.toMap()));
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<OrderInfo> getOrder(OrderParams params) {
-		return new Request<>(service.getOrder(params.toMap()), params);
+		return new Request<>(service.getOrder(params.toMap()));
 	}
 
 	/**
@@ -298,7 +298,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersParams params) {
-		return new Request<>(service.getOpenOrders(params.toMap()), params);
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -317,7 +317,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
-		return new Request<>(service.getAllOrders(params.toMap()), params);
+		return new Request<>(service.getAllOrders(params.toMap()));
 	}
 
 	/**
@@ -327,7 +327,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<NewOCOOrderRecord> newOCO(NewOCOOrderParams params) {
-		return new Request<>(service.newOCO(params.toMap()), params);
+		return new Request<>(service.newOCO(params.toMap()));
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<NewOCOOrderRecord> cancelOCO(CancelMarginOCOParams params) {
-		return new Request<>(service.cancelOCO(params.toMap()), params);
+		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
 	/**
@@ -347,7 +347,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<OCOOrderRecord> getOCO(GetMarginOCOParams params) {
-		return new Request<>(service.getOCO(params.toMap()), params);
+		return new Request<>(service.getOCO(params.toMap()));
 	}
 
 	/**
@@ -357,7 +357,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getAllOCO(GetAllMarginOCOParams params) {
-		return new Request<>(service.getAllOCO(params.toMap()), params);
+		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
 	/**
@@ -367,7 +367,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getOpenOCO(GetOpenMarginOCOParams params) {
-		return new Request<>(service.getOpenOCO(params.toMap()), params);
+		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
 	/**
@@ -386,7 +386,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getMyTrades(TradeParams params) {
-		return new Request<>(service.getMyTrades(params.toMap()), params);
+		return new Request<>(service.getMyTrades(params.toMap()));
 	}
 
 	/**
@@ -405,7 +405,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<MaxBorrowable> getMaxBorrowable(MaxBorrowableParams params) {
-		return new Request<>(service.getMaxBorrowable(params.toMap()), params);
+		return new Request<>(service.getMaxBorrowable(params.toMap()));
 	}
 
 	/**
@@ -415,7 +415,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<MaxTransferable> getMaxTransferable(MaxTransferableParams params) {
-		return new Request<>(service.getMaxTransferable(params.toMap()), params);
+		return new Request<>(service.getMaxTransferable(params.toMap()));
 	}
 
 	/**
@@ -425,7 +425,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> newIsolatedTransfer(NewIsolatedTransferParams params) {
-		return new Request<>(service.isolatedTransfer(params.toMap()), params);
+		return new Request<>(service.isolatedTransfer(params.toMap()));
 	}
 
 	/**
@@ -435,7 +435,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
-		return new Request<>(service.getIsolatedTransferHistory(params.toMap()), params);
+		return new Request<>(service.getIsolatedTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -445,7 +445,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedAccount> getIsolatedAccount(IsolatedAccountParams params) {
-		return new Request<>(service.getIsolatedAccount(params.toMap()), params);
+		return new Request<>(service.getIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -464,7 +464,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<ToogleAccountResponse> disableIsolatedAccount(ToogleAccountParams params) {
-		return new Request<>(service.disableIsolatedAccount(params.toMap()), params);
+		return new Request<>(service.disableIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -474,7 +474,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<ToogleAccountResponse> enableIsolatedAccount(ToogleAccountParams params) {
-		return new Request<>(service.enableIsolatedAccount(params.toMap()), params);
+		return new Request<>(service.enableIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -484,7 +484,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedAccountLimit> getEnabledIsolatedAccountLimit(IsolatedAccountLimitParams params) {
-		return new Request<>(service.getEnabledIsolatedAccountLimit(params.toMap()), params);
+		return new Request<>(service.getEnabledIsolatedAccountLimit(params.toMap()));
 	}
 
 	/**
@@ -503,7 +503,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedSymbol> getIsolatedSymbol(PairParams params) {
-		return new Request<>(service.getIsolatedSymbol(params.toMap()), params);
+		return new Request<>(service.getIsolatedSymbol(params.toMap()));
 	}
 
 	/**
@@ -513,7 +513,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedSymbol>> getAllIsolatedSymbols(AllMarginPairsParams params) {
-		return new Request<>(service.getAllIsolatedSymbols(params.toMap()), params);
+		return new Request<>(service.getAllIsolatedSymbols(params.toMap()));
 	}
 
 	/**
@@ -532,7 +532,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams params) {
-		return new Request<>(service.toggleBNBBurnOnSpotTradeAndMarginInterest(params.toMap()), params);
+		return new Request<>(service.toggleBNBBurnOnSpotTradeAndMarginInterest(params.toMap()));
 	}
 
 	/**
@@ -551,7 +551,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<BNBBurnStatus> getBNBBurnStatus(BurnStatusParams params) {
-		return new Request<>(service.getBNBBurnStatus(params.toMap()), params);
+		return new Request<>(service.getBNBBurnStatus(params.toMap()));
 	}
 
 	/**
@@ -570,7 +570,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<InterestRate>> getInterestRateHistory(InterestRateHistoryParams params) {
-		return new Request<>(service.getInterestRateHistory(params.toMap()), params);
+		return new Request<>(service.getInterestRateHistory(params.toMap()));
 	}
 
 	/**
@@ -581,7 +581,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<CrossFee>> getMarginFeeData(CrossMarginFeeParams params) {
-		return new Request<>(service.getMarginFeeData(params.toMap()), params);
+		return new Request<>(service.getMarginFeeData(params.toMap()));
 	}
 
 	/**
@@ -602,7 +602,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedFee>> getIsolatedFeeData(IsolatedMarginFeeParams params) {
-		return new Request<>(service.getIsolatedFeeData(params.toMap()), params);
+		return new Request<>(service.getIsolatedFeeData(params.toMap()));
 	}
 
 	/**
@@ -623,6 +623,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedTierData>> getIsolatedMarginTierData(IsolatedMarginTierDataParams params) {
-		return new Request<>(service.getIsolatedMarginTierData(params.toMap()), params);
+		return new Request<>(service.getIsolatedMarginTierData(params.toMap()));
 	}
 }

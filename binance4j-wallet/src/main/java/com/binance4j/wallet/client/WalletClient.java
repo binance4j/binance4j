@@ -33,7 +33,6 @@ import com.binance4j.wallet.snapshot.futures.FuturesAccountSnapshotResponse;
 import com.binance4j.wallet.snapshot.margin.MarginAccountSnapshotResponse;
 import com.binance4j.wallet.snapshot.spot.SpotAccountSnapshotResponse;
 import com.binance4j.wallet.systemstatus.SystemStatus;
-import com.binance4j.wallet.systemstatus.SystemStatusParams;
 import com.binance4j.wallet.tradefee.TradeFee;
 import com.binance4j.wallet.tradefee.TradeFeeParams;
 import com.binance4j.wallet.tradingstatus.ApiTradingStatus;
@@ -68,12 +67,12 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the system status. */
 	public Request<SystemStatus> getSystemStatus() {
-		return new Request<>(service.getSystemStatus(), new SystemStatusParams());
+		return new Request<>(service.getSystemStatus());
 	}
 
 	/** Gets information of coins (available for deposit and withdraw) for user. */
 	public Request<List<CoinInformation>> getAllCoinsInfo(CoinInformationParams params) {
-		return new Request<>(service.getAllCoinsInfo(params.toMap()), params);
+		return new Request<>(service.getAllCoinsInfo(params.toMap()));
 	}
 
 	/**
@@ -86,7 +85,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the daily SPOT account snapshots. */
 	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, params.toMap()), params);
+		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, params.toMap()));
 	}
 
 	/** Fetches the last 5 daily SPOT account snapshots. */
@@ -96,7 +95,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the daily MARGIN account snapshots. */
 	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap()), params);
+		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap()));
 	}
 
 	/** Fetches the last 5 daily MARGIN account snapshots. */
@@ -106,7 +105,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the daily FUTURES account snapshots. */
 	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap()), params);
+		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap()));
 	}
 
 	/** Fetches the last 5 daily FUTURES account snapshots. */
@@ -121,7 +120,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * requests this endpoint.
 	 */
 	public Request<Void> disableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
-		return new Request<>(service.disableFastWithdrawSwitch(params.toMap()), params);
+		return new Request<>(service.disableFastWithdrawSwitch(params.toMap()));
 	}
 
 	/** Disables fast withdraw switch under your account. */
@@ -140,7 +139,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * transaction ID and no withdrawal fee.
 	 */
 	public Request<Void> enableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
-		return new Request<>(service.enableFastWithdrawSwitch(params.toMap()), params);
+		return new Request<>(service.enableFastWithdrawSwitch(params.toMap()));
 	}
 
 	/** Enables fast withdraw switch under your account. */
@@ -156,7 +155,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * networkList of a coin in the response of {@link #getAllCoinsInfo()}
 	 */
 	public Request<WithdrawResult> withdraw(WithdrawParams params) {
-		return new Request<>(service.withdraw(params.toMap()), params);
+		return new Request<>(service.withdraw(params.toMap()));
 	}
 
 	/**
@@ -171,7 +170,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * less than 90 days.
 	 */
 	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params) {
-		return new Request<>(service.getDepositHistory(params.toMap()), params);
+		return new Request<>(service.getDepositHistory(params.toMap()));
 	}
 
 	/** Fetches the last deposit history of all coins. */
@@ -193,7 +192,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * must be less than 90 days.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
-		return new Request<>(service.getWithdrawHistory(params.toMap()), params);
+		return new Request<>(service.getWithdrawHistory(params.toMap()));
 	}
 
 	/** Fetches the last withdraw history of all coins. */
@@ -213,12 +212,12 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * {@link #getAllCoinsInfo(CoinInformationParams)}
 	 */
 	public Request<DepositAddress> getDepositAddress(DepositAddressParams params) {
-		return new Request<>(service.getDepositAddress(params.toMap()), params);
+		return new Request<>(service.getDepositAddress(params.toMap()));
 	}
 
 	/** Fetches the account status detail. */
 	public Request<AccountStatus> getAccountstatus(AccountStatusParams params) {
-		return new Request<>(service.getAccountstatus(params.toMap()), params);
+		return new Request<>(service.getAccountstatus(params.toMap()));
 	}
 
 	/** Fetches the account status detail. */
@@ -228,7 +227,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the account api trading status detail. */
 	public Request<ApiTradingStatus> getApiTradingStatus(ApiTradingStatusParams params) {
-		return new Request<>(service.getApiTradingStatus(params.toMap()), params);
+		return new Request<>(service.getApiTradingStatus(params.toMap()));
 	}
 
 	/** Fetches the account api trading status detail. */
@@ -238,7 +237,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the dust transfer logs. */
 	public Request<DustLog> getDustLog(DustLogParams params) {
-		return new Request<>(service.getDustLog(params.toMap()), params);
+		return new Request<>(service.getDustLog(params.toMap()));
 	}
 
 	/** Fetches the dust transfer logs. */
@@ -249,22 +248,22 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/** Retrieves the assets convertible into BNB. */
 	public Request<ConvertibleAssets> getConvertibleAssets() {
 		ConvertibleAssetParams params = new ConvertibleAssetParams();
-		return new Request<>(service.getConvertibleAssets(params.toMap()), params);
+		return new Request<>(service.getConvertibleAssets(params.toMap()));
 	}
 
 	/** Retrieves the assets convertible into BNB. */
 	public Request<ConvertibleAssets> getConvertibleAssets(ConvertibleAssetParams params) {
-		return new Request<>(service.getConvertibleAssets(params.toMap()), params);
+		return new Request<>(service.getConvertibleAssets(params.toMap()));
 	}
 
 	/** Convert dust assets to BNB. */
 	public Request<DustTransferResponse> dustTransfert(DustTransferParams params) {
-		return new Request<>(service.dustTransfert(params.toMap()), params);
+		return new Request<>(service.dustTransfert(params.toMap()));
 	}
 
 	/** Queries the dividend record of one or multiple assets. */
 	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params) {
-		return new Request<>(service.getAssetDividendRecord(params.toMap()), params);
+		return new Request<>(service.getAssetDividendRecord(params.toMap()));
 	}
 
 	/** Queries the last 20 dividend asset records. */
@@ -278,7 +277,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * {@link #getAllCoinsInfo()}.
 	 */
 	public Request<Map<String, AssetDetail>> getAssetDetail(AssetDetailParams params) {
-		return new Request<>(service.getAssetDetail(params.toMap()), params);
+		return new Request<>(service.getAssetDetail(params.toMap()));
 	}
 
 	/** Fetches the details of all assets supported on Binance. */
@@ -288,7 +287,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/** Fetches the trade fee. */
 	public Request<List<TradeFee>> getTradeFee(TradeFeeParams params) {
-		return new Request<>(service.getTradeFee(params.toMap()), params);
+		return new Request<>(service.getTradeFee(params.toMap()));
 	}
 
 	/** Fetches the trade fee. */
@@ -309,7 +308,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * ISOLATEDMARGIN_ISOLATEDMARGIN
 	 */
 	public Request<WalletTransferResponse> transfer(WalletTransferParams params) {
-		return new Request<>(service.transfer(params.toMap()), params);
+		return new Request<>(service.transfer(params.toMap()));
 	}
 
 	/**
@@ -327,7 +326,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * by default
 	 */
 	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
-		return new Request<>(service.getTransferHistory(params.toMap()), params);
+		return new Request<>(service.getTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -337,7 +336,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * Pay, Binance Card, Binance Gift Card, Stock Token
 	 */
 	public Request<List<FundingAsset>> getFundingAsset(FundingAssetParams params) {
-		return new Request<>(service.getFundingAsset(params.toMap()), params);
+		return new Request<>(service.getFundingAsset(params.toMap()));
 	}
 
 	/** Fetches the funding wallet asset balance. */

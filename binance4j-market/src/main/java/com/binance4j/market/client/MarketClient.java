@@ -8,7 +8,6 @@ import com.binance4j.core.exchangeinfo.ExchangeInfo;
 import com.binance4j.core.exchangeinfo.ExchangeInfoParams;
 import com.binance4j.core.market.AggTrade;
 import com.binance4j.core.market.Candle;
-import com.binance4j.core.param.Params;
 import com.binance4j.core.param.Request;
 import com.binance4j.market.depth.BookTicker;
 import com.binance4j.market.depth.BookTickerParams;
@@ -65,7 +64,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * {@code symbols} do not exist, the endpoint will throw an error.
 	 */
 	public Request<ExchangeInfo> getExchangeInfo(ExchangeInfoParams params) {
-		return new Request<>(service.getExchangeInfo(params.toMap()), params);
+		return new Request<>(service.getExchangeInfo(params.toMap()));
 	}
 
 	/** Get current exchange trading rules and all symbols informations. */
@@ -75,18 +74,17 @@ public class MarketClient extends RestClient<MarketMapping> {
 
 	/** Get the symbol order book. */
 	public Request<OrderBook> getOrderBook(OrderBookParams params) {
-		return new Request<>(service.getOrderBook(params.toMap()), params);
+		return new Request<>(service.getOrderBook(params.toMap()));
 	}
 
 	/** Get recent trades. */
 	public Request<List<TradeHistoryItem>> getTrades(TradesParams params) {
-		return new Request<>(service.getTrades(params.toMap()), params);
+		return new Request<>(service.getTrades(params.toMap()));
 	}
 
 	/** Get older market trades. */
 	public Request<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesParams params) {
-		return new Request<>(service.getHistoricalTrades(params.toMap()),
-				params);
+		return new Request<>(service.getHistoricalTrades(params.toMap()));
 	}
 
 	/**
@@ -106,7 +104,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * </ul>
 	 */
 	public Request<List<AggTrade>> getAggTrades(AggTradeParams params) {
-		return new Request<>(service.getAggTrades(params.toMap()), params);
+		return new Request<>(service.getAggTrades(params.toMap()));
 	}
 
 	/**
@@ -126,57 +124,56 @@ public class MarketClient extends RestClient<MarketMapping> {
 		// present in IntervalRequest through FramedRequest but not required by the API
 		map.remove("timestamp");
 		map.remove("recvWindow");
-		return new Request<>(service.getKlines(map), params);
+		return new Request<>(service.getKlines(map));
 	}
 
 	/** Get Current average price for a symbol. */
 	public Request<AveragePrice> getAveragePrice(AveragePriceParams params) {
-		return new Request<>(service.getAveragePrice(params.toMap()), params);
+		return new Request<>(service.getAveragePrice(params.toMap()));
 	}
 
 	/** Get 24 hour rolling window price change statistics of a symbol. */
 	public Request<TickerStatistics> get24hTickerStatistics(TickerStatisticsParams params) {
-		return new Request<>(service.get24hTickerStatistics(params.toMap()),
-				params);
+		return new Request<>(service.get24hTickerStatistics(params.toMap()));
 	}
 
 	/** Get 24 hour rolling window price change statistics of all symbols. */
 	public Request<List<TickerStatistics>> get24hTickerStatistics() {
-		return new Request<>(service.get24hTickerStatistics(), new Params(40));
+		return new Request<>(service.get24hTickerStatistics());
 	}
 
 	/** Get 24 hour rolling window price change statistics of specific symbols. */
 	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
-		return new Request<>(service.get24hTickersStatistics(params.toMap()), params);
+		return new Request<>(service.get24hTickersStatistics(params.toMap()));
 	}
 
 	/** Latest price for all symbols. */
 	public Request<List<PriceTicker>> getTicker() {
-		return new Request<>(service.getTicker(), new Params(2));
+		return new Request<>(service.getTicker());
 	}
 
 	/** Latest price for a symbol or symbols. */
 	public Request<PriceTicker> getTicker(PriceTickerParams params) {
-		return new Request<>(service.getTicker(params.toMap()), params);
+		return new Request<>(service.getTicker(params.toMap()));
 	}
 
 	/** Latest price for a symbol or symbols. */
 	public Request<List<PriceTicker>> getTicker(PriceTickersParams params) {
-		return new Request<>(service.getTickers(params.toMap()), params);
+		return new Request<>(service.getTickers(params.toMap()));
 	}
 
 	/** Get best price/qty on the order book for a symbol. */
 	public Request<BookTicker> getBookTicker(BookTickerParams params) {
-		return new Request<>(service.getBookTicker(params.toMap()), params);
+		return new Request<>(service.getBookTicker(params.toMap()));
 	}
 
 	/** Get best price/qty on the order book for all symbols. */
 	public Request<List<BookTicker>> getBookTicker() {
-		return new Request<>(service.getBookTicker(), new Params(2));
+		return new Request<>(service.getBookTicker());
 	}
 
 	/** Get best price/qty on the order book for the given symbols. */
 	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {
-		return new Request<>(service.getBookTickers(params.toMap()), params);
+		return new Request<>(service.getBookTickers(params.toMap()));
 	}
 }

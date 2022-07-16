@@ -52,7 +52,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 
 	/** Send in a new order. */
 	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
-		return new Request<>(service.newOrder(params.toMap()), params);
+		return new Request<>(service.newOrder(params.toMap()));
 	}
 
 	/**
@@ -60,12 +60,12 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * a new order but does not send it into the matching engine.
 	 */
 	public Request<Void> newOrderTest(NewOrderParams params) {
-		return new Request<>(service.newOrderTest(params.toMap()), params);
+		return new Request<>(service.newOrderTest(params.toMap()));
 	}
 
 	/** Cancel an active order. */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
-		return new Request<>(service.cancelOrder(params.toMap()), params);
+		return new Request<>(service.cancelOrder(params.toMap()));
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * This includes OCO orders.
 	 */
 	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
-		return new Request<>(service.cancelOpenOrders(params.toMap()), params);
+		return new Request<>(service.cancelOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -85,28 +85,28 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * </ul>
 	 */
 	public Request<OrderInfo> getOrderStatus(OrderStatusParams params) {
-		return new Request<>(service.getOrderStatus(params.toMap()), params);
+		return new Request<>(service.getOrderStatus(params.toMap()));
 	}
 
 	/** Get all open orders on a symbol. */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
-		return new Request<>(service.getOpenOrders(params.toMap()), params);
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/** Get all open orders. */
 	public Request<List<OrderInfo>> getOpenOrders() {
 		OpenOrdersStatusParams params = new OpenOrdersStatusParams();
-		return new Request<>(service.getOpenOrders(params.toMap()), params);
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/** Get all orders on a symbol. */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
-		return new Request<>(service.getAllOrders(params.toMap()), params);
+		return new Request<>(service.getAllOrders(params.toMap()));
 	}
 
 	/** Send in an OCO order. */
 	public Request<OCOResponse> newOCO(OCOOrderParams params) {
-		return new Request<>(service.newOCO(params.toMap()), params);
+		return new Request<>(service.newOCO(params.toMap()));
 	}
 
 	/**
@@ -114,45 +114,45 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Canceling an individual leg will cancel the entire OCO
 	 */
 	public Request<List<OCOResponse>> cancelOCO(CancelOCOParams params) {
-		return new Request<>(service.cancelOCO(params.toMap()), params);
+		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
 	/** Retrieves a specific OCO based on provided optional parameters. */
 	public Request<OCOInfo> queryOCO(OCOInfoParams params) {
-		return new Request<>(service.queryOCO(params.toMap()), params);
+		return new Request<>(service.queryOCO(params.toMap()));
 	}
 
 	/** Retrieves all OCO based on provided optional parameters. */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
-		return new Request<>(service.getAllOCO(params.toMap()), params);
+		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
 	/** Retrieves all OCO based on provided optional parameters. */
 	public Request<List<OCOInfo>> getAllOCO() {
 		AllOCOInfoParams params = new AllOCOInfoParams();
-		return new Request<>(service.getAllOCO(params.toMap()), params);
+		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
 	/** Retrieves all open OCO. */
 	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
-		return new Request<>(service.getOpenOCO(params.toMap()), params);
+		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
 	/** Retrieves all open OCO. */
 	public Request<List<OCOInfo>> getOpenOCO() {
 		OpenOCOParams params = new OpenOCOParams();
-		return new Request<>(service.getOpenOCO(params.toMap()), params);
+		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
 	/** Get current account information. */
 	public Request<Account> getAccount(AccountParams params) {
-		return new Request<>(service.getAccount(params.toMap()), params);
+		return new Request<>(service.getAccount(params.toMap()));
 	}
 
 	/** Get current account information. */
 	public Request<Account> getAccount() {
 		AccountParams params = new AccountParams();
-		return new Request<>(service.getAccount(params.toMap()), params);
+		return new Request<>(service.getAccount(params.toMap()));
 	}
 
 	/**
@@ -161,12 +161,12 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * recent trades are returned.
 	 */
 	public Request<List<Trade>> getMyTrades(MyTradesParams params) {
-		return new Request<>(service.getMyTrades(params.toMap()), params);
+		return new Request<>(service.getMyTrades(params.toMap()));
 	}
 
 	/** Displays the user's current order count usage for all intervals. */
 	public Request<List<OrderCount>> getOrderCount(OrderCountParams params) {
-		return new Request<>(service.getOrderCount(params.toMap()), params);
+		return new Request<>(service.getOrderCount(params.toMap()));
 	}
 
 	/**
@@ -175,6 +175,6 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 */
 	public Request<List<OrderCount>> getOrderCount() {
 		OrderCountParams params = new OrderCountParams();
-		return new Request<>(service.getOrderCount(params.toMap()), params);
+		return new Request<>(service.getOrderCount(params.toMap()));
 	}
 }

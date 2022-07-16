@@ -30,6 +30,6 @@ public class RebateClient extends RestClient<RebateMapping> {
 
 	/** Get the spot rebate history records. */
 	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(SpotRebateHistoryParams params) {
-		return new Request<>(service.getSpotRebateHistoryRecords(params.toMap()), params);
+		return new Request<>(service.getSpotRebateHistoryRecords(params.toMap()));
 	}
 }
