@@ -13,25 +13,43 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
+/** The {@link NFTClient} mapping */
 public interface NFTMapping {
+	/** The base uri */
 	String BASE = "/sapi/v1/nft/";
 	/** The signed http full header. */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
 	/** The API key http full header. */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
+	/**
+	 * @param map The query map
+	 * @return The server response
+	 */
 	@GET(BASE + "history/transactions")
 	@Headers({ API_H, SIGNED_H })
 	Call<NFTTransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
+	/**
+	 * @param map The query map
+	 * @return The server response
+	 */
 	@GET(BASE + "history/deposit")
 	@Headers({ API_H, SIGNED_H })
 	Call<NFTDepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
+	/**
+	 * @param map The query map
+	 * @return The server response
+	 */
 	@GET(BASE + "history/withdraw")
 	@Headers({ API_H, SIGNED_H })
 	Call<NFTWithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
+	/**
+	 * @param map The query map
+	 * @return The server response
+	 */
 	@GET(BASE + "user/getAsset")
 	@Headers({ API_H, SIGNED_H })
 	Call<NFTAssetHistory> getAssets(@QueryMap Map<String, Object> map);

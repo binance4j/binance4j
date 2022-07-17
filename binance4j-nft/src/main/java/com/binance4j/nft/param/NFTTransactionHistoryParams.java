@@ -3,9 +3,6 @@ package com.binance4j.nft.param;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.nft.dto.NFTOrderType;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * A NFT transaction history request
  * <p>
@@ -13,8 +10,6 @@ import lombok.EqualsAndHashCode;
  * <p>
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class NFTTransactionHistoryParams extends IntervalParams {
 	/** The order type. */
 	private Integer orderType;
@@ -24,8 +19,6 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	private Integer page = 1;
 
 	/**
-	 *
-	 * 
 	 * @param orderType The order type
 	 */
 	public NFTTransactionHistoryParams(NFTOrderType orderType) {
@@ -34,8 +27,6 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
 	 * @param orderType The order type
 	 */
 	public NFTTransactionHistoryParams(int orderType) {
@@ -44,8 +35,6 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
 	 * @param orderType The order type.
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
@@ -57,8 +46,6 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
 	 * @param orderType The order type.
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
@@ -70,4 +57,47 @@ public class NFTTransactionHistoryParams extends IntervalParams {
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}
+
+	/**
+	 * @return the orderType
+	 */
+	public Integer getOrderType() {
+		return orderType;
+	}
+
+	/**
+	 * @param orderType the orderType to set
+	 */
+	public void setOrderType(Integer orderType) {
+		this.orderType = orderType;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
+	/**
+	 * @return the page
+	 */
+	public Integer getPage() {
+		return page;
+	}
+
+	/**
+	 * @param page the page to set
+	 */
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
 }

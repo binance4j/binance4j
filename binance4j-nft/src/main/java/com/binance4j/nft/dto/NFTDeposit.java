@@ -3,7 +3,15 @@ package com.binance4j.nft.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** A NFT Deposit */
+/**
+ * A NFT Deposit
+ * 
+ * @param network         NFT Network.
+ * @param contractAddress NFT Contract Address.
+ * @param tokenId         NFT Token ID.
+ * @param transactionId   Transaction ID.
+ * @param timestamp       Deposit time in ms.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record NFTDeposit(
 		/** NFT Network. */
