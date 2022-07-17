@@ -33,7 +33,8 @@ public record AggTrade(
 		/** The quantity */
 		@JsonProperty("q") BigDecimal quantity,
 		/** Was it a buyer maker */
-		@JsonProperty("m") boolean isBuyerMaker, /** Was it the best price match? */
+		@JsonProperty("m") boolean isBuyerMaker, 
+		/** Was it the best price match? */
 		@JsonProperty("M") boolean isBestMatch) {
 
 	public AggTrade(List<String> input) {

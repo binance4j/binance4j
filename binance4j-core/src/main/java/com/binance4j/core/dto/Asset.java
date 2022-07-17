@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param minProductWithdraw      The minimal amount you can withdraw.
  * @param withdrawIntegerMultiple The smallest withdraw multiple.
  * @param confirmTimes            Time elapsed between the moment a blockchain transaction is submitted and recorded
- *                                into a confirmed block
+ *                                    into a confirmed block
  * @param enableWithdraw          s the withdrawal of the asset enabled.
  * @param isLegalMoney            s it issued by a government.
  */
