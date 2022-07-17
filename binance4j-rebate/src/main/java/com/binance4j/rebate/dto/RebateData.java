@@ -8,13 +8,13 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class RebateData {
-    /** The current page. */
-    private Integer page;
-    /** The total records. */
-    private Integer totalRecords;
-    /** The total pages. */
-    private Integer totalPageNum;
-    /** The rebates. */
-    private List<Rebate> data;
+public record RebateData(
+		/** The current page. */
+		Integer page,
+		/** The total records. */
+		Integer totalRecords,
+		/** The total pages. */
+		Integer totalPageNum,
+		/** The rebates. */
+		List<Rebate> data) {
 }

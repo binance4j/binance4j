@@ -41,13 +41,12 @@ class GetDepositHistoryTest extends WalletTest {
 
 	@Test
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimitAndOffset() throws ApiException {
-		List<DepositHistory> history = client
-				.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit, 0)).execute();
+		List<DepositHistory> history = client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit, 0)).execute();
 		test(history);
 
 		assertTrue(history.size() <= limit);
 		history.forEach(h -> {
-			assertEquals(asset, h.getCoin());
+			assertEquals(asset, h.coin());
 			assertEquals(DepositStatus.SUCCESS, h.getDepositStatus());
 		});
 	}

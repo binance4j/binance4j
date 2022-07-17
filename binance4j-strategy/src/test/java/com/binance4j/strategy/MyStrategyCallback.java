@@ -17,58 +17,58 @@ import okhttp3.Response;
 /** TODO JAVADOC */
 public class MyStrategyCallback extends StrategyCallback {
 
-    final CompletableFuture<Boolean> future;
-    final WatchService service;
+	final CompletableFuture<Boolean> future;
+	final WatchService service;
 
-    /**  */
-    public MyStrategyCallback(CompletableFuture<Boolean> future, WatchService service) {
-        this.future = future;
-        this.service = service;
-    }
+	/**  */
+	public MyStrategyCallback(CompletableFuture<Boolean> future, WatchService service) {
+		this.future = future;
+		this.service = service;
+	}
 
-    @Override
-    public void onClosed(GenericCallback<WebsocketCloseObject> callback) {
-        super.onClosed(callback);
-        assertNotNull(callback);
-        future.complete(true);
+	@Override
+	public void onClosed(GenericCallback<WebsocketCloseObject> callback) {
+		super.onClosed(callback);
+		assertNotNull(callback);
+		future.complete(true);
 
-    }
+	}
 
-    @Override
-    public void onClosing(GenericCallback<WebsocketCloseObject> callback) {
-        super.onClosing(callback);
-        assertNotNull(callback);
-    }
+	@Override
+	public void onClosing(GenericCallback<WebsocketCloseObject> callback) {
+		super.onClosing(callback);
+		assertNotNull(callback);
+	}
 
-    @Override
-    public void onEnter(GenericCallback<BarSeries> callback) {
-        super.onEnter(callback);
-        assertNotNull(callback);
-        service.unwatch();
-    }
+	@Override
+	public void onEnter(GenericCallback<BarSeries> callback) {
+		super.onEnter(callback);
+		assertNotNull(callback);
+		service.unwatch();
+	}
 
-    @Override
-    public void onExit(GenericCallback<BarSeries> callback) {
-        super.onExit(callback);
-        assertNotNull(callback);
-    }
+	@Override
+	public void onExit(GenericCallback<BarSeries> callback) {
+		super.onExit(callback);
+		assertNotNull(callback);
+	}
 
-    @Override
-    public void onFailure(GenericCallback<ApiException> callback) {
-        super.onFailure(callback);
-        assertNotNull(callback);
-        future.complete(true);
-    }
+	@Override
+	public void onFailure(GenericCallback<ApiException> callback) {
+		super.onFailure(callback);
+		assertNotNull(callback);
+		future.complete(true);
+	}
 
-    @Override
-    public void onMessage(GenericCallback<SymbolBar> callback) {
-        super.onMessage(callback);
-        assertNotNull(callback);
-    }
+	@Override
+	public void onMessage(GenericCallback<SymbolBar> callback) {
+		super.onMessage(callback);
+		assertNotNull(callback);
+	}
 
-    @Override
-    public void onOpen(GenericCallback<Response> callback) {
-        super.onOpen(callback);
-        assertNotNull(callback);
-    }
+	@Override
+	public void onOpen(GenericCallback<Response> callback) {
+		super.onOpen(callback);
+		assertNotNull(callback);
+	}
 }

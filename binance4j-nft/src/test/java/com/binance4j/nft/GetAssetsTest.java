@@ -22,7 +22,7 @@ public class GetAssetsTest extends NFTTest {
 		NFTAssetParams params = new NFTAssetParams(limit, page);
 		NFTAssetHistory history = client.getAssets(params).execute();
 		test(history);
-		assertTrue(history.getTotal() <= limit);
+		assertTrue(history.total() <= limit);
 	}
 
 }

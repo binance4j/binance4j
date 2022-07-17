@@ -25,7 +25,7 @@ class GetBookTickerTest extends MarketTest {
 		BookTickerParams params = new BookTickerParams(symbol);
 		BookTicker bookTicker = client.getBookTicker(params).execute();
 
-		assertEquals(bookTicker.getSymbol(), symbol);
+		assertEquals(bookTicker.symbol(), symbol);
 		test(bookTicker);
 	}
 
@@ -34,7 +34,7 @@ class GetBookTickerTest extends MarketTest {
 		BookTickersParams params = new BookTickersParams(symbols);
 		List<BookTicker> bookTickers = client.getBookTicker(params).execute();
 
-		bookTickers.forEach(bt -> assertTrue(symbols.contains(bt.getSymbol())));
+		bookTickers.forEach(bt -> assertTrue(symbols.contains(bt.symbol())));
 		test(bookTickers);
 	}
 }

@@ -2,19 +2,13 @@ package com.binance4j.nft.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** A NFT transaction history */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NFTTransactionHistory {
-	/** total records. */
-	private Long total;
-	/** The transactions. */
-	private List<NFTTransaction> list;
+public record NFTTransactionHistory(
+		/** total records. */
+		Long total,
+		/** The transactions. */
+		List<NFTTransaction> list) {
 }

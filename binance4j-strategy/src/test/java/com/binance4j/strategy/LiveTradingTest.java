@@ -99,7 +99,6 @@ class LiveTradingTest extends ConcurrentTest<Void> {
 		callback.onMessage(t -> {
 			assertNotNull(t);
 
-
 			count++;
 			set.add(t.getSymbol());
 

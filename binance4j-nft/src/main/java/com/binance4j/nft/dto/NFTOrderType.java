@@ -13,6 +13,6 @@ public enum NFTOrderType {
 
 	/** The error code. */
 	@Getter
-	private final int value;
+	final int value;
 
 }

@@ -2,23 +2,21 @@ package com.binance4j.nft.dto;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** A NFT Withdraw */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-public class NFTWithdraw extends NFTDeposit {
-	/** The withdraw fee. */
-	private BigDecimal fee;
-	/** The fee asset. */
-	private String feeAsset;
+public record NFTWithdraw(
+		/** NFT Network. */
+		String network,
+		/** NFT Contract Address. */
+		String contractAddress,
+		/** NFT Token ID. */
+		String tokenId,
+		/** Transaction ID. */
+		@JsonProperty("txID") String transactionId, /** Deposit time in ms. */
+		Long timestamp,
+		/** The withdraw fee. */
+		BigDecimal fee,
+		/** The fee asset. */
+		String feeAsset) {
 }

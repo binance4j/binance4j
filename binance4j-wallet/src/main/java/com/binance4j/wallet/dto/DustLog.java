@@ -2,19 +2,13 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** Logs of assets converted in BNB */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DustLog {
-	/** Total counts of exchange. */
-	private Integer total;
-	/** TODO JAVADOC */
-	private List<DustLogUserAssetDribblets> userAssetDribblets;
+public record DustLog(
+		/** Total counts of exchange. */
+		Integer total,
+		/** TODO JAVADOC */
+		List<DustLogUserAssetDribblets> userAssetDribblets) {
 }

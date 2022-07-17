@@ -22,8 +22,8 @@ class GetOrderBookTest extends MarketTest {
 		OrderBookParams params = new OrderBookParams(symbol, limit);
 		OrderBook orderBook = client.getOrderBook(params).execute();
 
-		assertEquals(limit, orderBook.getAsks().size());
-		assertEquals(limit, orderBook.getBids().size());
+		assertEquals(limit, orderBook.asks().size());
+		assertEquals(limit, orderBook.bids().size());
 		test(orderBook);
 	}
 }

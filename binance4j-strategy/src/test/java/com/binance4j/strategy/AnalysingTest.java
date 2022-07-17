@@ -20,13 +20,12 @@ class AnalysingTest extends ConcurrentTest<Void> {
 	@Test
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
-				"01");
-		List<Position> positions = result.getTradingRecord().getPositions();
+		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01");
+		List<Position> positions = result.tradingRecord().getPositions();
 
 		positions.forEach(p -> {
-			assertTrue(PositionService.shouldEnter(strategy, result.getSeries(), p.getEntry().getIndex()));
-			assertTrue(PositionService.shouldExit(strategy, result.getSeries(), p.getExit().getIndex()));
+			assertTrue(PositionService.shouldEnter(strategy, result.series(), p.getEntry().getIndex()));
+			assertTrue(PositionService.shouldExit(strategy, result.series(), p.getExit().getIndex()));
 		});
 	}
 

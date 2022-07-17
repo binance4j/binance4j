@@ -9,5 +9,5 @@ public enum TransferType {
 	SPOT_TO_MARGIN("1"), MARGIN_TO_SPOT("2");
 
 	@Getter
-	private final String value;
+	final String value;
 }

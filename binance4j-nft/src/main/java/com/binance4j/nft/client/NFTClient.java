@@ -14,8 +14,7 @@ import com.binance4j.nft.param.NFTWithdrawParams;
 /**
  * Api client for the NFT endpoints
  * 
- * @see <a href=
- *      "https://binance-docs.github.io/apidocs/spot/en/#nft-endpoints">Documentation</a>
+ * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#nft-endpoints">Documentation</a>
  */
 public class NFTClient extends RestClient<NFTMapping> {
 	/**

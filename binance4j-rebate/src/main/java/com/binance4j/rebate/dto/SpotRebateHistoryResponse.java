@@ -6,9 +6,5 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class SpotRebateHistoryResponse {
-    private String status;
-    private String type;
-    private String code;
-    private RebateData data;
+public record SpotRebateHistoryResponse(String status, String type, String code, RebateData data) {
 }

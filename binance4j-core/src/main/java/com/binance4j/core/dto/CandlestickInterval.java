@@ -43,7 +43,7 @@ public enum CandlestickInterval {
 	}
 
 	/** The interval id */
-	private final String value;
+	final String value;
 
 	/** @return the value */
 	public String getValue() {

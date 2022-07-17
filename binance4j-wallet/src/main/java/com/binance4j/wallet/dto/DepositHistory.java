@@ -2,39 +2,33 @@ package com.binance4j.wallet.dto;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** A deposit history */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DepositHistory {
-	/** The volume to deposit. */
-	private BigDecimal amount;
-	/** The coin abbreviation. */
-	private String coin;
-	/** The transfer network. */
-	private String network;
-	/** The deposit address. */
-	private String address;
-	/** The deposit address tag. */
-	private String addressTag;
-	/** The transaction id. */
-	private String txId;
-	/** confirm times for unlocking. */
-	private String unlockConfirm;
-	/** TODO JAVADOC */
-	private String confirmTimes;
-	/** The withdraw status code. */
-	private Integer status;
-	/** confirm times for insertion (?) */
-	private Long insertTime;
-	/** The transfer type. 1 for internal transfer, 0 for external transfer. */
-	private Integer transferType;
+public record DepositHistory(
+		/** The volume to deposit. */
+		BigDecimal amount,
+		/** The coin abbreviation. */
+		String coin,
+		/** The transfer network. */
+		String network,
+		/** The deposit address. */
+		String address,
+		/** The deposit address tag. */
+		String addressTag,
+		/** The transaction id. */
+		String txId,
+		/** confirm times for unlocking. */
+		String unlockConfirm,
+		/** TODO JAVADOC */
+		String confirmTimes,
+		/** The withdraw status code. */
+		Integer status,
+		/** confirm times for insertion (?) */
+		Long insertTime,
+		/** The transfer type. 1 for internal transfer, 0 for external transfer. */
+		Integer transferType) {
 
 	/** The withdraw status. */
 	public DepositStatus getDepositStatus() {

@@ -33,6 +33,6 @@ public class GetTransactionsTest extends NFTTest {
 		NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(NFTOrderType.SELL_ORDER, limit, page);
 		NFTTransactionHistory history = client.getTransactions(params).execute();
 		test(history);
-		assertTrue(history.getTotal() <= limit);
+		assertTrue(history.total() <= limit);
 	}
 }

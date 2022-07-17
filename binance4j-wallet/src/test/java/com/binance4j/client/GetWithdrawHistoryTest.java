@@ -18,8 +18,7 @@ class GetWithdrawHistoryTest extends WalletTest {
 	// withdrawOrderId may be absent from the withdraw
 	@Override
 	public void test(Object bean) {
-		assertTrue(getNullProperties(bean).stream()
-				.filter(prop -> !prop.contains("withdrawOrderId")).collect(Collectors.toList()).isEmpty());
+		assertTrue(getNullProperties(bean).stream().filter(prop -> !prop.contains("withdrawOrderId")).collect(Collectors.toList()).isEmpty());
 	}
 
 	@Test
@@ -35,13 +34,12 @@ class GetWithdrawHistoryTest extends WalletTest {
 	@Test
 	void testGetWithdrawHistoryWithAssetAndStatus() throws ApiException {
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(getAsset(), status))
-				.execute();
+		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(getAsset(), status)).execute();
 
 		test(history);
 
-		history.forEach(h -> assertEquals(getAsset(), h.getCoin()));
-		history.forEach(h -> assertEquals(status.getValue(), h.getStatus()));
+		history.forEach(h -> assertEquals(getAsset(), h.coin()));
+		history.forEach(h -> assertEquals(status.getValue(), h.status()));
 		test(history);
 	}
 }

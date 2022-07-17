@@ -22,6 +22,6 @@ public class GetDepositsTest extends NFTTest {
 		NFTDepositHistoryParams params = new NFTDepositHistoryParams(limit, page);
 		NFTDepositHistory history = client.getDeposits(params).execute();
 		test(history);
-		assertTrue(history.getTotal() <= limit);
+		assertTrue(history.total() <= limit);
 	}
 }

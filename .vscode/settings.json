@@ -4,5 +4,8 @@
     "[java]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
     }
 }

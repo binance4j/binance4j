@@ -1,21 +1,15 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.wallet.dto.Snapshot;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 /** A daily MARGIN account snapshot */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-public class MarginAccountSnapshot extends Snapshot {
-	/** The account snapshot data. */
-	private MarginAccountSnapshotData data;
+public record MarginAccountSnapshot(
+		/** The snapshot type ("spot/margin/futures") */
+		String type,
+		/** The snapshot update timestamp. */
+		long updateTime,
+		/** The account snapshot data. */
+		MarginAccountSnapshotData data) implements Snapshot {
 }

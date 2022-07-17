@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VisionChecksum {
-	/** The MD5 checksum. */
-	private String checksum;
+public record VisionChecksum(
+		/** The MD5 checksum. */
+		String checksum,
 
-	/** The file name. */
-	private String fileName;
+		/** The file name. */
+		String fileName) {
 }

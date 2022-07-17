@@ -22,6 +22,6 @@ public class GetWithdrawsTest extends NFTTest {
 		NFTWithdrawParams params = new NFTWithdrawParams(limit, page);
 		NFTWithdrawHistory history = client.getWithdraws(params).execute();
 		test(history);
-		assertTrue(history.getTotal() <= limit);
+		assertTrue(history.total() <= limit);
 	}
 }

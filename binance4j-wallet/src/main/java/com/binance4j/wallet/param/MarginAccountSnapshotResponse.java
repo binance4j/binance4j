@@ -1,10 +1,15 @@
 package com.binance4j.wallet.param;
 
+import java.util.List;
+
 import com.binance4j.wallet.dto.AccountSnapshotResponse;
 
-import lombok.ToString;
-
 /** The response of a MARGIN account snapshot request */
-@ToString(callSuper = true)
-public class MarginAccountSnapshotResponse extends AccountSnapshotResponse<MarginAccountSnapshot> {
+public record MarginAccountSnapshotResponse(
+		/** The response status code (200 for success; others are error codes) */
+		int code,
+		/** The potential response error message. */
+		String msg,
+		/** A list of account snapshots. */
+		List<MarginAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<MarginAccountSnapshot> {
 }

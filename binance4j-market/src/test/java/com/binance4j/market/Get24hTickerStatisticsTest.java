@@ -23,7 +23,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
 		TickerStatistics res = getClient().get24hTickerStatistics(params).execute();
 
-		assertEquals(res.getSymbol(), params.getSymbol());
+		assertEquals(res.symbol(), params.getSymbol());
 		test(res);
 	}
 
@@ -33,6 +33,6 @@ class Get24hTickerStatisticsTest extends MarketTest {
 		List<TickerStatistics> res = getClient().get24hTickerStatistics(params).execute();
 
 		test(res);
-		res.forEach(stats -> assertTrue(symbols.contains((stats.getSymbol()))));
+		res.forEach(stats -> assertTrue(symbols.contains((stats.symbol()))));
 	}
 }

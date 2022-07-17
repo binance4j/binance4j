@@ -21,18 +21,18 @@ public interface NFTMapping {
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	@GET(BASE + "history/transactions")
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	Call<NFTTransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	@GET(BASE + "history/deposit")
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	Call<NFTDepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
 	@GET(BASE + "history/withdraw")
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	Call<NFTWithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
 	@GET(BASE + "user/getAsset")
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	Call<NFTAssetHistory> getAssets(@QueryMap Map<String, Object> map);
 }

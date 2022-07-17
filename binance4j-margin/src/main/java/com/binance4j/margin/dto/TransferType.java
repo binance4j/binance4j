@@ -8,7 +8,7 @@ public enum TransferType {
 	MARGIN_TO_MAIN(2);
 
 	/** The value */
-	private final int value;
+	final int value;
 
 	/** @param value The value */
 	private TransferType(int value) {

@@ -5,37 +5,31 @@ import java.util.List;
 
 import com.binance4j.core.dto.AccountType;
 import com.binance4j.core.dto.AssetBalance;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /** The SPOT account information */
-@Data
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Account {
-	/** The maker commission. */
-	private BigDecimal makerCommission;
-	/** The taker commission. */
-	private BigDecimal takerCommission;
-	/** The buyer commission. */
-	private BigDecimal buyerCommission;
-	/** The seller commission. */
-	private BigDecimal sellerCommission;
-	/** The trade permission. */
-	private Boolean canTrade;
-	/** The withdrawal permission. */
-	private Boolean canWithdraw;
-	/** The deposit permission. */
-	private Boolean canDeposit;
-	/** The timestamp of the last data update. */
-	private Long updateTime;
-	/** The balances of each asset in the SPOT wallet. */
-	private List<AssetBalance> balances;
-	/** The account Type (SPOT). */
-	private AccountType accountType;
-	/** The permissions list (SPOT). */
-	private List<AccountType> permissions;
+public record Account(
+		/** The maker commission. */
+		BigDecimal makerCommission,
+		/** The taker commission. */
+		BigDecimal takerCommission,
+		/** The buyer commission. */
+		BigDecimal buyerCommission,
+		/** The seller commission. */
+		BigDecimal sellerCommission,
+		/** The trade permission. */
+		Boolean canTrade,
+		/** The withdrawal permission. */
+		Boolean canWithdraw,
+		/** The deposit permission. */
+		Boolean canDeposit,
+		/** The timestamp of the last data update. */
+		Long updateTime,
+		/** The balances of each asset in the SPOT wallet. */
+		List<AssetBalance> balances,
+		/** The account Type (SPOT). */
+		AccountType accountType,
+		/** The permissions list (SPOT). */
+		List<AccountType> permissions) {
 }

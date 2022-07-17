@@ -9,9 +9,9 @@ import lombok.Getter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public enum RebateType {
-    COMMISSION_REBATE(1), REFERRAL_KICKBACK(2);
+	COMMISSION_REBATE(1), REFERRAL_KICKBACK(2);
 
-    /** The error code. */
-    @Getter
-    private final int value;
+	/** The error code. */
+	@Getter
+	final int value;
 }

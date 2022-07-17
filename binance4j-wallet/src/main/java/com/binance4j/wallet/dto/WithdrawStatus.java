@@ -9,5 +9,5 @@ public enum WithdrawStatus {
 	EMAIL_SENT(0), CANCELLED(1), AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4), FAILURE(5), COMPLETED(6);
 
 	@Getter
-	private final int value;
+	final int value;
 }
