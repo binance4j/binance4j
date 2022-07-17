@@ -1,13 +1,12 @@
 package com.binance4j.spot;
 
 import com.binance4j.core.dto.CandlestickInterval;
-import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.core.test.CustomTest;
 import com.binance4j.vision.client.VisionSpotClient;
 
 import lombok.Getter;
 
-/** TODO JAVADOC */
-public class SpotTest extends ConcurrentTest<VisionSpotClient> {
+public class SpotTest extends CustomTest<VisionSpotClient> {
 	public SpotTest() {
 		super(new VisionSpotClient());
 	}

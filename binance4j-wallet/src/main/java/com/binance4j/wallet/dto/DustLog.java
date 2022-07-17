@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DustLog(
 		/** Total counts of exchange. */
-		Integer total,
+		int total,
 		/** TODO JAVADOC */
 		List<DustLogUserAssetDribblets> userAssetDribblets) {
 }

@@ -24,11 +24,11 @@ public record WithdrawHistory(
 		/** The transaction id. */
 		String txId,
 		/** 1 for internal transfer, 0 for external transfer. */
-		Integer transferType,
+		int transferType,
 		/** (0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed) */
-		Integer status,
+		int status,
 		/** Confirm times for withdraw. */
-		Integer confirmNo,
+		int confirmNo,
 		/** The withdrawn colume. */
 		BigDecimal amount,
 		/** The withdraw fees. */

@@ -20,8 +20,9 @@ public class Params {
 	protected int weight = 1;
 
 	/** Is this request generating an order? */
-	private boolean isOrderRequest;
+	protected boolean isOrderRequest;
 
+	/** Constructor */
 	protected Params() {
 	}
 
@@ -51,6 +52,7 @@ public class Params {
 		// Removing null and useless parameters from the query map
 		map.remove("weight");
 		map.remove("orderRequest");
+		map.remove("isOrderRequest");
 		map.values().removeAll(Collections.singleton(null));
 		return map;
 	}

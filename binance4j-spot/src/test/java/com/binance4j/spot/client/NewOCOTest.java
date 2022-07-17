@@ -10,7 +10,6 @@ import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.OCOOrderParams;
 
-/** TODO JAVADOC */
 public class NewOCOTest extends SpotTest {
 
 	// @Test
@@ -18,8 +17,7 @@ public class NewOCOTest extends SpotTest {
 
 	public void testNewOCO() {
 		try {
-			OCOOrderParams params = new OCOOrderParams("BTCBUSD", OrderSide.BUY,
-					new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
+			OCOOrderParams params = new OCOOrderParams("BTCBUSD", OrderSide.BUY, new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse res = client.newOCO(params).execute();
 			test(res);
 			assertTrue(getNullProperties(res).contains("OCOResponse.isIsolated"));

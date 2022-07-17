@@ -15,13 +15,13 @@ import com.binance4j.market.param.TickersStatisticsParams;
 class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	void test1() throws ApiException {
-		test(getClient().get24hTickerStatistics());
+		test(client.get24hTickerStatistics());
 	}
 
 	@Test
 	void test2() throws ApiException {
 		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
-		TickerStatistics res = getClient().get24hTickerStatistics(params).execute();
+		TickerStatistics res = client.get24hTickerStatistics(params).execute();
 
 		assertEquals(res.symbol(), params.getSymbol());
 		test(res);
@@ -30,7 +30,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	void test3() throws ApiException {
 		TickersStatisticsParams params = new TickersStatisticsParams(symbols);
-		List<TickerStatistics> res = getClient().get24hTickerStatistics(params).execute();
+		List<TickerStatistics> res = client.get24hTickerStatistics(params).execute();
 
 		test(res);
 		res.forEach(stats -> assertTrue(symbols.contains((stats.symbol()))));

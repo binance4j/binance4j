@@ -7,6 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SystemStatus(
 		/** The system status code (0: normal，1：maintenance). */
-		Integer status, /** The system status message ("normal" or "system_maintenance") */
+		int status, /** The system status message ("normal" or "system_maintenance") */
 		@JsonProperty("msg") String message) {
 }

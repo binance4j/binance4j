@@ -24,11 +24,11 @@ public record DepositHistory(
 		/** TODO JAVADOC */
 		String confirmTimes,
 		/** The withdraw status code. */
-		Integer status,
+		int status,
 		/** confirm times for insertion (?) */
-		Long insertTime,
+		long insertTime,
 		/** The transfer type. 1 for internal transfer, 0 for external transfer. */
-		Integer transferType) {
+		int transferType) {
 
 	/** The withdraw status. */
 	public DepositStatus getDepositStatus() {

@@ -16,9 +16,9 @@ public record CancelOrderResponse(
 		/** The order timeInForce. */
 		TimeInForce timeInForce,
 		/** The order id. */
-		Long orderId,
+		long orderId,
 		/** The order list. */
-		Long orderListId,
+		long orderListId,
 		/** The order symbol. */
 		String symbol,
 		/** The original client order id. */
@@ -34,5 +34,5 @@ public record CancelOrderResponse(
 		/** The order cumulative quote quantity. */
 		BigDecimal cummulativeQuoteQty,
 		/** Is the order margin isolated. */
-		Boolean isIsolated) {
+		boolean isIsolated) {
 }

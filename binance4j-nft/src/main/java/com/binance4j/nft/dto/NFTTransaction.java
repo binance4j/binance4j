@@ -21,7 +21,7 @@ public record NFTTransaction(
 		/** The tokens. */
 		List<NFT> tokens,
 		/** The trade time in ms. */
-		Long tradeTime,
+		long tradeTime,
 		/** The trade amount. */
 		BigDecimal tradeAmount,
 		/** The currency used to buy the NFT. */

@@ -20,8 +20,6 @@ public class ExchangeInfoParams extends Params {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param symbols The trading pair list
 	 */
 	public ExchangeInfoParams(List<String> symbols) {
@@ -30,8 +28,6 @@ public class ExchangeInfoParams extends Params {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param symbol The trading pair
 	 */
 	public ExchangeInfoParams(String symbol) {

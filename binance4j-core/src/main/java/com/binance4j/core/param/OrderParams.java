@@ -25,6 +25,7 @@ public abstract class OrderParams extends FramedParams {
 	/** The order response type Default: RESULT. */
 	protected NewOrderResponseType newOrderRespType;
 
+	/** Constructor */
 	protected OrderParams() {
 		super();
 	}

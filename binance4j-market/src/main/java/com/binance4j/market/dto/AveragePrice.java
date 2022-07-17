@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AveragePrice(
 		/** ??? */
-		Integer mins,
+		int mins,
 		/** The average price of the asset. */
 		BigDecimal price) {
 }

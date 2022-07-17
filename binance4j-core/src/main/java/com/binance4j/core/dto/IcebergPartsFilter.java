@@ -11,5 +11,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IcebergPartsFilter(
 		/** The filter limit number */
-		Integer limit) {
+		int limit) {
 }

@@ -19,13 +19,13 @@ public record Account(
 		/** The seller commission. */
 		BigDecimal sellerCommission,
 		/** The trade permission. */
-		Boolean canTrade,
+		boolean canTrade,
 		/** The withdrawal permission. */
-		Boolean canWithdraw,
+		boolean canWithdraw,
 		/** The deposit permission. */
-		Boolean canDeposit,
+		boolean canDeposit,
 		/** The timestamp of the last data update. */
-		Long updateTime,
+		long updateTime,
 		/** The balances of each asset in the SPOT wallet. */
 		List<AssetBalance> balances,
 		/** The account Type (SPOT). */

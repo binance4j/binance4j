@@ -5,6 +5,7 @@ public abstract class FramedParams extends Params {
 	/** The request timestamp */
 	protected long timestamp = System.currentTimeMillis();
 
+	/** Constructor */
 	protected FramedParams() {
 		super();
 	}

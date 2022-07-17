@@ -10,5 +10,5 @@ public record AssetDividendRecord(
 		/** The records. */
 		List<AssetDividend> rows,
 		/** The number of record. */
-		Long total) {
+		long total) {
 }

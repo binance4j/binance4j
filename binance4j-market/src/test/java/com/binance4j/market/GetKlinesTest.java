@@ -2,7 +2,6 @@ package com.binance4j.market;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ class GetKlinesTest extends MarketTest {
 
 	@Test
 	void test1() throws ApiException {
-		List<CandlestickInterval> intervals = new LinkedList<>(Arrays.asList(CandlestickInterval.values()));
+		List<CandlestickInterval> intervals = new LinkedList<>(List.of(CandlestickInterval.values()));
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
 
 		for (CandlestickInterval interval : intervals) {

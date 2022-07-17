@@ -2,31 +2,28 @@ package com.binance4j.rebate;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.rebate.param.SpotRebateHistoryParams;
 
-/** TODO JAVADOC */
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
-    @Override
-    public void test(Object bean) {
-        System.out.println(getNullProperties(bean));
-        assertTrue(getNullProperties(bean)
-                .containsAll(Arrays.asList("data.data", "data.page",
-                        "data.totalPageNum", "data.totalRecords")));
-    }
+	@Override
+	public void test(Object bean) {
+		System.out.println(getNullProperties(bean));
+		assertTrue(getNullProperties(bean).containsAll(List.of("data.data", "data.page", "data.totalPageNum", "data.totalRecords")));
+	}
 
-    @Test
-    void testWithoutPage() throws ApiException {
-        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()));
-    }
+	@Test
+	void testWithoutPage() throws ApiException {
+		test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()));
+	}
 
-    @Test
-    void testWithPage() throws ApiException {
-        test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)));
-    }
+	@Test
+	void testWithPage() throws ApiException {
+		test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)));
+	}
 }

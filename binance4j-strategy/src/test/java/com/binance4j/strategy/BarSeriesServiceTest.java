@@ -14,12 +14,11 @@ import org.ta4j.core.BarSeries;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.vision.client.VisionSpotClient;
 
-/** TODO JAVADOC */
-public class BarSeriesServiceTest extends ConcurrentTest<VisionSpotClient> {
+public class BarSeriesServiceTest extends CustomTest<VisionSpotClient> {
 	List<Candle> bars;
 
 	public BarSeriesServiceTest() throws ApiException {

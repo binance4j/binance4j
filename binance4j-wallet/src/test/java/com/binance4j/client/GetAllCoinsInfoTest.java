@@ -3,7 +3,6 @@ package com.binance4j.client;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ class GetAllCoinsInfoTest extends WalletTest {
 
 	@Override
 	public void test(Object bean) {
-		List<String> expectedNulls = Arrays.asList("specialTips", "specialWithdrawTips", "depositDust");
+		List<String> expectedNulls = List.of("specialTips", "specialWithdrawTips", "depositDust");
 		Set<String> nulls = getNullProperties(bean, true);
 		assertTrue(nulls.containsAll(nulls));
 		assertEquals(nulls.size(), expectedNulls.size());

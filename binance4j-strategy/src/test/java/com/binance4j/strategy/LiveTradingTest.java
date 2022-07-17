@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,12 +14,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.dto.CandlestickInterval;
-import com.binance4j.core.test.ConcurrentTest;
+import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 import com.binance4j.strategy.strategies.AlwaysExitStrategy;
 
-class LiveTradingTest extends ConcurrentTest<Void> {
+class LiveTradingTest extends CustomTest<Void> {
 	int count;
 	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;
@@ -88,7 +87,7 @@ class LiveTradingTest extends ConcurrentTest<Void> {
 		WatchService service = new WatchService(strategy);
 
 		Set<String> set = new HashSet<>();
-		List<String> symbols = Arrays.asList("BTCBUSD", "BNBBTC", "SHIBBUSD");
+		List<String> symbols = List.of("BTCBUSD", "BNBBTC", "SHIBBUSD");
 
 		callback.onFailure(t -> {
 			assertNotNull(t);

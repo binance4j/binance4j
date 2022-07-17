@@ -15,8 +15,7 @@ class WebsocketDepthClientTest {
 
 	@Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {
-		WebsocketDepthClient client = new WebsocketDepthClient(callback.getSymbol(), DepthUpdateSpeed.MS_100,
-				callback);
+		WebsocketDepthClient client = new WebsocketDepthClient(callback.getSymbol(), DepthUpdateSpeed.MS_100, callback);
 		callback.setWebsocketClient(client);
 		client.open();
 		callback.future.get();

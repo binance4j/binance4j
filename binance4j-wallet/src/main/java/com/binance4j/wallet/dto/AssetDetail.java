@@ -10,11 +10,11 @@ public record AssetDetail(
 		/** The minimal withdraw amount. */
 		BigDecimal minWithdrawAmount,
 		/** The deposit status (false if ALL of networks' are false). */
-		Boolean depositStatus,
+		boolean depositStatus,
 		/** The withdraw fee. */
 		Float withdrawFee,
 		/** The withdraw status (false if ALL of networks' are false). */
-		Boolean withdrawStatus, /** The reason of the status. */
+		boolean withdrawStatus, /** The reason of the status. */
 		String depositTip) {
 	public String getDepositTip() {
 		return depositTip == null ? "" : depositTip;

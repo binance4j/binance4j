@@ -28,17 +28,17 @@ class GetWithdrawHistoryTest extends WalletTest {
 
 	@Test
 	void testGetWithdrawHistoryWithAsset() throws ApiException {
-		test(client.getWithdrawHistory(new WithdrawHistoryParams(getAsset())));
+		test(client.getWithdrawHistory(new WithdrawHistoryParams(asset)));
 	}
 
 	@Test
 	void testGetWithdrawHistoryWithAssetAndStatus() throws ApiException {
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(getAsset(), status)).execute();
+		List<WithdrawHistory> history = client.getWithdrawHistory(new WithdrawHistoryParams(asset, status)).execute();
 
 		test(history);
 
-		history.forEach(h -> assertEquals(getAsset(), h.coin()));
+		history.forEach(h -> assertEquals(asset, h.coin()));
 		history.forEach(h -> assertEquals(status.getValue(), h.status()));
 		test(history);
 	}

@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- * Account update event which will reflect the balance changes of the account.
- * This event is embedded as part of a user data update event.
+ * Account update event which will reflect the balance changes of the account. This event is embedded as part of a user
+ * data update event.
  *
  * @see UserDataUpdatePayload
  */
@@ -26,10 +26,10 @@ public class BalanceUpdatePayload {
 	/** The asset. */
 	@JsonProperty("a")
 	private String asset;
-	/** TODO JAVADOC */
+	/** The balance delta */
 	@JsonProperty("d")
 	private String balanceDelta;
-	/** TODO JAVADOC */
+	/** Clear time in ms */
 	@JsonProperty("T")
 	private Long clearTime;
 }

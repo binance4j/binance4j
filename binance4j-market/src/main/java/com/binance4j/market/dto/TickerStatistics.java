@@ -40,13 +40,13 @@ public record TickerStatistics(
 		/** Total quote volume during the past 24 hours. */
 		BigDecimal quoteVolume,
 		/** Open time. */
-		Long openTime,
+		long openTime,
 		/** Close time. */
-		Long closeTime,
+		long closeTime,
 		/** First trade id. */
-		Long firstId,
+		long firstId,
 		/** Last trade id. */
-		Long lastId,
+		long lastId,
 		/** Total number of trades during the last 24 hours. */
-		Long count) {
+		long count) {
 }

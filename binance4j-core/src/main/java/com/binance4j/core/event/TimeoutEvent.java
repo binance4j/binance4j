@@ -6,6 +6,10 @@ import java.time.Duration;
  * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} after the given {@link Duration timeout}
  */
 public class TimeoutEvent extends BaseScheduledEvent {
+	/**
+	 * @param timeout       Timeout duration
+	 * @param scheduledTask THe task to execute
+	 */
 	public TimeoutEvent(Duration timeout, ScheduledTask scheduledTask) {
 		super();
 		this.task = new Task(scheduledTask, this);

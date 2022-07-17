@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record NFTDepositHistory(
 		/** total records. */
-		Long total,
+		long total,
 		/** The transactions. */
 		List<NFTDeposit> list) {
 }

@@ -6,5 +6,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ServerTimeResponse(
 		/** The server time in ms. */
-		Long serverTime) {
+		long serverTime) {
 }

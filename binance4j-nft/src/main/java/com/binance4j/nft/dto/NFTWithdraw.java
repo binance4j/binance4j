@@ -14,7 +14,7 @@ public record NFTWithdraw(
 		String tokenId,
 		/** Transaction ID. */
 		@JsonProperty("txID") String transactionId, /** Deposit time in ms. */
-		Long timestamp,
+		long timestamp,
 		/** The withdraw fee. */
 		BigDecimal fee,
 		/** The fee asset. */

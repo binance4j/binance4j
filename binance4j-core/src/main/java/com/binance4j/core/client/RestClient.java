@@ -25,6 +25,7 @@ public abstract class RestClient<T> {
 	/** The current API service */
 	protected T service;
 
+	/** Constructor */
 	protected RestClient() {
 	}
 
@@ -46,7 +47,6 @@ public abstract class RestClient<T> {
 	/**
 	 * Generates the retrofit service that makes the API calls
 	 *
-	 * @param prefix The API to make the calls to
 	 * @return The service responsible for making calls to the API
 	 */
 	protected T createService() {

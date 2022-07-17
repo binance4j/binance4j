@@ -33,10 +33,13 @@ public record AggTrade(
 		/** The quantity */
 		@JsonProperty("q") BigDecimal quantity,
 		/** Was it a buyer maker */
-		@JsonProperty("m") boolean isBuyerMaker, 
+		@JsonProperty("m") boolean isBuyerMaker,
 		/** Was it the best price match? */
 		@JsonProperty("M") boolean isBestMatch) {
 
+	/**
+	 * @param input The CSV line
+	 */
 	public AggTrade(List<String> input) {
 		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),
 				new BigDecimal(input.get(1)), new BigDecimal(input.get(2)), Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));

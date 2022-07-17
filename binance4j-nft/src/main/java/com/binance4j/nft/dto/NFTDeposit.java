@@ -15,5 +15,5 @@ public record NFTDeposit(
 		/** Transaction ID. */
 		@JsonProperty("txID") String transactionId,
 		/** Deposit time in ms. */
-		Long timestamp) {
+		long timestamp) {
 }

@@ -5,16 +5,17 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/** TODO JAVADOC */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DustLogUserAssetDribblets(
 		/** The operation timestamp. */
-		Long operateTime,
+		long operateTime,
 		/** The volume of asset converted. */
 		BigDecimal totalTransferedAmount,
 		/** The fees. */
 		BigDecimal totalServiceChargeAmount,
 		/** The transaction id. */
-		Long transId,
+		long transId,
 		/** TODO JAVADOC */
 		List<DustLogUserAssetDribbletDetails> userAssetDribbletDetails) {
 }

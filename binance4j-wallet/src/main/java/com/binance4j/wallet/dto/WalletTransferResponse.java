@@ -6,5 +6,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /** The user universal transfer response. */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record WalletTransferResponse(/** The transaction id. */
-@JsonProperty("tranId") Long transactionId) {
+@JsonProperty("tranId") long transactionId) {
 }

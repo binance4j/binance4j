@@ -15,13 +15,13 @@ public record NewOrderResponse(
 		/** The trading pair to trade. */
 		String symbol,
 		/** The order id. */
-		Long orderId,
+		long orderId,
 		/** The order list id. */
-		Long orderListId,
+		long orderListId,
 		/** The client order id. */
 		String clientOrderId,
 		/** The order transaction timestamp. */
-		Long transactTime,
+		long transactTime,
 		/** The price of trade. */
 		BigDecimal price,
 		/** The original traded quantity. */

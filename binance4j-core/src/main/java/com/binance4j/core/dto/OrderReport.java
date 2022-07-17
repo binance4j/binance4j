@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param executedQty         /** Original quantity.
  * @param cummulativeQuoteQty /** Used to calculate the average price.
  * @param status              /** Order status.
- * @param timeInForce         /** Time in force to indicate how Long will the order remain active.
+ * @param timeInForce         /** Time in force to indicate how long will the order remain active.
  * @param type                /** Type of order.
  * @param stopPrice           /** Used with stop orders.
  * @param icebergQty          /** Used with iceberg orders.
@@ -32,11 +32,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderReport(
 		/** The order list id. */
-		Long orderListId,
+		long orderListId,
 		/** The original client order id. */
 		String origClientOrderId,
 		/** The order timestamp. */
-		Long transactTime,
+		long transactTime,
 		/** The order side. */
 		OrderSide side,
 		/** Price. */
@@ -49,7 +49,7 @@ public record OrderReport(
 		BigDecimal cummulativeQuoteQty,
 		/** Order status. */
 		OrderStatus status,
-		/** Time in force to indicate how Long will the order remain active. */
+		/** Time in force to indicate how long will the order remain active. */
 		TimeInForce timeInForce,
 		/** Type of order. */
 		OrderType type,
@@ -58,19 +58,19 @@ public record OrderReport(
 		/** Used with iceberg orders. */
 		BigDecimal icebergQty,
 		/** Order timestamp. */
-		Long time,
+		long time,
 		/** Update timestamp. */
-		Long updateTime,
+		long updateTime,
 		/** Original quote order quantity. */
 		BigDecimal origQuoteOrderQty,
 		/** Is working */
-		Boolean isWorking,
+		boolean isWorking,
 		/** is isolated margin. */
-		Boolean isIsolated,
+		boolean isIsolated,
 		/** The order symbol. */
 		String symbol,
 		/** Order id. */
-		Long orderId,
+		long orderId,
 		/** Client order id. */
 		String clientOrderId) {
 }

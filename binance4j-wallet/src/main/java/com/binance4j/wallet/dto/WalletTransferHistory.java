@@ -10,5 +10,5 @@ public record WalletTransferHistory(
 		/** The list of transfers. */
 		List<WalletTransfer> rows,
 		/** The result size. */
-		Long total) {
+		long total) {
 }

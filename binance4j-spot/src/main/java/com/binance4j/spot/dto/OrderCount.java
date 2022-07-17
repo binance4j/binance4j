@@ -12,9 +12,9 @@ public record OrderCount(
 		/** The order interval. */
 		RateLimitInterval interval,
 		/** The order interval num. */
-		Integer intervalNum,
+		int intervalNum,
 		/** The order limit. */
-		Integer limit,
+		int limit,
 		/** The current order count. */
-		Integer count) {
+		int count) {
 }

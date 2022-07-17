@@ -10,11 +10,11 @@ import lombok.Data;
 @Data
 public record RebateData(
 		/** The current page. */
-		Integer page,
+		int page,
 		/** The total records. */
-		Integer totalRecords,
+		int totalRecords,
 		/** The total pages. */
-		Integer totalPageNum,
+		int totalPageNum,
 		/** The rebates. */
 		List<Rebate> data) {
 }

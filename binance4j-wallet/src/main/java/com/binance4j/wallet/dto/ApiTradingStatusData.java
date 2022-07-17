@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /** The API trading status detail */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ApiTradingStatusData(/** API trading function is locked or not. */
-Boolean isLocked,
+boolean isLocked,
 		/** If API trading function is locked, this is the planned recover time. */
-		Long plannedRecoverTime,
+		long plannedRecoverTime,
 		/** The details update timestamps. */
-		Long updateTime,
+		long updateTime,
 		/** Trigger condition. */
 		ApiTradingStatusTriggerCondition triggerCondition) {
 }

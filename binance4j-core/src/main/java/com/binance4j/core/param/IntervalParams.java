@@ -7,6 +7,7 @@ public abstract class IntervalParams extends FramedParams {
 	/** The ending timestamp of the results */
 	protected Long endTime;
 
+	/** Constructor */
 	protected IntervalParams() {
 		super();
 	}
@@ -17,8 +18,6 @@ public abstract class IntervalParams extends FramedParams {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param weight         The Request weight
 	 * @param isOrderRequest Is the request a trading order
 	 */

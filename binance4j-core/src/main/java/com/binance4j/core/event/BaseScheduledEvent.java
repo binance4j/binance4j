@@ -8,17 +8,18 @@ import lombok.Getter;
 
 /** A scheduled event calling a {@link ScheduledTask}. */
 public abstract class BaseScheduledEvent implements ScheduledEvent {
-	/** TODO JAVADOC */
+	/** init time */
 	protected final long initTime;
-	/** TODO JAVADOC */
+	/** last call */
 	protected long lastCall;
-	/** TODO JAVADOC */
+	/** Is running */
 	protected boolean isRunning;
 	/** The event's inner {@link Timer}. */
 	protected final Timer timer;
 	/** The task to execute. */
 	protected Task task;
 
+	/** Constructor */
 	protected BaseScheduledEvent() {
 		initTime = new Date().getTime();
 		timer = new Timer();

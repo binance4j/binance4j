@@ -42,13 +42,13 @@ public record CoinNetworkInformation(
 		/** The confirmation number for balance unlock. */
 		int unLockConfirm,
 		/** If deposit is enabled. */
-		Boolean depositEnable,
+		boolean depositEnable,
 		/** if is the default network. */
-		Boolean isDefault,
+		boolean isDefault,
 		/** ? */
-		Boolean resetAddressStatus,
+		boolean resetAddressStatus,
 		/** If withdraw is enabled. */
-		Boolean withdrawEnable,
+		boolean withdrawEnable,
 		/** If the coin needs to provide memo to withdraw. */
-		Boolean sameAddress) {
+		boolean sameAddress) {
 }

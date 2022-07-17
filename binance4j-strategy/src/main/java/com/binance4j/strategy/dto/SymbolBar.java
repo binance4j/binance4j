@@ -22,7 +22,7 @@ public class SymbolBar extends BaseBar {
 	/** is it the last bar of the interval?. */
 	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
-	private Boolean isBarFinal;
+	private boolean isBarFinal;
 
 	/**
 	 * @param bar    The input bar
@@ -35,7 +35,7 @@ public class SymbolBar extends BaseBar {
 		this.isBarFinal = isBarFinal;
 	}
 
-	public Boolean isBarFinal() {
+	public boolean isBarFinal() {
 		return isBarFinal;
 	}
 

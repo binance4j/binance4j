@@ -11,11 +11,9 @@ import com.binance4j.vision.dto.VisionChecksum;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
-/** TODO JAVADOC */
+/** Vision data checksum request */
 public class ChecksumRequest extends Request<ResponseBody> {
 	/**
-	 *
-	 * 
 	 * @param call The API call
 	 */
 	public ChecksumRequest(Call<ResponseBody> call) {

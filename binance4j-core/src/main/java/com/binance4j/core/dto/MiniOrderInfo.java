@@ -14,7 +14,7 @@ public record MiniOrderInfo(
 		/** The order symbol. */
 		String symbol,
 		/** Order id. */
-		Long orderId,
+		long orderId,
 		/** Client order id. */
 		String clientOrderId) {
 }

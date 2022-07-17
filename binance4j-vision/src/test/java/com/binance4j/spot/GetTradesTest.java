@@ -9,21 +9,18 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 
-/** TODO JAVADOC */
 public class GetTradesTest extends SpotTest {
 
 	@Test
 	void testInvalidDate() {
-		Exception exception = assertThrows(ApiException.class,
-				() -> client.getTrades(symbol, year, month, "32").getData());
+		Exception exception = assertThrows(ApiException.class, () -> client.getTrades(symbol, year, month, "32").getData());
 
 		assertTrue(exception.getMessage().contains(new InvalidDateException().getMessage()));
 	}
 
 	@Test
 	void testNotFoundSync() {
-		Exception exception = assertThrows(ApiException.class,
-				() -> client.getTrades(symbol, "1995", month, day).getData());
+		Exception exception = assertThrows(ApiException.class, () -> client.getTrades(symbol, "1995", month, day).getData());
 
 		assertTrue(exception.getMessage().contains(new NotFoundException().getMessage()));
 	}

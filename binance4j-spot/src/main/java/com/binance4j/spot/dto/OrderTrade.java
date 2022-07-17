@@ -16,5 +16,5 @@ public record OrderTrade(
 		/** The commission asset. */
 		String commissionAsset,
 		/** The trade id. */
-		Long tradeId) {
+		long tradeId) {
 }

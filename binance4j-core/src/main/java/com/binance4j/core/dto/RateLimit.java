@@ -17,7 +17,7 @@ public record RateLimit(
 		/** The limit interval type. */
 		RateLimitInterval interval,
 		/** The limit interval number. */
-		Integer intervalNum,
+		int intervalNum,
 		/** The limit for the given interval. */
-		Integer limit) {
+		int limit) {
 }

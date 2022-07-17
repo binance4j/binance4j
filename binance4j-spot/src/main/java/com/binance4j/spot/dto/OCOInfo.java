@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOInfo(
 		/** The order list id. */
-		Long orderListId,
+		long orderListId,
 		/** The contingency type. */
 		ContingencyType contingencyType,
 		/** The list status type. */
@@ -22,7 +22,7 @@ public record OCOInfo(
 		/** The list client order id. */
 		String listClientOrderId,
 		/** The transaction timestamp in ms. */
-		Long transactionTime,
+		long transactionTime,
 		/** The orders symbol. */
 		String symbol,
 		/** The two orders of the OCO order. */

@@ -10,20 +10,17 @@ import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.core.exception.NotFoundException;
 import com.binance4j.vision.dto.VisionChecksum;
 
-/** TODO JAVADOC */
 public class GetChecksumTest extends SpotTest {
 	@Test
 	void testInvalidDate() {
-		Exception exception = assertThrows(ApiException.class,
-				() -> client.getAggTradesChecksum(symbol, year, month, "32").getChecksum());
+		Exception exception = assertThrows(ApiException.class, () -> client.getAggTradesChecksum(symbol, year, month, "32").getChecksum());
 
 		assertTrue(exception.getMessage().contains(new InvalidDateException().getMessage()));
 	}
 
 	@Test
 	void testNotFoundSync() {
-		Exception exception = assertThrows(ApiException.class,
-				() -> client.getAggTradesChecksum(symbol, "1995", month, day).getChecksum());
+		Exception exception = assertThrows(ApiException.class, () -> client.getAggTradesChecksum(symbol, "1995", month, day).getChecksum());
 
 		assertTrue(exception.getMessage().contains(new NotFoundException().getMessage()));
 	}

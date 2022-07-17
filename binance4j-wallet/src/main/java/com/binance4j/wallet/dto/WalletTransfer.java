@@ -16,7 +16,7 @@ public record WalletTransfer(
 		/** The transfer status. */
 		String status,
 		/** The transaction id. */
-		Long tranId,
+		long tranId,
 		/** The transfer timestamp. */
-		Long timestamp) {
+		long timestamp) {
 }

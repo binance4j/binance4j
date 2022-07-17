@@ -14,9 +14,9 @@ public record AssetDividend(
 		/** The asset abbreviation. */
 		String asset,
 		/** The id. */
-		Long id,
+		long id,
 		/** TODO JAVADOC */
-		Long divTime,
+		long divTime,
 		/** The transaction id. */
-		Long tranId) {
+		long tranId) {
 }

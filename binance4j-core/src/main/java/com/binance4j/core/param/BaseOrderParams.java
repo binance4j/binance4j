@@ -26,6 +26,7 @@ public class BaseOrderParams extends OrderParams {
 	/** The order unique id. Else is produced automatically. */
 	protected String newClientOrderId;
 
+	/** Constructor */
 	protected BaseOrderParams() {
 	}
 
@@ -107,7 +108,6 @@ public class BaseOrderParams extends OrderParams {
 	 * Sets quote order quantity and remove quantity because you can't have both in an order
 	 * 
 	 * @param quoteOrderQuantity The new quantity
-	 * 
 	 */
 	public void setQuoteOrderQty(BigDecimal quoteOrderQuantity) {
 		this.quantity = null;

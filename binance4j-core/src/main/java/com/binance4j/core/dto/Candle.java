@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Candle(
 		/** The candlestick open timestamp in milliseconds */
-		Long openTime,
+		long openTime,
 		/** The Open value */
 		BigDecimal open,
 		/** The High value */
@@ -35,11 +35,11 @@ public record Candle(
 		/** The traded volume in the interval */
 		BigDecimal volume,
 		/** The candlestick close timestamp in milliseconds */
-		Long closeTime,
+		long closeTime,
 		/** The quote asset traded volume */
 		BigDecimal quoteAssetVolume,
 		/** The number of trades */
-		Long numberOfTrades,
+		long numberOfTrades,
 		/** Taker buy base asset volume */
 		BigDecimal takerBuyBaseAssetVolume,
 		/** Taker buy quote asset volume */

@@ -12,5 +12,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxNumOrdersFilter(
 		/** The max number of orders allowed. */
-		Integer maxNumOrders) {
+		int maxNumOrders) {
 }

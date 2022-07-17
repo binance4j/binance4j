@@ -12,11 +12,11 @@ public record DustTransferResult(
 		/** The converted asset abbreviation. */
 		String fromAsset,
 		/** The operation timestamp. */
-		Long operateTime,
+		long operateTime,
 		/** The fees. */
 		BigDecimal serviceChargeAmount,
 		/** The transaction id. */
-		Long tranId,
+		long tranId,
 		/** The transfered amount after fees. */
 		BigDecimal transferedAmount) {
 }

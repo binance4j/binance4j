@@ -8,5 +8,5 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public record Rebate(String asset, RebateType type, BigDecimal amount, Long updateTime) {
+public record Rebate(String asset, RebateType type, BigDecimal amount, long updateTime) {
 }

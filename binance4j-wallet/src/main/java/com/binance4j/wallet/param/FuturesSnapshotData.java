@@ -15,6 +15,6 @@ import lombok.Data;
 public class FuturesSnapshotData {
 	/** The assets balances. */
 	List<FuturesSnapshotDataAssets> assets;
-	/** TODO JAVADOC */
+	/** Account snapshot position */
 	List<FuturesAccountSnapshotPosition> position;
 }

@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** Trade id. */
-		Long id,
+		long id,
 		/** Price. */
 		String price,
 		/** Quantity. */
@@ -33,15 +33,15 @@ public record Trade(
 		/** Asset on which commission is taken. */
 		String commissionAsset,
 		/** Trade execution time. */
-		Long time,
+		long time,
 		/** The symbol of the trade. */
 		String symbol,
 		/** The order id. */
 		String orderId,
 		/** Is buyer trade. */
-		Boolean isBuyer,
+		boolean isBuyer,
 		/** Is maker trade. */
-		Boolean isMaker,
+		boolean isMaker,
 		/** Is best mathc? */
-		Boolean isBestMatch) {
+		boolean isBestMatch) {
 }

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderBook(
 		/** Last update id of this order book. */
-		Long lastUpdateId,
+		long lastUpdateId,
 		/** List of bids (price/qty). */
 		List<OrderBookEntry> bids,
 		/** List of asks (price/qty). */

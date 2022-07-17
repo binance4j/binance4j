@@ -20,7 +20,6 @@ class GetAssetDetailTest extends WalletTest {
 
 	@Test
 	void testGetGivenAssetDetails() throws ApiException {
-		String asset = getAsset();
 		AssetDetailParams params = new AssetDetailParams(asset);
 		Map<String, AssetDetail> details = client.getAssetDetail(params).execute();
 

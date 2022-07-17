@@ -43,21 +43,21 @@ public record SymbolInfo(
 		/** The base asset. */
 		String baseAsset,
 		/** The base asset precision. */
-		Integer baseAssetPrecision,
+		int baseAssetPrecision,
 		/** The base asset commission precision. */
-		Integer baseCommissionPrecision,
+		int baseCommissionPrecision,
 		/** The quote asset precision. */
-		Integer quoteAssetPrecision,
+		int quoteAssetPrecision,
 		/** The quote asset commission precision. */
-		Integer quoteCommissionPrecision,
+		int quoteCommissionPrecision,
 		/** Are iceberg orders allowed? */
-		Boolean icebergAllowed,
+		boolean icebergAllowed,
 		/** Are OCO orders allowed? */
-		Boolean ocoAllowed,
+		boolean ocoAllowed,
 		/** Are orders by quote quantity allowed? */
-		Boolean quoteOrderQtyMarketAllowed,
+		boolean quoteOrderQtyMarketAllowed,
 		/** Is spot trading allowed? */
-		Boolean isSpotTradingAllowed,
+		boolean isSpotTradingAllowed,
 		/** Is margin trading allowed? */
-		Boolean isMarginTradingAllowed) {
+		boolean isMarginTradingAllowed) {
 }

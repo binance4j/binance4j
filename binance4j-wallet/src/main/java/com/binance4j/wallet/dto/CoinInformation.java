@@ -13,13 +13,13 @@ public record CoinInformation(
 		/** The coin name. */
 		String name,
 		/** The deposit permission. */
-		Boolean depositAllEnable,
+		boolean depositAllEnable,
 		/** if the coin is a legal money. */
-		Boolean isLegalMoney,
+		boolean isLegalMoney,
 		/** if the coin can be traded. */
-		Boolean trading,
+		boolean trading,
 		/** The withdraw permission. */
-		Boolean withdrawAllEnable,
+		boolean withdrawAllEnable,
 		/** The free balance. */
 		BigDecimal free,
 		/** The freezed balance. */

@@ -42,11 +42,10 @@ class UserDataClientTest {
 	// TODO activate isolated account
 	// @Test
 	void testIsolatedUserDataStream() throws ApiException {
-		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(
-				new TestCallback<>().getSymbol());
+		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams("BNBBUSD");
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
-		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(
-				new TestCallback<>().getSymbol(), listenKey.getListenKey());
+		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams("BNBBUSD",
+				listenKey.getListenKey());
 
 		assertTrue(listenKey.getListenKey().length() > 0);
 

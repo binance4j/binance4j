@@ -13,5 +13,5 @@ public record ExchangeFilter(
 		/** The filter type. */
 		ExchangeFilterType filterType,
 		/** The filter limit. */
-		Integer limit) {
+		int limit) {
 }

@@ -11,5 +11,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxNumIcebergOrdersFilter(
 		/** Max iceberg orders. */
-		Integer maxNumIcebergOrders) {
+		int maxNumIcebergOrders) {
 }

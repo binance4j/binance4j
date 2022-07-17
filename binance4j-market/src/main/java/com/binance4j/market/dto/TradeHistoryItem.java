@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TradeHistoryItem(
 		/** The trade id. */
-		Long id,
+		long id,
 		/** The trad price. */
 		String price,
 		/** The trade volume. */
@@ -15,9 +15,9 @@ public record TradeHistoryItem(
 		/** The trade opposite volume. */
 		@JsonProperty("quoteQty") String quoteQuantity,
 		/** The trade execution in ms. */
-		Long time,
+		long time,
 		/** Is the trade a buyer maker trade. */
-		Boolean isBuyerMaker,
+		boolean isBuyerMaker,
 		/** Was the trade the best price match?. */
-		Boolean isBestMatch) {
+		boolean isBestMatch) {
 }

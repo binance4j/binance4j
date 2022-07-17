@@ -45,9 +45,9 @@ public record Asset(
 		/** The smallest withdraw multiple. */
 		BigDecimal withdrawIntegerMultiple,
 		/** Time elapsed between the moment a blockchain transaction is submitted and recorded into a confirmed block */
-		Long confirmTimes,
+		long confirmTimes,
 		/** Is the withdrawal of the asset enabled. */
-		Boolean enableWithdraw,
+		boolean enableWithdraw,
 		/** Is it issued by a government. */
-		Boolean isLegalMoney) {
+		boolean isLegalMoney) {
 }

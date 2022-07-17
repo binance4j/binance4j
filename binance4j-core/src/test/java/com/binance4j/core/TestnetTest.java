@@ -7,15 +7,14 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.client.MarketClient;
 import com.binance4j.core.client.TestnetMarketClient;
 
-/** TODO JAVADOC */
 public class TestnetTest {
 
-    @Test
-    void testTestnet() {
-        MarketClient client = new TestnetMarketClient();
+	@Test
+	void testTestnet() {
+		MarketClient client = new TestnetMarketClient();
 
-        assertDoesNotThrow(() -> {
-            client.ping();
-        });
-    }
+		assertDoesNotThrow(() -> {
+			client.ping();
+		});
+	}
 }

@@ -1,9 +1,8 @@
 package com.binance4j.nft;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ import com.binance4j.nft.param.NFTTransactionHistoryParams;
 public class GetTransactionsTest extends NFTTest {
 	@Test
 	void testSellOrder() throws ApiException {
-		Arrays.asList(NFTOrderType.values()).forEach(v -> {
+		List.of(NFTOrderType.values()).forEach(v -> {
 			NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(v);
 			NFTTransactionHistory history;
 			try {

@@ -3,14 +3,11 @@ package com.binance4j.core.event;
 import java.time.Duration;
 
 /**
- * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} at
- * the given interval
+ * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} at the given interval
  */
 public class IntervalEvent extends BaseScheduledEvent {
 
 	/**
-	 * 
-	 * 
 	 * @param interval      The event's interval
 	 * @param delay         The event's delay
 	 * @param maxTicks      The max times the task can be called
@@ -23,8 +20,6 @@ public class IntervalEvent extends BaseScheduledEvent {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param interval      The event's interval (used as delay)
 	 * @param scheduledTask The event's task
 	 */
@@ -34,8 +29,6 @@ public class IntervalEvent extends BaseScheduledEvent {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param interval      The event's interval
 	 * @param delay         The event's delay
 	 * @param scheduledTask The event's task
@@ -45,8 +38,6 @@ public class IntervalEvent extends BaseScheduledEvent {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param interval      The event's interval (used as delay)
 	 * @param maxTicks      The max times the task can be called
 	 * @param scheduledTask The event's task

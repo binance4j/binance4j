@@ -2,8 +2,7 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
-import com.binance4j.core.exception.ApiErrorCode;
-import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.exception.NotFoundException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -20,7 +19,7 @@ public record ExchangeInfo(
 		/** The server timezone */
 		String timezone,
 		/** The server time */
-		Long serverTime,
+		long serverTime,
 		/** The request limits (weight, orders, raw...) */
 		List<RateLimit> rateLimits,
 		/** The trading rules of the exchange */
@@ -28,9 +27,12 @@ public record ExchangeInfo(
 		/** The available symbols on the exchange */
 		List<SymbolInfo> symbols) {
 
-	/** The symbol exchange information */
-	public SymbolInfo ymbolInfo(String symbol) throws ApiException {
-		return symbols.stream().filter(symbolInfo -> symbolInfo.symbol().equals(symbol)).findFirst()
-				.orElseThrow(() -> new ApiException(ApiErrorCode.UNKNOWN, String.format("Unable to obtain information for symbol %s", symbol)));
+	/**
+	 * @param symbol The symbol we want the infos
+	 * @return The symbol exchange information
+	 * @throws NotFoundException Thrown if the symbol was not found
+	 */
+	public SymbolInfo getSymbolInfo(String symbol) throws NotFoundException {
+		return symbols.stream().filter(symbolInfo -> symbolInfo.symbol().equals(symbol)).findFirst().orElseThrow(() -> new NotFoundException());
 	}
 }

@@ -4,10 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 
-/** TODO JAVADOC */
 public class GetBNBBurnStatusTest extends MarginTest {
-    @Test
-    void test1() throws ApiException {
-        test(client.getBNBBurnStatus());
-    }
+	@Test
+	void test1() throws ApiException {
+		test(client.getBNBBurnStatus());
+	}
 }

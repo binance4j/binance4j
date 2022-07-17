@@ -11,7 +11,6 @@ import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.param.AggTradeParams;
 
-/** TODO JAVADOC */
 public class GetAggTradesTests extends MarketTest {
 
 	@Test

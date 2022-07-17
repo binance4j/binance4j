@@ -5,17 +5,16 @@ import java.util.List;
 
 import com.binance4j.core.dto.AggTrade;
 
-/** TODO JAVADOC */
 public class SubSubObject {
-    private List<AggTrade> trades = new ArrayList<>();
+	private List<AggTrade> trades = new ArrayList<>();
 
-    /** @return the trades */
-    public List<AggTrade> getTrades() {
-        return trades;
-    }
+	/** @return the trades */
+	public List<AggTrade> getTrades() {
+		return trades;
+	}
 
-    /** @param trades the trades to set */
-    public void setTrades(List<AggTrade> trades) {
-        this.trades = trades;
-    }
+	/** @param trades the trades to set */
+	public void setTrades(List<AggTrade> trades) {
+		this.trades = trades;
+	}
 }

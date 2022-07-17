@@ -14,8 +14,6 @@ public class ApiException extends Exception {
 	private final ApiErrorCode errorCode;
 
 	/**
-	 * 
-	 * 
 	 * @param code    The API response code
 	 * @param message The API response message
 	 */
@@ -26,8 +24,6 @@ public class ApiException extends Exception {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param code    The API response code
 	 * @param message The API response message
 	 */
@@ -38,8 +34,6 @@ public class ApiException extends Exception {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @param error The API response error
 	 */
 	public ApiException(ApiError error) {
