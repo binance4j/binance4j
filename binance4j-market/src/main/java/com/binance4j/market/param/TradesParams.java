@@ -2,12 +2,7 @@ package com.binance4j.market.param;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get recent trades */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class TradesParams extends Params {
 	/** The symbol we want the trades. */
 	private String symbol;
@@ -25,8 +20,6 @@ public class TradesParams extends Params {
 	}
 
 	/**
-	 *
-	 * 
 	 * @param symbol The symbol we want the trades
 	 * @param limit  The trades size. Default 500; max 1000.
 	 */
@@ -34,4 +27,33 @@ public class TradesParams extends Params {
 		this(symbol);
 		this.limit = limit;
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

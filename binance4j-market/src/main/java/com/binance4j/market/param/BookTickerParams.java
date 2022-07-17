@@ -2,14 +2,9 @@ package com.binance4j.market.param;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * The parameters to get the the best price/qty on the order book for a symbol or symbols.
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class BookTickerParams extends Params {
 	/** Ticker symbol. */
 	private String symbol;
@@ -26,6 +21,20 @@ public class BookTickerParams extends Params {
 	 */
 	public BookTickerParams(String symbol) {
 		super(1);
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 }

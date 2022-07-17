@@ -7,14 +7,9 @@ import java.util.stream.Collectors;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * The parameters to get the 24 hour rolling window price change statistics of specific symbols.
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class TickersStatisticsParams extends Params {
 	/** The trading pair we want the ticker stats. */
 	private String symbols;
@@ -47,5 +42,19 @@ public class TickersStatisticsParams extends Params {
 	 */
 	public TickersStatisticsParams(String symbols) {
 		this(Arrays.asList(symbols.split(",")));
+	}
+
+	/**
+	 * @return the symbols
+	 */
+	public String getSymbols() {
+		return symbols;
+	}
+
+	/**
+	 * @param symbols the symbols to set
+	 */
+	public void setSymbols(String symbols) {
+		this.symbols = symbols;
 	}
 }

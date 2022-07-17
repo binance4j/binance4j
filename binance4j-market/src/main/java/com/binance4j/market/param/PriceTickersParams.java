@@ -7,12 +7,7 @@ import java.util.stream.Collectors;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get the latest price for a symbol or symbols. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class PriceTickersParams extends Params {
 	/** Ticker symbol. */
 	private String symbols;
@@ -35,5 +30,19 @@ public class PriceTickersParams extends Params {
 	 */
 	public PriceTickersParams(String symbols) {
 		this(Arrays.asList(symbols.split(",")));
+	}
+
+	/**
+	 * @return the symbols
+	 */
+	public String getSymbols() {
+		return symbols;
+	}
+
+	/**
+	 * @param symbols the symbols to set
+	 */
+	public void setSymbols(String symbols) {
+		this.symbols = symbols;
 	}
 }

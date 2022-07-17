@@ -4,8 +4,6 @@ package com.binance4j.market.client;
 public class TestnetMarketClient extends MarketClient {
 
 	/**
-	 *
-	 * 
 	 * @param key    The Testnet public key
 	 * @param secret The Testnet secret key
 	 */

@@ -5,26 +5,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Represents the best price/qty on the order book for a given symbol.
+ * 
+ * @param symbol      Ticker symbol.
+ * @param bidPrice    Bid price.
+ * @param bidQuantity Bid quantity.
+ * @param askPrice    Ask price.
+ * @param askQuantity Ask quantity.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record BookTicker(
-		/**
-		 * Ticker symbol.
-		 */
+		/** Ticker symbol. */
 		String symbol,
-		/**
-		 * Bid price.
-		 */
+		/** Bid price. */
 		String bidPrice,
-		/**
-		 * Bid quantity.
-		 */
+		/** Bid quantity. */
 		@JsonProperty("bidQty") String bidQuantity,
-		/**
-		 * Ask price.
-		 */
-		String askPrice, /**
-							 * Ask quantity.
-							 */
+		/** Ask price. */
+		String askPrice,
+		/** Ask quantity. */
 		@JsonProperty("askQty") String askQuantity) {
 }

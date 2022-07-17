@@ -7,14 +7,9 @@ import java.util.stream.Collectors;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * The parameters to get the the best price/qty on the order book for the given symbols.
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class BookTickersParams extends Params {
 	/** Ticker symbol. */
 	private String symbols;
@@ -38,4 +33,19 @@ public class BookTickersParams extends Params {
 	public BookTickersParams(String symbols) {
 		this(Arrays.asList(symbols.split(",")));
 	}
+
+	/**
+	 * @return the symbols
+	 */
+	public String getSymbols() {
+		return symbols;
+	}
+
+	/**
+	 * @param symbols the symbols to set
+	 */
+	public void setSymbols(String symbols) {
+		this.symbols = symbols;
+	}
+
 }

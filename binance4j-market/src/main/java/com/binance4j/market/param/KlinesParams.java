@@ -3,12 +3,7 @@ package com.binance4j.market.param;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.param.IntervalParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get candlestick data about a trading pair */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class KlinesParams extends IntervalParams {
 	/** The trading pair we want the data. */
 	private String symbol;
@@ -93,4 +88,45 @@ public class KlinesParams extends IntervalParams {
 		this.endTime = endTime;
 	}
 
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the interval
+	 */
+	public String getInterval() {
+		return interval;
+	}
+
+	/**
+	 * @param interval the interval to set
+	 */
+	public void setInterval(String interval) {
+		this.interval = interval;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
 }

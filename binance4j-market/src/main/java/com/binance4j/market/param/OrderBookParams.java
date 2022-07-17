@@ -3,12 +3,7 @@ package com.binance4j.market.param;
 import com.binance4j.core.param.Params;
 import com.binance4j.market.dto.OrderBookLimit;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get the market depth of a symbol */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class OrderBookParams extends Params {
 	/** The trading pair we want the depth. */
 	private String symbol;
@@ -85,5 +80,33 @@ public class OrderBookParams extends Params {
 		default:
 			return 1;
 		}
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
 	}
 }

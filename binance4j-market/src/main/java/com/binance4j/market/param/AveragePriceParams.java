@@ -2,12 +2,7 @@ package com.binance4j.market.param;
 
 import com.binance4j.core.param.Params;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get the average price of a trading pair */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class AveragePriceParams extends Params {
 	/** The trading pair we want the price. */
 	private String symbol;
@@ -21,4 +16,19 @@ public class AveragePriceParams extends Params {
 		super(1);
 		this.symbol = symbol;
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
 }
