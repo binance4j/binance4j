@@ -8,17 +8,17 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.nft.dto.NFTOrderType;
-import com.binance4j.nft.dto.NFTTransactionHistory;
-import com.binance4j.nft.param.NFTTransactionHistoryParams;
+import com.binance4j.nft.dto.OrderType;
+import com.binance4j.nft.dto.TransactionHistory;
+import com.binance4j.nft.param.TransactionHistoryParams;
 
 /** Tests the transaction history request */
 public class GetTransactionsTest extends NFTTest {
 	@Test
 	void testSellOrder() throws ApiException {
-		List.of(NFTOrderType.values()).forEach(v -> {
-			NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(v);
-			NFTTransactionHistory history;
+		List.of(OrderType.values()).forEach(v -> {
+			TransactionHistoryParams params = new TransactionHistoryParams(v);
+			TransactionHistory history;
 			try {
 				history = client.getTransactions(params).execute();
 				test(history);
@@ -30,8 +30,8 @@ public class GetTransactionsTest extends NFTTest {
 
 	@Test
 	void testLimitAndPage() throws ApiException {
-		NFTTransactionHistoryParams params = new NFTTransactionHistoryParams(NFTOrderType.SELL_ORDER, limit, page);
-		NFTTransactionHistory history = client.getTransactions(params).execute();
+		TransactionHistoryParams params = new TransactionHistoryParams(OrderType.SELL_ORDER, limit, page);
+		TransactionHistory history = client.getTransactions(params).execute();
 		test(history);
 		assertTrue(history.total() <= limit);
 	}

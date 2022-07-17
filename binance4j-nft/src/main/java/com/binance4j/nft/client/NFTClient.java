@@ -2,14 +2,14 @@ package com.binance4j.nft.client;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.nft.dto.NFTAssetHistory;
-import com.binance4j.nft.dto.NFTDepositHistory;
-import com.binance4j.nft.dto.NFTTransactionHistory;
-import com.binance4j.nft.dto.NFTWithdrawHistory;
-import com.binance4j.nft.param.NFTAssetParams;
-import com.binance4j.nft.param.NFTDepositHistoryParams;
-import com.binance4j.nft.param.NFTTransactionHistoryParams;
-import com.binance4j.nft.param.NFTWithdrawParams;
+import com.binance4j.nft.dto.AssetHistory;
+import com.binance4j.nft.dto.DepositHistory;
+import com.binance4j.nft.dto.TransactionHistory;
+import com.binance4j.nft.dto.WithdrawHistory;
+import com.binance4j.nft.param.AssetParams;
+import com.binance4j.nft.param.DepositHistoryParams;
+import com.binance4j.nft.param.TransactionHistoryParams;
+import com.binance4j.nft.param.WithdrawParams;
 
 /**
  * Api client for the NFT endpoints
@@ -33,7 +33,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<NFTTransactionHistory> getTransactions(NFTTransactionHistoryParams params) {
+	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params) {
 		return new Request<>(service.getTransactions(params.toMap()));
 	}
 
@@ -43,8 +43,17 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<NFTDepositHistory> getDeposits(NFTDepositHistoryParams params) {
+	public Request<DepositHistory> getDeposits(DepositHistoryParams params) {
 		return new Request<>(service.getDeposits(params.toMap()));
+	}
+
+	/**
+	 * Get NFT deposit History.
+	 * 
+	 * @return The request to execute.
+	 */
+	public Request<DepositHistory> getDeposits() {
+		return getDeposits(new DepositHistoryParams());
 	}
 
 	/**
@@ -53,8 +62,17 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<NFTWithdrawHistory> getWithdraws(NFTWithdrawParams params) {
+	public Request<WithdrawHistory> getWithdraws(WithdrawParams params) {
 		return new Request<>(service.getWithdraws(params.toMap()));
+	}
+
+	/**
+	 * Get NFT withdraw History.
+	 * 
+	 * @return The request to execute.
+	 */
+	public Request<WithdrawHistory> getWithdraws() {
+		return getWithdraws(new WithdrawParams());
 	}
 
 	/**
@@ -63,7 +81,16 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<NFTAssetHistory> getAssets(NFTAssetParams params) {
+	public Request<AssetHistory> getAssets(AssetParams params) {
 		return new Request<>(service.getAssets(params.toMap()));
+	}
+
+	/**
+	 * Get NFT assets.
+	 * 
+	 * @return The request to execute.
+	 */
+	public Request<AssetHistory> getAssets() {
+		return getAssets(new AssetParams());
 	}
 }

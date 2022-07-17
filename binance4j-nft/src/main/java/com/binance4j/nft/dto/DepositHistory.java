@@ -5,15 +5,15 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * A NFT withdraw history
+ * A NFT deposit history
  * 
  * @param total Total records.
  * @param list  The transactions.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record NFTWithdrawHistory(
+public record DepositHistory(
 		/** Total records. */
 		long total,
 		/** The transactions. */
-		List<NFTWithdraw> list) {
+		List<Deposit> list) {
 }

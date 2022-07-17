@@ -3,10 +3,10 @@ package com.binance4j.nft.client;
 import java.util.Map;
 
 import com.binance4j.core.security.AuthenticationInterceptor;
-import com.binance4j.nft.dto.NFTAssetHistory;
-import com.binance4j.nft.dto.NFTDepositHistory;
-import com.binance4j.nft.dto.NFTTransactionHistory;
-import com.binance4j.nft.dto.NFTWithdrawHistory;
+import com.binance4j.nft.dto.AssetHistory;
+import com.binance4j.nft.dto.DepositHistory;
+import com.binance4j.nft.dto.TransactionHistory;
+import com.binance4j.nft.dto.WithdrawHistory;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -28,7 +28,7 @@ public interface NFTMapping {
 	 */
 	@GET(BASE + "history/transactions")
 	@Headers({ API_H, SIGNED_H })
-	Call<NFTTransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
+	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map
@@ -36,7 +36,7 @@ public interface NFTMapping {
 	 */
 	@GET(BASE + "history/deposit")
 	@Headers({ API_H, SIGNED_H })
-	Call<NFTDepositHistory> getDeposits(@QueryMap Map<String, Object> map);
+	Call<DepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map
@@ -44,7 +44,7 @@ public interface NFTMapping {
 	 */
 	@GET(BASE + "history/withdraw")
 	@Headers({ API_H, SIGNED_H })
-	Call<NFTWithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
+	Call<WithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map
@@ -52,5 +52,5 @@ public interface NFTMapping {
 	 */
 	@GET(BASE + "user/getAsset")
 	@Headers({ API_H, SIGNED_H })
-	Call<NFTAssetHistory> getAssets(@QueryMap Map<String, Object> map);
+	Call<AssetHistory> getAssets(@QueryMap Map<String, Object> map);
 }

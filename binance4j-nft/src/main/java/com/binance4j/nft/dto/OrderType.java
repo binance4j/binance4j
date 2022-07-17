@@ -1,7 +1,7 @@
 package com.binance4j.nft.dto;
 
 /** The NFT order type */
-public enum NFTOrderType {
+public enum OrderType {
 	/** Purchase order */
 	PURCHASE_ORDER(0),
 	/** Sell order */
@@ -16,7 +16,7 @@ public enum NFTOrderType {
 	/**
 	 * @param value The value
 	 */
-	private NFTOrderType(int value) {
+	private OrderType(int value) {
 		this.value = value;
 	}
 

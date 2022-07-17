@@ -9,7 +9,7 @@ import com.binance4j.core.param.FramedParams;
  * <p>
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
-public class NFTAssetParams extends FramedParams {
+public class AssetParams extends FramedParams {
 	/** The result size. Default 50, Max 50. */
 	private Integer limit = 50;
 	/** The result page. Default 1. */
@@ -18,7 +18,7 @@ public class NFTAssetParams extends FramedParams {
 	/**
 	 
 	 */
-	public NFTAssetParams() {
+	public AssetParams() {
 		super(3000);
 	}
 
@@ -26,7 +26,7 @@ public class NFTAssetParams extends FramedParams {
 	 * @param limit The result size. Default 50, Max 50.
 	 * @param page  The result page. Default 1.
 	 */
-	public NFTAssetParams(int limit, int page) {
+	public AssetParams(int limit, int page) {
 		this();
 		this.limit = limit;
 		this.page = page;

@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param tradeCurrency The currency used to buy the NFT.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record NFTTransaction(
+public record Transaction(
 		/**
 		 * The Order number.
 		 * <ul>

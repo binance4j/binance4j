@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param tokenId         NFT Token ID.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record NFTAsset(
+public record Asset(
 		/** NFT Network. */
 		String network,
 		/** NFT Contract Address. */

@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp       Deposit time in ms.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record NFTDeposit(
+public record Deposit(
 		/** NFT Network. */
 		String network,
 		/** NFT Contract Address. */

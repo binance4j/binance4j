@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param fee             The withdraw fee.
  * @param feeAsset        The fee asset.
  */
-public record NFTWithdraw(
+public record Withdraw(
 		/** NFT Network. */
 		String network,
 		/** NFT Contract Address. */
