@@ -8,18 +8,14 @@ import lombok.Getter;
 
 /** A scheduled event calling a {@link ScheduledTask}. */
 public abstract class BaseScheduledEvent implements ScheduledEvent {
-	@Getter
+	/** TODO JAVADOC */
 	protected final long initTime;
-
-	@Getter
+	/** TODO JAVADOC */
 	protected long lastCall;
-
-	@Getter
+	/** TODO JAVADOC */
 	protected boolean isRunning;
-
 	/** The event's inner {@link Timer}. */
 	protected final Timer timer;
-
 	/** The task to execute. */
 	protected Task task;
 
@@ -59,8 +55,6 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		private int maxTicks;
 
 		/**
-		 * 
-		 * 
 		 * @param task           The task to execute
 		 * @param scheduledEvent The event wrapper
 		 */
@@ -70,8 +64,6 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		}
 
 		/**
-		 * 
-		 * 
 		 * @param task           The task to execute
 		 * @param scheduledEvent The event wrapper
 		 * @param maxTicks       The max times the task can be called
@@ -92,5 +84,26 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 				innerTask.call();
 			}
 		}
+	}
+
+	/**
+	 * @return the initTime
+	 */
+	public long getInitTime() {
+		return initTime;
+	}
+
+	/**
+	 * @return the lastCall
+	 */
+	public long getLastCall() {
+		return lastCall;
+	}
+
+	/**
+	 * @return the isRunning
+	 */
+	public boolean isRunning() {
+		return isRunning;
 	}
 }

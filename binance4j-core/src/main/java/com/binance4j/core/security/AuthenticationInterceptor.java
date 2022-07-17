@@ -34,8 +34,6 @@ public class AuthenticationInterceptor implements Interceptor {
 	private final String secret;
 
 	/**
-	 * 
-	 * 
 	 * @param key    The API public key
 	 * @param secret The API private key
 	 */

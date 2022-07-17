@@ -2,10 +2,7 @@ package com.binance4j.core.client;
 
 import com.binance4j.core.dto.TimeInForce;
 
-import lombok.Data;
-
 /** The configuration of every {@link RestClient} */
-@Data
 public class RestClientConfiguration {
 	/** URL base domain. */
 	private static String defaultBaseDomain = "api.binance.com";
@@ -97,7 +94,7 @@ public class RestClientConfiguration {
 		return baseDomain;
 	}
 
-	/** @param BaseDomain the BaseDomain to set */
+	/** @param baseDomain the BaseDomain to set */
 	public void setBaseDomain(String baseDomain) {
 		this.baseDomain = baseDomain;
 	}
@@ -107,9 +104,23 @@ public class RestClientConfiguration {
 		return testnetDomain;
 	}
 
-	/** @param TestnetDomain the TestnetDomain to set */
+	/** @param testnetDomain the TestnetDomain to set */
 	public void setTestnetDomain(String testnetDomain) {
 		this.testnetDomain = testnetDomain;
+	}
+
+	/**
+	 * @return the timeInForce
+	 */
+	public TimeInForce getTimeInForce() {
+		return timeInForce;
+	}
+
+	/**
+	 * @param timeInForce the timeInForce to set
+	 */
+	public void setTimeInForce(TimeInForce timeInForce) {
+		this.timeInForce = timeInForce;
 	}
 
 	/** @return the MaxRequestsPerHost */
@@ -117,7 +128,7 @@ public class RestClientConfiguration {
 		return maxRequestsPerHost;
 	}
 
-	/** @param MaxRequestsPerHost the MaxRequestsPerHost to set */
+	/** @param maxRequestsPerHost the MaxRequestsPerHost to set */
 	public void setMaxRequestsPerHost(int maxRequestsPerHost) {
 		this.maxRequestsPerHost = maxRequestsPerHost;
 	}
@@ -127,7 +138,7 @@ public class RestClientConfiguration {
 		return maxRequests;
 	}
 
-	/** @param MaxRequests the MaxRequests to set */
+	/** @param maxRequests the MaxRequests to set */
 	public void setMaxRequests(int maxRequests) {
 		this.maxRequests = maxRequests;
 	}
@@ -137,7 +148,7 @@ public class RestClientConfiguration {
 		return useTestnet;
 	}
 
-	/** @param UseTestnet the UseTestnet to set */
+	/** @param useTestnet the UseTestnet to set */
 	public void useTestnet(boolean useTestnet) {
 		this.useTestnet = useTestnet;
 	}
