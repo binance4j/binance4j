@@ -4,9 +4,22 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
+/**
+ * A rebate
+ * 
+ * @param asset      The rebate asset
+ * @param type       The rebate type
+ * @param amount     The rebate amount
+ * @param updateTime The rebate update time
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Data
-public record Rebate(String asset, RebateType type, BigDecimal amount, long updateTime) {
+public record Rebate(
+		/** The rebate asset */
+		String asset,
+		/** The rebate type */
+		RebateType type,
+		/** The rebate amount */
+		BigDecimal amount,
+		/** The rebate update time */
+		long updateTime) {
 }

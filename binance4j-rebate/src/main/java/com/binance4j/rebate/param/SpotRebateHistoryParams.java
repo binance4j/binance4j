@@ -1,21 +1,42 @@
 package com.binance4j.rebate.param;
 
 import com.binance4j.core.param.IntervalParams;
+import com.binance4j.rebate.client.RebateClient;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-@Data
-@EqualsAndHashCode(callSuper = true)
+/**
+ * The {@link RebateClient#getSpotRebateHistoryRecords} params.
+ */
 public class SpotRebateHistoryParams extends IntervalParams {
-    private Integer page = 1;
+	/** The desired page. */
+	private Integer page = 1;
 
-    public SpotRebateHistoryParams() {
-        super(3000);
-    }
+	/** Constructor. */
+	public SpotRebateHistoryParams() {
+		super(3000);
+	}
 
-    public SpotRebateHistoryParams(Integer page) {
-        this();
-        this.page = page;
-    }
+	/**
+	 * Constructor.
+	 * 
+	 * @param page The desired page.
+	 */
+	public SpotRebateHistoryParams(Integer page) {
+		this();
+		this.page = page;
+	}
+
+	/**
+	 * @return the page
+	 */
+	public Integer getPage() {
+		return page;
+	}
+
+	/**
+	 * @param page the page to set
+	 */
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
 }

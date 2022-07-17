@@ -4,10 +4,15 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
+/**
+ * Rebate data
+ * 
+ * @param page         The current page.
+ * @param totalRecords The total records.
+ * @param totalPageNum The total pages.
+ * @param data         The rebates.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Data
 public record RebateData(
 		/** The current page. */
 		int page,

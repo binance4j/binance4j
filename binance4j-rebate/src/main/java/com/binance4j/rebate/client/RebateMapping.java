@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
+/** The {@link RebateClient} mapping. */
 public interface RebateMapping {
 	/** The API base url. */
 	String BASE = "/sapi/v1/rebate/";
@@ -19,10 +20,8 @@ public interface RebateMapping {
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map
+	 * @return The server response
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "taxQuery")
