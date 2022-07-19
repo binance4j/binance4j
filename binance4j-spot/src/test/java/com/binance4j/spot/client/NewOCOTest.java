@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import com.binance4j.core.dto.OCOResponse;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.param.OCOOrderParams;
+import com.binance4j.spot.param.NewOCOOrderParams;
 
 public class NewOCOTest extends SpotTest {
 
@@ -17,7 +17,7 @@ public class NewOCOTest extends SpotTest {
 
 	public void testNewOCO() {
 		try {
-			OCOOrderParams params = new OCOOrderParams("BTCBUSD", OrderSide.BUY, new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
+			NewOCOOrderParams params = new NewOCOOrderParams("BTCBUSD", OrderSide.BUY, new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse res = client.newOCO(params).execute();
 			test(res);
 			assertTrue(getNullProperties(res).contains("OCOResponse.isIsolated"));

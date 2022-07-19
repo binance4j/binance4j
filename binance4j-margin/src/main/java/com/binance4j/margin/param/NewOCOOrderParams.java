@@ -2,14 +2,27 @@ package com.binance4j.margin.param;
 
 import java.math.BigDecimal;
 
+import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
-import com.binance4j.core.param.OrderParams;
+import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link MarginClient#newOCO} params. */
-public class NewOCOOrderParams extends OrderParams {
+public class NewOCOOrderParams extends FramedParams {
+	/** The order symbol */
+	private String symbol;
+	/** The order side */
+	private OrderSide side;
+	/** The order quantity */
+	private BigDecimal quantity;
+	/** The order price */
+	private BigDecimal price;
+	/** The stop price */
+	private BigDecimal stopPrice;
+	/** The order response type Default: RESULT. */
+	private NewOrderResponseType newOrderRespType;
 	/** A unique Id for the entire orderList */
 	private String listClientOrderId;
 	/** A unique Id for the limit order */
@@ -39,7 +52,10 @@ public class NewOCOOrderParams extends OrderParams {
 	 * @param stopPrice The stop price.
 	 */
 	public NewOCOOrderParams(String symbol, OrderSide side, BigDecimal quantity, BigDecimal price, BigDecimal stopPrice) {
-		super(1, symbol, side, quantity);
+		super(1);
+		this.symbol = symbol;
+		this.side = side;
+		this.quantity = quantity;
 		this.price = price;
 		this.stopPrice = stopPrice;
 	}
@@ -154,6 +170,90 @@ public class NewOCOOrderParams extends OrderParams {
 	 */
 	public void isIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the side
+	 */
+	public OrderSide getSide() {
+		return side;
+	}
+
+	/**
+	 * @param side the side to set
+	 */
+	public void setSide(OrderSide side) {
+		this.side = side;
+	}
+
+	/**
+	 * @return the quantity
+	 */
+	public BigDecimal getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(BigDecimal quantity) {
+		this.quantity = quantity;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	/**
+	 * @return the stopPrice
+	 */
+	public BigDecimal getStopPrice() {
+		return stopPrice;
+	}
+
+	/**
+	 * @param stopPrice the stopPrice to set
+	 */
+	public void setStopPrice(BigDecimal stopPrice) {
+		this.stopPrice = stopPrice;
+	}
+
+	/**
+	 * @return the newOrderRespType
+	 */
+	public NewOrderResponseType getNewOrderRespType() {
+		return newOrderRespType;
+	}
+
+	/**
+	 * @param newOrderRespType the newOrderRespType to set
+	 */
+	public void setNewOrderRespType(NewOrderResponseType newOrderRespType) {
+		this.newOrderRespType = newOrderRespType;
 	}
 
 }

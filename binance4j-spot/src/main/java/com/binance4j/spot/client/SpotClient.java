@@ -8,9 +8,6 @@ import com.binance4j.core.dto.CancelOrderResponse;
 import com.binance4j.core.dto.OCOResponse;
 import com.binance4j.core.dto.OrderInfo;
 import com.binance4j.core.dto.Trade;
-import com.binance4j.core.param.CancelOpenOrdersParams;
-import com.binance4j.core.param.CancelOrderParams;
-import com.binance4j.core.param.OCOOrderParams;
 import com.binance4j.spot.dto.Account;
 import com.binance4j.spot.dto.NewOrderResponse;
 import com.binance4j.spot.dto.OCOInfo;
@@ -19,7 +16,10 @@ import com.binance4j.spot.param.AccountParams;
 import com.binance4j.spot.param.AllOCOInfoParams;
 import com.binance4j.spot.param.AllOrdersParams;
 import com.binance4j.spot.param.CancelOCOParams;
+import com.binance4j.spot.param.CancelOpenOrdersParams;
+import com.binance4j.spot.param.CancelOrderParams;
 import com.binance4j.spot.param.MyTradesParams;
+import com.binance4j.spot.param.NewOCOOrderParams;
 import com.binance4j.spot.param.NewOrderParams;
 import com.binance4j.spot.param.OCOInfoParams;
 import com.binance4j.spot.param.OpenOCOParams;
@@ -139,7 +139,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<OCOResponse> newOCO(OCOOrderParams params) {
+	public Request<OCOResponse> newOCO(NewOCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()));
 	}
 

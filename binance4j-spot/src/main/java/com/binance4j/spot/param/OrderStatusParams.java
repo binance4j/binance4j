@@ -76,5 +76,4 @@ public class OrderStatusParams extends FramedParams {
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
-
 }
