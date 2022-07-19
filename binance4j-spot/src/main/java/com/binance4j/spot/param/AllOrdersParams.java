@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.IntervalParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to display past orders */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class AllOrdersParams extends IntervalParams {
 	/** The trading pair we want the orders. */
 	private String symbol;
@@ -64,4 +59,47 @@ public class AllOrdersParams extends IntervalParams {
 		this.setStartTime(startTime);
 		this.setEndTime(endTime);
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the orderId
+	 */
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

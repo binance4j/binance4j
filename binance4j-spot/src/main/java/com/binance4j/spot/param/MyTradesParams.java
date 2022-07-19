@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.IntervalParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get trades for a specific account and symbol. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class MyTradesParams extends IntervalParams {
 	/** The symbol of the trade. */
 	private String symbol;
@@ -36,4 +31,61 @@ public class MyTradesParams extends IntervalParams {
 		this(symbol);
 		this.limit = limit;
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the orderId
+	 */
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	/**
+	 * @return the fromId
+	 */
+	public Long getFromId() {
+		return fromId;
+	}
+
+	/**
+	 * @param fromId the fromId to set
+	 */
+	public void setFromId(Long fromId) {
+		this.fromId = fromId;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

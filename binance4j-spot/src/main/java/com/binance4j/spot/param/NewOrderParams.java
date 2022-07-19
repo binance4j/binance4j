@@ -8,12 +8,7 @@ import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.BaseOrderParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** An order to open or close a position */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class NewOrderParams extends BaseOrderParams {
 	/** Stop Limit price. */
 	BigDecimal stopLimitPrice;
@@ -220,4 +215,17 @@ public class NewOrderParams extends BaseOrderParams {
 		return sellQuote(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
+	/**
+	 * @return the stopLimitPrice
+	 */
+	public BigDecimal getStopLimitPrice() {
+		return stopLimitPrice;
+	}
+
+	/**
+	 * @param stopLimitPrice the stopLimitPrice to set
+	 */
+	public void setStopLimitPrice(BigDecimal stopLimitPrice) {
+		this.stopLimitPrice = stopLimitPrice;
+	}
 }

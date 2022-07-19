@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** Request to retrieve a specific OCO based on provided optional parameters */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class OCOInfoParams extends FramedParams {
 
 	/** Either orderListId or origClientOrderId must be provided. */
@@ -31,4 +26,33 @@ public class OCOInfoParams extends FramedParams {
 		super(2);
 		this.origClientOrderId = origClientOrderId;
 	}
+
+	/**
+	 * @return the orderListId
+	 */
+	public Long getOrderListId() {
+		return orderListId;
+	}
+
+	/**
+	 * @param orderListId the orderListId to set
+	 */
+	public void setOrderListId(Long orderListId) {
+		this.orderListId = orderListId;
+	}
+
+	/**
+	 * @return the origClientOrderId
+	 */
+	public String getOrigClientOrderId() {
+		return origClientOrderId;
+	}
+
+	/**
+	 * @param origClientOrderId the origClientOrderId to set
+	 */
+	public void setOrigClientOrderId(String origClientOrderId) {
+		this.origClientOrderId = origClientOrderId;
+	}
+
 }

@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.IntervalParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** Request to retrieve all OCO based on provided optional parameters */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class AllOCOInfoParams extends IntervalParams {
 	/** The id to search from. */
 	private Long fromId;
@@ -44,4 +39,33 @@ public class AllOCOInfoParams extends IntervalParams {
 		this.fromId = fromId;
 		this.limit = limit;
 	}
+
+	/**
+	 * @return the fromId
+	 */
+	public Long getFromId() {
+		return fromId;
+	}
+
+	/**
+	 * @param fromId the fromId to set
+	 */
+	public void setFromId(Long fromId) {
+		this.fromId = fromId;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

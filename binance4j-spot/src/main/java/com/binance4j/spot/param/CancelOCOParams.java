@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to cancel an OCO request */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class CancelOCOParams extends FramedParams {
 	/** The symbol to cancel the order. */
 	private String symbol;
@@ -41,4 +36,61 @@ public class CancelOCOParams extends FramedParams {
 		this(symbol);
 		this.listClientOrderId = listClientOrderId;
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the orderListId
+	 */
+	public Long getOrderListId() {
+		return orderListId;
+	}
+
+	/**
+	 * @param orderListId the orderListId to set
+	 */
+	public void setOrderListId(Long orderListId) {
+		this.orderListId = orderListId;
+	}
+
+	/**
+	 * @return the listClientOrderId
+	 */
+	public String getListClientOrderId() {
+		return listClientOrderId;
+	}
+
+	/**
+	 * @param listClientOrderId the listClientOrderId to set
+	 */
+	public void setListClientOrderId(String listClientOrderId) {
+		this.listClientOrderId = listClientOrderId;
+	}
+
+	/**
+	 * @return the newClientOrderId
+	 */
+	public String getNewClientOrderId() {
+		return newClientOrderId;
+	}
+
+	/**
+	 * @param newClientOrderId the newClientOrderId to set
+	 */
+	public void setNewClientOrderId(String newClientOrderId) {
+		this.newClientOrderId = newClientOrderId;
+	}
+
 }
