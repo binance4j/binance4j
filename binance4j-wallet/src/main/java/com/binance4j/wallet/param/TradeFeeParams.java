@@ -12,10 +12,14 @@ public class TradeFeeParams extends FramedParams {
 	/** The trading pair we want the fees. */
 	private String symbol;
 
+	/** Constructor */
 	public TradeFeeParams() {
 		super(1);
 	}
 
+	/**
+	 * @param symbol The symbol.
+	 */
 	public TradeFeeParams(String symbol) {
 		this();
 		this.symbol = symbol;

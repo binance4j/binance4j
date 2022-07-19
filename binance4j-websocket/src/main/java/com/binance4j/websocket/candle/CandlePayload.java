@@ -48,6 +48,6 @@ public record CandlePayload(
 		Long firstTradeId,
 		/** The last trade id. */
 		Long lastTradeId,
-		/** is it the last bar of the interval?. */
+		/** is it the last bar of the interval? */
 		Boolean isBarFinal) {
 }

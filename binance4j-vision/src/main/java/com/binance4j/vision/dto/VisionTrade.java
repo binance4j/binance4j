@@ -28,6 +28,9 @@ public record VisionTrade(
 		/** Was it a buyer maker. */
 		boolean isBuyerMaker, /** Was it the best price match? */
 		boolean isBestMatch) {
+	/**
+	 * @param input A csv line in a list format
+	 */
 	public VisionTrade(List<String> input) {
 		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(4)), new BigDecimal(input.get(1)), new BigDecimal(input.get(2)),
 				new BigDecimal(input.get(3)), Boolean.parseBoolean(input.get(5)), Boolean.parseBoolean(input.get(6)));

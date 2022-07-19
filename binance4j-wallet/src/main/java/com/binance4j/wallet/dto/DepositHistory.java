@@ -4,7 +4,21 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** A deposit history */
+/**
+ * A deposit history.
+ * 
+ * @param amount        The volume to deposit.
+ * @param coin          The coin abbreviation.
+ * @param network       The transfer network.
+ * @param address       The deposit address.
+ * @param addressTag    The deposit address tag.
+ * @param txId          The transaction id.
+ * @param unlockConfirm confirm times for unlocking.
+ * @param confirmTimes  TODO JAVADOC
+ * @param status        The withdraw status code.
+ * @param insertTime    confirm times for insertion (?)
+ * @param transferType  The transfer type. 1 for internal transfer, 0 for external transfer.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DepositHistory(
 		/** The volume to deposit. */
@@ -30,7 +44,7 @@ public record DepositHistory(
 		/** The transfer type. 1 for internal transfer, 0 for external transfer. */
 		int transferType) {
 
-	/** The withdraw status. */
+	/** @return The withdraw status. */
 	public DepositStatus getDepositStatus() {
 		return DepositStatus.valueOf(status);
 	}

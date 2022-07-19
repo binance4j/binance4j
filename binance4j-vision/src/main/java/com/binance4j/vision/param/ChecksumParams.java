@@ -37,6 +37,10 @@ public class ChecksumParams extends Request<ResponseBody> {
 		return new VisionChecksum(data[0], data[1]);
 	}
 
+	/**
+	 * @return The checksum.
+	 * @throws ApiException Thrown if data fetching failed.
+	 */
 	public VisionChecksum getChecksum() throws ApiException {
 		return resToChecksum(execute());
 	}

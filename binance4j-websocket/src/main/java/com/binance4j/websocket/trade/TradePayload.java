@@ -41,7 +41,7 @@ public class TradePayload {
 	/** The timestamp. */
 	@JsonProperty("T")
 	private Long tradeTime;
-	/** Is the buyer the market maker?. */
+	/** Is the buyer the market maker? */
 	@JsonProperty("m")
 	private Boolean buyerIsMarketMaker;
 }

@@ -4,12 +4,12 @@ import java.util.List;
 
 /** The base of an account snapshot response. */
 public interface AccountSnapshotResponse<T> {
-	/** The response status code (200 for success; others are error codes) */
+	/** @return The response status code (200 for success; others are error codes) */
 	int code();
 
-	/** The potential response error message. */
+	/** @return The potential response error message. */
 	String msg();
 
-	/** A list of account snapshots. */
+	/** @return A list of account snapshots. */
 	List<T> snapshotVos();
 }

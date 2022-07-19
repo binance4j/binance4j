@@ -29,6 +29,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * Downloads the zip file synchronously
 	 *
 	 * @return The zip file.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	public ZipInputStream getZip() throws ApiException {
 		try {
@@ -62,6 +63,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * Downloads the zip file synchronously and returns the data in a csv style (2d list)
 	 *
 	 * @return The deserialized data.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	public List<List<String>> getCSV() throws ApiException {
 		return extractCSV(getZip());
@@ -94,6 +96,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * Downloads the zip file synchronously and returns the data in the csv as a list of objects
 	 *
 	 * @return The deserialized data.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	public List<T> getData() throws ApiException {
 		return csvToObject(getCSV());
@@ -138,6 +141,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 *
 	 * @param zis the zip stream.
 	 * @return The data as a list of string arrays.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	protected List<List<String>> extractCSV(ZipInputStream zis) throws ApiException {
 		try {
@@ -160,8 +164,10 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Converts the csv into a list of the desired type
 	 *
+	 * @param clazz the object class
 	 * @param input The data as a list of string arrays.
 	 * @return The data as a list of objects.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	protected List<T> csvToObject(Class<T> clazz, List<List<String>> input) throws ApiException {
 		List<T> obj = new ArrayList<>();
@@ -181,6 +187,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 *
 	 * @param input The csv input.
 	 * @return A list of.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	protected abstract List<T> csvToObject(List<List<String>> input) throws ApiException;
 }

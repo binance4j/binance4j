@@ -33,6 +33,7 @@ public class AssetDividendRecordParams extends IntervalParams {
 	 * with asset and limit
 	 *
 	 * @param asset The asset we want the records.
+	 * @param limit The result limit.
 	 */
 	public AssetDividendRecordParams(String asset, Integer limit) {
 		this(asset);

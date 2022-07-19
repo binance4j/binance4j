@@ -23,8 +23,10 @@ import retrofit2.Retrofit;
  * @see <a href="https://data.binance.vision/">Documentation</a>
  */
 public class VisionSpotClient {
+	/** Client service. */
 	private final VisionSpotMapping service;
 
+	/** Constructor */
 	public VisionSpotClient() {
 		service = new Retrofit.Builder().baseUrl("https://data.binance.vision/data/").build().create(VisionSpotMapping.class);
 	}

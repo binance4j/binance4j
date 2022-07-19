@@ -30,7 +30,7 @@ public class AggTradePayload {
 	/** The timestamp. */
 	@JsonProperty("T")
 	private Long tradeTime;
-	/** Was the buyer the maker?. */
+	/** Was the buyer the maker? */
 	@JsonProperty("m")
 	private Boolean isBuyerMaker;
 	/** The event type. */

@@ -5,7 +5,15 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** TODO JAVADOC */
+/**
+ * Dribblets.
+ * 
+ * @param operateTime              The operation timestamp.
+ * @param totalTransferedAmount    Total transfered BNB amount for this exchange.
+ * @param totalServiceChargeAmount Total service charge amount for this exchange.
+ * @param transId                  The transaction id.
+ * @param userAssetDribbletDetails Details of this exchange.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record UserAssetDribblets(
 		/** The operation timestamp. */

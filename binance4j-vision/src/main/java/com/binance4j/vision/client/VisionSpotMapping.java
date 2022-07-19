@@ -7,13 +7,17 @@ import retrofit2.http.Path;
 
 /** The API SPOT calls */
 public interface VisionSpotMapping {
+	/** monthly klines url */
 	String MONTHLY_KLINES_URL = "spot/monthly/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}.zip";
+	/** daily klines url */
 	String DAILY_KLINES_URL = "spot/daily/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}-{day}.zip";
-
+	/** monthly trades url */
 	String MONTHLY_TRADES_URL = "spot/monthly/trades/{symbol}/{symbol}-trades-{year}-{month}.zip";
+	/** daily trades url */
 	String DAILY_TRADES_URL = "spot/daily/trades/{symbol}/{symbol}-trades-{year}-{month}-{day}.zip";
-
+	/** monthly aggtrades url */
 	String MONTHLY_AGGTRADES_URL = "spot/monthly/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}.zip";
+	/** daily aggtrades url */
 	String DAILY_AGGTRADES_URL = "spot/daily/aggTrades/{symbol}/{symbol}-aggTrades-{year}-{month}-{day}.zip";
 
 	/**

@@ -1,13 +1,26 @@
 package com.binance4j.wallet.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /** Status of a submitted order. */
-@AllArgsConstructor
 public enum TransferType {
-	SPOT_TO_MARGIN("1"), MARGIN_TO_SPOT("2");
 
-	@Getter
+	/** Spot to margin */
+	SPOT_TO_MARGIN("1"),
+	/** Margin to spot */
+	MARGIN_TO_SPOT("2");
+
+	/**
+	 * @param value
+	 */
+	private TransferType(String value) {
+		this.value = value;
+	}
+
 	final String value;
+
+	/**
+	 * @return the value
+	 */
+	public String getValue() {
+		return value;
+	}
 }

@@ -4,18 +4,27 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** An asset divident */
+/**
+ * An asset divident.
+ * 
+ * @param amount  The divident amount.
+ * @param enInfo  Info about the asset.
+ * @param asset   The asset abbreviation.
+ * @param id      The id.
+ * @param divTime Dividend time in ms.
+ * @param tranId  The transaction id.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetDividend(
 		/** The divident amount. */
 		BigDecimal amount,
-		/** TODO JAVADOC */
+		/** Info about the asset. */
 		String enInfo,
 		/** The asset abbreviation. */
 		String asset,
 		/** The id. */
 		long id,
-		/** TODO JAVADOC */
+		/** Dividend time in ms. */
 		long divTime,
 		/** The transaction id. */
 		long tranId) {

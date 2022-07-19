@@ -49,6 +49,7 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
+	 * @param type       The transfer type.
 	 * @param fromSymbol The transfered symbol.
 	 * @param toSymbol   The converted symbol.
 	 */
@@ -61,6 +62,7 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	/**
 	 * @param fromSymbol The transfered symbol.
 	 * @param toSymbol   The converted symbol.
+	 * @param type       The transfer type.
 	 * @param size       The result size.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol, int size) {
@@ -69,6 +71,7 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
+	 * @param type       The transfer type.
 	 * @param fromSymbol The transfered symbol.
 	 * @param toSymbol   The converted symbol.
 	 * @param size       The result size.

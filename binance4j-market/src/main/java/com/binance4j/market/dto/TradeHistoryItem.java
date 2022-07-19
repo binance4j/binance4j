@@ -28,6 +28,6 @@ public record TradeHistoryItem(
 		long time,
 		/** Is the trade a buyer maker trade. */
 		boolean isBuyerMaker,
-		/** Was the trade the best price match?. */
+		/** Was the trade the best price match? */
 		boolean isBestMatch) {
 }

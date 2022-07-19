@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class SystemStatusParams extends FramedParams {
+	/** Constructor. */
 	public SystemStatusParams() {
 		super(1);
 	}

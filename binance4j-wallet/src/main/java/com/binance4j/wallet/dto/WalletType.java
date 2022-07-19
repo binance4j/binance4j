@@ -1,14 +1,25 @@
 package com.binance4j.wallet.dto;
 
-import lombok.AllArgsConstructor;
-
 /** A wallet type */
-@AllArgsConstructor
 public enum WalletType {
-	SPOT(0), FUNDING(1);
+	/** Spot */
+	SPOT(0),
+	/** Funding */
+	FUNDING(1);
 
+	/** Value. */
 	final int value;
 
+	/**
+	 * @param value
+	 */
+	private WalletType(int value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the value
+	 */
 	public int getValue() {
 		return value;
 	}

@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ApiPermissionsParams extends FramedParams {
+	/** Constructor. */
 	public ApiPermissionsParams() {
 		super(1);
 	}
