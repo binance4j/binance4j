@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import lombok.Getter;
-
 /** A scheduled event calling a {@link ScheduledTask}. */
 public abstract class BaseScheduledEvent implements ScheduledEvent {
 	/** init time */
@@ -49,10 +47,8 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		/** The event wrapper. */
 		private final BaseScheduledEvent scheduledEvent;
 		/** The number of time the task was called. */
-		@Getter
 		private int ticks;
 		/** The max times the task can be called. */
-		@Getter
 		private int maxTicks;
 
 		/**
@@ -85,6 +81,49 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 				innerTask.call();
 			}
 		}
+
+		/**
+		 * @return the innerTask
+		 */
+		public ScheduledTask getInnerTask() {
+			return innerTask;
+		}
+
+		/**
+		 * @return the scheduledEvent
+		 */
+		public BaseScheduledEvent getScheduledEvent() {
+			return scheduledEvent;
+		}
+
+		/**
+		 * @return the ticks
+		 */
+		public int getTicks() {
+			return ticks;
+		}
+
+		/**
+		 * @param ticks the ticks to set
+		 */
+		public void setTicks(int ticks) {
+			this.ticks = ticks;
+		}
+
+		/**
+		 * @return the maxTicks
+		 */
+		public int getMaxTicks() {
+			return maxTicks;
+		}
+
+		/**
+		 * @param maxTicks the maxTicks to set
+		 */
+		public void setMaxTicks(int maxTicks) {
+			this.maxTicks = maxTicks;
+		}
+
 	}
 
 	/**

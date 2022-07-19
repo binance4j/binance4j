@@ -6,9 +6,6 @@ import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 
-import lombok.AccessLevel;
-import lombok.Setter;
-
 /** The {@link MarginClient#borrow} params. */
 public class BorrowParams extends FramedParams {
 	/** Asset to borrow. */
@@ -16,7 +13,6 @@ public class BorrowParams extends FramedParams {
 	/** Isolated symbol. */
 	private String symbol;
 	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
-	@Setter(value = AccessLevel.NONE)
 	private Boolean isIsolated;
 	/** Amount to borrow. */
 	private BigDecimal amount;

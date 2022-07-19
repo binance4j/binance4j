@@ -4,11 +4,7 @@ import java.time.Duration;
 
 import com.binance4j.core.dto.CandlestickInterval;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
 /** Service for converting data into a duration */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DurationService {
 	/**
 	 * Converts a candlestick interval into a duration

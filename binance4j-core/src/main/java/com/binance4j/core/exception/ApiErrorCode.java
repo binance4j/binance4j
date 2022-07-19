@@ -4,12 +4,8 @@ import java.util.Arrays;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /** The Error codes sent by the Binance API. */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@AllArgsConstructor
 public enum ApiErrorCode {
 	/** Client was unable to deserialize the server response. */
 	DESERIALIZATION_FAILURE(-2000),
@@ -472,8 +468,21 @@ public enum ApiErrorCode {
 	TOO_MANY_INVALID_REDEEM_ATTEMPTS(-450022);
 
 	/** The error code. */
-	@Getter
 	private final int value;
+
+	/**
+	 * @param value
+	 */
+	private ApiErrorCode(int value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public int getValue() {
+		return value;
+	}
 
 	/**
 	 * @param value The error code.

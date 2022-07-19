@@ -22,8 +22,6 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
 
-import lombok.NonNull;
-
 /**
  * 
  */
@@ -68,7 +66,7 @@ public abstract class CustomTest<T> {
 	/**
 	 * @param clientClass The client class.
 	 */
-	protected CustomTest(@NonNull Class<? extends T> clientClass) {
+	protected CustomTest(Class<? extends T> clientClass) {
 		try {
 			this.client = clientClass.getDeclaredConstructor(String.class, String.class).newInstance(key, secret);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException

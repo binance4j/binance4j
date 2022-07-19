@@ -1,16 +1,12 @@
 package com.binance4j.core.exception;
 
-import lombok.Getter;
-
 /** An exception which can occur while invoking methods of the Binance API. */
 public class ApiException extends Exception {
 
 	/** The error code */
-	@Getter
 	private final int code;
 
 	/** The error code explanation */
-	@Getter
 	private final ApiErrorCode errorCode;
 
 	/**
@@ -39,4 +35,19 @@ public class ApiException extends Exception {
 	public ApiException(ApiError error) {
 		this(error.getCode(), error.getMsg());
 	}
+
+	/**
+	 * @return the code
+	 */
+	public int getCode() {
+		return code;
+	}
+
+	/**
+	 * @return the errorCode
+	 */
+	public ApiErrorCode getErrorCode() {
+		return errorCode;
+	}
+
 }

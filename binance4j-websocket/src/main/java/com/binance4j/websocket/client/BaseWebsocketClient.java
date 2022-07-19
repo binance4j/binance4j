@@ -9,8 +9,6 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 import com.binance4j.websocket.event.WebsocketCloseClientHandler;
 import com.binance4j.websocket.event.WebsocketForceClosingHandler;
 
-import lombok.AccessLevel;
-import lombok.Getter;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -31,7 +29,6 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/** The user events handler. */
 	protected WebsocketCallback<T> callback;
 	/** The interceptor callback. */
-	@Getter(AccessLevel.PUBLIC)
 	protected WebsocketInterceptorCallback<T> interceptorCallback;
 	/** The channel to connect to. */
 	protected String channel;
@@ -136,5 +133,12 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 */
 	public void setConfiguration(WebsocketClientConfiguration configuration) {
 		this.configuration = configuration;
+	}
+
+	/**
+	 * @return the interceptorCallback
+	 */
+	public WebsocketInterceptorCallback<T> getInterceptorCallback() {
+		return interceptorCallback;
 	}
 }
