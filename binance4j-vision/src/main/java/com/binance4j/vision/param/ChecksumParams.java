@@ -1,4 +1,4 @@
-package com.binance4j.vision.request;
+package com.binance4j.vision.param;
 
 import java.util.Scanner;
 
@@ -12,11 +12,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 /** Vision data checksum request */
-public class ChecksumRequest extends Request<ResponseBody> {
+public class ChecksumParams extends Request<ResponseBody> {
 	/**
 	 * @param call The API call.
 	 */
-	public ChecksumRequest(Call<ResponseBody> call) {
+	public ChecksumParams(Call<ResponseBody> call) {
 		super(call);
 	}
 

@@ -16,12 +16,11 @@ import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.service.DurationService;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-/** A service for manipulating {@link Bar Bars} */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+/** A service for manipulating {@link Bar Bars}. */
 public class BarService {
+	/** Constructor */
+	private BarService() {
+	}
 
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar}

@@ -6,7 +6,7 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 
 /**
  * Disconnects the client if no data was received in the interval defined by
- * {@link WebsocketClientConfiguration#getNoResponseTimeout()}
+ * {@link WebsocketClientConfiguration#getNoResponseTimeout}
  */
 public class WebsocketNoResponseHandler extends BaseWebsocketEventHandler {
 	public WebsocketNoResponseHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {

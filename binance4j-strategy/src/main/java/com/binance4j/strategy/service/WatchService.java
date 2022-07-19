@@ -24,35 +24,19 @@ import com.binance4j.websocket.candle.WebsocketCandlestickClient;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 import com.binance4j.websocket.service.DurationService;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import okhttp3.Response;
 
 /** Service to live trade a {@link TradingStrategy}. */
-@Data
 public class WatchService {
-
 	/** The websocket client configuration */
 	private WebsocketClientConfiguration configuration;
-
 	/** The BarSeries max size. Default 500 */
 	private int maximumBarCount = 500;
-
 	/** The websocket client */
-	@Getter(AccessLevel.NONE)
-	@Setter(AccessLevel.NONE)
 	protected WebsocketCandlestickClient wsClient;
-
 	/** The series used in watch mode */
-	@Getter(AccessLevel.NONE)
-	@Setter(AccessLevel.NONE)
 	protected Map<String, BarSeries> barSeries;
-
 	/** The trading strategy */
-	@Getter(AccessLevel.NONE)
-	@Setter(AccessLevel.NONE)
 	protected TradingStrategy tradingStrategy;
 
 	/**
@@ -186,5 +170,26 @@ public class WatchService {
 	public void unwatch() {
 		if (wsClient != null)
 			wsClient.close();
+	}
+
+	/**
+	 * @return the configuration
+	 */
+	public WebsocketClientConfiguration getConfiguration() {
+		return configuration;
+	}
+
+	/**
+	 * @param configuration the configuration to set
+	 */
+	public void setConfiguration(WebsocketClientConfiguration configuration) {
+		this.configuration = configuration;
+	}
+
+	/**
+	 * @return the maximumBarCount
+	 */
+	public int getMaximumBarCount() {
+		return maximumBarCount;
 	}
 }

@@ -7,11 +7,9 @@ import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.websocket.callback.GenericCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 
-import lombok.Getter;
 import okhttp3.Response;
 
 /** Strategy Callback to handle stream events */
-@Getter
 public class StrategyCallback {
 	/** The callback to trigger when receiving a message from the websocket. */
 	private GenericCallback<SymbolBar> onMessageConsumer = (SymbolBar bar) -> {
@@ -103,4 +101,54 @@ public class StrategyCallback {
 	public void onFailure(GenericCallback<ApiException> callback) {
 		this.onFailureConsumer = callback;
 	}
+
+	/**
+	 * @return the onMessageConsumer
+	 */
+	public GenericCallback<SymbolBar> getOnMessageConsumer() {
+		return onMessageConsumer;
+	}
+
+	/**
+	 * @return the onEnterConsumer
+	 */
+	public GenericCallback<BarSeries> getOnEnterConsumer() {
+		return onEnterConsumer;
+	}
+
+	/**
+	 * @return the onExitConsumer
+	 */
+	public GenericCallback<BarSeries> getOnExitConsumer() {
+		return onExitConsumer;
+	}
+
+	/**
+	 * @return the onOpenConsumer
+	 */
+	public GenericCallback<Response> getOnOpenConsumer() {
+		return onOpenConsumer;
+	}
+
+	/**
+	 * @return the onClosingConsumer
+	 */
+	public GenericCallback<WebsocketCloseObject> getOnClosingConsumer() {
+		return onClosingConsumer;
+	}
+
+	/**
+	 * @return the onClosedConsumer
+	 */
+	public GenericCallback<WebsocketCloseObject> getOnClosedConsumer() {
+		return onClosedConsumer;
+	}
+
+	/**
+	 * @return the onFailureConsumer
+	 */
+	public GenericCallback<ApiException> getOnFailureConsumer() {
+		return onFailureConsumer;
+	}
+
 }

@@ -11,21 +11,15 @@ import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.websocket.service.DurationService;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 /** A service for manipulating {@link BarSeries} */
-@Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BarSeriesService {
 
 	/** The default bar series name. */
-	@Getter
-	@Setter
 	private static String defaultBarSeriesName = "Bar series";
+
+	/** Constructor */
+	private BarSeriesService() {
+	}
 
 	// With Duration
 
@@ -129,5 +123,19 @@ public class BarSeriesService {
 	 */
 	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval) {
 		return convert(bars, DurationService.convert(interval));
+	}
+
+	/**
+	 * @return the defaultBarSeriesName
+	 */
+	public static String getDefaultBarSeriesName() {
+		return defaultBarSeriesName;
+	}
+
+	/**
+	 * @param defaultBarSeriesName the defaultBarSeriesName to set
+	 */
+	public static void setDefaultBarSeriesName(String defaultBarSeriesName) {
+		BarSeriesService.defaultBarSeriesName = defaultBarSeriesName;
 	}
 }

@@ -1,4 +1,4 @@
-package com.binance4j.vision.request;
+package com.binance4j.vision.param;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 /** The aggregated trade request executor */
-public class AggTradeRequest extends VisionRequest<AggTrade> {
+public class AggTradeParams extends VisionParams<AggTrade> {
 
 	/**
 	 * @param call The API call.
 	 */
-	public AggTradeRequest(Call<ResponseBody> call) {
+	public AggTradeParams(Call<ResponseBody> call) {
 		super(call);
 	}
 

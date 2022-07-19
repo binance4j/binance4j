@@ -48,6 +48,7 @@
         <setting id="org.eclipse.jdt.core.formatter.enabling_tag" value="@formatter:on" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_closing_brace_in_block" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.count_line_length_from_starting_position" value="true" />
+        >
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_record_components" value="16" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_parenthesized_expression_in_return" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_method_declaration" value="16" />
@@ -108,7 +109,8 @@
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_colon_in_for" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.keep_type_declaration_on_one_line" value="one_line_never" />
         <setting id="org.eclipse.jdt.core.formatter.number_of_blank_lines_at_beginning_of_method_body" value="0" />
-        <setting id="org.eclipse.jdt.core.formatter.insert_space_after_closing_angle_bracket_in_type_arguments" value="do not insert" />
+        <setting id="org.eclipse.jdt.core.formatter.insert_space_after_closing_angle_bracket_in_type_arguments" value="insert" />
+        >
         >
         <setting id="org.eclipse.jdt.core.formatter.keep_else_statement_on_same_line" value="false" />
         <setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_catch_clause" value="common_lines" />
@@ -148,11 +150,13 @@
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_compact_loops" value="16" />
         <setting id="org.eclipse.jdt.core.formatter.comment.clear_blank_lines_in_block_comment" value="true" />
         >
+        >
         <setting id="org.eclipse.jdt.core.formatter.insert_new_line_before_catch_in_try_statement" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_try" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.keep_simple_for_body_on_same_line" value="false" />
         <setting id="org.eclipse.jdt.core.formatter.insert_new_line_at_end_of_file_if_missing" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.clear_blank_lines_in_javadoc_comment" value="true" />
+        >
         >
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_relational_operator" value="0" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_comma_in_array_initializer" value="insert" />
@@ -172,6 +176,7 @@
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_string_concatenation" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_parenthesized_expression" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.format_line_comments" value="true" />
+        >
         <setting id="org.eclipse.jdt.core.formatter.brace_position_for_record_declaration" value="end_of_line" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_colon_in_labeled_statement" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.text_block_indentation" value="0" />
@@ -202,6 +207,7 @@
         <setting id="org.eclipse.jdt.core.formatter.comment.insert_new_line_between_different_tags" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_conditional_expression_chain" value="0" />
         <setting id="org.eclipse.jdt.core.formatter.comment.format_header" value="true" />
+        >
         >
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression" value="16" />
         <setting id="org.eclipse.jdt.core.formatter.wrap_before_assertion_message_operator" value="true" />
@@ -312,6 +318,7 @@
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_angle_bracket_in_type_arguments" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_cast" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.format_block_comments" value="true" />
+        >
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_lambda_arrow" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_declaration" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.indent_tag_description" value="false" />
@@ -379,6 +386,7 @@
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_closing_angle_bracket_in_type_parameters" value="do not insert" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_question_in_conditional" value="insert" />
         <setting id="org.eclipse.jdt.core.formatter.comment.indent_parameter_description" value="true" />
+        >
         >
         <setting id="org.eclipse.jdt.core.formatter.number_of_blank_lines_at_beginning_of_code_block" value="0" />
         <setting id="org.eclipse.jdt.core.formatter.insert_new_line_before_finally_in_try_statement" value="do not insert" />

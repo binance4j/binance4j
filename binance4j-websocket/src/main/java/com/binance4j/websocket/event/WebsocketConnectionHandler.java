@@ -9,9 +9,8 @@ import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 
 /**
- * Reconnects or disconnects the client according to
- * {@link WebsocketClientConfiguration#getReconnectionInterval()} and
- * {@link WebsocketClientConfiguration#getMaxReconnections()}
+ * Reconnects or disconnects the client according to {@link WebsocketClientConfiguration#getReconnectionInterval} and
+ * {@link WebsocketClientConfiguration#getMaxReconnections}
  */
 public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
 	public WebsocketConnectionHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {

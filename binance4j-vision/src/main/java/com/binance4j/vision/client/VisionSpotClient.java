@@ -9,11 +9,11 @@ import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.InvalidDateException;
 import com.binance4j.vision.dto.VisionTrade;
-import com.binance4j.vision.request.AggTradeRequest;
-import com.binance4j.vision.request.CandlestickRequest;
-import com.binance4j.vision.request.ChecksumRequest;
-import com.binance4j.vision.request.TradeRequest;
-import com.binance4j.vision.request.VisionRequest;
+import com.binance4j.vision.param.AggTradeParams;
+import com.binance4j.vision.param.CandlestickParams;
+import com.binance4j.vision.param.ChecksumParams;
+import com.binance4j.vision.param.TradeParams;
+import com.binance4j.vision.param.VisionParams;
 
 import retrofit2.Retrofit;
 
@@ -37,12 +37,13 @@ public class VisionSpotClient {
 	 * @param year                The year.
 	 * @param month               The month.
 	 * @return The zip file containing the data.
+	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public VisionRequest<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
+	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new CandlestickRequest(service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
+		return new CandlestickParams(service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
 	}
 
 	/**
@@ -53,12 +54,13 @@ public class VisionSpotClient {
 	 * @param year                The year.
 	 * @param month               The month.
 	 * @return The zip file containing the data.
+	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public ChecksumRequest getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
+	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
+		return new ChecksumParams(service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
 	}
 
 	/**
@@ -70,12 +72,13 @@ public class VisionSpotClient {
 	 * @param month               The month.
 	 * @param day                 The day.
 	 * @return The zip file containing the data.
+	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public VisionRequest<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
+	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new CandlestickRequest(service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
+		return new CandlestickParams(service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
 	}
 
 	/**
@@ -87,13 +90,13 @@ public class VisionSpotClient {
 	 * @param month               The month.
 	 * @param day                 The day.
 	 * @return The zip file containing the data.
+	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public ChecksumRequest getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day)
-			throws ApiException {
+	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
+		return new ChecksumParams(service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
 	}
 
 	// Trades
@@ -105,12 +108,13 @@ public class VisionSpotClient {
 	 * @param year   The year.
 	 * @param month  The month.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionRequest<VisionTrade> getTrades(String symbol, String year, String month) throws ApiException {
+	public VisionParams<VisionTrade> getTrades(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new TradeRequest(service.getMonthlyTrades(symbol.toUpperCase(), year, month));
+		return new TradeParams(service.getMonthlyTrades(symbol.toUpperCase(), year, month));
 	}
 
 	/**
@@ -120,12 +124,13 @@ public class VisionSpotClient {
 	 * @param year   The year.
 	 * @param month  The month.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public ChecksumRequest getTradesChecksum(String symbol, String year, String month) throws ApiException {
+	public ChecksumParams getTradesChecksum(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getMonthlyTradesChecksum(symbol.toUpperCase(), year, month));
+		return new ChecksumParams(service.getMonthlyTradesChecksum(symbol.toUpperCase(), year, month));
 	}
 
 	/**
@@ -136,12 +141,13 @@ public class VisionSpotClient {
 	 * @param month  The month.
 	 * @param day    The day.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionRequest<VisionTrade> getTrades(String symbol, String year, String month, String day) throws ApiException {
+	public VisionParams<VisionTrade> getTrades(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new TradeRequest(service.getDailyTrades(symbol.toUpperCase(), year, month, day));
+		return new TradeParams(service.getDailyTrades(symbol.toUpperCase(), year, month, day));
 	}
 
 	/**
@@ -152,12 +158,13 @@ public class VisionSpotClient {
 	 * @param month  The month.
 	 * @param day    The day.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public ChecksumRequest getTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
+	public ChecksumParams getTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getDailyTradesChecksum(symbol.toUpperCase(), year, month, day));
+		return new ChecksumParams(service.getDailyTradesChecksum(symbol.toUpperCase(), year, month, day));
 	}
 
 	// AggTrades
@@ -169,12 +176,13 @@ public class VisionSpotClient {
 	 * @param year   The year.
 	 * @param month  The month.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionRequest<AggTrade> getAggTrades(String symbol, String year, String month) throws ApiException {
+	public VisionParams<AggTrade> getAggTrades(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new AggTradeRequest(service.getMonthlyAggTrades(symbol.toUpperCase(), year, month));
+		return new AggTradeParams(service.getMonthlyAggTrades(symbol.toUpperCase(), year, month));
 	}
 
 	/**
@@ -184,12 +192,13 @@ public class VisionSpotClient {
 	 * @param year   The year.
 	 * @param month  The month.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public ChecksumRequest getAggTradesChecksum(String symbol, String year, String month) throws ApiException {
+	public ChecksumParams getAggTradesChecksum(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getMonthlyAggTradesChecksum(symbol.toUpperCase(), year, month));
+		return new ChecksumParams(service.getMonthlyAggTradesChecksum(symbol.toUpperCase(), year, month));
 	}
 
 	/**
@@ -200,12 +209,13 @@ public class VisionSpotClient {
 	 * @param month  The month.
 	 * @param day    The day.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionRequest<AggTrade> getAggTrades(String symbol, String year, String month, String day) throws ApiException {
+	public VisionParams<AggTrade> getAggTrades(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new AggTradeRequest(service.getDailyAggTrades(symbol.toUpperCase(), year, month, day));
+		return new AggTradeParams(service.getDailyAggTrades(symbol.toUpperCase(), year, month, day));
 	}
 
 	/**
@@ -216,12 +226,13 @@ public class VisionSpotClient {
 	 * @param month  The month.
 	 * @param day    The day.
 	 * @return The zip file containing the data.
+	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public ChecksumRequest getAggTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
+	public ChecksumParams getAggTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new ChecksumRequest(service.getDailyAggTradesChecksum(symbol.toUpperCase(), year, month, day));
+		return new ChecksumParams(service.getDailyAggTradesChecksum(symbol.toUpperCase(), year, month, day));
 	}
 
 	/**

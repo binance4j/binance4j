@@ -1,4 +1,4 @@
-package com.binance4j.vision.request;
+package com.binance4j.vision.param;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 /** Base executor implementation for the public data enpoint */
-public abstract class VisionRequest<T> extends Request<ResponseBody> {
+public abstract class VisionParams<T> extends Request<ResponseBody> {
 
 	/**
 	 * @param call The API call.
 	 */
-	protected VisionRequest(Call<ResponseBody> call) {
+	protected VisionParams(Call<ResponseBody> call) {
 		super(call);
 	}
 

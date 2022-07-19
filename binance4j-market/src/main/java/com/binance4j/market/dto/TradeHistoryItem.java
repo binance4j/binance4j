@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quoteQuantity The trade opposite volume.
  * @param time          The trade execution in ms.
  * @param isBuyerMaker  Is the trade a buyer maker trade.
- * @param isBestMatch   Was the trade the best price match?.
+ * @param isBestMatch   Was the trade the best price match?
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TradeHistoryItem(

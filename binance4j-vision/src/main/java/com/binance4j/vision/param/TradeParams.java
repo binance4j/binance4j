@@ -1,4 +1,4 @@
-package com.binance4j.vision.request;
+package com.binance4j.vision.param;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 /** The trade request executor */
-public class TradeRequest extends VisionRequest<VisionTrade> {
+public class TradeParams extends VisionParams<VisionTrade> {
 
 	/**
 	 * @param call The API call.
 	 */
-	public TradeRequest(Call<ResponseBody> call) {
+	public TradeParams(Call<ResponseBody> call) {
 		super(call);
 	}
 

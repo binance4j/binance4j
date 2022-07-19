@@ -1,4 +1,4 @@
-package com.binance4j.vision.request;
+package com.binance4j.vision.param;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 /** The candlestick request executor */
-public class CandlestickRequest extends VisionRequest<Candle> {
+public class CandlestickParams extends VisionParams<Candle> {
 	/**
 	 * @param call The API call.
 	 */
-	public CandlestickRequest(Call<ResponseBody> call) {
+	public CandlestickParams(Call<ResponseBody> call) {
 		super(call);
 	}
 

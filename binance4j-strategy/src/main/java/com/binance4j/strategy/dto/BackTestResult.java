@@ -4,7 +4,11 @@ import org.ta4j.core.BarSeries;
 import org.ta4j.core.TradingRecord;
 
 /**
- * A backtest result wrapper containing the strategy positions and its statistics
+ * A backtest result wrapper containing the strategy positions and its statistics.
+ * 
+ * @param series        The series the backtest run.
+ * @param statistics    The backtest positions statistics.
+ * @param tradingRecord The positions record.
  */
 public record BackTestResult(
 		/** The series the backtest run. */

@@ -16,11 +16,12 @@ import com.binance4j.websocket.service.DurationService;
 /** Service to backtest a {@link TradingStrategy} */
 public class BackTestService {
 
+	/** Constructor */
 	private BackTestService() {
 	}
 
 	/**
-	 * Runs the strategy over a {@link BarSeries}
+	 * Runs the strategy over a {@link BarSeries}.
 	 * 
 	 * @param strategy The {@link TradingStrategy} to backtest.
 	 * @param series   The candles.
@@ -31,7 +32,7 @@ public class BackTestService {
 	}
 
 	/**
-	 * Runs the strategy over a {@link Candle} list
+	 * Runs the strategy over a {@link Candle} list.
 	 * 
 	 * @param strategy The {@link TradingStrategy} to backtest.
 	 * @param bars     The candles.
@@ -43,7 +44,7 @@ public class BackTestService {
 	}
 
 	/**
-	 * Runs a strategy over the data.binance.vision public spot klines data
+	 * Runs a strategy over the data.binance.vision public spot klines data.
 	 * 
 	 * @param strategy The {@link TradingStrategy} to backtest.
 	 * @param symbol   The trading pair.
@@ -51,6 +52,7 @@ public class BackTestService {
 	 * @param year     The year of the data.
 	 * @param month    The month of the data.
 	 * @return The backtest result.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval, String year, String month)
 			throws ApiException {
@@ -59,7 +61,7 @@ public class BackTestService {
 	}
 
 	/**
-	 * Runs a strategy over the data.binance.vision spot klines data
+	 * Runs a strategy over the data.binance.vision spot klines data.
 	 * 
 	 * @param strategy The {@link TradingStrategy} to backtest.
 	 * @param symbol   The trading pair.
@@ -68,6 +70,7 @@ public class BackTestService {
 	 * @param month    The month of the data.
 	 * @param day      The day of the data.
 	 * @return The backtest result.
+	 * @throws ApiException Thrown if data fetching failed
 	 */
 	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval, String year, String month, String day)
 			throws ApiException {
