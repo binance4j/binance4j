@@ -8,17 +8,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Defines the quantity (aka "lots" in auction terms) rules for MARKET orders on a symbol.
  * 
- * @param minQuantity The minimum quantity/icebergQty allowed.
- * @param maxQuantity The maximum quantity/icebergQty allowed.
- * @param stepSize    The intervals that a quantity/icebergQty can be increased/decreased by.
+ * @param minQuantity The minimum quantity/iceberg quantity allowed.
+ * @param maxQuantity The maximum quantity/iceberg quantity allowed.
+ * @param stepSize    The intervals that a quantity/iceberg quantity can be increased/decreased by.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MarketLotSizeFilter(
-		/** The minimum quantity/icebergQty allowed. */
+		/** The minimum quantity/iceberg quantity allowed. */
 		@JsonProperty("minQty") BigDecimal minQuantity,
-		/** The maximum quantity/icebergQty allowed. */
+		/** The maximum quantity/iceberg quantity allowed. */
 		@JsonProperty("maxQty") BigDecimal maxQuantity,
-		/** The intervals that a quantity/icebergQty can be increased/decreased by. */
+		/** The intervals that a quantity/iceberg quantity can be increased/decreased by. */
 		BigDecimal stepSize) {
 }

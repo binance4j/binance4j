@@ -92,7 +92,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Check an order's status.
 	 * <ul>
 	 * <li>Either orderId or origClientOrderId must be sent.</li>
-	 * <li>For some historical orders cummulativeQuoteQty will be &lt; 0, meaning the data is not available at this
+	 * <li>For some historical orders cummulative quote quantity will be &lt; 0, meaning the data is not available at this
 	 * time.</li>
 	 * </ul>
 	 * 

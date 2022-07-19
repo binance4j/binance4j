@@ -7,15 +7,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** TODO JAVADOC */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record DustLogUserAssetDribblets(
+public record UserAssetDribblets(
 		/** The operation timestamp. */
 		long operateTime,
-		/** The volume of asset converted. */
+		/** Total transfered BNB amount for this exchange. */
 		BigDecimal totalTransferedAmount,
-		/** The fees. */
+		/** Total service charge amount for this exchange. */
 		BigDecimal totalServiceChargeAmount,
 		/** The transaction id. */
 		long transId,
-		/** TODO JAVADOC */
-		List<DustLogUserAssetDribbletDetails> userAssetDribbletDetails) {
+		/** Details of this exchange. */
+		List<UserAssetDribbletDetails> userAssetDribbletDetails) {
 }

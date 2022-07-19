@@ -3,7 +3,7 @@ package com.binance4j.market.param;
 import com.binance4j.core.param.Params;
 
 /**
- * The parameters to get the the best price/qty on the order book for a symbol or symbols.
+ * The parameters to get the the best price/quantity on the order book for a symbol or symbols.
  */
 public class BookTickerParams extends Params {
 	/** Ticker symbol. */

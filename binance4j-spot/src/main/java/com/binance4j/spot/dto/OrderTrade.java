@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * The partial trade of an order.
  * 
  * @param price           The price.
- * @param qty             The quantity.
+ * @param quantity        The quantity.
  * @param commission      The commission.
  * @param commissionAsset The commission asset.
  * @param tradeId         The trade id.
@@ -18,7 +18,7 @@ public record OrderTrade(
 		/** The price. */
 		BigDecimal price,
 		/** The quantity. */
-		BigDecimal qty,
+		BigDecimal quantity,
 		/** The commission. */
 		BigDecimal commission,
 		/** The commission asset. */

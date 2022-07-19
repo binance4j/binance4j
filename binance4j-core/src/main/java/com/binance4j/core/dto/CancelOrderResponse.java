@@ -3,6 +3,7 @@ package com.binance4j.core.dto;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The CancelOrder request result. */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -26,13 +27,13 @@ public record CancelOrderResponse(
 		/** The client order id. */
 		String clientOrderId,
 		/** The order executed quantity. */
-		String executedQty,
+		@JsonProperty("executedQty") String executedQuantity,
 		/** The order price. */
 		BigDecimal price,
 		/** The order original quantity. */
-		BigDecimal origQty,
+		@JsonProperty("origQty") BigDecimal origQuantity,
 		/** The order cumulative quote quantity. */
-		BigDecimal cummulativeQuoteQty,
+		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
 		/** Is the order margin isolated. */
 		boolean isIsolated) {
 }

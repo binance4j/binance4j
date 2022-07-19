@@ -180,7 +180,7 @@ public class NewOrderParams extends BaseOrderParams {
 	 */
 	public static NewOrderParams buyQuote(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
 		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null, timeInForce);
-		order.setQuoteOrderQty(quantity);
+		order.setQuoteOrderQuantity(quantity);
 		return order;
 	}
 
@@ -205,7 +205,7 @@ public class NewOrderParams extends BaseOrderParams {
 	 */
 	public static NewOrderParams sellQuote(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
 		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null, timeInForce);
-		order.setQuoteOrderQty(quantity);
+		order.setQuoteOrderQuantity(quantity);
 		return order;
 	}
 

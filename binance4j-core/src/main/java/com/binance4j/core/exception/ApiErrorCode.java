@@ -419,7 +419,7 @@ public enum ApiErrorCode {
 	LOT_SIZE(-9003),
 	/** price * quantity is too low to be a valid order for the symbol. */
 	MIN_NOTIONAL(-9004),
-	/** ICEBERG order would break into too many parts; icebergQty is too small. */
+	/** ICEBERG order would break into too many parts; iceberg quantity is too small. */
 	ICEBERG_PARTS(-9005),
 	/** MARKET order's quantity is too high, too low, and/or not following the step size rule for the symbol. */
 	MARKET_LOT_SIZE(-9006),

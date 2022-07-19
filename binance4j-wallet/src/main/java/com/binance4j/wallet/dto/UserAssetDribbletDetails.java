@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** Dust log details */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record DustLogUserAssetDribbletDetails(
+public record UserAssetDribbletDetails(
 		/** The transaction id. */
 		long transId,
 		/** The timestamp. */

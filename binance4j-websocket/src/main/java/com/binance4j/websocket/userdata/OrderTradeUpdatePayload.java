@@ -91,11 +91,11 @@ public class OrderTradeUpdatePayload {
 	private Long orderCreationTime;
 	/** Cumulative quote asset transacted quantity. */
 	@JsonProperty("Z")
-	private BigDecimal cumulativeQuoteQty;
+	private BigDecimal cumulativeQuoteQuantity;
 	/** Last quote asset transacted quantity (i.e. lastPrice * lastQty). */
 	@JsonProperty("Y")
-	private BigDecimal lastQuoteQty;
-	/** Quote Order Qty. */
+	private BigDecimal lastQuoteQuantity;
+	/** Quote Order quantity. */
 	@JsonProperty("Q")
-	private BigDecimal quoteOrderQty;
+	private BigDecimal quoteOrderQuantity;
 }

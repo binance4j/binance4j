@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Represents the best price/qty on the order book for a given symbol.
+ * Represents the best price/quantity on the order book for a given symbol.
  * 
  * @param symbol      Ticker symbol.
  * @param bidPrice    Bid price.

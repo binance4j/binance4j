@@ -219,7 +219,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Get best price/qty on the order book for a symbol.
+	 * Get best price/quantity on the order book for a symbol.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
@@ -229,7 +229,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Get best price/qty on the order book for all symbols.
+	 * Get best price/quantity on the order book for all symbols.
 	 * 
 	 * @return The request to execute.
 	 */
@@ -238,7 +238,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Get best price/qty on the order book for the given symbols.
+	 * Get best price/quantity on the order book for the given symbols.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.

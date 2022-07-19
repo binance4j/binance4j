@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import com.binance4j.core.param.Params;
 
 /**
- * The parameters to get the the best price/qty on the order book for the given symbols.
+ * The parameters to get the the best price/quantity on the order book for the given symbols.
  */
 public class BookTickersParams extends Params {
 	/** Ticker symbol. */

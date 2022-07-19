@@ -15,22 +15,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * An newly placed order record.
  * 
- * @param orderId               The order id.
- * @param symbol                The traded symbol.
- * @param side                  The order side.
- * @param status                The order status.
- * @param type                  The order type.
- * @param timeInForce           The order time in force.
- * @param transactionTime       The transaction time.
- * @param clientOrderId         The client order id.
- * @param price                 The symbol price.
- * @param originalQuantity      The order original quantity.
- * @param executedQuantity      The order executed quantity.
- * @param cummulativeQuoteQty   The cumulative quote quantity.
- * @param marginBuyBorrowAmount The margin buy borrow amount. Will not return if no margin trade happens.
- * @param marginBuyBorrowAsset  The margin buy borrow asset. Will not return if no margin trade happens.
- * @param isIsolated            Is the order isolated?
- * @param fills                 The filled trades.
+ * @param orderId                  The order id.
+ * @param symbol                   The traded symbol.
+ * @param side                     The order side.
+ * @param status                   The order status.
+ * @param type                     The order type.
+ * @param timeInForce              The order time in force.
+ * @param transactionTime          The transaction time.
+ * @param clientOrderId            The client order id.
+ * @param price                    The symbol price.
+ * @param originalQuantity         The order original quantity.
+ * @param executedQuantity         The order executed quantity.
+ * @param cummulativeQuoteQuantity The cumulative quote quantity.
+ * @param marginBuyBorrowAmount    The margin buy borrow amount. Will not return if no margin trade happens.
+ * @param marginBuyBorrowAsset     The margin buy borrow asset. Will not return if no margin trade happens.
+ * @param isIsolated               Is the order isolated?
+ * @param fills                    The filled trades.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record NewOrderRecord(
@@ -57,7 +57,7 @@ public record NewOrderRecord(
 		/** The order executed quantity. */
 		@JsonProperty("executedQty") BigDecimal executedQuantity,
 		/** The cumulative quote quantity. */
-		BigDecimal cummulativeQuoteQty,
+		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
 		/** The margin buy borrow amount. Will not return if no margin trade happens. */
 		Optional<BigDecimal> marginBuyBorrowAmount,
 		/** The margin buy borrow asset. Will not return if no margin trade happens. */

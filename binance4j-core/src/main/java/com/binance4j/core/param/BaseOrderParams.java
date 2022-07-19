@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.TimeInForce;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,9 +21,11 @@ public class BaseOrderParams extends OrderParams {
 	/** Le order lifetime */
 	protected TimeInForce timeInForce;
 	/** The quote order quantity */
-	protected BigDecimal quoteOrderQty;
+	@JsonProperty("quoteOrderQty")
+	protected BigDecimal quoteOrderQuantity;
 	/** The iceberg quantity */
-	protected BigDecimal icebergQty;
+	@JsonProperty("icebergQty")
+	protected BigDecimal icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
 	protected String newClientOrderId;
 
@@ -101,7 +104,7 @@ public class BaseOrderParams extends OrderParams {
 	@Override
 	public void setQuantity(BigDecimal quantity) {
 		this.quantity = quantity;
-		this.quoteOrderQty = null;
+		this.quoteOrderQuantity = null;
 	}
 
 	/**
@@ -109,8 +112,8 @@ public class BaseOrderParams extends OrderParams {
 	 * 
 	 * @param quoteOrderQuantity The new quantity.
 	 */
-	public void setQuoteOrderQty(BigDecimal quoteOrderQuantity) {
+	public void setQuoteOrderQuantity(BigDecimal quoteOrderQuantity) {
 		this.quantity = null;
-		this.quoteOrderQty = quoteOrderQuantity;
+		this.quoteOrderQuantity = quoteOrderQuantity;
 	}
 }

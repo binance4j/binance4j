@@ -1,14 +1,15 @@
 package com.binance4j.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * An executed trade
  * 
  * @param id              Trade id.
  * @param price           Price.
- * @param qty             Quantity.
- * @param quoteQty        Quote quantity for the trade (price * qty).
+ * @param quantity        Quantity.
+ * @param quoteQuantity   Quote quantity for the trade (price * qty).
  * @param commission      Commission.
  * @param commissionAsset Asset on which commission is taken.
  * @param time            Trade execution time.
@@ -25,9 +26,9 @@ public record Trade(
 		/** Price. */
 		String price,
 		/** Quantity. */
-		String qty,
+		@JsonProperty("qty") String quantity,
 		/** Quote quantity for the trade (price * qty). */
-		String quoteQty,
+		@JsonProperty("quoteQty") String quoteQuantity,
 		/** Commission. */
 		String commission,
 		/** Asset on which commission is taken. */

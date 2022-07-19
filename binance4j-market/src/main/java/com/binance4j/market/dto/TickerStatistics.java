@@ -3,6 +3,7 @@ package com.binance4j.market.dto;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 24 hour price change statistics for a ticker.
@@ -13,11 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param weightedAvgPrice   Weighted average price.
  * @param prevClosePrice     Previous close price.
  * @param lastPrice          Last price.
- * @param lastQty            Last quantity.
+ * @param lastQuantity       Last quantity.
  * @param bidPrice           Bid price.
- * @param bidQty             Bid quantity.
+ * @param bidQuantity        Bid quantity.
  * @param askPrice           Ask price.
- * @param askQty             Ask quantity.
+ * @param askQuantity        Ask quantity.
  * @param openPrice          Open price 24 hours ago.
  * @param highPrice          Highest price during the past 24 hours.
  * @param lowPrice           Lowest price during the past 24 hours.
@@ -44,15 +45,15 @@ public record TickerStatistics(
 		/** Last price. */
 		BigDecimal lastPrice,
 		/** Last quantity. */
-		BigDecimal lastQty,
+		@JsonProperty("lastQty") BigDecimal lastQuantity,
 		/** Bid price. */
 		BigDecimal bidPrice,
 		/** Bid quantity. */
-		BigDecimal bidQty,
+		@JsonProperty("bidQty") BigDecimal bidQuantity,
 		/** Ask price. */
 		BigDecimal askPrice,
 		/** Ask quantity. */
-		BigDecimal askQty,
+		@JsonProperty("askQty") BigDecimal askQuantity,
 		/** Open price 24 hours ago. */
 		BigDecimal openPrice,
 		/** Highest price during the past 24 hours. */

@@ -6,6 +6,7 @@ import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.OrderParams;
 import com.binance4j.margin.client.MarginClient;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link MarginClient#newOCO} params. */
 public class NewOCOOrderParams extends OrderParams {
@@ -14,13 +15,15 @@ public class NewOCOOrderParams extends OrderParams {
 	/** A unique Id for the limit order */
 	private String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
-	private BigDecimal limitIcebergQty;
+	@JsonProperty("limitIcebergQty")
+	private BigDecimal limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
 	private String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
 	private BigDecimal stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
-	private BigDecimal stopIcebergQty;
+	@JsonProperty("stopIcebergQty")
+	private BigDecimal stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
 	private TimeInForce stopLimitTimeInForce;
 	/** Is the order isolated? */
@@ -41,82 +44,114 @@ public class NewOCOOrderParams extends OrderParams {
 		this.stopPrice = stopPrice;
 	}
 
-	/** @return the listClientOrderId */
+	/**
+	 * @return the listClientOrderId
+	 */
 	public String getListClientOrderId() {
 		return listClientOrderId;
 	}
 
-	/** @param listClientOrderId the listClientOrderId to set */
+	/**
+	 * @param listClientOrderId the listClientOrderId to set
+	 */
 	public void setListClientOrderId(String listClientOrderId) {
 		this.listClientOrderId = listClientOrderId;
 	}
 
-	/** @return the limitClientOrderId */
+	/**
+	 * @return the limitClientOrderId
+	 */
 	public String getLimitClientOrderId() {
 		return limitClientOrderId;
 	}
 
-	/** @param limitClientOrderId the limitClientOrderId to set */
+	/**
+	 * @param limitClientOrderId the limitClientOrderId to set
+	 */
 	public void setLimitClientOrderId(String limitClientOrderId) {
 		this.limitClientOrderId = limitClientOrderId;
 	}
 
-	/** @return the limitIcebergQty */
-	public BigDecimal getLimitIcebergQty() {
-		return limitIcebergQty;
+	/**
+	 * @return the limitIcebergQuantity
+	 */
+	public BigDecimal getLimitIcebergQuantity() {
+		return limitIcebergQuantity;
 	}
 
-	/** @param limitIcebergQty the limitIcebergQty to set */
-	public void setLimitIcebergQty(BigDecimal limitIcebergQty) {
-		this.limitIcebergQty = limitIcebergQty;
+	/**
+	 * @param limitIcebergQuantity the limitIcebergQuantity to set
+	 */
+	public void setLimitIcebergQuantity(BigDecimal limitIcebergQuantity) {
+		this.limitIcebergQuantity = limitIcebergQuantity;
 	}
 
-	/** @return the stopClientOrderId */
+	/**
+	 * @return the stopClientOrderId
+	 */
 	public String getStopClientOrderId() {
 		return stopClientOrderId;
 	}
 
-	/** @param stopClientOrderId the stopClientOrderId to set */
+	/**
+	 * @param stopClientOrderId the stopClientOrderId to set
+	 */
 	public void setStopClientOrderId(String stopClientOrderId) {
 		this.stopClientOrderId = stopClientOrderId;
 	}
 
-	/** @return the stopLimitPrice */
+	/**
+	 * @return the stopLimitPrice
+	 */
 	public BigDecimal getStopLimitPrice() {
 		return stopLimitPrice;
 	}
 
-	/** @param stopLimitPrice the stopLimitPrice to set */
+	/**
+	 * @param stopLimitPrice the stopLimitPrice to set
+	 */
 	public void setStopLimitPrice(BigDecimal stopLimitPrice) {
 		this.stopLimitPrice = stopLimitPrice;
 	}
 
-	/** @return the stopIcebergQty */
-	public BigDecimal getStopIcebergQty() {
-		return stopIcebergQty;
+	/**
+	 * @return the stopIcebergQuantity
+	 */
+	public BigDecimal getStopIcebergQuantity() {
+		return stopIcebergQuantity;
 	}
 
-	/** @param stopIcebergQty the stopIcebergQty to set */
-	public void setStopIcebergQty(BigDecimal stopIcebergQty) {
-		this.stopIcebergQty = stopIcebergQty;
+	/**
+	 * @param stopIcebergQuantity the stopIcebergQuantity to set
+	 */
+	public void setStopIcebergQuantity(BigDecimal stopIcebergQuantity) {
+		this.stopIcebergQuantity = stopIcebergQuantity;
 	}
 
-	/** @return the stopLimitTimeInForce */
+	/**
+	 * @return the stopLimitTimeInForce
+	 */
 	public TimeInForce getStopLimitTimeInForce() {
 		return stopLimitTimeInForce;
 	}
 
-	/** @param stopLimitTimeInForce the stopLimitTimeInForce to set */
+	/**
+	 * @param stopLimitTimeInForce the stopLimitTimeInForce to set
+	 */
 	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
 		this.stopLimitTimeInForce = stopLimitTimeInForce;
 	}
 
-	/** @return the isIsolated */
+	/**
+	 * @return the isIsolated
+	 */
 	public Boolean isIsolated() {
 		return isIsolated;
 	}
 
-	/** @param isIsolated the isIsolated to set */
+	/**
+	 * @param isIsolated the isIsolated to set
+	 */
 	public void isIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}

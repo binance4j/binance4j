@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,13 +20,15 @@ public class OCOOrderParams extends OrderParams {
 	/** A unique Id for the limit order */
 	private String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
-	private BigDecimal limitIcebergQty;
+	@JsonProperty("limitIcebergQty")
+	private BigDecimal limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
 	private String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
 	private BigDecimal stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
-	private BigDecimal stopIcebergQty;
+	@JsonProperty("stopIcebergQty")
+	private BigDecimal stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
 	private TimeInForce stopLimitTimeInForce;
 

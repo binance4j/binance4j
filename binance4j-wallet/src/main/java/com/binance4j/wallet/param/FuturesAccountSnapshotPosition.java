@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -16,10 +17,11 @@ public class FuturesAccountSnapshotPosition {
 	private String symbol;
 	/** The entry price. */
 	private BigDecimal entryPrice;
-	/** TODO JAVADOC */
+	/** Mark price. */
 	private BigDecimal markPrice;
 	/** The position amount. */
-	private BigDecimal positionAmt;
+	@JsonProperty("positionAmt")
+	private BigDecimal positionAmount;
 	/** Only show the value at the time of opening the position. */
 	private BigDecimal unRealizedProfit;
 }

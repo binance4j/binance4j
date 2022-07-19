@@ -10,5 +10,5 @@ public record DustLog(
 		/** Total counts of exchange. */
 		int total,
 		/** TODO JAVADOC */
-		List<DustLogUserAssetDribblets> userAssetDribblets) {
+		List<UserAssetDribblets> userAssetDribblets) {
 }
