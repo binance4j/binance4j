@@ -1,7 +1,5 @@
 package com.binance4j.client;
 
-import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.wallet.dto.WalletTransferHistory;
 import com.binance4j.wallet.dto.WalletTransferType;
@@ -11,31 +9,25 @@ class GetTransferHistoryTest extends WalletTest {
 
 	String asset = "BTC";
 
-	@Test
+	// TODO @Test
 	void testGetTransferHistoryWithTransferType() throws ApiException {
 		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
 	}
 
-	@Test
+	// TODO @Test
 	void testGetTransferHistoryWithFromAndToSymbols() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
-				.execute());
+		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)).execute());
 	}
 
-	@Test
+	// TODO @Test
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
-		WalletTransferHistory history = client
-				.getTransferHistory(
-						new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit))
+		WalletTransferHistory history = client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit))
 				.execute();
 		test(history);
 	}
 
-	@Test
+	// TODO @Test
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimitAndOffset() throws ApiException {
-		test(client
-				.getTransferHistory(
-						new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1))
-				.execute());
+		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1)).execute());
 	}
 }

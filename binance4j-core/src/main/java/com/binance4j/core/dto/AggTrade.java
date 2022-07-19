@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The representation of an aggregated trade.
@@ -21,27 +20,84 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AggTrade(
 		/** The trade id */
-		@JsonProperty("a") long tradeId,
-		/** The first trade id */
-		@JsonProperty("f") long firstTradeId,
-		/** The last trade id */
-		@JsonProperty("l") long lastTradeId,
-		/** The timestamp */
-		@JsonProperty("T") long time,
+		long a,
 		/** The price */
-		@JsonProperty("p") BigDecimal price,
+		BigDecimal p,
 		/** The quantity */
-		@JsonProperty("q") BigDecimal quantity,
+		BigDecimal q,
+		/** The first trade id */
+		long f,
+		/** The last trade id */
+		long l,
+		/** The timestamp */
+		long T,
 		/** Was it a buyer maker */
-		@JsonProperty("m") boolean isBuyerMaker,
+		boolean m,
 		/** Was it the best price match? */
-		@JsonProperty("M") boolean isBestMatch) {
+		boolean M) {
 
 	/**
 	 * @param input The CSV line.
 	 */
 	public AggTrade(List<String> input) {
-		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),
-				new BigDecimal(input.get(1)), new BigDecimal(input.get(2)), Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));
+		this(Long.parseLong(input.get(0)), new BigDecimal(input.get(1)), new BigDecimal(input.get(2)), Long.parseLong(input.get(3)),
+				Long.parseLong(input.get(4)), Long.parseLong(input.get(5)), Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));
 	}
+
+	/**
+	 * @return the tradeId
+	 */
+	public long tradeId() {
+		return a;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public BigDecimal price() {
+		return p;
+	}
+
+	/**
+	 * @return the quantity
+	 */
+	public BigDecimal quantity() {
+		return q;
+	}
+
+	/**
+	 * @return the firstTradeId
+	 */
+	public long firstTradeId() {
+		return f;
+	}
+
+	/**
+	 * @return the lastTradeId
+	 */
+	public long lastTradeId() {
+		return l;
+	}
+
+	/**
+	 * @return the time
+	 */
+	public long time() {
+		return T;
+	}
+
+	/**
+	 * @return the isBuyerMaker
+	 */
+	public boolean isBuyerMaker() {
+		return m;
+	}
+
+	/**
+	 * @return the isBestMatch
+	 */
+	public boolean isBestMatch() {
+		return M;
+	}
+
 }

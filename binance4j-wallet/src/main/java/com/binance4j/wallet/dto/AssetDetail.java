@@ -3,7 +3,6 @@ package com.binance4j.wallet.dto;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Details of a supported asset.
@@ -23,7 +22,10 @@ public record AssetDetail(
 		/** The withdraw fee. */
 		Float withdrawFee,
 		/** The withdraw status (false if ALL of networks' are false). */
-		boolean withdrawStatus,
-		/** The reason of the status. */
-		@JsonProperty(defaultValue = "") String depositTip) {
+		boolean withdrawStatus, /** The reason of the status. */
+		String depositTip) {
+
+	public String depositTip() {
+		return depositTip == null ? "" : depositTip;
+	}
 }

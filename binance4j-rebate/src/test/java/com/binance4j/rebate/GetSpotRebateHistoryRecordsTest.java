@@ -14,7 +14,7 @@ public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 	@Override
 	public void test(Object bean) {
 		System.out.println(getNullProperties(bean));
-		assertTrue(getNullProperties(bean).containsAll(List.of("data.data", "data.page", "data.totalPageNum", "data.totalRecords")));
+		assertTrue(getNullProperties(bean).containsAll(List.of("SpotRebateHistoryResponse.data.data")));
 	}
 
 	@Test

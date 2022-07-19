@@ -5,128 +5,83 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.beans.IntrospectionException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.dto.AggTrade;
-import com.binance4j.core.pojo.NestedObject;
-import com.binance4j.core.pojo.SubObject;
-import com.binance4j.core.pojo.SubSubObject;
+import com.binance4j.core.pojo.TestObject;
+import com.binance4j.core.pojo.TestObject2;
 
 public class BaseTestServiceTest extends CustomTest<Void> {
+
+	List<String> list = List.of("hello", "world");
+	TestObject obj1 = new TestObject("hello", null, null, null, null);
+	TestObject obj2 = new TestObject("world", null, 0, list, null);
+
 	protected BaseTestServiceTest() {
 		super();
 	}
 
-	AggTrade trade;
-	AggTrade trade2;
-
-	@BeforeEach
-	void beforeEach() {
-		trade = new AggTrade(123L, 1L, 2L, 100L, new BigDecimal(1), new BigDecimal(1), false, false);
-		trade2 = new AggTrade(123L, 0L, 2L, 100L, null, new BigDecimal(1), false, false);
+	@Test
+	void testGetProperties() {
+		Map<String, Object> map = getProperties(obj1);
+		assertEquals(map.size(), 5);
+		assertEquals(map.get("longVal"), obj1.longVal());
+		assertEquals(map.get("stringVal"), obj1.stringVal());
+		assertEquals(map.get("intVal"), obj1.intVal());
+		assertEquals(map.get("listVal"), obj1.listVal());
+		assertEquals(map.get("objVal"), obj1.objVal());
 	}
 
 	@Test
-	void testGetProperties() {
-		Map<String, Object> map = getProperties(trade);
-
-		List<String> list = new ArrayList<String>();
-		list.add("ok");
-		list.add("lol");
-		list.add("hihi");
-
-		assertEquals(map.get("firstTradeId"), trade.firstTradeId());
-		assertEquals(map.get("lastTradeId"), trade.lastTradeId());
-		assertEquals(map.get("price"), trade.price());
-		assertEquals(map.get("quantity"), trade.quantity());
-		assertEquals(map.get("time"), trade.time());
-		assertEquals(map.get("tradeId"), trade.tradeId());
+	void testGetPropertiesOfList() {
+		Map<String, Object> map = getProperties(List.of("hello", "world"));
+		System.out.println(map);
 	}
 
 	@Test
 	void testGetNullProperties() {
-
-		Set<String> list = getNullProperties(trade2);
+		Set<String> list = getNullProperties(obj2);
+		System.out.println(list);
 		assertEquals(2, list.size());
-		assertTrue(list.containsAll(List.of("firstTradeId", "price")));
+		assertTrue(list.containsAll(List.of("TestObject.longVal", "TestObject.objVal")));
 	}
 
 	@Test
 	void testGetNullPropertiesOfList() {
-		List<AggTrade> listOfTrades = new ArrayList<>();
-		listOfTrades.add(trade);
-		listOfTrades.add(trade2);
-		Set<String> list = getNullProperties(listOfTrades);
+		List<TestObject> obj = new ArrayList<>();
+		obj.add(obj1);
+		obj.add(obj2);
+		Set<String> list = getNullProperties(obj);
 
-		assertEquals(4, list.size());
-		assertTrue(list.contains("ArrayList[0].firstTradeId"));
-		assertTrue(list.contains("ArrayList[0].price"));
-		assertTrue(list.contains("ArrayList[1].quantity"));
-		assertTrue(list.contains("ArrayList[1].time"));
+		assertEquals(6, list.size());
+		System.out.println(list);
+		assertTrue(list.containsAll(List.of("ArrayList.[0].intVal", "ArrayList.[0].listVal", "ArrayList.[0].longVal", "ArrayList.[0].objVal",
+				"ArrayList.[1].longVal", "ArrayList.[1].objVal")));
 	}
 
 	@Test
 	void testGetNestedProperties() {
+		List<String> list = new ArrayList<>();
+		list.add("hello");
+		list.add(null);
 
-		SubSubObject subSubObject1 = new SubSubObject();
-		subSubObject1.getTrades().add(trade);
-		subSubObject1.getTrades().add(trade);
-
-		SubSubObject subSubObject2 = new SubSubObject();
-		subSubObject2.getTrades().add(trade);
-		subSubObject2.getTrades().add(trade);
-
-		SubObject subsub1 = new SubObject();
-		subsub1.getSubSubObjects().add(subSubObject1);
-		subsub1.getSubSubObjects().add(subSubObject2);
-
-		SubObject subsub2 = new SubObject();
-		subsub2.getSubSubObjects().add(subSubObject1);
-		subsub2.getSubSubObjects().add(subSubObject2);
-
-		NestedObject nestedObject = new NestedObject();
-		nestedObject.getSubs().add(subsub1);
-		nestedObject.getSubs().add(subsub2);
-
-		Set<String> list = getNullProperties(nestedObject);
-
-		assertEquals(16, list.size());
-		assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].firstTradeId"));
-		assertTrue(list.contains("subs[0].subSubObjects[1].trades[1].price"));
-		assertTrue(list.contains("subs[1].subSubObjects[0].trades[0].firstTradeId"));
-		assertTrue(list.contains("subs[1].subSubObjects[0].trades[0].price"));
-		assertTrue(list.contains("subs[1].subSubObjects[0].trades[1].firstTradeId"));
-		assertTrue(list.contains("subs[1].subSubObjects[0].trades[1].price"));
-		assertTrue(list.contains("subs[1].subSubObjects[1].trades[0].firstTradeId"));
-		assertTrue(list.contains("subs[1].subSubObjects[1].trades[0].price"));
-		assertTrue(list.contains("subs[1].subSubObjects[1].trades[1].firstTradeId"));
-		assertTrue(list.contains("subs[1].subSubObjects[1].trades[1].price"));
+		var nulls = getNullProperties(new TestObject(null, 0L, 0, null, new TestObject("world", null, 0, list, new TestObject("world", 0L, null, list, null))));
+		System.out.println(nulls);
 	}
 
 	@Test
 	void testHasNoNullProperty() throws IntrospectionException {
-		assertTrue(hasNoNullProperty(trade));
-	}
-
-	@Test
-	void testHasNullProperty() throws IntrospectionException {
-		System.out.println(trade2);
-		assertFalse(hasNoNullProperty(trade2));
+		assertTrue(hasNoNullProperty(new TestObject2("", 0L, 0, List.of("ok"))));
 	}
 
 	@Test
 	void testHasBeanProperties() {
-		System.out.println(trade);
-		assertTrue(hasProperties(trade));
+		assertTrue(hasProperties(obj1));
 	}
 
 	@Test
@@ -134,24 +89,6 @@ public class BaseTestServiceTest extends CustomTest<Void> {
 		assertTrue(isJavaBean("test"));
 		assertTrue(isJavaBean(new ArrayList<>()));
 		assertTrue(isJavaBean(new HashMap<>()));
-		assertFalse(isJavaBean(trade));
-	}
-
-	@Test
-	void testIsMap() {
-		assertTrue(isMap(new HashMap<>()));
-		assertFalse(isMap(new HashSet<>()));
-		assertFalse(isMap(new ArrayList<>()));
-		assertFalse(isMap("test"));
-		assertFalse(isMap(trade));
-	}
-
-	@Test
-	void testIsCollection() {
-		assertTrue(isCollection(new HashSet<>()));
-		assertTrue(isCollection(new ArrayList<>()));
-		assertFalse(isCollection(new HashMap<>()));
-		assertFalse(isCollection("test"));
-		assertFalse(isCollection(trade));
+		assertFalse(isJavaBean(obj1));
 	}
 }

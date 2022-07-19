@@ -2,30 +2,26 @@ package com.binance4j.core.test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 
  */
-@Execution(ExecutionMode.CONCURRENT)
 public abstract class CustomTest<T> {
 	/** The API public key */
 	protected String key = System.getenv("BINANCE_API_KEY");
@@ -94,18 +90,60 @@ public abstract class CustomTest<T> {
 	 * @return the properties of the given bean.
 	 */
 	protected Map<String, Object> getProperties(Object bean) {
-		Map<String, Object> map = new HashMap<>();
-		try {
-			List.of(Introspector.getBeanInfo(bean.getClass(), Object.class).getPropertyDescriptors()).stream().forEach(pd -> {
-				try {
-					map.put(pd.getName(), pd.getReadMethod().invoke(bean));
-				} catch (Exception e) {
-				}
+		if (bean instanceof Collection == false) {
+			return new ObjectMapper().convertValue(bean, new TypeReference<Map<String, Object>>() {
 			});
-			return map;
-		} catch (IntrospectionException e) {
-			return Collections.emptyMap();
+		} else {
+			return getProperties((Collection<Object>) bean);
 		}
+	}
+
+	/**
+	 * @param bean The bean we want the properties.
+	 * @return the properties of the given bean.
+	 */
+	protected Map<String, Object> getProperties(Collection<Object> bean) {
+		Map<String, Object> map = new HashMap<>();
+		int i = 0;
+		for (var b : (Collection<?>) bean) {
+			map.put(String.format("[%s]", Integer.toString(i)), b);
+			i++;
+		}
+
+		return map;
+	}
+
+	/**
+	 * @param bean The bean we want the properties.
+	 * @return the bean properties with a null walue.
+	 */
+	protected Set<String> getNullProperties(Object bean, String parentName) {
+		if (bean == null) {
+			return Collections.emptySet();
+		}
+		List<String> nulls = new ArrayList<>();
+
+		if (bean instanceof Collection || bean instanceof Map || !isJavaBean(bean)) {
+			Map<String, Object> props = getProperties(bean);
+
+			List<String> list = props.entrySet().stream().filter(es -> Objects.isNull(es.getValue())).map(es -> parentName + "." + es.getKey()).toList();
+			nulls.addAll(list);
+
+			list = props.entrySet().stream().filter(es -> Objects.nonNull(es.getValue()))
+					.map(es -> getNullProperties(es.getValue(), parentName + "." + es.getKey())).flatMap(Collection::stream).collect(Collectors.toList());
+			nulls.addAll(list);
+		}
+
+		Collections.sort(nulls);
+		return new TreeSet<>(nulls);
+	}
+
+	/**
+	 * @param bean The bean we want the properties.
+	 * @return the properties of the given bean.
+	 */
+	protected Map<String, Object> getProperties(Map<String, Object> bean) {
+		return bean;
 	}
 
 	/**
@@ -122,54 +160,12 @@ public abstract class CustomTest<T> {
 	 * @return the bean properties with a null walue.
 	 */
 	protected Set<String> getNullProperties(Object bean, boolean flatten) {
-		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
+		Set<String> set = getNullProperties(bean);
 
 		return !flatten ? set : set.stream().map(string -> {
 			String[] array = string.split("\\.");
 			return array[array.length - 1];
 		}).collect(Collectors.toSet());
-	}
-
-	/**
-	 * @param bean           The bean we want the properties.
-	 * @param enclosingClass The enclosing class.
-	 * @return the bean properties with a null walue.
-	 */
-	protected Set<String> getNullProperties(Object bean, String enclosingClass) {
-		List<String> list = new ArrayList<>();
-		// Handling collections
-		if (bean instanceof Collection) {
-			int i = 0;
-
-			for (Object b : (Collection<?>) bean) {
-				Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
-				for (String np : nullProps) {
-					list.add(String.format("%s[%s].%s", enclosingClass, Integer.toString(i), np));
-				}
-				i++;
-
-			}
-		}
-		// Handling maps
-		else if (bean instanceof Map) {
-			list = ((Map<?, ?>) bean).entrySet().stream().map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName()).stream()
-					.map(np -> es.getKey() + "." + np).collect(Collectors.toSet())).flatMap(Collection::stream).collect(Collectors.toList());
-		}
-		// Handling custom objects
-		else if (!isJavaBean(bean)) {
-			list = getProperties(bean).entrySet().stream().map(o -> {
-				if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
-					return getNullProperties(o.getValue(), o.getKey());
-				} else if (o.getValue() == null) {
-					return new HashSet<>(List.of(Character.isUpperCase(enclosingClass.charAt(0)) ? o.getKey() : enclosingClass + "." + o.getKey()));
-				} else {
-					return getNullProperties(o.getValue(), o.getKey());
-				}
-			}).flatMap(Collection::stream).collect(Collectors.toList());
-		}
-		Collections.sort(list);
-
-		return new TreeSet<>(list);
 	}
 
 	/**
@@ -194,22 +190,6 @@ public abstract class CustomTest<T> {
 	 */
 	protected boolean isJavaBean(Object bean) {
 		return bean.getClass().getName().startsWith("java");
-	}
-
-	/**
-	 * @param bean The bean to inspect.
-	 * @return if the object is a Map.
-	 */
-	protected boolean isMap(Object bean) {
-		return bean instanceof Map;
-	}
-
-	/**
-	 * @param bean The bean to inspect.
-	 * @return if the object is a Collection (Map excluded).
-	 */
-	protected boolean isCollection(Object bean) {
-		return bean instanceof Collection;
 	}
 
 	/**

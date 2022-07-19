@@ -190,4 +190,12 @@ public class WebsocketClientConfiguration {
 		this.closeAfter = closeAfter;
 	}
 
+	@Override
+	public String toString() {
+		return "WebsocketClientConfiguration [baseUrl=" + baseUrl + ", closeAfter=" + closeAfter + ", disconnectionTimeout=" + disconnectionTimeout
+				+ ", keepAlive=" + keepAlive + ", maxReconnections=" + maxReconnections + ", noResponseTimeout=" + noResponseTimeout
+				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval + ", reconnectionInterval="
+				+ reconnectionInterval + ", reconnectionRetries=" + reconnectionRetries + ", websocketPort=" + websocketPort + "]";
+	}
+
 }

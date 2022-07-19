@@ -3,7 +3,9 @@ package com.binance4j.core.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.binance4j.core.serialization.CandleDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * The representation of a candle for a symbol.
@@ -21,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param takerBuyQuoteAssetVolume Taker buy quote asset volume.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(using = CandleDeserializer.class)
 public record Candle(
 		/** The candlestick open timestamp in milliseconds */
 		long openTime,
