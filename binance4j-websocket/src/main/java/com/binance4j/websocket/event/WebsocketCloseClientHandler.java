@@ -6,6 +6,10 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 
 /** Will close the client after {@link WebsocketClientConfiguration#closeAfter} */
 public class WebsocketCloseClientHandler extends BaseWebsocketEventHandler {
+	/**
+	 * @param websocketClient The websocket client.
+	 * @param callback        The callback.
+	 */
 	public WebsocketCloseClientHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "Client not closing", "Disconnected");
 	}

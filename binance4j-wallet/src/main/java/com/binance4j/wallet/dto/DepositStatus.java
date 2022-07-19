@@ -2,11 +2,7 @@ package com.binance4j.wallet.dto;
 
 import java.util.Arrays;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /** The coin deposit status */
-@AllArgsConstructor
 public enum DepositStatus {
 
 	/** Pending */
@@ -17,8 +13,21 @@ public enum DepositStatus {
 	SUCCESS(1);
 
 	/** The status number. */
-	@Getter
 	private final int value;
+
+	/**
+	 * @param value
+	 */
+	private DepositStatus(int value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public int getValue() {
+		return value;
+	}
 
 	/**
 	 * @param value The integer value

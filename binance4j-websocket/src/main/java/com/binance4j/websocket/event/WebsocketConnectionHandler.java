@@ -13,6 +13,10 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
  * {@link WebsocketClientConfiguration#getMaxReconnections}
  */
 public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
+	/**
+	 * @param websocketClient The websocket client.
+	 * @param callback        The callback.
+	 */
 	public WebsocketConnectionHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "Connection failed", "Connection failed too many times");
 	}

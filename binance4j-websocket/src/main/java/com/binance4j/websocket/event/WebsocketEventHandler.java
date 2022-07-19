@@ -10,6 +10,10 @@ public interface WebsocketEventHandler {
 	/** Cancel the handler */
 	void cancel();
 
-	/** Disconnect the websocket */
+	/**
+	 * Disconnect the websocket.
+	 * 
+	 * @param timeout The timeout to disconnect the handler.
+	 */
 	void disconnect(Duration timeout);
 }

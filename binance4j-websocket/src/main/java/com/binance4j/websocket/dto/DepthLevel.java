@@ -1,10 +1,6 @@
 package com.binance4j.websocket.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /** The order book size */
-@AllArgsConstructor
 public enum DepthLevel {
 	/** Depth of 5 results. */
 	LEVEL_5("5"),
@@ -14,6 +10,20 @@ public enum DepthLevel {
 	LEVEL_20("20");
 
 	/** The result size. */
-	@Getter
 	private final String level;
+
+	/**
+	 * @param level
+	 */
+	private DepthLevel(String level) {
+		this.level = level;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public String getLevel() {
+		return level;
+	}
+
 }

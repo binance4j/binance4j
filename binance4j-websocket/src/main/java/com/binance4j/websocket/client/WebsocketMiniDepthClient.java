@@ -16,7 +16,7 @@ public class WebsocketMiniDepthClient extends BaseWebsocketClient<MiniDepth> {
 	 * @param callback The events handler.
 	 */
 	public WebsocketMiniDepthClient(String symbols, DepthLevel level, DepthUpdateSpeed speed, WebsocketCallback<MiniDepth> callback) {
-		super(symbols, String.format("depth%s@%s", level.getLevel(), speed.getSpeed()), MiniDepth.class, callback);
+		super(symbols, String.format("depth%s@%s", level.getLevel(), speed.getValue()), MiniDepth.class, callback);
 	}
 
 	/**

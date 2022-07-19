@@ -36,6 +36,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 
 	/**
 	 * @param websocketClient The main ws client.
+	 * @param callback        The callback.
 	 */
 	public WebsocketInterceptorCallback(WebsocketClient websocketClient, WebsocketCallback<T> callback) {
 		this.websocketClient = websocketClient;

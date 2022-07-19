@@ -1,10 +1,6 @@
 package com.binance4j.websocket.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /** The order book update speed */
-@AllArgsConstructor
 public enum DepthUpdateSpeed {
 
 	/** Update of 1000ms. */
@@ -13,6 +9,19 @@ public enum DepthUpdateSpeed {
 	MS_100("100ms");
 
 	/** The result update speed. */
-	@Getter
-	private final String speed;
+	private final String value;
+
+	/**
+	 * @param calue
+	 */
+	private DepthUpdateSpeed(String calue) {
+		this.value = calue;
+	}
+
+	/**
+	 * @return the speed
+	 */
+	public String getValue() {
+		return value;
+	}
 }

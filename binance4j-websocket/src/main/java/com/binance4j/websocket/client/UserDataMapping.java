@@ -13,6 +13,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
+/** {@link UserDataClient} mapping */
 public interface UserDataMapping {
 
 	/** The API key http full header. */

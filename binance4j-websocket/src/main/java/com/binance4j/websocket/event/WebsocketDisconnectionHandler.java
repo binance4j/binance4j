@@ -5,6 +5,10 @@ import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 
 /** Forces the closing of the client if it is stuck on closing state */
 public class WebsocketDisconnectionHandler extends BaseWebsocketEventHandler {
+	/**
+	 * @param websocketClient The websocket client.
+	 * @param callback        The callback.
+	 */
 	public WebsocketDisconnectionHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "Client not closing", "Disconnected");
 	}

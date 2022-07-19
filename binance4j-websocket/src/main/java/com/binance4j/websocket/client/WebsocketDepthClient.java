@@ -12,7 +12,7 @@ public class WebsocketDepthClient extends BaseWebsocketClient<Depth> {
 	 * @param callback The events handler.
 	 */
 	public WebsocketDepthClient(String symbols, DepthUpdateSpeed speed, WebsocketCallback<Depth> callback) {
-		super(symbols, String.format("depth@%s", speed.getSpeed()), Depth.class, callback);
+		super(symbols, String.format("depth@%s", speed.getValue()), Depth.class, callback);
 	}
 
 	/**

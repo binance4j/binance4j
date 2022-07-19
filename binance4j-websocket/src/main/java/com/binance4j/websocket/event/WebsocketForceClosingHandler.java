@@ -6,13 +6,17 @@ import com.binance4j.websocket.client.WebsocketClient;
 import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 
 /**
- * Forces the call of the {@code onClosing} and {@code onClosed} event handlers
- * of the {@link WebsocketClient WebsocketClient's}
- * {@link WebsocketInterceptorCallback}
+ * Forces the call of the {@code onClosing} and {@code onClosed} event handlers of the {@link WebsocketClient
+ * WebsocketClient's} {@link WebsocketInterceptorCallback}
  */
 public class WebsocketForceClosingHandler extends BaseWebsocketEventHandler {
+	/** Close object. */
 	protected WebsocketCloseObject closeObject = new WebsocketCloseObject(-1000, "Client forced to close");
 
+	/**
+	 * @param websocketClient The websocket client.
+	 * @param callback        The callback.
+	 */
 	public WebsocketForceClosingHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "Client not calling onClosing and onClosed event handlers", "Disconnected");
 	}
@@ -20,13 +24,11 @@ public class WebsocketForceClosingHandler extends BaseWebsocketEventHandler {
 	public void run() {
 		cancel();
 
-		eventHandler = new TimeoutEvent(
-				websocketClient.getConfiguration().getDisconnectionTimeout(),
-				() -> {
-					if (!callback.isOnClosingCalled()) {
-						callback.onClosing(closeObject);
-						callback.onClosed(closeObject);
-					}
-				});
+		eventHandler = new TimeoutEvent(websocketClient.getConfiguration().getDisconnectionTimeout(), () -> {
+			if (!callback.isOnClosingCalled()) {
+				callback.onClosing(closeObject);
+				callback.onClosed(closeObject);
+			}
+		});
 	}
 }

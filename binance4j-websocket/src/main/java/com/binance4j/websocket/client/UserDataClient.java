@@ -41,6 +41,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
 	 * 
+	 * @param listenKey The listen key.
 	 * @return The request to execute.
 	 */
 	public Request<Void> keepAliveUserDataStream(String listenKey) {
@@ -50,6 +51,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	/**
 	 * Close out a user data stream.
 	 * 
+	 * @param listenKey The listen key.
 	 * @return The request to execute.
 	 */
 	public Request<Void> closeUserDataStream(String listenKey) {
@@ -79,6 +81,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
 	 * 
+	 * @param listenKey The listen key.
 	 * @return The request to execute.
 	 */
 	public Request<Void> keepAliveMarginUserDataStream(String listenKey) {
@@ -88,6 +91,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	/**
 	 * Close out a user data stream (Margin).
 	 * 
+	 * @param listenKey The listen key.
 	 * @return The request to execute.
 	 */
 	public Request<Void> closeMarginUserDataStream(String listenKey) {
@@ -102,6 +106,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60
 	 * minutes.
 	 * 
+	 * @param params The query params
 	 * @return The request to execute.
 	 */
 	public Request<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamParams params) {
@@ -115,6 +120,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
 	 * 
+	 * @param params The query params
 	 * @return The request to execute.
 	 */
 	public Request<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
@@ -124,6 +130,7 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	/**
 	 * Close out a user data stream (Isolated margin).
 	 * 
+	 * @param params The query params
 	 * @return The request to execute.
 	 */
 	public Request<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
