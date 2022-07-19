@@ -1,11 +1,6 @@
 package com.binance4j.core.exception;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /** API response error containing a code and a message. */
-@Data
-@NoArgsConstructor
 public class ApiError {
 	/** The error code. */
 	private int code;
@@ -19,5 +14,33 @@ public class ApiError {
 	public ApiError(int code, String msg) {
 		this.msg = msg;
 		this.code = code;
+	}
+
+	/**
+	 * @return the code
+	 */
+	public int getCode() {
+		return code;
+	}
+
+	/**
+	 * @param code the code to set
+	 */
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	/**
+	 * @return the msg
+	 */
+	public String getMsg() {
+		return msg;
+	}
+
+	/**
+	 * @param msg the msg to set
+	 */
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }

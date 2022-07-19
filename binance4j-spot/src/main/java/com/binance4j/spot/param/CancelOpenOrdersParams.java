@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** Request to cancel an order. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class CancelOpenOrdersParams extends FramedParams {
 	/** The trade symbol */
 	private String symbol;
@@ -20,5 +15,33 @@ public class CancelOpenOrdersParams extends FramedParams {
 	public CancelOpenOrdersParams(String symbol) {
 		super(1);
 		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the isIsolated
+	 */
+	public Boolean isIsolated() {
+		return isIsolated;
+	}
+
+	/**
+	 * @param isIsolated the isIsolated to set
+	 */
+	public void isIsolated(Boolean isIsolated) {
+		this.isIsolated = isIsolated;
 	}
 }

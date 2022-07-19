@@ -27,16 +27,11 @@ import com.binance4j.spot.param.OpenOrdersStatusParams;
 import com.binance4j.spot.param.OrderCountParams;
 import com.binance4j.spot.param.OrderStatusParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * API client for the SPOT endpoints
  * 
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade">Documentation</a>
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class SpotClient extends RestClient<SpotMapping> {
 
 	/**

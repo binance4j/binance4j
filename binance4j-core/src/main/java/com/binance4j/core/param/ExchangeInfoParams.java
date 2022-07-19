@@ -4,12 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to retrieve the exchange trading rules and symbol information */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class ExchangeInfoParams extends Params {
 	/** The symbols we want info about */
 	private String symbols;
@@ -32,5 +27,19 @@ public class ExchangeInfoParams extends Params {
 	 */
 	public ExchangeInfoParams(String symbol) {
 		this(Collections.singletonList(symbol));
+	}
+
+	/**
+	 * @return the symbols
+	 */
+	public String getSymbols() {
+		return symbols;
+	}
+
+	/**
+	 * @param symbols the symbols to set
+	 */
+	public void setSymbols(String symbols) {
+		this.symbols = symbols;
 	}
 }

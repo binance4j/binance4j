@@ -2,12 +2,7 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The request to cancel an order. */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class CancelOrderParams extends FramedParams {
 	/** The trade symbol */
 	private String symbol;
@@ -37,4 +32,61 @@ public class CancelOrderParams extends FramedParams {
 		this.symbol = symbol;
 		this.origClientOrderId = origClientOrderId;
 	}
+
+	/**
+	 * @return the symbol
+	 */
+	public String getSymbol() {
+		return symbol;
+	}
+
+	/**
+	 * @param symbol the symbol to set
+	 */
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	/**
+	 * @return the orderId
+	 */
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	/**
+	 * @return the origClientOrderId
+	 */
+	public String getOrigClientOrderId() {
+		return origClientOrderId;
+	}
+
+	/**
+	 * @param origClientOrderId the origClientOrderId to set
+	 */
+	public void setOrigClientOrderId(String origClientOrderId) {
+		this.origClientOrderId = origClientOrderId;
+	}
+
+	/**
+	 * @return the newClientOrderId
+	 */
+	public String getNewClientOrderId() {
+		return newClientOrderId;
+	}
+
+	/**
+	 * @param newClientOrderId the newClientOrderId to set
+	 */
+	public void setNewClientOrderId(String newClientOrderId) {
+		this.newClientOrderId = newClientOrderId;
+	}
+
 }

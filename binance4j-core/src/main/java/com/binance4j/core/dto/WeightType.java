@@ -1,5 +1,11 @@
 package com.binance4j.core.dto;
 
+/** The request weight type. */
 public enum WeightType {
-	UID, IP, UID_AND_IP
+	/** Account related */
+	UID,
+	/** IP related */
+	IP,
+	/** Account and IP related */
+	UID_AND_IP
 }
