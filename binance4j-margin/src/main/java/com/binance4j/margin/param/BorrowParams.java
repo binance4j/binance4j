@@ -2,6 +2,7 @@ package com.binance4j.margin.param;
 
 import java.math.BigDecimal;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 
@@ -26,6 +27,7 @@ public class BorrowParams extends FramedParams {
 	 */
 	public BorrowParams(String asset, BigDecimal amount) {
 		super(300);
+		weightType = WeightType.UID;
 		this.asset = asset;
 		this.amount = amount;
 	}

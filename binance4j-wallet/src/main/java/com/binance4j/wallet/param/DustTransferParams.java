@@ -2,6 +2,7 @@ package com.binance4j.wallet.param;
 
 import java.util.List;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 
 import lombok.Data;
@@ -19,6 +20,7 @@ public class DustTransferParams extends FramedParams {
 	 */
 	public DustTransferParams(List<String> assets) {
 		super(10);
+		weightType = WeightType.UID;
 		this.assets = assets;
 	}
 }

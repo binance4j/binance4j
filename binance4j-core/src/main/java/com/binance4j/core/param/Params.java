@@ -3,6 +3,7 @@ package com.binance4j.core.param;
 import java.util.Collections;
 import java.util.Map;
 
+import com.binance4j.core.dto.WeightType;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,6 +22,9 @@ public class Params {
 
 	/** Is this request generating an order? */
 	protected boolean isOrderRequest;
+
+	/** The request weight type. */
+	protected WeightType weightType = WeightType.IP;
 
 	/** Constructor */
 	protected Params() {
@@ -51,6 +55,7 @@ public class Params {
 
 		// Removing null and useless parameters from the query map
 		map.remove("weight");
+		map.remove("weightType");
 		map.remove("orderRequest");
 		map.remove("isOrderRequest");
 		map.values().removeAll(Collections.singleton(null));
@@ -70,5 +75,19 @@ public class Params {
 	/** @return the weight */
 	public int getWeight() {
 		return weight;
+	}
+
+	/**
+	 * @return the weightType
+	 */
+	public WeightType getWeightType() {
+		return weightType;
+	}
+
+	/**
+	 * @param weightType the weightType to set
+	 */
+	public void setWeightType(WeightType weightType) {
+		this.weightType = weightType;
 	}
 }

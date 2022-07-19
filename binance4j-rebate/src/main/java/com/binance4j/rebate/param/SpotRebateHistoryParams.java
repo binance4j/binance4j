@@ -1,5 +1,6 @@
 package com.binance4j.rebate.param;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.rebate.client.RebateClient;
 
@@ -13,6 +14,7 @@ public class SpotRebateHistoryParams extends IntervalParams {
 	/** Constructor. */
 	public SpotRebateHistoryParams() {
 		super(3000);
+		weightType = WeightType.UID;
 	}
 
 	/**

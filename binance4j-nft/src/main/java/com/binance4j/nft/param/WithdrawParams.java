@@ -1,5 +1,6 @@
 package com.binance4j.nft.param;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.IntervalParams;
 
 /**
@@ -20,6 +21,7 @@ public class WithdrawParams extends IntervalParams {
 	 */
 	public WithdrawParams() {
 		super(3000);
+		weightType = WeightType.UID;
 	}
 
 	/**

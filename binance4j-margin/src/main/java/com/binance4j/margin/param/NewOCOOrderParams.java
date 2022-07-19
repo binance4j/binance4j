@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,6 +54,7 @@ public class NewOCOOrderParams extends FramedParams {
 	 */
 	public NewOCOOrderParams(String symbol, OrderSide side, BigDecimal quantity, BigDecimal price, BigDecimal stopPrice) {
 		super(1);
+		weightType = WeightType.UID;
 		this.symbol = symbol;
 		this.side = side;
 		this.quantity = quantity;

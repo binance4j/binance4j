@@ -1,5 +1,6 @@
 package com.binance4j.nft.param;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.nft.dto.OrderType;
 
@@ -18,11 +19,16 @@ public class TransactionHistoryParams extends IntervalParams {
 	/** The result page. Default 1. */
 	private Integer page = 1;
 
+	private TransactionHistoryParams() {
+		super(3000);
+		weightType = WeightType.UID;
+	}
+
 	/**
 	 * @param orderType The order type.
 	 */
 	public TransactionHistoryParams(OrderType orderType) {
-		super(3000);
+		this();
 		this.orderType = orderType.getValue();
 	}
 
@@ -30,7 +36,7 @@ public class TransactionHistoryParams extends IntervalParams {
 	 * @param orderType The order type.
 	 */
 	public TransactionHistoryParams(int orderType) {
-		super(3000);
+		this();
 		this.orderType = orderType;
 	}
 

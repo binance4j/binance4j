@@ -1,5 +1,6 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 
@@ -19,6 +20,7 @@ public class CancelOCOParams extends FramedParams {
 	/** @param symbol The related symbol. */
 	public CancelOCOParams(String symbol) {
 		super();
+		weightType = WeightType.UID;
 		this.symbol = symbol;
 	}
 

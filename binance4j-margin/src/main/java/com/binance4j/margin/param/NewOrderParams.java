@@ -8,6 +8,7 @@ import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.SideEffectType;
 import com.binance4j.core.dto.TimeInForce;
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.margin.client.MarginClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,6 +44,7 @@ public class NewOrderParams extends FramedParams {
 
 	private NewOrderParams() {
 		super(6, true);
+		weightType = WeightType.UID;
 	}
 
 	/**

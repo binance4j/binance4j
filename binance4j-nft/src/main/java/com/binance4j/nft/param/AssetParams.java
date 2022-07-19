@@ -1,5 +1,6 @@
 package com.binance4j.nft.param;
 
+import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 
 /**
@@ -20,6 +21,7 @@ public class AssetParams extends FramedParams {
 	 */
 	public AssetParams() {
 		super(3000);
+		weightType = WeightType.UID;
 	}
 
 	/**
