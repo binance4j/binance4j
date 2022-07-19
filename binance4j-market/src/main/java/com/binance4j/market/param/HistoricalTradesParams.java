@@ -14,7 +14,7 @@ public class HistoricalTradesParams extends Params {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The symbol we want the trades
+	 * @param symbol The symbol we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol) {
 		super(5);
@@ -22,8 +22,8 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
-	 * @param limit  The trades size
+	 * @param symbol The symbol we want the trades.
+	 * @param limit  The trades size.
 	 */
 	public HistoricalTradesParams(String symbol, int limit) {
 		this(symbol);
@@ -31,9 +31,9 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
-	 * @param limit  The trades size
-	 * @param fromId The oldest trade id fro which we want the trades
+	 * @param symbol The symbol we want the trades.
+	 * @param limit  The trades size.
+	 * @param fromId The oldest trade id fro which we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol, long fromId, int limit) {
 		this(symbol, limit);
@@ -41,9 +41,9 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
-	 * @param limit  The trades size
-	 * @param fromId The oldest trade id fro which we want the trades
+	 * @param symbol The symbol we want the trades.
+	 * @param limit  The trades size.
+	 * @param fromId The oldest trade id fro which we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol, String fromId, int limit) {
 		this(symbol, limit);
@@ -51,8 +51,8 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
-	 * @param fromId The oldest trade id fro which we want the trades
+	 * @param symbol The symbol we want the trades.
+	 * @param fromId The oldest trade id fro which we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol, long fromId) {
 		this(symbol);
@@ -60,8 +60,8 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
-	 * @param fromId The oldest trade id fro which we want the trades
+	 * @param symbol The symbol we want the trades.
+	 * @param fromId The oldest trade id fro which we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol, String fromId) {
 		this(symbol);
@@ -69,42 +69,42 @@ public class HistoricalTradesParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 
 	/**
-	 * @return the fromId
+	 * @return the fromId.
 	 */
 	public Long getFromId() {
 		return fromId;
 	}
 
 	/**
-	 * @param fromId the fromId to set
+	 * @param fromId the fromId to set.
 	 */
 	public void setFromId(Long fromId) {
 		this.fromId = fromId;

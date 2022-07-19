@@ -10,7 +10,7 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the server sends data
 	 *
-	 * @param message The server message
+	 * @param message The server message.
 	 */
 	void onMessage(T message);
 
@@ -25,7 +25,7 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the connection is closing
 	 *
-	 * @param websocketCloseObject Websocket closing code and reason container
+	 * @param websocketCloseObject Websocket closing code and reason container.
 	 */
 	default void onClosing(WebsocketCloseObject websocketCloseObject) {
 	}
@@ -33,7 +33,7 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the connection is closed
 	 *
-	 * @param websocketCloseObject Websocket closing code and reason container
+	 * @param websocketCloseObject Websocket closing code and reason container.
 	 */
 	default void onClosed(WebsocketCloseObject websocketCloseObject) {
 	}
@@ -41,7 +41,7 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the connection is opened
 	 *
-	 * @param response The API open response
+	 * @param response The API open response.
 	 */
 	default void onOpen(Response response) {
 	}

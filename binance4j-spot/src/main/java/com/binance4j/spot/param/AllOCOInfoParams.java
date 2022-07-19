@@ -20,9 +20,7 @@ public class AllOCOInfoParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param fromId The id to search from
+	 * @param fromId The id to search from.
 	 */
 	public AllOCOInfoParams(Long fromId) {
 		this();
@@ -30,9 +28,7 @@ public class AllOCOInfoParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param limit The result size
+	 * @param limit The result size.
 	 */
 	public AllOCOInfoParams(Integer limit) {
 		this();
@@ -40,10 +36,8 @@ public class AllOCOInfoParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param fromId The id to search from
-	 * @param limit  The result size
+	 * @param fromId The id to search from.
+	 * @param limit  The result size.
 	 */
 	public AllOCOInfoParams(Long fromId, Integer limit) {
 		this();

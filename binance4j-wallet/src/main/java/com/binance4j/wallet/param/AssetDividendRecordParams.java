@@ -22,7 +22,7 @@ public class AssetDividendRecordParams extends IntervalParams {
 	/**
 	 * with asset
 	 *
-	 * @param asset The asset we want the records
+	 * @param asset The asset we want the records.
 	 */
 	public AssetDividendRecordParams(String asset) {
 		this();
@@ -32,7 +32,7 @@ public class AssetDividendRecordParams extends IntervalParams {
 	/**
 	 * with asset and limit
 	 *
-	 * @param asset The asset we want the records
+	 * @param asset The asset we want the records.
 	 */
 	public AssetDividendRecordParams(String asset, Integer limit) {
 		this(asset);

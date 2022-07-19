@@ -20,16 +20,15 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/** Changes a string into an object. */
 	private final ObjectReader objectReader;
 	/**
-	 * Makes it able to make the difference between a closing event and a
-	 * failure event
+	 * Makes it able to make the difference between a closing event and a failure event
 	 */
 	private boolean closing = false;
 
 	/**
 	 * Default constructor
 	 *
-	 * @param callback   The websocket callback
-	 * @param eventClass The payload class
+	 * @param callback   The websocket callback.
+	 * @param eventClass The payload class.
 	 */
 	public ApiWebSocketListener(final WebsocketCallback<T> callback, final Class<T> eventClass) {
 		this.callback = callback;
@@ -37,13 +36,10 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param callback           The websocket callback
+	 * @param callback           The websocket callback.
 	 * @param eventTypeReference ???
 	 */
-	public ApiWebSocketListener(final WebsocketCallback<T> callback,
-	                            final TypeReference<T> eventTypeReference) {
+	public ApiWebSocketListener(final WebsocketCallback<T> callback, final TypeReference<T> eventTypeReference) {
 		this.callback = callback;
 		this.objectReader = MAPPER.readerFor(eventTypeReference);
 	}
@@ -51,8 +47,8 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/**
 	 * {@link WebsocketCallback#onMessage(Object)} ()} wrapper
 	 *
-	 * @param webSocket The websocket
-	 * @param text      The payload as a string
+	 * @param webSocket The websocket.
+	 * @param text      The payload as a string.
 	 */
 	@Override
 	public void onMessage(@NotNull final WebSocket webSocket, @NotNull final String text) {
@@ -66,8 +62,8 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/**
 	 * {@link WebsocketCallback#onOpen} wrapper
 	 *
-	 * @param webSocket The websocket
-	 * @param response  The opening payload
+	 * @param webSocket The websocket.
+	 * @param response  The opening payload.
 	 */
 	@Override
 	public void onOpen(@NotNull final WebSocket webSocket, @NotNull final Response response) {
@@ -81,9 +77,9 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/**
 	 * {@link WebsocketCallback#onClosing} wrapper
 	 *
-	 * @param webSocket The websocket
-	 * @param code      The closing code
-	 * @param reason    The closing reason
+	 * @param webSocket The websocket.
+	 * @param code      The closing code.
+	 * @param reason    The closing reason.
 	 */
 	@Override
 	public void onClosing(@NotNull final WebSocket webSocket, final int code, @NotNull final String reason) {
@@ -98,9 +94,9 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/**
 	 * {@link WebsocketCallback#onClosed} wrapper
 	 *
-	 * @param webSocket The websocket
-	 * @param code      The closing code
-	 * @param reason    The closing reason
+	 * @param webSocket The websocket.
+	 * @param code      The closing code.
+	 * @param reason    The closing reason.
 	 */
 	@Override
 	public void onClosed(@NotNull final WebSocket webSocket, final int code, @NotNull final String reason) {
@@ -115,9 +111,9 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/**
 	 * {@link WebsocketCallback#onFailure} wrapper
 	 *
-	 * @param webSocket The websocket
-	 * @param t         The error object
-	 * @param response  The HTTP response
+	 * @param webSocket The websocket.
+	 * @param t         The error object.
+	 * @param response  The HTTP response.
 	 */
 	@Override
 	public void onFailure(@NotNull final WebSocket webSocket, @NotNull final Throwable t, final Response response) {

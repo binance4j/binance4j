@@ -8,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * The current exchange trading rules and symbol information.
  * 
- * @param timezone        The server timezone
- * @param serverTime      The server time
- * @param rateLimits      The request limits (weight, orders, raw...)
- * @param exchangeFilters The trading rules of the exchange
- * @param symbols         The available symbols on the exchange
+ * @param timezone        The server timezone.
+ * @param serverTime      The server time.
+ * @param rateLimits      The request limits (weight, orders, raw...).
+ * @param exchangeFilters The trading rules of the exchange.
+ * @param symbols         The available symbols on the exchange.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ExchangeInfo(
@@ -28,8 +28,8 @@ public record ExchangeInfo(
 		List<SymbolInfo> symbols) {
 
 	/**
-	 * @param symbol The symbol we want the infos
-	 * @return The symbol exchange information
+	 * @param symbol The symbol we want the infos.
+	 * @return The symbol exchange information.
 	 * @throws NotFoundException Thrown if the symbol was not found
 	 */
 	public SymbolInfo getSymbolInfo(String symbol) throws NotFoundException {

@@ -4,10 +4,8 @@ package com.binance4j.spot.client;
 public class TestnetSpotClient extends SpotClient {
 
 	/**
-	 *
-	 * 
-	 * @param key    The Testnet public key
-	 * @param secret The Testnet secret key
+	 * @param key    The Testnet public key.
+	 * @param secret The Testnet secret key.
 	 */
 	public TestnetSpotClient(String key, String secret) {
 		super(key, secret);

@@ -23,7 +23,7 @@ public class AllOrdersParams extends IntervalParams {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The symbol we want the orders
+	 * @param symbol The symbol we want the orders.
 	 */
 	public AllOrdersParams(String symbol) {
 		super(10);
@@ -33,7 +33,8 @@ public class AllOrdersParams extends IntervalParams {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The symbol we want the orders
+	 * @param symbol The symbol we want the orders.
+	 * @param limit  The result limit.
 	 */
 	public AllOrdersParams(String symbol, Integer limit) {
 		this(symbol);
@@ -43,8 +44,8 @@ public class AllOrdersParams extends IntervalParams {
 	/**
 	 * with search after orderId
 	 *
-	 * @param symbol  The symbol we want the orders
-	 * @param orderId The order id to get &gt;= orders
+	 * @param symbol  The symbol we want the orders.
+	 * @param orderId The order id to get &gt;= orders.
 	 */
 	public AllOrdersParams(String symbol, long orderId) {
 		this(symbol);
@@ -54,9 +55,9 @@ public class AllOrdersParams extends IntervalParams {
 	/**
 	 * with startTime and endTime
 	 *
-	 * @param symbol    The symbol we want the orders
-	 * @param startTime The starting time of results
-	 * @param endTime   The ending time of results
+	 * @param symbol    The symbol we want the orders.
+	 * @param startTime The starting time of results.
+	 * @param endTime   The ending time of results.
 	 */
 	public AllOrdersParams(String symbol, long startTime, long endTime) {
 		this(symbol);

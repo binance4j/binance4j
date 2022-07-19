@@ -7,7 +7,21 @@ import com.binance4j.core.dto.AccountType;
 import com.binance4j.core.dto.AssetBalance;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** The SPOT account information */
+/**
+ * The SPOT account information.
+ * 
+ * @param makerCommission  The maker commission.
+ * @param takerCommission  The taker commission.
+ * @param buyerCommission  The buyer commission.
+ * @param sellerCommission The seller commission.
+ * @param canTrade         The trade permission.
+ * @param canWithdraw      The withdrawal permission.
+ * @param canDeposit       The deposit permission.
+ * @param updateTime       The timestamp of the last data update.
+ * @param balances         The balances of each asset in the SPOT wallet.
+ * @param accountType      The account Type (SPOT).
+ * @param permissions      The permissions list (SPOT).
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
 		/** The maker commission. */

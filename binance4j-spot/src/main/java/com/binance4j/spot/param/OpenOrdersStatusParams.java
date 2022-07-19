@@ -20,7 +20,7 @@ public class OpenOrdersStatusParams extends FramedParams {
 	/**
 	 * to get the open orders of a specific pair
 	 *
-	 * @param symbol The pair we want the open orders
+	 * @param symbol The pair we want the open orders.
 	 */
 	public OpenOrdersStatusParams(String symbol) {
 		this();

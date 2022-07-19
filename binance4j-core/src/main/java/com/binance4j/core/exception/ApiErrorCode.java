@@ -476,8 +476,8 @@ public enum ApiErrorCode {
 	private final int value;
 
 	/**
-	 * @param value The error code
-	 * @return the enum corresponding to the integer if present
+	 * @param value The error code.
+	 * @return the enum corresponding to the integer if present.
 	 */
 	public static ApiErrorCode valueOf(int value) {
 		return Arrays.stream(values()).filter(e -> e.getValue() == value).findFirst().orElse(ApiErrorCode.UNKNOWN);

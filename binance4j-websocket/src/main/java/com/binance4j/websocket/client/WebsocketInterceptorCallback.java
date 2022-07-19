@@ -15,8 +15,7 @@ import okhttp3.Response;
 import okhttp3.WebSocket;
 
 /**
- * Interceptor callback for the {@link WebsocketClient} main callback to handle
- * event failures
+ * Interceptor callback for the {@link WebsocketClient} main callback to handle event failures
  */
 @Data
 public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
@@ -48,9 +47,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	protected WebsocketCallback<T> callback;
 
 	/**
-	 *
-	 * 
-	 * @param websocketClient The main ws client
+	 * @param websocketClient The main ws client.
 	 */
 	public WebsocketInterceptorCallback(WebsocketClient websocketClient, WebsocketCallback<T> callback) {
 		this.websocketClient = websocketClient;

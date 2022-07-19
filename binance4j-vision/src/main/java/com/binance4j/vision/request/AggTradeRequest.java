@@ -12,9 +12,7 @@ import retrofit2.Call;
 public class AggTradeRequest extends VisionRequest<AggTrade> {
 
 	/**
-	 *
-	 * 
-	 * @param call The API call
+	 * @param call The API call.
 	 */
 	public AggTradeRequest(Call<ResponseBody> call) {
 		super(call);

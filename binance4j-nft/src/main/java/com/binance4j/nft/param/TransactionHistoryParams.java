@@ -19,7 +19,7 @@ public class TransactionHistoryParams extends IntervalParams {
 	private Integer page = 1;
 
 	/**
-	 * @param orderType The order type
+	 * @param orderType The order type.
 	 */
 	public TransactionHistoryParams(OrderType orderType) {
 		super(3000);
@@ -27,7 +27,7 @@ public class TransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * @param orderType The order type
+	 * @param orderType The order type.
 	 */
 	public TransactionHistoryParams(int orderType) {
 		super(3000);
@@ -49,8 +49,8 @@ public class TransactionHistoryParams extends IntervalParams {
 	 * @param orderType The order type.
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
-	 * @param startTime The result start time in ms
-	 * @param endTime   The result end time in ms
+	 * @param startTime The result start time in ms.
+	 * @param endTime   The result end time in ms.
 	 */
 	public TransactionHistoryParams(OrderType orderType, int limit, int page, long startTime, long endTime) {
 		this(orderType, limit, page);
@@ -59,42 +59,42 @@ public class TransactionHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * @return the orderType
+	 * @return the orderType.
 	 */
 	public Integer getOrderType() {
 		return orderType;
 	}
 
 	/**
-	 * @param orderType the orderType to set
+	 * @param orderType the orderType to set.
 	 */
 	public void setOrderType(Integer orderType) {
 		this.orderType = orderType;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 
 	/**
-	 * @return the page
+	 * @return the page.
 	 */
 	public Integer getPage() {
 		return page;
 	}
 
 	/**
-	 * @param page the page to set
+	 * @param page the page to set.
 	 */
 	public void setPage(Integer page) {
 		this.page = page;

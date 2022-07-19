@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Market order to exit leveraged position
  * 
- * @param orderId          The order id
+ * @param orderId          The order id.
  * @param updatedTime      The liquidation timestamp in ms.
  * @param averagePrice     The symbol average price.
  * @param executedQuantity The executed quantity.

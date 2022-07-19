@@ -35,8 +35,8 @@ public class DepositHistoryParams extends IntervalParams {
 	/**
 	 * @param limit     The result size. Default 50, Max 50.
 	 * @param page      The result page. Default 1.
-	 * @param startTime The result start time in ms
-	 * @param endTime   The result end time in ms
+	 * @param startTime The result start time in ms.
+	 * @param endTime   The result end time in ms.
 	 */
 	public DepositHistoryParams(int limit, int page, long startTime, long endTime) {
 		this(limit, page);
@@ -45,28 +45,28 @@ public class DepositHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 
 	/**
-	 * @return the page
+	 * @return the page.
 	 */
 	public Integer getPage() {
 		return page;
 	}
 
 	/**
-	 * @param page the page to set
+	 * @param page the page to set.
 	 */
 	public void setPage(Integer page) {
 		this.page = page;

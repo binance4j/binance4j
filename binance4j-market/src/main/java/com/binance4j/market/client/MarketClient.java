@@ -37,8 +37,8 @@ import com.binance4j.market.param.TradesParams;
 public class MarketClient extends RestClient<MarketMapping> {
 
 	/**
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public MarketClient(String key, String secret) {
 		super(MarketMapping.class, key, secret);

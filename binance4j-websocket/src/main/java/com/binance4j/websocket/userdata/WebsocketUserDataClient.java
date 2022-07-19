@@ -27,14 +27,11 @@ public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdateP
 	private Duration keepAliveInterval = Duration.ofMinutes(30);
 
 	/**
-	 *
-	 * 
-	 * @param client The {@link UserDataClient} that will fetch the listen key to open the stream and keep it alive at a
-	 *               periodical interval
+	 * @param client The {@link UserDataClient} that will fetch the listen key to open the stream and keep it alive at a.
+	 *                   periodical interval
 	 * @throws ApiException Will be thrown if the client is unable to fetch the listen key
 	 */
-	public WebsocketUserDataClient(UserDataClient client,
-	                               WebsocketCallback<UserDataUpdatePayload> callback) throws ApiException {
+	public WebsocketUserDataClient(UserDataClient client, WebsocketCallback<UserDataUpdatePayload> callback) throws ApiException {
 		super(null, client.startUserDataStream().execute().getListenKey(), UserDataUpdatePayload.class, callback);
 		userDataClient = client;
 	}

@@ -6,10 +6,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * {@link RebateClient#getSpotRebateHistoryRecords} response.
  * 
- * @param status The status
- * @param type   The type
- * @param code   The code
- * @param data   The data
+ * @param status The status.
+ * @param type   The type.
+ * @param code   The code.
+ * @param data   The data.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SpotRebateHistoryResponse(

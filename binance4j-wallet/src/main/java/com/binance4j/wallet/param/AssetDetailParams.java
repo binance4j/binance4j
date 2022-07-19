@@ -18,9 +18,7 @@ public class AssetDetailParams extends FramedParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param asset the asset we want the details
+	 * @param asset the asset we want the details.
 	 */
 	public AssetDetailParams(String asset) {
 		this();

@@ -14,7 +14,7 @@ public enum OrderType {
 	MINT_FEE(4);
 
 	/**
-	 * @param value The value
+	 * @param value The value.
 	 */
 	private OrderType(int value) {
 		this.value = value;
@@ -24,7 +24,7 @@ public enum OrderType {
 	final int value;
 
 	/**
-	 * @return the value
+	 * @return the value.
 	 */
 	public int getValue() {
 		return value;

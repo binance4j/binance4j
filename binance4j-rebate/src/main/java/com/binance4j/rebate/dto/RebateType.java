@@ -12,7 +12,7 @@ public enum RebateType {
 	REFERRAL_KICKBACK(2);
 
 	/**
-	 * @param value The value
+	 * @param value The value.
 	 */
 	private RebateType(int value) {
 		this.value = value;
@@ -22,7 +22,7 @@ public enum RebateType {
 	final int value;
 
 	/**
-	 * @return the value
+	 * @return the value.
 	 */
 	public int getValue() {
 		return value;

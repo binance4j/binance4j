@@ -33,44 +33,56 @@ import lombok.EqualsAndHashCode;
 /**
  * API client for the SPOT endpoints
  * 
- * @see <a href=
- *      "https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade">Documentation</a>
+ * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade">Documentation</a>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class SpotClient extends RestClient<SpotMapping> {
 
 	/**
-	 *
-	 * 
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public SpotClient(String key, String secret) {
 		super(SpotMapping.class, key, secret);
 	}
 
-	/** Send in a new order. */
+	/**
+	 * Send in a new order.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
 		return new Request<>(service.newOrder(params.toMap()));
 	}
 
 	/**
-	 * Test new order creation and signature/recvWindow long. Creates and validates
-	 * a new order but does not send it into the matching engine.
+	 * Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send it into
+	 * the matching engine.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
 	 */
 	public Request<Void> newOrderTest(NewOrderParams params) {
 		return new Request<>(service.newOrderTest(params.toMap()));
 	}
 
-	/** Cancel an active order. */
+	/**
+	 * Cancel an active order.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
 		return new Request<>(service.cancelOrder(params.toMap()));
 	}
 
 	/**
-	 * Cancels all active orders on a symbol.
-	 * This includes OCO orders.
+	 * Cancels all active orders on a symbol. This includes OCO orders.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
 	 */
 	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
 		return new Request<>(service.cancelOpenOrders(params.toMap()));
@@ -80,98 +92,162 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Check an order's status.
 	 * <ul>
 	 * <li>Either orderId or origClientOrderId must be sent.</li>
-	 * <li>For some historical orders cummulativeQuoteQty will be &lt; 0, meaning
-	 * the data is not available at this time.</li>
+	 * <li>For some historical orders cummulativeQuoteQty will be &lt; 0, meaning the data is not available at this
+	 * time.</li>
 	 * </ul>
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
 	 */
 	public Request<OrderInfo> getOrderStatus(OrderStatusParams params) {
 		return new Request<>(service.getOrderStatus(params.toMap()));
 	}
 
-	/** Get all open orders on a symbol. */
+	/**
+	 * Get all open orders on a symbol.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
 		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
-	/** Get all open orders. */
+	/**
+	 * Get all open orders.
+	 * 
+	 * @return The request to execute.
+	 */
 	public Request<List<OrderInfo>> getOpenOrders() {
 		OpenOrdersStatusParams params = new OpenOrdersStatusParams();
 		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
-	/** Get all orders on a symbol. */
+	/**
+	 * Get all orders on a symbol.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
 		return new Request<>(service.getAllOrders(params.toMap()));
 	}
 
-	/** Send in an OCO order. */
+	/**
+	 * Send in an OCO order.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<OCOResponse> newOCO(OCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()));
 	}
 
 	/**
-	 * Cancel an entire Order List.
-	 * Canceling an individual leg will cancel the entire OCO
+	 * Cancel an entire Order List. Canceling an individual leg will cancel the entire OCO
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
 	 */
 	public Request<List<OCOResponse>> cancelOCO(CancelOCOParams params) {
 		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
-	/** Retrieves a specific OCO based on provided optional parameters. */
+	/**
+	 * Retrieves a specific OCO based on provided optional parameters.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<OCOInfo> queryOCO(OCOInfoParams params) {
 		return new Request<>(service.queryOCO(params.toMap()));
 	}
 
-	/** Retrieves all OCO based on provided optional parameters. */
+	/**
+	 * Retrieves all OCO based on provided optional parameters.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
 		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
-	/** Retrieves all OCO based on provided optional parameters. */
+	/**
+	 * Retrieves all OCO based on provided optional parameters.
+	 * 
+	 * @return The request to execute.
+	 */
 	public Request<List<OCOInfo>> getAllOCO() {
 		AllOCOInfoParams params = new AllOCOInfoParams();
 		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
-	/** Retrieves all open OCO. */
+	/**
+	 * Retrieves all open OCO.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
 		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
-	/** Retrieves all open OCO. */
+	/**
+	 * Retrieves all open OCO.
+	 * 
+	 * @return The request to execute.
+	 */
 	public Request<List<OCOInfo>> getOpenOCO() {
 		OpenOCOParams params = new OpenOCOParams();
 		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
-	/** Get current account information. */
+	/**
+	 * Get current account information.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<Account> getAccount(AccountParams params) {
 		return new Request<>(service.getAccount(params.toMap()));
 	}
 
-	/** Get current account information. */
+	/**
+	 * Get current account information.
+	 * 
+	 * @return The request to execute.
+	 */
 	public Request<Account> getAccount() {
 		AccountParams params = new AccountParams();
 		return new Request<>(service.getAccount(params.toMap()));
 	}
 
 	/**
-	 * Get trades for a specific account and symbol.
-	 * If fromId is set, it will get id &gt;= fromId. Otherwise most
-	 * recent trades are returned.
+	 * Get trades for a specific account and symbol. If fromId is set, it will get id &gt;= fromId. Otherwise most recent
+	 * trades are returned.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getMyTrades(MyTradesParams params) {
 		return new Request<>(service.getMyTrades(params.toMap()));
 	}
 
-	/** Displays the user's current order count usage for all intervals. */
+	/**
+	 * Displays the user's current order count usage for all intervals.
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
 	public Request<List<OrderCount>> getOrderCount(OrderCountParams params) {
 		return new Request<>(service.getOrderCount(params.toMap()));
 	}
 
 	/**
-	 * Displays the user's current order count usage for all intervals with default
-	 * request
+	 * Displays the user's current order count usage for all intervals with default request
+	 * 
+	 * @return The request to execute.
 	 */
 	public Request<List<OrderCount>> getOrderCount() {
 		OrderCountParams params = new OrderCountParams();

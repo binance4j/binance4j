@@ -20,7 +20,7 @@ public class ExchangeInfoParams extends Params {
 	}
 
 	/**
-	 * @param symbols The trading pair list
+	 * @param symbols The trading pair list.
 	 */
 	public ExchangeInfoParams(List<String> symbols) {
 		this();
@@ -28,7 +28,7 @@ public class ExchangeInfoParams extends Params {
 	}
 
 	/**
-	 * @param symbol The trading pair
+	 * @param symbol The trading pair.
 	 */
 	public ExchangeInfoParams(String symbol) {
 		this(Collections.singletonList(symbol));

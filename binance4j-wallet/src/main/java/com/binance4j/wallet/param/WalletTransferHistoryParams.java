@@ -22,9 +22,7 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	private String toSymbol;
 
 	/**
-	 *
-	 * 
-	 * @param type The transfer type
+	 * @param type The transfer type.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type) {
 		super(1);
@@ -32,10 +30,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param type The transfer type
-	 * @param size The result size
+	 * @param type The transfer type.
+	 * @param size The result size.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, int size) {
 		this(type);
@@ -43,11 +39,9 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param type    The transfer type
-	 * @param size    The result size
-	 * @param current The offest (starts at 1)
+	 * @param type    The transfer type.
+	 * @param size    The result size.
+	 * @param current The offest (starts at 1).
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, int size, int current) {
 		this(type, size);
@@ -55,10 +49,8 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param fromSymbol The transfered symbol
-	 * @param toSymbol   The converted symbol
+	 * @param fromSymbol The transfered symbol.
+	 * @param toSymbol   The converted symbol.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol) {
 		this(type);
@@ -67,11 +59,9 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param fromSymbol The transfered symbol
-	 * @param toSymbol   The converted symbol
-	 * @param size       The result size
+	 * @param fromSymbol The transfered symbol.
+	 * @param toSymbol   The converted symbol.
+	 * @param size       The result size.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol, int size) {
 		this(type, fromSymbol, toSymbol);
@@ -79,12 +69,10 @@ public class WalletTransferHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param fromSymbol The transfered symbol
-	 * @param toSymbol   The converted symbol
-	 * @param size       The result size
-	 * @param current    The offest (starts at 1)
+	 * @param fromSymbol The transfered symbol.
+	 * @param toSymbol   The converted symbol.
+	 * @param size       The result size.
+	 * @param current    The offest (starts at 1).
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol, int size, int current) {
 		this(type, fromSymbol, toSymbol, size);

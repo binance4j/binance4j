@@ -4,10 +4,8 @@ package com.binance4j.nft.client;
 public class TestnetNFTClient extends NFTClient {
 
 	/**
-	 *
-	 * 
-	 * @param key    The Testnet public key
-	 * @param secret The Testnet secret key
+	 * @param key    The Testnet public key.
+	 * @param secret The Testnet secret key.
 	 */
 	public TestnetNFTClient(String key, String secret) {
 		super(key, secret);

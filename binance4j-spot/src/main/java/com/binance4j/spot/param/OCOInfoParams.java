@@ -17,9 +17,7 @@ public class OCOInfoParams extends FramedParams {
 	private String origClientOrderId;
 
 	/**
-	 *
-	 * 
-	 * @param orderListId The order list id
+	 * @param orderListId The order list id.
 	 */
 	public OCOInfoParams(Long orderListId) {
 		super(2);
@@ -27,9 +25,7 @@ public class OCOInfoParams extends FramedParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param origClientOrderId The origin client order id
+	 * @param origClientOrderId The origin client order id.
 	 */
 	public OCOInfoParams(String origClientOrderId) {
 		super(2);

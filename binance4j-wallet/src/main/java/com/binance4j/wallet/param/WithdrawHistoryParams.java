@@ -30,9 +30,7 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param coin The coin we need deposit history
+	 * @param coin The coin we need deposit history.
 	 */
 	public WithdrawHistoryParams(String coin) {
 		this();
@@ -40,9 +38,7 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success).
 	 */
 	public WithdrawHistoryParams(int status) {
 		this();
@@ -50,9 +46,7 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success)
+	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success).
 	 */
 	public WithdrawHistoryParams(WithdrawStatus status) {
 		this();
@@ -60,11 +54,9 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param coin   The coin we need deposit history
-	 * @param status The coin status (EMAIL_SENT(0), CANCELLED(1), AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4),
-	 *               FAILURE(5), COMPLETED(6);
+	 * @param coin   The coin we need deposit history.
+	 * @param status The coin status (EMAIL_SENT(0), CANCELLED(1), AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4),.
+	 *                   FAILURE(5), COMPLETED(6);
 	 */
 	public WithdrawHistoryParams(String coin, int status) {
 		this(coin);
@@ -72,19 +64,15 @@ public class WithdrawHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param coin   The coin we need deposit history
-	 * @param status The coin status
+	 * @param coin   The coin we need deposit history.
+	 * @param status The coin status.
 	 */
 	public WithdrawHistoryParams(String coin, WithdrawStatus status) {
 		this(coin, status.getValue());
 	}
 
 	/**
-	 *
-	 * 
-	 * @param status The withdraw status
+	 * @param status The withdraw status.
 	 */
 	public void setStatus(WithdrawStatus status) {
 		this.status = status.getValue();

@@ -20,8 +20,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Instantiates a client for the market data endpoints.
 	 *
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public NFTClient(String key, String secret) {
 		super(NFTMapping.class, key, secret);

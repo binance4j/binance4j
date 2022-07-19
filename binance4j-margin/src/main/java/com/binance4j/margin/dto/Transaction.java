@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * A transfer, borrow or repay transaction.
  * 
- * @param id The transaction id
+ * @param id The transaction id.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Transaction(

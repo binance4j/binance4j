@@ -16,8 +16,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	/**
 	 * Instantiates a client for the spot endpoints on api
 	 *
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public UserDataClient(String key, String secret) {
 		super(UserDataMapping.class, key, secret);
@@ -54,14 +54,11 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Create a ListenKey (Margin).
-	 * 
 	 * <p>
-	 * The stream will close after 60 minutes unless a
-	 * keepalive is sent.
+	 * The stream will close after 60 minutes unless a keepalive is sent.
 	 * <p>
-	 * If the account has an active listenKey, that listenKey
-	 * will be returned and its validity will be extended for 60 minutes.
-	 * 
+	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60
+	 * minutes.
 	 */
 	public Request<ListenKey> startMarginUserDataStream() {
 		return new Request<>(service.startMarginUserDataStream());
@@ -71,12 +68,10 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Keepalive a user data stream to prevent a time out (Margin).
-	 * 
 	 * <p>
 	 * User data streams will close after 60 minutes.
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
-	 * 
 	 */
 	public Request<Void> keepAliveMarginUserDataStream(String listenKey) {
 		return new Request<>(service.keepAliveMarginUserDataStream(listenKey));
@@ -84,7 +79,6 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Close out a user data stream (Margin).
-	 * 
 	 */
 	public Request<Void> closeMarginUserDataStream(String listenKey) {
 		return new Request<>(service.closeMarginUserDataStream(listenKey));
@@ -92,14 +86,11 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Create a ListenKey (Isolated margin).
-	 * 
 	 * <p>
-	 * The stream will close after 60 minutes unless a
-	 * keepalive is sent.
+	 * The stream will close after 60 minutes unless a keepalive is sent.
 	 * <p>
-	 * If the account has an active listenKey, that listenKey
-	 * will be returned and its validity will be extended for 60 minutes.
-	 * 
+	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60
+	 * minutes.
 	 */
 	public Request<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamParams params) {
 		return new Request<>(service.startIsolatedUserDataStream(params.toMap()));
@@ -107,12 +98,10 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Keepalive a user data stream to prevent a time out (Isolated margin).
-	 * 
 	 * <p>
 	 * User data streams will close after 60 minutes.
 	 * <p>
 	 * It's recommended to send a ping about every 30 minutes.
-	 * 
 	 */
 	public Request<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
 		return new Request<>(service.keepAliveIsolatedUserDataStream(params.toMap()));
@@ -120,7 +109,6 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
 	 * Close out a user data stream (Isolated margin).
-	 * 
 	 */
 	public Request<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
 		return new Request<>(service.closeIsolatedUserDataStream(params.toMap()));

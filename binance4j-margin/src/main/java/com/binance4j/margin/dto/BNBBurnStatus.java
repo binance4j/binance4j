@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * BNB burn status after {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest}
  * 
- * @param spotBNBBurn     Is spot BNB burn allowed
- * @param interestBNBBurn Is interest BNB burn allowed
+ * @param spotBNBBurn     Is spot BNB burn allowed.
+ * @param interestBNBBurn Is interest BNB burn allowed.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record BNBBurnStatus(

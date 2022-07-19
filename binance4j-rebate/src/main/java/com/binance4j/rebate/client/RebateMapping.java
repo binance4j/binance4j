@@ -20,8 +20,8 @@ public interface RebateMapping {
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "taxQuery")

@@ -14,48 +14,48 @@ public class AllOrdersParams extends IntervalParams {
 	/** The result limit */
 	private Long limit;
 
-	/** @param symbol The order symbol */
+	/** @param symbol The order symbol */.
 	public AllOrdersParams(String symbol) {
 		super(200);
 		this.symbol = symbol;
 	}
 
-	/** @return the symbol */
+	/** @return the symbol */.
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/** @param symbol the symbol to set */
+	/** @param symbol the symbol to set */.
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/** @return the isIsolated */
+	/** @return the isIsolated */.
 	public Boolean isIsolated() {
 		return isIsolated;
 	}
 
-	/** @param isIsolated the isIsolated to set */
+	/** @param isIsolated the isIsolated to set */.
 	public void isIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}
 
-	/** @return the orderId */
+	/** @return the orderId */.
 	public Long getOrderId() {
 		return orderId;
 	}
 
-	/** @param orderId the orderId to set */
+	/** @param orderId the orderId to set */.
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
-	/** @return the limit */
+	/** @return the limit */.
 	public Long getLimit() {
 		return limit;
 	}
 
-	/** @param limit the limit to set */
+	/** @param limit the limit to set */.
 	public void setLimit(Long limit) {
 		this.limit = limit;
 	}

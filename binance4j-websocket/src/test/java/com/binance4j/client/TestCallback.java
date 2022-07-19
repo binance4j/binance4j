@@ -18,7 +18,7 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	/** The ws client. */
 	protected BaseWebsocketClient<T> websocketClient;
 
-	/** @param client. */
+	/** @param client. */.
 	public TestCallback() {
 		super();
 		future = new CompletableFuture<>();
@@ -52,28 +52,28 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	}
 
 	/**
-	 * @return the future
+	 * @return the future.
 	 */
 	public CompletableFuture<Void> getFuture() {
 		return future;
 	}
 
 	/**
-	 * @param future the future to set
+	 * @param future the future to set.
 	 */
 	public void setFuture(CompletableFuture<Void> future) {
 		this.future = future;
 	}
 
 	/**
-	 * @return the websocketClient
+	 * @return the websocketClient.
 	 */
 	public BaseWebsocketClient<T> getWebsocketClient() {
 		return websocketClient;
 	}
 
 	/**
-	 * @param websocketClient the websocketClient to set
+	 * @param websocketClient the websocketClient to set.
 	 */
 	public void setWebsocketClient(BaseWebsocketClient<T> websocketClient) {
 		this.websocketClient = websocketClient;

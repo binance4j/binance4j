@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
  * Record of a newly placed OCO order.
  * 
  * @param orderListId           The order list id.
- * @param contingencyType       The contingency type
+ * @param contingencyType       The contingency type.
  * @param listStatusType        The list status.
  * @param listOrderStatus       The list order status.
  * @param listClientOrderId     The list client order id.

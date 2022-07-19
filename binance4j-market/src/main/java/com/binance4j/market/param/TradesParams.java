@@ -12,7 +12,7 @@ public class TradesParams extends Params {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The symbol we want the trades
+	 * @param symbol The symbol we want the trades.
 	 */
 	public TradesParams(String symbol) {
 		super(1);
@@ -20,7 +20,7 @@ public class TradesParams extends Params {
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades
+	 * @param symbol The symbol we want the trades.
 	 * @param limit  The trades size. Default 500; max 1000.
 	 */
 	public TradesParams(String symbol, int limit) {
@@ -29,28 +29,28 @@ public class TradesParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;

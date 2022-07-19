@@ -32,11 +32,11 @@ public class OCOOrderParams extends OrderParams {
 	/**
 	 * - Produces an OCO order
 	 *
-	 * @param symbol    The symbol the order is made on
-	 * @param side      The order side (BUY/SELL)
-	 * @param quantity  The order quantity
-	 * @param price     The order price
-	 * @param stopPrice The stop price
+	 * @param symbol    The symbol the order is made on.
+	 * @param side      The order side (BUY/SELL).
+	 * @param quantity  The order quantity.
+	 * @param price     The order price.
+	 * @param stopPrice The stop price.
 	 */
 	public OCOOrderParams(String symbol, OrderSide side, BigDecimal quantity, BigDecimal price, BigDecimal stopPrice) {
 		super(1, symbol, side, quantity);

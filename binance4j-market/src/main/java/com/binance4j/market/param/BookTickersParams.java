@@ -17,7 +17,7 @@ public class BookTickersParams extends Params {
 	/**
 	 * .
 	 *
-	 * @param symbols The trading pairs we want the ticker
+	 * @param symbols The trading pairs we want the ticker.
 	 */
 	public BookTickersParams(Collection<String> symbols) {
 		super(2);
@@ -28,21 +28,21 @@ public class BookTickersParams extends Params {
 	/**
 	 * .
 	 *
-	 * @param symbols The trading pairs we want the ticker
+	 * @param symbols The trading pairs we want the ticker.
 	 */
 	public BookTickersParams(String symbols) {
 		this(Arrays.asList(symbols.split(",")));
 	}
 
 	/**
-	 * @return the symbols
+	 * @return the symbols.
 	 */
 	public String getSymbols() {
 		return symbols;
 	}
 
 	/**
-	 * @param symbols the symbols to set
+	 * @param symbols the symbols to set.
 	 */
 	public void setSymbols(String symbols) {
 		this.symbols = symbols;

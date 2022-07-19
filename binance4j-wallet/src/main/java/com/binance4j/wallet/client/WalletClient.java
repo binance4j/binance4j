@@ -50,16 +50,13 @@ import com.binance4j.wallet.param.WithdrawParams;
 /**
  * The API client for the wallet endpoints
  * 
- * @see <a href=
- *      "https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints">Documentation</a>
+ * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints">Documentation</a>
  */
 public class WalletClient extends RestClient<WalletMapping> {
 
 	/**
-	 *
-	 * 
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public WalletClient(String key, String secret) {
 		super(WalletMapping.class, key, secret);
@@ -76,8 +73,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	}
 
 	/**
-	 * Gets the information of coins (available for deposit and withdraw) for user
-	 * .
+	 * Gets the information of coins (available for deposit and withdraw) for user .
 	 */
 	public Request<List<CoinInformation>> getAllCoinsInfo() {
 		return getAllCoinsInfo(new CoinInformationParams());
@@ -116,8 +112,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Disables fast withdraw switch under your account.
 	 * <p>
-	 * You need to enable {@code trade} option for the api key which
-	 * requests this endpoint.
+	 * You need to enable {@code trade} option for the api key which requests this endpoint.
 	 */
 	public Request<Void> disableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
 		return new Request<>(service.disableFastWithdrawSwitch(params.toMap()));
@@ -131,12 +126,10 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Enables fast withdraw switch under your account.
 	 * <p>
-	 * You need to enable "trade" option for the api key which requests
-	 * this endpoint.
+	 * You need to enable "trade" option for the api key which requests this endpoint.
 	 * <p>
-	 * When Fast Withdraw Switch is on, transferring funds to a Binance
-	 * account will be done instantly. There is no on-chain transaction, no
-	 * transaction ID and no withdrawal fee.
+	 * When Fast Withdraw Switch is on, transferring funds to a Binance account will be done instantly. There is no on-chain
+	 * transaction, no transaction ID and no withdrawal fee.
 	 */
 	public Request<Void> enableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
 		return new Request<>(service.enableFastWithdrawSwitch(params.toMap()));
@@ -150,9 +143,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Submits a withdraw request.
 	 * <p>
-	 * If network not send, return
-	 * You can get {@code network} and {@code isDefault} in
-	 * networkList of a coin in the response of {@link #getAllCoinsInfo()}
+	 * If network not send, return You can get {@code network} and {@code isDefault} in networkList of a coin in the
+	 * response of {@link #getAllCoinsInfo()}
 	 */
 	public Request<WithdrawResult> withdraw(WithdrawParams params) {
 		return new Request<>(service.withdraw(params.toMap()));
@@ -161,13 +153,10 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the deposit history of one or multiple coins.
 	 * <p>
-	 * Please notice the default {@code startTime} and
-	 * {@code endTime} to make sure that time interval is within 0-90
-	 * days.
+	 * Please notice the default {@code startTime} and {@code endTime} to make sure that time interval is within 0-90 days.
 	 * <p>
 	 * If both {@code startTime</code> and <code>endTime} are sent,
-	 * time between {@code startTime</code> and <code>endTime} must be
-	 * less than 90 days.
+	 * time between {@code startTime</code> and <code>endTime} must be less than 90 days.
 	 */
 	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params) {
 		return new Request<>(service.getDepositHistory(params.toMap()));
@@ -183,13 +172,10 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * network may not be in the response for old withdraw.
 	 * <p>
-	 * Please notice the default {@code startTime} and
-	 * {@code endTime} to make sure that time interval is within 0-90
-	 * days.
+	 * Please notice the default {@code startTime} and {@code endTime} to make sure that time interval is within 0-90 days.
 	 * <p>
-	 * If both {@code startTime} and {@code endTime} are sent,
-	 * time between {@code startTime} and {@code endTime}
-	 * must be less than 90 days.
+	 * If both {@code startTime} and {@code endTime} are sent, time between {@code startTime} and {@code endTime} must be
+	 * less than 90 days.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
 		return new Request<>(service.getWithdrawHistory(params.toMap()));
@@ -204,11 +190,9 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches deposit address
 	 * <p>
-	 * If {@code network} is not sent, return
-	 * the coin.
+	 * If {@code network} is not sent, return the coin.
 	 * <p>
-	 * You can get {@code network} and {@code isDefault} in
-	 * {@code networkList} in the response of
+	 * You can get {@code network} and {@code isDefault} in {@code networkList} in the response of
 	 * {@link #getAllCoinsInfo(CoinInformationParams)}
 	 */
 	public Request<DepositAddress> getDepositAddress(DepositAddressParams params) {
@@ -272,8 +256,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	}
 
 	/**
-	 * Fetches the details of an asset supported on Binance.
-	 * Please get network and other deposit or withdraw details from
+	 * Fetches the details of an asset supported on Binance. Please get network and other deposit or withdraw details from
 	 * {@link #getAllCoinsInfo()}.
 	 */
 	public Request<Map<String, AssetDetail>> getAssetDetail(AssetDetailParams params) {
@@ -298,14 +281,11 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Make a universal transfer.
 	 * <p>
-	 * You need to enable {@code Permits Universal Transfer} option
-	 * for the api key which requests this endpoint.
+	 * You need to enable {@code Permits Universal Transfer} option for the api key which requests this endpoint.
 	 * <p>
-	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and
-	 * ISOLATEDMARGIN_ISOLATEDMARGIN
+	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 	 * <p>
-	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and
-	 * ISOLATEDMARGIN_ISOLATEDMARGIN
+	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 	 */
 	public Request<WalletTransferResponse> transfer(WalletTransferParams params) {
 		return new Request<>(service.transfer(params.toMap()));
@@ -314,16 +294,13 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the user universal transfer history
 	 * <p>
-	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and
-	 * ISOLATEDMARGIN_ISOLATEDMARGIN
+	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 	 * <p>
-	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and
-	 * ISOLATEDMARGIN_ISOLATEDMARGIN
+	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 	 * <p>
 	 * Support query within the last 6 months only
 	 * <p>
-	 * If startTime and endTime not sent, return records of the last 7 days
-	 * by default
+	 * If startTime and endTime not sent, return records of the last 7 days by default
 	 */
 	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
 		return new Request<>(service.getTransferHistory(params.toMap()));
@@ -332,8 +309,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the funding wallet asset balance
 	 * <p>
-	 * Currently supports querying the following business assets：Binance
-	 * Pay, Binance Card, Binance Gift Card, Stock Token
+	 * Currently supports querying the following business assets：Binance Pay, Binance Card, Binance Gift Card, Stock Token
 	 */
 	public Request<List<FundingAsset>> getFundingAsset(FundingAssetParams params) {
 		return new Request<>(service.getFundingAsset(params.toMap()));

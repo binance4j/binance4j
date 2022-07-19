@@ -15,8 +15,8 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * with CandlestickInterval
 	 *
-	 * @param symbol   The trading pair we want the data
-	 * @param interval The candlestick interval
+	 * @param symbol   The trading pair we want the data.
+	 * @param interval The candlestick interval.
 	 */
 	public KlinesParams(String symbol, CandlestickInterval interval) {
 		super(1);
@@ -27,8 +27,8 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol   The trading pair we want the data
-	 * @param interval The candlestick interval
+	 * @param symbol   The trading pair we want the data.
+	 * @param interval The candlestick interval.
 	 */
 	public KlinesParams(String symbol, String interval) {
 		super(1);
@@ -39,8 +39,8 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * with CandlestickInterval
 	 *
-	 * @param symbol   The trading pair we want the data
-	 * @param interval The candlestick interval
+	 * @param symbol   The trading pair we want the data.
+	 * @param interval The candlestick interval.
 	 * @param limit    The result limit. max 1000.
 	 */
 	public KlinesParams(String symbol, CandlestickInterval interval, int limit) {
@@ -51,8 +51,8 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * with limit
 	 *
-	 * @param symbol   The trading pair we want the data
-	 * @param interval The candlestick interval
+	 * @param symbol   The trading pair we want the data.
+	 * @param interval The candlestick interval.
 	 * @param limit    The result limit. max 1000.
 	 */
 	public KlinesParams(String symbol, String interval, int limit) {
@@ -63,10 +63,10 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * with Framed results
 	 *
-	 * @param symbol    The trading pair we want the data
-	 * @param interval  The candlestick interval
-	 * @param startTime The starting timestamp of the results (in ms)
-	 * @param endTime   The ending timestamp of the results (in ms)
+	 * @param symbol    The trading pair we want the data.
+	 * @param interval  The candlestick interval.
+	 * @param startTime The starting timestamp of the results (in ms).
+	 * @param endTime   The ending timestamp of the results (in ms).
 	 */
 	public KlinesParams(String symbol, String interval, long startTime, long endTime) {
 		this(symbol, interval);
@@ -77,10 +77,10 @@ public class KlinesParams extends IntervalParams {
 	/**
 	 * with Framed results
 	 *
-	 * @param symbol    The trading pair we want the data
-	 * @param interval  The candlestick interval
-	 * @param startTime The starting timestamp of the results (in ms)
-	 * @param endTime   The ending timestamp of the results (in ms)
+	 * @param symbol    The trading pair we want the data.
+	 * @param interval  The candlestick interval.
+	 * @param startTime The starting timestamp of the results (in ms).
+	 * @param endTime   The ending timestamp of the results (in ms).
 	 */
 	public KlinesParams(String symbol, CandlestickInterval interval, long startTime, long endTime) {
 		this(symbol, interval);
@@ -89,42 +89,42 @@ public class KlinesParams extends IntervalParams {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
 	/**
-	 * @return the interval
+	 * @return the interval.
 	 */
 	public String getInterval() {
 		return interval;
 	}
 
 	/**
-	 * @param interval the interval to set
+	 * @param interval the interval to set.
 	 */
 	public void setInterval(String interval) {
 		this.interval = interval;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;

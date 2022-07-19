@@ -22,9 +22,7 @@ public class AccountSnapshotParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param limit The snapshot limit. min 5, max 30, default 5/
+	 * @param limit The snapshot limit. min 5, max 30, default 5/.
 	 */
 	public AccountSnapshotParams(int limit) {
 		this();

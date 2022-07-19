@@ -18,29 +18,22 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<CandlePayloa
 	Duration noResponseMarginError = Duration.ofSeconds(10);
 
 	/**
-	 *
-	 * 
-	 * @param symbols  The symbols we want the klines
-	 * @param interval The candlestick interval
-	 * @param callback The events handler
+	 * @param symbols  The symbols we want the klines.
+	 * @param interval The candlestick interval.
+	 * @param callback The events handler.
 	 */
-	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval,
-	                                  WebsocketCallback<CandlePayload> callback) {
+	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval, WebsocketCallback<CandlePayload> callback) {
 		super(symbols, String.format("kline_%s", interval.getValue()), CandlePayload.class, callback);
 		// We define the read timeout the same as the interval + a margin
-		getConfiguration().setNoResponseTimeout(
-				DurationService.convert(interval).plus(getConfiguration().getNoResponseTimeoutMarginError()));
+		getConfiguration().setNoResponseTimeout(DurationService.convert(interval).plus(getConfiguration().getNoResponseTimeoutMarginError()));
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbols  The trading pair iterable
-	 * @param interval The candlestick interval
-	 * @param callback The events handler
+	 * @param symbols  The trading pair iterable.
+	 * @param interval The candlestick interval.
+	 * @param callback The events handler.
 	 */
-	public WebsocketCandlestickClient(Iterable<? extends CharSequence> symbols, CandlestickInterval interval,
-	                                  WebsocketCallback<CandlePayload> callback) {
+	public WebsocketCandlestickClient(Iterable<? extends CharSequence> symbols, CandlestickInterval interval, WebsocketCallback<CandlePayload> callback) {
 		this(String.join(",", symbols), interval, callback);
 	}
 }

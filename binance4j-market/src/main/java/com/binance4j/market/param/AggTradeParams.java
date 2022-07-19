@@ -21,7 +21,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 */
 	public AggTradeParams(String symbol) {
 		super(1);
@@ -31,7 +31,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with limit
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 * @param limit  The result size. Default 500; max 1000.
 	 */
 	public AggTradeParams(String symbol, Integer limit) {
@@ -42,7 +42,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with fromId
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 * @param fromId The id to get aggregate trades from (inclusive).
 	 */
 	public AggTradeParams(String symbol, Long fromId) {
@@ -53,7 +53,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with fromId and limit
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 * @param fromId The id to get aggregate trades from (inclusive).
 	 * @param limit  The result size. Default 500; max 1000.
 	 */
@@ -65,7 +65,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with fromId
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 * @param fromId The id to get aggregate trades from (inclusive).
 	 */
 	public AggTradeParams(String symbol, String fromId) {
@@ -75,7 +75,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with fromId and limit
 	 *
-	 * @param symbol The agg trade pair
+	 * @param symbol The agg trade pair.
 	 * @param fromId The id to get aggregate trades from (inclusive).
 	 * @param limit  The result size. Default 500; max 1000.
 	 */
@@ -87,7 +87,7 @@ public class AggTradeParams extends Params {
 	/**
 	 * with start and end time (time interval must be lower to one hour)
 	 *
-	 * @param symbol    The agg trade pair
+	 * @param symbol    The agg trade pair.
 	 * @param startTime Timestamp in ms to get aggregate trades from (inclusive).
 	 * @param endTime   Timestamp in ms to get aggregate trades until (inclusive).
 	 */
@@ -98,70 +98,70 @@ public class AggTradeParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
 	/**
-	 * @return the fromId
+	 * @return the fromId.
 	 */
 	public Long getFromId() {
 		return fromId;
 	}
 
 	/**
-	 * @param fromId the fromId to set
+	 * @param fromId the fromId to set.
 	 */
 	public void setFromId(Long fromId) {
 		this.fromId = fromId;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public Integer getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set
+	 * @param limit the limit to set.
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 
 	/**
-	 * @return the startTime
+	 * @return the startTime.
 	 */
 	public Long getStartTime() {
 		return startTime;
 	}
 
 	/**
-	 * @param startTime the startTime to set
+	 * @param startTime the startTime to set.
 	 */
 	public void setStartTime(Long startTime) {
 		this.startTime = startTime;
 	}
 
 	/**
-	 * @return the endTime
+	 * @return the endTime.
 	 */
 	public Long getEndTime() {
 		return endTime;
 	}
 
 	/**
-	 * @param endTime the endTime to set
+	 * @param endTime the endTime to set.
 	 */
 	public void setEndTime(Long endTime) {
 		this.endTime = endTime;

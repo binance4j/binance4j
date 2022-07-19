@@ -20,6 +20,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
+/** {@link SpotClient} mapping. */
 public interface SpotMapping {
 	/** The API base url. */
 	String BASE = "/api/v3/";
@@ -29,152 +30,122 @@ public interface SpotMapping {
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order")
 	Call<NewOrderResponse> newOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/test")
 	Call<Void> newOrderTest(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "order")
 	Call<CancelOrderResponse> cancelOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "openOrders")
 	Call<List<CancelOrderResponse>> cancelOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "order")
 	Call<OrderInfo> getOrderStatus(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrders")
 	Call<List<OrderInfo>> getOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrders")
 	Call<List<OrderInfo>> getAllOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/oco")
 	Call<OCOResponse> newOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "orderList")
 	Call<List<OCOResponse>> cancelOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "orderList")
 	Call<OCOInfo> queryOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrderList")
 	Call<List<OCOInfo>> getAllOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrderList")
 	Call<List<OCOInfo>> getOpenOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "account")
 	Call<Account> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "myTrades")
 	Call<List<Trade>> getMyTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * .
-	 *
-	 * @param map The queryMap
-	 * @return The query result
+	 * @param map The query map.
+	 * @return The server response.
 	 */
-	@Headers({API_H, SIGNED_H})
+	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "rateLimit/order")
 	Call<List<OrderCount>> getOrderCount(@QueryMap Map<String, Object> map);
 }

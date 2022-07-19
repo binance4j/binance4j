@@ -18,10 +18,8 @@ public class WebsocketSubscription {
 	private Long id;
 
 	/**
-	 *
-	 * 
-	 * @param method  The subscription method
-	 * @param symbols The symbols to subscribe to
+	 * @param method  The subscription method.
+	 * @param symbols The symbols to subscribe to.
 	 */
 	public WebsocketSubscription(WebsocketSubscriptionMethod method, String[] symbols) {
 		this.method = method;

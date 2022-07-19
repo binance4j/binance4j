@@ -15,7 +15,7 @@ public class PriceTickerParams extends Params {
 	/**
 	 * for a unique symbol
 	 *
-	 * @param symbol The symbol we want the ticker
+	 * @param symbol The symbol we want the ticker.
 	 */
 	public PriceTickerParams(String symbol) {
 		super(1);
@@ -23,14 +23,14 @@ public class PriceTickerParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;

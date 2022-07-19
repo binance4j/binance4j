@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * The representation of an aggregated trade.
  * 
- * @param tradeId      The trade id
- * @param firstTradeId The first trade id
- * @param lastTradeId  The last trade id
- * @param time         The timestamp
- * @param price        The price
- * @param quantity     The quantity
- * @param isBuyerMaker Was it a buyer maker
+ * @param tradeId      The trade id.
+ * @param firstTradeId The first trade id.
+ * @param lastTradeId  The last trade id.
+ * @param time         The timestamp.
+ * @param price        The price.
+ * @param quantity     The quantity.
+ * @param isBuyerMaker Was it a buyer maker.
  * @param isBestMatch  Was it the best price match?
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -38,7 +38,7 @@ public record AggTrade(
 		@JsonProperty("M") boolean isBestMatch) {
 
 	/**
-	 * @param input The CSV line
+	 * @param input The CSV line.
 	 */
 	public AggTrade(List<String> input) {
 		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),

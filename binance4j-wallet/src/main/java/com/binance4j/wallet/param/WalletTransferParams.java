@@ -24,11 +24,9 @@ public class WalletTransferParams extends FramedParams {
 	private String toSymbol;
 
 	/**
-	 *
-	 * 
-	 * @param type   The transfer type
-	 * @param asset  The asset to transfer
-	 * @param amount The volume to transfer
+	 * @param type   The transfer type.
+	 * @param asset  The asset to transfer.
+	 * @param amount The volume to transfer.
 	 */
 	public WalletTransferParams(BigDecimal amount, String asset, WalletTransferType type) {
 		super(1);

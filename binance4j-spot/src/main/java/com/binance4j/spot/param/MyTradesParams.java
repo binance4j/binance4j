@@ -21,7 +21,7 @@ public class MyTradesParams extends IntervalParams {
 	/**
 	 * Default constructor
 	 *
-	 * @param symbol The symbol we want the trades
+	 * @param symbol The symbol we want the trades.
 	 */
 	public MyTradesParams(String symbol) {
 		super(10);
@@ -29,10 +29,8 @@ public class MyTradesParams extends IntervalParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbol The symbol we want the trades
-	 * @param limit  The result size
+	 * @param symbol The symbol we want the trades.
+	 * @param limit  The result size.
 	 */
 	public MyTradesParams(String symbol, Integer limit) {
 		this(symbol);

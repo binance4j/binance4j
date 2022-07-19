@@ -17,7 +17,7 @@ public class TickerStatisticsParams extends Params {
 	/**
 	 * to get the ticker stats of a symbol
 	 *
-	 * @param symbol The trading pair we want the ticker stats
+	 * @param symbol The trading pair we want the ticker stats.
 	 */
 	public TickerStatisticsParams(String symbol) {
 		super(1);
@@ -25,14 +25,14 @@ public class TickerStatisticsParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;

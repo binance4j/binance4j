@@ -10,28 +10,28 @@ public class IsolatedTierDataParams extends FramedParams {
 	/** The tier */
 	private String tier;
 
-	/** @param symbol The symbol */
+	/** @param symbol The symbol */.
 	public IsolatedTierDataParams(String symbol) {
 		super();
 		this.symbol = symbol;
 	}
 
-	/** @return the symbol */
+	/** @return the symbol */.
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/** @param symbol the symbol to set */
+	/** @param symbol the symbol to set */.
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/** @return the tier */
+	/** @return the tier */.
 	public String getTier() {
 		return tier;
 	}
 
-	/** @param tier the tier to set */
+	/** @param tier the tier to set */.
 	public void setTier(String tier) {
 		this.tier = tier;
 	}

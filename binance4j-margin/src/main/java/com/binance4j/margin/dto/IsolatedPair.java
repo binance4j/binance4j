@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param baseAsset         The base asset.
  * @param quoteAsset        The quote asset.
  * @param symbol            The asset symbol.
- * @param isolatedCreated   is isolated asset created
+ * @param isolatedCreated   is isolated asset created.
  * @param tradeEnabled      Is trading enabled?
  * @param enabled           Is the pair enabled for the account?
  * @param marginLevelStatus The margin level status.

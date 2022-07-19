@@ -9,18 +9,17 @@ import com.binance4j.strategy.TradingStrategy;
 /** Service to build a ta4j stragtegy over a {@link TradingStrategy}. */
 public class StrategyBuilder {
 
-    private StrategyBuilder() {
-    }
+	private StrategyBuilder() {
+	}
 
-    /**
-     * Builds a trading strategy from a {@link TradingStrategy} and a
-     * {@link BarSeries}
-     *
-     * @param strategy The {@link TradingStrategy}
-     * @param series   The {@link BarSeries}
-     * @return The generated t4j {@link Strategy}
-     */
-    public static Strategy build(TradingStrategy strategy, BarSeries series) {
-        return new BaseStrategy(strategy.entry(series), strategy.exit(series));
-    }
+	/**
+	 * Builds a trading strategy from a {@link TradingStrategy} and a {@link BarSeries}
+	 *
+	 * @param strategy The {@link TradingStrategy}.
+	 * @param series   The {@link BarSeries}.
+	 * @return The generated t4j {@link Strategy}.
+	 */
+	public static Strategy build(TradingStrategy strategy, BarSeries series) {
+		return new BaseStrategy(strategy.entry(series), strategy.exit(series));
+	}
 }

@@ -4,10 +4,8 @@ package com.binance4j.wallet.client;
 public class TestnetWalletClient extends WalletClient {
 
 	/**
-	 *
-	 * 
-	 * @param key    The Testnet public key
-	 * @param secret The Testnet secret key
+	 * @param key    The Testnet public key.
+	 * @param secret The Testnet secret key.
 	 */
 	public TestnetWalletClient(String key, String secret) {
 		super(key, secret);

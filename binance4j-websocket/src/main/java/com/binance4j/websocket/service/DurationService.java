@@ -13,8 +13,8 @@ public class DurationService {
 	/**
 	 * Converts a candlestick interval into a duration
 	 *
-	 * @param interval The candlestick interval
-	 * @return The corresponding duration
+	 * @param interval The candlestick interval.
+	 * @return The corresponding duration.
 	 */
 	public static Duration convert(CandlestickInterval interval) {
 		return switch (interval) {

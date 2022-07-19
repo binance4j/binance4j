@@ -56,7 +56,7 @@ public class WatchService {
 	protected TradingStrategy tradingStrategy;
 
 	/**
-	 * @param strategy The strategy used to live trade
+	 * @param strategy The strategy used to live trade.
 	 */
 	public WatchService(TradingStrategy strategy) {
 		this.tradingStrategy = strategy;
@@ -66,7 +66,7 @@ public class WatchService {
 	/**
 	 * Updates all the series max size, preventing memory overload
 	 *
-	 * @param maximumBarCount The series size
+	 * @param maximumBarCount The series size.
 	 */
 	public void setMaximumBarCount(int maximumBarCount) {
 		this.maximumBarCount = maximumBarCount;
@@ -76,11 +76,11 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
 	 *
-	 * @param symbols  The symbols to listen to
-	 * @param interval The candlestick interval
-	 * @param zoneId   The {@link Bar} zone id
-	 * @param callback The methods to call according to the server response
-	 * @return The websocket client connected to the server
+	 * @param symbols  The symbols to listen to.
+	 * @param interval The candlestick interval.
+	 * @param zoneId   The {@link Bar} zone id.
+	 * @param callback The methods to call according to the server response.
+	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId, StrategyCallback callback) {
 		barSeries = new HashMap<>();
@@ -146,11 +146,11 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
 	 *
-	 * @param symbols  The symbols to listen to
-	 * @param interval The candlestick interval
-	 * @param zoneId   The {@link Bar} zone id
-	 * @param callback The methods to call according to the server response
-	 * @return The websocket client connected to the server
+	 * @param symbols  The symbols to listen to.
+	 * @param interval The candlestick interval.
+	 * @param zoneId   The {@link Bar} zone id.
+	 * @param callback The methods to call according to the server response.
+	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, ZoneId zoneId, StrategyCallback callback) {
 		return watch(String.join(",", symbols), interval, zoneId, callback);
@@ -160,10 +160,10 @@ public class WatchService {
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
-	 * @param symbols  The symbols to listen to
-	 * @param interval The candlestick interval
-	 * @param callback The methods to call according to the server response
-	 * @return The websocket client connected to the server
+	 * @param symbols  The symbols to listen to.
+	 * @param interval The candlestick interval.
+	 * @param callback The methods to call according to the server response.
+	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, StrategyCallback callback) {
 		return watch(symbols, interval, ZoneId.systemDefault(), callback);
@@ -173,10 +173,10 @@ public class WatchService {
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
-	 * @param symbols  The symbols to listen to
-	 * @param interval The candlestick interval
-	 * @param callback The methods to call according to the server response
-	 * @return The websocket client connected to the server
+	 * @param symbols  The symbols to listen to.
+	 * @param interval The candlestick interval.
+	 * @param callback The methods to call according to the server response.
+	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, StrategyCallback callback) {
 		return watch(String.join(",", symbols), interval, callback);

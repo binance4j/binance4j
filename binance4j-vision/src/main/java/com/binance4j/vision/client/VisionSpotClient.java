@@ -32,11 +32,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the candlestick data for a symbol (monthly)
 	 *
-	 * @param symbol              The trading pair
-	 * @param candlestickInterval The interval
-	 * @param year                The year
-	 * @param month               The month
-	 * @return The zip file containing the data
+	 * @param symbol              The trading pair.
+	 * @param candlestickInterval The interval.
+	 * @param year                The year.
+	 * @param month               The month.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -48,11 +48,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol              The trading pair
-	 * @param candlestickInterval The interval
-	 * @param year                The year
-	 * @param month               The month
-	 * @return The zip file containing the data
+	 * @param symbol              The trading pair.
+	 * @param candlestickInterval The interval.
+	 * @param year                The year.
+	 * @param month               The month.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -64,12 +64,12 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the candlestick data for a symbol (daily)
 	 *
-	 * @param symbol              The trading pair
-	 * @param candlestickInterval The interval
-	 * @param year                The year
-	 * @param month               The month
-	 * @param day                 The day
-	 * @return The zip file containing the data
+	 * @param symbol              The trading pair.
+	 * @param candlestickInterval The interval.
+	 * @param year                The year.
+	 * @param month               The month.
+	 * @param day                 The day.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
@@ -81,12 +81,12 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol              The trading pair
-	 * @param candlestickInterval The interval
-	 * @param year                The year
-	 * @param month               The month
-	 * @param day                 The day
-	 * @return The zip file containing the data
+	 * @param symbol              The trading pair.
+	 * @param candlestickInterval The interval.
+	 * @param year                The year.
+	 * @param month               The month.
+	 * @param day                 The day.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day)
 			throws ApiException {
@@ -101,10 +101,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the trades data for a symbol (monthly)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<VisionTrade> getTrades(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -116,10 +116,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getTradesChecksum(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -131,11 +131,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the trades data for a symbol (daily)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @param day    The day
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @param day    The day.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<VisionTrade> getTrades(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
@@ -147,11 +147,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @param day    The day
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @param day    The day.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
@@ -165,10 +165,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the aggTrades data for a symbol (monthly)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<AggTrade> getAggTrades(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -180,10 +180,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getAggTradesChecksum(String symbol, String year, String month) throws ApiException {
 		if (!isValidDate(year, month))
@@ -195,11 +195,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the aggTrades data for a symbol (daily)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @param day    The day
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @param day    The day.
+	 * @return The zip file containing the data.
 	 */
 	public VisionRequest<AggTrade> getAggTrades(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
@@ -211,11 +211,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol The trading pair
-	 * @param year   The year
-	 * @param month  The month
-	 * @param day    The day
-	 * @return The zip file containing the data
+	 * @param symbol The trading pair.
+	 * @param year   The year.
+	 * @param month  The month.
+	 * @param day    The day.
+	 * @return The zip file containing the data.
 	 */
 	public ChecksumRequest getAggTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
@@ -227,10 +227,10 @@ public class VisionSpotClient {
 	/**
 	 * Checks if the given date is valid
 	 *
-	 * @param year  The year
-	 * @param month The month
-	 * @param day   The day
-	 * @return if the date exists
+	 * @param year  The year.
+	 * @param month The month.
+	 * @param day   The day.
+	 * @return if the date exists.
 	 */
 	private boolean isValidDate(String year, String month, String day) {
 		try {
@@ -246,9 +246,9 @@ public class VisionSpotClient {
 	/**
 	 * Checks if the given date is valid
 	 *
-	 * @param year  The year
-	 * @param month The month
-	 * @return if the date exists
+	 * @param year  The year.
+	 * @param month The month.
+	 * @return if the date exists.
 	 */
 	private boolean isValidDate(String year, String month) {
 		return isValidDate(year, month, "01");

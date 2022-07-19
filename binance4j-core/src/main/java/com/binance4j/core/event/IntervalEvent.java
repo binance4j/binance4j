@@ -8,10 +8,10 @@ import java.time.Duration;
 public class IntervalEvent extends BaseScheduledEvent {
 
 	/**
-	 * @param interval      The event's interval
-	 * @param delay         The event's delay
-	 * @param maxTicks      The max times the task can be called
-	 * @param scheduledTask The event's task
+	 * @param interval      The event's interval.
+	 * @param delay         The event's delay.
+	 * @param maxTicks      The max times the task can be called.
+	 * @param scheduledTask The event's task.
 	 */
 	public IntervalEvent(Duration interval, Duration delay, int maxTicks, ScheduledTask scheduledTask) {
 		super();
@@ -20,8 +20,8 @@ public class IntervalEvent extends BaseScheduledEvent {
 	}
 
 	/**
-	 * @param interval      The event's interval (used as delay)
-	 * @param scheduledTask The event's task
+	 * @param interval      The event's interval (used as delay).
+	 * @param scheduledTask The event's task.
 	 */
 	public IntervalEvent(Duration interval, ScheduledTask scheduledTask) {
 		this(interval, interval, 0, scheduledTask);
@@ -29,18 +29,18 @@ public class IntervalEvent extends BaseScheduledEvent {
 	}
 
 	/**
-	 * @param interval      The event's interval
-	 * @param delay         The event's delay
-	 * @param scheduledTask The event's task
+	 * @param interval      The event's interval.
+	 * @param delay         The event's delay.
+	 * @param scheduledTask The event's task.
 	 */
 	public IntervalEvent(Duration interval, Duration delay, ScheduledTask scheduledTask) {
 		this(interval, delay, 0, scheduledTask);
 	}
 
 	/**
-	 * @param interval      The event's interval (used as delay)
-	 * @param maxTicks      The max times the task can be called
-	 * @param scheduledTask The event's task
+	 * @param interval      The event's interval (used as delay).
+	 * @param maxTicks      The max times the task can be called.
+	 * @param scheduledTask The event's task.
 	 */
 	public IntervalEvent(Duration interval, int maxTicks, ScheduledTask scheduledTask) {
 		this(interval, interval, maxTicks, scheduledTask);

@@ -17,7 +17,7 @@ public class DepositAddressParams extends FramedParams {
 	/**
 	 * Default constructor
 	 *
-	 * @param coin The coin we need the address
+	 * @param coin The coin we need the address.
 	 */
 	public DepositAddressParams(String coin) {
 		super(10);
@@ -25,10 +25,8 @@ public class DepositAddressParams extends FramedParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param coin    The coin we need the address
-	 * @param network The transfer network
+	 * @param coin    The coin we need the address.
+	 * @param network The transfer network.
 	 */
 	public DepositAddressParams(String coin, String network) {
 		this(coin);

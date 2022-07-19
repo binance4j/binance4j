@@ -6,23 +6,18 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 /** Websocket client handling Aggregate trade events on a symbol or symbols */
 public class WebsocketAggTradeClient extends BaseWebsocketClient<AggTradePayload> {
 	/**
-	 *
-	 * 
-	 * @param symbols  trading pair separated by a coma
-	 * @param callback The events handler
+	 * @param symbols  trading pair separated by a coma.
+	 * @param callback The events handler.
 	 */
 	public WebsocketAggTradeClient(String symbols, WebsocketCallback<AggTradePayload> callback) {
 		super(symbols, "aggTrade", AggTradePayload.class, callback);
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbols  The trading pair iterable
-	 * @param callback The events handler
+	 * @param symbols  The trading pair iterable.
+	 * @param callback The events handler.
 	 */
-	public WebsocketAggTradeClient(Iterable<? extends CharSequence> symbols,
-	                               WebsocketCallback<AggTradePayload> callback) {
+	public WebsocketAggTradeClient(Iterable<? extends CharSequence> symbols, WebsocketCallback<AggTradePayload> callback) {
 		this(String.join(",", symbols), callback);
 	}
 }

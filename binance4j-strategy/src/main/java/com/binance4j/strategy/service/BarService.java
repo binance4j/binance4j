@@ -26,10 +26,10 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar}
 	 *
-	 * @param bar        The {@link Candle}
-	 * @param timePeriod The interval between two candles
-	 * @param zoneId     The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bar        The {@link Candle}.
+	 * @param timePeriod The interval between two candles.
+	 * @param zoneId     The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(Candle bar, Duration timePeriod, ZoneId zoneId) {
 		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class).timePeriod(timePeriod)
@@ -40,9 +40,9 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar} with default {@link ZoneId}
 	 *
-	 * @param bar        The {@link Candle}
-	 * @param timePeriod The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bar        The {@link Candle}.
+	 * @param timePeriod The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(Candle bar, Duration timePeriod) {
 		return convert(bar, timePeriod, ZoneId.systemDefault());
@@ -51,10 +51,10 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar}
 	 *
-	 * @param bar      The candle
-	 * @param interval The interval between two candles
-	 * @param zoneId   The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bar      The candle.
+	 * @param interval The interval between two candles.
+	 * @param zoneId   The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(Candle bar, CandlestickInterval interval, ZoneId zoneId) {
 		return convert(bar, DurationService.convert(interval), zoneId);
@@ -63,9 +63,9 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar} with default {@link ZoneId}
 	 *
-	 * @param bar      The candle
-	 * @param interval The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bar      The candle.
+	 * @param interval The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(Candle bar, CandlestickInterval interval) {
 		return convert(bar, interval, ZoneId.systemDefault());
@@ -74,10 +74,10 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar}
 	 *
-	 * @param bar        The {@link Candle}
-	 * @param timePeriod The interval between two candles
-	 * @param zoneId     The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bar        The {@link Candle}.
+	 * @param timePeriod The interval between two candles.
+	 * @param zoneId     The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(CandlePayload bar, Duration timePeriod, ZoneId zoneId) {
 		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class).timePeriod(timePeriod)
@@ -88,9 +88,9 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar} with default {@link ZoneId}
 	 *
-	 * @param bar        The {@link Candle}
-	 * @param timePeriod The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bar        The {@link Candle}.
+	 * @param timePeriod The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(CandlePayload bar, Duration timePeriod) {
 		return convert(bar, timePeriod, ZoneId.systemDefault());
@@ -99,10 +99,10 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar}
 	 *
-	 * @param bar      The candle
-	 * @param interval The interval between two candles
-	 * @param zoneId   The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bar      The candle.
+	 * @param interval The interval between two candles.
+	 * @param zoneId   The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(CandlePayload bar, CandlestickInterval interval, ZoneId zoneId) {
 		return convert(bar, DurationService.convert(interval), zoneId);
@@ -111,9 +111,9 @@ public class BarService {
 	/**
 	 * Converts a {@link Candle}s into a {@link Bar} with default {@link ZoneId}
 	 *
-	 * @param bar      The candle
-	 * @param interval The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bar      The candle.
+	 * @param interval The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(CandlePayload bar, CandlestickInterval interval) {
 		return convert(bar, interval, ZoneId.systemDefault());

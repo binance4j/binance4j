@@ -33,12 +33,12 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Produces an order without price
 	 *
-	 * @param weight      The order weight
-	 * @param symbol      The symbol the order is made on
-	 * @param type        The order type
-	 * @param side        The order side (BUY/SELL)
-	 * @param quantity    The order quantity
-	 * @param timeInForce The order lifetime
+	 * @param weight      The order weight.
+	 * @param symbol      The symbol the order is made on.
+	 * @param type        The order type.
+	 * @param side        The order side (BUY/SELL).
+	 * @param quantity    The order quantity.
+	 * @param timeInForce The order lifetime.
 	 */
 	public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, TimeInForce timeInForce) {
 		super(weight, symbol, side, quantity);
@@ -50,11 +50,11 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Produces an order without price and GTC time in force
 	 *
-	 * @param weight   The order weight
-	 * @param symbol   The symbol the order is made on
-	 * @param type     The order type
-	 * @param side     The order side (BUY/SELL)
-	 * @param quantity The order quantity
+	 * @param weight   The order weight.
+	 * @param symbol   The symbol the order is made on.
+	 * @param type     The order type.
+	 * @param side     The order side (BUY/SELL).
+	 * @param quantity The order quantity.
 	 */
 	public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
 		super(weight, symbol, side, quantity);
@@ -65,13 +65,13 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Produces an order with a price
 	 *
-	 * @param weight      The order weight
-	 * @param symbol      The symbol the order is made on
-	 * @param type        The order type
-	 * @param side        The order side (BUY/SELL)
-	 * @param quantity    The order quantity
-	 * @param price       The order price
-	 * @param timeInForce The order lifetime
+	 * @param weight      The order weight.
+	 * @param symbol      The symbol the order is made on.
+	 * @param type        The order type.
+	 * @param side        The order side (BUY/SELL).
+	 * @param quantity    The order quantity.
+	 * @param price       The order price.
+	 * @param timeInForce The order lifetime.
 	 */
 	public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
 		this(weight, symbol, type, side, quantity, timeInForce);
@@ -81,12 +81,12 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Produces an order with a price and GTC time in force
 	 *
-	 * @param weight   The order weight
-	 * @param symbol   The symbol the order is made on
-	 * @param type     The order type
-	 * @param side     The order side (BUY/SELL)
-	 * @param quantity The order quantity
-	 * @param price    The order price
+	 * @param weight   The order weight.
+	 * @param symbol   The symbol the order is made on.
+	 * @param type     The order type.
+	 * @param side     The order side (BUY/SELL).
+	 * @param quantity The order quantity.
+	 * @param price    The order price.
 	 */
 	public BaseOrderParams(int weight, String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
 		this(weight, symbol, type, side, quantity);
@@ -96,7 +96,7 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Sets quantity and remove quote order quantity because you can't have both in an order
 	 * 
-	 * @param quantity The new quantity
+	 * @param quantity The new quantity.
 	 */
 	@Override
 	public void setQuantity(BigDecimal quantity) {
@@ -107,7 +107,7 @@ public class BaseOrderParams extends OrderParams {
 	/**
 	 * Sets quote order quantity and remove quantity because you can't have both in an order
 	 * 
-	 * @param quoteOrderQuantity The new quantity
+	 * @param quoteOrderQuantity The new quantity.
 	 */
 	public void setQuoteOrderQty(BigDecimal quoteOrderQuantity) {
 		this.quantity = null;

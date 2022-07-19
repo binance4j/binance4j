@@ -34,8 +34,8 @@ public class AuthenticationInterceptor implements Interceptor {
 	private final String secret;
 
 	/**
-	 * @param key    The API public key
-	 * @param secret The API private key
+	 * @param key    The API public key.
+	 * @param secret The API private key.
 	 */
 	public AuthenticationInterceptor(String key, String secret) {
 		this.key = key;
@@ -45,7 +45,7 @@ public class AuthenticationInterceptor implements Interceptor {
 	/**
 	 * Intercepts the request
 	 * 
-	 * @param chain The request chain
+	 * @param chain The request chain.
 	 */
 	@NotNull
 	@Override
@@ -80,7 +80,7 @@ public class AuthenticationInterceptor implements Interceptor {
 	/**
 	 * Extracts the request body into a String.
 	 *
-	 * @return request body as a string
+	 * @return request body as a string.
 	 */
 	@SuppressWarnings("unused")
 	private static String bodyToString(RequestBody request) throws ApiException {

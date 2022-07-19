@@ -26,14 +26,14 @@ public class Params {
 	protected Params() {
 	}
 
-	/** @param weight The Request weight */
+	/** @param weight The Request weight */.
 	public Params(int weight) {
 		this(weight, false);
 	}
 
 	/**
-	 * @param weight         The Request weight
-	 * @param isOrderRequest Is the request a trading order
+	 * @param weight         The Request weight.
+	 * @param isOrderRequest Is the request a trading order.
 	 */
 	public Params(int weight, Boolean isOrderRequest) {
 		this.weight = weight;
@@ -43,7 +43,7 @@ public class Params {
 	/**
 	 * Converts the request into a {@link QueryMap}
 	 *
-	 * @return The generated {@link QueryMap}
+	 * @return The generated {@link QueryMap}.
 	 */
 	public Map<String, Object> toMap() {
 		Map<String, Object> map = MAPPER.convertValue(this, new TypeReference<Map<String, Object>>() {
@@ -57,17 +57,17 @@ public class Params {
 		return map;
 	}
 
-	/** @return the recvWindow */
+	/** @return the recvWindow */.
 	public static long getRecvWindow() {
 		return recvWindow;
 	}
 
-	/** @param recvWindow the recvWindow to set */
+	/** @param recvWindow the recvWindow to set */.
 	public static void setRecvWindow(long recvWindow) {
 		Params.recvWindow = recvWindow;
 	}
 
-	/** @return the weight */
+	/** @return the weight */.
 	public int getWeight() {
 		return weight;
 	}

@@ -4,14 +4,11 @@ import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.client.BaseWebsocketClient;
 
 /**
- * Websocket client handling ticker events on all
- * symbols.
+ * Websocket client handling ticker events on all symbols.
  */
 public class WebsocketAllTickersClient extends BaseWebsocketClient<TickerPayload> {
 	/**
-	 *
-	 * 
-	 * @param callback The events handler
+	 * @param callback The events handler.
 	 */
 	public WebsocketAllTickersClient(WebsocketCallback<TickerPayload> callback) {
 		super(null, "!ticker", TickerPayload.class, callback);

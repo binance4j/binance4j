@@ -26,123 +26,123 @@ public interface MarketMapping {
 	String BASE = "/api/v3/";
 
 	/**
-	 * @return The server response
+	 * @return The server response.
 	 */
 	@GET(BASE + "ping")
 	Call<Void> ping();
 
 	/**
-	 * @return The server response
+	 * @return The server response.
 	 */
 	@GET(BASE + "time")
 	Call<ServerTimeResponse> getServerTime();
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "exchangeInfo")
 	Call<ExchangeInfo> getExchangeInfo(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "depth")
 	Call<OrderBook> getOrderBook(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "trades")
 	Call<List<TradeHistoryItem>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@Headers(AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
 	@GET(BASE + "historicalTrades")
 	Call<List<TradeHistoryItem>> getHistoricalTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "aggTrades")
 	Call<List<AggTrade>> getAggTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "klines")
 	Call<List<Candle>> getKlines(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "avgPrice")
 	Call<AveragePrice> getAveragePrice(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @return The server response
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/24hr")
 	Call<List<TickerStatistics>> get24hTickerStatistics();
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/24hr")
 	Call<TickerStatistics> get24hTickerStatistics(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/24hr")
 	Call<List<TickerStatistics>> get24hTickersStatistics(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @return The server response
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/price")
 	Call<List<PriceTicker>> getTicker();
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/price")
 	Call<List<PriceTicker>> getTickers(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/price")
 	Call<PriceTicker> getTicker(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @return The server response
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/bookTicker")
 	Call<List<BookTicker>> getBookTicker();
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/bookTicker")
 	Call<BookTicker> getBookTicker(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "ticker/bookTicker")
 	Call<List<BookTicker>> getBookTickers(@QueryMap Map<String, Object> map);

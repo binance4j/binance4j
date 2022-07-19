@@ -14,9 +14,9 @@ public class HmacSHA256Signer {
 	/**
 	 * Sign the given message using the given secret.
 	 *
-	 * @param message message to sign
-	 * @param secret  secret key
-	 * @return a signed message
+	 * @param message message to sign.
+	 * @param secret  secret key.
+	 * @return a signed message.
 	 */
 	public static String sign(String message, String secret) throws UnableToSignException {
 		try {

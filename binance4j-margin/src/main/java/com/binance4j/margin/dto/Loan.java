@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * @param status         The loan status.
  * @param principal      The borrowed quantity.
- * @param isolatedSymbol The isolated symbol. Will not be returned for crossed margin
+ * @param isolatedSymbol The isolated symbol. Will not be returned for crossed margin.
  * @param asset          The related asset.
  * @param timestamp      The loan timestamp in ms.
  * @param id             The transaction id.

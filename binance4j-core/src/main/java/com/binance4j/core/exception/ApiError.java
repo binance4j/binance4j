@@ -13,10 +13,8 @@ public class ApiError {
 	private String msg;
 
 	/**
-	 * 
-	 * 
-	 * @param code The error code
-	 * @param msg  The error message
+	 * @param code The error code.
+	 * @param msg  The error message.
 	 */
 	public ApiError(int code, String msg) {
 		this.msg = msg;

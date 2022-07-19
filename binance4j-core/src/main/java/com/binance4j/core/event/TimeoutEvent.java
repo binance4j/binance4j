@@ -7,8 +7,8 @@ import java.time.Duration;
  */
 public class TimeoutEvent extends BaseScheduledEvent {
 	/**
-	 * @param timeout       Timeout duration
-	 * @param scheduledTask THe task to execute
+	 * @param timeout       Timeout duration.
+	 * @param scheduledTask THe task to execute.
 	 */
 	public TimeoutEvent(Duration timeout, ScheduledTask scheduledTask) {
 		super();

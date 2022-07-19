@@ -18,8 +18,8 @@ public enum UserDataUpdatePayloadType {
 	private final String eventTypeId;
 
 	/**
-	 * @param eventTypeId The enum string value
-	 * @return The enum value
+	 * @param eventTypeId The enum string value.
+	 * @return The enum value.
 	 */
 	public static UserDataUpdatePayloadType getValue(String eventTypeId) {
 		if (ORDER_TRADE_UPDATE.eventTypeId.equals(eventTypeId)) {

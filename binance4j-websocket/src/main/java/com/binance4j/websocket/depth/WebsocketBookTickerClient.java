@@ -6,23 +6,18 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 /** Websocket client handling book ticker events on one or many symbols */
 public class WebsocketBookTickerClient extends BaseWebsocketClient<BookTickerPayload> {
 	/**
-	 *
-	 * 
-	 * @param symbols  trading pair separated by a coma
-	 * @param callback The events handler
+	 * @param symbols  trading pair separated by a coma.
+	 * @param callback The events handler.
 	 */
 	public WebsocketBookTickerClient(String symbols, WebsocketCallback<BookTickerPayload> callback) {
 		super(symbols, "bookTicker", BookTickerPayload.class, callback);
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbols  The trading pair iterable
-	 * @param callback The events handler
+	 * @param symbols  The trading pair iterable.
+	 * @param callback The events handler.
 	 */
-	public WebsocketBookTickerClient(Iterable<? extends CharSequence> symbols,
-	                                 WebsocketCallback<BookTickerPayload> callback) {
+	public WebsocketBookTickerClient(Iterable<? extends CharSequence> symbols, WebsocketCallback<BookTickerPayload> callback) {
 		this(String.join(",", symbols), callback);
 	}
 }

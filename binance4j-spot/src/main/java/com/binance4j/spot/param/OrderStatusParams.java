@@ -19,8 +19,8 @@ public class OrderStatusParams extends FramedParams {
 	/**
 	 * with orderId
 	 *
-	 * @param symbol  The trading pair we want the order status
-	 * @param orderId The order id
+	 * @param symbol  The trading pair we want the order status.
+	 * @param orderId The order id.
 	 */
 	public OrderStatusParams(String symbol, Long orderId) {
 		super(1);
@@ -31,8 +31,8 @@ public class OrderStatusParams extends FramedParams {
 	/**
 	 * with origClientOrderId
 	 *
-	 * @param symbol            The trading pair we want the order status
-	 * @param origClientOrderId The client id
+	 * @param symbol            The trading pair we want the order status.
+	 * @param origClientOrderId The client id.
 	 */
 	public OrderStatusParams(String symbol, String origClientOrderId) {
 		super(1);

@@ -25,8 +25,8 @@ public class SymbolBar extends BaseBar {
 	private boolean isBarFinal;
 
 	/**
-	 * @param bar    The input bar
-	 * @param symbol The bar symbol name
+	 * @param bar    The input bar.
+	 * @param symbol The bar symbol name.
 	 */
 	public SymbolBar(Bar bar, boolean isBarFinal, String symbol) {
 		super(bar.getTimePeriod(), bar.getEndTime(), bar.getOpenPrice().doubleValue(), bar.getHighPrice().doubleValue(), bar.getLowPrice().doubleValue(),

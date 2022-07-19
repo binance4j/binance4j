@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param id                      The asset id.
  * @param assetCode               The asset abbreviation.
  * @param assetName               The asset full name.
- * @param unit                    Unit
+ * @param unit                    Unit.
  * @param transactionFee          The cost of a transaction.
  * @param commissionRate          The payment associated with a certain amount of sale.
- * @param freeAuditWithdrawAmount Free audit withdraw amount
- * @param freeUserChargeAmount    Free user charge amount
+ * @param freeAuditWithdrawAmount Free audit withdraw amount.
+ * @param freeUserChargeAmount    Free user charge amount.
  * @param minProductWithdraw      The minimal amount you can withdraw.
  * @param withdrawIntegerMultiple The smallest withdraw multiple.
- * @param confirmTimes            Time elapsed between the moment a blockchain transaction is submitted and recorded
+ * @param confirmTimes            Time elapsed between the moment a blockchain transaction is submitted and recorded.
  *                                    into a confirmed block
  * @param enableWithdraw          s the withdrawal of the asset enabled.
  * @param isLegalMoney            s it issued by a government.

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
     <artifactId>binance4j-connectors</artifactId>
-    <version>${binance4j.version}</version>
+    <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <repositories>
@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <binance4j.version>2.0.1-SNAPSHOT</binance4j.version>
+
     </properties>
 
 
@@ -62,47 +62,47 @@
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-margin</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-market</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-nft</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-rebate</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-spot</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-strategy</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-vision</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-wallet</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-websocket</artifactId>
-            <version>${binance4j.version}</version>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>

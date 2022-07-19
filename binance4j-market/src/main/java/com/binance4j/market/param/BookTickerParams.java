@@ -17,7 +17,7 @@ public class BookTickerParams extends Params {
 	/**
 	 * to get the ticker of a symbol
 	 *
-	 * @param symbol The trading pair we want the ticker
+	 * @param symbol The trading pair we want the ticker.
 	 */
 	public BookTickerParams(String symbol) {
 		super(1);
@@ -25,14 +25,14 @@ public class BookTickerParams extends Params {
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol the symbol to set.
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;

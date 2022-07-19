@@ -15,8 +15,8 @@ public record BackTestResult(
 		TradingRecord tradingRecord) {
 
 	/**
-	 * @param series        The series the backtest run
-	 * @param tradingRecord The positions record
+	 * @param series        The series the backtest run.
+	 * @param tradingRecord The positions record.
 	 */
 	public BackTestResult(BarSeries series, TradingRecord tradingRecord) {
 		this(series, new TradingStatistics(tradingRecord, series), tradingRecord);

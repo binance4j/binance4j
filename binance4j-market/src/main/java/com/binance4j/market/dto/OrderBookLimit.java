@@ -29,7 +29,7 @@ public enum OrderBookLimit {
 	final int value;
 
 	/**
-	 * @return the value
+	 * @return the value.
 	 */
 	public int getValue() {
 		return value;

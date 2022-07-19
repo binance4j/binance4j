@@ -19,9 +19,7 @@ import retrofit2.Call;
 public abstract class VisionRequest<T> extends Request<ResponseBody> {
 
 	/**
-	 *
-	 * 
-	 * @param call The API call
+	 * @param call The API call.
 	 */
 	protected VisionRequest(Call<ResponseBody> call) {
 		super(call);
@@ -30,7 +28,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file synchronously
 	 *
-	 * @return The zip file
+	 * @return The zip file.
 	 */
 	public ZipInputStream getZip() throws ApiException {
 		try {
@@ -43,7 +41,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error
+	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getZip(ApiCallback<ZipInputStream> callback) {
 		then(new ApiCallback<ResponseBody>() {
@@ -63,7 +61,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file synchronously and returns the data in a csv style (2d list)
 	 *
-	 * @return The deserialized data
+	 * @return The deserialized data.
 	 */
 	public List<List<String>> getCSV() throws ApiException {
 		return extractCSV(getZip());
@@ -72,7 +70,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously and returns the data in a csv style (2d list)
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error
+	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getCSV(ApiCallback<List<List<String>>> callback) {
 		then(new ApiCallback<ResponseBody>() {
@@ -95,7 +93,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file synchronously and returns the data in the csv as a list of objects
 	 *
-	 * @return The deserialized data
+	 * @return The deserialized data.
 	 */
 	public List<T> getData() throws ApiException {
 		return csvToObject(getCSV());
@@ -104,7 +102,7 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously and returns the data in the csv as a list of objects
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error
+	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getData(ApiCallback<List<T>> callback) {
 		then(new ApiCallback<ResponseBody>() {
@@ -128,8 +126,8 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Converts the responseBody into a zip stream
 	 *
-	 * @param res The responseBody
-	 * @return The zip stream
+	 * @param res The responseBody.
+	 * @return The zip stream.
 	 */
 	protected ZipInputStream responseToZip(ResponseBody res) {
 		return new ZipInputStream(res.byteStream());
@@ -138,8 +136,8 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Extracts the csv from the zip
 	 *
-	 * @param zis the zip stream
-	 * @return The data as a list of string arrays
+	 * @param zis the zip stream.
+	 * @return The data as a list of string arrays.
 	 */
 	protected List<List<String>> extractCSV(ZipInputStream zis) throws ApiException {
 		try {
@@ -162,8 +160,8 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * Converts the csv into a list of the desired type
 	 *
-	 * @param input The data as a list of string arrays
-	 * @return The data as a list of objects
+	 * @param input The data as a list of string arrays.
+	 * @return The data as a list of objects.
 	 */
 	protected List<T> csvToObject(Class<T> clazz, List<List<String>> input) throws ApiException {
 		List<T> obj = new ArrayList<>();
@@ -181,8 +179,8 @@ public abstract class VisionRequest<T> extends Request<ResponseBody> {
 	/**
 	 * The child class method to convert the csv list into a list of the generic type
 	 *
-	 * @param input The csv input
-	 * @return A list of
+	 * @param input The csv input.
+	 * @return A list of.
 	 */
 	protected abstract List<T> csvToObject(List<List<String>> input) throws ApiException;
 }

@@ -14,7 +14,7 @@ import retrofit2.Call;
 /** Vision data checksum request */
 public class ChecksumRequest extends Request<ResponseBody> {
 	/**
-	 * @param call The API call
+	 * @param call The API call.
 	 */
 	public ChecksumRequest(Call<ResponseBody> call) {
 		super(call);
@@ -23,8 +23,8 @@ public class ChecksumRequest extends Request<ResponseBody> {
 	/**
 	 * Retrieves the checksum from the response body
 	 *
-	 * @param res The response body
-	 * @return The checksum wrapper
+	 * @param res The response body.
+	 * @return The checksum wrapper.
 	 */
 	private VisionChecksum resToChecksum(ResponseBody res) {
 		Scanner sc = new Scanner(res.byteStream());
@@ -53,7 +53,7 @@ public class ChecksumRequest extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error
+	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getChecksum(ApiCallback<VisionChecksum> callback) {
 		then(new ApiCallback<ResponseBody>() {

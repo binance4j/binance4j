@@ -32,9 +32,9 @@ public abstract class RestClient<T> {
 	/**
 	 * Instantiates a client for the corresponding mapping
 	 *
-	 * @param mapping The retrofit Service mapping interface
-	 * @param key     The API public key
-	 * @param secret  The API secret key
+	 * @param mapping The retrofit Service mapping interface.
+	 * @param key     The API public key.
+	 * @param secret  The API secret key.
 	 */
 	protected RestClient(Class<T> mapping, String key, String secret) {
 		this.mapping = mapping;
@@ -47,7 +47,7 @@ public abstract class RestClient<T> {
 	/**
 	 * Generates the retrofit service that makes the API calls
 	 *
-	 * @return The service responsible for making calls to the API
+	 * @return The service responsible for making calls to the API.
 	 */
 	protected T createService() {
 		Converter.Factory converterFactory = JacksonConverterFactory.create();
@@ -66,42 +66,42 @@ public abstract class RestClient<T> {
 		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
 	}
 
-	/** @return the configuration */
+	/** @return the configuration */.
 	public RestClientConfiguration getConfiguration() {
 		return configuration;
 	}
 
-	/** @param configuration the configuration to set */
+	/** @param configuration the configuration to set */.
 	public void setConfiguration(RestClientConfiguration configuration) {
 		this.configuration = configuration;
 	}
 
-	/** @return the key */
+	/** @return the key */.
 	public String getKey() {
 		return key;
 	}
 
-	/** @param key the key to set */
+	/** @param key the key to set */.
 	public void setKey(String key) {
 		this.key = key;
 	}
 
-	/** @return the secret */
+	/** @return the secret */.
 	public String getSecret() {
 		return secret;
 	}
 
-	/** @param secret the secret to set */
+	/** @param secret the secret to set */.
 	public void setSecret(String secret) {
 		this.secret = secret;
 	}
 
-	/** @return the mapping */
+	/** @return the mapping */.
 	public Class<T> getMapping() {
 		return mapping;
 	}
 
-	/** @param mapping the mapping to set */
+	/** @param mapping the mapping to set */.
 	public void setMapping(Class<T> mapping) {
 		this.mapping = mapping;
 	}

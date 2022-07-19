@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * Interest record in a {@link InterestHistory}
  * 
- * @param isolatedSymbol      The isolated symbol. Will not be returned for crossed margin
+ * @param isolatedSymbol      The isolated symbol. Will not be returned for crossed margin.
  * @param asset               The related asset.
  * @param rawAsset            The related raw asset. Will not be returned for isolated margin.
  * @param interest            The interest.

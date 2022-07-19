@@ -17,7 +17,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	/** The wrapped callback. */
 	private final ApiCallback<T> callback;
 
-	/** @param callback The wrapped callback */
+	/** @param callback The wrapped callback */.
 	public ApiCallbackAdapter(ApiCallback<T> callback) {
 		this.callback = callback;
 	}
@@ -25,8 +25,8 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	/**
 	 * Calls the {@link ApiCallback} corresponding method according to the response HTTP code
 	 * 
-	 * @param call     The retrofit call
-	 * @param response The API response
+	 * @param call     The retrofit call.
+	 * @param response The API response.
 	 */
 	@Override
 	public void onResponse(@NotNull Call<T> call, Response<T> response) {
@@ -49,8 +49,8 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	/**
 	 * Generates a {@link ApiException} from the given Throwable and calls {@link ApiCallback#onFailure(ApiException)}
 	 * 
-	 * @param call      The retrofit call
-	 * @param throwable The API error message
+	 * @param call      The retrofit call.
+	 * @param throwable The API error message.
 	 */
 	@Override
 	public void onFailure(@NotNull Call<T> call, Throwable throwable) {

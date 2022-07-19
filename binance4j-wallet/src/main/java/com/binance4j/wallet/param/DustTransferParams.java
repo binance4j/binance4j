@@ -15,9 +15,7 @@ public class DustTransferParams extends FramedParams {
 	private List<String> assets;
 
 	/**
-	 *
-	 * 
-	 * @param assets The list of assets to convert into BNB
+	 * @param assets The list of assets to convert into BNB.
 	 */
 	public DustTransferParams(List<String> assets) {
 		super(10);

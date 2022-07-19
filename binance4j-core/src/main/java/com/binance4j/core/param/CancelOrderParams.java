@@ -17,8 +17,8 @@ public class CancelOrderParams extends FramedParams {
 	private String newClientOrderId;
 
 	/**
-	 * @param symbol  The related symbol
-	 * @param orderId The order id
+	 * @param symbol  The related symbol.
+	 * @param orderId The order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId) {
 		super(10);
@@ -27,8 +27,8 @@ public class CancelOrderParams extends FramedParams {
 	}
 
 	/**
-	 * @param symbol            The related symbol
-	 * @param origClientOrderId Origin client order id
+	 * @param symbol            The related symbol.
+	 * @param origClientOrderId Origin client order id.
 	 */
 	public CancelOrderParams(String symbol, String origClientOrderId) {
 		super(10);

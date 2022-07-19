@@ -44,7 +44,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when receiving a message from the websocket
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onMessage(GenericCallback<SymbolBar> callback) {
 		this.onMessageConsumer = callback;
@@ -53,7 +53,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the strategy sends a BUY signal
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onEnter(GenericCallback<BarSeries> callback) {
 		this.onEnterConsumer = callback;
@@ -62,7 +62,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the strategy sends a SELL signal
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onExit(GenericCallback<BarSeries> callback) {
 		this.onExitConsumer = callback;
@@ -71,7 +71,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the stream opens
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onOpen(GenericCallback<Response> callback) {
 		this.onOpenConsumer = callback;
@@ -80,7 +80,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the stream is closing
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onClosing(GenericCallback<WebsocketCloseObject> callback) {
 		this.onClosingConsumer = callback;
@@ -89,7 +89,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the stream is closed
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onClosed(GenericCallback<WebsocketCloseObject> callback) {
 		this.onClosedConsumer = callback;
@@ -98,7 +98,7 @@ public class StrategyCallback {
 	/**
 	 * Defines the callback to trigger when the stream fails
 	 *
-	 * @param callback The event callback
+	 * @param callback The event callback.
 	 */
 	public void onFailure(GenericCallback<ApiException> callback) {
 		this.onFailureConsumer = callback;

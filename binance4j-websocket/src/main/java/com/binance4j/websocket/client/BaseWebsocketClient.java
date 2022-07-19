@@ -53,12 +53,10 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbols      The pairs of assets
-	 * @param stream       The stream
-	 * @param payloadClass The payload type
-	 * @param callback     The events handler
+	 * @param symbols      The pairs of assets.
+	 * @param stream       The stream.
+	 * @param payloadClass The payload type.
+	 * @param callback     The events handler.
 	 */
 	protected BaseWebsocketClient(String symbols, String stream, Class<T> payloadClass, WebsocketCallback<T> callback) {
 		this.symbols = symbols;
@@ -91,7 +89,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/**
 	 * Closes the stream
 	 * 
-	 * @param closedByClient Defines if the cloising is made by the client
+	 * @param closedByClient Defines if the cloising is made by the client.
 	 */
 	public void close(boolean closedByClient) {
 		this.interceptorCallback.setClosedByClient(closedByClient);
@@ -104,34 +102,27 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/**
 	 * Generate the websocket communicating with the API
 	 *
-	 * @param channel  address containing the symbols and the stream name
-	 * @param listener The websocket listener
-	 * @return The websocket to communicate with the API
+	 * @param channel  address containing the symbols and the stream name.
+	 * @param listener The websocket listener.
+	 * @return The websocket to communicate with the API.
 	 */
-	private WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel,
-	                               ApiWebSocketListener<?> listener) {
+	private WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
 		String streamingUrl = String.format("%s/%s", configuration.getBaseUrl(), channel);
 		Request request = new Request.Builder().url(streamingUrl).build();
 
-		return new OkHttpClient.Builder()
-				.dispatcher(new Dispatcher())
-				.pingInterval(configuration.getPingInterval())
-				.build()
-				.newWebSocket(request, listener);
+		return new OkHttpClient.Builder().dispatcher(new Dispatcher()).pingInterval(configuration.getPingInterval()).build().newWebSocket(request, listener);
 	}
 
 	/**
 	 * Generates the channel the Websocket will connect to
 	 *
-	 * @param symbols The symbols we want the market data seperated by a coma
-	 * @param stream  The stream endpoint
-	 * @return The stream channel
+	 * @param symbols The symbols we want the market data seperated by a coma.
+	 * @param stream  The stream endpoint.
+	 * @return The stream channel.
 	 */
 	private String generateChannel(String symbols, String stream) {
 		return symbols == null ? stream
-				: Arrays.stream(symbols.toLowerCase().split(","))
-				.map(String::trim)
-				.map(s -> String.format("%s@%s", s, stream))
-				.collect(Collectors.joining("/"));
+				: Arrays.stream(symbols.toLowerCase().split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream))
+						.collect(Collectors.joining("/"));
 	}
 }

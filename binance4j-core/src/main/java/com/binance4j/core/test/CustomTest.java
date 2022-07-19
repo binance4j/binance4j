@@ -59,14 +59,14 @@ public abstract class CustomTest<T> {
 	/**
 	 * Constructor
 	 * 
-	 * @param client The API client
+	 * @param client The API client.
 	 */
 	protected CustomTest(T client) {
 		this.client = client;
 	}
 
 	/**
-	 * @param clientClass The client class
+	 * @param clientClass The client class.
 	 */
 	protected CustomTest(@NonNull Class<? extends T> clientClass) {
 		try {
@@ -78,8 +78,8 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param clientClass        The client class
-	 * @param testnetClientClass The testnet client class
+	 * @param clientClass        The client class.
+	 * @param testnetClientClass The testnet client class.
 	 */
 	protected CustomTest(Class<? extends T> clientClass, Class<? extends T> testnetClientClass) {
 		try {
@@ -92,8 +92,8 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean The bean we want the properties
-	 * @return the properties of the given bean
+	 * @param bean The bean we want the properties.
+	 * @return the properties of the given bean.
 	 */
 	protected Map<String, Object> getProperties(Object bean) {
 		Map<String, Object> map = new HashMap<>();
@@ -111,17 +111,17 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean The bean we want the properties
-	 * @return the bean properties with a null walue
+	 * @param bean The bean we want the properties.
+	 * @return the bean properties with a null walue.
 	 */
 	protected Set<String> getNullProperties(Object bean) {
 		return getNullProperties(bean, bean.getClass().getSimpleName());
 	}
 
 	/**
-	 * @param bean    The bean we want the properties
-	 * @param flatten Flatten the result to only show the properties names
-	 * @return the bean properties with a null walue
+	 * @param bean    The bean we want the properties.
+	 * @param flatten Flatten the result to only show the properties names.
+	 * @return the bean properties with a null walue.
 	 */
 	protected Set<String> getNullProperties(Object bean, boolean flatten) {
 		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
@@ -133,9 +133,9 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean           The bean we want the properties
-	 * @param enclosingClass The enclosing class
-	 * @return the bean properties with a null walue
+	 * @param bean           The bean we want the properties.
+	 * @param enclosingClass The enclosing class.
+	 * @return the bean properties with a null walue.
 	 */
 	protected Set<String> getNullProperties(Object bean, String enclosingClass) {
 		List<String> list = new ArrayList<>();
@@ -175,40 +175,40 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean The bean to verify
-	 * @return if the given object has no null property
+	 * @param bean The bean to verify.
+	 * @return if the given object has no null property.
 	 */
 	protected boolean hasNoNullProperty(Object bean) {
 		return getNullProperties(bean).isEmpty();
 	}
 
 	/**
-	 * @param bean The bean we want to inspect
-	 * @return if the bean has properties
+	 * @param bean The bean we want to inspect.
+	 * @return if the bean has properties.
 	 */
 	protected boolean hasProperties(Object bean) {
 		return getProperties(bean).size() != 0;
 	}
 
 	/**
-	 * @param bean The bean to inspect
-	 * @return if the object is from the java lang package
+	 * @param bean The bean to inspect.
+	 * @return if the object is from the java lang package.
 	 */
 	protected boolean isJavaBean(Object bean) {
 		return bean.getClass().getName().startsWith("java");
 	}
 
 	/**
-	 * @param bean The bean to inspect
-	 * @return if the object is a Map
+	 * @param bean The bean to inspect.
+	 * @return if the object is a Map.
 	 */
 	protected boolean isMap(Object bean) {
 		return bean instanceof Map;
 	}
 
 	/**
-	 * @param bean The bean to inspect
-	 * @return if the object is a Collection (Map excluded)
+	 * @param bean The bean to inspect.
+	 * @return if the object is a Collection (Map excluded).
 	 */
 	protected boolean isCollection(Object bean) {
 		return bean instanceof Collection;
@@ -217,7 +217,7 @@ public abstract class CustomTest<T> {
 	/**
 	 * Tests that the object has no null properties
 	 * 
-	 * @param bean The bean
+	 * @param bean The bean.
 	 */
 	public void test(Object bean) {
 		System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
@@ -237,7 +237,7 @@ public abstract class CustomTest<T> {
 	/**
 	 * Tests that the object has no null properties
 	 * 
-	 * @param req The request
+	 * @param req The request.
 	 * @throws ApiException Thrown if error
 	 */
 	public void test(Request<?> req) throws ApiException {
@@ -245,77 +245,77 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @return the key
+	 * @return the key.
 	 */
 	public String getKey() {
 		return key;
 	}
 
 	/**
-	 * @return the secret
+	 * @return the secret.
 	 */
 	public String getSecret() {
 		return secret;
 	}
 
 	/**
-	 * @return the testnetKey
+	 * @return the testnetKey.
 	 */
 	public String getTestnetKey() {
 		return testnetKey;
 	}
 
 	/**
-	 * @return the testnetSecret
+	 * @return the testnetSecret.
 	 */
 	public String getTestnetSecret() {
 		return testnetSecret;
 	}
 
 	/**
-	 * @return the symbol
+	 * @return the symbol.
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @return the asset
+	 * @return the asset.
 	 */
 	public String getAsset() {
 		return asset;
 	}
 
 	/**
-	 * @return the limit
+	 * @return the limit.
 	 */
 	public int getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @return the assets
+	 * @return the assets.
 	 */
 	public List<String> getAssets() {
 		return assets;
 	}
 
 	/**
-	 * @return the symbols
+	 * @return the symbols.
 	 */
 	public List<String> getSymbols() {
 		return symbols;
 	}
 
 	/**
-	 * @return the client
+	 * @return the client.
 	 */
 	public T getClient() {
 		return client;
 	}
 
 	/**
-	 * @return the testnetClient
+	 * @return the testnetClient.
 	 */
 	public T getTestnetClient() {
 		return testnetClient;

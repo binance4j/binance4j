@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OpenOCOParams extends FramedParams {
+	/** Constructor */
 	public OpenOCOParams() {
 		super(3);
 	}

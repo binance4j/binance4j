@@ -17,7 +17,7 @@ public class TickersStatisticsParams extends Params {
 	/**
 	 * to get the ticker stats of multiple symbol
 	 *
-	 * @param symbols The trading pairs we want the ticker stats
+	 * @param symbols The trading pairs we want the ticker stats.
 	 */
 	public TickersStatisticsParams(Collection<String> symbols) {
 		super(0);
@@ -38,21 +38,21 @@ public class TickersStatisticsParams extends Params {
 	/**
 	 * to get the ticker stats of multiple symbol
 	 *
-	 * @param symbols The trading pairs we want the ticker stats
+	 * @param symbols The trading pairs we want the ticker stats.
 	 */
 	public TickersStatisticsParams(String symbols) {
 		this(Arrays.asList(symbols.split(",")));
 	}
 
 	/**
-	 * @return the symbols
+	 * @return the symbols.
 	 */
 	public String getSymbols() {
 		return symbols;
 	}
 
 	/**
-	 * @param symbols the symbols to set
+	 * @param symbols the symbols to set.
 	 */
 	public void setSymbols(String symbols) {
 		this.symbols = symbols;

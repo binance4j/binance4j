@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class AccountParams extends FramedParams {
+	/** Constructor. */
 	public AccountParams() {
 		super(10);
 	}

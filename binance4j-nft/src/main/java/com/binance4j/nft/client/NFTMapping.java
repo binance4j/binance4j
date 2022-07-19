@@ -23,32 +23,32 @@ public interface NFTMapping {
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "history/transactions")
 	@Headers({ API_H, SIGNED_H })
 	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "history/deposit")
 	@Headers({ API_H, SIGNED_H })
 	Call<DepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "history/withdraw")
 	@Headers({ API_H, SIGNED_H })
 	Call<WithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map
-	 * @return The server response
+	 * @param map The query map.
+	 * @return The server response.
 	 */
 	@GET(BASE + "user/getAsset")
 	@Headers({ API_H, SIGNED_H })

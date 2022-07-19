@@ -12,32 +12,32 @@ public class ForceLiquidationRecordParams extends IntervalParams {
 	/** Default:10 Max:100 */
 	private long size;
 
-	/** @return the isolatedSymbol */
+	/** @return the isolatedSymbol */.
 	public String getIsolatedSymbol() {
 		return isolatedSymbol;
 	}
 
-	/** @param isolatedSymbol the isolatedSymbol to set */
+	/** @param isolatedSymbol the isolatedSymbol to set */.
 	public void setIsolatedSymbol(String isolatedSymbol) {
 		this.isolatedSymbol = isolatedSymbol;
 	}
 
-	/** @return the current */
+	/** @return the current */.
 	public long getCurrent() {
 		return current;
 	}
 
-	/** @param current the current to set */
+	/** @param current the current to set */.
 	public void setCurrent(long current) {
 		this.current = current;
 	}
 
-	/** @return the size */
+	/** @return the size */.
 	public long getSize() {
 		return size;
 	}
 
-	/** @param size the size to set */
+	/** @param size the size to set */.
 	public void setSize(long size) {
 		this.size = size;
 	}

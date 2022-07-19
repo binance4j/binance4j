@@ -19,22 +19,22 @@ public interface UserDataMapping {
 
 	// SPOT
 
-	/** @return The query result. */
+	/** @return The query result. */.
 	@Headers(API_H)
 	@POST("/api/v3/userDataStream")
 	Call<ListenKey> startUserDataStream();
 
 	/**
-	 * @param listenKey The authenticated account user listen key
-	 * @return The query result
+	 * @param listenKey The authenticated account user listen key.
+	 * @return The query result.
 	 */
 	@Headers(API_H)
 	@PUT("/api/v3/userDataStream")
 	Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
 
 	/**
-	 * @param listenKey The authenticated account user listen key
-	 * @return The query result
+	 * @param listenKey The authenticated account user listen key.
+	 * @return The query result.
 	 */
 	@Headers(API_H)
 	@DELETE("/api/v3/userDataStream")

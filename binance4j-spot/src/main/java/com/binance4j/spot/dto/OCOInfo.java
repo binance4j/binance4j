@@ -8,7 +8,18 @@ import com.binance4j.core.dto.OCOStatus;
 import com.binance4j.core.dto.OrderInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** An OCO Order details */
+/**
+ * An OCO Order details.
+ * 
+ * @param orderListId       The order list id.
+ * @param contingencyType   The contingency type.
+ * @param listStatusType    The list status type.
+ * @param listOrderStatus   The list order status.
+ * @param listClientOrderId The list client order id.
+ * @param transactionTime   The transaction timestamp in ms.
+ * @param symbol            The orders symbol.
+ * @param orders            The two orders of the OCO order.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOInfo(
 		/** The order list id. */

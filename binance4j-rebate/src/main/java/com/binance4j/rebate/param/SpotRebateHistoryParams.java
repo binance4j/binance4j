@@ -26,14 +26,14 @@ public class SpotRebateHistoryParams extends IntervalParams {
 	}
 
 	/**
-	 * @return the page
+	 * @return the page.
 	 */
 	public Integer getPage() {
 		return page;
 	}
 
 	/**
-	 * @param page the page to set
+	 * @param page the page to set.
 	 */
 	public void setPage(Integer page) {
 		this.page = page;

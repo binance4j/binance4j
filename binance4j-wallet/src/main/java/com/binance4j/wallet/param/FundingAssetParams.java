@@ -24,9 +24,7 @@ public class FundingAssetParams extends FramedParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param asset The asset we want the balance
+	 * @param asset The asset we want the balance.
 	 */
 	public FundingAssetParams(String asset) {
 		this();
@@ -34,9 +32,7 @@ public class FundingAssetParams extends FramedParams {
 	}
 
 	/**
-	 *
-	 * 
-	 * @param asset            The asset we want the balance
+	 * @param asset            The asset we want the balance.
 	 * @param needBtcValuation Dlo we want the value of the balance in bitcoin?
 	 */
 	public FundingAssetParams(String asset, Boolean needBtcValuation) {

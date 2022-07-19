@@ -6,23 +6,18 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 /** Websocket client handling mini events on one or many symbols */
 public class WebsocketMiniTickerClient extends BaseWebsocketClient<MiniTickerPayload> {
 	/**
-	 *
-	 * 
-	 * @param symbols  The symbols we want the data
-	 * @param callback The events handler
+	 * @param symbols  The symbols we want the data.
+	 * @param callback The events handler.
 	 */
 	public WebsocketMiniTickerClient(String symbols, WebsocketCallback<MiniTickerPayload> callback) {
 		super(symbols, "miniTicker", MiniTickerPayload.class, callback);
 	}
 
 	/**
-	 *
-	 * 
-	 * @param symbols  The trading pair iterable
-	 * @param callback The events handler
+	 * @param symbols  The trading pair iterable.
+	 * @param callback The events handler.
 	 */
-	public WebsocketMiniTickerClient(Iterable<? extends CharSequence> symbols,
-	                                 WebsocketCallback<MiniTickerPayload> callback) {
+	public WebsocketMiniTickerClient(Iterable<? extends CharSequence> symbols, WebsocketCallback<MiniTickerPayload> callback) {
 		this(String.join(",", symbols), callback);
 	}
 }

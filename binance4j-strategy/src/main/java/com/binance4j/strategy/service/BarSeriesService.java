@@ -32,14 +32,13 @@ public class BarSeriesService {
 	/**
 	 * Converts a list of {@link Candle}s into a {@link BarSeries}
 	 *
-	 * @param bars       The candles
-	 * @param timePeriod The interval between two candles
-	 * @param name       The {@link BarSeries} name
-	 * @param zoneId     The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bars       The candles.
+	 * @param timePeriod The interval between two candles.
+	 * @param name       The {@link BarSeries} name.
+	 * @param zoneId     The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
-	public static BarSeries convert(List<Candle> bars, Duration timePeriod, String name,
-	                                ZoneId zoneId) {
+	public static BarSeries convert(List<Candle> bars, Duration timePeriod, String name, ZoneId zoneId) {
 		BarSeries series = new BaseBarSeriesBuilder().withName(name).build();
 
 		bars.forEach(bar -> series.addBar(BarService.convert(bar, timePeriod, zoneId)));
@@ -48,38 +47,35 @@ public class BarSeriesService {
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default system {@link ZoneId}
 	 *
-	 * @param bars       The candles
-	 * @param timePeriod The interval between two candles
-	 * @param name       The {@link BarSeries} name
-	 * @return The generated {@link BarSeries}
+	 * @param bars       The candles.
+	 * @param timePeriod The interval between two candles.
+	 * @param name       The {@link BarSeries} name.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, Duration timePeriod, String name) {
 		return convert(bars, timePeriod, name, ZoneId.systemDefault());
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default name
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name
 	 *
-	 * @param bars       The candles
-	 * @param timePeriod The interval between two candles
-	 * @param zoneId     The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bars       The candles.
+	 * @param timePeriod The interval between two candles.
+	 * @param zoneId     The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, Duration timePeriod, ZoneId zoneId) {
 		return convert(bars, timePeriod, defaultBarSeriesName, zoneId);
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default name and system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name and system {@link ZoneId}
 	 *
-	 * @param bars       The candles
-	 * @param timePeriod The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bars       The candles.
+	 * @param timePeriod The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, Duration timePeriod) {
 		return convert(bars, timePeriod, defaultBarSeriesName, ZoneId.systemDefault());
@@ -90,50 +86,46 @@ public class BarSeriesService {
 	/**
 	 * Converts a list of {@link Candle}s into a {@link BarSeries}
 	 *
-	 * @param bars     The candles
-	 * @param interval The interval between two candles
-	 * @param name     The {@link BarSeries} name
-	 * @param zoneId   The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bars     The candles.
+	 * @param interval The interval between two candles.
+	 * @param name     The {@link BarSeries} name.
+	 * @param zoneId   The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
-	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval, String name,
-	                                ZoneId zoneId) {
+	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval, String name, ZoneId zoneId) {
 		return convert(bars, DurationService.convert(interval), name, zoneId);
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default system {@link ZoneId}
 	 *
-	 * @param bars     The candles
-	 * @param interval The interval between two candles
-	 * @param name     The {@link BarSeries} name
-	 * @return The generated {@link BarSeries}
+	 * @param bars     The candles.
+	 * @param interval The interval between two candles.
+	 * @param name     The {@link BarSeries} name.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval, String name) {
 		return convert(bars, DurationService.convert(interval), name);
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default name
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name
 	 *
-	 * @param bars     The candles
-	 * @param interval The interval between two candles
-	 * @param zoneId   The end time {@link ZoneId}
-	 * @return The generated {@link BarSeries}
+	 * @param bars     The candles.
+	 * @param interval The interval between two candles.
+	 * @param zoneId   The end time {@link ZoneId}.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval, ZoneId zoneId) {
 		return convert(bars, DurationService.convert(interval), zoneId);
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with
-	 * default name and system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name and system {@link ZoneId}
 	 *
-	 * @param bars     The candles
-	 * @param interval The interval between two candles
-	 * @return The generated {@link BarSeries}
+	 * @param bars     The candles.
+	 * @param interval The interval between two candles.
+	 * @return The generated {@link BarSeries}.
 	 */
 	public static BarSeries convert(List<Candle> bars, CandlestickInterval interval) {
 		return convert(bars, DurationService.convert(interval));

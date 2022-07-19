@@ -18,8 +18,8 @@ import lombok.EqualsAndHashCode;
 public class RebateClient extends RestClient<RebateMapping> {
 
 	/**
-	 * @param key    The API public key
-	 * @param secret The API secret key
+	 * @param key    The API public key.
+	 * @param secret The API secret key.
 	 */
 	public RebateClient(String key, String secret) {
 		super(RebateMapping.class, key, secret);
