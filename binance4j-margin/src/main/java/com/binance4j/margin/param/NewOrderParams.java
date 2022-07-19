@@ -163,12 +163,12 @@ public class NewOrderParams extends BaseOrderParams {
 		return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
 	}
 
-	/** @return The sideEffectType */.
+	/** @return The sideEffectType */
 	public SideEffectType getSideEffectType() {
 		return sideEffectType;
 	}
 
-	/** @param sideEffectType The sideEffectType to set */.
+	/** @param sideEffectType The sideEffectType to set */
 	public void setSideEffectType(SideEffectType sideEffectType) {
 		this.sideEffectType = sideEffectType;
 	}

@@ -10,12 +10,12 @@ public enum TransferType {
 	/** The value */
 	final int value;
 
-	/** @param value The value */.
+	/** @param value The value */
 	private TransferType(int value) {
 		this.value = value;
 	}
 
-	/** @return the value */.
+	/** @return the value */
 	public int getValue() {
 		return value;
 	}

@@ -19,7 +19,7 @@ public interface UserDataMapping {
 
 	// SPOT
 
-	/** @return The query result. */.
+	/** @return The query result. */
 	@Headers(API_H)
 	@POST("/api/v3/userDataStream")
 	Call<ListenKey> startUserDataStream();

@@ -29,82 +29,82 @@ public class RestClientConfiguration {
 	/** Defines if the services use the test network. */
 	private boolean useTestnet = defaultUseTestnet;
 
-	/** @return the defaultBaseDomain */.
+	/** @return the defaultBaseDomain */
 	public static String getDefaultBaseDomain() {
 		return defaultBaseDomain;
 	}
 
-	/** @param defaultBaseDomain the defaultBaseDomain to set */.
+	/** @param defaultBaseDomain the defaultBaseDomain to set */
 	public static void setDefaultBaseDomain(String defaultBaseDomain) {
 		RestClientConfiguration.defaultBaseDomain = defaultBaseDomain;
 	}
 
-	/** @return the defaultTestnetDomain */.
+	/** @return the defaultTestnetDomain */
 	public static String getDefaultTestnetDomain() {
 		return defaultTestnetDomain;
 	}
 
-	/** @param defaultTestnetDomain the defaultTestnetDomain to set */.
+	/** @param defaultTestnetDomain the defaultTestnetDomain to set */
 	public static void setDefaultTestnetDomain(String defaultTestnetDomain) {
 		RestClientConfiguration.defaultTestnetDomain = defaultTestnetDomain;
 	}
 
-	/** @return the defaultTimeInforce */.
+	/** @return the defaultTimeInforce */
 	public static TimeInForce getDefaultTimeInforce() {
 		return defaultTimeInforce;
 	}
 
-	/** @param defaultTimeInforce the defaultTimeInforce to set */.
+	/** @param defaultTimeInforce the defaultTimeInforce to set */
 	public static void setDefaultTimeInforce(TimeInForce defaultTimeInforce) {
 		RestClientConfiguration.defaultTimeInforce = defaultTimeInforce;
 	}
 
-	/** @return the defaultMaxRequestsPerHost */.
+	/** @return the defaultMaxRequestsPerHost */
 	public static int getDefaultMaxRequestsPerHost() {
 		return defaultMaxRequestsPerHost;
 	}
 
-	/** @param defaultMaxRequestsPerHost the defaultMaxRequestsPerHost to set */.
+	/** @param defaultMaxRequestsPerHost the defaultMaxRequestsPerHost to set */
 	public static void setDefaultMaxRequestsPerHost(int defaultMaxRequestsPerHost) {
 		RestClientConfiguration.defaultMaxRequestsPerHost = defaultMaxRequestsPerHost;
 	}
 
-	/** @return the defaultMaxRequests */.
+	/** @return the defaultMaxRequests */
 	public static int getDefaultMaxRequests() {
 		return defaultMaxRequests;
 	}
 
-	/** @param defaultMaxRequests the defaultMaxRequests to set */.
+	/** @param defaultMaxRequests the defaultMaxRequests to set */
 	public static void setDefaultMaxRequests(int defaultMaxRequests) {
 		RestClientConfiguration.defaultMaxRequests = defaultMaxRequests;
 	}
 
-	/** @return the defaultUseTestnet */.
+	/** @return the defaultUseTestnet */
 	public static boolean isDefaultUseTestnet() {
 		return defaultUseTestnet;
 	}
 
-	/** @param defaultUseTestnet the defaultUseTestnet to set */.
+	/** @param defaultUseTestnet the defaultUseTestnet to set */
 	public static void setDefaultUseTestnet(boolean defaultUseTestnet) {
 		RestClientConfiguration.defaultUseTestnet = defaultUseTestnet;
 	}
 
-	/** @return the BaseDomain */.
+	/** @return the BaseDomain */
 	public String getBaseDomain() {
 		return baseDomain;
 	}
 
-	/** @param baseDomain the BaseDomain to set */.
+	/** @param baseDomain the BaseDomain to set */
 	public void setBaseDomain(String baseDomain) {
 		this.baseDomain = baseDomain;
 	}
 
-	/** @return the TestnetDomain */.
+	/** @return the TestnetDomain */
 	public String getTestnetDomain() {
 		return testnetDomain;
 	}
 
-	/** @param testnetDomain the TestnetDomain to set */.
+	/** @param testnetDomain the TestnetDomain to set */
 	public void setTestnetDomain(String testnetDomain) {
 		this.testnetDomain = testnetDomain;
 	}
@@ -123,32 +123,32 @@ public class RestClientConfiguration {
 		this.timeInForce = timeInForce;
 	}
 
-	/** @return the MaxRequestsPerHost */.
+	/** @return the MaxRequestsPerHost */
 	public int getMaxRequestsPerHost() {
 		return maxRequestsPerHost;
 	}
 
-	/** @param maxRequestsPerHost the MaxRequestsPerHost to set */.
+	/** @param maxRequestsPerHost the MaxRequestsPerHost to set */
 	public void setMaxRequestsPerHost(int maxRequestsPerHost) {
 		this.maxRequestsPerHost = maxRequestsPerHost;
 	}
 
-	/** @return the MaxRequests */.
+	/** @return the MaxRequests */
 	public int getMaxRequests() {
 		return maxRequests;
 	}
 
-	/** @param maxRequests the MaxRequests to set */.
+	/** @param maxRequests the MaxRequests to set */
 	public void setMaxRequests(int maxRequests) {
 		this.maxRequests = maxRequests;
 	}
 
-	/** @return the UseTestnet */.
+	/** @return the UseTestnet */
 	public boolean useTestnet() {
 		return useTestnet;
 	}
 
-	/** @param useTestnet the UseTestnet to set */.
+	/** @param useTestnet the UseTestnet to set */
 	public void useTestnet(boolean useTestnet) {
 		this.useTestnet = useTestnet;
 	}

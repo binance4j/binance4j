@@ -35,8 +35,6 @@ public class WithdrawParams extends FramedParams {
 	private Integer walletType;
 
 	/**
-	 *
-	 * 
 	 * @param coin    The coin to withdraw.
 	 * @param address The destination address.
 	 * @param amount  The volume to withdraw.
@@ -48,7 +46,7 @@ public class WithdrawParams extends FramedParams {
 		this.amount = amount;
 	}
 
-	/** @param type The wallet type to withdraw to. */.
+	/** @param type The wallet type to withdraw to. */
 	public void setWalletType(WalletType type) {
 		walletType = type.getValue();
 	}

@@ -19,42 +19,42 @@ public class GetAllOCOParams extends IntervalParams {
 		super(200);
 	}
 
-	/** @return the isIsolated */.
+	/** @return the isIsolated */
 	public Boolean isIsolated() {
 		return isIsolated;
 	}
 
-	/** @param isIsolated the isIsolated to set */.
+	/** @param isIsolated the isIsolated to set */
 	public void isIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}
 
-	/** @return the symbol */.
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/** @param symbol the symbol to set */.
+	/** @param symbol the symbol to set */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/** @return the fromId */.
+	/** @return the fromId */
 	public Long getFromId() {
 		return fromId;
 	}
 
-	/** @param fromId the fromId to set */.
+	/** @param fromId the fromId to set */
 	public void setFromId(Long fromId) {
 		this.fromId = fromId;
 	}
 
-	/** @return the limit */.
+	/** @return the limit */
 	public Integer getLimit() {
 		return limit;
 	}
 
-	/** @param limit the limit to set */.
+	/** @param limit the limit to set */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}

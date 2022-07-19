@@ -13,12 +13,12 @@ public class IsolatedAccountParams extends FramedParams {
 		super(10);
 	}
 
-	/** @return the symbols */.
+	/** @return the symbols */
 	public String getSymbols() {
 		return symbols;
 	}
 
-	/** @param symbols the symbols to set */.
+	/** @param symbols the symbols to set */
 	public void setSymbols(String symbols) {
 		this.symbols = symbols;
 	}

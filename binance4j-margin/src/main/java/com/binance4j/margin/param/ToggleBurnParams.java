@@ -25,22 +25,22 @@ public class ToggleBurnParams extends FramedParams {
 		this.interestBNBBurn = interestBNBBurn;
 	}
 
-	/** @return the spotBNBBurn */.
+	/** @return the spotBNBBurn */
 	public Boolean getSpotBNBBurn() {
 		return spotBNBBurn;
 	}
 
-	/** @param spotBNBBurn the spotBNBBurn to set */.
+	/** @param spotBNBBurn the spotBNBBurn to set */
 	public void setSpotBNBBurn(Boolean spotBNBBurn) {
 		this.spotBNBBurn = spotBNBBurn;
 	}
 
-	/** @return the interestBNBBurn */.
+	/** @return the interestBNBBurn */
 	public Boolean getInterestBNBBurn() {
 		return interestBNBBurn;
 	}
 
-	/** @param interestBNBBurn the interestBNBBurn to set */.
+	/** @param interestBNBBurn the interestBNBBurn to set */
 	public void setInterestBNBBurn(Boolean interestBNBBurn) {
 		this.interestBNBBurn = interestBNBBurn;
 	}

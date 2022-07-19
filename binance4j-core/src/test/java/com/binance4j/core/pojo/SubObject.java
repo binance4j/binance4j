@@ -5,15 +5,15 @@ import java.util.List;
 
 /** TODO JAVADOC */
 public class SubObject {
-    private List<SubSubObject> subSubObjects = new ArrayList<>();
+	private List<SubSubObject> subSubObjects = new ArrayList<>();
 
-    /** @return the subSubObjects */.
-    public List<SubSubObject> getSubSubObjects() {
-        return subSubObjects;
-    }
+	/** @return the subSubObjects */
+	public List<SubSubObject> getSubSubObjects() {
+		return subSubObjects;
+	}
 
-    /** @param subSubObjects the subSubObjects to set */.
-    public void setSubSubObjects(List<SubSubObject> subSubObjects) {
-        this.subSubObjects = subSubObjects;
-    }
+	/** @param subSubObjects the subSubObjects to set */
+	public void setSubSubObjects(List<SubSubObject> subSubObjects) {
+		this.subSubObjects = subSubObjects;
+	}
 }

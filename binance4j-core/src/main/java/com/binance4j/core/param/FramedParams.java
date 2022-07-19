@@ -10,7 +10,7 @@ public abstract class FramedParams extends Params {
 		super();
 	}
 
-	/** @param weight The Request weight */.
+	/** @param weight The Request weight */
 	protected FramedParams(int weight) {
 		super(weight, false);
 	}
@@ -23,12 +23,12 @@ public abstract class FramedParams extends Params {
 		super(weight, isOrderRequest);
 	}
 
-	/** @return the timestamp */.
+	/** @return the timestamp */
 	public long getTimestamp() {
 		return timestamp;
 	}
 
-	/** @param timestamp the timestamp to set */.
+	/** @param timestamp the timestamp to set */
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}

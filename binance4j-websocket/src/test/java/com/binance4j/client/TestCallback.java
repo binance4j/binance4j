@@ -18,7 +18,7 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	/** The ws client. */
 	protected BaseWebsocketClient<T> websocketClient;
 
-	/** @param client. */.
+	/** @param client. */
 	public TestCallback() {
 		super();
 		future = new CompletableFuture<>();

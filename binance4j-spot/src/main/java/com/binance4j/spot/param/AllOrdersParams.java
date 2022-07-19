@@ -21,7 +21,7 @@ public class AllOrdersParams extends IntervalParams {
 	private Integer limit = 500;
 
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 *
 	 * @param symbol The symbol we want the orders.
 	 */

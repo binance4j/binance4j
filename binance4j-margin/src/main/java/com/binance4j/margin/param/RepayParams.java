@@ -42,42 +42,42 @@ public class RepayParams extends FramedParams {
 		this.symbol = null;
 	}
 
-	/** @return the asset */.
+	/** @return the asset */
 	public String getAsset() {
 		return asset;
 	}
 
-	/** @param asset the asset to set */.
+	/** @param asset the asset to set */
 	public void setAsset(String asset) {
 		this.asset = asset;
 	}
 
-	/** @return the symbol */.
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/** @param symbol the symbol to set */.
+	/** @param symbol the symbol to set */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
 
-	/** @return the isIsolated */.
+	/** @return the isIsolated */
 	public Boolean getIsIsolated() {
 		return isIsolated;
 	}
 
-	/** @param isIsolated the isIsolated to set */.
+	/** @param isIsolated the isIsolated to set */
 	public void setIsIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}
 
-	/** @return the amount */.
+	/** @return the amount */
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	/** @param amount the amount to set */.
+	/** @param amount the amount to set */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}

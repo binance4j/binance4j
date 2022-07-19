@@ -16,17 +16,17 @@ public class IsolatedFeeParams extends FramedParams {
 		symbol = null;
 	}
 
-	/** @return the symbol */.
+	/** @return the symbol */
 	public String getSymbol() {
 		return symbol;
 	}
 
-	/** @return the vipLevel */.
+	/** @return the vipLevel */
 	public Integer getVipLevel() {
 		return vipLevel;
 	}
 
-	/** @param vipLevel the vipLevel to set */.
+	/** @param vipLevel the vipLevel to set */
 	public void setVipLevel(Integer vipLevel) {
 		this.vipLevel = vipLevel;
 	}

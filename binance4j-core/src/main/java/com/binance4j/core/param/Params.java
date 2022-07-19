@@ -26,7 +26,7 @@ public class Params {
 	protected Params() {
 	}
 
-	/** @param weight The Request weight */.
+	/** @param weight The Request weight */
 	public Params(int weight) {
 		this(weight, false);
 	}
@@ -57,17 +57,17 @@ public class Params {
 		return map;
 	}
 
-	/** @return the recvWindow */.
+	/** @return the recvWindow */
 	public static long getRecvWindow() {
 		return recvWindow;
 	}
 
-	/** @param recvWindow the recvWindow to set */.
+	/** @param recvWindow the recvWindow to set */
 	public static void setRecvWindow(long recvWindow) {
 		Params.recvWindow = recvWindow;
 	}
 
-	/** @return the weight */.
+	/** @return the weight */
 	public int getWeight() {
 		return weight;
 	}
