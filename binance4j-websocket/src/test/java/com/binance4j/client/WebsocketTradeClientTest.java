@@ -4,11 +4,11 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.websocket.trade.TradePayload;
-import com.binance4j.websocket.trade.WebsocketTradeClient;
+import com.binance4j.websocket.client.WebsocketTradeClient;
+import com.binance4j.websocket.dto.Trade;
 
 class WebsocketTradeClientTest {
-	TestCallback<TradePayload> callback = new TestCallback<>();
+	TestCallback<Trade> callback = new TestCallback<>();
 
 	@Test
 	void test1() throws InterruptedException, ExecutionException {

@@ -2,12 +2,7 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get a coin deposit address */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class DepositAddressParams extends FramedParams {
 	/** The coin abbreviation. */
 	private String coin;
@@ -32,4 +27,33 @@ public class DepositAddressParams extends FramedParams {
 		this(coin);
 		this.network = network;
 	}
+
+	/**
+	 * @return the coin
+	 */
+	public String getCoin() {
+		return coin;
+	}
+
+	/**
+	 * @param coin the coin to set
+	 */
+	public void setCoin(String coin) {
+		this.coin = coin;
+	}
+
+	/**
+	 * @return the network
+	 */
+	public String getNetwork() {
+		return network;
+	}
+
+	/**
+	 * @param network the network to set
+	 */
+	public void setNetwork(String network) {
+		this.network = network;
+	}
+
 }

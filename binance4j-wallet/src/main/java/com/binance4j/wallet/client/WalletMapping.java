@@ -17,15 +17,15 @@ import com.binance4j.wallet.dto.DepositHistory;
 import com.binance4j.wallet.dto.DustLog;
 import com.binance4j.wallet.dto.DustTransferResponse;
 import com.binance4j.wallet.dto.FundingAsset;
+import com.binance4j.wallet.dto.FuturesAccountSnapshotResponse;
+import com.binance4j.wallet.dto.MarginAccountSnapshotResponse;
+import com.binance4j.wallet.dto.SpotAccountSnapshotResponse;
 import com.binance4j.wallet.dto.SystemStatus;
 import com.binance4j.wallet.dto.TradeFee;
 import com.binance4j.wallet.dto.WalletTransferHistory;
 import com.binance4j.wallet.dto.WalletTransferResponse;
 import com.binance4j.wallet.dto.WithdrawHistory;
 import com.binance4j.wallet.dto.WithdrawResult;
-import com.binance4j.wallet.param.FuturesAccountSnapshotResponse;
-import com.binance4j.wallet.param.MarginAccountSnapshotResponse;
-import com.binance4j.wallet.param.SpotAccountSnapshotResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -49,14 +49,14 @@ public interface WalletMapping {
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
 
 	/**
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "system/status")
 	Call<SystemStatus> getSystemStatus();
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_CAPITAL + "config/getall")
@@ -65,7 +65,7 @@ public interface WalletMapping {
 	/**
 	 * @param type The snapshot type.
 	 * @param map  The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
@@ -74,7 +74,7 @@ public interface WalletMapping {
 	/**
 	 * @param type The snapshot type.
 	 * @param map  The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
@@ -83,7 +83,7 @@ public interface WalletMapping {
 	/**
 	 * @param type The snapshot type.
 	 * @param map  The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
@@ -91,7 +91,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ACCOUNT + "disableFastWithdrawSwitch")
@@ -99,7 +99,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ACCOUNT + "enableFastWithdrawSwitch")
@@ -107,7 +107,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_CAPITAL + "withdraw/apply")
@@ -115,7 +115,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_CAPITAL + "deposit/hisrec")
@@ -123,7 +123,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_CAPITAL + "withdraw/history")
@@ -131,7 +131,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_CAPITAL + "deposit/address")
@@ -139,7 +139,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ACCOUNT + "status")
@@ -147,7 +147,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ACCOUNT + "apiTradingStatus")
@@ -155,7 +155,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ASSET + "dribblet")
@@ -163,7 +163,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "dust-btc")
@@ -171,7 +171,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "dust")
@@ -179,7 +179,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ASSET + "assetDividend")
@@ -187,7 +187,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ASSET + "assetDetail")
@@ -195,7 +195,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ASSET + "tradeFee")
@@ -203,7 +203,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "transfer")
@@ -211,7 +211,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ASSET + "transfer")
@@ -219,7 +219,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "get-funding-asset")
@@ -227,7 +227,7 @@ public interface WalletMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE_ACCOUNT + "apiRestrictions")

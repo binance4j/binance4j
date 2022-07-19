@@ -18,6 +18,6 @@ public interface WebsocketClient {
 	 */
 	void close(boolean force);
 
-	/** The client configuration. */
+	/** @return The client configuration. */
 	WebsocketClientConfiguration getConfiguration();
 }

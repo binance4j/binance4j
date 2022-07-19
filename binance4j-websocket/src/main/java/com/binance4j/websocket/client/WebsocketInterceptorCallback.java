@@ -8,43 +8,31 @@ import com.binance4j.websocket.event.WebsocketDisconnectionHandler;
 import com.binance4j.websocket.event.WebsocketEventHandler;
 import com.binance4j.websocket.event.WebsocketNoResponseHandler;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
 import okhttp3.Response;
 import okhttp3.WebSocket;
 
 /**
  * Interceptor callback for the {@link WebsocketClient} main callback to handle event failures
  */
-@Data
 public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	/** The main ws client. */
-	WebsocketClient websocketClient;
+	protected WebsocketClient websocketClient;
 	/** Event to handle connection failure and try to reconnect. */
-	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketEventHandler connectionHandler;
+	protected WebsocketEventHandler connectionHandler;
 	/** Event to handle no response from server. */
-	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketEventHandler noResponseHandler;
+	protected WebsocketEventHandler noResponseHandler;
 	/** Event to handle failure in the disconnection state. */
-	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketEventHandler disconnectionHandler;
-
+	protected WebsocketEventHandler disconnectionHandler;
 	/** Forces the call of onClosing and onClosed. */
-	@Getter(value = AccessLevel.PROTECTED)
-	private WebsocketEventHandler forceClosingHandler;
-
-	/** Tells the interceptor if th e closing has been made by the client. */
+	protected WebsocketEventHandler forceClosingHandler;
+	/** The inner callback. */
+	protected WebsocketCallback<T> callback;
+	/** Tells the interceptor if the closing has been made by the client. */
 	private boolean closedByClient;
-
 	/** Has the onClosing handler been called. */
 	private boolean onClosingCalled;
-
-	@Getter(AccessLevel.NONE)
+	/** THe socket using the callback. */
 	private WebSocket socket;
-
-	protected WebsocketCallback<T> callback;
 
 	/**
 	 * @param websocketClient The main ws client.
@@ -102,4 +90,131 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	public void onFailure(ApiException exception) {
 		callback.onFailure(exception);
 	}
+
+	/**
+	 * @return the onClosingCalled
+	 */
+	public boolean isOnClosingCalled() {
+		return onClosingCalled;
+	}
+
+	/**
+	 * @param onClosingCalled the onClosingCalled to set
+	 */
+	public void setOnClosingCalled(boolean onClosingCalled) {
+		this.onClosingCalled = onClosingCalled;
+	}
+
+	/**
+	 * @return the socket
+	 */
+	public WebSocket getSocket() {
+		return socket;
+	}
+
+	/**
+	 * @param socket the socket to set
+	 */
+	public void setSocket(WebSocket socket) {
+		this.socket = socket;
+	}
+
+	/**
+	 * @return the websocketClient
+	 */
+	public WebsocketClient getWebsocketClient() {
+		return websocketClient;
+	}
+
+	/**
+	 * @param websocketClient the websocketClient to set
+	 */
+	public void setWebsocketClient(WebsocketClient websocketClient) {
+		this.websocketClient = websocketClient;
+	}
+
+	/**
+	 * @return the connectionHandler
+	 */
+	public WebsocketEventHandler getConnectionHandler() {
+		return connectionHandler;
+	}
+
+	/**
+	 * @param connectionHandler the connectionHandler to set
+	 */
+	public void setConnectionHandler(WebsocketEventHandler connectionHandler) {
+		this.connectionHandler = connectionHandler;
+	}
+
+	/**
+	 * @return the noResponseHandler
+	 */
+	public WebsocketEventHandler getNoResponseHandler() {
+		return noResponseHandler;
+	}
+
+	/**
+	 * @param noResponseHandler the noResponseHandler to set
+	 */
+	public void setNoResponseHandler(WebsocketEventHandler noResponseHandler) {
+		this.noResponseHandler = noResponseHandler;
+	}
+
+	/**
+	 * @return the disconnectionHandler
+	 */
+	public WebsocketEventHandler getDisconnectionHandler() {
+		return disconnectionHandler;
+	}
+
+	/**
+	 * @param disconnectionHandler the disconnectionHandler to set
+	 */
+	public void setDisconnectionHandler(WebsocketEventHandler disconnectionHandler) {
+		this.disconnectionHandler = disconnectionHandler;
+	}
+
+	/**
+	 * @return the forceClosingHandler
+	 */
+	public WebsocketEventHandler getForceClosingHandler() {
+		return forceClosingHandler;
+	}
+
+	/**
+	 * @param forceClosingHandler the forceClosingHandler to set
+	 */
+	public void setForceClosingHandler(WebsocketEventHandler forceClosingHandler) {
+		this.forceClosingHandler = forceClosingHandler;
+	}
+
+	/**
+	 * @return the callback
+	 */
+	public WebsocketCallback<T> getCallback() {
+		return callback;
+	}
+
+	/**
+	 * @param callback the callback to set
+	 */
+	public void setCallback(WebsocketCallback<T> callback) {
+		this.callback = callback;
+	}
+
+	/**
+	 * @return the closedByClient
+	 */
+	public boolean isClosedByClient() {
+		return closedByClient;
+	}
+
+	/**
+	 * @param closedByClient the closedByClient to set
+	 */
+	public void setClosedByClient(boolean closedByClient) {
+		this.closedByClient = closedByClient;
+	}
+
 }

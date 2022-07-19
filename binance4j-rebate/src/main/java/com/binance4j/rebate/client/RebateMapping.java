@@ -21,7 +21,7 @@ public interface RebateMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "taxQuery")

@@ -2,11 +2,9 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.param.IntervalParams;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /** The parameters to get a list of asset dividends */
-@Data
 @EqualsAndHashCode(callSuper = true)
 public class AssetDividendRecordParams extends IntervalParams {
 	/** The asset abbreviation. */
@@ -39,4 +37,33 @@ public class AssetDividendRecordParams extends IntervalParams {
 		this(asset);
 		this.limit = limit;
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

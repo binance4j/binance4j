@@ -10,7 +10,6 @@ import com.binance4j.websocket.event.WebsocketCloseClientHandler;
 import com.binance4j.websocket.event.WebsocketForceClosingHandler;
 
 import lombok.AccessLevel;
-import lombok.Data;
 import lombok.Getter;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
@@ -18,7 +17,6 @@ import okhttp3.Request;
 import okhttp3.WebSocket;
 
 /** Websocket clients base class */
-@Data
 public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/** The websocket client. */
 	protected BaseWebsocketClient<T> innerClient;
@@ -48,8 +46,8 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/** Will close the client after some time. */
 	protected WebsocketCloseClientHandler closeClientHandler;
 
+	/** Constructor */
 	protected BaseWebsocketClient() {
-
 	}
 
 	/**
@@ -124,5 +122,19 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 		return symbols == null ? stream
 				: Arrays.stream(symbols.toLowerCase().split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream))
 						.collect(Collectors.joining("/"));
+	}
+
+	/**
+	 * @return the configuration
+	 */
+	public WebsocketClientConfiguration getConfiguration() {
+		return configuration;
+	}
+
+	/**
+	 * @param configuration the configuration to set
+	 */
+	public void setConfiguration(WebsocketClientConfiguration configuration) {
+		this.configuration = configuration;
 	}
 }

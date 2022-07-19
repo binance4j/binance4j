@@ -31,7 +31,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order")
@@ -39,7 +39,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/test")
@@ -47,7 +47,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "order")
@@ -55,7 +55,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "openOrders")
@@ -63,7 +63,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "order")
@@ -71,7 +71,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrders")
@@ -79,7 +79,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrders")
@@ -87,7 +87,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/oco")
@@ -95,7 +95,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "orderList")
@@ -103,7 +103,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "orderList")
@@ -111,7 +111,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrderList")
@@ -119,7 +119,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrderList")
@@ -127,7 +127,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "account")
@@ -135,7 +135,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "myTrades")
@@ -143,7 +143,7 @@ public interface SpotMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "rateLimit/order")

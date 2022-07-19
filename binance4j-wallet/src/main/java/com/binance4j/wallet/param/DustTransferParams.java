@@ -5,12 +5,7 @@ import java.util.List;
 import com.binance4j.core.dto.WeightType;
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to convert small volumes (dust) into BNB */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class DustTransferParams extends FramedParams {
 	/** The list of assets to convert into BNB. */
 	private List<String> assets;
@@ -23,4 +18,19 @@ public class DustTransferParams extends FramedParams {
 		weightType = WeightType.UID;
 		this.assets = assets;
 	}
+
+	/**
+	 * @return the assets
+	 */
+	public List<String> getAssets() {
+		return assets;
+	}
+
+	/**
+	 * @param assets the assets to set
+	 */
+	public void setAssets(List<String> assets) {
+		this.assets = assets;
+	}
+
 }

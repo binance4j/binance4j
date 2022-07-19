@@ -1,6 +1,7 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.wallet.dto.Snapshot;
+import com.binance4j.wallet.dto.SpotAccountSnapshotData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** A daily SPOT account snapshot */

@@ -3,12 +3,7 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.wallet.dto.DepositStatus;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get a coin deposit history */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class DepositHistoryParams extends IntervalParams {
 	/** The deposited coin. */
 	private String coin;
@@ -107,4 +102,61 @@ public class DepositHistoryParams extends IntervalParams {
 		this(coin, status, limit);
 		this.offset = offset;
 	}
+
+	/**
+	 * @return the coin
+	 */
+	public String getCoin() {
+		return coin;
+	}
+
+	/**
+	 * @param coin the coin to set
+	 */
+	public void setCoin(String coin) {
+		this.coin = coin;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public Integer getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the offset
+	 */
+	public Integer getOffset() {
+		return offset;
+	}
+
+	/**
+	 * @param offset the offset to set
+	 */
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

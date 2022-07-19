@@ -13,7 +13,6 @@ import org.ta4j.core.num.DecimalNum;
 
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
-import com.binance4j.websocket.candle.CandlePayload;
 import com.binance4j.websocket.service.DurationService;
 
 /** A service for manipulating {@link Bar Bars}. */
@@ -78,7 +77,7 @@ public class BarService {
 	 * @param zoneId     The end time {@link ZoneId}.
 	 * @return The generated {@link BarSeries}.
 	 */
-	public static Bar convert(CandlePayload bar, Duration timePeriod, ZoneId zoneId) {
+	public static Bar convert(com.binance4j.websocket.dto.Candle bar, Duration timePeriod, ZoneId zoneId) {
 		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class).timePeriod(timePeriod)
 				.endTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(bar.closeTime()), zoneId)).openPrice(bar.open()).highPrice(bar.high()).lowPrice(bar.low())
 				.closePrice(bar.close()).volume(bar.volume()).build();
@@ -91,7 +90,7 @@ public class BarService {
 	 * @param timePeriod The interval between two candles.
 	 * @return The generated {@link BarSeries}.
 	 */
-	public static Bar convert(CandlePayload bar, Duration timePeriod) {
+	public static Bar convert(com.binance4j.websocket.dto.Candle bar, Duration timePeriod) {
 		return convert(bar, timePeriod, ZoneId.systemDefault());
 	}
 
@@ -103,7 +102,7 @@ public class BarService {
 	 * @param zoneId   The end time {@link ZoneId}.
 	 * @return The generated {@link BarSeries}.
 	 */
-	public static Bar convert(CandlePayload bar, CandlestickInterval interval, ZoneId zoneId) {
+	public static Bar convert(com.binance4j.websocket.dto.Candle bar, CandlestickInterval interval, ZoneId zoneId) {
 		return convert(bar, DurationService.convert(interval), zoneId);
 	}
 
@@ -114,7 +113,7 @@ public class BarService {
 	 * @param interval The interval between two candles.
 	 * @return The generated {@link BarSeries}.
 	 */
-	public static Bar convert(CandlePayload bar, CandlestickInterval interval) {
+	public static Bar convert(com.binance4j.websocket.dto.Candle bar, CandlestickInterval interval) {
 		return convert(bar, interval, ZoneId.systemDefault());
 	}
 }

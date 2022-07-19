@@ -5,13 +5,13 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.ticker.MiniTickerPayload;
-import com.binance4j.websocket.ticker.WebsocketAllMiniTickersClient;
+import com.binance4j.websocket.client.WebsocketAllMiniTickersClient;
+import com.binance4j.websocket.dto.MiniTicker;
 
 /** endpoint doesn't seem to work */
 class WebsocketAllMiniTickersClientTest {
 
-	TestCallback<MiniTickerPayload> callback = new TestCallback<>();
+	TestCallback<MiniTicker> callback = new TestCallback<>();
 
 	@Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {

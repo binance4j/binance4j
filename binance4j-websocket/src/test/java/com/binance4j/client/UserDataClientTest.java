@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.stream.IsolatedUserDataStreamParams;
-import com.binance4j.websocket.stream.KeepAliveIsolatedUserDataStreamParams;
-import com.binance4j.websocket.userdata.ListenKey;
-import com.binance4j.websocket.userdata.UserDataClient;
+import com.binance4j.websocket.client.UserDataClient;
+import com.binance4j.websocket.dto.ListenKey;
+import com.binance4j.websocket.param.IsolatedUserDataStreamParams;
+import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams;
 
 class UserDataClientTest {
 
@@ -23,20 +23,20 @@ class UserDataClientTest {
 	@Test
 	void testUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startUserDataStream().execute();
-		assertTrue(listenKey.getListenKey().length() > 0);
+		assertTrue(listenKey.listenKey().length() > 0);
 
-		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.getListenKey()));
-		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.getListenKey()).execute());
+		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.listenKey()));
+		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).execute());
 	}
 
 	@Test
 	void testMarginUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startMarginUserDataStream().execute();
-		assertTrue(listenKey.getListenKey().length() > 0);
+		assertTrue(listenKey.listenKey().length() > 0);
 
 		System.out.println(listenKey);
-		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.getListenKey()));
-		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.getListenKey()).execute());
+		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
+		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).execute());
 	}
 
 	// TODO activate isolated account
@@ -45,9 +45,9 @@ class UserDataClientTest {
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams("BNBBUSD");
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
 		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams("BNBBUSD",
-				listenKey.getListenKey());
+				listenKey.listenKey());
 
-		assertTrue(listenKey.getListenKey().length() > 0);
+		assertTrue(listenKey.listenKey().length() > 0);
 
 		System.out.println(listenKey);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));

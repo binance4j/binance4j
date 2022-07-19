@@ -3,12 +3,7 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.wallet.dto.WalletTransferType;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** Request to fetch User Universal Transfer History */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class WalletTransferHistoryParams extends IntervalParams {
 	/** The User universal transfer type. */
 	private WalletTransferType type;
@@ -81,4 +76,75 @@ public class WalletTransferHistoryParams extends IntervalParams {
 		this(type, fromSymbol, toSymbol, size);
 		this.current = current;
 	}
+
+	/**
+	 * @return the type
+	 */
+	public WalletTransferType getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(WalletTransferType type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the current
+	 */
+	public Integer getCurrent() {
+		return current;
+	}
+
+	/**
+	 * @param current the current to set
+	 */
+	public void setCurrent(Integer current) {
+		this.current = current;
+	}
+
+	/**
+	 * @return the size
+	 */
+	public Integer getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+
+	/**
+	 * @return the fromSymbol
+	 */
+	public String getFromSymbol() {
+		return fromSymbol;
+	}
+
+	/**
+	 * @param fromSymbol the fromSymbol to set
+	 */
+	public void setFromSymbol(String fromSymbol) {
+		this.fromSymbol = fromSymbol;
+	}
+
+	/**
+	 * @return the toSymbol
+	 */
+	public String getToSymbol() {
+		return toSymbol;
+	}
+
+	/**
+	 * @param toSymbol the toSymbol to set
+	 */
+	public void setToSymbol(String toSymbol) {
+		this.toSymbol = toSymbol;
+	}
+
 }

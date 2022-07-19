@@ -19,9 +19,9 @@ import com.binance4j.strategy.TradingStrategy;
 import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
-import com.binance4j.websocket.candle.CandlePayload;
-import com.binance4j.websocket.candle.WebsocketCandlestickClient;
+import com.binance4j.websocket.client.WebsocketCandlestickClient;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
+import com.binance4j.websocket.dto.Candle;
 import com.binance4j.websocket.service.DurationService;
 
 import okhttp3.Response;
@@ -79,8 +79,8 @@ public class WatchService {
 
 		Duration duration = DurationService.convert(interval);
 
-		wsClient = new WebsocketCandlestickClient(symbols, interval, new WebsocketCallback<CandlePayload>() {
-			public void onMessage(CandlePayload response) {
+		wsClient = new WebsocketCandlestickClient(symbols, interval, new WebsocketCallback<Candle>() {
+			public void onMessage(Candle response) {
 				// let's convert the bar and give it the symbol name
 				Bar bar = BarService.convert(response, duration, zoneId);
 

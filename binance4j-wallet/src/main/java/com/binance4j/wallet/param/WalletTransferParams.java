@@ -5,12 +5,7 @@ import java.math.BigDecimal;
 import com.binance4j.core.param.FramedParams;
 import com.binance4j.wallet.dto.WalletTransferType;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to operate an asset transfer between two accounts */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class WalletTransferParams extends FramedParams {
 	/** The asset. */
 	private String asset;
@@ -34,4 +29,75 @@ public class WalletTransferParams extends FramedParams {
 		this.asset = asset;
 		this.amount = amount;
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public WalletTransferType getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(WalletTransferType type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the fromSymbol
+	 */
+	public String getFromSymbol() {
+		return fromSymbol;
+	}
+
+	/**
+	 * @param fromSymbol the fromSymbol to set
+	 */
+	public void setFromSymbol(String fromSymbol) {
+		this.fromSymbol = fromSymbol;
+	}
+
+	/**
+	 * @return the toSymbol
+	 */
+	public String getToSymbol() {
+		return toSymbol;
+	}
+
+	/**
+	 * @param toSymbol the toSymbol to set
+	 */
+	public void setToSymbol(String toSymbol) {
+		this.toSymbol = toSymbol;
+	}
+
 }

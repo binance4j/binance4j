@@ -24,7 +24,7 @@ public interface NFTMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/transactions")
 	@Headers({ API_H, SIGNED_H })
@@ -32,7 +32,7 @@ public interface NFTMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/deposit")
 	@Headers({ API_H, SIGNED_H })
@@ -40,7 +40,7 @@ public interface NFTMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/withdraw")
 	@Headers({ API_H, SIGNED_H })
@@ -48,7 +48,7 @@ public interface NFTMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "user/getAsset")
 	@Headers({ API_H, SIGNED_H })

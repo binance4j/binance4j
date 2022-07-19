@@ -5,14 +5,14 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.depth.DepthLevel;
-import com.binance4j.websocket.depth.DepthUpdateSpeed;
-import com.binance4j.websocket.depth.MiniDepthPayload;
-import com.binance4j.websocket.depth.WebsocketMiniDepthClient;
+import com.binance4j.websocket.client.WebsocketMiniDepthClient;
+import com.binance4j.websocket.dto.DepthLevel;
+import com.binance4j.websocket.dto.DepthUpdateSpeed;
+import com.binance4j.websocket.dto.MiniDepth;
 
 class WebsocketMiniDepthClientTest {
 
-	TestCallback<MiniDepthPayload> callback = new TestCallback<>();
+	TestCallback<MiniDepth> callback = new TestCallback<>();
 
 	@Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {

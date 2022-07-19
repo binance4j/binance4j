@@ -2,12 +2,7 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get details about a supported asset */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class AssetDetailParams extends FramedParams {
 	/** The asset abbreviation. */
 	private String asset;
@@ -24,4 +19,19 @@ public class AssetDetailParams extends FramedParams {
 		this();
 		this.asset = asset;
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
 }

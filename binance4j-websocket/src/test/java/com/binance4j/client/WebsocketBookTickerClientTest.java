@@ -5,11 +5,11 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.depth.BookTickerPayload;
-import com.binance4j.websocket.depth.WebsocketBookTickerClient;
+import com.binance4j.websocket.client.WebsocketBookTickerClient;
+import com.binance4j.websocket.dto.BookTicker;
 
 class WebsocketBookTickerClientTest {
-	TestCallback<BookTickerPayload> callback = new TestCallback<>();
+	TestCallback<BookTicker> callback = new TestCallback<>();
 
 	@Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {

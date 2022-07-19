@@ -3,12 +3,7 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.param.IntervalParams;
 import com.binance4j.wallet.dto.WithdrawStatus;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to fetch the user withdraw history */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class WithdrawHistoryParams extends IntervalParams {
 	/** The coin we want the history. */
 	private String coin;
@@ -77,4 +72,75 @@ public class WithdrawHistoryParams extends IntervalParams {
 	public void setStatus(WithdrawStatus status) {
 		this.status = status.getValue();
 	}
+
+	/**
+	 * @return the coin
+	 */
+	public String getCoin() {
+		return coin;
+	}
+
+	/**
+	 * @param coin the coin to set
+	 */
+	public void setCoin(String coin) {
+		this.coin = coin;
+	}
+
+	/**
+	 * @return the withdrawOrderId
+	 */
+	public String getWithdrawOrderId() {
+		return withdrawOrderId;
+	}
+
+	/**
+	 * @param withdrawOrderId the withdrawOrderId to set
+	 */
+	public void setWithdrawOrderId(String withdrawOrderId) {
+		this.withdrawOrderId = withdrawOrderId;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public Integer getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the offset
+	 */
+	public Integer getOffset() {
+		return offset;
+	}
+
+	/**
+	 * @param offset the offset to set
+	 */
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+	}
+
+	/**
+	 * @return the limit
+	 */
+	public Integer getLimit() {
+		return limit;
+	}
+
+	/**
+	 * @param limit the limit to set
+	 */
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
 }

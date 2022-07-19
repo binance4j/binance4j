@@ -2,12 +2,7 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.param.FramedParams;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /** The parameters to get the funding wallet */
-@Data
-@EqualsAndHashCode(callSuper = true)
 public class FundingAssetParams extends FramedParams {
 
 	/** The asset we want the balance. */
@@ -39,4 +34,33 @@ public class FundingAssetParams extends FramedParams {
 		this(asset);
 		this.needBtcValuation = needBtcValuation;
 	}
+
+	/**
+	 * @return the asset
+	 */
+	public String getAsset() {
+		return asset;
+	}
+
+	/**
+	 * @param asset the asset to set
+	 */
+	public void setAsset(String asset) {
+		this.asset = asset;
+	}
+
+	/**
+	 * @return the needBtcValuation
+	 */
+	public Boolean getNeedBtcValuation() {
+		return needBtcValuation;
+	}
+
+	/**
+	 * @param needBtcValuation the needBtcValuation to set
+	 */
+	public void setNeedBtcValuation(Boolean needBtcValuation) {
+		this.needBtcValuation = needBtcValuation;
+	}
+
 }

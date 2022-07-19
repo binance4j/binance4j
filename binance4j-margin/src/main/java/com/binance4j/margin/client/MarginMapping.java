@@ -53,7 +53,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "transfer")
@@ -61,7 +61,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "loan")
@@ -69,7 +69,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "repay")
@@ -77,7 +77,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
 	@GET(BASE + "asset")
@@ -85,7 +85,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
 	@GET(BASE + "pair")
@@ -93,14 +93,14 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
 	@GET(BASE + "allPairs")
 	Call<List<CrossSymbol>> getAllCrossMarginPairs(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
 	@GET(BASE + "allAssets")
@@ -108,7 +108,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
 	@GET(BASE + "priceIndex")
@@ -116,7 +116,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order")
@@ -124,7 +124,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "order")
@@ -132,7 +132,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "openOrders")
@@ -140,7 +140,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "transfer")
@@ -148,7 +148,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "loan")
@@ -156,7 +156,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "repay")
@@ -164,7 +164,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "interestHistory")
@@ -172,7 +172,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "forceLiquidationRec")
@@ -180,7 +180,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "account")
@@ -188,7 +188,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "order")
@@ -196,7 +196,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrders")
@@ -204,7 +204,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrders")
@@ -212,7 +212,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "order/oco")
@@ -220,7 +220,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "orderList")
@@ -228,7 +228,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "orderList")
@@ -236,7 +236,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "allOrderList")
@@ -244,7 +244,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "openOrderList")
@@ -252,7 +252,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "myTrades")
@@ -260,7 +260,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "maxBorrowable")
@@ -268,7 +268,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "maxTransferable")
@@ -276,7 +276,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "isolated/transfer")
@@ -284,7 +284,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/transfer")
@@ -292,7 +292,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/account")
@@ -300,7 +300,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@DELETE(BASE + "isolated/account")
@@ -308,7 +308,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST(BASE + "isolated/account")
@@ -316,7 +316,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/accountLimit")
@@ -324,7 +324,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/pair")
@@ -332,7 +332,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolated/allPairs")
@@ -340,7 +340,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@POST("/sapi/v1/bnbBurn")
@@ -348,7 +348,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET("/sapi/v1/bnbBurn")
@@ -356,7 +356,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "interestRateHistory")
@@ -364,7 +364,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "crossMarginData")
@@ -372,7 +372,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolatedMarginData")
@@ -380,7 +380,7 @@ public interface MarginMapping {
 
 	/**
 	 * @param map The query map.
-	 * @return The server response.
+	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H, SIGNED_H })
 	@GET(BASE + "isolatedMarginTier")
