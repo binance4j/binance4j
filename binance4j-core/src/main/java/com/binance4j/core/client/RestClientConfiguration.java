@@ -4,8 +4,10 @@ import com.binance4j.core.dto.TimeInForce;
 
 /** The configuration of every {@link RestClient} */
 public class RestClientConfiguration {
+	/** URL prefix. */
+	private static String defaultPrefix = "api";
 	/** URL base domain. */
-	private static String defaultBaseDomain = "api.binance.com";
+	private static String defaultBaseDomain = "binance.com";
 	/** Testnet URL base domain. */
 	private static String defaultTestnetDomain = "testnet.binance.vision";
 	/** The default order time in force. */
@@ -16,6 +18,8 @@ public class RestClientConfiguration {
 	private static int defaultMaxRequests = 500;
 	/** Defines if the services use the test network. */
 	private static boolean defaultUseTestnet = false;
+	/** URL base domain prefix. */
+	private static String prefix = defaultPrefix;
 	/** URL base domain. */
 	private String baseDomain = defaultBaseDomain;
 	/** Testnet URL base domain. */
@@ -91,7 +95,7 @@ public class RestClientConfiguration {
 
 	/** @return the BaseDomain */
 	public String getBaseDomain() {
-		return baseDomain;
+		return prefix + "." + baseDomain;
 	}
 
 	/** @param baseDomain the BaseDomain to set */
@@ -151,5 +155,33 @@ public class RestClientConfiguration {
 	/** @param useTestnet the UseTestnet to set */
 	public void useTestnet(boolean useTestnet) {
 		this.useTestnet = useTestnet;
+	}
+
+	/**
+	 * @return the defaultPrefix
+	 */
+	public static String getDefaultPrefix() {
+		return defaultPrefix;
+	}
+
+	/**
+	 * @param defaultPrefix the defaultPrefix to set
+	 */
+	public static void setDefaultPrefix(String defaultPrefix) {
+		RestClientConfiguration.defaultPrefix = defaultPrefix;
+	}
+
+	/**
+	 * @return the prefix
+	 */
+	public static String getPrefix() {
+		return prefix;
+	}
+
+	/**
+	 * @param prefix the prefix to set
+	 */
+	public static void setPrefix(String prefix) {
+		RestClientConfiguration.prefix = prefix;
 	}
 }
