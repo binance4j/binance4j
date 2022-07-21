@@ -33,7 +33,7 @@ jobs:
   
   ##### TESTS #####
 
-  test-convert:
+  verify-convert:
     name: Test binance4j-convert
     runs-on: ubuntu-latest
     steps:
@@ -46,9 +46,9 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - name: Test
-        run: cd binance4j-convert && mvn test
+        run: cd binance4j-convert && mvn verify
 
-  test-core:
+  verify-core:
     name: Test binance4j-core
     runs-on: ubuntu-latest
     steps:
@@ -61,9 +61,9 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - name: Test
-        run: cd binance4j-core && mvn test
+        run: cd binance4j-core && mvn verify
 
-  test-market:
+  verify-market:
     name: Test binance4j-market
     runs-on: ubuntu-latest
     steps:
@@ -78,9 +78,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-market && mvn test
+        run: cd binance4j-market && mvn verify
 
-  test-margin:
+  verify-margin:
     name: Test binance4j-margin
     runs-on: ubuntu-latest
     steps:
@@ -95,9 +95,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-margin && mvn test
+        run: cd binance4j-margin && mvn verify
 
-  test-nft:
+  verify-nft:
     name: Test binance4j-nft
     runs-on: ubuntu-latest
     steps:
@@ -112,9 +112,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-nft && mvn test
+        run: cd binance4j-nft && mvn verify
 
-  test-rebate:
+  verify-rebate:
     name: Test binance4j-rebate
     runs-on: ubuntu-latest
     steps:
@@ -129,9 +129,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-rebate && mvn test
+        run: cd binance4j-rebate && mvn verify
 
-  test-spot:
+  verify-spot:
     name: Test binance4j-spot
     runs-on: ubuntu-latest
     steps:
@@ -146,9 +146,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-spot && mvn test
+        run: cd binance4j-spot && mvn verify
 
-  test-vision:
+  verify-vision:
     name: Test binance4j-vision
     runs-on: ubuntu-latest
     steps:
@@ -163,9 +163,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-vision && mvn test
+        run: cd binance4j-vision && mvn verify
 
-  test-wallet:
+  verify-wallet:
     name: Test binance4j-wallet
     runs-on: ubuntu-latest
     steps:
@@ -180,9 +180,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-wallet && mvn test
+        run: cd binance4j-wallet && mvn verify
 
-  test-websocket:
+  verify-websocket:
     name: Test binance4j-websocket
     runs-on: ubuntu-latest
     steps:
@@ -197,9 +197,9 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-websocket && mvn test
+        run: cd binance4j-websocket && mvn verify
 
-  test-strategy:
+  verify-strategy:
     name: Test binance4j-strategy
     runs-on: ubuntu-latest
     steps:
@@ -218,13 +218,13 @@ jobs:
       - name: Install binance4j-vision
         run: ${{ env.VISION_INSTALLATION }}
       - name: Test
-        run: cd binance4j-strategy && mvn test
+        run: cd binance4j-strategy && mvn verify
   
   ##### DEPLOYMENTS #####
 
   deploy-convert:
     name: Deploy binance4j-convert
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -248,7 +248,7 @@ jobs:
 
   deploy-core:
     name: Deploy binance4j-core
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -272,7 +272,7 @@ jobs:
 
   deploy-market:
     name: Deploy binance4j-market
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -296,7 +296,7 @@ jobs:
 
   deploy-margin:
     name: Deploy binance4j-margin
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -320,7 +320,7 @@ jobs:
 
   deploy-nft:
     name: Deploy binance4j-nft
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -344,7 +344,7 @@ jobs:
 
   deploy-rebate:
     name: Deploy binance4j-rebate
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -368,7 +368,7 @@ jobs:
 
   deploy-spot:
     name: Deploy binance4j-spot
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -392,7 +392,7 @@ jobs:
 
   deploy-vision:
     name: Deploy binance4j-vision
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -416,7 +416,7 @@ jobs:
 
   deploy-wallet:
     name: Deploy binance4j-wallet
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -440,7 +440,7 @@ jobs:
 
   deploy-websocket:
     name: Deploy binance4j-websocket
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -464,7 +464,7 @@ jobs:
 
   deploy-strategy:
     name: Deploy binance4j-strategy
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -492,7 +492,7 @@ jobs:
 
   deploy-connectors:
     name: Deploy binance4j-connectors
-    needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -549,7 +549,7 @@ jobs:
 
   deploy-doc:
       name: Deploy doc
-      needs: [test-convert,test-core,test-market,test-margin,test-nft,test-rebate,test-spot,test-strategy,test-vision,test-wallet,test-websocket]
+      needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
