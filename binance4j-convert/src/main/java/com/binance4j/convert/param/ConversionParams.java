@@ -1,9 +1,10 @@
 package com.binance4j.convert.param;
 
+import com.binance4j.convert.client.ConvertClient;
 import com.binance4j.core.param.IntervalParams;
 
 /**
- * The {@link ConvertClient#} params.
+ * The {@link ConvertClient#getConversions} params.
  */
 public class ConversionParams extends IntervalParams {
 	/** The result size. Default 100, Max 1000. */
