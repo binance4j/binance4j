@@ -232,16 +232,15 @@ public abstract class CustomTest<T> {
 	 * @param bean
 	 */
 	public void test(Object bean) {
-		System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
-
 		Set<String> nulls = getNullProperties(bean);
 
-		if (nulls.isEmpty()) {
-			System.out.println("no null property");
-		} else {
-			System.out.println("null properties:");
-			System.out.println(nulls + "\n");
-		}
+		String text = String.format("Testing %s object...\n\n%s\n\n", bean.getClass().getSimpleName(), bean);
+		String nullText = nulls.isEmpty() ? "no null property." : "null properties:" + nulls + "\n";
+		String seperator = "\n==========\n";
+
+		text = String.format("%s\n%s", text, nullText);
+
+		System.out.println(seperator + text + seperator);
 
 		assertTrue(hasNoNullProperty(bean));
 	}
