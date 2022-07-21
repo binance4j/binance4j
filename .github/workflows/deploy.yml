@@ -18,6 +18,7 @@ env:
   OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   SERVERS: '[{  "id": "ossrh",  "username": "${{ secrets.OSSRH_USERNAME }}",   "password": "${{ secrets.OSSRH_PASSWORD }}"}]'
+  C2C_INSTALLATION: cd binance4j-c2c && mvn install -DskipTests=true 
   CONVERT_INSTALLATION: cd binance4j-convert && mvn install -DskipTests=true 
   CORE_INSTALLATION: cd binance4j-core && mvn install -DskipTests=true 
   MARGIN_INSTALLATION: cd binance4j-margin && mvn install -DskipTests=true 
@@ -32,6 +33,23 @@ env:
 jobs:
   
   ##### TESTS #####
+
+  verify-c2c:
+    name: Test binance4j-c2c
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Test
+        run: cd binance4j-c2c && mvn verify
 
   verify-convert:
     name: Test binance4j-convert
@@ -224,9 +242,9 @@ jobs:
   
   ##### DEPLOYMENTS #####
 
-  deploy-convert:
-    name: Deploy binance4j-convert
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+  deploy-c2c:
+    name: Deploy binance4j-c2c
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -243,14 +261,38 @@ jobs:
         uses: s4u/maven-settings-action@v2.6.0
         with:
           servers: ${{ env.SERVERS }}
-      - name: Install binance4j-convert
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
+      - name: Deploy
+        run: cd binance4j-c2c && mvn -DskipTests=true deploy
+
+  deploy-convert:
+    name: Deploy binance4j-convert
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ env.FETCH_DEPTH }}
+      - name: Java Setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v1
+      - name: Configure Settings
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: ${{ env.SERVERS }}
+      - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Deploy
         run: cd binance4j-convert && mvn -DskipTests=true deploy
 
   deploy-core:
     name: Deploy binance4j-core
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -274,7 +316,7 @@ jobs:
 
   deploy-market:
     name: Deploy binance4j-market
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -298,7 +340,7 @@ jobs:
 
   deploy-margin:
     name: Deploy binance4j-margin
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -322,7 +364,7 @@ jobs:
 
   deploy-nft:
     name: Deploy binance4j-nft
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -346,7 +388,7 @@ jobs:
 
   deploy-rebate:
     name: Deploy binance4j-rebate
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -370,7 +412,7 @@ jobs:
 
   deploy-spot:
     name: Deploy binance4j-spot
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -394,7 +436,7 @@ jobs:
 
   deploy-vision:
     name: Deploy binance4j-vision
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -418,7 +460,7 @@ jobs:
 
   deploy-wallet:
     name: Deploy binance4j-wallet
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -442,7 +484,7 @@ jobs:
 
   deploy-websocket:
     name: Deploy binance4j-websocket
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -466,7 +508,7 @@ jobs:
 
   deploy-strategy:
     name: Deploy binance4j-strategy
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -494,7 +536,7 @@ jobs:
 
   deploy-connectors:
     name: Deploy binance4j-connectors
-    needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+    needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -551,7 +593,7 @@ jobs:
 
   deploy-doc:
       name: Deploy doc
-      needs: [verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
+      needs: [verify-c2c,verify-convert,verify-core,verify-market,verify-margin,verify-nft,verify-rebate,verify-spot,verify-strategy,verify-vision,verify-wallet,verify-websocket]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -571,6 +613,12 @@ jobs:
 
         # ARTIFACTS INSTALLATIONS
         
+        - name: Install binance4j-c2c
+          run: ${{ env.C2C_INSTALLATION }}
+        
+        - name: Install binance4j-convert
+          run: ${{ env.CONVERT_INSTALLATION }}
+
         - name: Install binance4j-core
           run: ${{ env.CORE_INSTALLATION }}
 
@@ -579,6 +627,9 @@ jobs:
 
         - name: Install binance4j-nft
           run: ${{ env.NFT_INSTALLATION }}
+
+        - name: Install binance4j-rebate
+          run: ${{ env.REBATE_INSTALLATION }}
 
         - name: Install binance4j-spot
           run: ${{ env.SPOT_INSTALLATION }}
