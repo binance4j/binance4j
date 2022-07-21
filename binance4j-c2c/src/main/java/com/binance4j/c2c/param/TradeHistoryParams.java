@@ -17,6 +17,7 @@ public class TradeHistoryParams extends FramedParams {
 	 * @param tradeType Trade type.
 	 */
 	public TradeHistoryParams(TradeType tradeType) {
+		super(1);
 		this.tradeType = tradeType;
 	}
 
