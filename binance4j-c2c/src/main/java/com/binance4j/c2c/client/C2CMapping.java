@@ -10,7 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link ConvertClient} mapping */
+/** The {@link C2CClient} mapping */
 public interface C2CMapping {
 	/** The base uri */
 	String BASE = "/sapi/v1/c2c/";

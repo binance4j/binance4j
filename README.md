@@ -16,7 +16,7 @@
 </p>
 
 <!-- description -->
-
+****
 <h2 align="center">Java connectors and technical analysis for the Binance API</h2>
 
 <h3 align="center">
@@ -87,7 +87,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-market</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -129,7 +129,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-nft</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -173,7 +173,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-spot</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -228,7 +228,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-wallet</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -279,7 +279,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-websocket</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -326,7 +326,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-vision</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -369,7 +369,124 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-strategy</artifactId>
+  <version>2.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+<!-- binance4j-c2c -->
+
+<!-- title -->
+<h1 align="center">
+	binance4j-c2c
+</h1>
+
+<!-- logo -->
+<p align="center">
+	<img src="./static/img/repos/c2c.svg" width="128" height="128" />
+</p>
+
+<!-- badges -->
+<p align="center">
+	<a href="https://binance4j.github.io/binance4j/binance4j-c2c">
+		<img src="https://img.shields.io/badge/javadoc-latest-informational" alt="Javadoc"/>
+	</a>
+</p>
+
+<h2 align="center">
+	Connector for the c2c endpoints
+</h2>
+
+## Features
+
+- Get C2C trades.
+
+## Installation
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>com.binance4j</groupId>
+  <artifactId>binance4j-c2c</artifactId>
   <version>2.0.1</version>
+</dependency>
+```
+
+<!-- binance4j-convert -->
+
+<!-- title -->
+<h1 align="center">
+	binance4j-convert
+</h1>
+
+<!-- logo -->
+<p align="center">
+	<img src="./static/img/repos/convert.svg" width="128" height="128" />
+</p>
+
+<!-- badges -->
+<p align="center">
+	<a href="https://binance4j.github.io/binance4j/binance4j-convert">
+		<img src="https://img.shields.io/badge/javadoc-latest-informational" alt="Javadoc"/>
+	</a>
+</p>
+
+<h2 align="center">
+	Connector for the convert endpoints
+</h2>
+
+## Features
+
+- Get assets conversion history.
+
+## Installation
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>com.binance4j</groupId>
+  <artifactId>binance4j-convert</artifactId>
+  <version>2.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+<!-- binance4j-rebate -->
+
+<!-- title -->
+<h1 align="center">
+	binance4j-rebate
+</h1>
+
+<!-- logo -->
+<p align="center">
+	<img src="./static/img/repos/rebate.svg" width="128" height="128" />
+</p>
+
+<!-- badges -->
+<p align="center">
+	<a href="https://binance4j.github.io/binance4j/binance4j-rebate">
+		<img src="https://img.shields.io/badge/javadoc-latest-informational" alt="Javadoc"/>
+	</a>
+</p>
+
+<h2 align="center">
+	Connector for the rebate endpoints
+</h2>
+
+## Features
+
+- Get SPOT rebate history records.
+
+## Installation
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>com.binance4j</groupId>
+  <artifactId>binance4j-rebate</artifactId>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -409,6 +526,6 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-core</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.1-SNAPSHOT</version>
 </dependency>
 ```
