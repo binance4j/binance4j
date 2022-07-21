@@ -52,8 +52,6 @@ class NoResponseTimeoutTest extends CustomTest<Void> {
 		});
 
 		callback.onFailure(t -> {
-			System.out.println(t);
-			System.out.println((System.currentTimeMillis() - startTime) / 1000);
 			service.unwatch();
 		});
 

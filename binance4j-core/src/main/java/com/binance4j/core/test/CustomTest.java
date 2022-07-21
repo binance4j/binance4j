@@ -2,77 +2,61 @@ package com.binance4j.core.test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
-/**
- * 
- */
+@Execution(ExecutionMode.CONCURRENT)
 public abstract class CustomTest<T> {
-	public final static ObjectMapper MAPPER = new ObjectMapper().registerModule(new ParameterNamesModule()).registerModule(new Jdk8Module())
-			.registerModule(new JavaTimeModule()).configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
-			.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
-	/** The API public key */
 	protected String key = System.getenv("BINANCE_API_KEY");
-	/** The API secret */
 	protected String secret = System.getenv("BINANCE_API_SECRET");
-	/** The testnet public key */
 	protected String testnetKey = System.getenv("BINANCE_TESTNET_API_KEY");
-	/** The testnet secret */
 	protected String testnetSecret = System.getenv("BINANCE_TESTNET_API_SECRET");
-	/** The symbol */
 	protected String symbol = "BNBBTC";
-	/** The asset */
 	protected String asset = "BNB";
-	/** The limit */
 	protected int limit = 25;
-	/** The assets */
-	protected List<String> assets = List.of(asset, "BUSD", "BTC");
-	/** The symbols */
-	protected List<String> symbols = List.of(symbol, "BNBBUSD", "BTCBUSD");
-	/** The client */
+	protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
+	protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
 	protected T client;
-	/** The testnet client */
 	protected T testnetClient;
 
-	/** Constructor */
 	protected CustomTest() {
 	}
 
-	/**
-	 * Constructor
-	 * 
-	 * @param client The API client.
-	 */
 	protected CustomTest(T client) {
 		this.client = client;
 	}
 
-	/**
-	 * @param clientClass The client class.
-	 */
-	protected CustomTest(Class<? extends T> clientClass) {
+	protected CustomTest(Class<? extends T> client) {
 		try {
-			this.client = clientClass.getDeclaredConstructor(String.class, String.class).newInstance(key, secret);
+			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+				| SecurityException e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected CustomTest(Class<? extends T> client, Class<? extends T> testnetClient) {
+		try {
+			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
+			this.testnetClient = testnetClient.getDeclaredConstructor(String.class, String.class).newInstance(getTestnetKey(), getTestnetSecret());
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
 				| SecurityException e) {
 			e.printStackTrace();
@@ -80,41 +64,48 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param clientClass        The client class.
-	 * @param testnetClientClass The testnet client class.
-	 */
-	protected CustomTest(Class<? extends T> clientClass, Class<? extends T> testnetClientClass) {
-		try {
-			this.client = clientClass.getDeclaredConstructor(String.class, String.class).newInstance(key, secret);
-			this.testnetClient = testnetClientClass.getDeclaredConstructor(String.class, String.class).newInstance(testnetKey, testnetSecret);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-				| SecurityException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @param bean The bean we want the properties.
-	 * @return the properties of the given bean.
+	 * Returns the properties of the given bean
+	 * 
+	 * @param bean The bean we want the properties
 	 */
 	protected Map<String, Object> getProperties(Object bean) {
-		if (bean instanceof Collection == false) {
-			return MAPPER.convertValue(bean, new TypeReference<Map<String, Object>>() {
-			});
-		} else {
-			return getProperties((Collection<Object>) bean);
+		Map<String, Object> map = new HashMap<>();
+		try {
+			if (bean != null) {
+				if (bean instanceof Record) {
+					Arrays.asList(bean.getClass().getRecordComponents()).stream().forEach(pd -> {
+						try {
+							map.put(pd.getName(), pd.getAccessor().invoke(bean));
+						} catch (Exception e) {
+						}
+					});
+				} else {
+					Arrays.asList(Introspector.getBeanInfo(bean.getClass(), Object.class).getPropertyDescriptors()).stream().forEach(pd -> {
+						try {
+							map.put(pd.getName(), pd.getReadMethod().invoke(bean));
+						} catch (Exception e) {
+						}
+					});
+				}
+			}
+			return map;
+		} catch (IntrospectionException e) {
+			return Collections.emptyMap();
 		}
 	}
 
 	/**
-	 * @param bean The bean we want the properties.
-	 * @return the properties of the given bean.
+	 * Returns the properties of the given bean
+	 * 
+	 * @param bean The bean we want the properties
 	 */
-	protected Map<String, Object> getProperties(Collection<Object> bean) {
+	protected Map<String, Object> getProperties(Collection<?> collection) {
 		Map<String, Object> map = new HashMap<>();
 		int i = 0;
-		for (var b : (Collection<?>) bean) {
-			map.put(String.format("[%s]", Integer.toString(i)), b);
+		for (var bean : collection) {
+			for (var es : getProperties(bean).entrySet()) {
+				map.put(String.format("%s[%s]", es.getKey(), Integer.toString(i)), es.getValue());
+			}
 			i++;
 		}
 
@@ -122,53 +113,22 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean The bean we want the properties.
-	 * @return the bean properties with a null walue.
-	 */
-	protected Set<String> getNullProperties(Object bean, String parentName) {
-		if (bean == null) {
-			return Set.of(parentName);
-		}
-		List<String> nulls = new ArrayList<>();
-
-		if (bean instanceof Collection || bean instanceof Map || !isJavaBean(bean)) {
-			Map<String, Object> props = getProperties(bean);
-
-			List<String> list = props.entrySet().stream().filter(es -> Objects.isNull(es.getValue())).map(es -> parentName + "." + es.getKey()).toList();
-			nulls.addAll(list);
-
-			list = props.entrySet().stream().filter(es -> Objects.nonNull(es.getValue()))
-					.map(es -> getNullProperties(es.getValue(), parentName + "." + es.getKey())).flatMap(Collection::stream).collect(Collectors.toList());
-			nulls.addAll(list);
-		}
-
-		Collections.sort(nulls);
-		return new TreeSet<>(nulls);
-	}
-
-	/**
-	 * @param bean The bean we want the properties.
-	 * @return the properties of the given bean.
-	 */
-	protected Map<String, Object> getProperties(Map<String, Object> bean) {
-		return bean;
-	}
-
-	/**
-	 * @param bean The bean we want the properties.
-	 * @return the bean properties with a null walue.
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean The bean we want the properties
 	 */
 	protected Set<String> getNullProperties(Object bean) {
-		return getNullProperties(bean, bean.getClass().getSimpleName());
+		return getNullProperties(bean, bean == null ? "object" : bean.getClass().getSimpleName());
 	}
 
 	/**
-	 * @param bean    The bean we want the properties.
-	 * @param flatten Flatten the result to only show the properties names.
-	 * @return the bean properties with a null walue.
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean    The bean we want the properties
+	 * @param flatten Flatten the result to only show the properties names
 	 */
 	protected Set<String> getNullProperties(Object bean, boolean flatten) {
-		Set<String> set = getNullProperties(bean);
+		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
 
 		return !flatten ? set : set.stream().map(string -> {
 			String[] array = string.split("\\.");
@@ -177,33 +137,99 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * @param bean The bean to verify.
-	 * @return if the given object has no null property.
+	 * Returns the bean properties with a null walue
+	 * 
+	 * @param bean       The bean we want the properties
+	 * @param parentBean The enclosing class
+	 */
+	protected Set<String> getNullProperties(Object bean, String parentBean) {
+		List<String> list = new ArrayList<>();
+		if (bean == null) {
+			return Set.of(parentBean);
+		}
+		// Handling collections
+		if (bean instanceof Collection) {
+			int i = 0;
+
+			for (Object b : (Collection<?>) bean) {
+				Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
+				for (String np : nullProps) {
+					list.add(String.format("%s[%s].%s", parentBean, Integer.toString(i), np));
+				}
+				i++;
+
+			}
+		}
+		// Handling maps
+		else if (bean instanceof Map) {
+			list = ((Map<?, ?>) bean).entrySet().stream().map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName()).stream()
+					.map(np -> es.getKey() + "." + np).collect(Collectors.toSet())).flatMap(Collection::stream).collect(Collectors.toList());
+		}
+		// Handling custom objects
+		else if (!isJavaBean(bean)) {
+			list = getProperties(bean).entrySet().stream().map(o -> {
+				if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
+					return getNullProperties(o.getValue(), o.getKey());
+				} else if (o.getValue() == null) {
+					return new HashSet<>(Arrays.asList(Character.isUpperCase(parentBean.charAt(0)) ? o.getKey() : parentBean + "." + o.getKey()));
+				} else {
+					return getNullProperties(o.getValue(), o.getKey());
+				}
+			}).flatMap(Collection::stream).collect(Collectors.toList());
+		}
+		Collections.sort(list);
+		return new TreeSet<>(list);
+	}
+
+	/**
+	 * Tells if the given object has no null property
+	 * 
+	 * @param bean The bean to verify
 	 */
 	protected boolean hasNoNullProperty(Object bean) {
 		return getNullProperties(bean).isEmpty();
 	}
 
 	/**
-	 * @param bean The bean we want to inspect.
-	 * @return if the bean has properties.
+	 * Tells if the bean has properties
+	 * 
+	 * @param bean The bean we want to inspect
 	 */
 	protected boolean hasProperties(Object bean) {
 		return getProperties(bean).size() != 0;
 	}
 
 	/**
-	 * @param bean The bean to inspect.
-	 * @return if the object is from the java lang package.
+	 * Tells if the object is from the java lang package
+	 * 
+	 * @param bean The bean to inspect
 	 */
 	protected boolean isJavaBean(Object bean) {
 		return bean.getClass().getName().startsWith("java");
 	}
 
 	/**
+	 * Tells if the object is a Map
+	 * 
+	 * @param bean The bean to inspect
+	 */
+	protected boolean isMap(Object bean) {
+		return bean instanceof Map;
+	}
+
+	/**
+	 * Tells if the object is a Collection (Map excluded)
+	 * 
+	 * @param bean The bean to inspect
+	 */
+	protected boolean isCollection(Object bean) {
+		return bean instanceof Collection;
+	}
+
+	/**
 	 * Tests that the object has no null properties
 	 * 
-	 * @param bean The bean.
+	 * @param bean
 	 */
 	public void test(Object bean) {
 		System.out.println(String.format("Testing %s object:", bean.getClass().getSimpleName()));
@@ -223,85 +249,84 @@ public abstract class CustomTest<T> {
 	/**
 	 * Tests that the object has no null properties
 	 * 
-	 * @param req The request.
-	 * @throws ApiException Thrown if error
+	 * @throws ApiException
 	 */
-	public void test(Request<?> req) throws ApiException {
-		test(req.execute());
+	public void test(Request<?> executor) throws ApiException {
+		test(executor.execute());
 	}
 
 	/**
-	 * @return the key.
+	 * @return the key
 	 */
 	public String getKey() {
 		return key;
 	}
 
 	/**
-	 * @return the secret.
+	 * @return the secret
 	 */
 	public String getSecret() {
 		return secret;
 	}
 
 	/**
-	 * @return the testnetKey.
+	 * @return the testnetKey
 	 */
 	public String getTestnetKey() {
 		return testnetKey;
 	}
 
 	/**
-	 * @return the testnetSecret.
+	 * @return the testnetSecret
 	 */
 	public String getTestnetSecret() {
 		return testnetSecret;
 	}
 
 	/**
-	 * @return the symbol.
+	 * @return the symbol
 	 */
 	public String getSymbol() {
 		return symbol;
 	}
 
 	/**
-	 * @return the asset.
+	 * @return the asset
 	 */
 	public String getAsset() {
 		return asset;
 	}
 
 	/**
-	 * @return the limit.
+	 * @return the limit
 	 */
 	public int getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @return the assets.
+	 * @return the assets
 	 */
 	public List<String> getAssets() {
 		return assets;
 	}
 
 	/**
-	 * @return the symbols.
+	 * @return the symbols
 	 */
 	public List<String> getSymbols() {
 		return symbols;
 	}
 
 	/**
-	 * @return the client.
+	 * @return the client
 	 */
 	public T getClient() {
 		return client;
 	}
 
 	/**
-	 * @return the testnetClient.
+	 * @return the testnetClient
 	 */
 	public T getTestnetClient() {
 		return testnetClient;

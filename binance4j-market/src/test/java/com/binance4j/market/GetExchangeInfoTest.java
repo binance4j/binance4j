@@ -15,7 +15,6 @@ class GetExchangeInfoTest extends MarketTest {
 	@Override
 	public void test(Object bean) {
 		Set<String> nulls = getNullProperties(bean, true);
-		System.out.println(nulls);
 		assertTrue(nulls.containsAll(List.of("notional", "percentPriceBySide", "maxPosition", "maxNumIcebergOrders")));
 	}
 

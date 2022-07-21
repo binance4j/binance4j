@@ -26,7 +26,6 @@ class BackTestingTest extends CustomTest<Void> {
 	public void test(Object bean) {
 		Set<String> nulls = getNullProperties(bean, true);
 		List<String> expected = List.of("amount", "entry", "exit", "name");
-		System.out.println(nulls);
 		assertEquals(expected.size(), nulls.size());
 		assertTrue(nulls.containsAll(expected));
 	}

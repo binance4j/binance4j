@@ -34,7 +34,6 @@ class UserDataClientTest {
 		ListenKey listenKey = client.startMarginUserDataStream().execute();
 		assertTrue(listenKey.listenKey().length() > 0);
 
-		System.out.println(listenKey);
 		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
 		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).execute());
 	}
@@ -48,8 +47,6 @@ class UserDataClientTest {
 				listenKey.listenKey());
 
 		assertTrue(listenKey.listenKey().length() > 0);
-
-		System.out.println(listenKey);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
 		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).execute());
 	}

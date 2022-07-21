@@ -16,14 +16,22 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.pojo.TestObject;
 import com.binance4j.core.pojo.TestObject2;
 
-public class BaseTestServiceTest extends CustomTest<Void> {
+public class CustomTestTest extends CustomTest<Void> {
 
 	List<String> list = List.of("hello", "world");
 	TestObject obj1 = new TestObject("hello", null, null, null, null);
 	TestObject obj2 = new TestObject("world", null, 0, list, null);
 
-	protected BaseTestServiceTest() {
+	protected CustomTestTest() {
 		super();
+	}
+
+	@Test
+	void testNullPropertiesOfNull() {
+		TestObject obj = null;
+		Set<String> map = getNullProperties(obj);
+		assertTrue(map.contains("object"));
+
 	}
 
 	@Test
@@ -39,16 +47,14 @@ public class BaseTestServiceTest extends CustomTest<Void> {
 
 	@Test
 	void testGetPropertiesOfList() {
-		Map<String, Object> map = getProperties(List.of("hello", "world"));
-		System.out.println(map);
+		Map<String, Object> map = getProperties(List.of(obj1, obj2));
 	}
 
 	@Test
 	void testGetNullProperties() {
 		Set<String> list = getNullProperties(obj2);
-		System.out.println(list);
 		assertEquals(2, list.size());
-		assertTrue(list.containsAll(List.of("TestObject.longVal", "TestObject.objVal")));
+		assertTrue(list.containsAll(List.of("longVal", "objVal")));
 	}
 
 	@Test
@@ -59,9 +65,8 @@ public class BaseTestServiceTest extends CustomTest<Void> {
 		Set<String> list = getNullProperties(obj);
 
 		assertEquals(6, list.size());
-		System.out.println(list);
-		assertTrue(list.containsAll(List.of("ArrayList.[0].intVal", "ArrayList.[0].listVal", "ArrayList.[0].longVal", "ArrayList.[0].objVal",
-				"ArrayList.[1].longVal", "ArrayList.[1].objVal")));
+		assertTrue(list.containsAll(List.of("ArrayList[0].intVal", "ArrayList[0].listVal", "ArrayList[0].longVal", "ArrayList[0].objVal",
+				"ArrayList[1].longVal", "ArrayList[1].objVal")));
 	}
 
 	@Test

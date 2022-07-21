@@ -8,6 +8,5 @@ public class GetAllCrossMarginPairsTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
 		test(client.getAllCrossMarginPairs());
-		System.out.println(client.getAllCrossMarginPairs().execute());
 	}
 }

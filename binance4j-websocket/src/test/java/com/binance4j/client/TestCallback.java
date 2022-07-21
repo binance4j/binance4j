@@ -25,8 +25,6 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	}
 
 	public void onMessage(Object response) {
-		System.out.println("response");
-		System.out.println(response);
 		test(response);
 		if (websocketClient != null) {
 			websocketClient.close();
@@ -34,27 +32,19 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	}
 
 	public void onOpen(Response response) {
-		System.out.println("response");
-		System.out.println(response);
 		test(response);
 	}
 
 	public void onFailure(ApiException exception) {
-		System.out.println("exception");
-		System.out.println(exception);
 		websocketClient.close();
 		future.complete(null);
 	}
 
 	public void onClosing(WebsocketCloseObject websocketCloseObject) {
-		System.out.println("websocketCloseObject");
-		System.out.println(websocketCloseObject);
 		test(websocketCloseObject);
 	}
 
 	public void onClosed(WebsocketCloseObject websocketCloseObject) {
-		System.out.println("websocketCloseObject");
-		System.out.println(websocketCloseObject);
 		test(websocketCloseObject);
 		future.complete(null);
 	}
