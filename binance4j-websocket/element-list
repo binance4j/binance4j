@@ -1,0 +1,8 @@
+com.binance4j.websocket.callback
+com.binance4j.websocket.client
+com.binance4j.websocket.configuration
+com.binance4j.websocket.dto
+com.binance4j.websocket.event
+com.binance4j.websocket.param
+com.binance4j.websocket.serialization
+com.binance4j.websocket.service
