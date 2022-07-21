@@ -3,7 +3,6 @@ package com.binance4j.core.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-/** TODO JAVADOC */
 public class SubObject {
 	private List<SubSubObject> subSubObjects = new ArrayList<>();
 

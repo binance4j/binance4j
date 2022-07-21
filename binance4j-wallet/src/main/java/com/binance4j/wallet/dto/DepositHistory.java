@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param addressTag    The deposit address tag.
  * @param txId          The transaction id.
  * @param unlockConfirm confirm times for unlocking.
- * @param confirmTimes  TODO JAVADOC
+ * @param confirmTimes  Confirm times
  * @param status        The withdraw status code.
  * @param insertTime    confirm times for insertion (?)
  * @param transferType  The transfer type. 1 for internal transfer, 0 for external transfer.
@@ -35,7 +35,7 @@ public record DepositHistory(
 		String txId,
 		/** confirm times for unlocking. */
 		String unlockConfirm,
-		/** TODO JAVADOC */
+		/** Confirm times */
 		String confirmTimes,
 		/** The withdraw status code. */
 		int status,

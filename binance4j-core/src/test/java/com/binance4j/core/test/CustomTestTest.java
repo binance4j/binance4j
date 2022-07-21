@@ -47,7 +47,12 @@ public class CustomTestTest extends CustomTest<Void> {
 
 	@Test
 	void testGetPropertiesOfList() {
+		var expected = List.of("objVal[1]", "objVal[0]", "listVal[0]", "listVal[1]", "longVal[0]", "stringVal[1]", "longVal[1]", "intVal[0]", "stringVal[0]",
+				"intVal[1]");
 		Map<String, Object> map = getProperties(List.of(obj1, obj2));
+
+		assertTrue(map.keySet().containsAll(expected));
+		assertEquals(map.size(), expected.size());
 	}
 
 	@Test

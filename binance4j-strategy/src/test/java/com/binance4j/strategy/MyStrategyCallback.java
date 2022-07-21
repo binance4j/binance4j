@@ -14,7 +14,6 @@ import com.binance4j.websocket.callback.WebsocketCloseObject;
 
 import okhttp3.Response;
 
-/** TODO JAVADOC */
 public class MyStrategyCallback extends StrategyCallback {
 
 	final CompletableFuture<Boolean> future;

@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param ipoable           The Initial Public Offering balance (?)
  * @param ipoing            The Initial Public Offering freezed balance (?)
  * @param locked            The locked balance.
- * @param storage           TODO JAVADOC
+ * @param storage           The storage
  * @param withdrawing       The withdrawing balance.
  * @param networkList       The coin network information.
  */
@@ -47,7 +47,7 @@ public record CoinInformation(
 		BigDecimal ipoing,
 		/** The locked balance. */
 		BigDecimal locked,
-		/** TODO JAVADOC */
+		/** The storage */
 		BigDecimal storage,
 		/** The withdrawing balance. */
 		BigDecimal withdrawing,

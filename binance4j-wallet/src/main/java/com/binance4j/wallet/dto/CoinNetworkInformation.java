@@ -8,25 +8,25 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * The coin network informations.
  * 
  * @param addressRegex            The address pattern.
- * @param addressRule             TODO JAVADOC
+ * @param addressRule             Address rule
  * @param coin                    The coin abbreviation.
  * @param depositDesc             The deposit description.
  * @param withdrawDesc            The withdra description.
  * @param name                    The network name.
  * @param memoRegex               The memo pattern.
- * @param network                 TODO JAVADOC
+ * @param network                 The network
  * @param specialTips             Tips about the network.
  * @param specialWithdrawTips     Tips about the withdraw.
- * @param depositDust             TODO JAVADOC
+ * @param depositDust             Deposit dust.
  * @param withdrawFee             The withdraw fee.
- * @param withdrawIntegerMultiple TODO JAVADOC
+ * @param withdrawIntegerMultiple Withdraw integer multiple
  * @param withdrawMax             The maximal amount authorized to be withdrawn.
  * @param withdrawMin             The minimal amount authorized to be withdrawn.
  * @param minConfirm              The min number for balance confirmation.
  * @param unLockConfirm           The confirmation number for balance unlock.
  * @param depositEnable           If deposit is enabled.
  * @param isDefault               if is the default network.
- * @param resetAddressStatus      TODO JAVADOC
+ * @param resetAddressStatus      Reset address status.
  * @param withdrawEnable          If withdraw is enabled.
  * @param sameAddress             If the coin needs to provide memo to withdraw.
  */
@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public record CoinNetworkInformation(
 		/** The address pattern. */
 		String addressRegex,
-		/** TODO JAVADOC */
+		/** Address rule */
 		String addressRule,
 		/** The coin abbreviation. */
 		String coin,
@@ -46,17 +46,17 @@ public record CoinNetworkInformation(
 		String name,
 		/** The memo pattern. */
 		String memoRegex,
-		/** TODO JAVADOC */
+		/** The network */
 		String network,
 		/** Tips about the network. */
 		String specialTips,
 		/** Tips about the withdraw. */
 		String specialWithdrawTips,
-		/** TODO JAVADOC */
+		/** Deposit dust. */
 		BigDecimal depositDust,
 		/** The withdraw fee. */
 		BigDecimal withdrawFee,
-		/** TODO JAVADOC */
+		/** Withdraw integer multiple */
 		BigDecimal withdrawIntegerMultiple,
 		/** The maximal amount authorized to be withdrawn. */
 		BigDecimal withdrawMax,
@@ -70,7 +70,7 @@ public record CoinNetworkInformation(
 		boolean depositEnable,
 		/** if is the default network. */
 		boolean isDefault,
-		/** TODO JAVADOC */
+		/** Reset address status. */
 		boolean resetAddressStatus,
 		/** If withdraw is enabled. */
 		boolean withdrawEnable,
