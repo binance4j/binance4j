@@ -97,7 +97,7 @@ public abstract class CustomTest<T> {
 	/**
 	 * Returns the properties of the given bean
 	 * 
-	 * @param bean The bean we want the properties
+	 * @param collection The collection we want the properties
 	 */
 	protected Map<String, Object> getProperties(Collection<?> collection) {
 		Map<String, Object> map = new HashMap<>();
