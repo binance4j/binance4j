@@ -18,8 +18,6 @@ import com.binance4j.nft.param.WithdrawParams;
  */
 public class NFTClient extends RestClient<NFTMapping> {
 	/**
-	 * Instantiates a client for the market data endpoints.
-	 *
 	 * @param key    The API public key.
 	 * @param secret The API secret key.
 	 */

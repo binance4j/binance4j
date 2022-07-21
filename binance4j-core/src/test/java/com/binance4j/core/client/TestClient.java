@@ -3,11 +3,11 @@ package com.binance4j.core.client;
 import com.binance4j.core.Request;
 
 /** API client for market endpoints */
-public class MarketClient extends RestClient<MarketDataMapping> {
+public class TestClient extends RestClient<TestMapping> {
 
-	/** Instantiates a client for the market data endpoints. */
-	public MarketClient() {
-		super(MarketDataMapping.class, null, null);
+	/** Constructor. */
+	public TestClient() {
+		super(TestMapping.class, null, null);
 	}
 
 	/**

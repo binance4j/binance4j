@@ -10,8 +10,6 @@ import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams;
 public class UserDataClient extends RestClient<UserDataMapping> {
 
 	/**
-	 * Instantiates a client for the spot endpoints on api
-	 *
 	 * @param key    The API public key.
 	 * @param secret The API secret key.
 	 */

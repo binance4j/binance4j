@@ -30,8 +30,6 @@ public abstract class RestClient<T> {
 	}
 
 	/**
-	 * Instantiates a client for the corresponding mapping
-	 *
 	 * @param mapping The retrofit Service mapping interface.
 	 * @param key     The API public key.
 	 * @param secret  The API secret key.

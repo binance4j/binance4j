@@ -8,6 +8,12 @@ public class ApiError {
 	private String msg;
 
 	/**
+	 * Constructor
+	 */
+	public ApiError() {
+	}
+
+	/**
 	 * @param code The error code.
 	 * @param msg  The error message.
 	 */

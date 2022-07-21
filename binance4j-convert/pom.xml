@@ -3,7 +3,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
-    <artifactId>binance4j-nft</artifactId>
+    <artifactId>binance4j-convert</artifactId>
     <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -20,8 +20,8 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <name>binance4j-nft</name>
-    <description>Connector for the NFT endpoints of the Binance API</description>
+    <name>binance4j-convert</name>
+    <description>Connector for the convert endpoints of the Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>
@@ -63,7 +63,6 @@
             <artifactId>binance4j-core</artifactId>
             <version>2.0.1-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
