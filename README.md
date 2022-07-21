@@ -490,6 +490,46 @@ coming soon
 </dependency>
 ```
 
+<!-- binance4j-fiat -->
+
+<!-- title -->
+<h1 align="center">
+	binance4j-fiat
+</h1>
+
+<!-- logo -->
+<p align="center">
+	<img src="./static/img/repos/fiat.svg" width="128" height="128" />
+</p>
+
+<!-- badges -->
+<p align="center">
+	<a href="https://binance4j.github.io/binance4j/binance4j-fiat">
+		<img src="https://img.shields.io/badge/javadoc-latest-informational" alt="Javadoc"/>
+	</a>
+</p>
+
+<h2 align="center">
+	Connector for the fiat endpoints
+</h2>
+
+## Features
+
+- Get deposit/withdraw history.
+- Get payment history.
+
+## Installation
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>com.binance4j</groupId>
+  <artifactId>binance4j-fiat</artifactId>
+  <version>2.0.1-SNAPSHOT</version>
+</dependency>
+```
+
 <!-- binance4j-core -->
 
 <!-- title -->
