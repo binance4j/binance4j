@@ -8,14 +8,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * The representation of an aggregated trade.
  * 
- * @param tradeId      The trade id.
- * @param firstTradeId The first trade id.
- * @param lastTradeId  The last trade id.
- * @param time         The timestamp.
- * @param price        The price.
- * @param quantity     The quantity.
- * @param isBuyerMaker Was it a buyer maker.
- * @param isBestMatch  Was it the best price match?
+ * @param a The trade id
+ * @param p The price
+ * @param q The quantity
+ * @param f The first trade id
+ * @param l The last trade id
+ * @param T The timestamp
+ * @param m Was it a buyer maker
+ * @param M Was it the best price match?
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AggTrade(

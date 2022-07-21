@@ -17,12 +17,20 @@ import java.util.stream.Collectors;
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
 /**
  * 
  */
 public abstract class CustomTest<T> {
+	public final static ObjectMapper MAPPER = new ObjectMapper().registerModule(new ParameterNamesModule()).registerModule(new Jdk8Module())
+			.registerModule(new JavaTimeModule()).configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+			.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
 	/** The API public key */
 	protected String key = System.getenv("BINANCE_API_KEY");
 	/** The API secret */
@@ -91,7 +99,7 @@ public abstract class CustomTest<T> {
 	 */
 	protected Map<String, Object> getProperties(Object bean) {
 		if (bean instanceof Collection == false) {
-			return new ObjectMapper().convertValue(bean, new TypeReference<Map<String, Object>>() {
+			return MAPPER.convertValue(bean, new TypeReference<Map<String, Object>>() {
 			});
 		} else {
 			return getProperties((Collection<Object>) bean);
@@ -119,7 +127,7 @@ public abstract class CustomTest<T> {
 	 */
 	protected Set<String> getNullProperties(Object bean, String parentName) {
 		if (bean == null) {
-			return Collections.emptySet();
+			return Set.of(parentName);
 		}
 		List<String> nulls = new ArrayList<>();
 
