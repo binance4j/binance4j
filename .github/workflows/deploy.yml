@@ -45,6 +45,8 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - name: Install binance4j-core
+        run: ${{ env.CORE_INSTALLATION }}
       - name: Test
         run: cd binance4j-convert && mvn verify
 
