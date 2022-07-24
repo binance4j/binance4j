@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isolatedSymbol The isolated symbol. Will not be returned for crossed margin.
  * @param asset          The related asset.
  * @param timestamp      The loan timestamp in ms.
- * @param id             The transaction id.
+ * @param transactionId  The transaction id.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Loan(
@@ -29,5 +29,5 @@ public record Loan(
 		/** The loan timestamp in ms. */
 		long timestamp,
 		/** The transaction id. */
-		@JsonProperty("txId") long id) {
+		@JsonProperty("txId") long transactionId) {
 }

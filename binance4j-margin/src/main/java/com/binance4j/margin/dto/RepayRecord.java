@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Data about a repay.
  * 
- * @param id             The transaction id.
+ * @param transactionId  The transaction id.
  * @param timestamp      The transaction timestamp in ms.
  * @param isolatedSymbol The isolated symbol, will not be returned for crossed margin.
  * @param amount         The total amount repaid.
@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
 		/** The transaction id. */
-		@JsonProperty("txId") long id,
+		@JsonProperty("txId") long transactionId,
 		/** The transaction timestamp in ms. */
 		long timestamp,
 		/** The isolated symbol, will not be returned for crossed margin. */

@@ -8,17 +8,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * A transfer history record
  * 
- * @param id        The transaction id.
- * @param amount    The transfered amount.
- * @param asset     The transfered asset.
- * @param status    The transfer status.
- * @param timestamp The transaction time in ms.
- * @param type      The transfer history type.
+ * @param transactionId The transaction id.
+ * @param amount        The transfered amount.
+ * @param asset         The transfered asset.
+ * @param status        The transfer status.
+ * @param timestamp     The transaction time in ms.
+ * @param type          The transfer history type.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TransferRecord(
 		/** The transaction id. */
-		@JsonProperty("txId") long id,
+		@JsonProperty("txId") long transactionId,
 		/** The transfered amount. */
 		BigDecimal amount,
 		/** The transfered asset. */
