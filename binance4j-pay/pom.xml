@@ -3,7 +3,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
-    <artifactId>binance4j-connectors</artifactId>
+    <artifactId>binance4j-pay</artifactId>
     <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -18,12 +18,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-
     </properties>
 
-
-    <name>binance4j-connectors</name>
-    <description>All binance4j-connectors</description>
+    <name>binance4j-pay</name>
+    <description>Connector for the pay endpoints of the Binance API</description>
     <url>https://github.com/binance4j/binance4j</url>
 
     <licenses>
@@ -58,70 +56,44 @@
         <url>https://github.com/binance4j/binance4j.git</url>
     </scm>
 
+
     <dependencies>
         <dependency>
             <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-c2c</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-convert</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-fiat</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-margin</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-market</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-nft</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-rebate</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-spot</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-strategy</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-vision</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-wallet</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-websocket</artifactId>
+            <artifactId>binance4j-core</artifactId>
             <version>2.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
+            <!-- Attaches the sources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Configures the javadoc generation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Signs the artifact for deployment -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -177,6 +149,10 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
