@@ -103,8 +103,8 @@ jobs:
       - name: Test
         run: cd binance4j-fiat && mvn verify
 
-  verify-fiat:
-    name: Test binance4j-fiat
+  verify-loan:
+    name: Test binance4j-loan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -118,7 +118,7 @@ jobs:
       - name: Install binance4j-core
         run: ${{ env.CORE_INSTALLATION }}
       - name: Test
-        run: cd binance4j-fiat && mvn verify
+        run: cd binance4j-loan && mvn verify
 
   verify-margin:
     name: Test binance4j-margin
