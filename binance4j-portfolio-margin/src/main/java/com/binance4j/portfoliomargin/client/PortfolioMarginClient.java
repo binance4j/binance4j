@@ -36,7 +36,6 @@ public class PortfolioMarginClient extends RestClient<PortfolioMarginMapping> {
 	/**
 	 * Get account infos.
 	 * 
-	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<AccountInfo> getAccountInfo() {
@@ -56,7 +55,6 @@ public class PortfolioMarginClient extends RestClient<PortfolioMarginMapping> {
 	/**
 	 * Get collateral rate.
 	 * 
-	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<CollaterateRateInfo>> getCollateralRate() {
