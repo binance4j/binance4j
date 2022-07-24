@@ -45,7 +45,7 @@ public class VisionSpotClient {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new CandlestickParams(service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
+		return new CandlestickParams(service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class VisionSpotClient {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new ChecksumParams(service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month));
+		return new ChecksumParams(service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class VisionSpotClient {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new CandlestickParams(service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
+		return new CandlestickParams(service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class VisionSpotClient {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new ChecksumParams(service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.getValue(), year, month, day));
+		return new ChecksumParams(service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
 	}
 
 	// Trades

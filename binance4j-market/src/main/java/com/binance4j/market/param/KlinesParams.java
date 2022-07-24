@@ -21,7 +21,7 @@ public class KlinesParams extends IntervalParams {
 	public KlinesParams(String symbol, CandlestickInterval interval) {
 		super(1);
 		this.symbol = symbol;
-		this.interval = interval.getValue();
+		this.interval = interval.toString();
 	}
 
 	/**

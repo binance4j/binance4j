@@ -45,8 +45,8 @@ public enum CandlestickInterval {
 	/** The interval id */
 	final String value;
 
-	/** @return the value */
-	public String getValue() {
+	@Override
+	public String toString() {
 		return value;
 	}
 }

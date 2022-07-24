@@ -10,20 +10,17 @@ public enum DepthLevel {
 	LEVEL_20("20");
 
 	/** The result size. */
-	private final String level;
+	private final String value;
 
 	/**
-	 * @param level
+	 * @param value
 	 */
-	private DepthLevel(String level) {
-		this.level = level;
+	private DepthLevel(String value) {
+		this.value = value;
 	}
 
-	/**
-	 * @return the level
-	 */
-	public String getLevel() {
-		return level;
+	@Override
+	public String toString() {
+		return value;
 	}
-
 }

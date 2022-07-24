@@ -18,7 +18,7 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	 * @param callback The events handler.
 	 */
 	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval, WebsocketCallback<Candle> callback) {
-		super(symbols, String.format("kline_%s", interval.getValue()), Candle.class, callback);
+		super(symbols, String.format("kline_%s", interval.toString()), Candle.class, callback);
 		// We define the read timeout the same as the interval + a margin
 		getConfiguration().setNoResponseTimeout(DurationService.convert(interval).plus(getConfiguration().getNoResponseTimeoutMarginError()));
 	}

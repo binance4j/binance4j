@@ -35,11 +35,8 @@ public enum UserDataUpdateType {
 		throw new RuntimeException("Unrecognized user data update event type id: " + eventTypeId);
 	}
 
-	/**
-	 * @return the value
-	 */
-	public String getValue() {
+	@Override
+	public String toString() {
 		return value;
 	}
-
 }

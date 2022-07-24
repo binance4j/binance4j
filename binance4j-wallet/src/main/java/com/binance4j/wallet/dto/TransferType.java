@@ -17,10 +17,8 @@ public enum TransferType {
 
 	final String value;
 
-	/**
-	 * @return the value
-	 */
-	public String getValue() {
+	@Override
+	public String toString() {
 		return value;
 	}
 }

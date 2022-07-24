@@ -18,10 +18,8 @@ public enum DepthUpdateSpeed {
 		this.value = calue;
 	}
 
-	/**
-	 * @return the speed
-	 */
-	public String getValue() {
+	@Override
+	public String toString() {
 		return value;
 	}
 }
