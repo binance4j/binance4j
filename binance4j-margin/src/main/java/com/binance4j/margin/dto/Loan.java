@@ -15,11 +15,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param asset          The related asset.
  * @param timestamp      The loan timestamp in ms.
  * @param transactionId  The transaction id.
+ * @see LoanStatus
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Loan(
-		/** The loan status. */
-		LoanStatus status,
+		/**
+		 * The loan status.
+		 * 
+		 * @see LoanStatus
+		 */
+		String status,
 		/** The borrowed quantity. */
 		BigDecimal principal,
 		/** The isolated symbol. Will not be returned for crossed margin */

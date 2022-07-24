@@ -5,7 +5,7 @@ import com.binance4j.core.param.IntervalParams;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.loan.dto.LoanIncomeType;
 
-/** The {@link LoanClient#getIncomes} params. */
+/** The {@link LoanClient#getLoansIncome} params. */
 public class LoanIncomeHistoryParams extends IntervalParams {
 	/** The asset */
 	private String asset;

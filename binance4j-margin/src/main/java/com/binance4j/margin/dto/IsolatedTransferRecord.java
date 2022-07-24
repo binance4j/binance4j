@@ -28,8 +28,16 @@ public record IsolatedTransferRecord(
 		long timestamp,
 		/** The transaction id. */
 		@JsonProperty("txId") long transactionId,
-		/** The account the asset is transfered from. */
-		@JsonProperty("transFrom") IsolatedTransferAccount transferFrom,
-		/** The account the asset is transfered to. */
-		@JsonProperty("transTo") IsolatedTransferAccount transferTo) {
+		/**
+		 * The account the asset is transfered from.
+		 * 
+		 * @see IsolatedTransferAccount
+		 */
+		@JsonProperty("transFrom") String transferFrom,
+		/**
+		 * The account the asset is transfered to.
+		 * 
+		 * @see IsolatedTransferAccount
+		 */
+		@JsonProperty("transTo") String transferTo) {
 }

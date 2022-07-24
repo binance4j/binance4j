@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param interest       The interest repaid.
  * @param principal      The quantity repaid.
  * @param status         The repay status.
+ * @see LoanStatus
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
@@ -34,6 +35,10 @@ public record RepayRecord(
 		BigDecimal interest,
 		/** The quantity repaid. */
 		BigDecimal principal,
-		/** The repay status. */
-		LoanStatus status) {
+		/**
+		 * The repay status.
+		 * 
+		 * @see LoanStatus
+		 */
+		String status) {
 }

@@ -27,6 +27,10 @@ public record TransferRecord(
 		String status,
 		/** The transaction time in ms. */
 		long timestamp,
-		/** The transfer history type. */
-		TransferRecordType type) {
+		/**
+		 * The transfer history type.
+		 * 
+		 * @see TransferRecordType
+		 */
+		String type) {
 }

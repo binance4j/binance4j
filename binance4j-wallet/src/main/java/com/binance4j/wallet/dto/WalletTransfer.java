@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param status        The transfer status.
  * @param transactionId The transaction id.
  * @param timestamp     The transfer timestamp.
+ * @see WalletTransferType
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record WalletTransfer(
@@ -21,8 +22,12 @@ public record WalletTransfer(
 		String asset,
 		/** The transfered amount. */
 		BigDecimal amount,
-		/** The transfer type (origin wallet to destination wallet). */
-		WalletTransferType type,
+		/**
+		 * The transfer type (origin wallet to destination wallet).
+		 * 
+		 * @see WalletTransferType
+		 */
+		String type,
 		/** The transfer status. */
 		String status,
 		/** The transaction id. */

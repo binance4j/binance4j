@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param indexPrice        The index price.
  * @param liquidatePrice    The liquidate price.
  * @param liquidateRate     The liquidate rate.
+ * @see LevelStatus
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedPair(
@@ -34,8 +35,12 @@ public record IsolatedPair(
 		boolean tradeEnabled,
 		/** Is the pair enabled for the account? */
 		boolean enabled,
-		/** The margin level status. */
-		LevelStatus marginLevelStatus,
+		/**
+		 * The margin level status.
+		 * 
+		 * @see LevelStatus
+		 */
+		String marginLevelStatus,
 		/** The margin level. */
 		BigDecimal marginLevel,
 		/** The margin ratio. */

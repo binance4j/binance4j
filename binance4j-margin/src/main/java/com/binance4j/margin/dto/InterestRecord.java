@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param interestRate        The interest rate.
  * @param principal           The borrowed quantity (?).
  * @param type                The interest type.
+ * @see InterestType
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record InterestRecord(
@@ -33,6 +34,10 @@ public record InterestRecord(
 		BigDecimal interestRate,
 		/** The borrowed quantity (?). */
 		BigDecimal principal,
-		/** The interest type. */
-		InterestType type) {
+		/**
+		 * The interest type.
+		 * 
+		 * @see InterestType
+		 */
+		String type) {
 }
