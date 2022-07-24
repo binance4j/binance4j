@@ -32,7 +32,6 @@ public class PayClient extends RestClient<PayMapping> {
 	/**
 	 * Get pay trades.
 	 * 
-	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<TradeHistory> getTrades() {
