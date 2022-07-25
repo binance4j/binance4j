@@ -1,12 +1,17 @@
 package com.binance4j.loan.param;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.loan.dto.LoanIncomeType;
 
 /** The {@link LoanClient#getLoansIncome} params. */
-public class LoanIncomeHistoryParams extends IntervalParams {
+public class LoanIncomeHistoryParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The asset */
 	private String asset;
 	/** The result limit. Default 20, max 100. */
@@ -63,5 +68,25 @@ public class LoanIncomeHistoryParams extends IntervalParams {
 	 */
 	public void setType(LoanIncomeType type) {
 		this.type = type;
+	}
+
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
 	}
 }

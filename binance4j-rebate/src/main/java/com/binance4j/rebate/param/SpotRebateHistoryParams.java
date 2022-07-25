@@ -1,13 +1,18 @@
 package com.binance4j.rebate.param;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.rebate.client.RebateClient;
 
 /**
  * The {@link RebateClient#getSpotRebateHistoryRecords} params.
  */
-public class SpotRebateHistoryParams extends IntervalParams {
+public class SpotRebateHistoryParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The desired page. */
 	private Integer page = 1;
 
@@ -41,4 +46,23 @@ public class SpotRebateHistoryParams extends IntervalParams {
 		this.page = page;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

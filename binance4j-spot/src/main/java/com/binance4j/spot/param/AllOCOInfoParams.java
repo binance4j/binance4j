@@ -1,9 +1,14 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 
 /** Request to retrieve all OCO based on provided optional parameters */
-public class AllOCOInfoParams extends IntervalParams {
+public class AllOCOInfoParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The id to search from. */
 	private Long fromId;
 	/** The result size. Default Value: 500; Max Value: 1000 */
@@ -68,4 +73,23 @@ public class AllOCOInfoParams extends IntervalParams {
 		this.limit = limit;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

@@ -1,7 +1,7 @@
 package com.binance4j.nft.param;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.nft.dto.OrderType;
 
 /**
@@ -11,7 +11,12 @@ import com.binance4j.nft.dto.OrderType;
  * <p>
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
-public class TransactionHistoryParams extends IntervalParams {
+public class TransactionHistoryParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The order type. */
 	private Integer orderType;
 	/** The result size. Default 50, Max 50. */
@@ -106,4 +111,23 @@ public class TransactionHistoryParams extends IntervalParams {
 		this.page = page;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

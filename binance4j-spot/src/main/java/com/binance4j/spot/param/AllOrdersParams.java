@@ -1,9 +1,14 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to display past orders */
-public class AllOrdersParams extends IntervalParams {
+public class AllOrdersParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The trading pair we want the orders. */
 	private String symbol;
 	/**
@@ -102,4 +107,23 @@ public class AllOrdersParams extends IntervalParams {
 		this.limit = limit;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

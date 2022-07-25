@@ -1,10 +1,15 @@
 package com.binance4j.wallet.param;
 
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.DepositStatus;
 
 /** The parameters to get a coin deposit history */
-public class DepositHistoryParams extends IntervalParams {
+public class DepositHistoryParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The deposited coin. */
 	private String coin;
 	/** The deposit status. 0(0:pending,6: credited but cannot withdraw, 1:success) */
@@ -159,4 +164,23 @@ public class DepositHistoryParams extends IntervalParams {
 		this.limit = limit;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

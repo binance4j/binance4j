@@ -1,10 +1,15 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getAllOCO} params. */
-public class GetAllOCOParams extends IntervalParams {
+public class GetAllOCOParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** Is the order isolated? */
 	private Boolean isIsolated;
 	/** mandatory for isolated margin, not supported for cross margin. */
@@ -59,4 +64,23 @@ public class GetAllOCOParams extends IntervalParams {
 		this.limit = limit;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

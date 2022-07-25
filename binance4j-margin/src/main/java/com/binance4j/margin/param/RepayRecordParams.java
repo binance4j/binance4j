@@ -1,10 +1,15 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getRepayRecord} params. */
-public class RepayRecordParams extends IntervalParams {
+public class RepayRecordParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The asset */
 	private String asset;
 	/** Isolated symbol. */
@@ -84,4 +89,23 @@ public class RepayRecordParams extends IntervalParams {
 		this.archived = archived;
 	}
 
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
 }

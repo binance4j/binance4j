@@ -1,12 +1,17 @@
 package com.binance4j.convert.param;
 
 import com.binance4j.convert.client.ConvertClient;
-import com.binance4j.core.param.IntervalParams;
+import com.binance4j.core.param.Params;
 
 /**
  * The {@link ConvertClient#getConversions} params.
  */
-public class ConversionParams extends IntervalParams {
+public class ConversionParams extends Params {
+	/** The starting timestamp of the results */
+	private Long startTime;
+	/** The ending timestamp of the results */
+	private Long endTime;
+
 	/** The result size. Default 100, Max 1000. */
 	private Integer limit;
 
@@ -42,5 +47,25 @@ public class ConversionParams extends IntervalParams {
 	 */
 	public void setLimit(Integer limit) {
 		this.limit = limit;
+	}
+
+	/** @return the startTime */
+	public Long getStartTime() {
+		return startTime;
+	}
+
+	/** @param startTime the startTime to set */
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+	}
+
+	/** @return the endTime */
+	public Long getEndTime() {
+		return endTime;
+	}
+
+	/** @param endTime the endTime to set */
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
 	}
 }
