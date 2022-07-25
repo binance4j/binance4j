@@ -11,8 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order to open or close a position */
 public class NewOrderParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The order symbol */
 	private String symbol;
 	/** The order side */
@@ -138,7 +137,7 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity) {
-		return buyMarket(symbol, quantity);
+		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity);
 	}
 
 	/**
@@ -161,7 +160,7 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity) {
-		return sellMarket(symbol, quantity);
+		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity);
 	}
 
 	/**
@@ -186,7 +185,7 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return buyLimit(symbol, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price);
 	}
 
 	/**
@@ -211,7 +210,7 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return sellLimit(symbol, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price);
 	}
 
 	// QUOTE ORDERS
@@ -238,7 +237,9 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyQuote(String symbol, BigDecimal quantity) {
-		return buyQuote(symbol, quantity);
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null);
+		order.setQuoteOrderQuantity(quantity);
+		return order;
 	}
 
 	/**
@@ -263,7 +264,9 @@ public class NewOrderParams extends Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellQuote(String symbol, BigDecimal quantity) {
-		return sellQuote(symbol, quantity);
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null);
+		order.setQuoteOrderQuantity(quantity);
+		return order;
 	}
 
 	/**
@@ -434,13 +437,4 @@ public class NewOrderParams extends Params {
 		this.newClientOrderId = newClientOrderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

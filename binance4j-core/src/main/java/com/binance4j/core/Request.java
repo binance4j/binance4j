@@ -34,7 +34,6 @@ public class Request<T> {
 	public T execute() throws ApiException {
 		try {
 			Response<T> response = call.execute();
-
 			if (response.isSuccessful()) {
 				return response.body();
 			} else {

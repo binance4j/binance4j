@@ -10,7 +10,6 @@ public class TradeHistoryParams extends Params {
 	private Long startTime;
 	/** The ending timestamp of the results */
 	private Long endTime;
-
 	/** The results limit. Default 100, max 100. */
 	private Integer limit;
 

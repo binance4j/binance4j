@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getIsolatedAccount} params. */
 public class IsolatedAccountParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** Max 5 symbols can be sent; separated by "," */
 	private String symbols;
 
@@ -25,13 +24,4 @@ public class IsolatedAccountParams extends Params {
 		this.symbols = symbols;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

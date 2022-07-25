@@ -8,8 +8,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#repay} params. */
 public class RepayParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The asset to repay. */
 	private String asset;
 	/** The isolated symbol. */
@@ -86,13 +85,4 @@ public class RepayParams extends Params {
 		this.amount = amount;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

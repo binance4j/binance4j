@@ -3,7 +3,6 @@ package com.binance4j.core.param;
 import java.util.Collections;
 import java.util.Map;
 
-import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.dto.WeightType;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,10 +13,10 @@ import retrofit2.http.QueryMap;
 public class Params {
 	/** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
 	protected static final ObjectMapper MAPPER = new ObjectMapper();
-	/** The default order time in force. */
-	protected TimeInForce timeInForce = TimeInForce.GTC;
-	/** The default receiving window */
-	public static long recvWindow = 60_000L;
+	/** The receiving window. */
+	protected Long recvWindow = 60_000L;
+	/** The request timestamp. */
+	protected Long timestamp = System.currentTimeMillis();
 	/** The request weight */
 	protected int weight = 1;
 	/** Is this request generating an order? */
@@ -61,16 +60,6 @@ public class Params {
 		return map;
 	}
 
-	/** @return the recvWindow */
-	public static long getRecvWindow() {
-		return recvWindow;
-	}
-
-	/** @param recvWindow the recvWindow to set */
-	public static void setRecvWindow(long recvWindow) {
-		Params.recvWindow = recvWindow;
-	}
-
 	/** @return the weight */
 	public int getWeight() {
 		return weight;
@@ -91,16 +80,30 @@ public class Params {
 	}
 
 	/**
-	 * @return the timeInForce
+	 * @return the recvWindow
 	 */
-	public TimeInForce getTimeInForce() {
-		return timeInForce;
+	public Long getRecvWindow() {
+		return recvWindow;
 	}
 
 	/**
-	 * @param timeInForce the timeInForce to set
+	 * @param recvWindow the recvWindow to set
 	 */
-	public void setTimeInForce(TimeInForce timeInForce) {
-		this.timeInForce = timeInForce;
+	public void setRecvWindow(Long recvWindow) {
+		this.recvWindow = recvWindow;
+	}
+
+	/**
+	 * @return the timestamp
+	 */
+	public Long getTimestamp() {
+		return timestamp;
+	}
+
+	/**
+	 * @param timestamp the timestamp to set
+	 */
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
 	}
 }

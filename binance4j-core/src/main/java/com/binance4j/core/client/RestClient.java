@@ -1,11 +1,5 @@
 package com.binance4j.core.client;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Hex;
-
-import com.binance4j.core.exception.UnableToSignException;
 import com.binance4j.core.security.AuthenticationInterceptor;
 
 import okhttp3.Dispatcher;
@@ -20,10 +14,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type">security</a>
  */
 public abstract class RestClient<T> {
-	/** URL base domain prefix. */
-	protected static String prefix = "api";
 	/** URL base domain. */
-	protected static String baseDomain = "binance.com";
+	protected static String baseDomain = "api.binance.com";
 	/** Testnet URL base domain. */
 	protected static String testnetDomain = "testnet.binance.vision";
 	/** Defines if the services use the test network. */
@@ -70,24 +62,6 @@ public abstract class RestClient<T> {
 		OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
 
 		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
-	}
-
-	/**
-	 * Sign the given message using the given secret.
-	 *
-	 * @param message message to sign.
-	 * @param secret  secret key.
-	 * @return a signed message.
-	 */
-	public static String sign(String message, String secret) throws UnableToSignException {
-		try {
-			Mac sha256HMAC = Mac.getInstance("HmacSHA256");
-			SecretKeySpec secretKeySpec = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
-			sha256HMAC.init(secretKeySpec);
-			return new String(Hex.encodeHex(sha256HMAC.doFinal(message.getBytes())));
-		} catch (Exception e) {
-			throw new UnableToSignException(e);
-		}
 	}
 
 	/** @return the key */

@@ -4,8 +4,7 @@ import com.binance4j.core.param.Params;
 
 /** The parameters to check an order status */
 public class OrderStatusParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The trading pair we want the order status. */
 	private String symbol;
 	/** The client id we want the order status. */
@@ -79,13 +78,4 @@ public class OrderStatusParams extends Params {
 		this.orderId = orderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

@@ -4,8 +4,7 @@ import com.binance4j.core.param.Params;
 
 /** The request to cancel an order. */
 public class CancelOrderParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The trade symbol */
 	private String symbol;
 	/** The order id */
@@ -91,13 +90,4 @@ public class CancelOrderParams extends Params {
 		this.newClientOrderId = newClientOrderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

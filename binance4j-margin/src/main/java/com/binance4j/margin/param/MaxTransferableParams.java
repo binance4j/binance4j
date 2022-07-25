@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMaxTransferable} params. */
 public class MaxTransferableParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The asset */
 	private String asset;
 	/** The isolated symbols */
@@ -38,13 +37,4 @@ public class MaxTransferableParams extends Params {
 		this.isolatedSymbol = isolatedSymbol;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

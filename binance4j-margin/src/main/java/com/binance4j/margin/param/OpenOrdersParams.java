@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getOpenOrders} params. */
 public class OpenOrdersParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The symbol */
 	private String symbol;
 	/** Is the order isolated? */
@@ -37,13 +36,4 @@ public class OpenOrdersParams extends Params {
 		this.isIsolated = isIsolated;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

@@ -6,8 +6,7 @@ import com.binance4j.core.param.Params;
 
 /** The {@link C2CClient#getTrades} params. */
 public class TradeHistoryParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** Trade type. */
 	private TradeType tradeType;
 	/** Page. Default: 1. */
@@ -63,15 +62,5 @@ public class TradeHistoryParams extends Params {
 	 */
 	public void setTradeType(TradeType tradeType) {
 		this.tradeType = tradeType;
-	}
-
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
 	}
 }

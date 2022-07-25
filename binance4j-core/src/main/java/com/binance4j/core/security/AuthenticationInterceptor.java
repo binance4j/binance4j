@@ -2,10 +2,14 @@ package com.binance4j.core.security;
 
 import java.io.IOException;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Hex;
 import org.jetbrains.annotations.NotNull;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.exception.UnableToSignException;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -67,7 +71,7 @@ public class AuthenticationInterceptor implements Interceptor {
 		if (isSignatureRequired) {
 			String payload = original.url().query();
 			if (payload != null && !"".equals(payload)) {
-				String signature = RestClient.sign(payload, secret);
+				String signature = sign(payload, secret);
 				HttpUrl signedUrl = original.url().newBuilder().addQueryParameter("signature", signature).build();
 				newRequestBuilder.url(signedUrl);
 			}
@@ -76,6 +80,24 @@ public class AuthenticationInterceptor implements Interceptor {
 		// Build new request after adding the necessary authentication information
 		Request newRequest = newRequestBuilder.build();
 		return chain.proceed(newRequest);
+	}
+
+	/**
+	 * Sign the given message using the given secret.
+	 *
+	 * @param message message to sign.
+	 * @param secret  secret key.
+	 * @return a signed message.
+	 */
+	public static String sign(String message, String secret) throws UnableToSignException {
+		try {
+			Mac sha256HMAC = Mac.getInstance("HmacSHA256");
+			SecretKeySpec secretKeySpec = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
+			sha256HMAC.init(secretKeySpec);
+			return new String(Hex.encodeHex(sha256HMAC.doFinal(message.getBytes())));
+		} catch (Exception e) {
+			throw new UnableToSignException(e);
+		}
 	}
 
 	/**

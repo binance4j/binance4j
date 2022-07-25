@@ -1,12 +1,10 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.param.Params;
-
 /**
  * The parameters to get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same
  * price will have the quantity aggregated.
  */
-public class AggTradeParams extends Params {
+public class AggTradeParams extends MarketParams {
 	/** The agg trade pair. */
 	private String symbol;
 	/** id to get aggregate trades from (inclusive). */

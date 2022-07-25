@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.security.AuthenticationInterceptor;
+
 class SignTest {
 
 	@Test
 	void testSignature() {
 		assertDoesNotThrow(() -> {
-			String signature = RestClient.sign("Hello World!", "keyboard cat");
+			String signature = AuthenticationInterceptor.sign("Hello World!", "keyboard cat");
 			assertNotNull(signature);
 		});
 	}

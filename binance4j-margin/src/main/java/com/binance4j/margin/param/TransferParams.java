@@ -9,8 +9,7 @@ import com.binance4j.margin.dto.TransferType;
 
 /** The {@link MarginClient#transfer} params. */
 public class TransferParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The asset being transferred, e.g., BTC. */
 	private String asset;
 	/** The amount to be transferred. */
@@ -77,13 +76,4 @@ public class TransferParams extends Params {
 		this.type = type;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

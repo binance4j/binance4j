@@ -4,8 +4,7 @@ import com.binance4j.core.param.Params;
 
 /** Request to retrieve a specific OCO based on provided optional parameters */
 public class OCOInfoParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** Either orderListId or origClientOrderId must be provided. */
 	private Long orderListId;
 
@@ -56,13 +55,4 @@ public class OCOInfoParams extends Params {
 		this.origClientOrderId = origClientOrderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

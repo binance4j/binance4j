@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMarginFeeData} params. */
 public class CrossFeeParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The related coin */
 	private final String coin;
 	/** The related VIP level */
@@ -39,13 +38,4 @@ public class CrossFeeParams extends Params {
 		this.vipLevel = vipLevel;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

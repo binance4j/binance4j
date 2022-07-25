@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link MarginClient#newOrder} params. */
 public class NewOrderParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+	/** The default order time in force. */
+	private TimeInForce timeInForce = TimeInForce.GTC;
 	/** The order symbol */
 	private String symbol;
 	/** The order side */
@@ -375,13 +375,4 @@ public class NewOrderParams extends Params {
 		this.newClientOrderId = newClientOrderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

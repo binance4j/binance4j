@@ -4,8 +4,7 @@ import com.binance4j.core.param.Params;
 
 /** The parameters to fetch open orders from one or all pairs */
 public class OpenOrdersStatusParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The pair we want the open orders. */
 	private String symbol;
 
@@ -38,13 +37,4 @@ public class OpenOrdersStatusParams extends Params {
 		this.symbol = symbol;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

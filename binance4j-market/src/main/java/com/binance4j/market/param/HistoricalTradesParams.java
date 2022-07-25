@@ -1,9 +1,7 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.param.Params;
-
 /** The parameters to get the historical trades of a trading pair */
-public class HistoricalTradesParams extends Params {
+public class HistoricalTradesParams extends MarketParams {
 	/** The trading pair to get the trades. */
 	private String symbol;
 	/** Default 500; max 1000. */

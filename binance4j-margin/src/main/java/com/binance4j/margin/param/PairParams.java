@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getCrossMarginPair} params. */
 public class PairParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The symbol */
 	private String symbol;
 
@@ -26,13 +25,4 @@ public class PairParams extends Params {
 		this.symbol = symbol;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

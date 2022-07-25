@@ -4,10 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.binance4j.core.param.Params;
-
 /** The parameters to retrieve the exchange trading rules and symbol information */
-public class ExchangeInfoParams extends Params {
+public class ExchangeInfoParams extends MarketParams {
 	/** The symbols we want info about */
 	private String symbols;
 

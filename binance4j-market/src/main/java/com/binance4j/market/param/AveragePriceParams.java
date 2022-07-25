@@ -1,9 +1,7 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.param.Params;
-
 /** The parameters to get the average price of a trading pair */
-public class AveragePriceParams extends Params {
+public class AveragePriceParams extends MarketParams {
 	/** The trading pair we want the price. */
 	private String symbol;
 

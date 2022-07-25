@@ -4,8 +4,7 @@ import com.binance4j.core.param.Params;
 
 /** The parameters to get a coin deposit address */
 public class DepositAddressParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The coin abbreviation. */
 	private String coin;
 	/** The transfer network. */
@@ -58,13 +57,4 @@ public class DepositAddressParams extends Params {
 		this.network = network;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

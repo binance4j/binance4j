@@ -5,8 +5,7 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getAllOCO} params. */
 public class GetOCOParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** Is the order isolated? */
 	private Boolean isIsolated;
 	/** THe symbol. Mandatory for isolated margin, not supported for cross margin. */
@@ -61,13 +60,4 @@ public class GetOCOParams extends Params {
 		this.origClientOrderId = origClientOrderId;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }

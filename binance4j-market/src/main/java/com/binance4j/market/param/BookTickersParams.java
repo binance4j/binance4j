@@ -5,12 +5,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.binance4j.core.param.Params;
-
 /**
  * The parameters to get the the best price/quantity on the order book for the given symbols.
  */
-public class BookTickersParams extends Params {
+public class BookTickersParams extends MarketParams {
 	/** Ticker symbol. */
 	private String symbols;
 

@@ -11,8 +11,7 @@ import com.binance4j.core.param.Params;
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
 public class AssetParams extends Params {
-	/** The request timestamp */
-	private long timestamp = System.currentTimeMillis();
+
 	/** The result size. Default 50, Max 50. */
 	private Integer limit = 50;
 	/** The result page. Default 1. */
@@ -64,13 +63,4 @@ public class AssetParams extends Params {
 		this.page = page;
 	}
 
-	/** @return the timestamp */
-	public long getTimestamp() {
-		return timestamp;
-	}
-
-	/** @param timestamp the timestamp to set */
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-	}
 }
