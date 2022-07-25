@@ -9,6 +9,6 @@ public class TestnetSpotClient extends SpotClient {
 	 */
 	public TestnetSpotClient(String key, String secret) {
 		super(key, secret);
-		configuration.useTestnet(true);
+		useTestnet = true;
 	}
 }

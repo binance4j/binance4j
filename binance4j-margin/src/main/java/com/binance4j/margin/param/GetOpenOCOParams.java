@@ -1,10 +1,12 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getOpenOCO} params. */
-public class GetOpenOCOParams extends FramedParams {
+public class GetOpenOCOParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** Is the order isolated? */
 	private Boolean isIsolated;
 	/** mandatory for isolated margin, not supported for cross margin. */
@@ -35,4 +37,13 @@ public class GetOpenOCOParams extends FramedParams {
 		this.symbol = symbol;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

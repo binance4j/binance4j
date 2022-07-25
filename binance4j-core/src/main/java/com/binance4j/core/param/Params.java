@@ -3,6 +3,7 @@ package com.binance4j.core.param;
 import java.util.Collections;
 import java.util.Map;
 
+import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.dto.WeightType;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,17 +13,15 @@ import retrofit2.http.QueryMap;
 /** The base of every Binance Request */
 public class Params {
 	/** Jackson object mapper used to convert a POJO into a {@link QueryMap} */
-	private static final ObjectMapper MAPPER = new ObjectMapper();
-
+	protected static final ObjectMapper MAPPER = new ObjectMapper();
+	/** The default order time in force. */
+	protected TimeInForce timeInForce = TimeInForce.GTC;
 	/** The default receiving window */
 	public static long recvWindow = 60_000L;
-
 	/** The request weight */
 	protected int weight = 1;
-
 	/** Is this request generating an order? */
 	protected boolean isOrderRequest;
-
 	/** The request weight type. */
 	protected WeightType weightType = WeightType.IP;
 
@@ -89,5 +88,19 @@ public class Params {
 	 */
 	public void setWeightType(WeightType weightType) {
 		this.weightType = weightType;
+	}
+
+	/**
+	 * @return the timeInForce
+	 */
+	public TimeInForce getTimeInForce() {
+		return timeInForce;
+	}
+
+	/**
+	 * @param timeInForce the timeInForce to set
+	 */
+	public void setTimeInForce(TimeInForce timeInForce) {
+		this.timeInForce = timeInForce;
 	}
 }

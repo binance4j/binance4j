@@ -2,16 +2,17 @@ package com.binance4j.spot.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.client.RestClientConfiguration;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.TimeInForce;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order to open or close a position */
-public class NewOrderParams extends FramedParams {
+public class NewOrderParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The order symbol */
 	private String symbol;
 	/** The order side */
@@ -72,7 +73,12 @@ public class NewOrderParams extends FramedParams {
 	 * @param timeInForce the lifetime of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
-		this(symbol, type, side, quantity, timeInForce);
+		this();
+		this.type = type;
+		this.symbol = symbol;
+		this.side = side;
+		this.quantity = quantity;
+		this.timeInForce = timeInForce;
 		this.price = price;
 	}
 
@@ -85,7 +91,11 @@ public class NewOrderParams extends FramedParams {
 	 * @param quantity the quantity of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
-		this(symbol, type, side, quantity, RestClientConfiguration.getDefaultTimeInforce());
+		this();
+		this.type = type;
+		this.symbol = symbol;
+		this.side = side;
+		this.quantity = quantity;
 	}
 
 	/**
@@ -98,7 +108,12 @@ public class NewOrderParams extends FramedParams {
 	 * @param price    the order price.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
-		this(symbol, type, side, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
+		this();
+		this.type = type;
+		this.symbol = symbol;
+		this.side = side;
+		this.quantity = quantity;
+		this.price = price;
 	}
 
 	// STATIQUE //
@@ -123,7 +138,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity) {
-		return buyMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
+		return buyMarket(symbol, quantity);
 	}
 
 	/**
@@ -146,7 +161,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity) {
-		return sellMarket(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
+		return sellMarket(symbol, quantity);
 	}
 
 	/**
@@ -171,7 +186,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return buyLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
+		return buyLimit(symbol, quantity, price);
 	}
 
 	/**
@@ -196,7 +211,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
-		return sellLimit(symbol, quantity, price, RestClientConfiguration.getDefaultTimeInforce());
+		return sellLimit(symbol, quantity, price);
 	}
 
 	// QUOTE ORDERS
@@ -223,7 +238,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyQuote(String symbol, BigDecimal quantity) {
-		return buyQuote(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
+		return buyQuote(symbol, quantity);
 	}
 
 	/**
@@ -248,7 +263,7 @@ public class NewOrderParams extends FramedParams {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellQuote(String symbol, BigDecimal quantity) {
-		return sellQuote(symbol, quantity, RestClientConfiguration.getDefaultTimeInforce());
+		return sellQuote(symbol, quantity);
 	}
 
 	/**
@@ -419,4 +434,13 @@ public class NewOrderParams extends FramedParams {
 		this.newClientOrderId = newClientOrderId;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

@@ -1,14 +1,16 @@
 package com.binance4j.fiat.param;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.fiat.dto.PaymentType;
 
 /**
  * {@link FiatClient#getPayments} params.
  */
-public class PaymentParams extends FramedParams {
+public class PaymentParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** Transaction type */
 	private PaymentType transactionType;
 	/** Begin time in ms */
@@ -99,4 +101,13 @@ public class PaymentParams extends FramedParams {
 		this.rows = rows;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

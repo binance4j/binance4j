@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get details about a supported asset */
-public class AssetDetailParams extends FramedParams {
+public class AssetDetailParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The asset abbreviation. */
 	private String asset;
 
@@ -34,4 +36,13 @@ public class AssetDetailParams extends FramedParams {
 		this.asset = asset;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

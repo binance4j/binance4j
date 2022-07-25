@@ -1,9 +1,11 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to cancel an OCO request */
-public class CancelOCOParams extends FramedParams {
+public class CancelOCOParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The symbol to cancel the order. */
 	private String symbol;
 	/** Either orderListId or listClientOrderId must be provided. */
@@ -93,4 +95,13 @@ public class CancelOCOParams extends FramedParams {
 		this.newClientOrderId = newClientOrderId;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

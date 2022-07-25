@@ -2,11 +2,13 @@ package com.binance4j.wallet.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /** The parameters to operate an asset transfer between two accounts */
-public class WalletTransferParams extends FramedParams {
+public class WalletTransferParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The asset. */
 	private String asset;
 	/** The transfer type. */
@@ -100,4 +102,13 @@ public class WalletTransferParams extends FramedParams {
 		this.toSymbol = toSymbol;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

@@ -3,11 +3,13 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#borrow} params. */
-public class BorrowParams extends FramedParams {
+public class BorrowParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** Asset to borrow. */
 	private String asset;
 	/** Isolated symbol. */
@@ -79,4 +81,13 @@ public class BorrowParams extends FramedParams {
 		this.amount = amount;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

@@ -6,12 +6,14 @@ import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link MarginClient#newOCO} params. */
-public class NewOCOOrderParams extends FramedParams {
+public class NewOCOOrderParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The order symbol */
 	private String symbol;
 	/** The order side */
@@ -258,4 +260,13 @@ public class NewOCOOrderParams extends FramedParams {
 		this.newOrderRespType = newOrderRespType;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

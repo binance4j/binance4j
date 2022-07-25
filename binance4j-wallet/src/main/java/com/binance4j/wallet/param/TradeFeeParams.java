@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get the fees of a trading pair */
-public class TradeFeeParams extends FramedParams {
+public class TradeFeeParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The trading pair we want the fees. */
 	private String symbol;
 
@@ -34,4 +36,13 @@ public class TradeFeeParams extends FramedParams {
 		this.symbol = symbol;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

@@ -1,10 +1,12 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getOrder} params. */
-public class OrderParams extends FramedParams {
+public class OrderParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The order id */
 	private long orderId;
 	/** The symbol */
@@ -60,4 +62,13 @@ public class OrderParams extends FramedParams {
 		this.origClientOrderId = origClientOrderId;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

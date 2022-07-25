@@ -3,12 +3,14 @@ package com.binance4j.margin.param;
 import java.math.BigDecimal;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
 /** The {@link MarginClient#newIsolatedTransfer} params. */
-public class NewIsolatedTransferParams extends FramedParams {
+public class NewIsolatedTransferParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The asset to transfer */
 	private String asset;
 	/** The symbol to transfer from */
@@ -87,4 +89,13 @@ public class NewIsolatedTransferParams extends FramedParams {
 		this.amount = amount;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

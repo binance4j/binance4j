@@ -3,10 +3,12 @@ package com.binance4j.wallet.param;
 import java.util.List;
 
 import com.binance4j.core.dto.WeightType;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to convert small volumes (dust) into BNB */
-public class DustTransferParams extends FramedParams {
+public class DustTransferParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The list of assets to convert into BNB. */
 	private List<String> assets;
 
@@ -33,4 +35,13 @@ public class DustTransferParams extends FramedParams {
 		this.assets = assets;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

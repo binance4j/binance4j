@@ -1,10 +1,12 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMaxBorrowable} params. */
-public class MaxBorrowableParams extends FramedParams {
+public class MaxBorrowableParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The asset */
 	private String asset;
 	/** The symbol */
@@ -36,4 +38,13 @@ public class MaxBorrowableParams extends FramedParams {
 		this.isolatedSymbol = isolatedSymbol;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

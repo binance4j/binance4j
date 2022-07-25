@@ -1,10 +1,11 @@
 package com.binance4j.wallet.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get the funding wallet */
-public class FundingAssetParams extends FramedParams {
-
+public class FundingAssetParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The asset we want the balance. */
 	private String asset;
 
@@ -63,4 +64,13 @@ public class FundingAssetParams extends FramedParams {
 		this.needBtcValuation = needBtcValuation;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

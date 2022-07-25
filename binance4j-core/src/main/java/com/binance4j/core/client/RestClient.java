@@ -14,8 +14,14 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type">security</a>
  */
 public abstract class RestClient<T> {
-	/** The client configuration. */
-	protected RestClientConfiguration configuration;
+	/** URL base domain prefix. */
+	protected static String prefix = "api";
+	/** URL base domain. */
+	protected static String baseDomain = "binance.com";
+	/** Testnet URL base domain. */
+	protected static String testnetDomain = "testnet.binance.vision";
+	/** Defines if the services use the test network. */
+	protected static boolean useTestnet = false;
 	/** The retrofit API mapping. */
 	protected Class<T> mapping;
 	/** The API public key. */
@@ -38,7 +44,6 @@ public abstract class RestClient<T> {
 		this.mapping = mapping;
 		this.key = key;
 		this.secret = secret;
-		this.configuration = new RestClientConfiguration();
 		service = createService();
 	}
 
@@ -50,28 +55,15 @@ public abstract class RestClient<T> {
 	protected T createService() {
 		Converter.Factory converterFactory = JacksonConverterFactory.create();
 		Dispatcher dispatcher = new Dispatcher();
-		dispatcher.setMaxRequestsPerHost(configuration.getMaxRequestsPerHost());
-		dispatcher.setMaxRequests(configuration.getMaxRequests());
 
 		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
 		AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);
 
-		String apiUrl = !configuration.useTestnet() ? String.format("https://%s", configuration.getBaseDomain())
-				: String.format("https://%s", configuration.getTestnetDomain());
+		String apiUrl = String.format("https://%s", !useTestnet ? baseDomain : testnetDomain);
 
 		OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
 
 		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
-	}
-
-	/** @return the configuration */
-	public RestClientConfiguration getConfiguration() {
-		return configuration;
-	}
-
-	/** @param configuration the configuration to set */
-	public void setConfiguration(RestClientConfiguration configuration) {
-		this.configuration = configuration;
 	}
 
 	/** @return the key */

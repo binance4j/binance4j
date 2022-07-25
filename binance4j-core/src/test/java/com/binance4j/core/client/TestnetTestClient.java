@@ -6,6 +6,6 @@ public class TestnetTestClient extends TestClient {
 	/** Constructor. */
 	public TestnetTestClient() {
 		super();
-		configuration.useTestnet(true);
+		useTestnet = true;
 	}
 }

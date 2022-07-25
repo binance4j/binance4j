@@ -1,10 +1,12 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getIsolatedMarginTierData} params. */
-public class IsolatedTierDataParams extends FramedParams {
+public class IsolatedTierDataParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The symbol */
 	private String symbol;
 	/** The tier */
@@ -36,4 +38,13 @@ public class IsolatedTierDataParams extends FramedParams {
 		this.tier = tier;
 	}
 
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

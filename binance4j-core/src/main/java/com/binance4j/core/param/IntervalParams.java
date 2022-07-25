@@ -1,7 +1,7 @@
 package com.binance4j.core.param;
 
 /** A Request with a result interval */
-public abstract class IntervalParams extends FramedParams {
+public abstract class IntervalParams extends Params {
 	/** The starting timestamp of the results */
 	protected Long startTime;
 	/** The ending timestamp of the results */

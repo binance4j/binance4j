@@ -5,11 +5,13 @@ import java.math.BigDecimal;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
-import com.binance4j.core.param.FramedParams;
+import com.binance4j.core.param.Params;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order made of two when one cancels the other. */
-public class NewOCOOrderParams extends FramedParams {
+public class NewOCOOrderParams extends Params {
+	/** The request timestamp */
+	private long timestamp = System.currentTimeMillis();
 	/** The order symbol */
 	protected String symbol;
 	/** The order side */
@@ -237,5 +239,15 @@ public class NewOCOOrderParams extends FramedParams {
 	 */
 	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
 		this.stopLimitTimeInForce = stopLimitTimeInForce;
+	}
+
+	/** @return the timestamp */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/** @param timestamp the timestamp to set */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 }

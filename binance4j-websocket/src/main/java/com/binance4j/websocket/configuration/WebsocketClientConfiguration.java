@@ -2,14 +2,14 @@ package com.binance4j.websocket.configuration;
 
 import java.time.Duration;
 
-import com.binance4j.core.client.RestClientConfiguration;
-
 /** The websocket client ocnfiguration */
 public class WebsocketClientConfiguration {
 	/** The websocket connection port. Default: 9443. */
 	private int websocketPort = 9443;
+	/** stream base domain. */
+	private String baseDomain = "binance.com";
 	/** The stream base url. */
-	private String baseUrl = String.format("wss://stream.%s:%s/ws", RestClientConfiguration.getDefaultBaseDomain(), getWebsocketPort());
+	private String baseUrl = String.format("wss://stream.%s:%s/ws", baseDomain, websocketPort);
 	/** The interval the client will send a ping. Default: 3m. */
 	private Duration pingInterval = Duration.ofMinutes(3);
 	/** Reconnect if stream is closed by server. Default: true. */
