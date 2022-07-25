@@ -3,7 +3,7 @@ package com.binance4j.market.param;
 /** The parameters to get the latest price for a symbol or symbols. */
 public class PriceTickerParams extends MarketParams {
 	/** Ticker symbol. */
-	private String symbol;
+	String symbol;
 
 	/** for all symbols ticker. */
 	public PriceTickerParams() {

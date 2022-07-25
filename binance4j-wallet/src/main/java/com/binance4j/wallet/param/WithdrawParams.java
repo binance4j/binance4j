@@ -9,26 +9,26 @@ import com.binance4j.wallet.dto.WalletType;
 public class WithdrawParams extends Params {
 
 	/** The coin to withdraw. */
-	private String coin;
+	String coin;
 	/** Client id for withdraw. */
-	private String withdrawOrderId;
+	String withdrawOrderId;
 	/** The network to use. */
-	private String network;
+	String network;
 	/** The destination address. */
-	private String address;
+	String address;
 	/** Secondary address identifier for coins like XRP,XMR etc. */
-	private String addressTag;
+	String addressTag;
 	/** The volume. */
-	private BigDecimal amount;
+	BigDecimal amount;
 	/**
 	 * When making internal transfer, true for returning the fee to the destination account; false for returning the fee
 	 * back to the departure account. Default false.
 	 */
-	private Boolean transactionFeeFlag;
+	Boolean transactionFeeFlag;
 	/** Description of the address. Space in name should be encoded into %20. */
-	private String name;
+	String name;
 	/** The wallet type for withdraw. */
-	private Integer walletType;
+	Integer walletType;
 
 	/**
 	 * @param coin    The coin to withdraw.

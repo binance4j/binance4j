@@ -3,11 +3,11 @@ package com.binance4j.market.param;
 /** The parameters to get the historical trades of a trading pair */
 public class HistoricalTradesParams extends MarketParams {
 	/** The trading pair to get the trades. */
-	private String symbol;
+	String symbol;
 	/** Default 500; max 1000. */
-	private Integer limit;
+	Integer limit;
 	/** Trade id to fetch from. Default gets most recent trades. */
-	private Long fromId;
+	Long fromId;
 
 	/**
 	 * Default constructor

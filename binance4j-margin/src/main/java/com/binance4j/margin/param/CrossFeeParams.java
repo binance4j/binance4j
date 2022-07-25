@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class CrossFeeParams extends Params {
 
 	/** The related coin */
-	private final String coin;
+	final String coin;
 	/** The related VIP level */
-	private Integer vipLevel;
+	Integer vipLevel;
 
 	/** Default constructor */
 	public CrossFeeParams() {

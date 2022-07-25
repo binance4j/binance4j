@@ -10,7 +10,7 @@ public enum DepthLevel {
 	LEVEL_20("20");
 
 	/** The result size. */
-	private final String value;
+	final String value;
 
 	/**
 	 * @param value

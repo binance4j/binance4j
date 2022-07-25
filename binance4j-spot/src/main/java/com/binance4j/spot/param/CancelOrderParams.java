@@ -6,13 +6,13 @@ import com.binance4j.core.param.Params;
 public class CancelOrderParams extends Params {
 
 	/** The trade symbol */
-	private String symbol;
+	String symbol;
 	/** The order id */
-	private Long orderId;
+	Long orderId;
 	/** The original client order id */
-	private String origClientOrderId;
+	String origClientOrderId;
 	/** The new client order id */
-	private String newClientOrderId;
+	String newClientOrderId;
 
 	/**
 	 * @param symbol  The related symbol.

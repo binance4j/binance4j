@@ -5,14 +5,14 @@ import com.binance4j.core.param.Params;
 /** The parameters to get a list of asset dividends */
 public class AssetDividendRecordParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The asset abbreviation. */
-	private String asset;
+	String asset;
 	/** The result limit. Default 20, max 500 */
-	private Integer limit = 20;
+	Integer limit = 20;
 
 	/** Default constructor. */
 	public AssetDividendRecordParams() {

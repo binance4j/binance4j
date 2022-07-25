@@ -10,9 +10,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link C2CClient} mapping */
+/** The {@link C2CClient} mapping. */
 public interface C2CMapping extends RestMapping {
-	/** The base uri */
+	/** The base uri. */
 	String BASE = "/sapi/v1/c2c/";
 
 	/**
@@ -20,7 +20,7 @@ public interface C2CMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "orderMatch/listUserOrderHistory")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
 
 }

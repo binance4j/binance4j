@@ -6,9 +6,9 @@ import com.binance4j.core.param.Params;
 public class CancelOpenOrdersParams extends Params {
 
 	/** The trade symbol */
-	private String symbol;
+	String symbol;
 	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 
 	/**
 	 * @param symbol The trade symbol.

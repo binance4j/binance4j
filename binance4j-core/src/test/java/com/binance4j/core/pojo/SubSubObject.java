@@ -6,7 +6,7 @@ import java.util.List;
 import com.binance4j.core.dto.AggTrade;
 
 public class SubSubObject {
-	private List<AggTrade> trades = new ArrayList<>();
+	List<AggTrade> trades = new ArrayList<>();
 
 	/** @return the trades */
 	public List<AggTrade> getTrades() {

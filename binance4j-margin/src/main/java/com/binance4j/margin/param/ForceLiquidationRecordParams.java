@@ -6,16 +6,16 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getForceLiquidationRecord} params. */
 public class ForceLiquidationRecordParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** isolated symbol. */
-	private String isolatedSymbol;
+	String isolatedSymbol;
 	/** Currently querying page. Start from 1. Default:1 */
-	private long current;
+	long current;
 	/** Default:10 Max:100 */
-	private long size;
+	long size;
 
 	/** @return the isolatedSymbol */
 	public String getIsolatedSymbol() {

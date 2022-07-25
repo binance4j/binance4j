@@ -11,15 +11,15 @@ import com.binance4j.fiat.dto.PaymentType;
 public class PaymentParams extends Params {
 
 	/** Transaction type */
-	private PaymentType transactionType;
+	PaymentType transactionType;
 	/** Begin time in ms */
-	private Long beginTime;
+	Long beginTime;
 	/** End time in ms */
-	private Long endTime;
+	Long endTime;
 	/** Page. Default 1. */
-	private Integer page;
+	Integer page;
 	/** Rows. Default 100, max 500. */
-	private Integer rows;
+	Integer rows;
 
 	/**
 	 * @param transactionType The transaction type.

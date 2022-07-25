@@ -82,7 +82,7 @@ public abstract class RestClient<T> {
 		this.secret = secret;
 	}
 
-	/** @return the mapping */
+	/** @return the mapping. */
 	public Class<T> getMapping() {
 		return mapping;
 	}

@@ -5,16 +5,16 @@ import com.binance4j.core.dto.CandlestickInterval;
 /** The parameters to get candlestick data about a trading pair */
 public class KlinesParams extends MarketParams {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The trading pair we want the data. */
-	private String symbol;
+	String symbol;
 	/** The candlestick interval. */
-	private String interval;
+	String interval;
 	/** The result size. Default 500; max 1000. */
-	private Integer limit;
+	Integer limit;
 
 	/**
 	 * with CandlestickInterval

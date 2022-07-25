@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class GetOpenOCOParams extends Params {
 
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** mandatory for isolated margin, not supported for cross margin. */
-	private String symbol;
+	String symbol;
 
 	/** Default constructor */
 	public GetOpenOCOParams() {

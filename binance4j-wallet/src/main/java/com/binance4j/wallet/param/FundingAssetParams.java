@@ -6,10 +6,10 @@ import com.binance4j.core.param.Params;
 public class FundingAssetParams extends Params {
 
 	/** The asset we want the balance. */
-	private String asset;
+	String asset;
 
 	/** Get the BTC value of the asset. */
-	private Boolean needBtcValuation;
+	Boolean needBtcValuation;
 
 	/**
 	 

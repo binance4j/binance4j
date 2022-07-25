@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class BookTickersParams extends MarketParams {
 	/** Ticker symbol. */
-	private String symbols;
+	String symbols;
 
 	/**
 	 * .

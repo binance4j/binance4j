@@ -13,16 +13,16 @@ import com.binance4j.nft.dto.OrderType;
  */
 public class TransactionHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The order type. */
-	private Integer orderType;
+	Integer orderType;
 	/** The result size. Default 50, Max 50. */
-	private Integer limit = 50;
+	Integer limit = 50;
 	/** The result page. Default 1. */
-	private Integer page = 1;
+	Integer page = 1;
 
 	private TransactionHistoryParams() {
 		super(3000);

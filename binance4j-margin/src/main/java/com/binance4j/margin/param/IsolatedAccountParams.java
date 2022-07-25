@@ -7,7 +7,7 @@ import com.binance4j.margin.client.MarginClient;
 public class IsolatedAccountParams extends Params {
 
 	/** Max 5 symbols can be sent; separated by "," */
-	private String symbols;
+	String symbols;
 
 	/** Default constructor */
 	public IsolatedAccountParams() {

@@ -12,14 +12,14 @@ import com.binance4j.core.param.Params;
  */
 public class WithdrawParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The result size. Default 50, Max 50. */
-	private Integer limit = 50;
+	Integer limit = 50;
 	/** The result page. Default 1. */
-	private Integer page = 1;
+	Integer page = 1;
 
 	/**
 	 

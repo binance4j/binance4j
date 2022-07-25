@@ -9,12 +9,12 @@ import com.binance4j.rebate.client.RebateClient;
  */
 public class SpotRebateHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The desired page. */
-	private Integer page = 1;
+	Integer page = 1;
 
 	/** Constructor. */
 	public SpotRebateHistoryParams() {

@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class ToggleBurnParams extends Params {
 
 	/** Determines whether to use BNB to pay for trading fees on SPOT. */
-	private Boolean spotBNBBurn;
+	Boolean spotBNBBurn;
 	/** Determines whether to use BNB to pay for margin loan's interest. */
-	private Boolean interestBNBBurn;
+	Boolean interestBNBBurn;
 
 	/** Default constructor */
 	public ToggleBurnParams() {

@@ -7,7 +7,7 @@ import com.binance4j.margin.client.MarginClient;
 public class PairParams extends Params {
 
 	/** The symbol */
-	private String symbol;
+	String symbol;
 
 	/** @param symbol The symbol */
 	public PairParams(String symbol) {

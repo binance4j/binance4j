@@ -9,7 +9,7 @@ public enum DepthUpdateSpeed {
 	MS_100("100ms");
 
 	/** The result update speed. */
-	private final String value;
+	final String value;
 
 	/**
 	 * @param calue

@@ -6,19 +6,19 @@ import com.binance4j.wallet.dto.DepositStatus;
 /** The parameters to get a coin deposit history */
 public class DepositHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The deposited coin. */
-	private String coin;
+	String coin;
 	/** The deposit status. 0(0:pending,6: credited but cannot withdraw, 1:success) */
-	private Integer status;
+	Integer status;
 
 	/** The history offset. */
-	private Integer offset;
+	Integer offset;
 	/** The history size. Default:1000, Max:1000 */
-	private Integer limit = 1000;
+	Integer limit = 1000;
 
 	/** Default constructor. */
 	public DepositHistoryParams() {

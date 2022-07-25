@@ -8,11 +8,11 @@ import com.binance4j.core.param.Params;
 public class TradeHistoryParams extends Params {
 
 	/** Trade type. */
-	private TradeType tradeType;
+	TradeType tradeType;
 	/** Page. Default: 1. */
-	private Integer page;
+	Integer page;
 	/** Rows. Default 100. Max 100. */
-	private Integer rows;
+	Integer rows;
 
 	/**
 	 * @param tradeType Trade type.

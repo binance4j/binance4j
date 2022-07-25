@@ -13,29 +13,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class NewOrderParams extends Params {
 
 	/** The order symbol */
-	private String symbol;
+	String symbol;
 	/** The order side */
-	private OrderSide side;
+	OrderSide side;
 	/** The order quantity */
-	private BigDecimal quantity;
+	BigDecimal quantity;
 	/** The order price */
-	private BigDecimal price;
+	BigDecimal price;
 	/** The stop price */
-	private BigDecimal stopPrice;
+	BigDecimal stopPrice;
 	/** The order response type Default: RESULT. */
-	private NewOrderResponseType newOrderRespType;
+	NewOrderResponseType newOrderRespType;
 	/** The order type */
-	private OrderType type;
+	OrderType type;
 	/** Le order lifetime */
-	private TimeInForce timeInForce;
+	TimeInForce timeInForce;
 	/** The quote order quantity */
 	@JsonProperty("quoteOrderQty")
-	private BigDecimal quoteOrderQuantity;
+	BigDecimal quoteOrderQuantity;
 	/** The iceberg quantity */
 	@JsonProperty("icebergQty")
-	private BigDecimal icebergQuantity;
+	BigDecimal icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
-	private String newClientOrderId;
+	String newClientOrderId;
 	/** Stop Limit price. */
 	BigDecimal stopLimitPrice;
 

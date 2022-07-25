@@ -35,7 +35,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
-/** Binance Wallet endpoints mapping */
+/** Binance Wallet endpoints mapping. */
 public interface WalletMapping extends RestMapping {
 
 	/** Base url */

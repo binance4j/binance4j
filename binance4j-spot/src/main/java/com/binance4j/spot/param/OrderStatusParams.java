@@ -6,11 +6,11 @@ import com.binance4j.core.param.Params;
 public class OrderStatusParams extends Params {
 
 	/** The trading pair we want the order status. */
-	private String symbol;
+	String symbol;
 	/** The client id we want the order status. */
-	private String origClientOrderId;
+	String origClientOrderId;
 	/** The order id we want the order status. */
-	private Long orderId;
+	Long orderId;
 
 	/**
 	 * with orderId

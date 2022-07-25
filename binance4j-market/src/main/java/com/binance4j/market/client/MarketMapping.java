@@ -21,7 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** {@link MarketClient} mapping */
+/** {@link MarketClient} mapping. */
 public interface MarketMapping extends RestMapping {
 	/** Base uri */
 	String BASE = "/api/v3/";

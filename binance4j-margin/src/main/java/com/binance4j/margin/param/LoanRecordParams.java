@@ -6,22 +6,22 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getLoanRecord} params. */
 public class LoanRecordParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The asset */
-	private String asset;
+	String asset;
 	/** isolated symbol. */
-	private String isolatedSymbol;
+	String isolatedSymbol;
 	/** the tranId in POST /sapi/v1/margin/loan. */
-	private long txId;
+	long txId;
 	/** Currently querying page. Start from 1. Default:1 */
-	private long current = 1;
+	long current = 1;
 	/** Default:10 Max:100 */
-	private long size;
+	long size;
 	/** Set to true for archived data from 6 months ago. */
-	private Boolean archived;
+	Boolean archived;
 
 	/** @param asset The asset */
 	public LoanRecordParams(String asset) {

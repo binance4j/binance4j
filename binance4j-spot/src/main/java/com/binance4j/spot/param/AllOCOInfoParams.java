@@ -5,14 +5,14 @@ import com.binance4j.core.param.Params;
 /** Request to retrieve all OCO based on provided optional parameters */
 public class AllOCOInfoParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The id to search from. */
-	private Long fromId;
+	Long fromId;
 	/** The result size. Default Value: 500; Max Value: 1000 */
-	private Integer limit;
+	Integer limit;
 
 	/** Default constructor. */
 	public AllOCOInfoParams() {

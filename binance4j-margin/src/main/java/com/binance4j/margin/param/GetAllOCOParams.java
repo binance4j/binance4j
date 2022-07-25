@@ -6,18 +6,18 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getAllOCO} params. */
 public class GetAllOCOParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** mandatory for isolated margin, not supported for cross margin. */
-	private String symbol;
+	String symbol;
 	/** If supplied, neither startTime or endTime can be provided. */
-	private Long fromId;
+	Long fromId;
 	/** Default Value: 500; Max Value: 1000 */
-	private Integer limit;
+	Integer limit;
 
 	/** Default constructor */
 	public GetAllOCOParams() {

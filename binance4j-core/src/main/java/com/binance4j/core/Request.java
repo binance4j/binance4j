@@ -14,9 +14,9 @@ import retrofit2.Response;
 /** A class that receives and executes sync and async retrofit calls. */
 public class Request<T> {
 	/** The Jackson Object mapper for deserializing the Api error response. */
-	private static final ObjectMapper MAPPER = new ObjectMapper();
+	static final ObjectMapper MAPPER = new ObjectMapper();
 	/** The current API call */
-	private final Call<T> call;
+	final Call<T> call;
 
 	/**
 	 * @param call The retrofit call.

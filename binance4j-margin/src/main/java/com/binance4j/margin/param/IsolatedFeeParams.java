@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class IsolatedFeeParams extends Params {
 
 	/** The symbol */
-	private final String symbol;
+	final String symbol;
 	/** The VIP level */
-	private Integer vipLevel;
+	Integer vipLevel;
 
 	/** Default constructor */
 	public IsolatedFeeParams() {

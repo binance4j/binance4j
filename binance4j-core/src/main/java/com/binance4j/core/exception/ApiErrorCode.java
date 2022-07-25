@@ -468,7 +468,7 @@ public enum ApiErrorCode {
 	TOO_MANY_INVALID_REDEEM_ATTEMPTS(-450022);
 
 	/** The error code. */
-	private final int value;
+	final int value;
 
 	/**
 	 * @param value

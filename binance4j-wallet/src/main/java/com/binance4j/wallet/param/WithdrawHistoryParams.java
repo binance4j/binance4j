@@ -6,21 +6,21 @@ import com.binance4j.wallet.dto.WithdrawStatus;
 /** The parameters to fetch the user withdraw history */
 public class WithdrawHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The coin we want the history. */
-	private String coin;
+	String coin;
 	/** The withdraw order id to fetch. */
-	private String withdrawOrderId;
+	String withdrawOrderId;
 	/** The status to look for. */
-	private Integer status;
+	Integer status;
 	/** The offset. */
-	private Integer offset;
+	Integer offset;
 
 	/** Default:1000, Max:1000 */
-	private Integer limit = 1000;
+	Integer limit = 1000;
 
 	/**
 	 

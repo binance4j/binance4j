@@ -5,12 +5,10 @@ import org.ta4j.core.BaseBar;
 
 /** A Bar with the name of its symbol */
 public class SymbolBar extends BaseBar {
-
 	/** The name of the symbol of the bar. */
-	private String symbol;
-
+	String symbol;
 	/** is it the last bar of the interval? */
-	private boolean isBarFinal;
+	boolean isBarFinal;
 
 	/**
 	 * @param bar        The input bar.

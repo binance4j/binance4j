@@ -10,9 +10,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link PayClient} mapping */
+/** The {@link PayClient} mapping. */
 public interface PayMapping extends RestMapping {
-	/** The base uri */
+	/** The base uri. */
 	String BASE = "/sapi/v1/pay/";
 
 	/**
@@ -20,7 +20,7 @@ public interface PayMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "transactions")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
 
 }

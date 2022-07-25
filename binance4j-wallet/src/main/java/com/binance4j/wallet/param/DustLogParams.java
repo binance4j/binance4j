@@ -5,9 +5,9 @@ import com.binance4j.core.param.Params;
 /** The parameters to get dust operations (assets to BNB) logs */
 public class DustLogParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** Default constructor. */
 	public DustLogParams() {

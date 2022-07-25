@@ -5,18 +5,18 @@ import com.binance4j.core.param.Params;
 /** The parameters to get trades for a specific account and symbol. */
 public class MyTradesParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The symbol of the trade. */
-	private String symbol;
+	String symbol;
 	/** The order id of the trade. */
-	private Long orderId;
+	Long orderId;
 	/** The id from which we search trades. */
-	private Long fromId;
+	Long fromId;
 	/** The size of the result. Default 500; max 1000. */
-	private Integer limit;
+	Integer limit;
 
 	/**
 	 * Default constructor

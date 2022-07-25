@@ -2,10 +2,10 @@ package com.binance4j.websocket.param;
 
 import com.binance4j.websocket.client.UserDataClient;
 
-/** {@link UserDataClient#keepAliveIsolatedUserDataStream} params */
+/** {@link UserDataClient#keepAliveIsolatedUserDataStream} params. */
 public class KeepAliveIsolatedUserDataStreamParams extends IsolatedUserDataStreamParams {
 	/** The listen key */
-	private String listenKey;
+	String listenKey;
 
 	/**
 	 * @param symbol    The symbol.

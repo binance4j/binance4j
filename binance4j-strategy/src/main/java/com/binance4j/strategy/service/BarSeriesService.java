@@ -15,7 +15,7 @@ import com.binance4j.websocket.service.DurationService;
 public class BarSeriesService {
 
 	/** The default bar series name. */
-	private static String defaultBarSeriesName = "Bar series";
+	static String defaultBarSeriesName = "Bar series";
 
 	/** Constructor */
 	private BarSeriesService() {

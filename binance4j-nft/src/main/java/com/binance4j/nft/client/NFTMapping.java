@@ -13,9 +13,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link NFTClient} mapping */
+/** The {@link NFTClient} mapping. */
 public interface NFTMapping extends RestMapping {
-	/** The base uri */
+	/** The base uri. */
 	String BASE = "/sapi/v1/nft/";
 
 	/**
@@ -23,7 +23,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/transactions")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -31,7 +31,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/deposit")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<DepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
 	/**
@@ -39,7 +39,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/withdraw")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<WithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
 	/**
@@ -47,6 +47,6 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "user/getAsset")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<AssetHistory> getAssets(@QueryMap Map<String, Object> map);
 }

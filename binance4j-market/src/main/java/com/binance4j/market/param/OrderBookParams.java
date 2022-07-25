@@ -5,9 +5,9 @@ import com.binance4j.market.dto.OrderBookLimit;
 /** The parameters to get the market depth of a symbol */
 public class OrderBookParams extends MarketParams {
 	/** The trading pair we want the depth. */
-	private String symbol;
+	String symbol;
 	/** The market depth size. */
-	private Integer limit;
+	Integer limit;
 
 	/**
 	 * Default constructor

@@ -7,13 +7,13 @@ import com.binance4j.margin.client.MarginClient;
 public class GetOCOParams extends Params {
 
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** THe symbol. Mandatory for isolated margin, not supported for cross margin. */
-	private String symbol;
+	String symbol;
 	/** Either orderListId or origClientOrderId must be provided. */
-	private Long orderListId;
+	Long orderListId;
 	/** Either orderListId or origClientOrderId must be provided. */
-	private String origClientOrderId;
+	String origClientOrderId;
 
 	/** Default constructor */
 	public GetOCOParams() {

@@ -4,14 +4,14 @@ import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.pay.client.PayClient;
 
-/** The {@link PayClient#getTrades} params */
+/** The {@link PayClient#getTrades} params. */
 public class TradeHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 	/** The results limit. Default 100, max 100. */
-	private Integer limit;
+	Integer limit;
 
 	/**
 	 * Constructor.

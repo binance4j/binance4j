@@ -3,7 +3,7 @@ package com.binance4j.market.param;
 /** The parameters to get the average price of a trading pair */
 public class AveragePriceParams extends MarketParams {
 	/** The trading pair we want the price. */
-	private String symbol;
+	String symbol;
 
 	/**
 	 * Default constructor

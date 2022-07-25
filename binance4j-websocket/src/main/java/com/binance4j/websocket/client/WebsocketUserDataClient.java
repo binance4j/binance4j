@@ -11,13 +11,13 @@ import com.binance4j.websocket.dto.UserDataUpdate;
 /** Websocket client handling user data / balance events */
 public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdate> {
 	/** The inner user data client. */
-	private final UserDataClient userDataClient;
+	final UserDataClient userDataClient;
 
 	/** The timer responsible to schedule the keep alive task. */
-	private Timer timer;
+	Timer timer;
 
 	/** The keep alive task schedule interval. Default 30 minutes. */
-	private Duration keepAliveInterval = Duration.ofMinutes(30);
+	Duration keepAliveInterval = Duration.ofMinutes(30);
 
 	/**
 	 * @param client   The {@link UserDataClient} that will fetch the listen key to open the stream and keep it alive at a.

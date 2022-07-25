@@ -6,7 +6,7 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getPriceIndex} params. */
 public class PriceIndexParams extends Params {
 	/** The symbol */
-	private String symbol;
+	String symbol;
 
 	/**
 	 * @param symbol The symbol.

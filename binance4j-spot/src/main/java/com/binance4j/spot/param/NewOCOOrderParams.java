@@ -24,21 +24,21 @@ public class NewOCOOrderParams extends Params {
 	/** The order response type Default: RESULT. */
 	protected NewOrderResponseType newOrderRespType;
 	/** A unique Id for the entire orderList */
-	private String listClientOrderId;
+	String listClientOrderId;
 	/** A unique Id for the limit order */
-	private String limitClientOrderId;
+	String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
 	@JsonProperty("limitIcebergQty")
-	private BigDecimal limitIcebergQuantity;
+	BigDecimal limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
-	private String stopClientOrderId;
+	String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
-	private BigDecimal stopLimitPrice;
+	BigDecimal stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
 	@JsonProperty("stopIcebergQty")
-	private BigDecimal stopIcebergQuantity;
+	BigDecimal stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
-	private TimeInForce stopLimitTimeInForce;
+	TimeInForce stopLimitTimeInForce;
 
 	/**
 	 * - Produces an OCO order

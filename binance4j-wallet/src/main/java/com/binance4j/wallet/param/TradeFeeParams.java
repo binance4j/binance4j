@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 public class TradeFeeParams extends Params {
 
 	/** The trading pair we want the fees. */
-	private String symbol;
+	String symbol;
 
 	/** Constructor */
 	public TradeFeeParams() {

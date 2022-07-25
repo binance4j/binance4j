@@ -3,10 +3,10 @@ package com.binance4j.websocket.param;
 import com.binance4j.core.param.Params;
 import com.binance4j.websocket.client.UserDataClient;
 
-/** {@link UserDataClient#startIsolatedUserDataStream} params */
+/** {@link UserDataClient#startIsolatedUserDataStream} params. */
 public class IsolatedUserDataStreamParams extends Params {
 	/** The symbol */
-	private String symbol;
+	String symbol;
 
 	/**
 	 * @param symbol The symbol.

@@ -7,13 +7,13 @@ import com.binance4j.margin.client.MarginClient;
 public class OrderParams extends Params {
 
 	/** The order id */
-	private long orderId;
+	long orderId;
 	/** The symbol */
-	private String symbol;
+	String symbol;
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** THe origin client order id */
-	private String origClientOrderId;
+	String origClientOrderId;
 
 	/** @param symbol The symbol */
 	public OrderParams(String symbol) {

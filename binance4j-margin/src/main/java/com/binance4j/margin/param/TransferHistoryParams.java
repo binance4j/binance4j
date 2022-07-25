@@ -7,15 +7,15 @@ import com.binance4j.margin.dto.TransferRecordType;
 /** The {@link MarginClient#getTransferHistory} params. */
 public class TransferHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
-	private String asset;
-	private TransferRecordType type;
-	private Long current;
-	private Integer size;
-	private Boolean archived;
+	String asset;
+	TransferRecordType type;
+	Long current;
+	Integer size;
+	Boolean archived;
 
 	/** @return the asset */
 	public String getAsset() {

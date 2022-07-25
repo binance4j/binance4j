@@ -11,15 +11,15 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
 public class NewIsolatedTransferParams extends Params {
 
 	/** The asset to transfer */
-	private String asset;
+	String asset;
 	/** The symbol to transfer from */
-	private String symbol;
+	String symbol;
 	/** The transfer origin. */
-	private IsolatedTransferAccount transFrom;
+	IsolatedTransferAccount transFrom;
 	/** The transfer destination. */
-	private IsolatedTransferAccount transTo;
+	IsolatedTransferAccount transTo;
 	/** THe amount to transfer */
-	private BigDecimal amount;
+	BigDecimal amount;
 
 	/**
 	 * @param asset     The asset to transfer.

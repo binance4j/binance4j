@@ -11,9 +11,9 @@ import com.binance4j.margin.dto.TransferType;
 public class TransferParams extends Params {
 
 	/** The asset being transferred, e.g., BTC. */
-	private String asset;
+	String asset;
 	/** The amount to be transferred. */
-	private BigDecimal amount;
+	BigDecimal amount;
 	/**
 	 * The transfer type
 	 * <p>
@@ -21,7 +21,7 @@ public class TransferParams extends Params {
 	 * <p>
 	 * 2: transfer from cross margin account to main account
 	 */
-	private int type;
+	int type;
 
 	/**
 	 * @param asset  The asset to transfer.

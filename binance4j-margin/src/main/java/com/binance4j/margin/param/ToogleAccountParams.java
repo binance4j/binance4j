@@ -8,7 +8,7 @@ import com.binance4j.margin.client.MarginClient;
 public class ToogleAccountParams extends Params {
 
 	/** The symbol */
-	private String symbol;
+	String symbol;
 
 	/** @param symbol The symbol */
 	public ToogleAccountParams(String symbol) {

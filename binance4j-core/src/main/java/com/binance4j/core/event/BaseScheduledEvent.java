@@ -43,13 +43,13 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 	/** The inner timer task */
 	protected class Task extends TimerTask {
 		/** The task to execute. */
-		private final ScheduledTask innerTask;
+		final ScheduledTask innerTask;
 		/** The event wrapper. */
-		private final BaseScheduledEvent scheduledEvent;
+		final BaseScheduledEvent scheduledEvent;
 		/** The number of time the task was called. */
-		private int ticks;
+		int ticks;
 		/** The max times the task can be called. */
-		private int maxTicks;
+		int maxTicks;
 
 		/**
 		 * @param task           The task to execute.

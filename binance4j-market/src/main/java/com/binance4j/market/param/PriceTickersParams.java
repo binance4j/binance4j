@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /** The parameters to get the latest price for a symbol or symbols. */
 public class PriceTickersParams extends MarketParams {
 	/** Ticker symbol. */
-	private String symbols;
+	String symbols;
 
 	/**
 	 * .

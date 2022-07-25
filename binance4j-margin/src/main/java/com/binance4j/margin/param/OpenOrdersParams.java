@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class OpenOrdersParams extends Params {
 
 	/** The symbol */
-	private String symbol;
+	String symbol;
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 
 	/** */
 	public OpenOrdersParams() {

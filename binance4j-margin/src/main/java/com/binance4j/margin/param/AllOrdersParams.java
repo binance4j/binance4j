@@ -6,18 +6,18 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getAllOrders} params. */
 public class AllOrdersParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The order symbol */
-	private String symbol;
+	String symbol;
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** The order id */
-	private Long orderId;
+	Long orderId;
 	/** The result limit */
-	private Long limit;
+	Long limit;
 
 	/** @param symbol The order symbol */
 	public AllOrdersParams(String symbol) {

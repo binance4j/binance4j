@@ -6,15 +6,15 @@ package com.binance4j.market.param;
  */
 public class AggTradeParams extends MarketParams {
 	/** The agg trade pair. */
-	private String symbol;
+	String symbol;
 	/** id to get aggregate trades from (inclusive). */
-	private Long fromId;
+	Long fromId;
 	/** Default 500; max 1000. */
-	private Integer limit;
+	Integer limit;
 	/** Timestamp in ms to get aggregate trades from (inclusive). */
-	private Long startTime;
+	Long startTime;
 	/** Timestamp in ms to get aggregate trades until (inclusive). */
-	private Long endTime;
+	Long endTime;
 
 	/**
 	 * Default constructor

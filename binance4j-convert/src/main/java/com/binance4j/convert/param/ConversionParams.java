@@ -8,12 +8,12 @@ import com.binance4j.core.param.Params;
  */
 public class ConversionParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The result size. Default 100, Max 1000. */
-	private Integer limit;
+	Integer limit;
 
 	/**
 	 * @param startTime Start time in ms.

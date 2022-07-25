@@ -8,16 +8,16 @@ import com.binance4j.loan.dto.LoanIncomeType;
 /** The {@link LoanClient#getLoansIncome} params. */
 public class LoanIncomeHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The asset */
-	private String asset;
+	String asset;
 	/** The result limit. Default 20, max 100. */
-	private Integer limit;
+	Integer limit;
 	/** The loan income type. All types will be returned by default. */
-	private LoanIncomeType type;
+	LoanIncomeType type;
 
 	/**
 	 * @param asset The asset we want the incomes.

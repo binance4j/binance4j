@@ -6,9 +6,9 @@ import com.binance4j.core.param.Params;
 public class DepositAddressParams extends Params {
 
 	/** The coin abbreviation. */
-	private String coin;
+	String coin;
 	/** The transfer network. */
-	private String network;
+	String network;
 
 	/**
 	 * Default constructor

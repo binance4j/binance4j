@@ -6,7 +6,7 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getAsset} params. */
 public class AssetParams extends Params {
 	/** The asset we want infos about */
-	private String asset;
+	String asset;
 
 	/** @param asset The asset we want infos about */
 	public AssetParams(String asset) {

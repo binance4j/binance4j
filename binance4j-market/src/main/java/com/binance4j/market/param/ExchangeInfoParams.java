@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 /** The parameters to retrieve the exchange trading rules and symbol information */
 public class ExchangeInfoParams extends MarketParams {
 	/** The symbols we want info about */
-	private String symbols;
+	String symbols;
 
 	/** Default Constructor. */
 	public ExchangeInfoParams() {

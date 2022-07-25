@@ -9,7 +9,7 @@ import com.binance4j.core.param.Params;
 public class DustTransferParams extends Params {
 
 	/** The list of assets to convert into BNB. */
-	private List<String> assets;
+	List<String> assets;
 
 	/**
 	 * @param assets The list of assets to convert into BNB.

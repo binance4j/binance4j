@@ -24,7 +24,7 @@ import retrofit2.Retrofit;
  */
 public class VisionSpotClient {
 	/** Client service. */
-	private final VisionSpotMapping service;
+	final VisionSpotMapping service;
 
 	/** Constructor */
 	public VisionSpotClient() {

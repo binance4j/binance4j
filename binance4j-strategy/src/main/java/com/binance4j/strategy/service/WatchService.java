@@ -29,9 +29,9 @@ import okhttp3.Response;
 /** Service to live trade a {@link TradingStrategy}. */
 public class WatchService {
 	/** The websocket client configuration */
-	private WebsocketClientConfiguration configuration;
+	WebsocketClientConfiguration configuration;
 	/** The BarSeries max size. Default 500 */
-	private int maximumBarCount = 500;
+	int maximumBarCount = 500;
 	/** The websocket client */
 	protected WebsocketCandlestickClient wsClient;
 	/** The series used in watch mode */

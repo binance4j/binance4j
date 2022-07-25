@@ -4,10 +4,10 @@ package com.binance4j.core.exception;
 public class ApiException extends Exception {
 
 	/** The error code */
-	private final int code;
+	final int code;
 
 	/** The error code explanation */
-	private final ApiErrorCode errorCode;
+	final ApiErrorCode errorCode;
 
 	/**
 	 * @param code    The API response code.

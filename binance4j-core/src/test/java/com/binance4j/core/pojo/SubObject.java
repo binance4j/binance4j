@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubObject {
-	private List<SubSubObject> subSubObjects = new ArrayList<>();
+	List<SubSubObject> subSubObjects = new ArrayList<>();
 
 	/** @return the subSubObjects */
 	public List<SubSubObject> getSubSubObjects() {

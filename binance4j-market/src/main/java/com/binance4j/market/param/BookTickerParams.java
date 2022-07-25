@@ -5,7 +5,7 @@ package com.binance4j.market.param;
  */
 public class BookTickerParams extends MarketParams {
 	/** Ticker symbol. */
-	private String symbol;
+	String symbol;
 
 	/** to get the ticker of all symbols. */
 	public BookTickerParams() {

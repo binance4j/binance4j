@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class MaxBorrowableParams extends Params {
 
 	/** The asset */
-	private String asset;
+	String asset;
 	/** The symbol */
-	private String isolatedSymbol;
+	String isolatedSymbol;
 
 	/** @param asset The asset to borrow */
 	public MaxBorrowableParams(String asset) {

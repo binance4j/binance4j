@@ -6,14 +6,14 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getMyTrades} params. */
 public class TradeParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
-	private String symbol;
-	private Boolean isIsolated;
-	private Long fromId;
-	private Integer limit;
+	String symbol;
+	Boolean isIsolated;
+	Long fromId;
+	Integer limit;
 
 	/** */
 	public TradeParams() {

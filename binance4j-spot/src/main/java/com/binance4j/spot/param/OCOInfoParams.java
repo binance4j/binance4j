@@ -6,10 +6,10 @@ import com.binance4j.core.param.Params;
 public class OCOInfoParams extends Params {
 
 	/** Either orderListId or origClientOrderId must be provided. */
-	private Long orderListId;
+	Long orderListId;
 
 	/** Either orderListId or origClientOrderId must be provided. */
-	private String origClientOrderId;
+	String origClientOrderId;
 
 	/**
 	 * @param orderListId The order list id.

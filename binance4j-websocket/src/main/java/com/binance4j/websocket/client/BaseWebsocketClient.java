@@ -35,7 +35,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/** The listenr using the interceptor callback. */
 	protected ApiWebSocketListener<T> listener;
 	/** The client configuration. */
-	private WebsocketClientConfiguration configuration;
+	WebsocketClientConfiguration configuration;
 
 	/** Will call onClosing and onClosed of the interceptor callback if not. */
 	protected WebsocketForceClosingHandler forceClosingHandler;

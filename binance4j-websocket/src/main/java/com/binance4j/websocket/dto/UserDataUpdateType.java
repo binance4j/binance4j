@@ -10,7 +10,7 @@ public enum UserDataUpdateType {
 	ORDER_TRADE_UPDATE("executionReport");
 
 	/** The enum string value. */
-	private final String value;
+	final String value;
 
 	/**
 	 * @param value

@@ -3,9 +3,9 @@ package com.binance4j.core.exception;
 /** API response error containing a code and a message. */
 public class ApiError {
 	/** The error code. */
-	private int code;
+	int code;
 	/** The error message. */
-	private String msg;
+	String msg;
 
 	/**
 	 * Constructor

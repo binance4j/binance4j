@@ -14,35 +14,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class NewOCOOrderParams extends Params {
 
 	/** The order symbol */
-	private String symbol;
+	String symbol;
 	/** The order side */
-	private OrderSide side;
+	OrderSide side;
 	/** The order quantity */
-	private BigDecimal quantity;
+	BigDecimal quantity;
 	/** The order price */
-	private BigDecimal price;
+	BigDecimal price;
 	/** The stop price */
-	private BigDecimal stopPrice;
+	BigDecimal stopPrice;
 	/** The order response type Default: RESULT. */
-	private NewOrderResponseType newOrderRespType;
+	NewOrderResponseType newOrderRespType;
 	/** A unique Id for the entire orderList */
-	private String listClientOrderId;
+	String listClientOrderId;
 	/** A unique Id for the limit order */
-	private String limitClientOrderId;
+	String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
 	@JsonProperty("limitIcebergQty")
-	private BigDecimal limitIcebergQuantity;
+	BigDecimal limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
-	private String stopClientOrderId;
+	String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
-	private BigDecimal stopLimitPrice;
+	BigDecimal stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
 	@JsonProperty("stopIcebergQty")
-	private BigDecimal stopIcebergQuantity;
+	BigDecimal stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
-	private TimeInForce stopLimitTimeInForce;
+	TimeInForce stopLimitTimeInForce;
 	/** Is the order isolated? */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 
 	/**
 	 * Produces an OCO order

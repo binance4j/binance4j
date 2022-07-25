@@ -5,7 +5,7 @@ package com.binance4j.market.param;
  */
 public class TickerStatisticsParams extends MarketParams {
 	/** The trading pair we want the ticker stats. */
-	private String symbol;
+	String symbol;
 
 	/** to get all ticker stats. */
 	public TickerStatisticsParams() {

@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 public class AssetDetailParams extends Params {
 
 	/** The asset abbreviation. */
-	private String asset;
+	String asset;
 
 	/** Default constructor. */
 	public AssetDetailParams() {

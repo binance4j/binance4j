@@ -7,9 +7,9 @@ import com.binance4j.margin.client.MarginClient;
 public class IsolatedTierDataParams extends Params {
 
 	/** The symbol */
-	private String symbol;
+	String symbol;
 	/** The tier */
-	private String tier;
+	String tier;
 
 	/** @param symbol The symbol */
 	public IsolatedTierDataParams(String symbol) {

@@ -7,24 +7,24 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
 /** The {@link MarginClient#getIsolatedTransferHistory} params. */
 public class IsolatedTransferHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The asset. */
-	private String asset;
+	String asset;
 	/** The symbol. */
-	private String symbol;
+	String symbol;
 	/** The transfer origin. */
-	private IsolatedTransferAccount transFrom;
+	IsolatedTransferAccount transFrom;
 	/** The transfer destination. */
-	private IsolatedTransferAccount transTo;
+	IsolatedTransferAccount transTo;
 	/** Current page, default 1. */
-	private Long current;
+	Long current;
 	/** The paresult size. Default 10, max 100 */
-	private Integer size;
+	Integer size;
 	/** Set to true for archived data from 6 months ago. */
-	private Boolean archived;
+	Boolean archived;
 
 	/** @param symbol The symbol */
 	public IsolatedTransferHistoryParams(String symbol) {

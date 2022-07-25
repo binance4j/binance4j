@@ -12,9 +12,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link PortfolioMarginClient} mapping */
+/** The {@link PortfolioMarginClient} mapping. */
 public interface PortfolioMarginMapping extends RestMapping {
-	/** The base uri */
+	/** The base uri. */
 	String BASE = "/sapi/v1/portfolio/";
 
 	/**
@@ -22,7 +22,7 @@ public interface PortfolioMarginMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "account")
-	@Headers({ API_H, SIGNED_H })
+	@Headers(SIGNED_H)
 	Call<AccountInfo> getAccountInfo(@QueryMap Map<String, Object> map);
 
 	/**

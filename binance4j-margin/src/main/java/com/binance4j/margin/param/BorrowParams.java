@@ -10,13 +10,13 @@ import com.binance4j.margin.client.MarginClient;
 public class BorrowParams extends Params {
 
 	/** Asset to borrow. */
-	private String asset;
+	String asset;
 	/** Isolated symbol. */
-	private String symbol;
+	String symbol;
 	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** Amount to borrow. */
-	private BigDecimal amount;
+	BigDecimal amount;
 
 	/**
 	 * @param asset  Asset to borrow.

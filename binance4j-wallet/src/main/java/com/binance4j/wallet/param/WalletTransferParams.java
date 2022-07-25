@@ -9,15 +9,15 @@ import com.binance4j.wallet.dto.WalletTransferType;
 public class WalletTransferParams extends Params {
 
 	/** The asset. */
-	private String asset;
+	String asset;
 	/** The transfer type. */
-	private WalletTransferType type;
+	WalletTransferType type;
 	/** The volume. */
-	private BigDecimal amount;
+	BigDecimal amount;
 	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
-	private String fromSymbol;
+	String fromSymbol;
 	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
-	private String toSymbol;
+	String toSymbol;
 
 	/**
 	 * @param type   The transfer type.

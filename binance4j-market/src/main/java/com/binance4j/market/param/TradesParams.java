@@ -3,9 +3,9 @@ package com.binance4j.market.param;
 /** The parameters to get recent trades */
 public class TradesParams extends MarketParams {
 	/** The symbol we want the trades. */
-	private String symbol;
+	String symbol;
 	/** The trades size. Default 500; max 1000. */
-	private Integer limit = 500;
+	Integer limit = 500;
 
 	/**
 	 * Default constructor

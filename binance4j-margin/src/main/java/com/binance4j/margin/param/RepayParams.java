@@ -10,13 +10,13 @@ import com.binance4j.margin.client.MarginClient;
 public class RepayParams extends Params {
 
 	/** The asset to repay. */
-	private String asset;
+	String asset;
 	/** The isolated symbol. */
-	private String symbol;
+	String symbol;
 	/** For isolated margin or not. Default {@code false}. */
-	private Boolean isIsolated;
+	Boolean isIsolated;
 	/** The amount to repay. */
-	private BigDecimal amount;
+	BigDecimal amount;
 
 	/**
 	 * @param asset  The asset to repay.

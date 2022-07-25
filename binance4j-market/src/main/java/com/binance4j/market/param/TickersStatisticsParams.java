@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class TickersStatisticsParams extends MarketParams {
 	/** The trading pair we want the ticker stats. */
-	private String symbols;
+	String symbols;
 
 	/**
 	 * to get the ticker stats of multiple symbol

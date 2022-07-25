@@ -28,11 +28,11 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	/** The inner callback. */
 	protected WebsocketCallback<T> callback;
 	/** Tells the interceptor if the closing has been made by the client. */
-	private boolean closedByClient;
+	boolean closedByClient;
 	/** Has the onClosing handler been called. */
-	private boolean onClosingCalled;
+	boolean onClosingCalled;
 	/** THe socket using the callback. */
-	private WebSocket socket;
+	WebSocket socket;
 
 	/**
 	 * @param websocketClient The main ws client.

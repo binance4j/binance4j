@@ -5,20 +5,20 @@ import com.binance4j.core.param.Params;
 /** The parameters to display past orders */
 public class AllOrdersParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The trading pair we want the orders. */
-	private String symbol;
+	String symbol;
 	/**
 	 * If orderId is set, it will get orders &gt;= that orderId. Otherwise, most recent orders are returned. If startTime
 	 * and/or endTime provided, orderId is not required.
 	 */
-	private Long orderId;
+	Long orderId;
 
 	/** The result size. Default 500; max 1000. */
-	private Integer limit = 500;
+	Integer limit = 500;
 
 	/**
 	 * Default constructor.

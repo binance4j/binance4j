@@ -13,7 +13,7 @@ public enum DepositStatus {
 	SUCCESS(1);
 
 	/** The status number. */
-	private final int value;
+	final int value;
 
 	/**
 	 * @param value

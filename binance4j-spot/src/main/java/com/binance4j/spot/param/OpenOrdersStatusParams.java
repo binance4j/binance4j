@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 public class OpenOrdersStatusParams extends Params {
 
 	/** The pair we want the open orders. */
-	private String symbol;
+	String symbol;
 
 	/** toi get all open orders. */
 	public OpenOrdersStatusParams() {

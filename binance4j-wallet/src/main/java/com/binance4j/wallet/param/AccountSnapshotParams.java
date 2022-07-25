@@ -7,12 +7,12 @@ import com.binance4j.core.param.Params;
  */
 public class AccountSnapshotParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The snapshot limit. min 5, max 30, default 5 */
-	private int limit = 5;
+	int limit = 5;
 
 	/**
 	 

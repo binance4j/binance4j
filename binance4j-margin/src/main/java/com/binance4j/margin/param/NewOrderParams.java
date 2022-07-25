@@ -15,31 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /** The {@link MarginClient#newOrder} params. */
 public class NewOrderParams extends Params {
 	/** The default order time in force. */
-	private TimeInForce timeInForce = TimeInForce.GTC;
+	TimeInForce timeInForce = TimeInForce.GTC;
 	/** The order symbol */
-	private String symbol;
+	String symbol;
 	/** The order side */
-	private OrderSide side;
+	OrderSide side;
 	/** The order quantity */
-	private BigDecimal quantity;
+	BigDecimal quantity;
 	/** The order price */
-	private BigDecimal price;
+	BigDecimal price;
 	/** The stop price */
-	private BigDecimal stopPrice;
+	BigDecimal stopPrice;
 	/** The order response type Default: RESULT. */
-	private NewOrderResponseType newOrderRespType;
+	NewOrderResponseType newOrderRespType;
 	/** The order type */
-	private OrderType type;
+	OrderType type;
 	/** The quote order quantity */
 	@JsonProperty("quoteOrderQty")
-	private BigDecimal quoteOrderQuantity;
+	BigDecimal quoteOrderQuantity;
 	/** The iceberg quantity */
 	@JsonProperty("icebergQty")
-	private BigDecimal icebergQuantity;
+	BigDecimal icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
-	private String newClientOrderId;
+	String newClientOrderId;
 	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
-	private SideEffectType sideEffectType;
+	SideEffectType sideEffectType;
 
 	private NewOrderParams() {
 		super(6, true);

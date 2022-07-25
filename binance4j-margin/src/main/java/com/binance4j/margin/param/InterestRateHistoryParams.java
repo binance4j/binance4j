@@ -6,14 +6,14 @@ import com.binance4j.margin.client.MarginClient;
 /** The {@link MarginClient#getAllOCO} params. */
 public class InterestRateHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The asset */
-	private String asset;
+	String asset;
 	/** The VIP level */
-	private Integer vipLevel;
+	Integer vipLevel;
 
 	/** @param asset The asset */
 	public InterestRateHistoryParams(String asset) {

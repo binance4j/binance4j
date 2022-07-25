@@ -6,20 +6,20 @@ import com.binance4j.wallet.dto.WalletTransferType;
 /** Request to fetch User Universal Transfer History */
 public class WalletTransferHistoryParams extends Params {
 	/** The starting timestamp of the results */
-	private Long startTime;
+	Long startTime;
 	/** The ending timestamp of the results */
-	private Long endTime;
+	Long endTime;
 
 	/** The User universal transfer type. */
-	private WalletTransferType type;
+	WalletTransferType type;
 	/** The offset. */
-	private Integer current = 1;
+	Integer current = 1;
 	/** The result size. */
-	private Integer size = 10;
+	Integer size = 10;
 	/** Must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
-	private String fromSymbol;
+	String fromSymbol;
 	/** Must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
-	private String toSymbol;
+	String toSymbol;
 
 	/**
 	 * @param type The transfer type.
