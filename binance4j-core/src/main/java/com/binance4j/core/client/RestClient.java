@@ -15,11 +15,11 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  */
 public abstract class RestClient<T> {
 	/** URL base domain. */
-	protected static String baseDomain = "api.binance.com";
+	protected String baseDomain = "api.binance.com";
 	/** Testnet URL base domain. */
-	protected static String testnetDomain = "testnet.binance.vision";
+	protected String testnetDomain = "testnet.binance.vision";
 	/** Defines if the services use the test network. */
-	protected static boolean useTestnet = false;
+	protected boolean useTestnet = false;
 	/** The retrofit API mapping. */
 	protected Class<T> mapping;
 	/** The API public key. */
@@ -53,12 +53,10 @@ public abstract class RestClient<T> {
 	protected T createService() {
 		Converter.Factory converterFactory = JacksonConverterFactory.create();
 		Dispatcher dispatcher = new Dispatcher();
-
 		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
 		AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);
-
-		String apiUrl = String.format("https://%s", !useTestnet ? baseDomain : testnetDomain);
-
+		String domain = useTestnet ? testnetDomain : baseDomain;
+		String apiUrl = String.format("https://%s", domain);
 		OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
 
 		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
@@ -92,5 +90,47 @@ public abstract class RestClient<T> {
 	/** @param mapping the mapping to set */
 	public void setMapping(Class<T> mapping) {
 		this.mapping = mapping;
+	}
+
+	/**
+	 * @return the baseDomain
+	 */
+	public String getBaseDomain() {
+		return baseDomain;
+	}
+
+	/**
+	 * @param baseDomain the baseDomain to set
+	 */
+	public void setBaseDomain(String baseDomain) {
+		this.baseDomain = baseDomain;
+	}
+
+	/**
+	 * @return the testnetDomain
+	 */
+	public String getTestnetDomain() {
+		return testnetDomain;
+	}
+
+	/**
+	 * @param testnetDomain the testnetDomain to set
+	 */
+	public void setTestnetDomain(String testnetDomain) {
+		this.testnetDomain = testnetDomain;
+	}
+
+	/**
+	 * @return the useTestnet
+	 */
+	public boolean isUseTestnet() {
+		return useTestnet;
+	}
+
+	/**
+	 * @param useTestnet the useTestnet to set
+	 */
+	public void setUseTestnet(boolean useTestnet) {
+		this.useTestnet = useTestnet;
 	}
 }
