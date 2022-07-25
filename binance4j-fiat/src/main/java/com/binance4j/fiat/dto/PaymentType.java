@@ -1,12 +1,17 @@
 package com.binance4j.fiat.dto;
 
+/** Payment type. */
 public enum PaymentType {
-	BUY("0"), SELL("1");
+	/** Buy. */
+	BUY("0"),
+	/** Sell. */
+	SELL("1");
 
+	/** The value. */
 	String value;
 
 	/**
-	 * @param value
+	 * @param value the value
 	 */
 	private PaymentType(String value) {
 		this.value = value;

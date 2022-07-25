@@ -22,9 +22,10 @@ public record AssetDetail(
 		/** The withdraw fee. */
 		Float withdrawFee,
 		/** The withdraw status (false if ALL of networks' are false). */
-		boolean withdrawStatus, /** The reason of the status. */
+		boolean withdrawStatus,
+		/** Reason. */
 		String depositTip) {
-
+	/** @return Reason. */
 	public String depositTip() {
 		return depositTip == null ? "" : depositTip;
 	}

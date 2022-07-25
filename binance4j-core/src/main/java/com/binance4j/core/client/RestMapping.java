@@ -2,6 +2,7 @@ package com.binance4j.core.client;
 
 import com.binance4j.core.security.AuthenticationInterceptor;
 
+/** Base interface for API Mapping. */
 public interface RestMapping {
 	/** The signed http full header. */
 	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;

@@ -1,12 +1,17 @@
 package com.binance4j.fiat.dto;
 
+/** Transaction type. */
 public enum TransactionType {
-	DEPOSIT("0"), WITHDRAW("1");
+	/** Deposit. */
+	DEPOSIT("0"),
+	/** Withdraw. */
+	WITHDRAW("1");
 
+	/** The value */
 	String value;
 
 	/**
-	 * @param value
+	 * @param value The value
 	 */
 	private TransactionType(String value) {
 		this.value = value;

@@ -23,36 +23,59 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
 
+/** Base class for Unit test. */
 @Execution(ExecutionMode.CONCURRENT)
 public abstract class CustomTest<T> {
+	/** The key. */
 	protected String key = System.getenv("BINANCE_API_KEY");
+	/** The secret. */
 	protected String secret = System.getenv("BINANCE_API_SECRET");
+	/** The testnetKey. */
 	protected String testnetKey = System.getenv("BINANCE_TESTNET_API_KEY");
+	/** The testnetSecret. */
 	protected String testnetSecret = System.getenv("BINANCE_TESTNET_API_SECRET");
+	/** The symbol. */
 	protected String symbol = "BNBBTC";
+	/** The asset. */
 	protected String asset = "BNB";
+	/** The limit. */
 	protected int limit = 25;
+	/** The String. */
 	protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
+	/** The String. */
 	protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
+	/** The client. */
 	protected T client;
+	/** The testnetClient. */
 	protected T testnetClient;
 
+	/** Constructor */
 	protected CustomTest() {
 	}
 
+	/**
+	 * @param client The client
+	 */
 	protected CustomTest(T client) {
 		this.client = client;
 	}
 
-	protected CustomTest(Class<? extends T> client) {
+	/**
+	 * @param clientClass The client class
+	 */
+	protected CustomTest(Class<? extends T> clientClass) {
 		try {
-			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
+			this.client = clientClass.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
 				| SecurityException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * @param client        The client.
+	 * @param testnetClient The testnetClient.
+	 */
 	protected CustomTest(Class<? extends T> client, Class<? extends T> testnetClient) {
 		try {
 			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
@@ -64,8 +87,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Returns the properties of the given bean
-	 * 
+	 * @return the properties of the given bean
 	 * @param bean The bean we want the properties
 	 */
 	protected Map<String, Object> getProperties(Object bean) {
@@ -95,8 +117,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Returns the properties of the given bean
-	 * 
+	 * @return the properties of the given bean
 	 * @param collection The collection we want the properties
 	 */
 	protected Map<String, Object> getProperties(Collection<?> collection) {
@@ -113,8 +134,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Returns the bean properties with a null walue
-	 * 
+	 * @return the bean properties with a null walue
 	 * @param bean The bean we want the properties
 	 */
 	protected Set<String> getNullProperties(Object bean) {
@@ -122,8 +142,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Returns the bean properties with a null walue
-	 * 
+	 * @return the bean properties with a null walue
 	 * @param bean    The bean we want the properties
 	 * @param flatten Flatten the result to only show the properties names
 	 */
@@ -137,8 +156,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Returns the bean properties with a null walue
-	 * 
+	 * @return the bean properties with a null walue
 	 * @param bean       The bean we want the properties
 	 * @param parentBean The enclosing class
 	 */
@@ -182,8 +200,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tells if the given object has no null property
-	 * 
+	 * @return if the given object has no null property
 	 * @param bean The bean to verify
 	 */
 	protected boolean hasNoNullProperty(Object bean) {
@@ -191,8 +208,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tells if the bean has properties
-	 * 
+	 * @return if the bean has properties
 	 * @param bean The bean we want to inspect
 	 */
 	protected boolean hasProperties(Object bean) {
@@ -200,8 +216,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tells if the object is from the java lang package
-	 * 
+	 * @return if the object is from the java lang package
 	 * @param bean The bean to inspect
 	 */
 	protected boolean isJavaBean(Object bean) {
@@ -209,8 +224,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tells if the object is a Map
-	 * 
+	 * @return if the object is a Map
 	 * @param bean The bean to inspect
 	 */
 	protected boolean isMap(Object bean) {
@@ -218,8 +232,7 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tells if the object is a Collection (Map excluded)
-	 * 
+	 * @return if the object is a Collection (Map excluded)
 	 * @param bean The bean to inspect
 	 */
 	protected boolean isCollection(Object bean) {
@@ -227,9 +240,9 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tests that the object has no null properties
+	 * Tests that the object has no null properties.
 	 * 
-	 * @param bean
+	 * @param bean The bean to test.
 	 */
 	public void test(Object bean) {
 		Set<String> nulls = getNullProperties(bean);
@@ -246,12 +259,13 @@ public abstract class CustomTest<T> {
 	}
 
 	/**
-	 * Tests that the object has no null properties
+	 * Tests that the object has no null properties.
 	 * 
-	 * @throws ApiException
+	 * @param request The request to execute.
+	 * @throws ApiException thrown if execution failed.
 	 */
-	public void test(Request<?> executor) throws ApiException {
-		test(executor.execute());
+	public void test(Request<?> request) throws ApiException {
+		test(request.execute());
 	}
 
 	/**
