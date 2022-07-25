@@ -3,6 +3,7 @@ package com.binance4j.wallet.client;
 import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.wallet.dto.AccountSnapshotType;
 import com.binance4j.wallet.dto.AccountStatus;
@@ -35,7 +36,7 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /** Binance Wallet endpoints mapping */
-public interface WalletMapping {
+public interface WalletMapping extends RestMapping {
 
 	/** Base url */
 	String BASE = "/sapi/v1/";

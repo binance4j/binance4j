@@ -1,12 +1,14 @@
 package com.binance4j.vision.client;
 
+import com.binance4j.core.client.RestMapping;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /** The API SPOT calls */
-public interface VisionSpotMapping {
+public interface VisionSpotMapping extends RestMapping {
 	/** monthly klines url */
 	String MONTHLY_KLINES_URL = "spot/monthly/klines/{symbol}/{candlestick_interval}/{symbol}-{candlestick_interval}-{year}-{month}.zip";
 	/** daily klines url */

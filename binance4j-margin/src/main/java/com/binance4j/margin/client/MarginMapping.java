@@ -3,9 +3,9 @@ package com.binance4j.margin.client;
 import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.dto.CancelOrderResponse;
 import com.binance4j.core.dto.OrderInfo;
-import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.BNBBurnStatus;
@@ -43,13 +43,9 @@ import retrofit2.http.QueryMap;
 /**
  * {@link MarginClient} API mapping
  */
-public interface MarginMapping {
+public interface MarginMapping extends RestMapping {
 	/** The base URI */
 	String BASE = "/sapi/v1/margin/";
-	/** The signed http full header. */
-	String SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER;
-	/** The API key http full header. */
-	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 
 	/**
 	 * @param map The query map.

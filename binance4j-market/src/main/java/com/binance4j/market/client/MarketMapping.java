@@ -3,6 +3,7 @@ package com.binance4j.market.client;
 import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.ExchangeInfo;
@@ -21,7 +22,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
 /** {@link MarketClient} mapping */
-public interface MarketMapping {
+public interface MarketMapping extends RestMapping {
 	/** Base uri */
 	String BASE = "/api/v3/";
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exception.ApiException;
 
 import okhttp3.HttpUrl;
@@ -66,7 +67,7 @@ public class AuthenticationInterceptor implements Interceptor {
 		if (isSignatureRequired) {
 			String payload = original.url().query();
 			if (payload != null && !"".equals(payload)) {
-				String signature = HmacSHA256Signer.sign(payload, secret);
+				String signature = RestClient.sign(payload, secret);
 				HttpUrl signedUrl = original.url().newBuilder().addQueryParameter("signature", signature).build();
 				newRequestBuilder.url(signedUrl);
 			}

@@ -2,6 +2,7 @@ package com.binance4j.websocket.client;
 
 import java.util.Map;
 
+import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.security.AuthenticationInterceptor;
 import com.binance4j.websocket.dto.ListenKey;
 
@@ -14,7 +15,7 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /** {@link UserDataClient} mapping */
-public interface UserDataMapping {
+public interface UserDataMapping extends RestMapping {
 
 	/** The API key http full header. */
 	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;

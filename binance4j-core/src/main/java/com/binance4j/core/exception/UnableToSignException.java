@@ -1,6 +1,8 @@
-package com.binance4j.core.security;
+package com.binance4j.core.exception;
 
-/** Runtime exception thrown if {@link HmacSHA256Signer} can't sign the API keys */
+import com.binance4j.core.client.RestClient;
+
+/** Runtime exception thrown if {@link RestClient} can't sign the API keys */
 public class UnableToSignException extends RuntimeException {
 	/** @param e The original exception */
 	public UnableToSignException(Exception e) {

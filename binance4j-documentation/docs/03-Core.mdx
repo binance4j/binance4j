@@ -32,7 +32,7 @@ Every client mapping is represented by an interface with anotated methods defini
 Here is a snippet of the SpotMapping code:
 
 ```java
-public interface SpotMapping {
+public interface SpotMapping extends RestMapping {
 	/** The API key header */
 	public static final String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
 	/** The signed header */
