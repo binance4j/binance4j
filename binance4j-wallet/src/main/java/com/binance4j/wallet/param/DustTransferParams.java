@@ -2,7 +2,7 @@ package com.binance4j.wallet.param;
 
 import java.util.List;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 
 /** The parameters to convert small volumes (dust) into BNB */
@@ -16,7 +16,7 @@ public class DustTransferParams extends Params {
 	 */
 	public DustTransferParams(List<String> assets) {
 		super(10);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 		this.assets = assets;
 	}
 

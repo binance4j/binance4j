@@ -1,6 +1,6 @@
 package com.binance4j.nft.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.nft.dto.OrderType;
 
@@ -26,7 +26,7 @@ public class TransactionHistoryParams extends Params {
 
 	private TransactionHistoryParams() {
 		super(3000);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 	}
 
 	/**

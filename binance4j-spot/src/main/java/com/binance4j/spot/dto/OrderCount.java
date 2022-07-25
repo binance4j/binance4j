@@ -1,7 +1,5 @@
 package com.binance4j.spot.dto;
 
-import com.binance4j.core.dto.RateLimitInterval;
-import com.binance4j.core.dto.RateLimitType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,9 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderCount(
 		/** The type of order. */
-		RateLimitType rateLimitType,
+		String rateLimitType,
 		/** The order interval. */
-		RateLimitInterval interval,
+		String interval,
 		/** The order interval num. */
 		int intervalNum,
 		/** The order limit. */

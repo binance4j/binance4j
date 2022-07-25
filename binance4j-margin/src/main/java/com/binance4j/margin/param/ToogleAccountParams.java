@@ -1,6 +1,6 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
@@ -13,7 +13,7 @@ public class ToogleAccountParams extends Params {
 	/** @param symbol The symbol */
 	public ToogleAccountParams(String symbol) {
 		super(300);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 		this.symbol = symbol;
 	}
 

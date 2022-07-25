@@ -1,4 +1,4 @@
-package com.binance4j.core.dto;
+package com.binance4j.margin.dto;
 
 /** Desired side-effect for margin orders */
 public enum SideEffectType {

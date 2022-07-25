@@ -1,6 +1,6 @@
 package com.binance4j.loan.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.loan.dto.LoanIncomeType;
@@ -24,7 +24,7 @@ public class LoanIncomeHistoryParams extends Params {
 	 */
 	public LoanIncomeHistoryParams(String asset) {
 		super(6000);
-		this.weightType = WeightType.UID;
+		this.rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 	}
 

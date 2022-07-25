@@ -3,7 +3,6 @@ package com.binance4j.spot.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.binance4j.core.dto.AccountType;
 import com.binance4j.core.dto.AssetBalance;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param canDeposit       The deposit permission.
  * @param updateTime       The timestamp of the last data update.
  * @param balances         The balances of each asset in the SPOT wallet.
- * @param accountType      The account Type (SPOT).
- * @param permissions      The permissions list (SPOT).
+ * @param accountType      The account Type .
+ * @param permissions      The permissions list.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
@@ -42,8 +41,8 @@ public record Account(
 		long updateTime,
 		/** The balances of each asset in the SPOT wallet. */
 		List<AssetBalance> balances,
-		/** The account Type (SPOT). */
-		AccountType accountType,
-		/** The permissions list (SPOT). */
-		List<AccountType> permissions) {
+		/** The account Type. */
+		String accountType,
+		/** The permissions list. */
+		List<String> permissions) {
 }

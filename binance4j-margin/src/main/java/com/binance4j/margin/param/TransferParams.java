@@ -2,7 +2,7 @@ package com.binance4j.margin.param;
 
 import java.math.BigDecimal;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferType;
@@ -31,7 +31,7 @@ public class TransferParams extends Params {
 	 */
 	public TransferParams(String asset, BigDecimal amount, int type) {
 		super(600);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 		this.amount = amount;
 		this.type = type;

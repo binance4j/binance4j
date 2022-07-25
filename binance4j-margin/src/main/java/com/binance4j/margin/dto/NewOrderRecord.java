@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.binance4j.core.dto.OrderSide;
-import com.binance4j.core.dto.OrderStatus;
-import com.binance4j.core.dto.OrderType;
-import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.dto.Trade;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -41,11 +38,11 @@ public record NewOrderRecord(
 		/** The order side. */
 		OrderSide side,
 		/** The order status. */
-		OrderStatus status,
+		String status,
 		/** The order type. */
-		OrderType type,
+		String type,
 		/** The order time in force. */
-		TimeInForce timeInForce,
+		String timeInForce,
 		/** The transaction time. */
 		@JsonProperty("transactTime") long transactionTime,
 		/** The client order id. */

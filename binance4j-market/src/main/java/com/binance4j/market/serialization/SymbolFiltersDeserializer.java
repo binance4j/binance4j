@@ -1,22 +1,22 @@
-package com.binance4j.core.serialization;
+package com.binance4j.market.serialization;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import com.binance4j.core.dto.IcebergPartsFilter;
-import com.binance4j.core.dto.LotSizeFilter;
-import com.binance4j.core.dto.MarketLotSizeFilter;
-import com.binance4j.core.dto.MaxNumAlgoOrdersFilter;
-import com.binance4j.core.dto.MaxNumIcebergOrdersFilter;
-import com.binance4j.core.dto.MaxNumOrdersFilter;
-import com.binance4j.core.dto.MaxPositionFilter;
-import com.binance4j.core.dto.MinNotionalFilter;
-import com.binance4j.core.dto.NotionalFilter;
-import com.binance4j.core.dto.PercentPriceBySideFilter;
-import com.binance4j.core.dto.PercentPriceFilter;
-import com.binance4j.core.dto.PriceFilter;
-import com.binance4j.core.dto.SymbolFilters;
-import com.binance4j.core.dto.TrailingDeltaFilter;
+import com.binance4j.market.dto.IcebergPartsFilter;
+import com.binance4j.market.dto.LotSizeFilter;
+import com.binance4j.market.dto.MarketLotSizeFilter;
+import com.binance4j.market.dto.MaxNumAlgoOrdersFilter;
+import com.binance4j.market.dto.MaxNumIcebergOrdersFilter;
+import com.binance4j.market.dto.MaxNumOrdersFilter;
+import com.binance4j.market.dto.MaxPositionFilter;
+import com.binance4j.market.dto.MinNotionalFilter;
+import com.binance4j.market.dto.NotionalFilter;
+import com.binance4j.market.dto.PercentPriceBySideFilter;
+import com.binance4j.market.dto.PercentPriceFilter;
+import com.binance4j.market.dto.PriceFilter;
+import com.binance4j.market.dto.SymbolFilters;
+import com.binance4j.market.dto.TrailingDeltaFilter;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;

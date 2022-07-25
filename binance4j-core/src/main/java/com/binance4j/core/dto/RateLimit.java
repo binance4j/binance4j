@@ -13,9 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RateLimit(
 		/** The rate limit type. */
-		RateLimitType rateLimitType,
+		String rateLimitType,
 		/** The limit interval type. */
-		RateLimitInterval interval,
+		String interval,
 		/** The limit interval number. */
 		int intervalNum,
 		/** The limit for the given interval. */

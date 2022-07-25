@@ -4,10 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import com.binance4j.core.dto.ContingencyType;
-import com.binance4j.core.dto.MiniOrderInfo;
-import com.binance4j.core.dto.OCOOrderStatus;
-import com.binance4j.core.dto.OCOStatus;
 import com.binance4j.core.dto.OrderReport;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -33,11 +29,11 @@ public record NewOCOOrderRecord(
 		/** The order list id. */
 		long orderListId,
 		/** The contingency type */
-		ContingencyType contingencyType,
+		String contingencyType,
 		/** The list status. */
-		OCOStatus listStatusType,
+		String listStatusType,
 		/** The list order status. */
-		OCOOrderStatus listOrderStatus,
+		String listOrderStatus,
 		/** The list client order id. */
 		String listClientOrderId,
 		/** The order timestamp. */

@@ -1,6 +1,6 @@
 package com.binance4j.rebate.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.rebate.client.RebateClient;
 
@@ -19,7 +19,7 @@ public class SpotRebateHistoryParams extends Params {
 	/** Constructor. */
 	public SpotRebateHistoryParams() {
 		super(3000);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 	}
 
 	/**

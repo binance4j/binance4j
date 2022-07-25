@@ -1,7 +1,8 @@
-package com.binance4j.core.dto;
+package com.binance4j.market.dto;
 
 import java.util.List;
 
+import com.binance4j.core.dto.RateLimit;
 import com.binance4j.core.exception.NotFoundException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

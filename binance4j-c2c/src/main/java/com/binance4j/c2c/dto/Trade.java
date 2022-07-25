@@ -29,7 +29,7 @@ public record Trade(
 		/** Adv No. */
 		long advNo,
 		/** Trade type. */
-		TradeType tradeType,
+		String tradeType,
 		/** Asset. */
 		String asset,
 		/** Fiat. */
@@ -43,7 +43,7 @@ public record Trade(
 		/** Unit price. */
 		BigDecimal unitPrice,
 		/** Order status. */
-		OrderStatus orderStatus,
+		String orderStatus,
 		/** Create time. */
 		long createTime,
 		/** Commission. */

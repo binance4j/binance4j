@@ -23,11 +23,11 @@ public record OCOResponse(
 		/** The order list id. */
 		long orderListId,
 		/** The contingency type */
-		ContingencyType contingencyType,
+		String contingencyType,
 		/** The list status. */
-		OCOStatus listStatusType,
+		String listStatusType,
 		/** The list order status. */
-		OCOOrderStatus listOrderStatus,
+		String listOrderStatus,
 		/** The list client order id. */
 		String listClientOrderId,
 		/** The order timestamp. */

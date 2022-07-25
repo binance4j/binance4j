@@ -49,11 +49,11 @@ public record OrderReport(
 		/** Used to calculate the average price. */
 		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
 		/** Order status. */
-		OrderStatus status,
+		String status,
 		/** Time in force to indicate how long will the order remain active. */
-		TimeInForce timeInForce,
+		String timeInForce,
 		/** Type of order. */
-		OrderType type,
+		String type,
 		/** Used with stop orders. */
 		BigDecimal stopPrice,
 		/** Used with iceberg orders. */

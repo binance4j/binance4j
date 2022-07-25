@@ -1,6 +1,6 @@
 package com.binance4j.pay.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.pay.client.PayClient;
 
@@ -18,7 +18,7 @@ public class TradeHistoryParams extends Params {
 	 */
 	public TradeHistoryParams() {
 		super(3000);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 	}
 
 	/**

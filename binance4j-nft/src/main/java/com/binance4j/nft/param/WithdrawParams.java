@@ -1,6 +1,6 @@
 package com.binance4j.nft.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 
 /**
@@ -26,7 +26,7 @@ public class WithdrawParams extends Params {
 	 */
 	public WithdrawParams() {
 		super(3000);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 	}
 
 	/**

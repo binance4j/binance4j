@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderInfo(
 		/** The order side */
-		OrderSide side,
+		String side,
 		/** Price. */
 		BigDecimal price,
 		/** Original quantity. */
@@ -40,11 +40,11 @@ public record OrderInfo(
 		/** Used to calculate the average price */
 		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
 		/** Order status. */
-		OrderStatus status,
+		String status,
 		/** Time in force to indicate how long will the order remain active. */
-		TimeInForce timeInForce,
+		String timeInForce,
 		/** Type of order. */
-		OrderType type,
+		String type,
 		/** Used with stop orders. */
 		BigDecimal stopPrice,
 		/** Used with iceberg orders. */

@@ -1,4 +1,4 @@
-package com.binance4j.core.dto;
+package com.binance4j.market.dto;
 
 import java.math.BigDecimal;
 

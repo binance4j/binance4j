@@ -3,7 +3,7 @@ package com.binance4j.core.param;
 import java.util.Collections;
 import java.util.Map;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -22,7 +22,7 @@ public class Params {
 	/** Is this request generating an order? */
 	protected boolean isOrderRequest;
 	/** The request weight type. */
-	protected WeightType weightType = WeightType.IP;
+	protected RateLimitType rateLimitType = RateLimitType.IP;
 
 	/** Constructor */
 	protected Params() {
@@ -68,15 +68,15 @@ public class Params {
 	/**
 	 * @return the weightType
 	 */
-	public WeightType getWeightType() {
-		return weightType;
+	public RateLimitType getWeightType() {
+		return rateLimitType;
 	}
 
 	/**
 	 * @param weightType the weightType to set
 	 */
-	public void setWeightType(WeightType weightType) {
-		this.weightType = weightType;
+	public void setWeightType(RateLimitType weightType) {
+		this.rateLimitType = weightType;
 	}
 
 	/**

@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record CancelOrderResponse(
 		/** The order status. */
-		OrderStatus status,
+		String status,
 		/** The order side. */
-		OrderSide side,
+		String side,
 		/** The order type. */
-		OrderType type,
+		String type,
 		/** The order timeInForce. */
-		TimeInForce timeInForce,
+		String timeInForce,
 		/** The order id. */
 		long orderId,
 		/** The order list. */

@@ -2,9 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
-import com.binance4j.core.dto.ContingencyType;
-import com.binance4j.core.dto.OCOOrderStatus;
-import com.binance4j.core.dto.OCOStatus;
 import com.binance4j.core.dto.OrderInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,11 +27,11 @@ public record OCOOrderRecord(
 		/** The related symbol. */
 		String symbol,
 		/** The contingency type. */
-		ContingencyType contingencyType,
+		String contingencyType,
 		/** The list status type. */
-		OCOStatus listStatusType,
+		String listStatusType,
 		/** The list order status. */
-		OCOOrderStatus listOrderStatus,
+		String listOrderStatus,
 		/** The list client order id. */
 		String listClientOrderId,
 		/** Is the order isolated? */

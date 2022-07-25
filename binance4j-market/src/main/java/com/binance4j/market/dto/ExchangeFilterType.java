@@ -1,4 +1,4 @@
-package com.binance4j.core.dto;
+package com.binance4j.market.dto;
 
 /**
  * Filters define trading rules on a symbol or an exchange. Filters come in two forms: symbol filters and exchange

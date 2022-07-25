@@ -1,8 +1,8 @@
-package com.binance4j.core.dto;
+package com.binance4j.market.dto;
 
 import java.util.List;
 
-import com.binance4j.core.serialization.SymbolFiltersDeserializer;
+import com.binance4j.market.serialization.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -26,13 +26,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param quoteOrderQuantityMarketAllowed Are orders by quote quantity allowed?
  * @param isSpotTradingAllowed            Is spot trading allowed?
  * @param isMarginTradingAllowed          Is margin trading allowed?
+ * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolInfo(
-		/** The symbol status. */
-		SymbolStatus status,
 		/** The allowed orders on the symbol*. */
-		List<OrderType> orderTypes,
+		List<String> orderTypes,
 		/** The symbol filters. */
 		@JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
 		/** The symbol permission. */
@@ -60,5 +59,11 @@ public record SymbolInfo(
 		/** Is spot trading allowed? */
 		boolean isSpotTradingAllowed,
 		/** Is margin trading allowed? */
-		boolean isMarginTradingAllowed) {
+		boolean isMarginTradingAllowed,
+		/**
+		 * The symbol status.
+		 * 
+		 * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
+		 */
+		String status) {
 }

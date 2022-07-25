@@ -3,10 +3,6 @@ package com.binance4j.spot.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.binance4j.core.dto.OrderSide;
-import com.binance4j.core.dto.OrderStatus;
-import com.binance4j.core.dto.OrderType;
-import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -49,13 +45,13 @@ public record NewOrderResponse(
 		/** The opposite coin quantity. */
 		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
 		/** The order status. */
-		OrderStatus status,
+		String status,
 		/** How long the order will remain active. */
-		TimeInForce timeInForce,
+		String timeInForce,
 		/** The order type. */
-		OrderType type,
+		String type,
 		/** The order side. */
-		OrderSide side,
+		String side,
 		/** The list of trades that partially of fully filled the order. */
 		List<OrderTrade> fills) {
 }

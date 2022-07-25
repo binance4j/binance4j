@@ -1,6 +1,6 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
@@ -21,7 +21,7 @@ public class CancelOCOParams extends Params {
 	/** @param symbol The related symbol. */
 	public CancelOCOParams(String symbol) {
 		super();
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 		this.symbol = symbol;
 	}
 

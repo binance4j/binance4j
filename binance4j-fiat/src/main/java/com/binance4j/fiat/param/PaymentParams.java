@@ -1,6 +1,6 @@
 package com.binance4j.fiat.param;
 
-import com.binance4j.core.dto.WeightType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.fiat.dto.PaymentType;
@@ -26,7 +26,7 @@ public class PaymentParams extends Params {
 	 */
 	public PaymentParams(PaymentType transactionType) {
 		super(90000);
-		weightType = WeightType.UID;
+		rateLimitType = RateLimitType.UID;
 		this.transactionType = transactionType;
 	}
 

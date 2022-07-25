@@ -1,11 +1,11 @@
 package com.binance4j.core.dto;
 
-/** The parameters rate limit type */
+/** The request weight type. */
 public enum RateLimitType {
-	/** The request weight (!= count). */
-	REQUEST_WEIGHT,
-	/** The orders count. */
-	ORDERS,
-	/** The requests that are not orders count. */
-	RAW_REQUESTS
+	/** Account related */
+	UID,
+	/** IP related */
+	IP,
+	/** Account and IP related */
+	UID_AND_IP
 }
