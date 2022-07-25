@@ -12,8 +12,8 @@ public class LeftQuotaParams extends Params {
 	String productId;
 
 	/**
-	 * @param product
-	 * @param productId
+	 * @param product   The product type.
+	 * @param productId The product id.
 	 */
 	public LeftQuotaParams(ProductType product, String productId) {
 		super(1);
