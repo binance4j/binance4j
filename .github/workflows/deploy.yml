@@ -910,6 +910,9 @@ jobs:
             cache-dependency-path: "./binance4j-documentation/yarn.lock"
 
         # ARTIFACTS INSTALLATIONS
+
+        - name: Install binance4j-core
+          run: ${{ env.CORE_INSTALLATION }}
         
         - name: Install binance4j-blvt
           run: ${{ env.BLVT_INSTALLATION }}
@@ -919,9 +922,6 @@ jobs:
         
         - name: Install binance4j-convert
           run: ${{ env.CONVERT_INSTALLATION }}
-
-        - name: Install binance4j-core
-          run: ${{ env.CORE_INSTALLATION }}
 
         - name: Install binance4j-fiat
           run: ${{ env.FIAT_INSTALLATION }}
@@ -975,17 +975,17 @@ jobs:
         - name: Create doc dir
           run: "mkdir doc"
 
-        - name: Copy binance4j-blvt javadoc
-          run: "cp -R binance4j-blvt/target/apidocs doc/binance4j-blvt"
+        - name: Copy binance4j-core javadoc
+          run: "cp -R binance4j-core/target/apidocs doc/binance4j-core"
 
         - name: Copy binance4j-c2c javadoc
           run: "cp -R binance4j-c2c/target/apidocs doc/binance4j-c2c"
 
+        - name: Copy binance4j-blvt javadoc
+          run: "cp -R binance4j-blvt/target/apidocs doc/binance4j-blvt"
+
         - name: Copy binance4j-convert javadoc
           run: "cp -R binance4j-convert/target/apidocs doc/binance4j-convert"
-
-        - name: Copy binance4j-core javadoc
-          run: "cp -R binance4j-core/target/apidocs doc/binance4j-core"
 
         - name: Copy binance4j-fiat javadoc
           run: "cp -R binance4j-fiat/target/apidocs doc/binance4j-fiat"
