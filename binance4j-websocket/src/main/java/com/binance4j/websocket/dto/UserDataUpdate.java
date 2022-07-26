@@ -5,19 +5,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * User data update event which can be of four types:
- * <p>
- * outboundAccountInfo; whenever there is a change in the account (e.g. balance of an asset)
- * <p>
- * {@code outboundAccountPosition}: the change in account balances caused by an event.
- * <p>
- * {@code executionReport}: whenever there is a trade or an order
- * <p>
- * {@code balanceUpdate}: the change in account balance (delta).
- * <p>
- * Deserialization could fail with UnsupportedEventException in case of unsupported eventType.
+ * User data update event:
+ * <ul>
+ * <li>{@code outboundAccountPosition}: the change in account balances caused by an event.</li>
+ * <li>{@code executionReport}: whenever there is a trade or an order.</li>
+ * <li>{@code balanceUpdate}: the change in account balance (delta).</li>
+ * </ul>
+ * Deserialization could fail with {@UnsupportedEventException in case of unsupported eventType.
+ * 
+ * @param eventType                          The event type.
+ * @param eventTime                          The timestamp.
+ * @param outboundAccountPositionUpdateEvent The account update.
+ * @param balanceUpdateEvent                 The balance update.
+ * @param orderTradeUpdateEvent              The order trade update.
  */
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
 public record UserDataUpdate(

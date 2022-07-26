@@ -6,18 +6,29 @@ import com.binance4j.core.dto.OrderBookEntry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** The symbol order book */
+/**
+ * The symbol order book.
+ * 
+ * @param eventType     The event type.
+ * @param eventTime     The timestamp.
+ * @param symbol        The trading pair.
+ * @param firstUpdateId First update id.
+ * @param finalUpdateId Last update id.
+ * @param bids          The offers.
+ * @param asks          The demands.
+ */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record Depth(/** The event type. */
-@JsonProperty("e") String eventType,
+public record Depth(
+		/** The event type. */
+		@JsonProperty("e") String eventType,
 		/** The timestamp. */
 		@JsonProperty("E") Long eventTime,
 		/** The trading pair. */
 		@JsonProperty("s") String symbol,
-		/** first update id. */
+		/** First update id. */
 		@JsonProperty("U") Long firstUpdateId,
-		/** last update id. */
+		/** Last update id. */
 		@JsonProperty("u") Long finalUpdateId,
 		/** The offers. */
 		@JsonProperty("b") List<OrderBookEntry> bids,

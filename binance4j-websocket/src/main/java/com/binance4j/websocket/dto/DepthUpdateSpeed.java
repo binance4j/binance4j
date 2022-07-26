@@ -12,10 +12,10 @@ public enum DepthUpdateSpeed {
 	final String value;
 
 	/**
-	 * @param calue
+	 * @param value the value
 	 */
-	private DepthUpdateSpeed(String calue) {
-		this.value = calue;
+	private DepthUpdateSpeed(String value) {
+		this.value = value;
 	}
 
 	@Override

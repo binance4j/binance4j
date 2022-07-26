@@ -5,10 +5,37 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** Pair ticker */
+/**
+ * Pair ticker.
+ * 
+ * @param eventType                   The event type.
+ * @param eventTime                   The timestamp.
+ * @param symbol                      The trading pair.
+ * @param priceChange                 The price change.
+ * @param priceChangePercent          The price change percent.
+ * @param weightedAveragePrice        The weighted average price.
+ * @param previousDaysClosePrice      The previous days close price.
+ * @param currentDaysClosePrice       The current days close price.
+ * @param closeTradesQuantity         Last quantity.
+ * @param bestBidPrice                Best bid price.
+ * @param bestBidQuantity             Best bid quantity.
+ * @param bestAskPrice                Best ask price.
+ * @param bestAskQuantity             Best ask quantity.
+ * @param openPrice                   The open price.
+ * @param highPrice                   The highest price.
+ * @param lowPrice                    The lowest price.
+ * @param totalTradedBaseAssetVolume  Total traded base asset volume.
+ * @param totalTradedQuoteAssetVolume Total traded quote asset volume.
+ * @param statisticsOpenTime          Statistics open time.
+ * @param statisticsCloseTime         Statistics close time.
+ * @param firstTradeId                First trade ID.
+ * @param lastTradeId                 Last trade Id.
+ * @param totalNumberOfTrades         Total number of trades.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record Ticker(/** The event type. */
-@JsonProperty("e") String eventType,
+public record Ticker(
+		/** The event type. */
+		@JsonProperty("e") String eventType,
 		/** The timestamp. */
 		@JsonProperty("E") Long eventTime,
 		/** The trading pair. */
@@ -17,7 +44,7 @@ public record Ticker(/** The event type. */
 		@JsonProperty("p") BigDecimal priceChange,
 		/** The price change percent. */
 		@JsonProperty("P") BigDecimal priceChangePercent,
-		/** The waighted average price. */
+		/** The weighted average price. */
 		@JsonProperty("w") BigDecimal weightedAveragePrice,
 		/** The previous days close price. */
 		@JsonProperty("x") BigDecimal previousDaysClosePrice,
@@ -50,6 +77,7 @@ public record Ticker(/** The event type. */
 		/** First trade ID. */
 		@JsonProperty("F") Long firstTradeId,
 		/** Last trade Id. */
-		@JsonProperty("L") Long lastTradeId, /** Total number of trades. */
+		@JsonProperty("L") Long lastTradeId,
+		/** Total number of trades. */
 		@JsonProperty("n") Long totalNumberOfTrades) {
 }

@@ -5,7 +5,13 @@ import java.util.List;
 import com.binance4j.core.dto.OrderBookEntry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/** Top bids and asks */
+/**
+ * Top bids and asks.
+ * 
+ * @param lastUpdateId The last update id.
+ * @param bids         Bids.
+ * @param asks         Asks.
+ */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MiniDepth(

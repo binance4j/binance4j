@@ -59,11 +59,11 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 		this.payloadClass = payloadClass;
 		this.callback = callback;
 		interceptorCallback = new WebsocketInterceptorCallback<>(this, callback);
-		channel = generateChannel(symbols, stream);
 		listener = new ApiWebSocketListener<>(interceptorCallback, payloadClass);
 		configuration = new WebsocketClientConfiguration();
 		forceClosingHandler = new WebsocketForceClosingHandler(this, interceptorCallback);
 		closeClientHandler = new WebsocketCloseClientHandler(this, interceptorCallback);
+		generateChannel(true);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 * @param listener The websocket listener.
 	 * @return The websocket to communicate with the API.
 	 */
-	private WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
+	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
 		String streamingUrl = String.format("%s/%s", configuration.getBaseUrl(), channel);
 		Request request = new Request.Builder().url(streamingUrl).build();
 
@@ -110,15 +110,16 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 
 	/**
 	 * Generates the channel the Websocket will connect to
-	 *
-	 * @param symbols The symbols we want the market data seperated by a coma.
-	 * @param stream  The stream endpoint.
-	 * @return The stream channel.
+	 * 
+	 * @param symbolToLowerCase Are the symbols in lower case?
 	 */
-	private String generateChannel(String symbols, String stream) {
-		return symbols == null ? stream
-				: Arrays.stream(symbols.toLowerCase().split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream))
-						.collect(Collectors.joining("/"));
+	protected void generateChannel(boolean symbolToLowerCase) {
+		if (symbols == null) {
+			channel = stream;
+		} else {
+			symbols = symbolToLowerCase ? symbols.toLowerCase() : symbols.toUpperCase();
+			channel = Arrays.stream(symbols.split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream)).collect(Collectors.joining("/"));
+		}
 	}
 
 	/**

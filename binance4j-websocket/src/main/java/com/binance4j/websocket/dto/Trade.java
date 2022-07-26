@@ -5,10 +5,24 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** Pair trade data */
+/**
+ * Pair trade data.
+ * 
+ * @param eventType          The event type.
+ * @param eventTime          The timestamp.
+ * @param symbol             The trading pair.
+ * @param tradeId            The trade id.
+ * @param price              The price.
+ * @param quantity           The price.
+ * @param buyerOrderId       The buyer order id.
+ * @param sellerOrderId      The seller order id.
+ * @param tradeTime          The timestamp.
+ * @param buyerIsMarketMaker Is the buyer the market maker?
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record Trade(/** The event type. */
-@JsonProperty("e") String eventType,
+public record Trade(
+		/** The event type. */
+		@JsonProperty("e") String eventType,
 		/** The timestamp. */
 		@JsonProperty("E") Long eventTime,
 		/** The trading pair. */

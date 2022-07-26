@@ -9,7 +9,28 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-/** Kline/candle for a symbol. */
+/**
+ * Kline/candle for a symbol.
+ * 
+ * @param openTime                 The candlestick open timestamp in milliseconds
+ * @param open                     The Open value
+ * @param high                     The High value
+ * @param low                      The Low value
+ * @param close                    The Close value
+ * @param volume                   The traded volume in the interval
+ * @param closeTime                The candlestick close timestamp in milliseconds
+ * @param quoteAssetVolume         The quote asset traded volume
+ * @param numberOfTrades           The number of trades
+ * @param takerBuyBaseAssetVolume  Taker buy base asset volume
+ * @param takerBuyQuoteAssetVolume Taker buy quote asset volume
+ * @param eventType                The event type.
+ * @param eventTime                The timestamp in ms.
+ * @param symbol                   The trading pair.
+ * @param intervalId               The interval id.
+ * @param firstTradeId             The first trade id.
+ * @param lastTradeId              The last trade id.
+ * @param isBarFinal               Is it the last bar of the interval?
+ */
 @JsonFormat(shape = Shape.OBJECT)
 @JsonDeserialize(using = CandlestickEventDeserializer.class)
 @JsonSerialize(using = CandlestickEventSerializer.class)
@@ -48,6 +69,6 @@ public record Candle(
 		Long firstTradeId,
 		/** The last trade id. */
 		Long lastTradeId,
-		/** is it the last bar of the interval? */
+		/** Is it the last bar of the interval? */
 		Boolean isBarFinal) {
 }

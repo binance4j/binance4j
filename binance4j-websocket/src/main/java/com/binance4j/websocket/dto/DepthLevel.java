@@ -13,7 +13,7 @@ public enum DepthLevel {
 	final String value;
 
 	/**
-	 * @param value
+	 * @param value The value
 	 */
 	private DepthLevel(String value) {
 		this.value = value;
