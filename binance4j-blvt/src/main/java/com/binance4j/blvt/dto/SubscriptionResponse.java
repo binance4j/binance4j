@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param status    Subscription status. S("success"), P("pending"), and F("failure").
  * @param tokenName Token name.
  * @param amount    Subscribed token amount.
- * @param amount    Subscription cost in usdt.
  * @param timestamp Timestamp in ms.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
