@@ -16,19 +16,18 @@ import com.binance4j.wallet.param.WithdrawHistoryParams;
 class GetWithdrawHistoryTest extends WalletTest {
 
 	// withdrawOrderId may be absent from the withdraw
-	@Override
 	public void test(Object bean) {
 		assertTrue(getNullProperties(bean).stream().filter(prop -> !prop.contains("withdrawOrderId")).collect(Collectors.toList()).isEmpty());
 	}
 
 	@Test
 	void testGetWithdrawHistory() throws ApiException {
-		test(client.getWithdrawHistory());
+		testNoNulls(client.getWithdrawHistory());
 	}
 
 	@Test
 	void testGetWithdrawHistoryWithAsset() throws ApiException {
-		test(client.getWithdrawHistory(new WithdrawHistoryParams(asset)));
+		testNoNulls(client.getWithdrawHistory(new WithdrawHistoryParams(asset)));
 	}
 
 	@Test

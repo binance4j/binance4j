@@ -8,6 +8,6 @@ import com.binance4j.margin.param.InterestHistoryParams;
 public class GetInterestHistoryTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getInterestHistory(new InterestHistoryParams(asset)));
+		testNoNulls(client.getInterestHistory(new InterestHistoryParams(asset)));
 	}
 }

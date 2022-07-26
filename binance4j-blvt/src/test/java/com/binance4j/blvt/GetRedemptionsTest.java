@@ -8,6 +8,6 @@ public class GetRedemptionsTest extends BLVTTest {
 
 	@Test
 	public void test1() throws ApiException {
-		test(client.getRedemptions());
+		testNoNulls(client.getRedemptions());
 	}
 }

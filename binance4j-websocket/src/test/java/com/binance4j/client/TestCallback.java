@@ -25,14 +25,14 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	}
 
 	public void onMessage(Object response) {
-		test(response);
+		testNoNulls(response);
 		if (websocketClient != null) {
 			websocketClient.close();
 		}
 	}
 
 	public void onOpen(Response response) {
-		test(response);
+		testNoNulls(response);
 	}
 
 	public void onFailure(ApiException exception) {
@@ -41,11 +41,11 @@ public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallba
 	}
 
 	public void onClosing(WebsocketCloseObject websocketCloseObject) {
-		test(websocketCloseObject);
+		testNoNulls(websocketCloseObject);
 	}
 
 	public void onClosed(WebsocketCloseObject websocketCloseObject) {
-		test(websocketCloseObject);
+		testNoNulls(websocketCloseObject);
 		future.complete(null);
 	}
 

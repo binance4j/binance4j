@@ -6,6 +6,6 @@ public class GetOpenOCOTest extends MarginTest {
 	// TODO make OCO
 	// @Test
 	void test1() throws ApiException {
-		test(client.getOpenOCO());
+		testNoNulls(client.getOpenOCO());
 	}
 }

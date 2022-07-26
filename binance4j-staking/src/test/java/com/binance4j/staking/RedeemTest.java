@@ -8,6 +8,6 @@ public class RedeemTest extends StakingTest {
 
 	// TODO @Test
 	void testRedeem() throws ApiException {
-		test(client.redeem(new RedeemParams(ProductType.STAKING, "productId")));
+		testNoNulls(client.redeem(new RedeemParams(ProductType.STAKING, "productId")));
 	}
 }

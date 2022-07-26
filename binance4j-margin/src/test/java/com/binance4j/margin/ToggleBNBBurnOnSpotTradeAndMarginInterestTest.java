@@ -10,10 +10,9 @@ import com.binance4j.margin.param.ToggleBurnParams;
 
 public class ToggleBNBBurnOnSpotTradeAndMarginInterestTest extends MarginTest {
 
-	@Override
 	public void test(Request<?> executor) throws ApiException {
 		try {
-			test(executor.execute());
+			testNoNulls(executor.execute());
 		} catch (ApiException e) {
 			assertNotNull(e.getMessage());
 		}

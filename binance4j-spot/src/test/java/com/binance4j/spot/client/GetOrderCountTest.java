@@ -7,6 +7,6 @@ import com.binance4j.core.exception.ApiException;
 public class GetOrderCountTest extends SpotTest {
 	@Test
 	public void testGetOrderCount() throws ApiException {
-		test(client.getOrderCount());
+		testNoNulls(client.getOrderCount());
 	}
 }

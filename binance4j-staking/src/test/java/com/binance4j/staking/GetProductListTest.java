@@ -10,16 +10,16 @@ public class GetProductListTest extends StakingTest {
 
 	@Test
 	void testGetStakingList() throws ApiException {
-		test(client.getProductList(new ProductListParams(ProductType.STAKING)));
+		testNoNulls(client.getProductList(new ProductListParams(ProductType.STAKING)));
 	}
 
 	@Test
 	void testGetFlexibleDeFiList() throws ApiException {
-		test(client.getProductList(new ProductListParams(ProductType.F_DEFI)));
+		testNoNulls(client.getProductList(new ProductListParams(ProductType.F_DEFI)));
 	}
 
 	@Test
 	void testGetLockedDeFiList() throws ApiException {
-		test(client.getProductList(new ProductListParams(ProductType.L_DEFI)));
+		testNoNulls(client.getProductList(new ProductListParams(ProductType.L_DEFI)));
 	}
 }

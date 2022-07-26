@@ -18,7 +18,7 @@ class GetHistoricalTradesTest extends MarketTest {
 		HistoricalTradesParams params = new HistoricalTradesParams(symbol);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
 
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
@@ -27,7 +27,7 @@ class GetHistoricalTradesTest extends MarketTest {
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
 		assertEquals(history.size(), limit);
 
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
@@ -37,7 +37,7 @@ class GetHistoricalTradesTest extends MarketTest {
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
 
 		history.forEach(h -> assertTrue(h.id() >= fromId));
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
@@ -49,6 +49,6 @@ class GetHistoricalTradesTest extends MarketTest {
 		history.forEach(h -> assertTrue(h.id() >= fromId));
 		assertEquals(history.size(), limit);
 
-		test(history);
+		testNoNulls(history);
 	}
 }

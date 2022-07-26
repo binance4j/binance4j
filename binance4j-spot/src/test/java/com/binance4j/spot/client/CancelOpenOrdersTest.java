@@ -7,6 +7,6 @@ public class CancelOpenOrdersTest extends SpotTest {
 
 	// @Test
 	public void testCancelOpenOrdersTest() throws ApiException {
-		test((client.cancelOpenOrders(new CancelOpenOrdersParams("GMTBUSD")).execute()));
+		testNoNulls((client.cancelOpenOrders(new CancelOpenOrdersParams("GMTBUSD")).execute()));
 	}
 }

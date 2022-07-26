@@ -8,11 +8,11 @@ import com.binance4j.margin.param.TransferHistoryParams;
 public class GetTransferHistoryTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getTransferHistory(new TransferHistoryParams()));
+		testNoNulls(client.getTransferHistory(new TransferHistoryParams()));
 	}
 
 	@Test
 	void test2() throws ApiException {
-		test(client.getTransferHistory());
+		testNoNulls(client.getTransferHistory());
 	}
 }

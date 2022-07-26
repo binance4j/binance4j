@@ -27,6 +27,6 @@ public class GetAggTradesTest extends SpotTest {
 
 	@Test
 	void testgetAggTrades() throws ApiException {
-		test(client.getAggTrades(symbol, year, month, day));
+		testNoNulls(client.getAggTrades(symbol, year, month, day));
 	}
 }

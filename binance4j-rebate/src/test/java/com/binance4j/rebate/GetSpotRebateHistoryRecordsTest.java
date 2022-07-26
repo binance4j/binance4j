@@ -1,7 +1,5 @@
 package com.binance4j.rebate;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -11,18 +9,13 @@ import com.binance4j.rebate.param.SpotRebateHistoryParams;
 
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
-	@Override
-	public void test(Object bean) {
-		assertTrue(getNullProperties(bean).containsAll(List.of("data.data")));
-	}
-
 	@Test
 	void testWithoutPage() throws ApiException {
-		test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()));
+		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()), List.of("data.data"), true);
 	}
 
 	@Test
 	void testWithPage() throws ApiException {
-		test(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)));
+		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)), List.of("data.data"), true);
 	}
 }

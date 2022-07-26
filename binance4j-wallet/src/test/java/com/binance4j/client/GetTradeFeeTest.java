@@ -9,11 +9,11 @@ class GetTradeFeeTest extends WalletTest {
 
 	@Test
 	void testGetTradeFeeOfAll() throws ApiException {
-		test(client.getTradeFee());
+		testNoNulls(client.getTradeFee());
 	}
 
 	@Test
 	void testGetTradeFeeOfOne() throws ApiException {
-		test(client.getTradeFee(new TradeFeeParams("BNBBTC")));
+		testNoNulls(client.getTradeFee(new TradeFeeParams("BNBBTC")));
 	}
 }

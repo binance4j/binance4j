@@ -10,6 +10,6 @@ public class GetLeftQuotaTest extends StakingTest {
 
 	@Test
 	void test1() throws ApiException {
-		test(client.getLeftQuota(new LeftQuotaParams(ProductType.STAKING, productId)));
+		testNoNulls(client.getLeftQuota(new LeftQuotaParams(ProductType.STAKING, productId)));
 	}
 }

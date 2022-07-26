@@ -8,6 +8,6 @@ public class GetTradesTest extends PayTest {
 
 	@Test
 	void test1() throws ApiException {
-		test(client.getTrades());
+		testNoNulls(client.getTrades());
 	}
 }

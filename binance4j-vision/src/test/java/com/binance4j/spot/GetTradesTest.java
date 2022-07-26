@@ -27,6 +27,6 @@ public class GetTradesTest extends SpotTest {
 
 	@Test
 	void testGetTrades() throws ApiException {
-		test(client.getTrades(symbol, year, month, day));
+		testNoNulls(client.getTrades(symbol, year, month, day));
 	}
 }

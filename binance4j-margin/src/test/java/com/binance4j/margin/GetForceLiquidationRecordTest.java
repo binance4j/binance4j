@@ -8,6 +8,6 @@ import com.binance4j.margin.param.ForceLiquidationRecordParams;
 public class GetForceLiquidationRecordTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getForceLiquidationRecord(new ForceLiquidationRecordParams()));
+		testNoNulls(client.getForceLiquidationRecord(new ForceLiquidationRecordParams()));
 	}
 }

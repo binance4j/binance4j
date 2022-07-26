@@ -8,7 +8,7 @@ class GetApiPermissionsTest extends WalletTest {
 
 	@Test
 	void testGetApiPermissions() throws ApiException {
-		test(client.getApiPermissions());
+		testNoNulls(client.getApiPermissions());
 		// can be null if not configured to expire
 		// assertNotNull(permissions.getTradingAuthorityExpirationTime());
 	}

@@ -14,14 +14,14 @@ public class GetDepositsTest extends NFTTest {
 	void test1() throws ApiException {
 		DepositHistoryParams params = new DepositHistoryParams();
 		DepositHistory history = client.getDeposits(params).execute();
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
 	void test2() throws ApiException {
 		DepositHistoryParams params = new DepositHistoryParams(limit, page);
 		DepositHistory history = client.getDeposits(params).execute();
-		test(history);
+		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}
 }

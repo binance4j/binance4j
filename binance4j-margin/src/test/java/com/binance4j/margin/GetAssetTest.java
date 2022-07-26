@@ -8,6 +8,6 @@ import com.binance4j.margin.param.AssetParams;
 public class GetAssetTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getAsset(new AssetParams(asset)));
+		testNoNulls(client.getAsset(new AssetParams(asset)));
 	}
 }

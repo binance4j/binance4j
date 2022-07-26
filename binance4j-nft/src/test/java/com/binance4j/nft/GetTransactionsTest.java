@@ -21,7 +21,7 @@ public class GetTransactionsTest extends NFTTest {
 			TransactionHistory history;
 			try {
 				history = client.getTransactions(params).execute();
-				test(history);
+				testNoNulls(history);
 			} catch (ApiException e) {
 				fail();
 			}
@@ -32,7 +32,7 @@ public class GetTransactionsTest extends NFTTest {
 	void testLimitAndPage() throws ApiException {
 		TransactionHistoryParams params = new TransactionHistoryParams(OrderType.SELL_ORDER, limit, page);
 		TransactionHistory history = client.getTransactions(params).execute();
-		test(history);
+		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}
 }

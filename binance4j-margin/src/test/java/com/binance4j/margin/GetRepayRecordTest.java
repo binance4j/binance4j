@@ -7,6 +7,6 @@ public class GetRepayRecordTest extends MarginTest {
 	// TODO borrow and repay
 	// @Test
 	void test1() throws ApiException {
-		test(client.getRepayRecord(new RepayRecordParams(asset)));
+		testNoNulls(client.getRepayRecord(new RepayRecordParams(asset)));
 	}
 }

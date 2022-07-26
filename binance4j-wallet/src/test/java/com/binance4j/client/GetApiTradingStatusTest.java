@@ -8,6 +8,6 @@ public class GetApiTradingStatusTest extends WalletTest {
 
 	@Test
 	void testGetApiTradingStatusOfAll() throws ApiException {
-		test(client.getApiTradingStatus());
+		testNoNulls(client.getApiTradingStatus());
 	}
 }

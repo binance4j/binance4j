@@ -8,6 +8,6 @@ import com.binance4j.margin.param.PairParams;
 public class GetCrossMarginPairTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getCrossMarginPair(new PairParams(symbol)));
+		testNoNulls(client.getCrossMarginPair(new PairParams(symbol)));
 	}
 }

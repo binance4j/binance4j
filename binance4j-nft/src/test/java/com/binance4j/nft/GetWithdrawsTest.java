@@ -14,14 +14,14 @@ public class GetWithdrawsTest extends NFTTest {
 	void testRequest() throws ApiException {
 		WithdrawParams params = new WithdrawParams();
 		WithdrawHistory history = client.getWithdraws(params).execute();
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
 	void testLimitAndPage() throws ApiException {
 		WithdrawParams params = new WithdrawParams(limit, page);
 		WithdrawHistory history = client.getWithdraws(params).execute();
-		test(history);
+		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}
 }

@@ -10,21 +10,21 @@ class GetTransferHistoryTest extends WalletTest {
 
 	// @Test
 	void testGetTransferHistoryWithTransferType() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
+		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
 	}
 
 	// @Test
 	void testGetTransferHistoryWithFromAndToSymbols() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)));
+		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)));
 	}
 
 	// @Test
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit)));
+		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit)));
 	}
 
 	// @Test
 	void testGetTransferHistoryWithFromAndToSymbolsAndLimitAndOffset() throws ApiException {
-		test(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1)));
+		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1)));
 	}
 }

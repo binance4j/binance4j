@@ -9,6 +9,6 @@ public class GetAllOrdersTest extends SpotTest {
 
 	@Test
 	public void testGetAllOrders() throws ApiException {
-		test(client.getAllOrders(new AllOrdersParams("APEBUSD")));
+		testNoNulls(client.getAllOrders(new AllOrdersParams("APEBUSD")));
 	}
 }

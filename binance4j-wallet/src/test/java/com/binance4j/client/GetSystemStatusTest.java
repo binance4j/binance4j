@@ -8,6 +8,6 @@ class GetSystemStatusTest extends WalletTest {
 
 	@Test
 	void testGetSystemStatus() throws ApiException {
-		test(client.getSystemStatus());
+		testNoNulls(client.getSystemStatus());
 	}
 }

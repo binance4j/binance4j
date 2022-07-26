@@ -8,6 +8,6 @@ public class GetSubscriptionsTest extends BLVTTest {
 
 	@Test
 	public void test1() throws ApiException {
-		test(client.getSubscriptions());
+		testNoNulls(client.getSubscriptions());
 	}
 }

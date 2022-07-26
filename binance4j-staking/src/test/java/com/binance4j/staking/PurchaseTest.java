@@ -10,6 +10,6 @@ public class PurchaseTest extends StakingTest {
 
 	// TODO @Test
 	void testPurchase() throws ApiException {
-		test(client.purchase(new PurchaseParams(ProductType.STAKING, "productId", new BigDecimal("amount"))));
+		testNoNulls(client.purchase(new PurchaseParams(ProductType.STAKING, "productId", new BigDecimal("amount"))));
 	}
 }

@@ -8,6 +8,6 @@ import com.binance4j.margin.param.PairParams;
 public class GetIsolatedSymbolTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getIsolatedSymbol(new PairParams(symbol)));
+		testNoNulls(client.getIsolatedSymbol(new PairParams(symbol)));
 	}
 }

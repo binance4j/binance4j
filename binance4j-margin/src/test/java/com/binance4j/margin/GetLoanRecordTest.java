@@ -8,6 +8,6 @@ public class GetLoanRecordTest extends MarginTest {
 	// TODO borrow
 	// @Test
 	void test1() throws ApiException {
-		test(client.getLoanRecord(new LoanRecordParams(asset)));
+		testNoNulls(client.getLoanRecord(new LoanRecordParams(asset)));
 	}
 }

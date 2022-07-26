@@ -8,6 +8,6 @@ public class GetAccountTest extends SpotTest {
 
 	@Test
 	public void testGetAccount() throws ApiException {
-		test(client.getAccount());
+		testNoNulls(client.getAccount());
 	}
 }

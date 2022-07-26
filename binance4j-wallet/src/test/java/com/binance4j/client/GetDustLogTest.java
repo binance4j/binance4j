@@ -9,6 +9,6 @@ class GetDustLogTest extends WalletTest {
 
 	@Test
 	void testGetDustLog() throws ApiException {
-		test(client.getDustLog(new DustLogParams()));
+		testNoNulls(client.getDustLog(new DustLogParams()));
 	}
 }

@@ -9,7 +9,7 @@ public class GetAccountInfosTest extends PortfolioMarginTest {
 	@Test
 	void test1() {
 		try {
-			test(client.getAccountInfo().execute());
+			testNoNulls(client.getAccountInfo().execute());
 		} catch (ApiException e) {
 
 		}

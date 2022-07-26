@@ -8,6 +8,6 @@ import com.binance4j.margin.param.MaxTransferableParams;
 public class GetMaxTransferableTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getMaxTransferable(new MaxTransferableParams(asset)));
+		testNoNulls(client.getMaxTransferable(new MaxTransferableParams(asset)));
 	}
 }

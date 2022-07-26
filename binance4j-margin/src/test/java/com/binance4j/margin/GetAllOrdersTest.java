@@ -9,6 +9,6 @@ public class GetAllOrdersTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
 		AllOrdersParams params = new AllOrdersParams(symbol);
-		test(client.getAllOrders(params));
+		testNoNulls(client.getAllOrders(params));
 	}
 }

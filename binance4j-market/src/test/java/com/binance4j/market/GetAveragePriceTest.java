@@ -12,6 +12,6 @@ class GetAveragePriceTest extends MarketTest {
 	void testGetAveragePrice() throws ApiException {
 		AveragePriceParams params = new AveragePriceParams(symbol);
 		AveragePrice res = client.getAveragePrice(params).execute();
-		test(res);
+		testNoNulls(res);
 	}
 }

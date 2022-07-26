@@ -8,6 +8,6 @@ public class GetConvertibleAssetsTest extends WalletTest {
 
 	@Test
 	void testGetConvertibleAssets() throws ApiException {
-		test(client.getConvertibleAssets());
+		testNoNulls(client.getConvertibleAssets());
 	}
 }

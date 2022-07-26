@@ -6,6 +6,6 @@ public class GetMyTradesTest extends MarginTest {
 	// TODO make orders
 	// @Test
 	void test1() throws ApiException {
-		test(client.getMyTrades());
+		testNoNulls(client.getMyTrades());
 	}
 }

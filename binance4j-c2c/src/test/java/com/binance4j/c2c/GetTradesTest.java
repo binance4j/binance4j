@@ -10,11 +10,11 @@ public class GetTradesTest extends C2CTest {
 
 	@Test
 	void testGetPurchases() throws ApiException {
-		test(client.getTrades(new TradeHistoryParams(TradeType.BUY)));
+		testNoNulls(client.getTrades(new TradeHistoryParams(TradeType.BUY)));
 	}
 
 	@Test
 	void testGetSales() throws ApiException {
-		test(client.getTrades(new TradeHistoryParams(TradeType.SELL)));
+		testNoNulls(client.getTrades(new TradeHistoryParams(TradeType.SELL)));
 	}
 }

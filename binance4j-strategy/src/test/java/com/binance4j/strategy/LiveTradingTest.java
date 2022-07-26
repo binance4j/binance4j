@@ -31,12 +31,12 @@ class LiveTradingTest extends CustomTest<Void> {
 		callback = new StrategyCallback();
 
 		callback.onClosed(t -> {
-			test(t);
+			testNoNulls(t);
 			future.complete(true);
 		});
 
 		callback.onFailure(t -> {
-			test(t);
+			testNoNulls(t);
 			future.complete(true);
 		});
 
@@ -55,7 +55,7 @@ class LiveTradingTest extends CustomTest<Void> {
 		});
 
 		callback.onMessage(t -> {
-			test(t);
+			testNoNulls(t);
 		});
 	}
 

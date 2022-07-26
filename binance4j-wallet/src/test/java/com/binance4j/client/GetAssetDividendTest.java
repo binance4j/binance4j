@@ -15,7 +15,7 @@ class GetAssetDividendTest extends WalletTest {
 		AssetDividendRecord record = client.getAssetDividendRecord().execute();
 
 		assertNotNull(record.total());
-		test(record);
+		testNoNulls(record);
 	}
 
 	@Test
@@ -24,7 +24,7 @@ class GetAssetDividendTest extends WalletTest {
 		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
 
 		assertNotNull(record.total());
-		test(record);
+		testNoNulls(record);
 	}
 
 	@Test
@@ -33,6 +33,6 @@ class GetAssetDividendTest extends WalletTest {
 		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
 
 		assertTrue(record.total() <= limit);
-		test(record);
+		testNoNulls(record);
 	}
 }

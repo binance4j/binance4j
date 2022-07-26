@@ -7,6 +7,6 @@ import com.binance4j.core.exception.ApiException;
 public class GetIsolatedTransferHistoryTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getIsolatedAccount());
+		testNoNulls(client.getIsolatedAccount());
 	}
 }

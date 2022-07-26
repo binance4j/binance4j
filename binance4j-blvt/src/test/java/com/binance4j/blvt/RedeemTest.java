@@ -9,6 +9,6 @@ public class RedeemTest extends BLVTTest {
 
 	// @Test
 	public void test1() throws ApiException {
-		test(client.redeem(new RedemptionParams("1INCHDOWN", new BigDecimal("1"))));
+		testNoNulls(client.redeem(new RedemptionParams("1INCHDOWN", new BigDecimal("1"))));
 	}
 }

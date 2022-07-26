@@ -16,33 +16,33 @@ class GetDepositHistoryTest extends WalletTest {
 
 	@Test
 	void testGetDepositHistory() throws ApiException {
-		test(client.getDepositHistory());
+		testNoNulls(client.getDepositHistory());
 	}
 
 	@Test
 	void testGetDepositHistoryOfGivenCoin() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryParams(asset)));
+		testNoNulls(client.getDepositHistory(new DepositHistoryParams(asset)));
 	}
 
 	@Test
 	void testGetDepositHistoryOfGivenStatus() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS)));
+		testNoNulls(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS)));
 	}
 
 	@Test
 	void testGetDepositHistoryOfGivenAssetAndStatus() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS)));
+		testNoNulls(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS)));
 	}
 
 	@Test
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimit() throws ApiException {
-		test(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit)));
+		testNoNulls(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit)));
 	}
 
 	@Test
 	void testGetDepositHistoryOfGivenAssetAndStatusAndLimitAndOffset() throws ApiException {
 		List<DepositHistory> history = client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS, limit, 0)).execute();
-		test(history);
+		testNoNulls(history);
 
 		assertTrue(history.size() <= limit);
 		history.forEach(h -> {

@@ -10,7 +10,6 @@ import com.binance4j.staking.param.PositionParams;
 
 public class GetProductPositionTest extends StakingTest {
 
-	@Override
 	public void test(Object bean) {
 		System.out.println(bean);
 		var nulls = getNullProperties(bean);

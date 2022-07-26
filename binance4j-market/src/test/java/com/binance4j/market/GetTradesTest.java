@@ -16,7 +16,7 @@ class GetTradesTest extends MarketTest {
 	void test1() throws ApiException {
 		TradesParams params = new TradesParams(symbol);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
@@ -24,6 +24,6 @@ class GetTradesTest extends MarketTest {
 		TradesParams params = new TradesParams(symbol, limit);
 		List<TradeHistoryItem> history = client.getTrades(params).execute();
 		assertEquals(limit, history.size());
-		test(history);
+		testNoNulls(history);
 	}
 }

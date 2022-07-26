@@ -14,14 +14,14 @@ class GetFuturesAccountSnapshotTest extends WalletTest {
 	@Test
 	void testGetFuturesAccountSnapshot() throws ApiException {
 		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot().execute();
-		test(snapshot);
+		testNoNulls(snapshot);
 		assertNotEquals(0, snapshot.code());
 	}
 
 	@Test
 	void testGetFuturesAccountSnapshotWithLimit() throws ApiException {
 		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new AccountSnapshotParams(limit)).execute();
-		test(snapshot);
+		testNoNulls(snapshot);
 		assertTrue(snapshot.snapshotVos().size() <= limit);
 		assertNotEquals(0, snapshot.code());
 	}

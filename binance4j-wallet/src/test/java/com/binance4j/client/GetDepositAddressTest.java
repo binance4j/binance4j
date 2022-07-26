@@ -8,12 +8,12 @@ class GetDepositAddressTest extends WalletTest {
 	// Test fails on Github Actions (USA restriction?)
 	// @Test
 	void testGetDepositAddress() throws ApiException {
-		test(client.getDepositAddress(new DepositAddressParams("BNB")));
+		testNoNulls(client.getDepositAddress(new DepositAddressParams("BNB")));
 	}
 
 	// Test fails on Github Actions (USA restriction?)
 	// @Test
 	void testGetDepositAddressWithNetwork() throws ApiException {
-		test(client.getDepositAddress(new DepositAddressParams("BNB", "BNB")));
+		testNoNulls(client.getDepositAddress(new DepositAddressParams("BNB", "BNB")));
 	}
 }

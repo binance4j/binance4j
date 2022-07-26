@@ -19,7 +19,7 @@ public class NewOCOTest extends SpotTest {
 		try {
 			NewOCOOrderParams params = new NewOCOOrderParams("BTCBUSD", OrderSide.BUY, new BigDecimal(1), new BigDecimal(50000), new BigDecimal(55000));
 			OCOResponse res = client.newOCO(params).execute();
-			test(res);
+			testNoNulls(res);
 			assertTrue(getNullProperties(res).contains("OCOResponse.isIsolated"));
 		} catch (ApiException e) {
 			fail();

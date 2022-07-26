@@ -8,6 +8,6 @@ import com.binance4j.loan.param.LoanIncomeHistoryParams;
 public class GetLoansIncomeTest extends LoanTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getLoansIncome(new LoanIncomeHistoryParams(asset)));
+		testNoNulls(client.getLoansIncome(new LoanIncomeHistoryParams(asset)));
 	}
 }

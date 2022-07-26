@@ -16,7 +16,7 @@ public class GetOrderStatusTest extends SpotTest {
 		Long id = 65293729L;
 
 		OrderInfo order = client.getOrderStatus(new OrderStatusParams(symbol, id)).execute();
-		test(order);
+		testNoNulls(order);
 		assertEquals(order.symbol(), symbol);
 	}
 }

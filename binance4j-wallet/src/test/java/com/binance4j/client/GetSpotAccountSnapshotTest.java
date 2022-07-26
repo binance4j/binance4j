@@ -9,11 +9,11 @@ class GetSpotAccountSnapshotTest extends WalletTest {
 
 	@Test
 	void testGetSpotAccountSnapshot() throws ApiException {
-		test(client.getSpotAccountSnapshot());
+		testNoNulls(client.getSpotAccountSnapshot());
 	}
 
 	@Test
 	void testGetSpotAccountSnapshotWithLimit() throws ApiException {
-		test(client.getSpotAccountSnapshot(new AccountSnapshotParams(limit)));
+		testNoNulls(client.getSpotAccountSnapshot(new AccountSnapshotParams(limit)));
 	}
 }

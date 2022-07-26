@@ -23,7 +23,7 @@ import com.binance4j.vision.client.VisionSpotClient;
 class BackTestingTest extends CustomTest<Void> {
 
 	@Override
-	public void test(Object bean) {
+	public void testNoNulls(Object bean) {
 		Set<String> nulls = getNullProperties(bean, true);
 		List<String> expected = List.of("amount", "entry", "exit", "name");
 		assertEquals(expected.size(), nulls.size());
@@ -37,13 +37,13 @@ class BackTestingTest extends CustomTest<Void> {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(1));
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, series);
-		test(result);
+		testNoNulls(result);
 	}
 
 	@Test
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01");
-		test(result);
+		testNoNulls(result);
 	}
 }

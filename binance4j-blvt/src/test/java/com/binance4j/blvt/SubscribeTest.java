@@ -9,6 +9,6 @@ public class SubscribeTest extends BLVTTest {
 
 	// @Test TODO
 	public void test1() throws ApiException {
-		test(client.subscribe(new SubscriptionParams("tokenName", new BigDecimal("cost"))));
+		testNoNulls(client.subscribe(new SubscriptionParams("tokenName", new BigDecimal("cost"))));
 	}
 }

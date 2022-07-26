@@ -14,20 +14,20 @@ class GetTickerTest extends MarketTest {
 	@Test
 	void test1() throws ApiException {
 		List<PriceTicker> priceTickers = client.getTicker().execute();
-		test(priceTickers);
+		testNoNulls(priceTickers);
 	}
 
 	@Test
 	void test2() throws ApiException {
 		PriceTickerParams params = new PriceTickerParams(symbol);
 		PriceTicker priceTicker = client.getTicker(params).execute();
-		test(priceTicker);
+		testNoNulls(priceTicker);
 	}
 
 	@Test
 	void test3() throws ApiException {
 		PriceTickersParams params = new PriceTickersParams(symbols);
 		List<PriceTicker> priceTickers = client.getTicker(params).execute();
-		test(priceTickers);
+		testNoNulls(priceTickers);
 	}
 }

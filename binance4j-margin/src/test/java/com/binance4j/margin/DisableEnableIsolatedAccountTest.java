@@ -7,7 +7,7 @@ public class DisableEnableIsolatedAccountTest extends MarginTest {
 	// TODO activate isolated account
 	// @Test
 	void test1() throws ApiException {
-		test(client.disableIsolatedAccount(new ToogleAccountParams(symbol)));
-		test(client.enableIsolatedAccount(new ToogleAccountParams(symbol)));
+		testNoNulls(client.disableIsolatedAccount(new ToogleAccountParams(symbol)));
+		testNoNulls(client.enableIsolatedAccount(new ToogleAccountParams(symbol)));
 	}
 }

@@ -14,13 +14,13 @@ public class GetTransactionTest extends FiatTest {
 	void testGetDeposits() throws ApiException {
 		var params = new TransactionParams(TransactionType.DEPOSIT);
 		params.setBeginTime(System.currentTimeMillis() - Duration.ofDays(365).toMillis());
-		test(client.getTransactions(params));
+		testNoNulls(client.getTransactions(params));
 	}
 
 	@Test
 	void testGetWithdraws() throws ApiException {
 		var params = new TransactionParams(TransactionType.WITHDRAW);
 		params.setBeginTime(System.currentTimeMillis() - Duration.ofDays(365).toMillis());
-		test(client.getTransactions(params));
+		testNoNulls(client.getTransactions(params));
 	}
 }

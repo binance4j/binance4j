@@ -8,6 +8,6 @@ public class GetCollateralRateTest extends PortfolioMarginTest {
 
 	@Test
 	void test1() throws ApiException {
-		test(client.getCollateralRate());
+		testNoNulls(client.getCollateralRate());
 	}
 }

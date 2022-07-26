@@ -15,7 +15,7 @@ class GetAssetDetailTest extends WalletTest {
 
 	@Test
 	void testGetAllAssetsDetails() throws ApiException {
-		test(client.getAssetDetail());
+		testNoNulls(client.getAssetDetail());
 	}
 
 	@Test
@@ -25,6 +25,6 @@ class GetAssetDetailTest extends WalletTest {
 
 		assertEquals(1, details.size());
 		assertTrue(details.containsKey(asset));
-		test(details);
+		testNoNulls(details);
 	}
 }

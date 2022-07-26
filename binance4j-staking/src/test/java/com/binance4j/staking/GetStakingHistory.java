@@ -11,7 +11,6 @@ import com.binance4j.staking.param.HistoryParams;
 
 public class GetStakingHistory extends StakingTest {
 
-	@Override
 	public void test(Object bean) {
 		var nulls = getNullProperties(bean);
 		assertTrue(nulls.contains("deliverDate") || !nulls.contains("deliverDate"));

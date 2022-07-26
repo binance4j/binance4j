@@ -28,18 +28,18 @@ public class GetChecksumTest extends SpotTest {
 	@Test
 	void testKlinesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getKlinesChecksum(symbol, interval, year, month, day).getChecksum();
-		test(checksum);
+		testNoNulls(checksum);
 	}
 
 	@Test
 	void testTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getTradesChecksum(symbol, year, month, day).getChecksum();
-		test(checksum);
+		testNoNulls(checksum);
 	}
 
 	@Test
 	void testAggTradesChecksum() throws ApiException {
 		VisionChecksum checksum = client.getAggTradesChecksum(symbol, year, month, day).getChecksum();
-		test(checksum);
+		testNoNulls(checksum);
 	}
 }

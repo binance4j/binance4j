@@ -9,11 +9,11 @@ public class GetLimitInfoTest extends BLVTTest {
 
 	@Test
 	public void test1() throws ApiException {
-		test(client.getLimitInfo());
+		testNoNulls(client.getLimitInfo());
 	}
 
 	@Test
 	public void test2() throws ApiException {
-		test(client.getLimitInfo(new LimitInfoParams("1INCHDOWN")));
+		testNoNulls(client.getLimitInfo(new LimitInfoParams("1INCHDOWN")));
 	}
 }

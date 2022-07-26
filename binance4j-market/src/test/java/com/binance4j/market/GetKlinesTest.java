@@ -22,7 +22,7 @@ class GetKlinesTest extends MarketTest {
 		for (CandlestickInterval interval : intervals) {
 			KlinesParams params = new KlinesParams(symbol, interval);
 			List<Candle> res = client.getKlines(params).execute();
-			test(res);
+			testNoNulls(res);
 		}
 	}
 
@@ -32,6 +32,6 @@ class GetKlinesTest extends MarketTest {
 		List<Candle> res = client.getKlines(params).execute();
 
 		assertEquals(limit, res.size());
-		test(res);
+		testNoNulls(res);
 	}
 }

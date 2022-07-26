@@ -26,6 +26,6 @@ public class GetKlinesTest extends SpotTest {
 
 	@Test
 	void testGetKlines() throws ApiException {
-		test(client.getKlines(symbol, interval, year, month, day).getData());
+		testNoNulls(client.getKlines(symbol, interval, year, month, day).getData());
 	}
 }

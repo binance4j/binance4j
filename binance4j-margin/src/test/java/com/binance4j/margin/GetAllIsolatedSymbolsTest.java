@@ -6,6 +6,6 @@ public class GetAllIsolatedSymbolsTest extends MarginTest {
 	// TODO see why i'm unauthorized
 	// @Test
 	void test1() throws ApiException {
-		test(client.getAllIsolatedSymbols());
+		testNoNulls(client.getAllIsolatedSymbols());
 	}
 }

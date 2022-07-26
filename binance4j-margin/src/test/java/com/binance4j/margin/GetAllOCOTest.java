@@ -7,6 +7,6 @@ public class GetAllOCOTest extends MarginTest {
 	// TODO make OCO
 	// @Test
 	void test1() throws ApiException {
-		test(client.getAllOCO(new GetAllOCOParams()));
+		testNoNulls(client.getAllOCO(new GetAllOCOParams()));
 	}
 }

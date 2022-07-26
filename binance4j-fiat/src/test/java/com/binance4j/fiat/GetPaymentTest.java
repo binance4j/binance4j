@@ -14,13 +14,13 @@ public class GetPaymentTest extends FiatTest {
 	void testGetPurchases() throws ApiException {
 		var params = new PaymentParams(PaymentType.BUY);
 		params.setBeginTime(System.currentTimeMillis() - Duration.ofDays(365).toMillis());
-		test(client.getPayments(params));
+		testNoNulls(client.getPayments(params));
 	}
 
 	@Test
 	void testGetSales() throws ApiException {
 		var params = new PaymentParams(PaymentType.SELL);
 		params.setBeginTime(System.currentTimeMillis() - Duration.ofDays(365).toMillis());
-		test(client.getPayments(params));
+		testNoNulls(client.getPayments(params));
 	}
 }

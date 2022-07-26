@@ -68,7 +68,7 @@ public class BarSeriesServiceTest extends CustomTest<VisionSpotClient> {
 			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.close());
 			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.volume());
 
-			test(bar2);
+			testNoNulls(bar2);
 		}
 	}
 }

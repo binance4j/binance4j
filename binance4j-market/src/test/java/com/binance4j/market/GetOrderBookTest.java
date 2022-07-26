@@ -14,7 +14,7 @@ class GetOrderBookTest extends MarketTest {
 	void testGetTrades() throws ApiException {
 		OrderBookParams params = new OrderBookParams(symbol);
 		OrderBook history = client.getOrderBook(params).execute();
-		test(history);
+		testNoNulls(history);
 	}
 
 	@Test
@@ -24,6 +24,6 @@ class GetOrderBookTest extends MarketTest {
 
 		assertEquals(limit, orderBook.asks().size());
 		assertEquals(limit, orderBook.bids().size());
-		test(orderBook);
+		testNoNulls(orderBook);
 	}
 }

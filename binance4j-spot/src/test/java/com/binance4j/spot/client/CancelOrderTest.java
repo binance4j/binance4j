@@ -6,6 +6,6 @@ import com.binance4j.spot.param.CancelOrderParams;
 public class CancelOrderTest extends SpotTest {
 	// @Test
 	public void testCancelOrderTest() throws ApiException {
-		test(client.cancelOrder(new CancelOrderParams("APEBUSD", 56935218L)));
+		testNoNulls(client.cancelOrder(new CancelOrderParams("APEBUSD", 56935218L)));
 	}
 }

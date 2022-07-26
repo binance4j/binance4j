@@ -17,7 +17,7 @@ class GetBookTickerTest extends MarketTest {
 	@Test
 	void test1() throws ApiException {
 		List<BookTicker> bookTickers = client.getBookTicker().execute();
-		test(bookTickers);
+		testNoNulls(bookTickers);
 	}
 
 	@Test
@@ -26,7 +26,7 @@ class GetBookTickerTest extends MarketTest {
 		BookTicker bookTicker = client.getBookTicker(params).execute();
 
 		assertEquals(bookTicker.symbol(), symbol);
-		test(bookTicker);
+		testNoNulls(bookTicker);
 	}
 
 	@Test
@@ -35,6 +35,6 @@ class GetBookTickerTest extends MarketTest {
 		List<BookTicker> bookTickers = client.getBookTicker(params).execute();
 
 		bookTickers.forEach(bt -> assertTrue(symbols.contains(bt.symbol())));
-		test(bookTickers);
+		testNoNulls(bookTickers);
 	}
 }

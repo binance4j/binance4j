@@ -6,6 +6,6 @@ public class GetOpenOrdersTest extends MarginTest {
 	// TODO make an order
 	// @Test
 	void test1() throws ApiException {
-		test(client.getOpenOrders());
+		testNoNulls(client.getOpenOrders());
 	}
 }

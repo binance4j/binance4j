@@ -8,6 +8,6 @@ public class SetAutoStakingTest extends StakingTest {
 
 	// TODO @Test
 	void testAutoStaking() throws ApiException {
-		test(client.setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
+		testNoNulls(client.setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
 	}
 }

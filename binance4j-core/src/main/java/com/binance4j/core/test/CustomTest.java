@@ -244,17 +244,9 @@ public abstract class CustomTest<T> {
 	 * 
 	 * @param bean The bean to test.
 	 */
-	public void test(Object bean) {
+	public void testNoNulls(Object bean) {
 		Set<String> nulls = getNullProperties(bean);
-
-		String text = String.format("Testing %s object...\n\n%s\n\n", bean.getClass().getSimpleName(), bean);
-		String nullText = nulls.isEmpty() ? "no null property." : "null properties:" + nulls + "\n";
-		String seperator = "\n==========\n";
-
-		text = String.format("%s\n%s", text, nullText);
-
-		System.out.println(seperator + text + seperator);
-
+		printNulls(nulls, bean);
 		assertTrue(hasNoNullProperty(bean));
 	}
 
@@ -264,8 +256,47 @@ public abstract class CustomTest<T> {
 	 * @param request The request to execute.
 	 * @throws ApiException thrown if execution failed.
 	 */
-	public void test(Request<?> request) throws ApiException {
-		test(request.execute());
+	public void testNoNulls(Request<?> request) throws ApiException {
+		testNoNulls(request.execute());
+	}
+
+	/**
+	 * Tests that the object has the expected null properties.
+	 * 
+	 * @param bean          The bean to test.
+	 * @param expectedNulls THe expected null properties.
+	 * @param flatten       Flatten the properties.
+	 */
+	public void testHasNulls(Object bean, Collection<String> expectedNulls, boolean flatten) {
+		Set<String> nulls = getNullProperties(bean, flatten);
+		printNulls(nulls, bean);
+		assertTrue(nulls.containsAll(expectedNulls));
+	}
+
+	/**
+	 * Tests that the object has the expected null properties.
+	 * 
+	 * @param request       The request to execute.
+	 * @param expectedNulls THe expected null properties.
+	 * @param flatten       Flatten the properties.
+	 * @throws ApiException thrown if execution failed.
+	 */
+	public void testHasNulls(Request<?> request, Collection<String> expectedNulls, boolean flatten) throws ApiException {
+		testHasNulls(request.execute(), expectedNulls, flatten);
+	}
+
+	/**
+	 * Prints the bean null values
+	 * 
+	 * @param nulls The null values
+	 * @param bean  The bean
+	 */
+	private void printNulls(Set<String> nulls, Object bean) {
+		String text = String.format("Testing %s object...\n\n%s\n\n", bean.getClass().getSimpleName(), bean);
+		String nullText = nulls.isEmpty() ? "no null property." : "null properties:" + nulls + "\n";
+		String seperator = "\n==========\n";
+		text = String.format("%s\n%s", text, nullText);
+		System.out.println(seperator + text + seperator);
 	}
 
 	/**

@@ -9,6 +9,6 @@ public class GetTradesTest extends SpotTest {
 
 	@Test
 	public void testGetMyTrades() throws ApiException {
-		test(client.getMyTrades(new MyTradesParams("APEBUSD")));
+		testNoNulls(client.getMyTrades(new MyTradesParams("APEBUSD")));
 	}
 }

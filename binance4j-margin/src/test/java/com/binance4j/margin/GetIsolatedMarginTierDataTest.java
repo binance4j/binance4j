@@ -8,6 +8,6 @@ import com.binance4j.margin.param.IsolatedTierDataParams;
 public class GetIsolatedMarginTierDataTest extends MarginTest {
 	@Test
 	void test1() throws ApiException {
-		test(client.getIsolatedMarginTierData(new IsolatedTierDataParams(symbol)));
+		testNoNulls(client.getIsolatedMarginTierData(new IsolatedTierDataParams(symbol)));
 	}
 }

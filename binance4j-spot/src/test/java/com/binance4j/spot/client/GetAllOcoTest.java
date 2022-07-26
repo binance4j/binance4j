@@ -8,6 +8,6 @@ public class GetAllOcoTest extends SpotTest {
 
 	@Test
 	public void testGetAllOCO() throws ApiException {
-		test(client.getAllOCO());
+		testNoNulls(client.getAllOCO());
 	}
 }
