@@ -11,11 +11,11 @@ public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
 	@Test
 	void testWithoutPage() throws ApiException {
-		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()), List.of("data.data"), true);
+		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams()), List.of("data"), true);
 	}
 
 	@Test
 	void testWithPage() throws ApiException {
-		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)), List.of("data.data"), true);
+		testHasNulls(client.getSpotRebateHistoryRecords(new SpotRebateHistoryParams(1)), List.of("data"), true);
 	}
 }
