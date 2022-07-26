@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * <li>{@code executionReport}: whenever there is a trade or an order.</li>
  * <li>{@code balanceUpdate}: the change in account balance (delta).</li>
  * </ul>
- * Deserialization could fail with {@UnsupportedEventException in case of unsupported eventType.
  * 
  * @param eventType                          The event type.
  * @param eventTime                          The timestamp.
