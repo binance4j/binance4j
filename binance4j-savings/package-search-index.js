@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.binance4j.savings.client"},{"l":"com.binance4j.savings.dto"},{"l":"com.binance4j.savings.param"}];updateSearchResults();
