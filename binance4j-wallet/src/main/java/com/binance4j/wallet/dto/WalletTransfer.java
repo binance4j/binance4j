@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -21,7 +19,7 @@ public record WalletTransfer(
 		/** The transfered asset. */
 		String asset,
 		/** The transfered amount. */
-		BigDecimal amount,
+		String amount,
 		/**
 		 * The transfer type (origin wallet to destination wallet).
 		 * 

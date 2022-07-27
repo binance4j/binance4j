@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -32,9 +31,9 @@ public record RepayRecord(
 		/** The asset. */
 		String asset,
 		/** The interest repaid. */
-		BigDecimal interest,
+		String interest,
 		/** The quantity repaid. */
-		BigDecimal principal,
+		String principal,
 		/**
 		 * The repay status.
 		 * 

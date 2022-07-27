@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -46,7 +44,7 @@ public record WithdrawHistory(
 		/** Confirm times for withdraw. */
 		int confirmNo,
 		/** The withdrawn colume. */
-		BigDecimal amount,
+		String amount,
 		/** The withdraw fees. */
-		BigDecimal transactionFee) {
+		String transactionFee) {
 }

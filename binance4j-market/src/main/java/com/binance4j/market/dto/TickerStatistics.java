@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -35,35 +33,35 @@ public record TickerStatistics(
 		/** Ticker symbol. */
 		String symbol,
 		/** Price change during the last 24 hours. */
-		BigDecimal priceChange,
+		String priceChange,
 		/** Price change; in percentage; during the last 24 hours. */
-		BigDecimal priceChangePercent,
+		String priceChangePercent,
 		/** Weighted average price. */
-		BigDecimal weightedAvgPrice,
+		String weightedAvgPrice,
 		/** Previous close price. */
-		BigDecimal prevClosePrice,
+		String prevClosePrice,
 		/** Last price. */
-		BigDecimal lastPrice,
+		String lastPrice,
 		/** Last quantity. */
-		@JsonProperty("lastQty") BigDecimal lastQuantity,
+		@JsonProperty("lastQty") String lastQuantity,
 		/** Bid price. */
-		BigDecimal bidPrice,
+		String bidPrice,
 		/** Bid quantity. */
-		@JsonProperty("bidQty") BigDecimal bidQuantity,
+		@JsonProperty("bidQty") String bidQuantity,
 		/** Ask price. */
-		BigDecimal askPrice,
+		String askPrice,
 		/** Ask quantity. */
-		@JsonProperty("askQty") BigDecimal askQuantity,
+		@JsonProperty("askQty") String askQuantity,
 		/** Open price 24 hours ago. */
-		BigDecimal openPrice,
+		String openPrice,
 		/** Highest price during the past 24 hours. */
-		BigDecimal highPrice,
+		String highPrice,
 		/** Lowest price during the past 24 hours. */
-		BigDecimal lowPrice,
+		String lowPrice,
 		/** Total volume during the past 24 hours. */
-		BigDecimal volume,
+		String volume,
 		/** Total quote volume during the past 24 hours. */
-		BigDecimal quoteVolume,
+		String quoteVolume,
 		/** Open time. */
 		long openTime,
 		/** Close time. */

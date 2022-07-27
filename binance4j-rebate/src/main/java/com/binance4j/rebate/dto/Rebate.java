@@ -1,7 +1,5 @@
 package com.binance4j.rebate.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -24,7 +22,7 @@ public record Rebate(
 		 */
 		String type,
 		/** The rebate amount */
-		BigDecimal amount,
+		String amount,
 		/** The rebate update time */
 		long updateTime) {
 }

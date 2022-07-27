@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -15,11 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record PositionAmount(
 		/** Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Amount in BTC. */
-		BigDecimal amountInBTC,
+		String amountInBTC,
 		/** Amount in USDT. */
-		BigDecimal amountInUSDT,
+		String amountInUSDT,
 		/** Asset. */
 		String asset) {
 }

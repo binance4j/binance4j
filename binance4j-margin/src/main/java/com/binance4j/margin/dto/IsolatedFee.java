@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,7 +19,7 @@ public record IsolatedFee(
 		/** The related symbol. */
 		String symbol,
 		/** The leverage. */
-		BigDecimal leverage,
+		String leverage,
 		/** The isolated fee data. */
 		List<IsolatedFeeData> data) {
 }

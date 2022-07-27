@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -13,5 +11,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxPositionFilter(
 		/** The max positions allowed */
-		BigDecimal maxPosition) {
+		String maxPosition) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,7 @@ public record Basket(
 		/** Symbol. */
 		String symbol,
 		/** Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Notional value. */
-		BigDecimal notionalValue) {
+		String notionalValue) {
 }

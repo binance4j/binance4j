@@ -1,7 +1,5 @@
 package com.binance4j.margin.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -16,13 +14,13 @@ public class BorrowParams extends Params {
 	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
 	Boolean isIsolated;
 	/** Amount to borrow. */
-	BigDecimal amount;
+	String amount;
 
 	/**
 	 * @param asset  Asset to borrow.
 	 * @param amount Amount to borrow.
 	 */
-	public BorrowParams(String asset, BigDecimal amount) {
+	public BorrowParams(String asset, String amount) {
 		super(300);
 		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
@@ -71,12 +69,12 @@ public class BorrowParams extends Params {
 	}
 
 	/** @return the amount */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/** @param amount the amount to set */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

@@ -1,6 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,9 +21,9 @@ public record AggTrade(
 		/** The trade id */
 		long a,
 		/** The price */
-		BigDecimal p,
+		String p,
 		/** The quantity */
-		BigDecimal q,
+		String q,
 		/** The first trade id */
 		long f,
 		/** The last trade id */
@@ -40,8 +39,8 @@ public record AggTrade(
 	 * @param input The CSV line.
 	 */
 	public AggTrade(List<String> input) {
-		this(Long.parseLong(input.get(0)), new BigDecimal(input.get(1)), new BigDecimal(input.get(2)), Long.parseLong(input.get(3)),
-				Long.parseLong(input.get(4)), Long.parseLong(input.get(5)), Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));
+		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),
+				Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));
 	}
 
 	/**
@@ -54,14 +53,14 @@ public record AggTrade(
 	/**
 	 * @return the price
 	 */
-	public BigDecimal price() {
+	public String price() {
 		return p;
 	}
 
 	/**
 	 * @return the quantity
 	 */
-	public BigDecimal quantity() {
+	public String quantity() {
 		return q;
 	}
 

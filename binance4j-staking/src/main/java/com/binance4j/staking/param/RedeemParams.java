@@ -1,7 +1,5 @@
 package com.binance4j.staking.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -15,7 +13,7 @@ public class RedeemParams extends Params {
 	/** The product id. */
 	String productId;
 	/** The amount to purchase. Mandatory if product is {@code F_DEFI}. */
-	BigDecimal amount;
+	String amount;
 
 	/**
 	 * @param product   The product type.
@@ -72,14 +70,14 @@ public class RedeemParams extends Params {
 	/**
 	 * @return the amount
 	 */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

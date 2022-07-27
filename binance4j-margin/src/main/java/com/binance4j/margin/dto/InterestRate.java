@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -17,7 +15,7 @@ public record InterestRate(
 		/** The related coin. */
 		String asset,
 		/** The daily interest rate. */
-		BigDecimal dailyInterestRate,
+		String dailyInterestRate,
 		/** The timestamp of the applied interest rate in ms. */
 		long timestamp,
 		/** The account VIP level. */

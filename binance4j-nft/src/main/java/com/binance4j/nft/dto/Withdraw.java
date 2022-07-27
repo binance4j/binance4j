@@ -1,7 +1,5 @@
 package com.binance4j.nft.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -27,7 +25,7 @@ public record Withdraw(
 		/** Deposit time in ms. */
 		long timestamp,
 		/** The withdraw fee. */
-		BigDecimal fee,
+		String fee,
 		/** The fee asset. */
 		String feeAsset) {
 }

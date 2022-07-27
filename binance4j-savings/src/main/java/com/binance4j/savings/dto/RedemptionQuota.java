@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -17,9 +15,9 @@ public record RedemptionQuota(
 		/** Asset. */
 		String asset,
 		/** Daily quota. */
-		BigDecimal dailyQuota,
+		String dailyQuota,
 		/** Left quota. */
-		BigDecimal leftQuota,
+		String leftQuota,
 		/** Min redemption amount. */
-		BigDecimal minRedemptionAmount) {
+		String minRedemptionAmount) {
 }

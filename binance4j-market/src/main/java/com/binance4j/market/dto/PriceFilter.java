@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -15,9 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record PriceFilter(
 		/** The minimum price/stopPrice allowed. Disabled on minPrice == 0. */
-		BigDecimal minPrice,
+		String minPrice,
 		/** The maximum price/stopPrice allowed. Disabled on maxPrice == 0. */
-		BigDecimal maxPrice,
+		String maxPrice,
 		/** The intervals that a price/stopPrice can be increased/decreased by. Disabled on tickSize == 0. */
-		BigDecimal tickSize) {
+		String tickSize) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletType;
 
@@ -19,7 +17,7 @@ public class WithdrawParams extends Params {
 	/** Secondary address identifier for coins like XRP,XMR etc. */
 	String addressTag;
 	/** The volume. */
-	BigDecimal amount;
+	String amount;
 	/**
 	 * When making internal transfer, true for returning the fee to the destination account; false for returning the fee
 	 * back to the departure account. Default false.
@@ -35,7 +33,7 @@ public class WithdrawParams extends Params {
 	 * @param address The destination address.
 	 * @param amount  The volume to withdraw.
 	 */
-	public WithdrawParams(BigDecimal amount, String coin, String address) {
+	public WithdrawParams(String amount, String coin, String address) {
 		super(1);
 		this.coin = coin;
 		this.address = address;
@@ -120,14 +118,14 @@ public class WithdrawParams extends Params {
 	/**
 	 * @return the amount
 	 */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

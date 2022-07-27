@@ -1,6 +1,5 @@
 package com.binance4j.nft.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,7 +38,7 @@ public record Transaction(
 		/** The trade time in ms. */
 		long tradeTime,
 		/** The trade amount. */
-		BigDecimal tradeAmount,
+		String tradeAmount,
 		/** The currency used to buy the NFT. */
 		String tradeCurrency) {
 }

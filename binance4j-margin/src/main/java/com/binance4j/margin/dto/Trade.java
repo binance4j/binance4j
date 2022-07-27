@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -32,11 +30,11 @@ public record Trade(
 		/** The commission asset . */
 		String commissionAsset,
 		/** The commission amount. */
-		BigDecimal commission,
+		String commission,
 		/** The trade price. */
-		BigDecimal price,
+		String price,
 		/** The traded quantity. */
-		@JsonProperty("qty") BigDecimal quantity,
+		@JsonProperty("qty") String quantity,
 		/** The transaction time. */
 		long time,
 		/** Is it the best match? */

@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -13,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MaxBorrowable(
 		/** Account's currently max borrowable amount with sufficient system availability. */
-		BigDecimal amount,
+		String amount,
 		/** Max borrowable amount limited by the account level. */
-		BigDecimal borrowLimit) {
+		String borrowLimit) {
 }

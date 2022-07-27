@@ -1,7 +1,5 @@
 package com.binance4j.portfoliomargin.dto;
 
-import java.math.BigDecimal;
-
 /**
  * Collaterate rate info.
  * 
@@ -12,5 +10,5 @@ public record CollaterateRateInfo(
 		/** The asset. */
 		String asset,
 		/** The collateral rate. */
-		BigDecimal collateralRate) {
+		String collateralRate) {
 }

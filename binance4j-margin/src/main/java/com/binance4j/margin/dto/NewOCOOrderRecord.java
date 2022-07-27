@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,9 +40,9 @@ public record NewOCOOrderRecord(
 		/** The order symbol. */
 		String symbol,
 		/** The margin buy borrow amount. Will not return if no margin trade happens. */
-		Optional<BigDecimal> marginBuyBorrowAmount,
+		Optional<String> marginBuyBorrowAmount,
 		/** The margin buy borrow asset. Will not return if no margin trade happens. */
-		Optional<BigDecimal> marginBuyBorrowAsset,
+		Optional<String> marginBuyBorrowAsset,
 		/** Is the order isolated? */
 		boolean isIsolated,
 		/** The 2 orders. */

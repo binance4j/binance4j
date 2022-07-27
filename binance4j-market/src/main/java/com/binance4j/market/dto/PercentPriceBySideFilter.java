@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -18,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record PercentPriceBySideFilter(
 		/** Bid multiplier up. */
-		BigDecimal bidMultiplierUp,
+		String bidMultiplierUp,
 		/** Bid multiplier down. */
-		BigDecimal bidMultiplierDown,
+		String bidMultiplierDown,
 		/** Ask multiplier up. */
-		BigDecimal askMultiplierUp,
+		String askMultiplierUp,
 		/** Ask multiplier down. */
-		BigDecimal askMultiplierDown,
+		String askMultiplierDown,
 		/** Weighted average price. */
-		BigDecimal avgPriceMins) {
+		String avgPriceMins) {
 }

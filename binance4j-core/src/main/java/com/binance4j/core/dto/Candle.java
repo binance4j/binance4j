@@ -1,6 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.binance4j.core.serialization.CandleDeserializer;
@@ -28,25 +27,25 @@ public record Candle(
 		/** The candlestick open timestamp in milliseconds */
 		long openTime,
 		/** The Open value */
-		BigDecimal open,
+		String open,
 		/** The High value */
-		BigDecimal high,
+		String high,
 		/** The Low value */
-		BigDecimal low,
+		String low,
 		/** The Close value */
-		BigDecimal close,
+		String close,
 		/** The traded volume in the interval */
-		BigDecimal volume,
+		String volume,
 		/** The candlestick close timestamp in milliseconds */
 		long closeTime,
 		/** The quote asset traded volume */
-		BigDecimal quoteAssetVolume,
+		String quoteAssetVolume,
 		/** The number of trades */
 		long numberOfTrades,
 		/** Taker buy base asset volume */
-		BigDecimal takerBuyBaseAssetVolume,
+		String takerBuyBaseAssetVolume,
 		/** Taker buy quote asset volume */
-		BigDecimal takerBuyQuoteAssetVolume) {
+		String takerBuyQuoteAssetVolume) {
 
 	/**
 	 * accepting a list of String acting like a line of data in a csv file
@@ -54,8 +53,7 @@ public record Candle(
 	 * @param input The String input.
 	 */
 	public Candle(List<String> input) {
-		this(Long.parseLong(input.get(0)), new BigDecimal(input.get(1)), new BigDecimal(input.get(2)), new BigDecimal(input.get(3)),
-				new BigDecimal(input.get(4)), new BigDecimal(input.get(5)), Long.parseLong(input.get(6)), new BigDecimal(input.get(7)),
-				Long.parseLong(input.get(8)), new BigDecimal(input.get(9)), new BigDecimal(input.get(10)));
+		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), input.get(3), input.get(4), input.get(5), Long.parseLong(input.get(6)), input.get(7),
+				Long.parseLong(input.get(8)), input.get(9), input.get(10));
 	}
 }

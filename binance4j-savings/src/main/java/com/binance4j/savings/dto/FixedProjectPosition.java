@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -38,15 +36,15 @@ public record FixedProjectPosition(
 		/** Endtime. */
 		long endTime,
 		/** Interest. */
-		BigDecimal interest,
+		String interest,
 		/** Interest rate. */
-		BigDecimal interestRate,
+		String interestRate,
 		/** Lot. */
 		long lot,
 		/** Position id. */
 		long positionId,
 		/** Principal. */
-		BigDecimal principal,
+		String principal,
 		/** Project id. */
 		String projectId,
 		/** Project name. */

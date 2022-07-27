@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,13 +21,13 @@ public record Account(
 		/** The user assets. */
 		List<AssetBalance> userAssets,
 		/** The margin level. */
-		BigDecimal marginLevel,
+		String marginLevel,
 		/** The total asset of Bitcoin. */
-		BigDecimal totalAssetOfBtc,
+		String totalAssetOfBtc,
 		/** The total liability of Bitcoin. */
-		BigDecimal totalLiabilityOfBtc,
+		String totalLiabilityOfBtc,
 		/** The total net asset of Bitcoin. */
-		BigDecimal totalNetAssetOfBtc,
+		String totalNetAssetOfBtc,
 		/** Is borrow enabled? */
 		boolean borrowEnabled,
 		/** Is trade enabled? */

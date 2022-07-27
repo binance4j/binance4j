@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 /**
  * The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders, Binance Payment, Binance
  * Card and Crypto Deposit/Withdrawal.
@@ -17,13 +15,13 @@ public record FundingAsset(
 		/** The asset abbreviation. */
 		String asset,
 		/** The available balancve. */
-		BigDecimal free,
+		String free,
 		/** The locked balance (volume in the order book). */
-		BigDecimal locked,
+		String locked,
 		/** The freezed balance. Locked by binance (?) */
-		BigDecimal freeze,
+		String freeze,
 		/** The pending volume withdrawing. */
-		BigDecimal withdrawing,
+		String withdrawing,
 		/** The value of the balance in BTC. */
-		BigDecimal btcValuation) {
+		String btcValuation) {
 }

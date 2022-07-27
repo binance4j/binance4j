@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,7 +25,7 @@ public record Loan(
 		 */
 		String status,
 		/** The borrowed quantity. */
-		BigDecimal principal,
+		String principal,
 		/** The isolated symbol. Will not be returned for crossed margin */
 		Optional<String> isolatedSymbol,
 		/** The related asset. */

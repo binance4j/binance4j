@@ -1,7 +1,5 @@
 package com.binance4j.staking.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** Staking record. */
@@ -16,7 +14,7 @@ public record StakingRecord(
 		/** DeFi Staking’s project. */
 		String project,
 		/** Amount staked. */
-		BigDecimal amount,
+		String amount,
 		/** Staking lock period. */
 		String lockPeriod,
 		/** Redemption date. */

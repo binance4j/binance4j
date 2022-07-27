@@ -2,7 +2,6 @@ package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 
 import org.junit.jupiter.api.Test;
@@ -18,13 +17,12 @@ public class BarServiceTest extends CustomTest<Void> {
 
 	public BarServiceTest() {
 		super();
-		BigDecimal open = new BigDecimal(1);
-		BigDecimal high = new BigDecimal(2);
-		BigDecimal low = new BigDecimal(1);
-		BigDecimal close = new BigDecimal(2);
-		BigDecimal volume = new BigDecimal(10);
-		candle = new Candle(System.currentTimeMillis(), open, high, low, close, volume, System.currentTimeMillis(), new BigDecimal(1), 0L, new BigDecimal(1),
-				new BigDecimal(1));
+		String open = "1";
+		String high = "2";
+		String low = "1";
+		String close = "2";
+		String volume = "10";
+		candle = new Candle(System.currentTimeMillis(), open, high, low, close, volume, System.currentTimeMillis(), "1", 0L, "1", "1");
 	}
 
 	@Test
@@ -46,11 +44,11 @@ public class BarServiceTest extends CustomTest<Void> {
 	}
 
 	void assertValues(Bar bar, Candle candle) {
-		assertEquals(new BigDecimal(bar.getOpenPrice().toString()), candle.open());
-		assertEquals(new BigDecimal(bar.getHighPrice().toString()), candle.high());
-		assertEquals(new BigDecimal(bar.getLowPrice().toString()), candle.low());
-		assertEquals(new BigDecimal(bar.getClosePrice().toString()), candle.close());
-		assertEquals(new BigDecimal(bar.getVolume().toString()), candle.volume());
+		assertEquals(bar.getOpenPrice().toString(), candle.open());
+		assertEquals(bar.getHighPrice().toString(), candle.high());
+		assertEquals(bar.getLowPrice().toString(), candle.low());
+		assertEquals(bar.getClosePrice().toString(), candle.close());
+		assertEquals(bar.getVolume().toString(), candle.volume());
 		assertEquals(bar.getEndTime().toInstant().toEpochMilli(), candle.closeTime());
 	}
 }

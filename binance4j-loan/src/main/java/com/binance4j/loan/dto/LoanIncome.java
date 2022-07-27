@@ -1,7 +1,5 @@
 package com.binance4j.loan.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -19,7 +17,7 @@ public record LoanIncome(
 		/** The income type. */
 		String type,
 		/** The income maount. */
-		BigDecimal amount,
+		String amount,
 		/** The timestamp in ms. */
 		long timestamp,
 		/** The transaction id. */

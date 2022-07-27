@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,19 +45,19 @@ public record NewOrderRecord(
 		/** The transaction time. */
 		@JsonProperty("transactTime") long transactionTime,
 		/** The client order id. */
-		BigDecimal clientOrderId,
+		String clientOrderId,
 		/** The symbol price. */
-		BigDecimal price,
+		String price,
 		/** The order original quantity. */
-		@JsonProperty("origQty") BigDecimal originalQuantity,
+		@JsonProperty("origQty") String originalQuantity,
 		/** The order executed quantity. */
-		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		@JsonProperty("executedQty") String executedQuantity,
 		/** The cumulative quote quantity. */
-		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
+		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
 		/** The margin buy borrow amount. Will not return if no margin trade happens. */
-		Optional<BigDecimal> marginBuyBorrowAmount,
+		Optional<String> marginBuyBorrowAmount,
 		/** The margin buy borrow asset. Will not return if no margin trade happens. */
-		Optional<BigDecimal> marginBuyBorrowAsset,
+		Optional<String> marginBuyBorrowAsset,
 		/** Is the order isolated? */
 		boolean isIsolated,
 		/** The filled trades. */

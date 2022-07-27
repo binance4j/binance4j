@@ -1,7 +1,5 @@
 package com.binance4j.c2c.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -37,17 +35,17 @@ public record Trade(
 		/** Fiat symbol. */
 		String fiatSymbol,
 		/** Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Total price. */
-		BigDecimal totalPrice,
+		String totalPrice,
 		/** Unit price. */
-		BigDecimal unitPrice,
+		String unitPrice,
 		/** Order status. */
 		String orderStatus,
 		/** Create time. */
 		long createTime,
 		/** Commission. */
-		BigDecimal commission,
+		String commission,
 		/** Counter part nickname. */
 		String counterPartNickName,
 		/** Advertisement role. */

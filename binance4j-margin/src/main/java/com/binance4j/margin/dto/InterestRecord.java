@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,13 +26,13 @@ public record InterestRecord(
 		/** The related raw asset. Will not be returned for isolated margin. */
 		Optional<String> rawAsset,
 		/** The interest. */
-		BigDecimal interest,
+		String interest,
 		/** Interest accrued (?) time. */
 		long interestAccuredTime,
 		/** The interest rate. */
-		BigDecimal interestRate,
+		String interestRate,
 		/** The borrowed quantity (?). */
-		BigDecimal principal,
+		String principal,
 		/**
 		 * The interest type.
 		 * 

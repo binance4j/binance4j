@@ -2,7 +2,6 @@ package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.List;
@@ -62,11 +61,11 @@ public class BarSeriesServiceTest extends CustomTest<VisionSpotClient> {
 			assertEquals(closeTime, bar2.closeTime());
 			// There is a 1 millisecond diff between the two bars
 			assertEquals(openTime + 1, bar2.openTime());
-			assertEquals(new BigDecimal(bar1.getOpenPrice().toString()), bar2.open());
-			assertEquals(new BigDecimal(bar1.getHighPrice().toString()), bar2.high());
-			assertEquals(new BigDecimal(bar1.getLowPrice().toString()), bar2.low());
-			assertEquals(new BigDecimal(bar1.getClosePrice().toString()), bar2.close());
-			assertEquals(new BigDecimal(bar1.getVolume().toString()), bar2.volume());
+			assertEquals(bar1.getOpenPrice().toString(), bar2.open());
+			assertEquals(bar1.getHighPrice().toString(), bar2.high());
+			assertEquals(bar1.getLowPrice().toString(), bar2.low());
+			assertEquals(bar1.getClosePrice().toString(), bar2.close());
+			assertEquals(bar1.getVolume().toString(), bar2.volume());
 
 			testNoNulls(bar2);
 		}

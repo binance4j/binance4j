@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder()
 public record OrderBookEntry(
 		/** The price. */
-		BigDecimal price,
+		String price,
 		/** The quantity. */
-		@JsonProperty("qt") BigDecimal quantity) {
+		@JsonProperty("qt") String quantity) {
 }

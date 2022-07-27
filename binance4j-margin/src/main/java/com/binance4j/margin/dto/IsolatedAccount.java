@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -18,9 +17,9 @@ public record IsolatedAccount(
 		/** The owned assets. */
 		List<IsolatedPair> assets,
 		/** Total asset of Bitcoin. */
-		BigDecimal totalAssetOfBtc,
+		String totalAssetOfBtc,
 		/** Total liability of Bitcoin. */
-		BigDecimal totalLiabilityOfBtc,
+		String totalLiabilityOfBtc,
 		/** Total net asset of Bitcoin. */
-		BigDecimal totalNetAssetOfBtc) {
+		String totalNetAssetOfBtc) {
 }

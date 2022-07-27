@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.binance4j.core.dto.AssetBalance;
@@ -17,5 +16,5 @@ public record SpotAccountSnapshotData(
 		/** The wallet asset balances. */
 		List<AssetBalance> balances,
 		/** The cumulated value of the wallet in Bitcoin. */
-		BigDecimal totalAssetOfBtc) {
+		String totalAssetOfBtc) {
 }

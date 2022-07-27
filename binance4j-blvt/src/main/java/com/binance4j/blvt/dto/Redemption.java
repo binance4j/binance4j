@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** A BLVT redemption. */
@@ -12,13 +10,13 @@ public record Redemption(
 		/** Token name. */
 		String tokenName,
 		/** Subscription amount */
-		BigDecimal amount,
+		String amount,
 		/** NAV price of subscription */
-		BigDecimal nav,
+		String nav,
 		/** Subscription fee in usdt */
-		BigDecimal fee,
+		String fee,
 		/** Subscription cost in usdt */
-		BigDecimal totalCharge,
+		String totalCharge,
 		/** Timestamp in ms. */
 		long timestamp) {
 }

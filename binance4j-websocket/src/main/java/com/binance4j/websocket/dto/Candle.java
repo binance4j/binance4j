@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.binance4j.websocket.serialization.CandlestickEventDeserializer;
 import com.binance4j.websocket.serialization.CandlestickEventSerializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -38,25 +36,25 @@ public record Candle(
 		/** The candlestick open timestamp in milliseconds */
 		Long openTime,
 		/** The Open value */
-		BigDecimal open,
+		String open,
 		/** The High value */
-		BigDecimal high,
+		String high,
 		/** The Low value */
-		BigDecimal low,
+		String low,
 		/** The Close value */
-		BigDecimal close,
+		String close,
 		/** The traded volume in the interval */
-		BigDecimal volume,
+		String volume,
 		/** The candlestick close timestamp in milliseconds */
 		Long closeTime,
 		/** The quote asset traded volume */
-		BigDecimal quoteAssetVolume,
+		String quoteAssetVolume,
 		/** The number of trades */
 		Long numberOfTrades,
 		/** Taker buy base asset volume */
-		BigDecimal takerBuyBaseAssetVolume,
+		String takerBuyBaseAssetVolume,
 		/** Taker buy quote asset volume */
-		BigDecimal takerBuyQuoteAssetVolume,
+		String takerBuyQuoteAssetVolume,
 		/** The event type. */
 		String eventType,
 		/** The timestamp in ms. */

@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -19,9 +17,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record NotionalFilter(
 		/** The minimum notional value allowed for an order on a symbol. An order's notional value is the price * quantity. */
-		BigDecimal minNotional,
+		String minNotional,
 		/** The maximum notional value allowed for an order on a symbol. An order's notional value is the price * quantity. */
-		BigDecimal maxNotional,
+		String maxNotional,
 		/** Determines whether the minNotional will be applied to MARKET orders. */
 		boolean applyMinToMarket,
 		/** determines whether the maxNotional will be applied to MARKET orders. */

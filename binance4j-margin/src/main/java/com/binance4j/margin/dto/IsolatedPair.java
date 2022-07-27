@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -42,13 +40,13 @@ public record IsolatedPair(
 		 */
 		String marginLevelStatus,
 		/** The margin level. */
-		BigDecimal marginLevel,
+		String marginLevel,
 		/** The margin ratio. */
-		BigDecimal marginRatio,
+		String marginRatio,
 		/** The index price. */
-		BigDecimal indexPrice,
+		String indexPrice,
 		/** The liquidate price. */
-		BigDecimal liquidatePrice,
+		String liquidatePrice,
 		/** The liquidate rate. */
-		BigDecimal liquidateRate) {
+		String liquidateRate) {
 }

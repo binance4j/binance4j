@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -29,11 +27,11 @@ public record CancelOrderResponse(
 		/** The order executed quantity. */
 		@JsonProperty("executedQty") String executedQuantity,
 		/** The order price. */
-		BigDecimal price,
+		String price,
 		/** The order original quantity. */
-		@JsonProperty("origQty") BigDecimal origQuantity,
+		@JsonProperty("origQty") String origQuantity,
 		/** The order cumulative quote quantity. */
-		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
+		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
 		/** Is the order margin isolated. */
 		boolean isIsolated) {
 }

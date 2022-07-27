@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,11 +20,11 @@ public record UserAssetDribbletDetails(
 		/** The timestamp. */
 		long operateTime,
 		/** The fees. */
-		BigDecimal serviceChargeAmount,
+		String serviceChargeAmount,
 		/** The volume. */
-		BigDecimal amount,
+		String amount,
 		/** The transfered amount. */
-		BigDecimal transferedAmount,
+		String transferedAmount,
 		/** The transfered asset. */
 		String fromAsset) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -19,13 +17,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Redemption(
 		/** Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Asset. */
 		String asset,
 		/** Create time. */
 		long createTime,
 		/** Principal. */
-		BigDecimal principal,
+		String principal,
 		/** Project id. */
 		String projectId,
 		/** Project name. */

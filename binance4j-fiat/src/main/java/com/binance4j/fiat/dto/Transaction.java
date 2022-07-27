@@ -1,7 +1,5 @@
 package com.binance4j.fiat.dto;
 
-import java.math.BigDecimal;
-
 /**
  * A fiat transaction.
  * 
@@ -21,11 +19,11 @@ public record Transaction(
 		/** Fiat currency. */
 		String fiatCurrency,
 		/** Indicated amount. */
-		BigDecimal indicatedAmount,
+		String indicatedAmount,
 		/** Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Total fee. */
-		BigDecimal totalFee,
+		String totalFee,
 		/** Method. */
 		String method,
 		/** Status. */

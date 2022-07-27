@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 /**
  * Lending interest.
  * 
@@ -15,7 +13,7 @@ public record Interest(
 		/** Asset. */
 		String asset,
 		/** Interest. */
-		BigDecimal interest,
+		String interest,
 		/** LendingType. */
 		String lendingType,
 		/** ProductName. */

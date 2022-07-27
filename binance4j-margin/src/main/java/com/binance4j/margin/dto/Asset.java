@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,9 +20,9 @@ public record Asset(
 		/** The asset name. */
 		String assetName,
 		/** The user minimum borrow. */
-		@JsonProperty("userMinBorrow") BigDecimal userMinimumBorrow,
+		@JsonProperty("userMinBorrow") String userMinimumBorrow,
 		/** The user minimum repay. */
-		@JsonProperty("userMinRepay") BigDecimal userMinimumRepay,
+		@JsonProperty("userMinRepay") String userMinimumRepay,
 		/** Is it borrowable? */
 		boolean isBorrowable,
 		/** Is it mortgageable? */

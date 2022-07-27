@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.CandlestickInterval;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -35,15 +33,15 @@ public record BLVTCandle(
 		/** Last update. */
 		@JsonProperty("L") long lastUpdate,
 		/** Open. */
-		@JsonProperty("o") BigDecimal open,
+		@JsonProperty("o") String open,
 		/** Close. */
-		@JsonProperty("c") BigDecimal close,
+		@JsonProperty("c") String close,
 		/** High. */
-		@JsonProperty("h") BigDecimal high,
+		@JsonProperty("h") String high,
 		/** Low. */
-		@JsonProperty("l") BigDecimal low,
+		@JsonProperty("l") String low,
 		/** Real leverage. */
-		@JsonProperty("v") BigDecimal realLeverage,
+		@JsonProperty("v") String realLeverage,
 		/** Number of updates. */
 		@JsonProperty("n") long updateNumbers
 // Ignore:

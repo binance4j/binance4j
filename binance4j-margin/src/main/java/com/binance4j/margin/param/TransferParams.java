@@ -1,7 +1,5 @@
 package com.binance4j.margin.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -13,7 +11,7 @@ public class TransferParams extends Params {
 	/** The asset being transferred, e.g., BTC. */
 	String asset;
 	/** The amount to be transferred. */
-	BigDecimal amount;
+	String amount;
 	/**
 	 * The transfer type
 	 * <p>
@@ -29,7 +27,7 @@ public class TransferParams extends Params {
 	 * @param type   The transfer type. 1: transfer from main account to cross margin account, 2: transfer from cross
 	 *                   margin. account to main account
 	 */
-	public TransferParams(String asset, BigDecimal amount, int type) {
+	public TransferParams(String asset, String amount, int type) {
 		super(600);
 		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
@@ -42,7 +40,7 @@ public class TransferParams extends Params {
 	 * @param amount The amout to transfer.
 	 * @param type   The transfer type.
 	 */
-	public TransferParams(String asset, BigDecimal amount, TransferType type) {
+	public TransferParams(String asset, String amount, TransferType type) {
 		this(asset, amount, type.getValue());
 	}
 
@@ -57,12 +55,12 @@ public class TransferParams extends Params {
 	}
 
 	/** @return the amount */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/** @param amount the amount to set */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

@@ -1,7 +1,5 @@
 package com.binance4j.fiat.dto;
 
-import java.math.BigDecimal;
-
 /**
  * A fiat payment.
  * 
@@ -20,17 +18,17 @@ public record Payment(
 		/** Order No. */
 		String orderNo,
 		/** Fiat trade amount. */
-		BigDecimal sourceAmount,
+		String sourceAmount,
 		/** Fiat token. */
 		String fiatCurrency,
 		/** Crypto trade amount. */
-		BigDecimal obtainAmount,
+		String obtainAmount,
 		/** Crypto token. */
 		String cryptoCurrency,
 		/** Trade fee. */
-		BigDecimal totalFee,
+		String totalFee,
 		/** Price. */
-		BigDecimal price,
+		String price,
 		/** Status: {@code Processing}, {@code Completed}, {@code Failed}, {@code Refunded}. */
 		String status,
 		/** Create time in ms. */

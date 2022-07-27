@@ -1,7 +1,5 @@
 package com.binance4j.staking.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -13,7 +11,7 @@ public class PurchaseParams extends Params {
 	/** The product id. */
 	String productId;
 	/** The amount to purchase. */
-	BigDecimal amount;
+	String amount;
 	/** Renew purchase? Active if product is {@code STAKING} or {@code L_DEFI}. */
 	Boolean renewable;
 
@@ -22,7 +20,7 @@ public class PurchaseParams extends Params {
 	 * @param productId The product id.
 	 * @param amount    The amount to purchase.
 	 */
-	public PurchaseParams(ProductType product, String productId, BigDecimal amount) {
+	public PurchaseParams(ProductType product, String productId, String amount) {
 		super(1);
 		this.product = product;
 		this.productId = productId;
@@ -35,7 +33,7 @@ public class PurchaseParams extends Params {
 	 * @param amount    The amount to purchase.
 	 * @param renewable Renew purchase?
 	 */
-	public PurchaseParams(ProductType product, String productId, BigDecimal amount, Boolean renewable) {
+	public PurchaseParams(ProductType product, String productId, String amount, Boolean renewable) {
 		super(1);
 		this.product = product;
 		this.productId = productId;
@@ -74,14 +72,14 @@ public class PurchaseParams extends Params {
 	/**
 	 * @return the amount
 	 */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,7 @@ public record IsolatedFeeData(
 		/** The related coin. */
 		String coin,
 		/** The daily interest. */
-		BigDecimal dailyInterest,
+		String dailyInterest,
 		/** The borrow limit. */
-		BigDecimal borrowLimit) {
+		String borrowLimit) {
 }

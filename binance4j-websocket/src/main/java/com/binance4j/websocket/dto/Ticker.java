@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -41,35 +39,35 @@ public record Ticker(
 		/** The trading pair. */
 		@JsonProperty("s") String symbol,
 		/** The price change. */
-		@JsonProperty("p") BigDecimal priceChange,
+		@JsonProperty("p") String priceChange,
 		/** The price change percent. */
-		@JsonProperty("P") BigDecimal priceChangePercent,
+		@JsonProperty("P") String priceChangePercent,
 		/** The weighted average price. */
-		@JsonProperty("w") BigDecimal weightedAveragePrice,
+		@JsonProperty("w") String weightedAveragePrice,
 		/** The previous days close price. */
-		@JsonProperty("x") BigDecimal previousDaysClosePrice,
+		@JsonProperty("x") String previousDaysClosePrice,
 		/** The current days close price. */
-		@JsonProperty("c") BigDecimal currentDaysClosePrice,
+		@JsonProperty("c") String currentDaysClosePrice,
 		/** Last quantity. */
-		@JsonProperty("Q") BigDecimal closeTradesQuantity,
+		@JsonProperty("Q") String closeTradesQuantity,
 		/** Best bid price. */
-		@JsonProperty("b") BigDecimal bestBidPrice,
+		@JsonProperty("b") String bestBidPrice,
 		/** Best bid quantity. */
-		@JsonProperty("B") BigDecimal bestBidQuantity,
+		@JsonProperty("B") String bestBidQuantity,
 		/** Best ask price. */
-		@JsonProperty("a") BigDecimal bestAskPrice,
+		@JsonProperty("a") String bestAskPrice,
 		/** Best ask quantity. */
-		@JsonProperty("A") BigDecimal bestAskQuantity,
+		@JsonProperty("A") String bestAskQuantity,
 		/** The open price. */
-		@JsonProperty("o") BigDecimal openPrice,
+		@JsonProperty("o") String openPrice,
 		/** The highest price. */
-		@JsonProperty("h") BigDecimal highPrice,
+		@JsonProperty("h") String highPrice,
 		/** The lowest price. */
-		@JsonProperty("l") BigDecimal lowPrice,
+		@JsonProperty("l") String lowPrice,
 		/** Total traded base asset volume. */
-		@JsonProperty("v") BigDecimal totalTradedBaseAssetVolume,
+		@JsonProperty("v") String totalTradedBaseAssetVolume,
 		/** Total traded quote asset volume. */
-		@JsonProperty("q") BigDecimal totalTradedQuoteAssetVolume,
+		@JsonProperty("q") String totalTradedQuoteAssetVolume,
 		/** Statistics open time. */
 		@JsonProperty("O") Long statisticsOpenTime,
 		/** Statistics close time. */

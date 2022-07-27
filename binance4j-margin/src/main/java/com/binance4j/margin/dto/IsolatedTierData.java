@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param liquidationRiskRatio    The liquidation risk ratio.
  * @param baseAssetMaxBorrowable  The base asset max borrowable.
  * @param quoteAssetMaxBorrowable The quote asset max borrowable.
- * 
  * @see <a href="https://www.binance.com/en/margin-data">Documentation</a>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -26,13 +23,13 @@ public record IsolatedTierData(
 		/** The tier. */
 		int tier,
 		/** The effective multiple. */
-		BigDecimal effectiveMultiple,
+		String effectiveMultiple,
 		/** The initial risk ratio. */
-		BigDecimal initialRiskRatio,
+		String initialRiskRatio,
 		/** The liquidation risk ratio. */
-		BigDecimal liquidationRiskRatio,
+		String liquidationRiskRatio,
 		/** The base asset max borrowable. */
-		BigDecimal baseAssetMaxBorrowable,
+		String baseAssetMaxBorrowable,
 		/** The quote asset max borrowable. */
-		BigDecimal quoteAssetMaxBorrowable) {
+		String quoteAssetMaxBorrowable) {
 }

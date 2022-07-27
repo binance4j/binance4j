@@ -1,6 +1,5 @@
 package com.binance4j.pay.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -46,7 +45,7 @@ public record Trade(
 		/** Transaction time in ms. */
 		long transactionTime,
 		/** Transaction amount. */
-		BigDecimal amount,
+		String amount,
 		/** Transaction asset. */
 		String currency,
 		/** Funds details. */

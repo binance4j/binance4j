@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,9 +26,9 @@ public record ForceLiquidationRecord(
 		/** The liquidation timestamp in ms. */
 		long updatedTime,
 		/** The symbol average price. */
-		@JsonProperty("avgPrice") BigDecimal averagePrice,
+		@JsonProperty("avgPrice") String averagePrice,
 		/** The executed quantity. */
-		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		@JsonProperty("executedQty") String executedQuantity,
 		/** The order time in force. */
 		TimeInForce timeInForce,
 		/** The order side. */
@@ -38,9 +36,9 @@ public record ForceLiquidationRecord(
 		/** The order symbol. */
 		String symbol,
 		/** The order price. */
-		BigDecimal price,
+		String price,
 		/** The order total quantity. */
-		@JsonProperty("qty") BigDecimal quantity,
+		@JsonProperty("qty") String quantity,
 		/** Is is isolated? */
 		boolean isIsolated) {
 }

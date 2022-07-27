@@ -1,7 +1,5 @@
 package com.binance4j.staking.dto;
 
-import java.math.BigDecimal;
-
 /**
  * Personal left quota.
  * 
@@ -9,5 +7,5 @@ import java.math.BigDecimal;
  */
 public record LeftQuota(
 		/** User left Quota. */
-		BigDecimal leftPersonalQuota) {
+		String leftPersonalQuota) {
 }

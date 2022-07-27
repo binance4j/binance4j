@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -19,13 +17,13 @@ public record AssetBalance(
 		/** The asset name. */
 		String asset,
 		/** The borrowed quantity. */
-		BigDecimal borrowed,
+		String borrowed,
 		/** The free quantity. */
-		BigDecimal free,
+		String free,
 		/** The borrow interest. */
-		BigDecimal interest,
+		String interest,
 		/** The locked quantity. */
-		BigDecimal locked,
+		String locked,
 		/** The net asset. */
-		BigDecimal netAsset) {
+		String netAsset) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.spot.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
@@ -16,11 +14,11 @@ public class NewOCOOrderParams extends Params {
 	/** The order side */
 	protected OrderSide side;
 	/** The order quantity */
-	protected BigDecimal quantity;
+	protected String quantity;
 	/** The order price */
-	protected BigDecimal price;
+	protected String price;
 	/** The stop price */
-	protected BigDecimal stopPrice;
+	protected String stopPrice;
 	/** The order response type Default: RESULT. */
 	protected NewOrderResponseType newOrderRespType;
 	/** A unique Id for the entire orderList */
@@ -29,14 +27,14 @@ public class NewOCOOrderParams extends Params {
 	String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
 	@JsonProperty("limitIcebergQty")
-	BigDecimal limitIcebergQuantity;
+	String limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
 	String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
-	BigDecimal stopLimitPrice;
+	String stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
 	@JsonProperty("stopIcebergQty")
-	BigDecimal stopIcebergQuantity;
+	String stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
 	TimeInForce stopLimitTimeInForce;
 
@@ -49,7 +47,7 @@ public class NewOCOOrderParams extends Params {
 	 * @param price     The order price.
 	 * @param stopPrice The stop price.
 	 */
-	public NewOCOOrderParams(String symbol, OrderSide side, BigDecimal quantity, BigDecimal price, BigDecimal stopPrice) {
+	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice) {
 		super(1);
 		this.symbol = symbol;
 		this.side = side;
@@ -89,42 +87,42 @@ public class NewOCOOrderParams extends Params {
 	/**
 	 * @return the quantity
 	 */
-	public BigDecimal getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(BigDecimal quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
 	/**
 	 * @return the price
 	 */
-	public BigDecimal getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(BigDecimal price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
 	/**
 	 * @return the stopPrice
 	 */
-	public BigDecimal getStopPrice() {
+	public String getStopPrice() {
 		return stopPrice;
 	}
 
 	/**
 	 * @param stopPrice the stopPrice to set
 	 */
-	public void setStopPrice(BigDecimal stopPrice) {
+	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
 	}
 
@@ -173,14 +171,14 @@ public class NewOCOOrderParams extends Params {
 	/**
 	 * @return the limitIcebergQuantity
 	 */
-	public BigDecimal getLimitIcebergQuantity() {
+	public String getLimitIcebergQuantity() {
 		return limitIcebergQuantity;
 	}
 
 	/**
 	 * @param limitIcebergQuantity the limitIcebergQuantity to set
 	 */
-	public void setLimitIcebergQuantity(BigDecimal limitIcebergQuantity) {
+	public void setLimitIcebergQuantity(String limitIcebergQuantity) {
 		this.limitIcebergQuantity = limitIcebergQuantity;
 	}
 
@@ -201,28 +199,28 @@ public class NewOCOOrderParams extends Params {
 	/**
 	 * @return the stopLimitPrice
 	 */
-	public BigDecimal getStopLimitPrice() {
+	public String getStopLimitPrice() {
 		return stopLimitPrice;
 	}
 
 	/**
 	 * @param stopLimitPrice the stopLimitPrice to set
 	 */
-	public void setStopLimitPrice(BigDecimal stopLimitPrice) {
+	public void setStopLimitPrice(String stopLimitPrice) {
 		this.stopLimitPrice = stopLimitPrice;
 	}
 
 	/**
 	 * @return the stopIcebergQuantity
 	 */
-	public BigDecimal getStopIcebergQuantity() {
+	public String getStopIcebergQuantity() {
 		return stopIcebergQuantity;
 	}
 
 	/**
 	 * @param stopIcebergQuantity the stopIcebergQuantity to set
 	 */
-	public void setStopIcebergQuantity(BigDecimal stopIcebergQuantity) {
+	public void setStopIcebergQuantity(String stopIcebergQuantity) {
 		this.stopIcebergQuantity = stopIcebergQuantity;
 	}
 

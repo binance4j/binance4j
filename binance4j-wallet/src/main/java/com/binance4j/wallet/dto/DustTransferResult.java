@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,15 +16,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DustTransferResult(
 		/** The amount of volume converted. */
-		BigDecimal amount,
+		String amount,
 		/** The converted asset abbreviation. */
 		String fromAsset,
 		/** The operation timestamp. */
 		long operateTime,
 		/** The fees. */
-		BigDecimal serviceChargeAmount,
+		String serviceChargeAmount,
 		/** The transaction id. */
 		@JsonProperty("tranId") long transactionId,
 		/** The transfered amount after fees. */
-		BigDecimal transferedAmount) {
+		String transferedAmount) {
 }

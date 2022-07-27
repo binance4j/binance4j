@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
-
 /**
  * BLVT User Limit Info.
  * 
@@ -13,7 +11,7 @@ public record LimitInfo(
 		/** The token name. */
 		String tokenName,
 		/** The user daily total purchase limit in USDT. */
-		BigDecimal userDailyTotalPurchaseLimit,
+		String userDailyTotalPurchaseLimit,
 		/** The user daily total redeem limit in USDT. */
-		BigDecimal userDailyTotalRedeemLimit) {
+		String userDailyTotalRedeemLimit) {
 }

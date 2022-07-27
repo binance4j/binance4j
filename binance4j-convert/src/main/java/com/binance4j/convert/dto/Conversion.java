@@ -1,7 +1,5 @@
 package com.binance4j.convert.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -29,15 +27,15 @@ public record Conversion(
 		/** From Asset */
 		String fromAsset,
 		/** From Amount */
-		BigDecimal fromAmount,
+		String fromAmount,
 		/** To Asset */
 		String toAsset,
 		/** To Amount */
-		BigDecimal toAmount,
+		String toAmount,
 		/** Ratio */
-		BigDecimal ratio,
+		String ratio,
 		/** Inverse Ratio */
-		BigDecimal inverseRatio,
+		String inverseRatio,
 		/** Create Time */
 		long createTime) {
 }

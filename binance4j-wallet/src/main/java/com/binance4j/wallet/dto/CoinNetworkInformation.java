@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -53,15 +51,15 @@ public record CoinNetworkInformation(
 		/** Tips about the withdraw. */
 		String specialWithdrawTips,
 		/** Deposit dust. */
-		BigDecimal depositDust,
+		String depositDust,
 		/** The withdraw fee. */
-		BigDecimal withdrawFee,
+		String withdrawFee,
 		/** Withdraw integer multiple */
-		BigDecimal withdrawIntegerMultiple,
+		String withdrawIntegerMultiple,
 		/** The maximal amount authorized to be withdrawn. */
-		BigDecimal withdrawMax,
+		String withdrawMax,
 		/** The minimal amount authorized to be withdrawn. */
-		BigDecimal withdrawMin,
+		String withdrawMin,
 		/** The min number for balance confirmation. */
 		int minConfirm,
 		/** The confirmation number for balance unlock. */

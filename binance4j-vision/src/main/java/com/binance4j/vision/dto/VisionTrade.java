@@ -1,6 +1,5 @@
 package com.binance4j.vision.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -20,11 +19,11 @@ public record VisionTrade(
 		/** The timestamp. */
 		long time,
 		/** The price. */
-		BigDecimal price,
+		String price,
 		/** The quantity. */
-		BigDecimal quantity,
+		String quantity,
 		/** The quote asset quantity. */
-		BigDecimal quoteQuantity,
+		String quoteQuantity,
 		/** Was it a buyer maker. */
 		boolean isBuyerMaker, /** Was it the best price match? */
 		boolean isBestMatch) {
@@ -32,7 +31,7 @@ public record VisionTrade(
 	 * @param input A csv line in a list format
 	 */
 	public VisionTrade(List<String> input) {
-		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(4)), new BigDecimal(input.get(1)), new BigDecimal(input.get(2)),
-				new BigDecimal(input.get(3)), Boolean.parseBoolean(input.get(5)), Boolean.parseBoolean(input.get(6)));
+		this(Long.parseLong(input.get(0)), Long.parseLong(input.get(4)), input.get(1), input.get(2), input.get(3), Boolean.parseBoolean(input.get(5)),
+				Boolean.parseBoolean(input.get(6)));
 	}
 }

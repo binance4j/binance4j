@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -22,13 +20,13 @@ public record ConvertibleAsset(
 		/** The asset full name. */
 		String assetFullName,
 		/** The free balance. */
-		BigDecimal amountFree,
+		String amountFree,
 		/** The BTC valuation. */
-		BigDecimal toBTC,
+		String toBTC,
 		/** The BNB valuation. */
-		BigDecimal toBNB,
+		String toBNB,
 		/** The BNB valuation commissions fees deducted. */
-		BigDecimal toBNBOffExchange,
+		String toBNBOffExchange,
 		/** Commission fees. */
-		BigDecimal exchange) {
+		String exchange) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -22,9 +20,9 @@ public record SubscriptionResponse(
 		/** Token name. */
 		String tokenName,
 		/** Subscribed token amount. */
-		BigDecimal amount,
+		String amount,
 		/** Subscription cost in usdt. */
-		BigDecimal cost,
+		String cost,
 		/** Timestamp in ms. */
 		long timestamp) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -17,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetDividend(
 		/** The divident amount. */
-		BigDecimal amount,
+		String amount,
 		/** Info about the asset. */
 		String enInfo,
 		/** The asset abbreviation. */

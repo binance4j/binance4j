@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -32,13 +30,13 @@ public record OrderInfo(
 		/** The order side */
 		String side,
 		/** Price. */
-		BigDecimal price,
+		String price,
 		/** Original quantity. */
-		@JsonProperty("origQty") BigDecimal origQuantity,
+		@JsonProperty("origQty") String origQuantity,
 		/** Original quantity. */
-		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		@JsonProperty("executedQty") String executedQuantity,
 		/** Used to calculate the average price */
-		@JsonProperty("cummulativeQuoteQty") BigDecimal cummulativeQuoteQuantity,
+		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
 		/** Order status. */
 		String status,
 		/** Time in force to indicate how long will the order remain active. */
@@ -46,15 +44,15 @@ public record OrderInfo(
 		/** Type of order. */
 		String type,
 		/** Used with stop orders. */
-		BigDecimal stopPrice,
+		String stopPrice,
 		/** Used with iceberg orders. */
-		@JsonProperty("icebergQty") BigDecimal icebergQuantity,
+		@JsonProperty("icebergQty") String icebergQuantity,
 		/** Order timestamp */
 		long time,
 		/** Update timestamp. */
 		long updateTime,
 		/** Original quote order quantity. */
-		@JsonProperty("origQuoteOrderQty") BigDecimal origQuoteOrderQuantity,
+		@JsonProperty("origQuoteOrderQty") String origQuoteOrderQuantity,
 		/** is working */
 		boolean isWorking,
 		/** is isolated margin */

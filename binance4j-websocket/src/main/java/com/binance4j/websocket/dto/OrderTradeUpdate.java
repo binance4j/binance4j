@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,9 +51,9 @@ public record OrderTradeUpdate(/** The event type. */
 		/** Time in force to indicate how Long will the order remain active. */
 		@JsonProperty("f") TimeInForce timeInForce,
 		/** Original quantity in the order. */
-		@JsonProperty("q") BigDecimal originalQuantity,
+		@JsonProperty("q") String originalQuantity,
 		/** Price. */
-		@JsonProperty("p") BigDecimal price,
+		@JsonProperty("p") String price,
 		/** Type of execution. */
 		@JsonProperty("x") String executionType,
 		/** Status of the order. */
@@ -65,13 +63,13 @@ public record OrderTradeUpdate(/** The event type. */
 		/** Order id. */
 		@JsonProperty("i") Long orderId,
 		/** Quantity of the last filled trade. */
-		@JsonProperty("l") BigDecimal quantityLastFilledTrade,
+		@JsonProperty("l") String quantityLastFilledTrade,
 		/** Accumulated quantity of filled trades on this order. */
-		@JsonProperty("z") BigDecimal accumulatedQuantity,
+		@JsonProperty("z") String accumulatedQuantity,
 		/** Price of last filled trade. */
-		@JsonProperty("L") BigDecimal priceOfLastFilledTrade,
+		@JsonProperty("L") String priceOfLastFilledTrade,
 		/** Commission. */
-		@JsonProperty("n") BigDecimal commission,
+		@JsonProperty("n") String commission,
 		/** Asset on which commission is taken. */
 		@JsonProperty("N") String commissionAsset,
 		/** Order/trade time. */
@@ -81,9 +79,9 @@ public record OrderTradeUpdate(/** The event type. */
 		/** Order creation time. */
 		@JsonProperty("O") Long orderCreationTime,
 		/** Cumulative quote asset transacted quantity. */
-		@JsonProperty("Z") BigDecimal cumulativeQuoteQuantity,
+		@JsonProperty("Z") String cumulativeQuoteQuantity,
 		/** Last quote asset transacted quantity (i.e. lastPrice * lastQty). */
-		@JsonProperty("Y") BigDecimal lastQuoteQuantity,
+		@JsonProperty("Y") String lastQuoteQuantity,
 		/** Quote Order quantity. */
-		@JsonProperty("Q") BigDecimal quoteOrderQuantity) {
+		@JsonProperty("Q") String quoteOrderQuantity) {
 }

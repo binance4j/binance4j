@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -19,5 +17,5 @@ public record MaxNumAlgoOrdersFilter(
 		 * The maximum number of "algo" orders an account is allowed to have open on a symbol. "Algo" orders are
 		 * {@code STOP_LOSS} {@code STOP_LOSS_LIMIT} {@code TAKE_PROFIT} and {@code TAKE_PROFIT_LIMIT} orders.
 		 */
-		BigDecimal maxNumAlgoOrders) {
+		String maxNumAlgoOrders) {
 }

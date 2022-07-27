@@ -1,6 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,15 +27,15 @@ public record BLVT(
 		/** Name. */
 		@JsonProperty("s") String name,
 		/** Tokens issued. */
-		@JsonProperty("m") BigDecimal tokensIssued,
+		@JsonProperty("m") String tokensIssued,
 		/** BVLT basket. */
 		@JsonProperty("b") List<BLVTBasket> baskets,
 		/** Nav. */
-		@JsonProperty("n") BigDecimal nav,
+		@JsonProperty("n") String nav,
 		/** Real leverage. */
-		@JsonProperty("l") BigDecimal realLeverage,
+		@JsonProperty("l") String realLeverage,
 		/** Leverage. */
 		@JsonProperty("t") int leverage,
 		/** Funding ratio. */
-		@JsonProperty("f") BigDecimal fundingRatio) {
+		@JsonProperty("f") String fundingRatio) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.margin.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
@@ -21,21 +19,21 @@ public class NewOrderParams extends Params {
 	/** The order side */
 	OrderSide side;
 	/** The order quantity */
-	BigDecimal quantity;
+	String quantity;
 	/** The order price */
-	BigDecimal price;
+	String price;
 	/** The stop price */
-	BigDecimal stopPrice;
+	String stopPrice;
 	/** The order response type Default: RESULT. */
 	NewOrderResponseType newOrderRespType;
 	/** The order type */
 	OrderType type;
 	/** The quote order quantity */
 	@JsonProperty("quoteOrderQty")
-	BigDecimal quoteOrderQuantity;
+	String quoteOrderQuantity;
 	/** The iceberg quantity */
 	@JsonProperty("icebergQty")
-	BigDecimal icebergQuantity;
+	String icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
 	String newClientOrderId;
 	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
@@ -55,7 +53,7 @@ public class NewOrderParams extends Params {
 	 * @param quantity    the quantity of the order.
 	 * @param timeInForce the lifetime of the order.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, TimeInForce timeInForce) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, TimeInForce timeInForce) {
 		this();
 		this.type = type;
 		this.symbol = symbol;
@@ -74,7 +72,7 @@ public class NewOrderParams extends Params {
 	 * @param price       the order price.
 	 * @param timeInForce the lifetime of the order.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
 		this(symbol, type, side, quantity, timeInForce);
 		this.price = price;
 	}
@@ -87,7 +85,7 @@ public class NewOrderParams extends Params {
 	 * @param side     the direction of the order.
 	 * @param quantity the quantity of the order.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity) {
 		this();
 		this.type = type;
 		this.symbol = symbol;
@@ -104,7 +102,7 @@ public class NewOrderParams extends Params {
 	 * @param quantity the quantity of the order.
 	 * @param price    the order price.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, BigDecimal quantity, BigDecimal price) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price) {
 		this();
 		this.type = type;
 		this.symbol = symbol;
@@ -123,7 +121,7 @@ public class NewOrderParams extends Params {
 	 * @param timeInForce The timeInforce.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
+	public static NewOrderParams buyMarket(String symbol, String quantity, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity, timeInForce);
 	}
 
@@ -134,7 +132,7 @@ public class NewOrderParams extends Params {
 	 * @param quantity The quantity.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams buyMarket(String symbol, BigDecimal quantity) {
+	public static NewOrderParams buyMarket(String symbol, String quantity) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity);
 	}
 
@@ -146,7 +144,7 @@ public class NewOrderParams extends Params {
 	 * @param timeInForce The timeInforce.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity, TimeInForce timeInForce) {
+	public static NewOrderParams sellMarket(String symbol, String quantity, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity, timeInForce);
 	}
 
@@ -157,7 +155,7 @@ public class NewOrderParams extends Params {
 	 * @param quantity The quantity.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams sellMarket(String symbol, BigDecimal quantity) {
+	public static NewOrderParams sellMarket(String symbol, String quantity) {
 		return buyMarket(symbol, quantity);
 	}
 
@@ -170,7 +168,7 @@ public class NewOrderParams extends Params {
 	 * @param timeInForce The timeInforce.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
+	public static NewOrderParams buyLimit(String symbol, String quantity, String price, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price, timeInForce);
 	}
 
@@ -182,7 +180,7 @@ public class NewOrderParams extends Params {
 	 * @param price    The price.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams buyLimit(String symbol, BigDecimal quantity, BigDecimal price) {
+	public static NewOrderParams buyLimit(String symbol, String quantity, String price) {
 		return buyLimit(symbol, quantity, price);
 	}
 
@@ -195,7 +193,7 @@ public class NewOrderParams extends Params {
 	 * @param timeInForce The timeInforce.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price, TimeInForce timeInForce) {
+	public static NewOrderParams sellLimit(String symbol, String quantity, String price, TimeInForce timeInForce) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, timeInForce);
 	}
 
@@ -207,7 +205,7 @@ public class NewOrderParams extends Params {
 	 * @param price    The price.
 	 * @return The generated {@link NewOrderParams}.
 	 */
-	public static NewOrderParams sellLimit(String symbol, BigDecimal quantity, BigDecimal price) {
+	public static NewOrderParams sellLimit(String symbol, String quantity, String price) {
 		return sellLimit(symbol, quantity, price);
 	}
 
@@ -252,42 +250,42 @@ public class NewOrderParams extends Params {
 	/**
 	 * @return the quantity
 	 */
-	public BigDecimal getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(BigDecimal quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
 	/**
 	 * @return the price
 	 */
-	public BigDecimal getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(BigDecimal price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
 	/**
 	 * @return the stopPrice
 	 */
-	public BigDecimal getStopPrice() {
+	public String getStopPrice() {
 		return stopPrice;
 	}
 
 	/**
 	 * @param stopPrice the stopPrice to set
 	 */
-	public void setStopPrice(BigDecimal stopPrice) {
+	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
 	}
 
@@ -336,28 +334,28 @@ public class NewOrderParams extends Params {
 	/**
 	 * @return the quoteOrderQuantity
 	 */
-	public BigDecimal getQuoteOrderQuantity() {
+	public String getQuoteOrderQuantity() {
 		return quoteOrderQuantity;
 	}
 
 	/**
 	 * @param quoteOrderQuantity the quoteOrderQuantity to set
 	 */
-	public void setQuoteOrderQuantity(BigDecimal quoteOrderQuantity) {
+	public void setQuoteOrderQuantity(String quoteOrderQuantity) {
 		this.quoteOrderQuantity = quoteOrderQuantity;
 	}
 
 	/**
 	 * @return the icebergQuantity
 	 */
-	public BigDecimal getIcebergQuantity() {
+	public String getIcebergQuantity() {
 		return icebergQuantity;
 	}
 
 	/**
 	 * @param icebergQuantity the icebergQuantity to set
 	 */
-	public void setIcebergQuantity(BigDecimal icebergQuantity) {
+	public void setIcebergQuantity(String icebergQuantity) {
 		this.icebergQuantity = icebergQuantity;
 	}
 

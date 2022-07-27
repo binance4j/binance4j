@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,13 +8,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MarginAccountSnapshotData(
 		/** Margin level. */
-		BigDecimal marginLevel,
+		String marginLevel,
 		/** Total asset of Bitcoin. */
-		BigDecimal totalAssetOfBtc,
+		String totalAssetOfBtc,
 		/** Total liability Of Bitcoin. */
-		BigDecimal totalLiabilityOfBtc,
+		String totalLiabilityOfBtc,
 		/** Total net Asset of Bitcoin. */
-		BigDecimal totalNetAssetOfBtc,
+		String totalNetAssetOfBtc,
 		/** User assets. */
 		List<MarginAccountSnapshotUserAssets> userAssetss) {
 }

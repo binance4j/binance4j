@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,7 @@ public record AssetBalance(
 		/** The Asset symbol. */
 		String asset,
 		/** The available balance. */
-		BigDecimal free,
+		String free,
 		/** The balance locked by open orders. */
-		BigDecimal locked) {
+		String locked) {
 }

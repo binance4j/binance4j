@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,11 +24,11 @@ public record CrossFee(
 		/** The coin name. */
 		String coin,
 		/** The borrow limit. */
-		BigDecimal borrowLimit,
+		String borrowLimit,
 		/** The daily interest. */
-		BigDecimal dailyInterest,
+		String dailyInterest,
 		/** The yearly interest. */
-		BigDecimal yearlyInterest,
+		String yearlyInterest,
 		/** Is it borrowable? */
 		boolean borrowable,
 		/** Is internal transfer allowed? */

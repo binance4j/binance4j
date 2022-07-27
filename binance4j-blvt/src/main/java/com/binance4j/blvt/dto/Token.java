@@ -1,6 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,27 +32,27 @@ public record Token(
 		/** Underlying. */
 		String underlying,
 		/** Token issued. */
-		BigDecimal tokenIssued,
+		String tokenIssued,
 		/** Basket. */
 		String basket,
 		/** Current baskets. */
 		List<Basket> currentBaskets,
 		/** Nav. */
-		BigDecimal nav,
+		String nav,
 		/** Real leverage. */
-		BigDecimal realLeverage,
+		String realLeverage,
 		/** Funding rate. */
-		BigDecimal fundingRate,
+		String fundingRate,
 		/** Daily management fee. */
-		BigDecimal dailyManagementFee,
+		String dailyManagementFee,
 		/** Purchase Fee Pct. */
-		BigDecimal purchaseFeePct,
+		String purchaseFeePct,
 		/** Daily Purchase Limit. */
-		BigDecimal dailyPurchaseLimit,
+		String dailyPurchaseLimit,
 		/** Redeem Fee Pct. */
-		BigDecimal redeemFeePct,
+		String redeemFeePct,
 		/** Daily Redeem Limit. */
-		BigDecimal dailyRedeemLimit,
+		String dailyRedeemLimit,
 		/** Timestamp in ms. */
 		long timestamp) {
 

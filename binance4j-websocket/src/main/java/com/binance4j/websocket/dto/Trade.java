@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,9 +28,9 @@ public record Trade(
 		/** The trade id. */
 		@JsonProperty("t") String tradeId,
 		/** The price. */
-		@JsonProperty("p") BigDecimal price,
+		@JsonProperty("p") String price,
 		/** The price. */
-		@JsonProperty("q") BigDecimal quantity,
+		@JsonProperty("q") String quantity,
 		/** The buyer order id. */
 		@JsonProperty("b") Long buyerOrderId,
 		/** The seller order id. */

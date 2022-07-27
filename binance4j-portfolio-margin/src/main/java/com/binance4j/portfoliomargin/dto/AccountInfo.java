@@ -1,15 +1,13 @@
 package com.binance4j.portfoliomargin.dto;
 
-import java.math.BigDecimal;
-
 /** Margin portfolio account infos */
 public record AccountInfo(
 		/** Portfolio margin account maintenance margin rate. */
-		BigDecimal uniMMR,
+		String uniMMR,
 		/** Account equity, unit：USD. */
-		BigDecimal accountEquity,
+		String accountEquity,
 		/** Portfolio margin account maintenance margin, unit：USD */
-		BigDecimal accountMaintMargin,
+		String accountMaintMargin,
 		/**
 		 * Portfolio margin account status.
 		 * <p>

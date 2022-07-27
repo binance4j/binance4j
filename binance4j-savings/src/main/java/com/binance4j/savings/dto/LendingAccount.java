@@ -1,6 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,15 +20,15 @@ public record LendingAccount(
 		/** Position amount. */
 		List<PositionAmount> positionAmountVos,
 		/** Total amount in btc. */
-		BigDecimal totalAmountInBTC,
+		String totalAmountInBTC,
 		/** Total amount in usdt. */
-		BigDecimal totalAmountInUSDT,
+		String totalAmountInUSDT,
 		/** Total fixed amount in btc. */
-		BigDecimal totalFixedAmountInBTC,
+		String totalFixedAmountInBTC,
 		/** Total fixed amount in usdt. */
-		BigDecimal totalFixedAmountInUSDT,
+		String totalFixedAmountInUSDT,
 		/** Total flexible in btc. */
-		BigDecimal totalFlexibleInBTC,
+		String totalFlexibleInBTC,
 		/** Total flexible in usdt. */
-		BigDecimal totalFlexibleInUSDT) {
+		String totalFlexibleInUSDT) {
 }

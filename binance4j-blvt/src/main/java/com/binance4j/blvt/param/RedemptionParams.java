@@ -1,7 +1,5 @@
 package com.binance4j.blvt.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.core.param.Params;
 
@@ -10,13 +8,13 @@ public class RedemptionParams extends Params {
 	/** The token name. */
 	String tokenName;
 	/** Amount to redeem. */
-	BigDecimal amount;
+	String amount;
 
 	/**
 	 * @param tokenName The token name.
 	 * @param amount    Amount to redeem.
 	 */
-	public RedemptionParams(String tokenName, BigDecimal amount) {
+	public RedemptionParams(String tokenName, String amount) {
 		super(1);
 		this.tokenName = tokenName;
 		this.amount = amount;
@@ -39,14 +37,14 @@ public class RedemptionParams extends Params {
 	/**
 	 * @return the amount
 	 */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 }

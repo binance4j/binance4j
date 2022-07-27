@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetDetail(
 		/** The minimal withdraw amount. */
-		BigDecimal minWithdrawAmount,
+		String minWithdrawAmount,
 		/** The deposit status (false if ALL of networks' are false). */
 		boolean depositStatus,
 		/** The withdraw fee. */

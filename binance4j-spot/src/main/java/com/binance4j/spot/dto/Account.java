@@ -1,6 +1,5 @@
 package com.binance4j.spot.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.binance4j.core.dto.AssetBalance;
@@ -24,13 +23,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
 		/** The maker commission. */
-		BigDecimal makerCommission,
+		String makerCommission,
 		/** The taker commission. */
-		BigDecimal takerCommission,
+		String takerCommission,
 		/** The buyer commission. */
-		BigDecimal buyerCommission,
+		String buyerCommission,
 		/** The seller commission. */
-		BigDecimal sellerCommission,
+		String sellerCommission,
 		/** The trade permission. */
 		boolean canTrade,
 		/** The withdrawal permission. */

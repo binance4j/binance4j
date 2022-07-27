@@ -1,6 +1,5 @@
 package com.binance4j.spot.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,11 +36,11 @@ public record NewOrderResponse(
 		/** The order transaction timestamp. */
 		long transactTime,
 		/** The price of trade. */
-		BigDecimal price,
+		String price,
 		/** The original traded quantity. */
-		@JsonProperty("origQty") BigDecimal origQuantity,
+		@JsonProperty("origQty") String origQuantity,
 		/** The current executed quantity. */
-		@JsonProperty("executedQty") BigDecimal executedQuantity,
+		@JsonProperty("executedQty") String executedQuantity,
 		/** The opposite coin quantity. */
 		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
 		/** The order status. */

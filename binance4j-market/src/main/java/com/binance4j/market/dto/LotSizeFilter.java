@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,9 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record LotSizeFilter(
 		/** The minimum quantity/iceberg Quant iuantity allowed. */
-		@JsonProperty("minQty") BigDecimal minQuantity,
+		@JsonProperty("minQty") String minQuantity,
 		/** The maximum quantity/iceberg Quantity allowed. */
-		@JsonProperty("maxQty") BigDecimal maxQuantity,
+		@JsonProperty("maxQty") String maxQuantity,
 		/** The intervals that a quantity/iceberg Quantity can be increased/decreased by. */
-		BigDecimal stepSize) {
+		String stepSize) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -22,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DepositHistory(
 		/** The volume to deposit. */
-		BigDecimal amount,
+		String amount,
 		/** The coin abbreviation. */
 		String coin,
 		/** The transfer network. */

@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -38,19 +37,19 @@ public record CoinInformation(
 		/** The withdraw permission. */
 		boolean withdrawAllEnable,
 		/** The free balance. */
-		BigDecimal free,
+		String free,
 		/** The freezed balance. */
-		BigDecimal freeze,
+		String freeze,
 		/** The Initial Public Offering balance (?) */
-		BigDecimal ipoable,
+		String ipoable,
 		/** The Initial Public Offering freezed balance (?) */
-		BigDecimal ipoing,
+		String ipoing,
 		/** The locked balance. */
-		BigDecimal locked,
+		String locked,
 		/** The storage */
-		BigDecimal storage,
+		String storage,
 		/** The withdrawing balance. */
-		BigDecimal withdrawing,
+		String withdrawing,
 		/** The coin network information. */
 		List<CoinNetworkInformation> networkList) {
 }

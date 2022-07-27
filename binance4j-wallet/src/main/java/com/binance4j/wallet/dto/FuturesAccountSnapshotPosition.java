@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,11 +9,11 @@ public record FuturesAccountSnapshotPosition(
 		/** The asset pair. */
 		String symbol,
 		/** The entry price. */
-		BigDecimal entryPrice,
+		String entryPrice,
 		/** Mark price. */
-		BigDecimal markPrice,
+		String markPrice,
 		/** The position amount. */
-		@JsonProperty("positionAmt") BigDecimal positionAmount,
+		@JsonProperty("positionAmt") String positionAmount,
 		/** Only show the value at the time of opening the position. */
-		BigDecimal unRealizedProfit) {
+		String unRealizedProfit) {
 }

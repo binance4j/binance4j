@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -23,19 +21,19 @@ public record IsolatedAsset(
 		/** The asset name. */
 		String asset,
 		/** The borrowed quantity. */
-		BigDecimal borrowed,
+		String borrowed,
 		/** The free quantity. */
-		BigDecimal free,
+		String free,
 		/** The loan interest. */
-		BigDecimal interest,
+		String interest,
 		/** The locked quantity. */
-		BigDecimal locked,
+		String locked,
 		/** The net asset quantity. */
-		BigDecimal netAsset,
+		String netAsset,
 		/** The net asset of Bitcoin. */
-		BigDecimal netAssetOfBtc,
+		String netAssetOfBtc,
 		/** The asset total quantity. */
-		BigDecimal totalAsset,
+		String totalAsset,
 		/** Can the account borrow this asset? */
 		boolean borrowEnabled,
 		/** Can the account repay this asset? */

@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,15 +26,15 @@ public record MiniTicker(
 		/** The trading pair. */
 		@JsonProperty("s") String symbol,
 		/** The close price. */
-		@JsonProperty("c") BigDecimal closePrice,
+		@JsonProperty("c") String closePrice,
 		/** The open price. */
-		@JsonProperty("o") BigDecimal openPrice,
+		@JsonProperty("o") String openPrice,
 		/** The highest price. */
-		@JsonProperty("h") BigDecimal highPrice,
+		@JsonProperty("h") String highPrice,
 		/** The lowest price. */
-		@JsonProperty("l") BigDecimal lowPrice,
+		@JsonProperty("l") String lowPrice,
 		/** Total traded base asset volume. */
-		@JsonProperty("v") BigDecimal totalTradedBaseAssetVolume,
+		@JsonProperty("v") String totalTradedBaseAssetVolume,
 		/** Total traded quote asset volume. */
-		@JsonProperty("q") BigDecimal totalTradedQuoteAssetVolume) {
+		@JsonProperty("q") String totalTradedQuoteAssetVolume) {
 }

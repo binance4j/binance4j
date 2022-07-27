@@ -1,6 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,29 +25,29 @@ public record FlexibleProduct(
 		/** Asset. */
 		String asset,
 		/** Avg annual interest rate. */
-		BigDecimal avgAnnualInterestRate,
+		String avgAnnualInterestRate,
 		/** Tier annual interest rate. */
-		Map<String, BigDecimal> tierAnnualInterestRate,
+		Map<String, String> tierAnnualInterestRate,
 		/** Latest annual interest rate. */
-		BigDecimal latestAnnualInterestRate,
+		String latestAnnualInterestRate,
 		/** Product can be purchase? */
 		boolean canPurchase,
 		/** Product can be redeem? */
 		boolean canRedeem,
 		/** Daily interest per thousand. */
-		// ABANDONNED: BigDecimal dailyInterestPerThousand,
+		// ABANDONNED: String dailyInterestPerThousand,
 		/** Featured. */
 		boolean featured,
 		/** Min purchase amount. */
-		BigDecimal minPurchaseAmount,
+		String minPurchaseAmount,
 		/** Product id. */
 		String productId,
 		/** Purchased amount. */
-		BigDecimal purchasedAmount,
+		String purchasedAmount,
 		/** Status. */
 		String status,
 		/** Up limit. */
-		BigDecimal upLimit,
+		String upLimit,
 		/** Up limit per user. */
-		BigDecimal upLimitPerUser) {
+		String upLimitPerUser) {
 }

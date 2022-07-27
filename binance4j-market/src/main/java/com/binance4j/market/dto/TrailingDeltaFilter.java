@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,11 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TrailingDeltaFilter(
 		/** The min trailing above delta. */
-		BigDecimal minTrailingAboveDelta,
+		String minTrailingAboveDelta,
 		/** The max trailing above delta. */
-		BigDecimal maxTrailingAboveDelta,
+		String maxTrailingAboveDelta,
 		/** The min trailing below delta. */
-		BigDecimal minTrailingBelowDelta,
+		String minTrailingBelowDelta,
 		/** The max trailing below delta. */
-		BigDecimal maxTrailingBelowDelta) {
+		String maxTrailingBelowDelta) {
 }

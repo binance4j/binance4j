@@ -1,6 +1,5 @@
 package com.binance4j.strategy.service;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -30,7 +29,7 @@ public class BarService {
 	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(Candle bar, Duration timePeriod, ZoneId zoneId) {
-		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class).timePeriod(timePeriod)
+		return BaseBar.builder(DecimalNum::valueOf, String.class).timePeriod(timePeriod)
 				.endTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(bar.closeTime()), zoneId)).openPrice(bar.open()).highPrice(bar.high()).lowPrice(bar.low())
 				.closePrice(bar.close()).volume(bar.volume()).build();
 	}
@@ -78,7 +77,7 @@ public class BarService {
 	 * @return The generated {@link BarSeries}.
 	 */
 	public static Bar convert(com.binance4j.websocket.dto.Candle bar, Duration timePeriod, ZoneId zoneId) {
-		return BaseBar.builder(DecimalNum::valueOf, BigDecimal.class).timePeriod(timePeriod)
+		return BaseBar.builder(DecimalNum::valueOf, String.class).timePeriod(timePeriod)
 				.endTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(bar.closeTime()), zoneId)).openPrice(bar.open()).highPrice(bar.high()).lowPrice(bar.low())
 				.closePrice(bar.close()).volume(bar.volume()).build();
 	}

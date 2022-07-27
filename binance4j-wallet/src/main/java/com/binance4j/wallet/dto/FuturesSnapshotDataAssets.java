@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -16,7 +14,7 @@ public record FuturesSnapshotDataAssets(
 		/** The asset abbreviation. */
 		String asset,
 		/** The margin balance. */
-		BigDecimal marginBalance,
+		String marginBalance,
 		/** The wallet balance. */
-		BigDecimal walletBalance) {
+		String walletBalance) {
 }

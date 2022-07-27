@@ -1,7 +1,5 @@
 package com.binance4j.staking.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -41,7 +39,7 @@ public record ProductPosition(
 		/** Locked asset. */
 		String asset,
 		/** Locked Amount. */
-		BigDecimal amount,
+		String amount,
 		/** Subscription time. */
 		String purchaseTime,
 		/** Lock period(days ). */
@@ -51,23 +49,23 @@ public record ProductPosition(
 		/** Earned asset. */
 		String rewardAsset,
 		/** APY. */
-		BigDecimal apy,
+		String apy,
 		/** Earned amount. */
-		BigDecimal rewardAmt,
+		String rewardAmt,
 		/** Rewards assets of extra staking type. */
 		String extraRewardAsset,
 		/** APY of extra staking type. */
-		BigDecimal extraRewardAPY,
+		String extraRewardAPY,
 		/** Rewards of extra staking type, distribute when order expires. */
-		BigDecimal estExtraRewardAmt,
+		String estExtraRewardAmt,
 		/** Next estimated interest payment. */
-		BigDecimal nextInterestPay,
+		String nextInterestPay,
 		/** Next interest payment date. */
-		BigDecimal nextInterestPayDate,
+		String nextInterestPayDate,
 		/** Interest cycle. */
 		String payInterestPeriod,
 		/** Early redemption amount. */
-		BigDecimal redeemAmountEarly,
+		String redeemAmountEarly,
 		/** Interest accrual end date. */
 		String interestEndDate,
 		/** Redemption arrival time. */
@@ -75,7 +73,7 @@ public record ProductPosition(
 		/** Redemption interval. */
 		String redeemPeriod,
 		/** Amount under redemption. */
-		BigDecimal redeemingAmt,
+		String redeemingAmt,
 		/** Arrival time of partial redemption amount of order. */
 		String partialAmtDeliverDate,
 		/** When it is true, early redemption can be operated. */

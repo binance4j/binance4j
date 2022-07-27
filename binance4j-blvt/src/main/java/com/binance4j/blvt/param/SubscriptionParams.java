@@ -1,7 +1,5 @@
 package com.binance4j.blvt.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.core.param.Params;
 
@@ -10,13 +8,13 @@ public class SubscriptionParams extends Params {
 	/** The token name. */
 	String tokenName;
 	/** Spot balance. */
-	BigDecimal cost;
+	String cost;
 
 	/**
 	 * @param tokenName The token name.
 	 * @param cost      Spot balance.
 	 */
-	public SubscriptionParams(String tokenName, BigDecimal cost) {
+	public SubscriptionParams(String tokenName, String cost) {
 		super(1);
 		this.tokenName = tokenName;
 		this.cost = cost;
@@ -39,14 +37,14 @@ public class SubscriptionParams extends Params {
 	/**
 	 * @return the cost
 	 */
-	public BigDecimal getCost() {
+	public String getCost() {
 		return cost;
 	}
 
 	/**
 	 * @param cost the cost to set
 	 */
-	public void setCost(BigDecimal cost) {
+	public void setCost(String cost) {
 		this.cost = cost;
 	}
 

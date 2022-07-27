@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import java.math.BigDecimal;
-
 /**
  * BLVT redemption response.
  * 
@@ -20,9 +18,9 @@ public record RedemptionResponse(
 		/** Token name. */
 		String tokenName,
 		/** Redemption token amount. */
-		BigDecimal redeemAmount,
+		String redeemAmount,
 		/** Redemption value in usdt. */
-		BigDecimal amount,
+		String amount,
 		/** Timestamp in ms. */
 		long timestamp) {
 }

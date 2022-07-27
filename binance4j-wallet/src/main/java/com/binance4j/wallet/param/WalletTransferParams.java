@@ -1,7 +1,5 @@
 package com.binance4j.wallet.param;
 
-import java.math.BigDecimal;
-
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
@@ -13,7 +11,7 @@ public class WalletTransferParams extends Params {
 	/** The transfer type. */
 	WalletTransferType type;
 	/** The volume. */
-	BigDecimal amount;
+	String amount;
 	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	String fromSymbol;
 	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
@@ -24,7 +22,7 @@ public class WalletTransferParams extends Params {
 	 * @param asset  The asset to transfer.
 	 * @param amount The volume to transfer.
 	 */
-	public WalletTransferParams(BigDecimal amount, String asset, WalletTransferType type) {
+	public WalletTransferParams(String amount, String asset, WalletTransferType type) {
 		super(1);
 		this.type = type;
 		this.asset = asset;
@@ -62,14 +60,14 @@ public class WalletTransferParams extends Params {
 	/**
 	 * @return the amount
 	 */
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

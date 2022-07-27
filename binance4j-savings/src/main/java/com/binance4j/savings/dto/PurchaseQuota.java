@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -15,5 +13,5 @@ public record PurchaseQuota(
 		/** Asset. */
 		String asset,
 		/** Left quota. */
-		BigDecimal leftQuota) {
+		String leftQuota) {
 }
