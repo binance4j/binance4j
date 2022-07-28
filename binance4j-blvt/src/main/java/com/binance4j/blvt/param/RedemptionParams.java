@@ -5,51 +5,12 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The {@link BLVTClient#redeem} params. */
+/**
+ * The {@link BLVTClient#redeem} params.
+ * 
+ * @param tokenName The token name.
+ * @param amount    Amount to redeem.
+ */
 @Param
-public class RedemptionParams implements Params {
-	/** The token name. */
-	@Mandatory
-	String tokenName;
-	/** Amount to redeem. */
-	@Mandatory
-	String amount;
-
-	/**
-	 * @param tokenName The token name.
-	 * @param amount    Amount to redeem.
-	 */
-	public RedemptionParams(String tokenName, String amount) {
-
-		this.tokenName = tokenName;
-		this.amount = amount;
-	}
-
-	/**
-	 * @return the tokenName
-	 */
-	public String getTokenName() {
-		return tokenName;
-	}
-
-	/**
-	 * @param tokenName the tokenName to set
-	 */
-	public void setTokenName(String tokenName) {
-		this.tokenName = tokenName;
-	}
-
-	/**
-	 * @return the amount
-	 */
-	public String getAmount() {
-		return amount;
-	}
-
-	/**
-	 * @param amount the amount to set
-	 */
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
+public record RedemptionParams(@Mandatory String tokenName, @Mandatory String amount) implements Params {
 }

@@ -5,52 +5,12 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The {@link BLVTClient#subscribe} params. */
+/**
+ * The {@link BLVTClient#subscribe} params.
+ * 
+ * @param tokenName The token name.
+ * @param cost      Cost to subscribe to.
+ */
 @Param
-public class SubscriptionParams implements Params {
-	/** The token name. */
-	@Mandatory
-	String tokenName;
-	/** Spot balance. */
-	@Mandatory
-	String cost;
-
-	/**
-	 * @param tokenName The token name.
-	 * @param cost      Spot balance.
-	 */
-	public SubscriptionParams(String tokenName, String cost) {
-
-		this.tokenName = tokenName;
-		this.cost = cost;
-	}
-
-	/**
-	 * @return the tokenName
-	 */
-	public String getTokenName() {
-		return tokenName;
-	}
-
-	/**
-	 * @param tokenName the tokenName to set
-	 */
-	public void setTokenName(String tokenName) {
-		this.tokenName = tokenName;
-	}
-
-	/**
-	 * @return the cost
-	 */
-	public String getCost() {
-		return cost;
-	}
-
-	/**
-	 * @param cost the cost to set
-	 */
-	public void setCost(String cost) {
-		this.cost = cost;
-	}
-
+public record SubscriptionParams(@Mandatory String tokenName, @Mandatory String cost) implements Params {
 }
