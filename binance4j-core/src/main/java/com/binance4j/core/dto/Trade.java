@@ -1,6 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -19,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** Trade id. */
 		long id,

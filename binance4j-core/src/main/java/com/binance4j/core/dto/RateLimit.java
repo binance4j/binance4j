@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The parameters rate limit for the Binance API defined by a type and an interval
  * 
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param intervalNum   The limit interval number.
  * @param limit         The limit for the given interval.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record RateLimit(
 		/** The rate limit type. */
 		String rateLimitType,

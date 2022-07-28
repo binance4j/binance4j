@@ -2,8 +2,6 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The representation of an aggregated trade.
  * 
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param m Was it a buyer maker
  * @param M Was it the best price match?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record AggTrade(
 		/** The trade id */
 		long a,

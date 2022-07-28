@@ -1,6 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -25,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param orderId                  Order id.
  * @param clientOrderId            Client order id.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderInfo(
 		/** The order side */
 		String side,

@@ -1,10 +1,8 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The CancelOrder request result. */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record CancelOrderResponse(
 		/** The order status. */
 		String status,

@@ -2,8 +2,6 @@ package com.binance4j.core.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The response of an OCO order.
  * 
@@ -18,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param isIsolated        is it an isolated trade?
  * @param orderReports      The order reports.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOResponse(
 		/** The order list id. */
 		long orderListId,

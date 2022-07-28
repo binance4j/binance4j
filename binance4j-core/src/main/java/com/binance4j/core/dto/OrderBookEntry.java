@@ -2,7 +2,6 @@ package com.binance4j.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -12,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @param price    The price.
  * @param quantity The quantity.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()
 public record OrderBookEntry(

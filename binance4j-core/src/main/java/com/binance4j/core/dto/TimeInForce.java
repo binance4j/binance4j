@@ -1,11 +1,8 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Time in force to indicate how long an order will remain active before it is executed or expires.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public enum TimeInForce {
 	/** GTC (Good-Til-Canceled) orders are effective until they are executed or canceled. */
 	GTC,
