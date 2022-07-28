@@ -2,81 +2,50 @@ package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getAllOCO} params. */
+/**
+ * {@link MarginClient#getAllOCO} params.
+ * 
+ * @param symbol     Mandatory for isolated margin, not supported for cross margin.
+ * @param fromId     If supplied, don't provide {@link TimeIntervalParams}
+ * @param isIsolated Is the order isolated?
+ */
 @Param(weight = 200)
-public class GetAllOCOParams implements Params {
-	/** The starting timestamp of the results */
-	Long startTime;
-	/** The ending timestamp of the results */
-	Long endTime;
-	/** Is the order isolated? */
-	Boolean isIsolated;
-	/** mandatory for isolated margin, not supported for cross margin. */
-	String symbol;
-	/** If supplied, neither startTime or endTime can be provided. */
-	Long fromId;
-	/** Default Value: 500; Max Value: 1000 */
-	Integer limit;
-
-	/** @return the isIsolated */
-	public Boolean isIsolated() {
-		return isIsolated;
+public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) implements Params {
+	/**
+	 * Creates an instance of {@link GetAllOCOParams}.
+	 */
+	public GetAllOCOParams() {
+		this(null, null, true);
 	}
 
-	/** @param isIsolated the isIsolated to set */
-	public void isIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
+	/**
+	 * Creates an instance of {@link GetAllOCOParams}.
+	 * 
+	 * @param fromId If supplied, don't provide {@link TimeIntervalParams}
+	 */
+	public GetAllOCOParams(Long fromId) {
+		this(null, fromId, true);
 	}
 
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
+	/**
+	 * Creates an instance of {@link GetAllOCOParams}.
+	 * 
+	 * @param symbol The isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 */
+	public GetAllOCOParams(String symbol) {
+		this(symbol, null, true);
 	}
 
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/** @return the fromId */
-	public Long getFromId() {
-		return fromId;
-	}
-
-	/** @param fromId the fromId to set */
-	public void setFromId(Long fromId) {
-		this.fromId = fromId;
-	}
-
-	/** @return the limit */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/** @param limit the limit to set */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	/** @return the startTime */
-	public Long getStartTime() {
-		return startTime;
-	}
-
-	/** @param startTime the startTime to set */
-	public void setStartTime(Long startTime) {
-		this.startTime = startTime;
-	}
-
-	/** @return the endTime */
-	public Long getEndTime() {
-		return endTime;
-	}
-
-	/** @param endTime the endTime to set */
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
+	/**
+	 * Creates an instance of {@link GetAllOCOParams}.
+	 * 
+	 * @param symbol The isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 * @param fromId If supplied, don't provide {@link TimeIntervalParams}
+	 */
+	public GetAllOCOParams(String symbol, Long fromId) {
+		this(symbol, fromId, true);
 	}
 }

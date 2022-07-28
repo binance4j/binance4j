@@ -4,32 +4,38 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getOpenOCO} params. */
+/**
+ * {@link MarginClient#getOpenOCO} params.
+ * 
+ * @param symbol     Isolated symbol. Not supported for cross margin.
+ * @param isIsolated Is the order isolated?
+ */
 @Param(weight = 10)
-public class GetOpenOCOParams implements Params {
-	/** Is the order isolated? */
-	Boolean isIsolated;
-	/** mandatory for isolated margin, not supported for cross margin. */
-	String symbol;
+public record GetOpenOCOParams(String symbol, Boolean isIsolated) implements Params {
 
-	/** @return the isIsolated */
-	public Boolean getIsIsolated() {
-		return isIsolated;
+	/**
+	 * Creates an instance of {@link GetOpenOCOParams}.
+	 */
+	public GetOpenOCOParams() {
+		this(null, null);
 	}
 
-	/** @param isIsolated the isIsolated to set */
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
+	/**
+	 * Creates an instance of {@link GetOpenOCOParams}.
+	 * 
+	 * @param isIsolated Is the order isolated?
+	 */
+	public GetOpenOCOParams(Boolean isIsolated) {
+		this(null, isIsolated);
 	}
 
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	/**
+	 * Creates an instance of {@link GetOpenOCOParams}.
+	 * 
+	 * @param symbol Isolated symbol. {@code isIsolated} set to true.
+	 */
+	public GetOpenOCOParams(String symbol) {
+		this(symbol, true);
 	}
 
 }

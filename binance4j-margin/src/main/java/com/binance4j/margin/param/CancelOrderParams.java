@@ -4,92 +4,65 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The request to cancel an order. */
+/**
+ * The request to cancel an order.
+ * 
+ * @param symbol            Trade symbol.
+ * @param orderId           Order id.
+ * @param origClientOrderId Original client order id.
+ * @param newClientOrderId  New client order id.
+ */
 @Param(weight = 10)
-public class CancelOrderParams implements Params {
-	/** The trade symbol */
-	@Mandatory
-	String symbol;
-	/** The order id */
-	@Mandatory
-	Long orderId;
-	/** The original client order id */
-	String origClientOrderId;
-	/** The new client order id */
-	String newClientOrderId;
+public record CancelOrderParams(@Mandatory String symbol, Long orderId, String origClientOrderId, String newClientOrderId) implements Params {
+	/**
+	 * Creates an instance of {@link CancelOrderParams}
+	 * 
+	 * @param symbol The related symbol.
+	 */
+	public CancelOrderParams(String symbol) {
+		this(symbol, null, null, null);
+	}
 
 	/**
+	 * Creates an instance of {@link CancelOrderParams}
+	 * 
 	 * @param symbol  The related symbol.
 	 * @param orderId The order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId) {
-		this.symbol = symbol;
-		this.orderId = orderId;
+		this(symbol, orderId, null, null);
 	}
 
 	/**
+	 * Creates an instance of {@link CancelOrderParams}
+	 * 
 	 * @param symbol            The related symbol.
-	 * @param origClientOrderId Origin client order id.
+	 * @param orderId           The order id.
+	 * @param origClientOrderId Original client order id.
 	 */
 	public CancelOrderParams(String symbol, String origClientOrderId) {
-		this.symbol = symbol;
-		this.origClientOrderId = origClientOrderId;
+		this(symbol, null, origClientOrderId, null);
 	}
 
 	/**
-	 * @return the symbol
+	 * Creates an instance of {@link CancelOrderParams}
+	 * 
+	 * @param symbol            The related symbol.
+	 * @param origClientOrderId Original client order id.
+	 * @param newClientOrderId  New client order id.
 	 */
-	public String getSymbol() {
-		return symbol;
+	public CancelOrderParams(String symbol, String origClientOrderId, String newClientOrderId) {
+		this(symbol, null, origClientOrderId, newClientOrderId);
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * Creates an instance of {@link CancelOrderParams}
+	 * 
+	 * @param symbol            The related symbol.
+	 * @param orderId           The order id.
+	 * @param origClientOrderId Original client order id.
 	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public CancelOrderParams(String symbol, Long orderId, String origClientOrderId) {
+		this(symbol, orderId, origClientOrderId, null);
 	}
-
-	/**
-	 * @return the orderId
-	 */
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	/**
-	 * @param orderId the orderId to set
-	 */
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	/**
-	 * @return the origClientOrderId
-	 */
-	public String getOrigClientOrderId() {
-		return origClientOrderId;
-	}
-
-	/**
-	 * @param origClientOrderId the origClientOrderId to set
-	 */
-	public void setOrigClientOrderId(String origClientOrderId) {
-		this.origClientOrderId = origClientOrderId;
-	}
-
-	/**
-	 * @return the newClientOrderId
-	 */
-	public String getNewClientOrderId() {
-		return newClientOrderId;
-	}
-
-	/**
-	 * @param newClientOrderId the newClientOrderId to set
-	 */
-	public void setNewClientOrderId(String newClientOrderId) {
-		this.newClientOrderId = newClientOrderId;
-	}
-
 }

@@ -5,7 +5,8 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getInterestHistory} params. */
+// TODO convert to record
+/** {@link MarginClient#getInterestHistory} params. */
 @Param
 public class InterestHistoryParams implements Params {
 	/** The related asset. */

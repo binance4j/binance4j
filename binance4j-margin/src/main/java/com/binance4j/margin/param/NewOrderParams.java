@@ -1,5 +1,6 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
@@ -10,16 +11,23 @@ import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.SideEffectType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** The {@link MarginClient#newOrder} params. */
+// TODO convert to record?
+/** {@link MarginClient#newOrder} params. */
 @Param(weight = 6, isOrder = true)
 public class NewOrderParams implements Params {
 	/** The default order time in force. */
 	TimeInForce timeInForce = TimeInForce.GTC;
 	/** The order symbol */
+	@Mandatory
 	String symbol;
+	/** The order type */
+	@Mandatory
+	OrderType type;
 	/** The order side */
+	@Mandatory
 	OrderSide side;
 	/** The order quantity */
+	@Mandatory
 	String quantity;
 	/** The order price */
 	String price;
@@ -27,8 +35,6 @@ public class NewOrderParams implements Params {
 	String stopPrice;
 	/** The order response type Default: RESULT. */
 	NewOrderResponseType newOrderRespType;
-	/** The order type */
-	OrderType type;
 	/** The quote order quantity */
 	@JsonProperty("quoteOrderQty")
 	String quoteOrderQuantity;

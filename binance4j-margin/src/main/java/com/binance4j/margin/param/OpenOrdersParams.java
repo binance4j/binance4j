@@ -4,32 +4,37 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getOpenOrders} params. */
+/**
+ * {@link MarginClient#getOpenOrders} params.
+ * 
+ * @param symbol     Symbol.
+ * @param isIsolated Is the order isolated?
+ */
 @Param(weight = 10)
-public class OpenOrdersParams implements Params {
-	/** The symbol */
-	String symbol;
-	/** Is the order isolated? */
-	Boolean isIsolated;
+public record OpenOrdersParams(String symbol, Boolean isIsolated) implements Params {
 
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
+	/**
+	 * Creates an instance of {@link OpenOrdersParams}.
+	 */
+	public OpenOrdersParams() {
+		this(null, null);
 	}
 
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	/**
+	 * Creates an instance of {@link OpenOrdersParams}.
+	 * 
+	 * @param symbol Symbol.
+	 */
+	public OpenOrdersParams(String symbol) {
+		this(symbol, null);
 	}
 
-	/** @return the isIsolated */
-	public Boolean isIsolated() {
-		return isIsolated;
+	/**
+	 * Creates an instance of {@link OpenOrdersParams}.
+	 * 
+	 * @param isIsolated Is the order isolated?
+	 */
+	public OpenOrdersParams(Boolean isIsolated) {
+		this(null, isIsolated);
 	}
-
-	/** @param isIsolated the isIsolated to set */
-	public void isIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
 }

@@ -4,79 +4,67 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getMyTrades} params. */
+/**
+ * {@link MarginClient#getMyTrades} params.
+ * 
+ * @param symbol     Symbol.
+ * @param fromId     Search from id.
+ * @param isIsolated Is isolated margin?
+ */
 @Param(weight = 10)
-public class TradeParams implements Params {
-	/** The starting timestamp of the results */
-	Long startTime;
-	/** The ending timestamp of the results */
-	Long endTime;
-	/** Symbol. */
-	String symbol;
-	/** IsIsolated. */
-	Boolean isIsolated;
-	/** FromId. */
-	Long fromId;
-	/** Limit. */
-	Integer limit;
-
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
+public record TradeParams(String symbol, Long fromId, Boolean isIsolated) implements Params {
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 */
+	public TradeParams() {
+		this(null, null, null);
 	}
 
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 * 
+	 * @param symbol Symbol.
+	 */
+	public TradeParams(String symbol) {
+		this(symbol, null, null);
 	}
 
-	/** @return the isIsolated */
-	public Boolean getIsIsolated() {
-		return isIsolated;
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 * 
+	 * @param symbol Symbol.
+	 * @param fromId Search from id.
+	 */
+	public TradeParams(String symbol, Long fromId) {
+		this(symbol, fromId, null);
 	}
 
-	/** @param isIsolated the isIsolated to set */
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 * 
+	 * @param fromId Search from id.
+	 */
+	public TradeParams(Long fromId) {
+		this(null, fromId, null);
 	}
 
-	/** @return the fromId */
-	public Long getFromId() {
-		return fromId;
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 * 
+	 * @param fromId     Search from id.
+	 * @param isIsolated Is isolated margin?
+	 */
+	public TradeParams(Long fromId, Boolean isIsolated) {
+		this(null, fromId, isIsolated);
 	}
 
-	/** @param fromId the fromId to set */
-	public void setFromId(Long fromId) {
-		this.fromId = fromId;
-	}
-
-	/** @return the limit */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/** @param limit the limit to set */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	/** @return the startTime */
-	public Long getStartTime() {
-		return startTime;
-	}
-
-	/** @param startTime the startTime to set */
-	public void setStartTime(Long startTime) {
-		this.startTime = startTime;
-	}
-
-	/** @return the endTime */
-	public Long getEndTime() {
-		return endTime;
-	}
-
-	/** @param endTime the endTime to set */
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
+	/**
+	 * Creates an instance of {@link TradeParams}.
+	 * 
+	 * @param symbol     Symbol.
+	 * @param isIsolated Is isolated margin?
+	 */
+	public TradeParams(String symbol, Boolean isIsolated) {
+		this(symbol, null, isIsolated);
 	}
 }

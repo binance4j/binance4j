@@ -4,7 +4,8 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getForceLiquidationRecord} params. */
+// TODO convert to record
+/** {@link MarginClient#getForceLiquidationRecord} params. */
 @Param
 public class ForceLiquidationRecordParams implements Params {
 	/** The starting timestamp of the results */

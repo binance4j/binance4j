@@ -6,83 +6,34 @@ import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#repay} params. */
+/**
+ * {@link MarginClient#repay} params.
+ * 
+ * @param asset      Asset to repay.
+ * @param amount     Amount to repay.
+ * @param symbol     Isolated symbol.
+ * @param isIsolated For isolated margin or not. Default {@code false}.
+ */
 @Param(weight = 300, type = RateLimitType.UID)
-public class RepayParams implements Params {
-	/** The asset to repay. */
-	@Mandatory
-	String asset;
-	/** The amount to repay. */
-	@Mandatory
-	String amount;
-	/** The isolated symbol. */
-	String symbol;
-	/** For isolated margin or not. Default {@code false}. */
-	Boolean isIsolated;
-
+public record RepayParams(@Mandatory String asset, @Mandatory String amount, String symbol, Boolean isIsolated) implements Params {
 	/**
-	 * @param asset  The asset to repay.
-	 * @param amount The amount to repay.
+	 * Creates an instance of {@link RepayParams}.
+	 * 
+	 * @param asset  Asset to repay.
+	 * @param amount Amount to repay.
 	 */
 	public RepayParams(String asset, String amount) {
-		this.asset = asset;
-		this.amount = amount;
+		this(asset, amount, null, null);
 	}
 
 	/**
-	 * Isolated margin repay
+	 * Creates an instance of {@link RepayParams}.
 	 * 
-	 * @param symbol isolated symbol.
+	 * @param asset  Asset to repay.
+	 * @param amount Amount to repay.
+	 * @param symbol Isolated symbol. {@code isIsolated} set to true.
 	 */
-	public void isIsolated(String symbol) {
-		this.isIsolated = true;
-		this.symbol = symbol;
+	public RepayParams(String asset, String amount, String symbol) {
+		this(asset, amount, symbol, true);
 	}
-
-	/** Crossed margin repay. */
-	public void isNotIsolated() {
-		this.isIsolated = false;
-		this.symbol = null;
-	}
-
-	/** @return the asset */
-	public String getAsset() {
-		return asset;
-	}
-
-	/** @param asset the asset to set */
-	public void setAsset(String asset) {
-		this.asset = asset;
-	}
-
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/** @return the isIsolated */
-	public Boolean getIsIsolated() {
-		return isIsolated;
-	}
-
-	/** @param isIsolated the isIsolated to set */
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
-	/** @return the amount */
-	public String getAmount() {
-		return amount;
-	}
-
-	/** @param amount the amount to set */
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
-
 }

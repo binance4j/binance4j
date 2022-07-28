@@ -1,52 +1,21 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest} params. */
+/**
+ * {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest} params.
+ * 
+ * @param spotBNBBurn     Use BNB to pay for trading fees on SPOT?
+ * @param interestBNBBurn Use BNB to pay for margin loan's interest?
+ */
 @Param
-public class ToggleBurnParams implements Params {
-	/** Determines whether to use BNB to pay for trading fees on SPOT. */
-	@Mandatory
-	Boolean spotBNBBurn;
-	/** Determines whether to use BNB to pay for margin loan's interest. */
-	@Mandatory
-	Boolean interestBNBBurn;
-
-	/** Default constructor */
-	public ToggleBurnParams() {
-		super();
-	}
-
+public record ToggleBurnParams(Boolean spotBNBBurn, Boolean interestBNBBurn) implements Params {
 	/**
-	 * @param spotBNBBurn     Determines whether to use BNB to pay for trading fees on SPOT.
-	 * @param interestBNBBurn Determines whether to use BNB to pay for margin loan's interest.
+	 * Creates an instance of {@link ToggleBurnParams}.
 	 */
-	public ToggleBurnParams(Boolean spotBNBBurn, Boolean interestBNBBurn) {
-		this.spotBNBBurn = spotBNBBurn;
-		this.interestBNBBurn = interestBNBBurn;
+	public ToggleBurnParams() {
+		this(null, null);
 	}
-
-	/** @return the spotBNBBurn */
-	public Boolean getSpotBNBBurn() {
-		return spotBNBBurn;
-	}
-
-	/** @param spotBNBBurn the spotBNBBurn to set */
-	public void setSpotBNBBurn(Boolean spotBNBBurn) {
-		this.spotBNBBurn = spotBNBBurn;
-	}
-
-	/** @return the interestBNBBurn */
-	public Boolean getInterestBNBBurn() {
-		return interestBNBBurn;
-	}
-
-	/** @param interestBNBBurn the interestBNBBurn to set */
-	public void setInterestBNBBurn(Boolean interestBNBBurn) {
-		this.interestBNBBurn = interestBNBBurn;
-	}
-
 }

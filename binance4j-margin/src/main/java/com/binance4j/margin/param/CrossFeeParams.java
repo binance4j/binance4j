@@ -4,36 +4,35 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getMarginFeeData} params. */
+/**
+ * {@link MarginClient#getMarginFeeData} params.
+ * 
+ * @param coin     Related coin.
+ * @param vipLevel Related VIP level.
+ */
 @Param(weight = 5)
-public class CrossFeeParams implements Params {
-	/** The related coin */
-	String coin;
-	/** The related VIP level */
-	Integer vipLevel;
+public record CrossFeeParams(String coin, Integer vipLevel) implements Params {
 
-	/** Constructor. */
+	/** Creates an instance of {@link CrossFeeParams} */
 	public CrossFeeParams() {
+		this(null, null);
 	}
 
-	/** @param coin The related coin */
+	/**
+	 * Creates an instance of {@link CrossFeeParams}
+	 * 
+	 * @param coin Related coin.
+	 */
 	public CrossFeeParams(String coin) {
-		this.coin = coin;
+		this(coin, null);
 	}
 
-	/** @return the coin */
-	public String getCoin() {
-		return coin;
+	/**
+	 * Creates an instance of {@link CrossFeeParams}
+	 * 
+	 * @param vipLevel Related VIP level.
+	 */
+	public CrossFeeParams(Integer vipLevel) {
+		this(null, vipLevel);
 	}
-
-	/** @return the vipLevel */
-	public Integer getVipLevel() {
-		return vipLevel;
-	}
-
-	/** @param vipLevel the vipLevel to set */
-	public void setVipLevel(Integer vipLevel) {
-		this.vipLevel = vipLevel;
-	}
-
 }

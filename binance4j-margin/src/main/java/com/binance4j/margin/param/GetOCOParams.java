@@ -4,56 +4,33 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getAllOCO} params. */
+/**
+ * {@link MarginClient#getAllOCO} params.
+ * 
+ * @param symbol            Symbol. Mandatory for isolated margin, not supported for cross margin.
+ * @param isIsolated        Is the order isolated?
+ * @param orderListId       Either {@code orderListId} or {@code origClientOrderId} must be provided.
+ * @param origClientOrderId Either {@code orderListId} or {@code origClientOrderId} must be provided.
+ */
 @Param(weight = 10)
-public class GetOCOParams implements Params {
-	/** Is the order isolated? */
-	Boolean isIsolated;
-	/** THe symbol. Mandatory for isolated margin, not supported for cross margin. */
-	String symbol;
-	/** Either orderListId or origClientOrderId must be provided. */
-	Long orderListId;
-	/** Either orderListId or origClientOrderId must be provided. */
-	String origClientOrderId;
+public record GetOCOParams(String symbol, Boolean isIsolated, Long orderListId, String origClientOrderId) implements Params {
 
-	/** @return the isIsolated */
-	public Boolean getIsIsolated() {
-		return isIsolated;
+	/**
+	 * Creates an instance of {@link GetOCOParams}.
+	 * 
+	 * @param symbol     Symbol. Mandatory for isolated margin, not supported for cross margin.
+	 * @param isIsolated Is the order isolated?
+	 */
+	public GetOCOParams(String symbol, Boolean isIsolated) {
+		this(symbol, isIsolated, null, null);
 	}
 
-	/** @param isIsolated the isIsolated to set */
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
+	/**
+	 * Creates an instance of {@link GetOCOParams}.
+	 * 
+	 * @param isIsolated Is the order isolated?
+	 */
+	public GetOCOParams(Boolean isIsolated) {
+		this(null, isIsolated, null, null);
 	}
-
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/** @return the orderListId */
-	public Long getOrderListId() {
-		return orderListId;
-	}
-
-	/** @param orderListId the orderListId to set */
-	public void setOrderListId(Long orderListId) {
-		this.orderListId = orderListId;
-	}
-
-	/** @return the origClientOrderId */
-	public String getOrigClientOrderId() {
-		return origClientOrderId;
-	}
-
-	/** @param origClientOrderId the origClientOrderId to set */
-	public void setOrigClientOrderId(String origClientOrderId) {
-		this.origClientOrderId = origClientOrderId;
-	}
-
 }

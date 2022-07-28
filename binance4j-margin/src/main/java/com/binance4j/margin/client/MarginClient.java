@@ -6,6 +6,7 @@ import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CancelOrderResponse;
 import com.binance4j.core.dto.OrderInfo;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.margin.dto.Account;
 import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.BNBBurnStatus;
@@ -321,6 +322,17 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
+	 * Get Margin Account's Open Orders.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The time interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getAllOrders(params.toMap(intervalParams)));
+	}
+
+	/**
 	 * Send in a new OCO for a margin account.
 	 * 
 	 * @param params The request params.
@@ -361,6 +373,17 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
+	 * Retrieves all OCO for a specific margin account based on provided optional parameters.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The time interval seach.
+	 * @return The request to execute.
+	 */
+	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getAllOCO(params.toMap(intervalParams)));
+	}
+
+	/**
 	 * Retrieves all Open OCO for a specific margin account based on provided optional parameters.
 	 * 
 	 * @param params The request params.
@@ -387,6 +410,27 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 */
 	public Request<List<Trade>> getMyTrades(TradeParams params) {
 		return new Request<>(service.getMyTrades(params.toMap()));
+	}
+
+	/**
+	 * Query Margin Account's Trade List.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The time interval seach.
+	 * @return The request to execute.
+	 */
+	public Request<List<Trade>> getMyTrades(TradeParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getMyTrades(params.toMap(intervalParams)));
+	}
+
+	/**
+	 * Query Margin Account's Trade List.
+	 * 
+	 * @param intervalParams The time interval seach.
+	 * @return The request to execute.
+	 */
+	public Request<List<Trade>> getMyTrades(TimeIntervalParams intervalParams) {
+		return new Request<>(service.getMyTrades(intervalParams.toMap()));
 	}
 
 	/**

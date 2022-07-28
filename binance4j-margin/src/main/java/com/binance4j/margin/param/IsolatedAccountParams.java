@@ -4,20 +4,15 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** The {@link MarginClient#getIsolatedAccount} params. */
+/**
+ * {@link MarginClient#getIsolatedAccount} params.
+ * 
+ * @param symbols Max 5 symbols can be sent; separated by ",".
+ */
 @Param(weight = 10)
-public class IsolatedAccountParams implements Params {
-	/** Max 5 symbols can be sent; separated by "," */
-	String symbols;
-
-	/** @return the symbols */
-	public String getSymbols() {
-		return symbols;
+public record IsolatedAccountParams(String symbols) implements Params {
+	/** Creates an instance of {@link IsolatedAccountParams}. */
+	public IsolatedAccountParams() {
+		this(null);
 	}
-
-	/** @param symbols the symbols to set */
-	public void setSymbols(String symbols) {
-		this.symbols = symbols;
-	}
-
 }

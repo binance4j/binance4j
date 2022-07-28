@@ -4,48 +4,20 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** Request to cancel an order. */
+/**
+ * Request to cancel an order.
+ * 
+ * @param symbol     The trade symbol
+ * @param isIsolated For isolated margin or nott. Default: false.
+ */
 @Param
-public class CancelOpenOrdersParams implements Params {
-	/** The trade symbol */
-	@Mandatory
-	String symbol;
-	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
-	Boolean isIsolated;
-
+public record CancelOpenOrdersParams(@Mandatory String symbol, Boolean isIsolated) implements Params {
 	/**
-	 * @param symbol The trade symbol.
+	 * Creates an instance of {@link CancelOpenOrdersParams}.
+	 * 
+	 * @param symbol The trade symbol
 	 */
 	public CancelOpenOrdersParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null);
 	}
-
-	/**
-	 * @return the symbol
-	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the isIsolated
-	 */
-	public Boolean getIsIsolated() {
-		return isIsolated;
-	}
-
-	/**
-	 * @param isIsolated the isIsolated to set
-	 */
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
 }

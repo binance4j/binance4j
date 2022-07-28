@@ -6,7 +6,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
-/** The {@link MarginClient#getIsolatedTransferHistory} params. */
+// TODO convert to record
+/** {@link MarginClient#getIsolatedTransferHistory} params. */
 @Param
 public class IsolatedTransferHistoryParams implements Params {
 	/** The symbol. */

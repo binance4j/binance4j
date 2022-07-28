@@ -5,7 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferRecordType;
 
-/** The {@link MarginClient#getTransferHistory} params. */
+// TODO convert to record
+/** {@link MarginClient#getTransferHistory} params. */
 @Param
 public class TransferHistoryParams implements Params {
 	/** The starting timestamp of the results */

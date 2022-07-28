@@ -8,6 +8,6 @@ public class IsolatedTransferTest extends MarginTest {
 	// TODO @Test
 	void test1() throws ApiException {
 		testNoNulls(client
-				.newIsolatedTransfer(new NewIsolatedTransferParams(asset, symbol, IsolatedTransferAccount.SPOT, IsolatedTransferAccount.ISOLATED_MARGIN, "1")));
+				.newIsolatedTransfer(new NewIsolatedTransferParams(asset, symbol, "1", IsolatedTransferAccount.SPOT, IsolatedTransferAccount.ISOLATED_MARGIN)));
 	}
 }
