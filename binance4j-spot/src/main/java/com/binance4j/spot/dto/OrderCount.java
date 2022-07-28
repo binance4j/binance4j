@@ -1,7 +1,5 @@
 package com.binance4j.spot.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The user's current order count usage for all intervals.
  * 
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param limit         The order limit.
  * @param count         The current order count.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderCount(
 		/** The type of order. */
 		String rateLimitType,

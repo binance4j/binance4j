@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The withdraw history.
  * 
@@ -19,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param amount          The withdrawn colume.
  * @param transactionFee  The withdraw fees.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record WithdrawHistory(
 		/** The address to withdraw to. */
 		String address,

@@ -2,8 +2,6 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The dust transfer (asset to BNB) response.
  * 
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param totalTransfered    The volume converted into BNB after fees.
  * @param transferResult     Detailed transfer result asset by asset.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record DustTransferResponse(
 		/** The fees. */
 		String totalServiceCharge,

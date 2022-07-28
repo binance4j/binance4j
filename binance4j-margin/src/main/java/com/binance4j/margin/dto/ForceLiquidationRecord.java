@@ -2,7 +2,6 @@ package com.binance4j.margin.dto;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -19,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quantity         The order total quantity.
  * @param isIsolated       Is is isolated?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record ForceLiquidationRecord(
 		/** The order id */
 		long orderId,

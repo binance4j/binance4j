@@ -2,7 +2,6 @@ package com.binance4j.spot.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -23,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param side                     The order side.
  * @param fills                    The list of trades that partially of fully filled the order.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record NewOrderResponse(
 		/** The trading pair to trade. */
 		String symbol,

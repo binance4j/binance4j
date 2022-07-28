@@ -2,8 +2,6 @@ package com.binance4j.rebate.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Rebate data
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param totalPageNum The total pages.
  * @param data         The rebates.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record RebateData(
 		/** The current page. */
 		int page,

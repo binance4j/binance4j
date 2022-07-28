@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A fixed project.
  * 
@@ -23,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param status          Status.
  * @param type            Type.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record FixedProjectPosition(
 		/** Asset. */
 		String asset,

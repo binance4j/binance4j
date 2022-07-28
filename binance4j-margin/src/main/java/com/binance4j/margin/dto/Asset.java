@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isBorrowable      Is it borrowable?
  * @param isMortgageable    Is it mortgageable?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Asset(
 		/** The asset full name. */
 		String assetFullName,

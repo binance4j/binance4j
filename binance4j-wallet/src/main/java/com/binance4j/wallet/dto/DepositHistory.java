@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A deposit history.
  * 
@@ -17,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param insertTime    confirm times for insertion (?)
  * @param transferType  The transfer type. 1 for internal transfer, 0 for external transfer.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record DepositHistory(
 		/** The volume to deposit. */
 		String amount,

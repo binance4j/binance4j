@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Isolated margin fee
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param leverage The leverage.
  * @param data     The isolated fee data.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedFee(
 		/** The VIP level. */
 		int vipLevel,

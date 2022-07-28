@@ -1,6 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -17,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param tradeTime          The timestamp.
  * @param buyerIsMarketMaker Is the buyer the market maker?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** The event type. */
 		@JsonProperty("e") String eventType,

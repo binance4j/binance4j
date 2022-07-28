@@ -1,9 +1,6 @@
 package com.binance4j.staking.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /** Staking record. */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record StakingRecord(
 		/** Position id. */
 		String positionId,

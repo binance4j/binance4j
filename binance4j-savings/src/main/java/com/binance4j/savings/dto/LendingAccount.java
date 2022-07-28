@@ -2,8 +2,6 @@ package com.binance4j.savings.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Lending account.
  * 
@@ -15,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param totalFlexibleInBTC     Total flexible in btc.
  * @param totalFlexibleInUSDT    Total flexible in usdt.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record LendingAccount(
 		/** Position amount. */
 		List<PositionAmount> positionAmountVos,

@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Trade order information.
  * 
@@ -9,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param orderId       Order id.
  * @param clientOrderId Client order id.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record MiniOrderInfo(
 		/** The order symbol. */
 		String symbol,

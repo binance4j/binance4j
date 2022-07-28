@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The tiers for the number of Base Coins Borrowings and Quote Coins Borrowings currently exist in your account. Your
  * Isolated Margin account tier is determined by whichever is higher. Each tier corresponds to a different Initial Risk
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param quoteAssetMaxBorrowable The quote asset max borrowable.
  * @see <a href="https://www.binance.com/en/margin-data">Documentation</a>
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedTierData(
 		/** The related symbol. */
 		String symbol,

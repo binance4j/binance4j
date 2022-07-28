@@ -2,8 +2,6 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Dribblets.
  * 
@@ -13,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param transId                  The transaction id.
  * @param userAssetDribbletDetails Details of this exchange.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record UserAssetDribblets(
 		/** The operation timestamp. */
 		long operateTime,

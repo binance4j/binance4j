@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Cross margin fee data collection with any vip level or user's current specific data as
  * <a href="https://www.binance.com/en/margin-fee">here</a>
@@ -17,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param transferIn      Is internal transfer allowed?
  * @param marginablePairs The bound pairs.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record CrossFee(
 		/** The user's VIP level. */
 		int vipLevel,

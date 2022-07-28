@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The API key permissions.
  * 
@@ -23,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param createTime                     The API key creation timestamp.
  * @param tradingAuthorityExpirationTime Expiration time for spot and margin trading permission.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record ApiPermissions(
 		/** is the key restricted to an ip address? */
 		boolean ipRestrict,

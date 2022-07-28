@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.binance4j.core.dto.RateLimit;
 import com.binance4j.core.exception.NotFoundException;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * The current exchange trading rules and symbol information.
@@ -15,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param exchangeFilters The trading rules of the exchange.
  * @param symbols         The available symbols on the exchange.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record ExchangeInfo(
 		/** The server timezone */
 		String timezone,

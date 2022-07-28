@@ -1,9 +1,6 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /** The margin level status */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public enum LevelStatus {
 	/** Excessive */
 	EXCESSIVE,

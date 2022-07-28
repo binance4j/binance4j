@@ -1,6 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -17,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param eventTime             The timestamp.
  * @param symbol                The trading pair.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record AggTrade(
 		/** The agg trade id. */
 		@JsonProperty("a") Long aggregatedTradeId,

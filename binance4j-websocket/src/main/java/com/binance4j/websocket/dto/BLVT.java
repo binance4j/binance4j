@@ -2,7 +2,6 @@ package com.binance4j.websocket.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param leverage     Leverage.
  * @param fundingRatio Funding ratio.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record BLVT(
 		/** Event type. */
 		@JsonProperty("e") String eventType,

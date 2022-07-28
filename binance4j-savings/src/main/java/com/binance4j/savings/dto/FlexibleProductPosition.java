@@ -2,8 +2,6 @@ package com.binance4j.savings.dto;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Flexible product position.
  * 
@@ -23,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param totalAmount            Total amount.
  * @param totalInterest          Total interest.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record FlexibleProductPosition(
 		/** Tier annual interest rate. */
 		Map<String, String> tierAnnualInterestRate,

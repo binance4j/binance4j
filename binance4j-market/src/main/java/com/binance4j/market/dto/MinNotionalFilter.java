@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Defines the minimum notional value allowed for an order on a symbol.
  * 
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param avgPriceMins  The number of minutes the average price is calculated over. 0 means the last price is used.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record MinNotionalFilter(
 		/** The minimum notional value allowed for an order on a symbol. An order's notional value is the price * quantity. */
 		String minNotional,

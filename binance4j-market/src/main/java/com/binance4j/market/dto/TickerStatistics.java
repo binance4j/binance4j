@@ -1,6 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -28,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param lastId             Last trade id.
  * @param count              Total number of trades during the last 24 hours.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record TickerStatistics(
 		/** Ticker symbol. */
 		String symbol,

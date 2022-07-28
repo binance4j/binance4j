@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * {@link Token} Basket.
  * 
@@ -9,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param amount        Amount.
  * @param notionalValue Notional value.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Basket(
 		/** Symbol. */
 		String symbol,

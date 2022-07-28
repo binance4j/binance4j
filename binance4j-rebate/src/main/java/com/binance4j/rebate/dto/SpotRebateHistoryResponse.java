@@ -1,7 +1,6 @@
 package com.binance4j.rebate.dto;
 
 import com.binance4j.rebate.client.RebateClient;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * {@link RebateClient#getSpotRebateHistoryRecords} response.
@@ -11,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param code   The code.
  * @param data   The data.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record SpotRebateHistoryResponse(
 		/** The status */
 		String status,

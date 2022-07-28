@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -19,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isMaker         Is it a maker trade?
  * @param isIsolated      Is it an isolated trade?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** The trade id. */
 		long id,

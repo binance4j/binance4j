@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A trading pair trade fees.
  * 
@@ -9,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param makerCommission The maker fees (limit order).
  * @param takerCommission The taker fees (market order).
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record TradeFee(
 		/** The trading pair. */
 		String symbol,

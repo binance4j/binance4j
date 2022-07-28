@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.Trade;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -28,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isIsolated               Is the order isolated?
  * @param fills                    The filled trades.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record NewOrderRecord(
 		/** The order id. */
 		long orderId,

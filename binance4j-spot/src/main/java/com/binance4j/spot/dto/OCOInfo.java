@@ -3,7 +3,6 @@ package com.binance4j.spot.dto;
 import java.util.List;
 
 import com.binance4j.core.dto.OrderInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * An OCO Order details.
@@ -17,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param symbol            The orders symbol.
  * @param orders            The two orders of the OCO order.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOInfo(
 		/** The order list id. */
 		long orderListId,

@@ -1,7 +1,5 @@
 package com.binance4j.staking.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * @param positionId            Staking position ID.
  * @param productId             Staking project ID.
@@ -30,7 +28,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param type                  Order type is auto-staking or normal.
  * @param status                Position status.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record ProductPosition(
 		/** Staking position ID. */
 		String positionId,

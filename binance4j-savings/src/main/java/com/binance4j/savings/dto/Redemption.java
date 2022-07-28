@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Redemption infos.
  * 
@@ -14,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param status      Status.
  * @param type        Type.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Redemption(
 		/** Amount. */
 		String amount,

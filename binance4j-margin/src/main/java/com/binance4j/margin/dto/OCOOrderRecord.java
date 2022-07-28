@@ -3,7 +3,6 @@ package com.binance4j.margin.dto;
 import java.util.List;
 
 import com.binance4j.core.dto.OrderInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * An OCO order record.
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param isIsoslated       Is the order isolated?
  * @param orders            The two orders.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OCOOrderRecord(
 		/** The order list id. */
 		long orderListId,

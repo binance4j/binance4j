@@ -1,6 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferFrom  The account the asset is transfered from.
  * @param transferTo    The account the asset is transfered to.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedTransferRecord(
 		/** The transfered amount. */
 		String amount,

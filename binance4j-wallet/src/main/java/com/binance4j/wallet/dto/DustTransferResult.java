@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transactionId       The transaction id.
  * @param transferedAmount    The transfered amount after fees.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record DustTransferResult(
 		/** The amount of volume converted. */
 		String amount,

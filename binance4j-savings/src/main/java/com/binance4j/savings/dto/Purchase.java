@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Purchase infos.
  * 
@@ -14,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param purchaseId  Purchase id.
  * @param status      Status.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Purchase(
 		/** Amount. */
 		String amount,

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The API trading status detail.
  * 
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param updateTime         The details update timestamps.
  * @param triggerCondition   Trigger condition.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record ApiTradingStatusData(
 		/** API trading function is locked or not. */
 		boolean isLocked,

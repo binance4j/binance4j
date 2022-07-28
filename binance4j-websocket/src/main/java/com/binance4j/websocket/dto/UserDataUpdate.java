@@ -1,7 +1,6 @@
 package com.binance4j.websocket.dto;
 
 import com.binance4j.websocket.serialization.UserDataUpdateEventDeserializer;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param balanceUpdateEvent                 The balance update.
  * @param orderTradeUpdateEvent              The order trade update.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
 public record UserDataUpdate(
 		/** The event type. */

@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Flexible redemption quota.
  * 
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param leftQuota           Left quota.
  * @param minRedemptionAmount Min redemption amount.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record RedemptionQuota(
 		/** Asset. */
 		String asset,

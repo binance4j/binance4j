@@ -3,7 +3,6 @@ package com.binance4j.spot.dto;
 import java.util.List;
 
 import com.binance4j.core.dto.AssetBalance;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * The SPOT account information.
@@ -20,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param accountType      The account Type .
  * @param permissions      The permissions list.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
 		/** The maker commission. */
 		String makerCommission,

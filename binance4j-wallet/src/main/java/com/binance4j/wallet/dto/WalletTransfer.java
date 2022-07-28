@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp     The transfer timestamp.
  * @see WalletTransferType
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record WalletTransfer(
 		/** The transfered asset. */
 		String asset,

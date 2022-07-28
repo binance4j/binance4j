@@ -1,7 +1,5 @@
 package com.binance4j.convert.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A conversion of an asset into another.
  * 
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param inverseRatio Inverse Ratio
  * @param createTime   Create Time
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Conversion(
 		/** Quote Id */
 		String quoteId,

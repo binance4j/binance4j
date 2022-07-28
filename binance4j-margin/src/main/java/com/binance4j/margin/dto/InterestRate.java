@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A loan interest rate
  * 
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param timestamp         The timestamp of the applied interest rate in ms.
  * @param vipLevel          The account VIP level.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record InterestRate(
 		/** The related coin. */
 		String asset,

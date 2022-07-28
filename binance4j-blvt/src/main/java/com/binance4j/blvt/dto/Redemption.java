@@ -1,9 +1,6 @@
 package com.binance4j.blvt.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /** A BLVT redemption. */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Redemption(
 		/** Subscription id. */
 		long id,

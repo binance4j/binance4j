@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Fixed or activity project.
  * 
@@ -22,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param type               Type.
  * @param withAreaLimitation With area limitation.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record FixedProject(
 		/** Asset. */
 		String asset,

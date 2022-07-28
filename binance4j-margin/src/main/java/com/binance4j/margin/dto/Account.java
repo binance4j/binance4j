@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The authenticated margin account
  * 
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param tradeEnabled        Is trade enabled?
  * @param transferEnabled     Is transfer Enabled?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Account(
 		/** The user assets. */
 		List<AssetBalance> userAssets,

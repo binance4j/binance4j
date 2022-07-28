@@ -1,7 +1,5 @@
 package com.binance4j.c2c.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A C2C Trade.
  * 
@@ -20,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param counterPartNickName Counter part nickname.
  * @param advertisementRole   Advertisement role.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/** Order number. */
 		String orderNumber,

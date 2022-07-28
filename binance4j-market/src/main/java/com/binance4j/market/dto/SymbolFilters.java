@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The trading rules of a symbol.
  * 
@@ -19,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param price               The {@link PriceFilter}.
  * @param trailingDelta       The {@link TrailingDeltaFilter}.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolFilters(
 		/** The {@link IcebergPartsFilter} */
 		IcebergPartsFilter icebergParts,

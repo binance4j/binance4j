@@ -2,8 +2,6 @@ package com.binance4j.blvt.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Binance leverage token.
  * 
@@ -23,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param dailyRedeemLimit   Daily Redeem Limit.
  * @param timestamp          Timestamp.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Token(
 		/** Token name. */
 		String tokenName,

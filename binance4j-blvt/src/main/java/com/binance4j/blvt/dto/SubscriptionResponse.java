@@ -1,7 +1,5 @@
 package com.binance4j.blvt.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * BVLT subscription response.
  * 
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param amount    Subscribed token amount.
  * @param timestamp Timestamp in ms.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record SubscriptionResponse(
 		/** Subscription id. */
 		long id,

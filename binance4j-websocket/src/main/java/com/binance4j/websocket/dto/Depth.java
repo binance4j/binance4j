@@ -3,7 +3,6 @@ package com.binance4j.websocket.dto;
 import java.util.List;
 
 import com.binance4j.core.dto.OrderBookEntry;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param asks          The demands.
  */
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Depth(
 		/** The event type. */
 		@JsonProperty("e") String eventType,

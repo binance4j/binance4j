@@ -2,8 +2,6 @@ package com.binance4j.pay.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A pay trade history.
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param data    The trades.
  * @param success Resposne success.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record TradeHistory(
 		/** Response code. */
 		String code,

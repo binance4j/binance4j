@@ -2,8 +2,6 @@ package com.binance4j.nft.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * NFT transaction
  * 
@@ -20,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param tradeAmount   The trade amount.
  * @param tradeCurrency The currency used to buy the NFT.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Transaction(
 		/**
 		 * The Order number.

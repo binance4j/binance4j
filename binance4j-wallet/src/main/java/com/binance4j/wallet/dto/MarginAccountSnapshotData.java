@@ -2,10 +2,7 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /** Margin account snapshot data. */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record MarginAccountSnapshotData(
 		/** Margin level. */
 		String marginLevel,

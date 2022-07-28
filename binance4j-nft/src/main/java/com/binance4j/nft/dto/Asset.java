@@ -1,7 +1,5 @@
 package com.binance4j.nft.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * NFT asset
  * 
@@ -9,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param contractAddress NFT Contract Address.
  * @param tokenId         NFT Token ID.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Asset(
 		/** NFT Network. */
 		String network,

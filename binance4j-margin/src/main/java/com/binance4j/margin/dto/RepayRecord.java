@@ -2,7 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param status         The repay status.
  * @see LoanStatus
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record RepayRecord(
 		/** The transaction id. */
 		@JsonProperty("txId") long transactionId,

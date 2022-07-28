@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Isolated asset in {@link IsolatedPair}
  * 
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param netAssetOfBtc Can the account borrow this asset?
  * @param totalAsset    Can the account repay this asset?
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedAsset(
 		/** The asset name. */
 		String asset,

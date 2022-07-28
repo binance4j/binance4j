@@ -2,8 +2,6 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The coin infos for the authenticated account.
  * 
@@ -22,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param withdrawing       The withdrawing balance.
  * @param networkList       The coin network information.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record CoinInformation(
 		/** The coin abbreviation. */
 		String coin,

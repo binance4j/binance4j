@@ -1,7 +1,5 @@
 package com.binance4j.savings.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Position Amount.
  * 
@@ -10,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param amountInUSDT Amount in USDT.
  * @param asset        Asset.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record PositionAmount(
 		/** Amount. */
 		String amount,

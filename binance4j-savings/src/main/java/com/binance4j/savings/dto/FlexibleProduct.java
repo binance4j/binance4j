@@ -2,8 +2,6 @@ package com.binance4j.savings.dto;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A Flexible product.
  * 
@@ -20,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param upLimit                Up limit.
  * @param upLimitPerUser         Up limit per user.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record FlexibleProduct(
 		/** Asset. */
 		String asset,

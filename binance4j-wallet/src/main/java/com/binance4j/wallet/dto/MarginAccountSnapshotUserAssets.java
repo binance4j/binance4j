@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Margin account snapshot user assets.
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param locked   The locked volume
  * @param netAsset Net asset
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record MarginAccountSnapshotUserAssets(
 		/** The asset abbreviation **/
 		String asset,

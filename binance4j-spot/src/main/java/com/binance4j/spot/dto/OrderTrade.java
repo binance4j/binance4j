@@ -1,7 +1,5 @@
 package com.binance4j.spot.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The partial trade of an order.
  * 
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param commissionAsset The commission asset.
  * @param tradeId         The trade id.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderTrade(
 		/** The price. */
 		String price,

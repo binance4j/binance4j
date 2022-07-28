@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * The coin network informations.
  * 
@@ -28,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param withdrawEnable          If withdraw is enabled.
  * @param sameAddress             If the coin needs to provide memo to withdraw.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record CoinNetworkInformation(
 		/** The address pattern. */
 		String addressRegex,

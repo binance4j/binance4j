@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Interest record in a {@link InterestHistory}
  * 
@@ -17,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param type                The interest type.
  * @see InterestType
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record InterestRecord(
 		/** The isolated symbol. Will not be returned for crossed margin */
 		Optional<String> isolatedSymbol,

@@ -1,6 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferedAmount    The transfered amount.
  * @param fromAsset           The transfered asset.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record UserAssetDribbletDetails(
 		/** The transaction id. */
 		@JsonProperty("transId") long transactionId,

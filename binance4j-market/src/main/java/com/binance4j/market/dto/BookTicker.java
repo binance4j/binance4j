@@ -1,6 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -12,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param askPrice    Ask price.
  * @param askQuantity Ask quantity.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record BookTicker(
 		/** Ticker symbol. */
 		String symbol,

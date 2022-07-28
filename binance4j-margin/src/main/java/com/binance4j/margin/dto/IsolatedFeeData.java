@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Isolated fee data
  * 
@@ -9,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param dailyInterest The daily interest.
  * @param borrowLimit   The borrow limit.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedFeeData(
 		/** The related coin. */
 		String coin,

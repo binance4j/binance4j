@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * An asset divident.
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param divTime Dividend time in ms.
  * @param tranId  The transaction id.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetDividend(
 		/** The divident amount. */
 		String amount,

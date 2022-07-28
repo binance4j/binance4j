@@ -3,7 +3,6 @@ package com.binance4j.market.dto;
 import java.util.List;
 
 import com.binance4j.market.serialization.SymbolFiltersDeserializer;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -28,7 +27,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param isMarginTradingAllowed          Is margin trading allowed?
  * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record SymbolInfo(
 		/** The allowed orders on the symbol*. */
 		List<String> orderTypes,

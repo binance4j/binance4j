@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Isolated asset pair in an {@link IsolatedAccount}
  * 
@@ -19,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param liquidateRate     The liquidate rate.
  * @see LevelStatus
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record IsolatedPair(
 		/** The base asset. */
 		IsolatedAsset baseAsset,

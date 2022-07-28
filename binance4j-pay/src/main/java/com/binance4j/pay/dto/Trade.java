@@ -2,8 +2,6 @@ package com.binance4j.pay.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A pay transaction.
  * 
@@ -24,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  *                            <li>PAYOUT: B2C Disbursement Payment</li>
  *                            </ul>
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record Trade(
 		/**
 		 * Order type.

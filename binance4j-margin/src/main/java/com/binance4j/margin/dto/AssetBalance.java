@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Asset balance of an {@link Account}.
  * 
@@ -12,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param locked   The locked quantity.
  * @param netAsset The net asset.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record AssetBalance(
 		/** The asset name. */
 		String asset,

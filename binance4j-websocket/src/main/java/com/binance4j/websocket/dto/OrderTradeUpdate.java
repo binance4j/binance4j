@@ -1,7 +1,6 @@
 package com.binance4j.websocket.dto;
 
 import com.binance4j.core.dto.TimeInForce;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -35,7 +34,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quoteOrderQuantity      Quote Order quantity.
  * @see UserDataUpdate
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record OrderTradeUpdate(/** The event type. */
 @JsonProperty("e") String eventType,
 		/** The timestamp. */

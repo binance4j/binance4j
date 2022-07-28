@@ -1,6 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param askPrice    The ask price.
  * @param askQuantity The ask quantity.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public record BookTicker(
 		/** The update id. */
 		@JsonProperty("u") Long updateId,
