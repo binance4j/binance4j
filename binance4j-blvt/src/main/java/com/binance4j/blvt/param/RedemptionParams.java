@@ -2,10 +2,12 @@ package com.binance4j.blvt.param;
 
 import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The {@link BLVTClient#redeem} params. */
-public class RedemptionParams extends Params {
+@Param
+public class RedemptionParams implements Params {
 	/** The token name. */
 	@Mandatory
 	String tokenName;

@@ -1,10 +1,12 @@
 package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to display past orders */
-public class AllOrdersParams extends Params {
+@Param(weight = 10)
+public class AllOrdersParams implements Params {
 	/** The trading pair we want the orders. */
 	@Mandatory
 	String symbol;
@@ -27,7 +29,6 @@ public class AllOrdersParams extends Params {
 	 * @param symbol The symbol we want the orders.
 	 */
 	public AllOrdersParams(String symbol) {
-		super(10);
 		this.symbol = symbol;
 	}
 

@@ -6,7 +6,7 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.ProductType;
 
 /** The {@link SavingsClient#redeemFlexible} params. */
-public class RedemptionParams extends Params {
+public class RedemptionParams implements Params {
 	/** The product id. */
 	@Mandatory
 	String productId;

@@ -1,31 +1,31 @@
 package com.binance4j.loan.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.loan.dto.LoanIncomeType;
 
 /** The {@link LoanClient#getLoansIncome} params. */
-public class LoanIncomeHistoryParams extends Params {
+@Param(weight = 6000, type = RateLimitType.UID)
+public class LoanIncomeHistoryParams implements Params {
+	/** The asset */
+	@Mandatory
+	String asset;
+	/** The loan income type. All types will be returned by default. */
+	LoanIncomeType type;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-	/** The asset */
-	@Mandatory
-	String asset;
 	/** The result limit. Default 20, max 100. */
 	Integer limit;
-	/** The loan income type. All types will be returned by default. */
-	LoanIncomeType type;
 
 	/**
 	 * @param asset The asset we want the incomes.
 	 */
 	public LoanIncomeHistoryParams(String asset) {
-		super(6000);
-		this.rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 	}
 

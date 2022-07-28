@@ -1,10 +1,12 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get a coin deposit address */
-public class DepositAddressParams extends Params {
+@Param(weight = 10)
+public class DepositAddressParams implements Params {
 	/** The coin abbreviation. */
 	@Mandatory
 	String coin;
@@ -12,12 +14,9 @@ public class DepositAddressParams extends Params {
 	String network;
 
 	/**
-	 * Default constructor
-	 *
 	 * @param coin The coin we need the address.
 	 */
 	public DepositAddressParams(String coin) {
-		super(10);
 		this.coin = coin;
 	}
 

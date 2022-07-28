@@ -1,13 +1,15 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
 /** The {@link MarginClient#newIsolatedTransfer} params. */
-public class NewIsolatedTransferParams extends Params {
+@Param(weight = 600, type = RateLimitType.UID)
+public class NewIsolatedTransferParams implements Params {
 
 	/** The asset to transfer */
 	@Mandatory
@@ -33,8 +35,6 @@ public class NewIsolatedTransferParams extends Params {
 	 * @param amount    THe amount to transfer.
 	 */
 	public NewIsolatedTransferParams(String asset, String symbol, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo, String amount) {
-		super(600);
-		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 		this.symbol = symbol;
 		this.transFrom = transFrom;

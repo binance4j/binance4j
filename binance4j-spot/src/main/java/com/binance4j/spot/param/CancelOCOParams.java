@@ -1,10 +1,12 @@
 package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to cancel an OCO request */
-public class CancelOCOParams extends Params {
+@Param
+public class CancelOCOParams implements Params {
 	/** The symbol to cancel the order. */
 	@Mandatory
 	String symbol;

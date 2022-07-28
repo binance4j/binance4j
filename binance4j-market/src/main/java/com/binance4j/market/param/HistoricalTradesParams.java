@@ -1,9 +1,12 @@
 package com.binance4j.market.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get the historical trades of a trading pair */
-public class HistoricalTradesParams extends MarketParams {
+@Param(weight = 5, recvWindow = false, timestamp = false)
+public class HistoricalTradesParams implements Params {
 	/** The trading pair to get the trades. */
 	@Mandatory
 	String symbol;
@@ -18,7 +21,6 @@ public class HistoricalTradesParams extends MarketParams {
 	 * @param symbol The symbol we want the trades.
 	 */
 	public HistoricalTradesParams(String symbol) {
-		super(5);
 		this.symbol = symbol;
 	}
 

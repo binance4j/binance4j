@@ -16,14 +16,11 @@ public class GetMandatoryTest {
 	@Test
 	@DisplayName("Params must return the fields annotated with @Mandatory")
 	void testMandatory() {
-		var params = new TestParams();
-
-		List<String> fieldsName = params.getMandatoryFields().stream().map(Field::getName).toList();
-
+		List<String> fieldsName = new TestParams().mandatoryFields().stream().map(Field::getName).toList();
 		assertTrue(fieldsName.contains("foo"));
 	}
 
-	public class TestParams extends Params {
+	public class TestParams implements Params {
 		@Mandatory
 		String foo;
 		String bar;

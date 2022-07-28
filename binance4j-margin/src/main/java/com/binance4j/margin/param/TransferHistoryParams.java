@@ -1,11 +1,13 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferRecordType;
 
 /** The {@link MarginClient#getTransferHistory} params. */
-public class TransferHistoryParams extends Params {
+@Param
+public class TransferHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */

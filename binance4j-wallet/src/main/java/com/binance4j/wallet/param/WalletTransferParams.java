@@ -1,11 +1,13 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /** The parameters to operate an asset transfer between two accounts */
-public class WalletTransferParams extends Params {
+@Param
+public class WalletTransferParams implements Params {
 	/** The asset. */
 	@Mandatory
 	String asset;

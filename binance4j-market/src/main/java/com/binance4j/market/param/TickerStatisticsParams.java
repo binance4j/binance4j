@@ -1,16 +1,15 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
+
 /**
  * The parameters to get the 24 hour rolling window price change statistics. Careful when accessing this with no symbol.
  */
-public class TickerStatisticsParams extends MarketParams {
+@Param(weight = 40, recvWindow = false, timestamp = false)
+public class TickerStatisticsParams implements Params {
 	/** The trading pair we want the ticker stats. */
 	String symbol;
-
-	/** to get all ticker stats. */
-	public TickerStatisticsParams() {
-		super(40);
-	}
 
 	/**
 	 * to get the ticker stats of a symbol

@@ -1,10 +1,12 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The request to cancel an order. */
-public class CancelOrderParams extends Params {
+@Param(weight = 10)
+public class CancelOrderParams implements Params {
 	/** The trade symbol */
 	@Mandatory
 	String symbol;
@@ -21,7 +23,6 @@ public class CancelOrderParams extends Params {
 	 * @param orderId The order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId) {
-		super(10);
 		this.symbol = symbol;
 		this.orderId = orderId;
 	}
@@ -31,7 +32,6 @@ public class CancelOrderParams extends Params {
 	 * @param origClientOrderId Origin client order id.
 	 */
 	public CancelOrderParams(String symbol, String origClientOrderId) {
-		super(10);
 		this.symbol = symbol;
 		this.origClientOrderId = origClientOrderId;
 	}

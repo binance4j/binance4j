@@ -6,7 +6,7 @@ import com.binance4j.savings.dto.Featured;
 import com.binance4j.savings.dto.FlexibleProductStatus;
 
 /** The {@link SavingsClient#getFlexibleProducts} params. */
-public class FlexibleProductsParams extends Params {
+public class FlexibleProductsParams implements Params {
 	/** The product status. */
 	FlexibleProductStatus status;
 	/** TODO JAVADOC. */

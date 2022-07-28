@@ -1,6 +1,7 @@
 package com.binance4j.fiat.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.fiat.client.FiatClient;
@@ -9,8 +10,8 @@ import com.binance4j.fiat.dto.TransactionType;
 /**
  * {@link FiatClient#getTransactions} params.
  */
-public class TransactionParams extends Params {
-
+@Param(weight = 90000, type = RateLimitType.UID)
+public class TransactionParams implements Params {
 	/** Transaction type */
 	@Mandatory
 	TransactionType transactionType;
@@ -27,8 +28,6 @@ public class TransactionParams extends Params {
 	 * @param transactionType The transaction type.
 	 */
 	public TransactionParams(TransactionType transactionType) {
-		super(90000);
-		rateLimitType = RateLimitType.UID;
 		this.transactionType = transactionType;
 	}
 

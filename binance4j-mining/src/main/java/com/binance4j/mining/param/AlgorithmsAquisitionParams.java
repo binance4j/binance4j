@@ -1,12 +1,8 @@
 package com.binance4j.mining.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-public class AlgorithmsAquisitionParams extends Params {
-
-	/** Constructor. */
-	public AlgorithmsAquisitionParams() {
-
-	}
-
+@Param
+public class AlgorithmsAquisitionParams implements Params {
 }

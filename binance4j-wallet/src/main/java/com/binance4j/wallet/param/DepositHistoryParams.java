@@ -1,10 +1,12 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.DepositStatus;
 
 /** The parameters to get a coin deposit history */
-public class DepositHistoryParams extends Params {
+@Param
+public class DepositHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */

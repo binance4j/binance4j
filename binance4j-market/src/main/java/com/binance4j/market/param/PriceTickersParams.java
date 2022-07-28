@@ -6,27 +6,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get the latest price for a symbol or symbols. */
-public class PriceTickersParams extends MarketParams {
+@Param(weight = 2, recvWindow = false, timestamp = false)
+public class PriceTickersParams implements Params {
 	/** Ticker symbol. */
 	@Mandatory
 	String symbols;
 
 	/**
-	 * .
-	 *
 	 * @param symbols The trading pairs we want the ticker.
 	 */
 	public PriceTickersParams(Collection<String> symbols) {
-		super(2);
 		List<String> list = symbols.stream().map(String::trim).map(s -> String.format("\"%s\"", s)).collect(Collectors.toList());
 		this.symbols = "[" + String.join(",", list) + "]";
 	}
 
 	/**
-	 * .
-	 *
 	 * @param symbols The trading pairs we want the ticker.
 	 */
 	public PriceTickersParams(String symbols) {

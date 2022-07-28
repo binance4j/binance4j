@@ -1,11 +1,13 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getOrder} params. */
-public class OrderParams extends Params {
+@Param(weight = 10)
+public class OrderParams implements Params {
 	/** The symbol */
 	@Mandatory
 	String symbol;
@@ -18,7 +20,6 @@ public class OrderParams extends Params {
 
 	/** @param symbol The symbol */
 	public OrderParams(String symbol) {
-		super(10);
 		this.symbol = symbol;
 	}
 

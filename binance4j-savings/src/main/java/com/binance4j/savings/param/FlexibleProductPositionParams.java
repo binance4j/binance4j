@@ -4,7 +4,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#getFlexibleProductPosition} params. */
-public class FlexibleProductPositionParams extends Params {
+public class FlexibleProductPositionParams implements Params {
 	/** The asset. */
 	String asset;
 

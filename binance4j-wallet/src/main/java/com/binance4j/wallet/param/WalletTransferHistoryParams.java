@@ -1,11 +1,13 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /** Request to fetch User Universal Transfer History */
-public class WalletTransferHistoryParams extends Params {
+@Param
+public class WalletTransferHistoryParams implements Params {
 	/** The User universal transfer type. */
 	@Mandatory
 	WalletTransferType type;

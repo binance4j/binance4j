@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
 
 /**
  * The parameters to get the the best price/quantity on the order book for the given symbols.
  */
-public class BookTickersParams extends MarketParams {
+@Param(weight = 2, recvWindow = false, timestamp = false)
+public class BookTickersParams implements Params {
 	/** Ticker symbol. */
 	@Mandatory
 	String symbols;
@@ -21,7 +24,6 @@ public class BookTickersParams extends MarketParams {
 	 * @param symbols The trading pairs we want the ticker.
 	 */
 	public BookTickersParams(Collection<String> symbols) {
-		super(2);
 		List<String> list = symbols.stream().map(String::trim).map(s -> String.format("\"%s\"", s)).collect(Collectors.toList());
 		this.symbols = "[" + String.join(",", list) + "]";
 	}

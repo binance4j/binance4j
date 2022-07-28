@@ -1,11 +1,13 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getRepayRecord} params. */
-public class RepayRecordParams extends Params {
+@Param(weight = 10)
+public class RepayRecordParams implements Params {
 	/** The asset */
 	@Mandatory
 	String asset;
@@ -26,7 +28,6 @@ public class RepayRecordParams extends Params {
 
 	/** @param asset The asset */
 	public RepayRecordParams(String asset) {
-		super(10);
 		this.asset = asset;
 	}
 

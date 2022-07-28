@@ -1,24 +1,24 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMyTrades} params. */
-public class TradeParams extends Params {
+@Param(weight = 10)
+public class TradeParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
+	/** Symbol. */
 	String symbol;
+	/** IsIsolated. */
 	Boolean isIsolated;
+	/** FromId. */
 	Long fromId;
+	/** Limit. */
 	Integer limit;
-
-	/** */
-	public TradeParams() {
-		super(10);
-	}
 
 	/** @return the symbol */
 	public String getSymbol() {

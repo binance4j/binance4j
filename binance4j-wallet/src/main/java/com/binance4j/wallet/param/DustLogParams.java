@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get dust operations (assets to BNB) logs */
-public class DustLogParams extends Params {
+@Param
+public class DustLogParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */

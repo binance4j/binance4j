@@ -1,10 +1,12 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WithdrawStatus;
 
 /** The parameters to fetch the user withdraw history */
-public class WithdrawHistoryParams extends Params {
+@Param
+public class WithdrawHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */

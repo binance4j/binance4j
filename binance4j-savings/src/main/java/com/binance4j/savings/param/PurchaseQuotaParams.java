@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#getLeftDailyFlexiblePurchaseQuota} params. */
-public class PurchaseQuotaParams extends Params {
+public class PurchaseQuotaParams implements Params {
 	/** The product id. */
 	@Mandatory
 	String productId;

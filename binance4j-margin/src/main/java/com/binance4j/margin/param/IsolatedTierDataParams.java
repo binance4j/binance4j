@@ -1,11 +1,13 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getIsolatedMarginTierData} params. */
-public class IsolatedTierDataParams extends Params {
+@Param
+public class IsolatedTierDataParams implements Params {
 	/** The symbol */
 	@Mandatory
 	String symbol;
@@ -14,7 +16,6 @@ public class IsolatedTierDataParams extends Params {
 
 	/** @param symbol The symbol */
 	public IsolatedTierDataParams(String symbol) {
-		super();
 		this.symbol = symbol;
 	}
 

@@ -1,9 +1,9 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
-import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -11,7 +11,8 @@ import com.binance4j.margin.dto.SideEffectType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link MarginClient#newOrder} params. */
-public class NewOrderParams extends Params {
+@Param(weight = 6, isOrder = true)
+public class NewOrderParams implements Params {
 	/** The default order time in force. */
 	TimeInForce timeInForce = TimeInForce.GTC;
 	/** The order symbol */
@@ -39,11 +40,6 @@ public class NewOrderParams extends Params {
 	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
 	SideEffectType sideEffectType;
 
-	private NewOrderParams() {
-		super(6, true);
-		rateLimitType = RateLimitType.UID;
-	}
-
 	/**
 	 * Produces an order without a price
 	 *
@@ -54,7 +50,6 @@ public class NewOrderParams extends Params {
 	 * @param timeInForce the lifetime of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, TimeInForce timeInForce) {
-		this();
 		this.type = type;
 		this.symbol = symbol;
 		this.side = side;
@@ -86,7 +81,6 @@ public class NewOrderParams extends Params {
 	 * @param quantity the quantity of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity) {
-		this();
 		this.type = type;
 		this.symbol = symbol;
 		this.side = side;
@@ -103,7 +97,6 @@ public class NewOrderParams extends Params {
 	 * @param price    the order price.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price) {
-		this();
 		this.type = type;
 		this.symbol = symbol;
 		this.side = side;

@@ -1,5 +1,6 @@
 package com.binance4j.rebate.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.rebate.client.RebateClient;
@@ -7,28 +8,23 @@ import com.binance4j.rebate.client.RebateClient;
 /**
  * The {@link RebateClient#getSpotRebateHistoryRecords} params.
  */
-public class SpotRebateHistoryParams extends Params {
+@Param(weight = 3000, type = RateLimitType.UID)
+public class SpotRebateHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The desired page. */
 	Integer page = 1;
 
 	/** Constructor. */
 	public SpotRebateHistoryParams() {
-		super(3000);
-		rateLimitType = RateLimitType.UID;
 	}
 
 	/**
-	 * Constructor.
-	 * 
 	 * @param page The desired page.
 	 */
 	public SpotRebateHistoryParams(Integer page) {
-		this();
 		this.page = page;
 	}
 

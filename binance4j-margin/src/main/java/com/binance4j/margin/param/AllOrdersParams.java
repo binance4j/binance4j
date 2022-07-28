@@ -1,18 +1,20 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getAllOrders} params. */
-public class AllOrdersParams extends Params {
+@Param(weight = 200)
+public class AllOrdersParams implements Params {
+	/** The order symbol */
+	@Mandatory
+	String symbol;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-	/** The order symbol */
-	@Mandatory
-	String symbol;
 	/** Is the order isolated? */
 	Boolean isIsolated;
 	/** The order id */
@@ -22,7 +24,6 @@ public class AllOrdersParams extends Params {
 
 	/** @param symbol The order symbol */
 	public AllOrdersParams(String symbol) {
-		super(200);
 		this.symbol = symbol;
 	}
 

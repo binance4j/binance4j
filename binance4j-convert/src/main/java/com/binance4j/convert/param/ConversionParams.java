@@ -2,12 +2,14 @@ package com.binance4j.convert.param;
 
 import com.binance4j.convert.client.ConvertClient;
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /**
  * The {@link ConvertClient#getConversions} params.
  */
-public class ConversionParams extends Params {
+@Param(weight = 100)
+public class ConversionParams implements Params {
 	/** The starting timestamp of the results */
 	@Mandatory
 	Long startTime;
@@ -23,7 +25,6 @@ public class ConversionParams extends Params {
 	 * @param endTime   End time in ms.
 	 */
 	public ConversionParams(long startTime, long endTime) {
-		super(100);
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}

@@ -19,7 +19,7 @@ class GetOrderBookTest extends MarketTest {
 
 	@Test
 	void testGetTradesWithLimit() throws ApiException {
-		OrderBookParams params = new OrderBookParams(symbol, limit);
+		OrderBookParams params = new OrderBookParams(symbol, Integer.toString(limit));
 		OrderBook orderBook = client.getOrderBook(params).execute();
 
 		assertEquals(limit, orderBook.asks().size());

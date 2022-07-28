@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get the fees of a trading pair */
-public class TradeFeeParams extends Params {
+@Param
+public class TradeFeeParams implements Params {
 	/** The trading pair we want the fees. */
 	String symbol;
 

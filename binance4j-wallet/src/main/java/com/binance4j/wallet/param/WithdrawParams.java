@@ -1,11 +1,13 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletType;
 
 /** The parameters to operate a withdraw */
-public class WithdrawParams extends Params {
+@Param
+public class WithdrawParams implements Params {
 	/** The volume. */
 	@Mandatory
 	String amount;

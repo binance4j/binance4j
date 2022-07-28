@@ -1,11 +1,13 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getPriceIndex} params. */
-public class PriceIndexParams extends Params {
+@Param(weight = 10)
+public class PriceIndexParams implements Params {
 	/** The symbol */
 	@Mandatory
 	String symbol;
@@ -14,7 +16,6 @@ public class PriceIndexParams extends Params {
 	 * @param symbol The symbol.
 	 */
 	public PriceIndexParams(String symbol) {
-		super(10);
 		this.symbol = symbol;
 	}
 

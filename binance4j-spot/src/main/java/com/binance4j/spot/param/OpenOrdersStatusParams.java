@@ -3,7 +3,7 @@ package com.binance4j.spot.param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to fetch open orders from one or all pairs */
-public class OpenOrdersStatusParams extends Params {
+public class OpenOrdersStatusParams implements Params {
 
 	/** The pair we want the open orders. */
 	String symbol;

@@ -1,23 +1,23 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMarginFeeData} params. */
-public class CrossFeeParams extends Params {
+@Param(weight = 5)
+public class CrossFeeParams implements Params {
 	/** The related coin */
 	String coin;
 	/** The related VIP level */
 	Integer vipLevel;
 
-	/** Default constructor */
+	/** Constructor. */
 	public CrossFeeParams() {
-		super(5);
 	}
 
 	/** @param coin The related coin */
 	public CrossFeeParams(String coin) {
-		super();
 		this.coin = coin;
 	}
 

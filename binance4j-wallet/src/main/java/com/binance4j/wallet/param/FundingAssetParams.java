@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get the funding wallet */
-public class FundingAssetParams extends Params {
+@Param
+public class FundingAssetParams implements Params {
 	/** The asset we want the balance. */
 	String asset;
 	/** Get the BTC value of the asset. */
@@ -13,14 +15,12 @@ public class FundingAssetParams extends Params {
 	 * Constructor
 	 */
 	public FundingAssetParams() {
-
 	}
 
 	/**
 	 * @param asset The asset we want the balance.
 	 */
 	public FundingAssetParams(String asset) {
-		this();
 		this.asset = asset;
 	}
 

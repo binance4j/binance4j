@@ -1,12 +1,15 @@
 package com.binance4j.market.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
 
 /**
  * The parameters to get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same
  * price will have the quantity aggregated.
  */
-public class AggTradeParams extends MarketParams {
+@Param(recvWindow = false, timestamp = false)
+public class AggTradeParams implements Params {
 	/** The agg trade pair. */
 	@Mandatory
 	String symbol;
@@ -25,7 +28,6 @@ public class AggTradeParams extends MarketParams {
 	 * @param symbol The agg trade pair.
 	 */
 	public AggTradeParams(String symbol) {
-
 		this.symbol = symbol;
 	}
 

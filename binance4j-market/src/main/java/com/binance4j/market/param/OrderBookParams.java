@@ -1,19 +1,20 @@
 package com.binance4j.market.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
 import com.binance4j.market.dto.OrderBookLimit;
 
 /** The parameters to get the market depth of a symbol */
-public class OrderBookParams extends MarketParams {
+@Param(recvWindow = false, timestamp = false)
+public class OrderBookParams implements Params {
 	/** The trading pair we want the depth. */
 	@Mandatory
 	String symbol;
 	/** The market depth size. */
-	Integer limit;
+	OrderBookLimit limit;
 
 	/**
-	 * Default constructor
-	 *
 	 * @param symbol The trading pair we want the depth.
 	 */
 	public OrderBookParams(String symbol) {
@@ -21,65 +22,34 @@ public class OrderBookParams extends MarketParams {
 	}
 
 	/**
-	 * with limit
-	 *
 	 * @param symbol The trading pair we want the depth.
 	 * @param limit  The depth size.
 	 */
 	public OrderBookParams(String symbol, OrderBookLimit limit) {
-		super(getWeight(limit));
-		this.symbol = symbol;
-		this.limit = limit.getValue();
-	}
-
-	/**
-	 * with limit
-	 *
-	 * @param symbol The trading pair we want the depth.
-	 * @param limit  The depth size.
-	 */
-	public OrderBookParams(String symbol, int limit) {
-		super(getWeight(limit));
 		this.symbol = symbol;
 		this.limit = limit;
 	}
 
 	/**
-	 * Gets the request weight according to the order book limit
-	 *
-	 * @param limit the depth size.
-	 * @return the request weight according to the order book limit.
+	 * @param symbol The trading pair we want the depth.
+	 * @param limit  The depth size.
 	 */
-	private static int getWeight(OrderBookLimit limit) {
-		switch (limit) {
-		case LIMIT_500:
-			return 5;
-		case LIMIT_1000:
-			return 10;
-		case LIMIT_5000:
-			return 50;
-		default:
-			return 1;
-		}
+	public OrderBookParams(String symbol, String limit) {
+		this.symbol = symbol;
+		this.limit = OrderBookLimit.valueOf(limit);
 	}
 
 	/**
-	 * Gets the request weight according to the order book limit
-	 *
-	 * @param limit the depth size.
 	 * @return the request weight according to the order book limit.
 	 */
-	private static int getWeight(int limit) {
-		switch (limit) {
-		case 500:
-			return 5;
-		case 1000:
-			return 10;
-		case 5000:
-			return 50;
-		default:
-			return 1;
-		}
+	@Override
+	public int weight() {
+		return switch (limit) {
+		case LIMIT_500 -> 5;
+		case LIMIT_1000 -> 10;
+		case LIMIT_5000 -> 50;
+		default -> 1;
+		};
 	}
 
 	/**
@@ -97,16 +67,16 @@ public class OrderBookParams extends MarketParams {
 	}
 
 	/**
-	 * @return the limit.
+	 * @return the limit
 	 */
-	public Integer getLimit() {
+	public OrderBookLimit getLimit() {
 		return limit;
 	}
 
 	/**
-	 * @param limit the limit to set.
+	 * @param limit the limit to set
 	 */
-	public void setLimit(Integer limit) {
+	public void setLimit(OrderBookLimit limit) {
 		this.limit = limit;
 	}
 }

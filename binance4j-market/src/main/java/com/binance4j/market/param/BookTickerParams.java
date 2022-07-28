@@ -1,15 +1,18 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
+
 /**
  * The parameters to get the the best price/quantity on the order book for a symbol or symbols.
  */
-public class BookTickerParams extends MarketParams {
+@Param(weight = 2, recvWindow = false, timestamp = false)
+public class BookTickerParams implements Params {
 	/** Ticker symbol. */
 	String symbol;
 
-	/** to get the ticker of all symbols. */
+	/** Constructor. */
 	public BookTickerParams() {
-		super(2);
 	}
 
 	/**

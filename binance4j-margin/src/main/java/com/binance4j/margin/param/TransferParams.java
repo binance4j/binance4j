@@ -1,13 +1,15 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferType;
 
 /** The {@link MarginClient#transfer} params. */
-public class TransferParams extends Params {
+@Param(weight = 600, type = RateLimitType.UID)
+public class TransferParams implements Params {
 	/** The asset being transferred, e.g., BTC. */
 	@Mandatory
 	String asset;
@@ -21,25 +23,9 @@ public class TransferParams extends Params {
 	/**
 	 * @param asset  The asset to transfer.
 	 * @param amount The amout to transfer.
-	 * @param type   The transfer type. 1: transfer from main account to cross margin account, 2: transfer from cross
-	 *                   margin. account to main account
-	 */
-	public TransferParams(String asset, String amount, int type) {
-		super(600);
-		rateLimitType = RateLimitType.UID;
-		this.asset = asset;
-		this.amount = amount;
-		this.type = type;
-	}
-
-	/**
-	 * @param asset  The asset to transfer.
-	 * @param amount The amout to transfer.
 	 * @param type   The transfer type.
 	 */
 	public TransferParams(String asset, String amount, TransferType type) {
-		super(600);
-		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 		this.amount = amount;
 		this.type = type.getValue();

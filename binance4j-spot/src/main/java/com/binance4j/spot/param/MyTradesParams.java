@@ -1,10 +1,12 @@
 package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get trades for a specific account and symbol. */
-public class MyTradesParams extends Params {
+@Param(weight = 10)
+public class MyTradesParams implements Params {
 	/** The symbol of the trade. */
 	@Mandatory
 	String symbol;
@@ -25,7 +27,6 @@ public class MyTradesParams extends Params {
 	 * @param symbol The symbol we want the trades.
 	 */
 	public MyTradesParams(String symbol) {
-		super(10);
 		this.symbol = symbol;
 	}
 

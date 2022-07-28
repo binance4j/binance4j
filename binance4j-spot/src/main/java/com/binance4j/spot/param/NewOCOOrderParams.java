@@ -8,7 +8,7 @@ import com.binance4j.core.param.Params;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order made of two when one cancels the other. */
-public class NewOCOOrderParams extends Params {
+public class NewOCOOrderParams implements Params {
 	/** The order symbol */
 	@Mandatory
 	String symbol;

@@ -8,7 +8,7 @@ import com.binance4j.savings.dto.FixedProjectStatus;
 import com.binance4j.savings.dto.FixedProjectType;
 
 /** The {@link SavingsClient#getFixedProjects} params. */
-public class FixedProjectListParams extends Params {
+public class FixedProjectListParams implements Params {
 	/** Project type. */
 	@Mandatory
 	FixedProjectType type;

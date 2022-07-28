@@ -3,7 +3,7 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get details about a supported asset */
-public class AssetDetailParams extends Params {
+public class AssetDetailParams implements Params {
 
 	/** The asset abbreviation. */
 	String asset;

@@ -6,7 +6,7 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The {@link C2CClient#getTrades} params. */
-public class TradeHistoryParams extends Params {
+public class TradeHistoryParams implements Params {
 
 	/** Trade type. */
 	@Mandatory

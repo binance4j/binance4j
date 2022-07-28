@@ -1,14 +1,19 @@
 package com.binance4j.mining.param;
 
+import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.mining.dto.MinerSort;
 import com.binance4j.mining.dto.SortSequence;
 import com.binance4j.mining.dto.WorkerStatus;
 
-public class MinersParams extends Params {
+@Param(weight = 5)
+public class MinersParams implements Params {
 	/** Algorithm. */
+	@Mandatory
 	String algo;
 	/** Mining account. */
+	@Mandatory
 	String userName;
 	/** Page number. */
 	long pageIndex;
@@ -26,7 +31,6 @@ public class MinersParams extends Params {
 	 * @param userName Mining account.
 	 */
 	public MinersParams(String algo, String userName) {
-		super(5);
 		this.algo = algo;
 		this.userName = userName;
 	}

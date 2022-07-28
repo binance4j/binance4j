@@ -1,5 +1,6 @@
 package com.binance4j.nft.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.nft.dto.OrderType;
@@ -11,37 +12,29 @@ import com.binance4j.nft.dto.OrderType;
  * <p>
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
-public class TransactionHistoryParams extends Params {
+@Param(weight = 3000, type = RateLimitType.UID)
+public class TransactionHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The order type. */
-	Integer orderType;
+	OrderType orderType;
 	/** The result size. Default 50, Max 50. */
 	Integer limit = 50;
 	/** The result page. Default 1. */
 	Integer page = 1;
 
-	private TransactionHistoryParams() {
-		super(3000);
-		rateLimitType = RateLimitType.UID;
+	/**
+	 * Constructor.
+	 */
+	public TransactionHistoryParams() {
 	}
 
 	/**
 	 * @param orderType The order type.
 	 */
 	public TransactionHistoryParams(OrderType orderType) {
-		this();
-		this.orderType = orderType.getValue();
-	}
-
-	/**
-	 * @param orderType The order type.
-	 */
-	public TransactionHistoryParams(int orderType) {
-		this();
 		this.orderType = orderType;
 	}
 
@@ -67,20 +60,6 @@ public class TransactionHistoryParams extends Params {
 		this(orderType, limit, page);
 		this.startTime = startTime;
 		this.endTime = endTime;
-	}
-
-	/**
-	 * @return the orderType.
-	 */
-	public Integer getOrderType() {
-		return orderType;
-	}
-
-	/**
-	 * @param orderType the orderType to set.
-	 */
-	public void setOrderType(Integer orderType) {
-		this.orderType = orderType;
 	}
 
 	/**
@@ -129,5 +108,19 @@ public class TransactionHistoryParams extends Params {
 	/** @param endTime the endTime to set */
 	public void setEndTime(Long endTime) {
 		this.endTime = endTime;
+	}
+
+	/**
+	 * @return the orderType
+	 */
+	public OrderType getOrderType() {
+		return orderType;
+	}
+
+	/**
+	 * @param orderType the orderType to set
+	 */
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
 	}
 }

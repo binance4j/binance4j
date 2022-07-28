@@ -1,9 +1,11 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to check an order status */
-public class OrderStatusParams extends Params {
+@Param
+public class OrderStatusParams implements Params {
 	/** The trading pair we want the order status. */
 	String symbol;
 	/** The client id we want the order status. */
@@ -29,7 +31,6 @@ public class OrderStatusParams extends Params {
 	 * @param origClientOrderId The client id.
 	 */
 	public OrderStatusParams(String symbol, String origClientOrderId) {
-
 		this.symbol = symbol;
 		this.origClientOrderId = origClientOrderId;
 	}

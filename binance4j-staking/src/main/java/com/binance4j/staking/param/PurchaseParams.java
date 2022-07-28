@@ -6,7 +6,7 @@ import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
 /** The {@link StakingClient} params. */
-public class PurchaseParams extends Params {
+public class PurchaseParams implements Params {
 	/** The product type. */
 	@Mandatory
 	ProductType product;

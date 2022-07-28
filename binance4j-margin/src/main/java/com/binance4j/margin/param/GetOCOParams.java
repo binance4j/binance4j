@@ -1,11 +1,12 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getAllOCO} params. */
-public class GetOCOParams extends Params {
-
+@Param(weight = 10)
+public class GetOCOParams implements Params {
 	/** Is the order isolated? */
 	Boolean isIsolated;
 	/** THe symbol. Mandatory for isolated margin, not supported for cross margin. */
@@ -14,11 +15,6 @@ public class GetOCOParams extends Params {
 	Long orderListId;
 	/** Either orderListId or origClientOrderId must be provided. */
 	String origClientOrderId;
-
-	/** Default constructor */
-	public GetOCOParams() {
-		super(10);
-	}
 
 	/** @return the isIsolated */
 	public Boolean getIsIsolated() {

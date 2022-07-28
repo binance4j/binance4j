@@ -17,4 +17,8 @@ public @interface Param {
 	RateLimitType type() default RateLimitType.IP;
 
 	boolean isOrder() default false;
+
+	boolean timestamp() default true;
+
+	boolean recvWindow() default true;
 }

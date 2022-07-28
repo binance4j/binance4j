@@ -1,14 +1,15 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** Request to retrieve all OCO based on provided optional parameters */
-public class AllOCOInfoParams extends Params {
+@Param(weight = 10)
+public class AllOCOInfoParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The id to search from. */
 	Long fromId;
 	/** The result size. Default Value: 500; Max Value: 1000 */
@@ -16,14 +17,12 @@ public class AllOCOInfoParams extends Params {
 
 	/** Default constructor. */
 	public AllOCOInfoParams() {
-		super(10);
 	}
 
 	/**
 	 * @param fromId The id to search from.
 	 */
 	public AllOCOInfoParams(Long fromId) {
-		this();
 		this.fromId = fromId;
 	}
 
@@ -31,7 +30,6 @@ public class AllOCOInfoParams extends Params {
 	 * @param limit The result size.
 	 */
 	public AllOCOInfoParams(Integer limit) {
-		this();
 		this.limit = limit;
 	}
 
@@ -40,7 +38,6 @@ public class AllOCOInfoParams extends Params {
 	 * @param limit  The result size.
 	 */
 	public AllOCOInfoParams(Long fromId, Integer limit) {
-		this();
 		this.fromId = fromId;
 		this.limit = limit;
 	}

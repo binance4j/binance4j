@@ -1,9 +1,11 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get a list of asset dividends */
-public class AssetDividendRecordParams extends Params {
+@Param(weight = 10)
+public class AssetDividendRecordParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
@@ -15,7 +17,6 @@ public class AssetDividendRecordParams extends Params {
 
 	/** Default constructor. */
 	public AssetDividendRecordParams() {
-		super(10);
 	}
 
 	/**
@@ -24,7 +25,6 @@ public class AssetDividendRecordParams extends Params {
 	 * @param asset The asset we want the records.
 	 */
 	public AssetDividendRecordParams(String asset) {
-		this();
 		this.asset = asset;
 	}
 

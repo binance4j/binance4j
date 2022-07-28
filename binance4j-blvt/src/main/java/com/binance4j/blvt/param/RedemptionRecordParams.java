@@ -1,10 +1,12 @@
 package com.binance4j.blvt.param;
 
 import com.binance4j.blvt.client.BLVTClient;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /** The {@link BLVTClient#getRedemptions} params. */
-public class RedemptionRecordParams extends Params {
+@Param
+public class RedemptionRecordParams implements Params {
 	/** The token name. */
 	String tokenName;
 	/** The subscription id. */
@@ -17,10 +19,9 @@ public class RedemptionRecordParams extends Params {
 	Integer limit;
 
 	/**
-	 * Consctructor.
+	 * Constructor.
 	 */
 	public RedemptionRecordParams() {
-
 	}
 
 	/**

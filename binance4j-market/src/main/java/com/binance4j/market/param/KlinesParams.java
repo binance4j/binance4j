@@ -1,10 +1,13 @@
 package com.binance4j.market.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.CandlestickInterval;
+import com.binance4j.core.param.Params;
 
 /** The parameters to get candlestick data about a trading pair */
-public class KlinesParams extends MarketParams {
+@Param(recvWindow = false, timestamp = false)
+public class KlinesParams implements Params {
 	/** The trading pair we want the data. */
 	@Mandatory
 	String symbol;
@@ -25,7 +28,6 @@ public class KlinesParams extends MarketParams {
 	 * @param interval The candlestick interval.
 	 */
 	public KlinesParams(String symbol, CandlestickInterval interval) {
-
 		this.symbol = symbol;
 		this.interval = interval.toString();
 	}

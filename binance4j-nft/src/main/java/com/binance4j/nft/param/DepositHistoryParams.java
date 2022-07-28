@@ -1,5 +1,6 @@
 package com.binance4j.nft.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 
@@ -10,20 +11,21 @@ import com.binance4j.core.param.Params;
  * <p>
  * If startTime and endTime are not sent, the recent 7 days' data will be returned.
  */
-public class DepositHistoryParams extends Params {
+@Param(weight = 3000, type = RateLimitType.UID)
+public class DepositHistoryParams implements Params {
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
 	/** The result size. Default 50, Max 50. */
-	Integer limit = 50;
+	Integer limit;
 	/** The result page. Default 1. */
-	Integer page = 1;
+	Integer page;
 
-	/** Constructor. */
+	/**
+	 * Constructor.
+	 */
 	public DepositHistoryParams() {
-		super(3000);
-		rateLimitType = RateLimitType.UID;
 	}
 
 	/**
@@ -31,7 +33,6 @@ public class DepositHistoryParams extends Params {
 	 * @param page  The result page. Default 1.
 	 */
 	public DepositHistoryParams(int limit, int page) {
-		this();
 		this.limit = limit;
 		this.page = page;
 	}
@@ -43,7 +44,8 @@ public class DepositHistoryParams extends Params {
 	 * @param endTime   The result end time in ms.
 	 */
 	public DepositHistoryParams(int limit, int page, long startTime, long endTime) {
-		this(limit, page);
+		this.limit = limit;
+		this.page = page;
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}

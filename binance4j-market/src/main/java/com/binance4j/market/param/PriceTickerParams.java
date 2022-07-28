@@ -1,13 +1,16 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Param;
+import com.binance4j.core.param.Params;
+
 /** The parameters to get the latest price for a symbol or symbols. */
-public class PriceTickerParams extends MarketParams {
+@Param(weight = 2, recvWindow = false, timestamp = false)
+public class PriceTickerParams implements Params {
 	/** Ticker symbol. */
 	String symbol;
 
 	/** for all symbols ticker. */
 	public PriceTickerParams() {
-		super(2);
 	}
 
 	/**
@@ -16,7 +19,6 @@ public class PriceTickerParams extends MarketParams {
 	 * @param symbol The symbol we want the ticker.
 	 */
 	public PriceTickerParams(String symbol) {
-
 		this.symbol = symbol;
 	}
 

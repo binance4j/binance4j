@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#fixedToDailyPosition} params. */
-public class ChangePositionParams extends Params {
+public class ChangePositionParams implements Params {
 	/** Project id. */
 	@Mandatory
 	String projectId;

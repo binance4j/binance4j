@@ -1,12 +1,14 @@
 package com.binance4j.margin.param;
 
 import com.binance4j.core.annotation.Mandatory;
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#repay} params. */
-public class RepayParams extends Params {
+@Param(weight = 300, type = RateLimitType.UID)
+public class RepayParams implements Params {
 	/** The asset to repay. */
 	@Mandatory
 	String asset;
@@ -23,8 +25,6 @@ public class RepayParams extends Params {
 	 * @param amount The amount to repay.
 	 */
 	public RepayParams(String asset, String amount) {
-		super(300);
-		rateLimitType = RateLimitType.UID;
 		this.asset = asset;
 		this.amount = amount;
 	}
