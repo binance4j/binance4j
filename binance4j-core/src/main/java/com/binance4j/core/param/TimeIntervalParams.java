@@ -19,4 +19,13 @@ public record TimeIntervalParams(Long startTime, Long endTime, Integer limit) im
 	public TimeIntervalParams(Long startTime, Long endTime) {
 		this(startTime, endTime, null);
 	}
+
+	/**
+	 * Creates instance of {@link TimeIntervalParams}.
+	 * 
+	 * @param limit Results limit.
+	 */
+	public TimeIntervalParams(Integer limit) {
+		this(null, null, limit);
+	}
 }
