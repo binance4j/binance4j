@@ -12,7 +12,7 @@ public class TokenInfoParams extends Params {
 	 * Constructor.
 	 */
 	public TokenInfoParams() {
-		super(1);
+
 	}
 
 	/**

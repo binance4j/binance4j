@@ -18,7 +18,7 @@ public class TickerStatisticsParams extends MarketParams {
 	 * @param symbol The trading pair we want the ticker stats.
 	 */
 	public TickerStatisticsParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 

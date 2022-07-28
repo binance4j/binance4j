@@ -1,20 +1,21 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
 /** The {@link MarginClient#getIsolatedTransferHistory} params. */
 public class IsolatedTransferHistoryParams extends Params {
+	/** The symbol. */
+	@Mandatory
+	String symbol;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The asset. */
 	String asset;
-	/** The symbol. */
-	String symbol;
 	/** The transfer origin. */
 	IsolatedTransferAccount transFrom;
 	/** The transfer destination. */

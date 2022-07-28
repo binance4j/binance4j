@@ -4,10 +4,4 @@ import com.binance4j.core.param.Params;
 
 /** The parameters to get The api key permissions */
 public class ApiPermissionsParams extends Params {
-
-	/** Constructor. */
-	public ApiPermissionsParams() {
-		super(1);
-	}
-
 }

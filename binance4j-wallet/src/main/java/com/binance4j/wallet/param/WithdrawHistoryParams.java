@@ -9,7 +9,6 @@ public class WithdrawHistoryParams extends Params {
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The coin we want the history. */
 	String coin;
 	/** The withdraw order id to fetch. */
@@ -23,10 +22,10 @@ public class WithdrawHistoryParams extends Params {
 	Integer limit = 1000;
 
 	/**
-	 
+	 * Constructor.
 	 */
 	public WithdrawHistoryParams() {
-		super(1);
+
 	}
 
 	/**

@@ -4,10 +4,8 @@ import com.binance4j.core.param.Params;
 
 /** Request to retrieve a specific OCO based on provided optional parameters */
 public class OCOInfoParams extends Params {
-
 	/** Either orderListId or origClientOrderId must be provided. */
 	Long orderListId;
-
 	/** Either orderListId or origClientOrderId must be provided. */
 	String origClientOrderId;
 

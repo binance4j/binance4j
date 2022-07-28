@@ -1,5 +1,6 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.FixedProjectSorting;
@@ -8,10 +9,11 @@ import com.binance4j.savings.dto.FixedProjectType;
 
 /** The {@link SavingsClient#getFixedProjects} params. */
 public class FixedProjectListParams extends Params {
+	/** Project type. */
+	@Mandatory
+	FixedProjectType type;
 	/** Asset. */
 	String asset;
-	/** Project type. */
-	FixedProjectType type;
 	/** Project status. default: {@code START_TIME}. */
 	FixedProjectStatus status;
 	/** Sort ascending. Default: true. */
@@ -27,7 +29,7 @@ public class FixedProjectListParams extends Params {
 	 * @param type Project type.
 	 */
 	public FixedProjectListParams(FixedProjectType type) {
-		super(1);
+
 		this.type = type;
 	}
 

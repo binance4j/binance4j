@@ -1,11 +1,13 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#fixedToDailyPosition} params. */
 public class ChangePositionParams extends Params {
 	/** Project id. */
+	@Mandatory
 	String projectId;
 	/** Lot. */
 	Long lot;
@@ -16,7 +18,7 @@ public class ChangePositionParams extends Params {
 	 * @param projectId The project id.
 	 */
 	public ChangePositionParams(String projectId) {
-		super(1);
+
 		this.projectId = projectId;
 	}
 

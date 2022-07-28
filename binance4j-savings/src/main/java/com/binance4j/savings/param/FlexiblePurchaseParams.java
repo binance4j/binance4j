@@ -1,23 +1,23 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#purchaseFlexible} params. */
 public class FlexiblePurchaseParams extends Params {
 	/** The product id. */
+	@Mandatory
 	String productId;
 	/** The amount. */
+	@Mandatory
 	String amount;
 
 	/**
-	 * Constructor.
-	 * 
 	 * @param productId The product id.
 	 * @param amount    The amount.
 	 */
 	public FlexiblePurchaseParams(String productId, String amount) {
-		super(1);
 		this.productId = productId;
 		this.amount = amount;
 	}

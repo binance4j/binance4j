@@ -1,16 +1,19 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /** The parameters to operate an asset transfer between two accounts */
 public class WalletTransferParams extends Params {
-
 	/** The asset. */
+	@Mandatory
 	String asset;
 	/** The transfer type. */
+	@Mandatory
 	WalletTransferType type;
 	/** The volume. */
+	@Mandatory
 	String amount;
 	/** must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN */
 	String fromSymbol;
@@ -23,7 +26,6 @@ public class WalletTransferParams extends Params {
 	 * @param amount The volume to transfer.
 	 */
 	public WalletTransferParams(String amount, String asset, WalletTransferType type) {
-		super(1);
 		this.type = type;
 		this.asset = asset;
 		this.amount = amount;

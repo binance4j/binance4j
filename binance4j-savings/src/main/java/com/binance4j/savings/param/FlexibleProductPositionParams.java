@@ -12,7 +12,6 @@ public class FlexibleProductPositionParams extends Params {
 	 * Constructor.
 	 */
 	public FlexibleProductPositionParams() {
-		super(1);
 	}
 
 	/**

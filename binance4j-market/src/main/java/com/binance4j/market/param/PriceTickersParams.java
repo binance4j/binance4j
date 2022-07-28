@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.binance4j.core.annotation.Mandatory;
+
 /** The parameters to get the latest price for a symbol or symbols. */
 public class PriceTickersParams extends MarketParams {
 	/** Ticker symbol. */
+	@Mandatory
 	String symbols;
 
 	/**

@@ -1,18 +1,23 @@
 package com.binance4j.staking.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.dto.TransactionType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The {@link StakingClient} params. */
 public class HistoryParams extends Params {
 	/** The product type. */
+	@Mandatory
 	ProductType product;
+	/** The transaction type. */
+	@Mandatory
+	@JsonProperty("txnType")
+	TransactionType transactionType;
 	/** The product name. */
 	String asset;
-	/** The transaction type. */
-	TransactionType txnType;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
@@ -27,9 +32,9 @@ public class HistoryParams extends Params {
 	 * @param txnType The transaction type.
 	 */
 	public HistoryParams(ProductType product, TransactionType txnType) {
-		super(1);
+
 		this.product = product;
-		this.txnType = txnType;
+		this.transactionType = txnType;
 	}
 
 	/**
@@ -58,20 +63,6 @@ public class HistoryParams extends Params {
 	 */
 	public void setAsset(String asset) {
 		this.asset = asset;
-	}
-
-	/**
-	 * @return the txnType
-	 */
-	public TransactionType getTxnType() {
-		return txnType;
-	}
-
-	/**
-	 * @param txnType the txnType to set
-	 */
-	public void setTxnType(TransactionType txnType) {
-		this.txnType = txnType;
 	}
 
 	/**
@@ -130,4 +121,17 @@ public class HistoryParams extends Params {
 		this.size = size;
 	}
 
+	/**
+	 * @return the transactionType
+	 */
+	public TransactionType getTransactionType() {
+		return transactionType;
+	}
+
+	/**
+	 * @param transactionType the transactionType to set
+	 */
+	public void setTransactionType(TransactionType transactionType) {
+		this.transactionType = transactionType;
+	}
 }

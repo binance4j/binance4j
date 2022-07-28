@@ -1,12 +1,13 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMaxTransferable} params. */
 public class MaxTransferableParams extends Params {
-
 	/** The asset */
+	@Mandatory
 	String asset;
 	/** The isolated symbols */
 	String isolatedSymbol;

@@ -1,14 +1,16 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest} params. */
 public class ToggleBurnParams extends Params {
-
 	/** Determines whether to use BNB to pay for trading fees on SPOT. */
+	@Mandatory
 	Boolean spotBNBBurn;
 	/** Determines whether to use BNB to pay for margin loan's interest. */
+	@Mandatory
 	Boolean interestBNBBurn;
 
 	/** Default constructor */

@@ -1,16 +1,17 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The parameters to get trades for a specific account and symbol. */
 public class MyTradesParams extends Params {
+	/** The symbol of the trade. */
+	@Mandatory
+	String symbol;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
-	/** The symbol of the trade. */
-	String symbol;
 	/** The order id of the trade. */
 	Long orderId;
 	/** The id from which we search trades. */

@@ -10,7 +10,6 @@ public class OpenOrdersStatusParams extends Params {
 
 	/** toi get all open orders. */
 	public OpenOrdersStatusParams() {
-		super(1);
 	}
 
 	/**

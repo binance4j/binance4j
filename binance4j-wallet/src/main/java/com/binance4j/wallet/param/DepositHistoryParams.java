@@ -9,20 +9,17 @@ public class DepositHistoryParams extends Params {
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The deposited coin. */
 	String coin;
 	/** The deposit status. 0(0:pending,6: credited but cannot withdraw, 1:success) */
 	Integer status;
-
 	/** The history offset. */
 	Integer offset;
 	/** The history size. Default:1000, Max:1000 */
-	Integer limit = 1000;
+	Integer limit;
 
 	/** Default constructor. */
 	public DepositHistoryParams() {
-		super(1);
 	}
 
 	/**

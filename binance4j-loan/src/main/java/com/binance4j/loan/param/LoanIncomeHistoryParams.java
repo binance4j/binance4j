@@ -1,5 +1,6 @@
 package com.binance4j.loan.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.loan.client.LoanClient;
@@ -11,8 +12,8 @@ public class LoanIncomeHistoryParams extends Params {
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The asset */
+	@Mandatory
 	String asset;
 	/** The result limit. Default 20, max 100. */
 	Integer limit;

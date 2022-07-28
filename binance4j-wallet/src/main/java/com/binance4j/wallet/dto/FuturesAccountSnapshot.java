@@ -1,7 +1,4 @@
-package com.binance4j.wallet.param;
-
-import com.binance4j.wallet.dto.FuturesSnapshotData;
-import com.binance4j.wallet.dto.Snapshot;
+package com.binance4j.wallet.dto;
 
 /** A daily FUTURES account snapshot */
 public record FuturesAccountSnapshot(

@@ -1,7 +1,4 @@
-package com.binance4j.wallet.param;
-
-import com.binance4j.wallet.dto.Snapshot;
-import com.binance4j.wallet.dto.SpotAccountSnapshotData;
+package com.binance4j.wallet.dto;
 
 /** A daily SPOT account snapshot */
 public record SpotAccountSnapshot(

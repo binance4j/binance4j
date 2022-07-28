@@ -18,7 +18,7 @@ public class BookTickerParams extends MarketParams {
 	 * @param symbol The trading pair we want the ticker.
 	 */
 	public BookTickerParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 

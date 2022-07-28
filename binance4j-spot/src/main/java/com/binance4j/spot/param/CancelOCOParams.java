@@ -1,11 +1,12 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The parameters to cancel an OCO request */
 public class CancelOCOParams extends Params {
-
 	/** The symbol to cancel the order. */
+	@Mandatory
 	String symbol;
 	/** Either orderListId or listClientOrderId must be provided. */
 	Long orderListId;
@@ -16,7 +17,6 @@ public class CancelOCOParams extends Params {
 
 	/** @param symbol The symbol to cancel the order. */
 	public CancelOCOParams(String symbol) {
-		super(1);
 		this.symbol = symbol;
 	}
 
@@ -25,7 +25,7 @@ public class CancelOCOParams extends Params {
 	 * @param orderListId The order list id.
 	 */
 	public CancelOCOParams(String symbol, Long orderListId) {
-		this(symbol);
+		this.symbol = symbol;
 		this.orderListId = orderListId;
 	}
 
@@ -34,7 +34,7 @@ public class CancelOCOParams extends Params {
 	 * @param listClientOrderId The list client order id.
 	 */
 	public CancelOCOParams(String symbol, String listClientOrderId) {
-		this(symbol);
+		this.symbol = symbol;
 		this.listClientOrderId = listClientOrderId;
 	}
 

@@ -1,5 +1,6 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
@@ -7,6 +8,7 @@ import com.binance4j.margin.client.MarginClient;
 public class PairParams extends Params {
 
 	/** The symbol */
+	@Mandatory
 	String symbol;
 
 	/** @param symbol The symbol */

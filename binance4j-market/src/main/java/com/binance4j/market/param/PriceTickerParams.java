@@ -16,7 +16,7 @@ public class PriceTickerParams extends MarketParams {
 	 * @param symbol The symbol we want the ticker.
 	 */
 	public PriceTickerParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 

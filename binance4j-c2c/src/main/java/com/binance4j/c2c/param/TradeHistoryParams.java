@@ -2,12 +2,14 @@ package com.binance4j.c2c.param;
 
 import com.binance4j.c2c.client.C2CClient;
 import com.binance4j.c2c.dto.TradeType;
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The {@link C2CClient#getTrades} params. */
 public class TradeHistoryParams extends Params {
 
 	/** Trade type. */
+	@Mandatory
 	TradeType tradeType;
 	/** Page. Default: 1. */
 	Integer page;
@@ -18,7 +20,7 @@ public class TradeHistoryParams extends Params {
 	 * @param tradeType Trade type.
 	 */
 	public TradeHistoryParams(TradeType tradeType) {
-		super(1);
+
 		this.tradeType = tradeType;
 	}
 

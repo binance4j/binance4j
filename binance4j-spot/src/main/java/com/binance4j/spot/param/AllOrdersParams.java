@@ -1,16 +1,17 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The parameters to display past orders */
 public class AllOrdersParams extends Params {
+	/** The trading pair we want the orders. */
+	@Mandatory
+	String symbol;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
-	/** The trading pair we want the orders. */
-	String symbol;
 	/**
 	 * If orderId is set, it will get orders &gt;= that orderId. Otherwise, most recent orders are returned. If startTime
 	 * and/or endTime provided, orderId is not required.

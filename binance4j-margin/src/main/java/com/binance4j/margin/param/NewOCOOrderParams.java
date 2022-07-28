@@ -1,5 +1,6 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.RateLimitType;
@@ -12,14 +13,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class NewOCOOrderParams extends Params {
 
 	/** The order symbol */
+	@Mandatory
 	String symbol;
 	/** The order side */
+	@Mandatory
 	OrderSide side;
 	/** The order quantity */
+	@Mandatory
 	String quantity;
 	/** The order price */
+	@Mandatory
 	String price;
 	/** The stop price */
+	@Mandatory
 	String stopPrice;
 	/** The order response type Default: RESULT. */
 	NewOrderResponseType newOrderRespType;
@@ -52,7 +58,7 @@ public class NewOCOOrderParams extends Params {
 	 * @param stopPrice The stop price.
 	 */
 	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice) {
-		super(1);
+
 		rateLimitType = RateLimitType.UID;
 		this.symbol = symbol;
 		this.side = side;

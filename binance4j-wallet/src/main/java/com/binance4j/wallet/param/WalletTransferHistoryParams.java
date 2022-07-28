@@ -1,17 +1,18 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /** Request to fetch User Universal Transfer History */
 public class WalletTransferHistoryParams extends Params {
+	/** The User universal transfer type. */
+	@Mandatory
+	WalletTransferType type;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
-	/** The User universal transfer type. */
-	WalletTransferType type;
 	/** The offset. */
 	Integer current = 1;
 	/** The result size. */
@@ -25,7 +26,6 @@ public class WalletTransferHistoryParams extends Params {
 	 * @param type The transfer type.
 	 */
 	public WalletTransferHistoryParams(WalletTransferType type) {
-		super(1);
 		this.type = type;
 	}
 

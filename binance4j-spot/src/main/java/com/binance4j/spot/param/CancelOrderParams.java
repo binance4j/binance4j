@@ -1,13 +1,15 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The request to cancel an order. */
 public class CancelOrderParams extends Params {
-
 	/** The trade symbol */
+	@Mandatory
 	String symbol;
 	/** The order id */
+	@Mandatory
 	Long orderId;
 	/** The original client order id */
 	String origClientOrderId;

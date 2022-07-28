@@ -5,16 +5,14 @@ import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getMarginFeeData} params. */
 public class CrossFeeParams extends Params {
-
 	/** The related coin */
-	final String coin;
+	String coin;
 	/** The related VIP level */
 	Integer vipLevel;
 
 	/** Default constructor */
 	public CrossFeeParams() {
 		super(5);
-		coin = null;
 	}
 
 	/** @param coin The related coin */

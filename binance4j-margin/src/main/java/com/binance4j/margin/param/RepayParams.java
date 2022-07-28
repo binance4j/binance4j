@@ -1,20 +1,22 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#repay} params. */
 public class RepayParams extends Params {
-
 	/** The asset to repay. */
+	@Mandatory
 	String asset;
+	/** The amount to repay. */
+	@Mandatory
+	String amount;
 	/** The isolated symbol. */
 	String symbol;
 	/** For isolated margin or not. Default {@code false}. */
 	Boolean isIsolated;
-	/** The amount to repay. */
-	String amount;
 
 	/**
 	 * @param asset  The asset to repay.

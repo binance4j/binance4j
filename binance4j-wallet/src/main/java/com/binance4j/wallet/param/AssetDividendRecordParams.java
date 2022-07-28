@@ -8,11 +8,10 @@ public class AssetDividendRecordParams extends Params {
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The asset abbreviation. */
 	String asset;
 	/** The result limit. Default 20, max 500 */
-	Integer limit = 20;
+	Integer limit;
 
 	/** Default constructor. */
 	public AssetDividendRecordParams() {

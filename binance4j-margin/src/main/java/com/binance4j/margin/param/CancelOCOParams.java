@@ -1,13 +1,14 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#cancelOCO} params. */
 public class CancelOCOParams extends Params {
-
 	/** The related symbol. */
+	@Mandatory
 	String symbol;
 	/** Is the order isolated? */
 	Boolean isIsolated;

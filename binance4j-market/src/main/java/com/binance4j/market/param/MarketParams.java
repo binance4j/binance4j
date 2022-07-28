@@ -9,8 +9,18 @@ public class MarketParams extends Params {
 	 */
 	public MarketParams(int weight) {
 		super(weight);
+		init();
+	}
+
+	/**
+	 * Constructor.
+	 */
+	public MarketParams() {
+		init();
+	}
+
+	private void init() {
 		timestamp = null;
 		recvWindow = null;
 	}
-
 }

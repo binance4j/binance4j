@@ -6,7 +6,7 @@ public class AlgorithmsAquisitionParams extends Params {
 
 	/** Constructor. */
 	public AlgorithmsAquisitionParams() {
-		super(1);
+
 	}
 
 }

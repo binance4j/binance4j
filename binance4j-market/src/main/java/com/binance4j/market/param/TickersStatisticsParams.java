@@ -5,11 +5,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.binance4j.core.annotation.Mandatory;
+
 /**
  * The parameters to get the 24 hour rolling window price change statistics of specific symbols.
  */
 public class TickersStatisticsParams extends MarketParams {
 	/** The trading pair we want the ticker stats. */
+	@Mandatory
 	String symbols;
 
 	/**

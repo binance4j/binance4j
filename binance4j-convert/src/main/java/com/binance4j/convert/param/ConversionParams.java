@@ -1,6 +1,7 @@
 package com.binance4j.convert.param;
 
 import com.binance4j.convert.client.ConvertClient;
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /**
@@ -8,8 +9,10 @@ import com.binance4j.core.param.Params;
  */
 public class ConversionParams extends Params {
 	/** The starting timestamp of the results */
+	@Mandatory
 	Long startTime;
 	/** The ending timestamp of the results */
+	@Mandatory
 	Long endTime;
 
 	/** The result size. Default 100, Max 1000. */

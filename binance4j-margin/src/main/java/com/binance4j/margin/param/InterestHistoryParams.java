@@ -1,20 +1,21 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getInterestHistory} params. */
 public class InterestHistoryParams extends Params {
-	/** The starting timestamp of the results */
-	Long startTime;
-	/** The ending timestamp of the results */
-	Long endTime;
-
 	/** The related asset. */
+	@Mandatory
 	String asset;
-	/** isolated symbol. */
+	/** The start timestamp of the results */
+	Long startTime;
+	/** The end timestamp of the results */
+	Long endTime;
+	/** The isolated symbol. */
 	String isolatedSymbol;
-	/** the tranId in POST /sapi/v1/margin/repay. */
+	/** The transaction id in POST /sapi/v1/margin/repay. */
 	long txId;
 	/** Currently querying page. Start from 1. Default:1 */
 	long current;

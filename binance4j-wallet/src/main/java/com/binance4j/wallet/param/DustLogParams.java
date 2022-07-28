@@ -9,11 +9,6 @@ public class DustLogParams extends Params {
 	/** The ending timestamp of the results */
 	Long endTime;
 
-	/** Default constructor. */
-	public DustLogParams() {
-		super(1);
-	}
-
 	/** @return the startTime */
 	public Long getStartTime() {
 		return startTime;

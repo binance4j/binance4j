@@ -1,13 +1,16 @@
 package com.binance4j.blvt.param;
 
 import com.binance4j.blvt.client.BLVTClient;
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The {@link BLVTClient#redeem} params. */
 public class RedemptionParams extends Params {
 	/** The token name. */
+	@Mandatory
 	String tokenName;
 	/** Amount to redeem. */
+	@Mandatory
 	String amount;
 
 	/**
@@ -15,7 +18,7 @@ public class RedemptionParams extends Params {
 	 * @param amount    Amount to redeem.
 	 */
 	public RedemptionParams(String tokenName, String amount) {
-		super(1);
+
 		this.tokenName = tokenName;
 		this.amount = amount;
 	}

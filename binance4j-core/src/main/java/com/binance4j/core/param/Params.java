@@ -7,7 +7,6 @@ import java.util.Map;
 
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
-import com.binance4j.core.exception.MandatoryParamException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,7 +33,7 @@ public class Params {
 
 	/** @param weight The Request weight */
 	public Params(int weight) {
-		this(weight, false);
+		this.weight = weight;
 	}
 
 	/**
@@ -47,37 +46,22 @@ public class Params {
 	}
 
 	/**
-	 * Converts the request into a {@link QueryMap}
-	 *
-	 * @return The generated {@link QueryMap}.
-	 * @throws MandatoryParamException
+	 * @return the params into a {@link QueryMap} and removes null and useless parameters.
 	 */
-	public Map<String, Object> toMap() throws MandatoryParamException {
-		handleMandatoryParameters();
+	public Map<String, Object> toMap() {
 		Map<String, Object> map = MAPPER.convertValue(this, new TypeReference<Map<String, Object>>() {
 		});
 
-		// Removing null and useless parameters from the query map
-		map.remove("weight");
-		map.remove("weightType");
-		map.remove("orderRequest");
-		map.remove("isOrderRequest");
+		List.of("weight", "weightType", "orderRequest", "isOrderRequest").forEach(f -> map.remove(f));
 		map.values().removeAll(Collections.singleton(null));
 		return map;
 	}
 
-	public void handleMandatoryParameters() throws MandatoryParamException {
-		List<Field> nullMandatoryFields = List.of(getClass().getDeclaredFields()).stream().filter(f -> {
-			try {
-				return f.isAnnotationPresent(Mandatory.class) && f.get(this) == null;
-			} catch (IllegalArgumentException | IllegalAccessException e) {
-				return false;
-			}
-		}).toList();
-
-		if (!nullMandatoryFields.isEmpty()) {
-			throw new MandatoryParamException();
-		}
+	/**
+	 * @return The param fields annotated with {@link Mandatory}.
+	 */
+	public List<Field> getMandatoryFields() {
+		return List.of(getClass().getDeclaredFields()).stream().filter(f -> f.isAnnotationPresent(Mandatory.class)).toList();
 	}
 
 	/** @return the weight */

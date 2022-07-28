@@ -1,23 +1,26 @@
 package com.binance4j.wallet.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WalletType;
 
 /** The parameters to operate a withdraw */
 public class WithdrawParams extends Params {
-
+	/** The volume. */
+	@Mandatory
+	String amount;
 	/** The coin to withdraw. */
+	@Mandatory
 	String coin;
+	/** The destination address. */
+	@Mandatory
+	String address;
 	/** Client id for withdraw. */
 	String withdrawOrderId;
 	/** The network to use. */
 	String network;
-	/** The destination address. */
-	String address;
 	/** Secondary address identifier for coins like XRP,XMR etc. */
 	String addressTag;
-	/** The volume. */
-	String amount;
 	/**
 	 * When making internal transfer, true for returning the fee to the destination account; false for returning the fee
 	 * back to the departure account. Default false.
@@ -34,7 +37,6 @@ public class WithdrawParams extends Params {
 	 * @param amount  The volume to withdraw.
 	 */
 	public WithdrawParams(String amount, String coin, String address) {
-		super(1);
 		this.coin = coin;
 		this.address = address;
 		this.amount = amount;

@@ -5,12 +5,4 @@ import com.binance4j.portfoliomargin.client.PortfolioMarginClient;
 
 /** The {@link PortfolioMarginClient#getAccountInfo} params. */
 public class CollaterateRateInfoParams extends Params {
-
-	/**
-	 * Constructor
-	 */
-	public CollaterateRateInfoParams() {
-		super(1);
-	}
-
 }

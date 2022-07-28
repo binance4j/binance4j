@@ -1,5 +1,6 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.ProductType;
@@ -7,8 +8,10 @@ import com.binance4j.savings.dto.ProductType;
 /** The {@link SavingsClient#getLeftDailyRedemptionQuota} params. */
 public class RedemptionQuotaParams extends Params {
 	/** The product id. */
+	@Mandatory
 	String productId;
 	/** The product type. */
+	@Mandatory
 	ProductType type;
 
 	/**
@@ -16,7 +19,6 @@ public class RedemptionQuotaParams extends Params {
 	 * @param type      The product type.
 	 */
 	public RedemptionQuotaParams(String productId, ProductType type) {
-		super(1);
 		this.productId = productId;
 		this.type = type;
 	}

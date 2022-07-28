@@ -1,8 +1,11 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Mandatory;
+
 /** The parameters to get recent trades */
 public class TradesParams extends MarketParams {
 	/** The symbol we want the trades. */
+	@Mandatory
 	String symbol;
 	/** The trades size. Default 500; max 1000. */
 	Integer limit = 500;
@@ -13,7 +16,7 @@ public class TradesParams extends MarketParams {
 	 * @param symbol The symbol we want the trades.
 	 */
 	public TradesParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 

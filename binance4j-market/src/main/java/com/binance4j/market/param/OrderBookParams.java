@@ -1,10 +1,12 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.market.dto.OrderBookLimit;
 
 /** The parameters to get the market depth of a symbol */
 public class OrderBookParams extends MarketParams {
 	/** The trading pair we want the depth. */
+	@Mandatory
 	String symbol;
 	/** The market depth size. */
 	Integer limit;
@@ -15,7 +17,6 @@ public class OrderBookParams extends MarketParams {
 	 * @param symbol The trading pair we want the depth.
 	 */
 	public OrderBookParams(String symbol) {
-		super(1);
 		this.symbol = symbol;
 	}
 

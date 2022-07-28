@@ -1,11 +1,13 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /** The {@link SavingsClient#getLeftDailyFlexiblePurchaseQuota} params. */
 public class PurchaseQuotaParams extends Params {
 	/** The product id. */
+	@Mandatory
 	String productId;
 
 	/**
@@ -14,7 +16,6 @@ public class PurchaseQuotaParams extends Params {
 	 * @param productId The product id.
 	 */
 	public PurchaseQuotaParams(String productId) {
-		super(1);
 		this.productId = productId;
 	}
 

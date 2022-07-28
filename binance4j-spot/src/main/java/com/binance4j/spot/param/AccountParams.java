@@ -9,5 +9,4 @@ public class AccountParams extends Params {
 	public AccountParams() {
 		super(10);
 	}
-
 }

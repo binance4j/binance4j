@@ -1,5 +1,6 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
@@ -8,17 +9,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order made of two when one cancels the other. */
 public class NewOCOOrderParams extends Params {
-
 	/** The order symbol */
-	protected String symbol;
+	@Mandatory
+	String symbol;
 	/** The order side */
-	protected OrderSide side;
+	@Mandatory
+	OrderSide side;
 	/** The order quantity */
-	protected String quantity;
+	@Mandatory
+	String quantity;
 	/** The order price */
-	protected String price;
+	@Mandatory
+	String price;
 	/** The stop price */
-	protected String stopPrice;
+	@Mandatory
+	String stopPrice;
 	/** The order response type Default: RESULT. */
 	protected NewOrderResponseType newOrderRespType;
 	/** A unique Id for the entire orderList */
@@ -48,7 +53,6 @@ public class NewOCOOrderParams extends Params {
 	 * @param stopPrice The stop price.
 	 */
 	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice) {
-		super(1);
 		this.symbol = symbol;
 		this.side = side;
 		this.quantity = quantity;

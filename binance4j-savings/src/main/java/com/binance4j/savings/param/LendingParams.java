@@ -1,5 +1,6 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.LendingType;
@@ -10,6 +11,7 @@ import com.binance4j.savings.dto.LendingType;
  */
 public class LendingParams extends Params {
 	/** Lending type. */
+	@Mandatory
 	LendingType lendingType;
 	/** Asset name. */
 	String asset;
@@ -26,7 +28,6 @@ public class LendingParams extends Params {
 	 * @param lendingType Lending type.
 	 */
 	public LendingParams(LendingType lendingType) {
-		super(1);
 		this.lendingType = lendingType;
 	}
 

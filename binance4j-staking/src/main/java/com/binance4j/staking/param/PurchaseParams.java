@@ -1,5 +1,6 @@
 package com.binance4j.staking.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -7,10 +8,13 @@ import com.binance4j.staking.dto.ProductType;
 /** The {@link StakingClient} params. */
 public class PurchaseParams extends Params {
 	/** The product type. */
+	@Mandatory
 	ProductType product;
 	/** The product id. */
+	@Mandatory
 	String productId;
 	/** The amount to purchase. */
+	@Mandatory
 	String amount;
 	/** Renew purchase? Active if product is {@code STAKING} or {@code L_DEFI}. */
 	Boolean renewable;
@@ -21,7 +25,6 @@ public class PurchaseParams extends Params {
 	 * @param amount    The amount to purchase.
 	 */
 	public PurchaseParams(ProductType product, String productId, String amount) {
-		super(1);
 		this.product = product;
 		this.productId = productId;
 		this.amount = amount;
@@ -34,7 +37,7 @@ public class PurchaseParams extends Params {
 	 * @param renewable Renew purchase?
 	 */
 	public PurchaseParams(ProductType product, String productId, String amount, Boolean renewable) {
-		super(1);
+
 		this.product = product;
 		this.productId = productId;
 		this.amount = amount;

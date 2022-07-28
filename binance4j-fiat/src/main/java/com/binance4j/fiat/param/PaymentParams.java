@@ -1,5 +1,6 @@
 package com.binance4j.fiat.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.fiat.client.FiatClient;
@@ -11,6 +12,7 @@ import com.binance4j.fiat.dto.PaymentType;
 public class PaymentParams extends Params {
 
 	/** Transaction type */
+	@Mandatory
 	PaymentType transactionType;
 	/** Begin time in ms */
 	Long beginTime;

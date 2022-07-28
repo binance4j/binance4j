@@ -1,8 +1,11 @@
 package com.binance4j.market.param;
 
+import com.binance4j.core.annotation.Mandatory;
+
 /** The parameters to get the historical trades of a trading pair */
 public class HistoricalTradesParams extends MarketParams {
 	/** The trading pair to get the trades. */
+	@Mandatory
 	String symbol;
 	/** Default 500; max 1000. */
 	Integer limit;

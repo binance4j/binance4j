@@ -1,5 +1,6 @@
 package com.binance4j.staking.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -7,6 +8,7 @@ import com.binance4j.staking.dto.ProductType;
 /** The {@link StakingClient} params. */
 public class ProductListParams extends Params {
 	/** The product type. */
+	@Mandatory
 	ProductType product;
 	/** The product name. */
 	String asset;
@@ -19,7 +21,6 @@ public class ProductListParams extends Params {
 	 * @param product The product type.
 	 */
 	public ProductListParams(ProductType product) {
-		super(1);
 		this.product = product;
 	}
 

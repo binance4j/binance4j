@@ -1,11 +1,12 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** Request to cancel an order. */
 public class CancelOpenOrdersParams extends Params {
-
 	/** The trade symbol */
+	@Mandatory
 	String symbol;
 	/** for isolated margin or not, "TRUE", "FALSE"，default "FALSE" */
 	Boolean isIsolated;
@@ -14,7 +15,7 @@ public class CancelOpenOrdersParams extends Params {
 	 * @param symbol The trade symbol.
 	 */
 	public CancelOpenOrdersParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 

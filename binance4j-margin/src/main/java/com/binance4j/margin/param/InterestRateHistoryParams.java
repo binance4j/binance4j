@@ -1,17 +1,18 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getAllOCO} params. */
 public class InterestRateHistoryParams extends Params {
+	/** The asset */
+	@Mandatory
+	String asset;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
-	/** The asset */
-	String asset;
 	/** The VIP level */
 	Integer vipLevel;
 

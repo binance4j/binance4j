@@ -1,5 +1,6 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -8,13 +9,15 @@ import com.binance4j.margin.client.MarginClient;
 public class BorrowParams extends Params {
 
 	/** Asset to borrow. */
+	@Mandatory
 	String asset;
+	/** Amount to borrow. */
+	@Mandatory
+	String amount;
 	/** Isolated symbol. */
 	String symbol;
 	/** For isolated margin or not, "TRUE", "FALSE"，default "FALSE". */
 	Boolean isIsolated;
-	/** Amount to borrow. */
-	String amount;
 
 	/**
 	 * @param asset  Asset to borrow.

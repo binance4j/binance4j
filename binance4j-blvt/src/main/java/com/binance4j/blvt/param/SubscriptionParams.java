@@ -1,13 +1,16 @@
 package com.binance4j.blvt.param;
 
 import com.binance4j.blvt.client.BLVTClient;
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 
 /** The {@link BLVTClient#subscribe} params. */
 public class SubscriptionParams extends Params {
 	/** The token name. */
+	@Mandatory
 	String tokenName;
 	/** Spot balance. */
+	@Mandatory
 	String cost;
 
 	/**
@@ -15,7 +18,7 @@ public class SubscriptionParams extends Params {
 	 * @param cost      Spot balance.
 	 */
 	public SubscriptionParams(String tokenName, String cost) {
-		super(1);
+
 		this.tokenName = tokenName;
 		this.cost = cost;
 	}

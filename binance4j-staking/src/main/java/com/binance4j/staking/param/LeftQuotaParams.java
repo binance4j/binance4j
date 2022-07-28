@@ -1,5 +1,6 @@
 package com.binance4j.staking.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -7,8 +8,10 @@ import com.binance4j.staking.dto.ProductType;
 /** The {@link StakingClient} params. */
 public class LeftQuotaParams extends Params {
 	/** The product type. */
+	@Mandatory
 	ProductType product;
 	/** The product id. */
+	@Mandatory
 	String productId;
 
 	/**
@@ -16,7 +19,6 @@ public class LeftQuotaParams extends Params {
 	 * @param productId The product id.
 	 */
 	public LeftQuotaParams(ProductType product, String productId) {
-		super(1);
 		this.product = product;
 		this.productId = productId;
 	}

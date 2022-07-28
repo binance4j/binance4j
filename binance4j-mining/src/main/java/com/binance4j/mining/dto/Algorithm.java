@@ -4,7 +4,7 @@ package com.binance4j.mining.dto;
  * A mining algorithm.
  * 
  * @param algoName  The algorithm name.
- * @param algoID    The algorithm id.
+ * @param algoId    The algorithm id.
  * @param poolIndex The sequence.
  * @param unit      The unit.
  */

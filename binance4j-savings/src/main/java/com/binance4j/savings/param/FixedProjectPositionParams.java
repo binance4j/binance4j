@@ -12,11 +12,4 @@ public class FixedProjectPositionParams extends Params {
 	String projectId;
 	/** Status. */
 	FixedProjectPositionStatus status;
-
-	/**
-	 * Constructor.
-	 */
-	public FixedProjectPositionParams() {
-		super(1);
-	}
 }

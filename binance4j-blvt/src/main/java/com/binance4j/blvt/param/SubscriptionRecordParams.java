@@ -20,7 +20,7 @@ public class SubscriptionRecordParams extends Params {
 	 * Consctructor.
 	 */
 	public SubscriptionRecordParams() {
-		super(1);
+
 	}
 
 	/**

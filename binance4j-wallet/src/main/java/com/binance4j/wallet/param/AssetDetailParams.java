@@ -10,7 +10,6 @@ public class AssetDetailParams extends Params {
 
 	/** Default constructor. */
 	public AssetDetailParams() {
-		super(1);
 	}
 
 	/**

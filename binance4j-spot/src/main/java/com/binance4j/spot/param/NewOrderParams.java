@@ -1,5 +1,6 @@
 package com.binance4j.spot.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
@@ -9,12 +10,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** An order to open or close a position */
 public class NewOrderParams extends Params {
-
 	/** The order symbol */
+	@Mandatory
 	String symbol;
 	/** The order side */
+	@Mandatory
 	OrderSide side;
 	/** The order quantity */
+	@Mandatory
 	String quantity;
 	/** The order price */
 	String price;

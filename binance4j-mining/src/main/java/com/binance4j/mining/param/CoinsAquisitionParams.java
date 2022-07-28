@@ -6,7 +6,7 @@ public class CoinsAquisitionParams extends Params {
 
 	/** Constructor. */
 	public CoinsAquisitionParams() {
-		super(1);
+
 	}
 
 }

@@ -10,12 +10,11 @@ public class AccountSnapshotParams extends Params {
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
 	/** The snapshot limit. min 5, max 30, default 5 */
-	int limit = 5;
+	Integer limit;
 
 	/**
-	 
+	 * Constructor.
 	 */
 	public AccountSnapshotParams() {
 		super(2400);

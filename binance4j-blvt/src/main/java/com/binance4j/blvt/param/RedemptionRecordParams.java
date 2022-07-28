@@ -20,7 +20,7 @@ public class RedemptionRecordParams extends Params {
 	 * Consctructor.
 	 */
 	public RedemptionRecordParams() {
-		super(1);
+
 	}
 
 	/**

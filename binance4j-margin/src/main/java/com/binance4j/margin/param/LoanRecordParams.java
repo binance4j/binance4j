@@ -1,17 +1,18 @@
 package com.binance4j.margin.param;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** The {@link MarginClient#getLoanRecord} params. */
 public class LoanRecordParams extends Params {
+	/** The asset */
+	@Mandatory
+	String asset;
 	/** The starting timestamp of the results */
 	Long startTime;
 	/** The ending timestamp of the results */
 	Long endTime;
-
-	/** The asset */
-	String asset;
 	/** isolated symbol. */
 	String isolatedSymbol;
 	/** the tranId in POST /sapi/v1/margin/loan. */

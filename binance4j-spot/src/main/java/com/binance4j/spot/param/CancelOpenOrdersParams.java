@@ -14,7 +14,7 @@ public class CancelOpenOrdersParams extends Params {
 	 * @param symbol The trade symbol.
 	 */
 	public CancelOpenOrdersParams(String symbol) {
-		super(1);
+
 		this.symbol = symbol;
 	}
 
