@@ -43,7 +43,7 @@ class GetHistoricalTradesTest extends MarketTest {
 	@Test
 	void test4() throws ApiException {
 		long fromId = 186647289L;
-		HistoricalTradesParams params = new HistoricalTradesParams(symbol, fromId, limit);
+		HistoricalTradesParams params = new HistoricalTradesParams(symbol, limit, fromId);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
 
 		history.forEach(h -> assertTrue(h.id() >= fromId));

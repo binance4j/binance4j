@@ -4,59 +4,16 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The parameters to get recent trades */
+/**
+ * The parameters to get recent trades.
+ * 
+ * @param symbol The symbol we want the trades.
+ * @param limit  The trades size. Default 500; max 1000.
+ */
 @Param(recvWindow = false, timestamp = false)
-public class TradesParams implements Params {
-	/** The symbol we want the trades. */
-	@Mandatory
-	String symbol;
-	/** The trades size. Default 500; max 1000. */
-	Integer limit;
-
-	/**
-	 * Default constructor
-	 *
-	 * @param symbol The symbol we want the trades.
-	 */
+public record TradesParams(@Mandatory String symbol, Integer limit) implements Params {
+	/** Creates an instance of {@link TradesParams}. */
 	public TradesParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null);
 	}
-
-	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param limit  The trades size. Default 500; max 1000.
-	 */
-	public TradesParams(String symbol, int limit) {
-		this(symbol);
-		this.limit = limit;
-	}
-
-	/**
-	 * @return the symbol.
-	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set.
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the limit.
-	 */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/**
-	 * @param limit the limit to set.
-	 */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
 }

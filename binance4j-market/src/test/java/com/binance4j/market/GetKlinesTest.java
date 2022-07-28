@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.market.param.KlinesParams;
 
 class GetKlinesTest extends MarketTest {
@@ -28,9 +29,8 @@ class GetKlinesTest extends MarketTest {
 
 	@Test
 	void test2() throws ApiException {
-		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY, limit);
-		List<Candle> res = client.getKlines(params).execute();
-
+		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY);
+		List<Candle> res = client.getKlines(params, new TimeIntervalParams(limit)).execute();
 		assertEquals(limit, res.size());
 		testNoNulls(res);
 	}

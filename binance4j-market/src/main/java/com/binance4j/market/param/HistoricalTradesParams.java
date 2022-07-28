@@ -4,113 +4,42 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The parameters to get the historical trades of a trading pair */
+/**
+ * The parameters to get the historical trades of a trading pair.
+ * 
+ * @param symbol Trading pair to get the trades.
+ * @param limit  Default 500; max 1000.
+ * @param fromId Trade id to fetch from. Default gets most recent trades.
+ */
 @Param(weight = 5, recvWindow = false, timestamp = false)
-public class HistoricalTradesParams implements Params {
-	/** The trading pair to get the trades. */
-	@Mandatory
-	String symbol;
-	/** Default 500; max 1000. */
-	Integer limit;
-	/** Trade id to fetch from. Default gets most recent trades. */
-	Long fromId;
+public record HistoricalTradesParams(@Mandatory String symbol, Integer limit, Long fromId) implements Params {
 
 	/**
-	 * Default constructor
-	 *
-	 * @param symbol The symbol we want the trades.
+	 * Creates an instance of {@link HistoricalTradesParams}.
+	 * 
+	 * @param symbol Trading pair to get the trades.
 	 */
 	public HistoricalTradesParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null, null);
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param limit  The trades size.
+	 * Creates an instance of {@link HistoricalTradesParams}.
+	 * 
+	 * @param symbol Trading pair to get the trades.
+	 * @param limit  Default 500; max 1000.
 	 */
-	public HistoricalTradesParams(String symbol, int limit) {
-		this(symbol);
-		this.limit = limit;
+	public HistoricalTradesParams(String symbol, Integer limit) {
+		this(symbol, limit, null);
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param limit  The trades size.
-	 * @param fromId The oldest trade id fro which we want the trades.
+	 * Creates an instance of {@link HistoricalTradesParams}.
+	 * 
+	 * @param symbol Trading pair to get the trades.
+	 * @param fromId Trade id to fetch from. Default gets most recent trades.
 	 */
-	public HistoricalTradesParams(String symbol, long fromId, int limit) {
-		this(symbol, limit);
-		this.fromId = fromId;
+	public HistoricalTradesParams(String symbol, Long fromId) {
+		this(symbol, null, fromId);
 	}
-
-	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param limit  The trades size.
-	 * @param fromId The oldest trade id fro which we want the trades.
-	 */
-	public HistoricalTradesParams(String symbol, String fromId, int limit) {
-		this(symbol, limit);
-		this.fromId = Long.getLong(fromId);
-	}
-
-	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param fromId The oldest trade id fro which we want the trades.
-	 */
-	public HistoricalTradesParams(String symbol, long fromId) {
-		this(symbol);
-		this.fromId = fromId;
-	}
-
-	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param fromId The oldest trade id fro which we want the trades.
-	 */
-	public HistoricalTradesParams(String symbol, String fromId) {
-		this(symbol);
-		this.fromId = Long.getLong(fromId);
-	}
-
-	/**
-	 * @return the symbol.
-	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set.
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the limit.
-	 */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/**
-	 * @param limit the limit to set.
-	 */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	/**
-	 * @return the fromId.
-	 */
-	public Long getFromId() {
-		return fromId;
-	}
-
-	/**
-	 * @param fromId the fromId to set.
-	 */
-	public void setFromId(Long fromId) {
-		this.fromId = fromId;
-	}
-
 }

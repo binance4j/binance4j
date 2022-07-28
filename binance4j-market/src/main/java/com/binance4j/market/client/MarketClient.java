@@ -1,12 +1,12 @@
 package com.binance4j.market.client;
 
 import java.util.List;
-import java.util.Map;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.market.dto.AveragePrice;
 import com.binance4j.market.dto.BookTicker;
 import com.binance4j.market.dto.ExchangeInfo;
@@ -116,14 +116,11 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same price will have
 	 * the quantity aggregated.
-	 * <ul>
-	 * <li>If {@code startTime</code> and <code>endTime} are sent, time
-	 *          between startTime and endTime must be less than 1 hour.
-	 * </li>
-	 * <li>
-	 * If {@code fromId</code>, <code>startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
-	 * returned.</li>
-	 * </ul>
+	 * <p>
+	 * If {@code startTime}, and {@code endTime} are sent, time between startTime and endTime must be less than 1 hour.
+	 * <p>
+	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
+	 * returned.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
@@ -133,21 +130,49 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
+	 * Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same price will have
+	 * the quantity aggregated.
+	 * <p>
+	 * If {@code startTime}, and {@code endTime} are sent, time between startTime and endTime must be less than 1 hour.
+	 * <p>
+	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
+	 * returned.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams Time interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getAggTrades(params.toMap(intervalParams)));
+	}
+
+	/**
 	 * Kline/candles for a symbol.
-	 * <ul>
-	 * <li>Klines are uniquely identified by their open time.</li>
-	 * <li>If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.</li>
-	 * </ul>
+	 * <p>
+	 * Klines are uniquely identified by their open time.
+	 * <p>
+	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Candle>> getKlines(KlinesParams params) {
-		Map<String, Object> map = params.toMap();
-		// present in IntervalRequest through FramedRequest but not required by the API
-		map.remove("timestamp");
-		map.remove("recvWindow");
-		return new Request<>(service.getKlines(map));
+		return new Request<>(service.getKlines(params.toMap()));
+	}
+
+	/**
+	 * Kline/candles for a symbol.
+	 * <p>
+	 * Klines are uniquely identified by their open time.
+	 * <p>
+	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams Time interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<Candle>> getKlines(KlinesParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getKlines(params.toMap(intervalParams)));
 	}
 
 	/**

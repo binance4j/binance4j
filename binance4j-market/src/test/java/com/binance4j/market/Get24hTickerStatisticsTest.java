@@ -23,7 +23,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
 		TickerStatistics res = client.get24hTickerStatistics(params).execute();
 
-		assertEquals(res.symbol(), params.getSymbol());
+		assertEquals(res.symbol(), symbol);
 		testNoNulls(res);
 	}
 
