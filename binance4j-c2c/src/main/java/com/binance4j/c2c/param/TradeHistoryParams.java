@@ -7,7 +7,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /**
- * The {@link C2CClient#getTrades} params.
+ * {@link C2CClient#getTrades} params.
  * 
  * @param tradeType Trade type.
  */

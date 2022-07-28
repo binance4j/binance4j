@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
-/** The {@link StakingClient} params. */
+/** {@link StakingClient} params. */
 public class RedeemParams implements Params {
 	/** The product type. */
 	@Mandatory

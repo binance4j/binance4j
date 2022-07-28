@@ -4,7 +4,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.FixedProjectPositionStatus;
 
-/** The {@link SavingsClient#getFixedProjectPosition} params. */
+/** {@link SavingsClient#getFixedProjectPosition} params. */
 public class FixedProjectPositionParams implements Params {
 	/** Asset. */
 	String asset;

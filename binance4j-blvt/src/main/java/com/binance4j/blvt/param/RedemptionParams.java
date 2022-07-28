@@ -6,7 +6,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /**
- * The {@link BLVTClient#redeem} params.
+ * {@link BLVTClient#redeem} params.
  * 
  * @param tokenName The token name.
  * @param amount    Amount to redeem.

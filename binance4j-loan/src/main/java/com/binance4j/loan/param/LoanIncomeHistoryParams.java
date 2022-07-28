@@ -8,7 +8,7 @@ import com.binance4j.loan.client.LoanClient;
 import com.binance4j.loan.dto.LoanIncomeType;
 
 /**
- * The {@link LoanClient#getLoansIncome} params.
+ * {@link LoanClient#getLoansIncome} params.
  * 
  * @param asset The asset we want the incomes.
  * @param type  The loan income type. All types will be returned by default.

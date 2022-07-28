@@ -15,12 +15,12 @@ public class AggTradeParams implements Params {
 	String symbol;
 	/** id to get aggregate trades from (inclusive). */
 	Long fromId;
-	/** Default 500; max 1000. */
-	Integer limit;
 	/** Timestamp in ms to get aggregate trades from (inclusive). */
 	Long startTime;
 	/** Timestamp in ms to get aggregate trades until (inclusive). */
 	Long endTime;
+	/** Default 500; max 1000. */
+	Integer limit;
 
 	/**
 	 * Default constructor

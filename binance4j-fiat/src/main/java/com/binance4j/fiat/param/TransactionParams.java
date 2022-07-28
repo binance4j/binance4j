@@ -8,7 +8,7 @@ import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.fiat.dto.TransactionType;
 
 /**
- * The {@link FiatClient#getTransactions} params.
+ * {@link FiatClient#getTransactions} params.
  * 
  * @param transactionType Transaction type.
  * @param beginTime       Begin time in ms.

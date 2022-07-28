@@ -5,7 +5,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /**
- * The {@link BLVTClient#getLimitInfo} params.
+ * {@link BLVTClient#getLimitInfo} params.
  * 
  * @param tokenName The token name.
  */

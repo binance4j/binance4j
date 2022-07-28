@@ -7,7 +7,7 @@ import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.dto.TransactionType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** The {@link StakingClient} params. */
+/** {@link StakingClient} params. */
 public class HistoryParams implements Params {
 	/** The product type. */
 	@Mandatory

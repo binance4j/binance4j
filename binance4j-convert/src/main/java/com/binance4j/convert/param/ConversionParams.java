@@ -6,7 +6,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
 /**
- * The {@link ConvertClient#getConversions} params.
+ * {@link ConvertClient#getConversions} params.
  * 
  * @param startTime The starting time in ms.
  * @param endTime   The ending times in ms.

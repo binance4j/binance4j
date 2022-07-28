@@ -5,7 +5,7 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.Featured;
 import com.binance4j.savings.dto.FlexibleProductStatus;
 
-/** The {@link SavingsClient#getFlexibleProducts} params. */
+/** {@link SavingsClient#getFlexibleProducts} params. */
 public class FlexibleProductsParams implements Params {
 	/** The product status. */
 	FlexibleProductStatus status;

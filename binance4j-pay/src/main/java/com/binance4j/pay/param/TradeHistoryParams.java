@@ -5,7 +5,7 @@ import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.pay.client.PayClient;
 
-/** The {@link PayClient#getTrades} params. */
+/** {@link PayClient#getTrades} params. */
 @Param(weight = 3000, type = RateLimitType.UID)
 public class TradeHistoryParams implements Params {
 	/** The starting timestamp of the results */

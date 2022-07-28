@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.rebate.client.RebateClient;
 
 /**
- * The {@link RebateClient#getSpotRebateHistoryRecords} params.
+ * {@link RebateClient#getSpotRebateHistoryRecords} params.
  */
 @Param(weight = 3000, type = RateLimitType.UID)
 public class SpotRebateHistoryParams implements Params {

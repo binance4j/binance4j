@@ -21,7 +21,7 @@ public interface Params {
 	Long defaultRecvWindow = 60_000L;
 
 	/**
-	 * @return The {@link ObjectMapper} responsible for deserialization.
+	 * @return {@link ObjectMapper} responsible for deserialization.
 	 */
 	default ObjectMapper mapper() {
 		return defaultMapper;
