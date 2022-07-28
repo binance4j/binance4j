@@ -20,44 +20,51 @@ public interface Params {
 	/** The receiving window. */
 	Long defaultRecvWindow = 60_000L;
 
+	/**
+	 * @return The {@link ObjectMapper} responsible for deserialization.
+	 */
 	default ObjectMapper mapper() {
 		return defaultMapper;
 	}
 
+	/**
+	 * @return The request receiving window.
+	 */
 	default long recvWindow() {
 		return defaultRecvWindow;
 	}
 
+	/**
+	 * @return The request timestamp in ms.
+	 */
 	default long timestamp() {
 		return System.currentTimeMillis();
 	}
 
+	/**
+	 * @return The request weight.
+	 */
 	default int weight() {
-		try {
-			return getClass().getAnnotation(Param.class).weight();
-		} catch (Exception e) {
-			return 1;
-		}
-	}
+		return !getClass().isAnnotationPresent(Param.class) ? 1 : getClass().getAnnotation(Param.class).weight();
 
-	default RateLimitType rateLimitType() {
-		try {
-			return getClass().getAnnotation(Param.class).type();
-		} catch (Exception e) {
-			return RateLimitType.IP;
-		}
-	}
-
-	default boolean isOrder() {
-		try {
-			return getClass().getAnnotation(Param.class).isOrder();
-		} catch (Exception e) {
-			return false;
-		}
 	}
 
 	/**
-	 * @return the params into a {@link QueryMap} and removes null and useless parameters.
+	 * @return The request rate limit type. linked to {@link Params#weight()}.
+	 */
+	default RateLimitType rateLimitType() {
+		return !getClass().isAnnotationPresent(Param.class) ? RateLimitType.IP : getClass().getAnnotation(Param.class).type();
+	}
+
+	/**
+	 * @return If the request is an order
+	 */
+	default boolean isOrder() {
+		return !getClass().isAnnotationPresent(Param.class) ? false : getClass().getAnnotation(Param.class).isOrder();
+	}
+
+	/**
+	 * @return the params into a {@link QueryMap} minus null and useless parameters.
 	 */
 	default Map<String, Object> toMap() {
 		Map<String, Object> map = mapper().convertValue(this, new TypeReference<Map<String, Object>>() {
@@ -71,6 +78,17 @@ public interface Params {
 		map.remove("order");
 		map.values().removeAll(Collections.singleton(null));
 
+		return map;
+	}
+
+	/**
+	 * Merges two {@link Params} into a {@link Map}
+	 * 
+	 * @return the merged maps.
+	 */
+	default Map<String, Object> toMap(Params params) {
+		var map = toMap();
+		map.putAll(params.toMap());
 		return map;
 	}
 
