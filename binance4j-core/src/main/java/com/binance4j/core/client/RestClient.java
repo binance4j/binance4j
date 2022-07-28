@@ -1,6 +1,8 @@
 package com.binance4j.core.client;
 
 import com.binance4j.core.security.AuthenticationInterceptor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
@@ -51,7 +53,8 @@ public abstract class RestClient<T> {
 	 * @return The service responsible for making calls to the API.
 	 */
 	protected T createService() {
-		Converter.Factory converterFactory = JacksonConverterFactory.create();
+		ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		Converter.Factory converterFactory = JacksonConverterFactory.create(mapper);
 		Dispatcher dispatcher = new Dispatcher();
 		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
 		AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);

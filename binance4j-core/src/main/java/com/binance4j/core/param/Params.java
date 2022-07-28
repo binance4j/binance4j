@@ -1,9 +1,13 @@
 package com.binance4j.core.param;
 
+import java.lang.reflect.Field;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.dto.RateLimitType;
+import com.binance4j.core.exception.MandatoryParamException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -46,8 +50,10 @@ public class Params {
 	 * Converts the request into a {@link QueryMap}
 	 *
 	 * @return The generated {@link QueryMap}.
+	 * @throws MandatoryParamException
 	 */
-	public Map<String, Object> toMap() {
+	public Map<String, Object> toMap() throws MandatoryParamException {
+		handleMandatoryParameters();
 		Map<String, Object> map = MAPPER.convertValue(this, new TypeReference<Map<String, Object>>() {
 		});
 
@@ -58,6 +64,20 @@ public class Params {
 		map.remove("isOrderRequest");
 		map.values().removeAll(Collections.singleton(null));
 		return map;
+	}
+
+	public void handleMandatoryParameters() throws MandatoryParamException {
+		List<Field> nullMandatoryFields = List.of(getClass().getDeclaredFields()).stream().filter(f -> {
+			try {
+				return f.isAnnotationPresent(Mandatory.class) && f.get(this) == null;
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				return false;
+			}
+		}).toList();
+
+		if (!nullMandatoryFields.isEmpty()) {
+			throw new MandatoryParamException();
+		}
 	}
 
 	/** @return the weight */

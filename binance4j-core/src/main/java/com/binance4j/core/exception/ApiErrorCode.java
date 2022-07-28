@@ -2,11 +2,10 @@ package com.binance4j.core.exception;
 
 import java.util.Arrays;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /** The Error codes sent by the Binance API. */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public enum ApiErrorCode {
+	/** A mandatory param is missing in the request. */
+	MISSING_MANDATORY_PARAM_FAILURE(-3000),
 	/** Client was unable to deserialize the server response. */
 	DESERIALIZATION_FAILURE(-2000),
 	/**
