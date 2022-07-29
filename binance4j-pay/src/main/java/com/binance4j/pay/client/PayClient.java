@@ -2,6 +2,7 @@ package com.binance4j.pay.client;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.pay.dto.TradeHistory;
 import com.binance4j.pay.param.TradeHistoryParams;
 
@@ -22,19 +23,19 @@ public class PayClient extends RestClient<PayMapping> {
 	/**
 	 * Get pay trades.
 	 * 
-	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades(TradeHistoryParams params) {
-		return new Request<>(service.getTrades(params.toMap()));
+	public Request<TradeHistory> getTrades() {
+		return new Request<>(service.getTrades(new TradeHistoryParams().toMap()));
 	}
 
 	/**
 	 * Get pay trades.
 	 * 
+	 * @param intervalParams The interval search.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades() {
-		return new Request<>(service.getTrades(new TradeHistoryParams().toMap()));
+	public Request<TradeHistory> getTrades(TimeIntervalParams intervalParams) {
+		return new Request<>(service.getTrades(new TradeHistoryParams().toMap(intervalParams)));
 	}
 }
