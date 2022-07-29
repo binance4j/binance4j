@@ -5,82 +5,44 @@ import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
-/** {@link StakingClient} params. */
-public class RedeemParams implements Params {
-	/** The product type. */
-	@Mandatory
-	ProductType product;
-	/** The product id. */
-	@Mandatory
-	String productId;
-	/** The position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}. */
-	String positionId;
-	/** The amount to purchase. Mandatory if product is {@code F_DEFI}. */
-	String amount;
-
+/**
+ * {@link StakingClient#redeem} params.
+ * 
+ * @param product    Product type.
+ * @param productId  Product id.
+ * @param positionId Position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}.
+ * @param amount     Amount to purchase. Mandatory if product is {@code F_DEFI}.
+ */
+public record RedeemParams(@Mandatory ProductType product, @Mandatory String productId, String positionId, String amount) implements Params {
 	/**
-	 * @param product   The product type.
-	 * @param productId The product id.
+	 * Creates an instance of {@code RedeemParams}.
+	 * 
+	 * @param product   Product type.
+	 * @param productId Product id.
 	 */
 	public RedeemParams(ProductType product, String productId) {
-		this.product = product;
-		this.productId = productId;
+		this(product, productId, null, null);
 	}
 
 	/**
-	 * @return the product
+	 * Creates an instance of {@code RedeemParams}.
+	 * 
+	 * @param product    Product type.
+	 * @param productId  Product id.
+	 * @param positionId Position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}.
 	 */
-	public ProductType getProduct() {
-		return product;
+	public RedeemParams(ProductType product, String productId, String positionId) {
+		this(product, productId, positionId, null);
 	}
 
 	/**
-	 * @param product the product to set
+	 * Creates an instance of {@code RedeemParams}.
+	 * 
+	 * @param product   Product type.
+	 * @param productId Product id.
+	 * @param amount    Amount to purchase. Mandatory if product is {@code F_DEFI}.
 	 */
-	public void setProduct(ProductType product) {
-		this.product = product;
+	public RedeemParams(String amount, ProductType product, String productId) {
+		this(product, productId, null, amount);
 	}
-
-	/**
-	 * @return the positionId
-	 */
-	public String getPositionId() {
-		return positionId;
-	}
-
-	/**
-	 * @param positionId the positionId to set
-	 */
-	public void setPositionId(String positionId) {
-		this.positionId = positionId;
-	}
-
-	/**
-	 * @return the productId
-	 */
-	public String getProductId() {
-		return productId;
-	}
-
-	/**
-	 * @param productId the productId to set
-	 */
-	public void setProductId(String productId) {
-		this.productId = productId;
-	}
-
-	/**
-	 * @return the amount
-	 */
-	public String getAmount() {
-		return amount;
-	}
-
-	/**
-	 * @param amount the amount to set
-	 */
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
-
 }
