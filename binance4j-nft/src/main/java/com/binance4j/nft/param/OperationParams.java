@@ -5,8 +5,7 @@ import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
 import com.binance4j.nft.client.NFTClient;
 
-/** {@link NFTClient#getAssets} params. */
-
+/** {@link NFTClient#getWithdraws} and {@link NFTClient#getDeposits} params. */
 @Param(weight = 3000, type = RateLimitType.UID)
-public record AssetParams() implements Params {
+public record OperationParams() implements Params {
 }

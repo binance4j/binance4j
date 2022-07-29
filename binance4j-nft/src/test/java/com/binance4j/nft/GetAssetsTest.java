@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.nft.dto.AssetHistory;
-import com.binance4j.nft.param.AssetParams;
 
 /** Tests the Deposit history request */
 public class GetAssetsTest extends NFTTest {
@@ -17,7 +16,7 @@ public class GetAssetsTest extends NFTTest {
 
 	@Test
 	void testLimitAndPage() throws ApiException {
-		AssetHistory history = client.getAssets(new AssetParams(limit, page)).execute();
+		AssetHistory history = client.getAssets().execute();
 		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}

@@ -5,22 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.nft.dto.DepositHistory;
-import com.binance4j.nft.param.DepositHistoryParams;
+import com.binance4j.core.param.Page;
 
 /** Tests the Deposit history request */
 public class GetDepositsTest extends NFTTest {
 	@Test
 	void test1() throws ApiException {
-		DepositHistoryParams params = new DepositHistoryParams();
-		DepositHistory history = client.getDeposits(params).execute();
-		testNoNulls(history);
+		testNoNulls(client.getDeposits());
 	}
 
 	@Test
 	void test2() throws ApiException {
-		DepositHistoryParams params = new DepositHistoryParams(limit, page);
-		DepositHistory history = client.getDeposits(params).execute();
+		var history = client.getDeposits(new Page(page)).execute();
 		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}
