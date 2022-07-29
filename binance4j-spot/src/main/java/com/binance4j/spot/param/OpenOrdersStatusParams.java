@@ -1,39 +1,18 @@
 package com.binance4j.spot.param;
 
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** The parameters to fetch open orders from one or all pairs */
-public class OpenOrdersStatusParams implements Params {
-
-	/** The pair we want the open orders. */
-	String symbol;
-
-	/** toi get all open orders. */
+/**
+ * {@link SpotClient#getOpenOrders} params.
+ * 
+ * @param symbol The pair we want the open orders.
+ */
+public record OpenOrdersStatusParams(String symbol) implements Params {
+	/**
+	 * Creates an instance of {@link OpenOrdersStatusParams}.
+	 */
 	public OpenOrdersStatusParams() {
+		this(null);
 	}
-
-	/**
-	 * to get the open orders of a specific pair
-	 *
-	 * @param symbol The pair we want the open orders.
-	 */
-	public OpenOrdersStatusParams(String symbol) {
-		this();
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the symbol
-	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
 }

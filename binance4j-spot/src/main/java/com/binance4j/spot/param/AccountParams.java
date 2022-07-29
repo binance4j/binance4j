@@ -2,8 +2,11 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** The parameters to get the current account information. */
+/**
+ * {@link SpotClient#getAccount} params.
+ */
 @Param(weight = 10)
-public class AccountParams implements Params {
+public record AccountParams() implements Params {
 }

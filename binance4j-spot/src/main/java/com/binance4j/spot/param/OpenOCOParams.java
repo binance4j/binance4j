@@ -2,8 +2,11 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** Request to fetch open OCO orders */
+/**
+ * {@link SpotClient#getOpenOCO} params.
+ */
 @Param(weight = 3)
-public class OpenOCOParams implements Params {
+public record OpenOCOParams() implements Params {
 }

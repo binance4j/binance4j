@@ -5,9 +5,12 @@ import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** An order made of two when one cancels the other. */
+/**
+ * {@link SpotClient#newOCO} params.
+ */
 public class NewOCOOrderParams implements Params {
 	/** The order symbol */
 	@Mandatory

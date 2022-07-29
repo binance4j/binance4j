@@ -3,49 +3,22 @@ package com.binance4j.spot.param;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** Request to cancel an order. */
+/**
+ * {@link SpotClient#cancelOpenOrders} params.
+ * 
+ * @param symbol     The trade symbol.
+ * @param isIsolated for isolated margin or not. Default: false.
+ */
 @Param
-public class CancelOpenOrdersParams implements Params {
-	/** The trade symbol */
-	@Mandatory
-	String symbol;
-	/** for isolated margin or not. Default: false. */
-	Boolean isIsolated;
-
+public record CancelOpenOrdersParams(@Mandatory String symbol, Boolean isIsolated) implements Params {
 	/**
+	 * Creates an instance of {@link CancelOpenOrdersParams}.
+	 * 
 	 * @param symbol The trade symbol.
 	 */
 	public CancelOpenOrdersParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null);
 	}
-
-	/**
-	 * @return the symbol
-	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the isIsolated
-	 */
-	public Boolean isIsolated() {
-		return isIsolated;
-	}
-
-	/**
-	 * @param isIsolated the isIsolated to set
-	 */
-	public void isIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
 }

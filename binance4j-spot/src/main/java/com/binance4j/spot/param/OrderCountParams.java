@@ -2,10 +2,11 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
 /**
- * The parameters to display the user's current order count usage for all intervals.
+ * {@link SpotClient#getOrderCount} params.
  */
 @Param(weight = 20)
-public class OrderCountParams implements Params {
+public record OrderCountParams() implements Params {
 }

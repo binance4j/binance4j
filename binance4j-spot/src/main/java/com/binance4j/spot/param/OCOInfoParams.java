@@ -2,55 +2,31 @@ package com.binance4j.spot.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** Request to retrieve a specific OCO based on provided optional parameters */
+/**
+ * {@link SpotClient#getOCO} params.
+ * 
+ * @param orderListId       Either {@code orderListId} or {@code origClientOrderId} must be provided.
+ * @param origClientOrderId Either {@code orderListId} or {@code origClientOrderId} must be provided.
+ */
 @Param(weight = 2)
-public class OCOInfoParams implements Params {
-	/** Either orderListId or origClientOrderId must be provided. */
-	Long orderListId;
-	/** Either orderListId or origClientOrderId must be provided. */
-	String origClientOrderId;
-
+public record OCOInfoParams(Long orderListId, String origClientOrderId) implements Params {
 	/**
-	 * @param orderListId The order list id.
+	 * Creates an instance of {@link OCOInfoParams}.
+	 * 
+	 * @param orderListId Either {@code orderListId} or {@code origClientOrderId} must be provided.
 	 */
 	public OCOInfoParams(Long orderListId) {
-		this.orderListId = orderListId;
+		this(orderListId, null);
 	}
 
 	/**
-	 * @param origClientOrderId The origin client order id.
+	 * Creates an instance of {@link OCOInfoParams}.
+	 * 
+	 * @param origClientOrderId Either {@code orderListId} or {@code origClientOrderId} must be provided.
 	 */
 	public OCOInfoParams(String origClientOrderId) {
-		this.origClientOrderId = origClientOrderId;
+		this(null, origClientOrderId);
 	}
-
-	/**
-	 * @return the orderListId
-	 */
-	public Long getOrderListId() {
-		return orderListId;
-	}
-
-	/**
-	 * @param orderListId the orderListId to set
-	 */
-	public void setOrderListId(Long orderListId) {
-		this.orderListId = orderListId;
-	}
-
-	/**
-	 * @return the origClientOrderId
-	 */
-	public String getOrigClientOrderId() {
-		return origClientOrderId;
-	}
-
-	/**
-	 * @param origClientOrderId the origClientOrderId to set
-	 */
-	public void setOrigClientOrderId(String origClientOrderId) {
-		this.origClientOrderId = origClientOrderId;
-	}
-
 }

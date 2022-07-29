@@ -3,115 +3,43 @@ package com.binance4j.spot.param;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.spot.client.SpotClient;
 
-/** The parameters to get trades for a specific account and symbol. */
+/**
+ * {@link SpotClient#getMyTrades} params.
+ * 
+ * @param symbol  The symbol of the trade.
+ * @param orderId The order id of the trade.
+ * @param fromId  The id from which we search trades.
+ */
 @Param(weight = 10)
-public class MyTradesParams implements Params {
-	/** The symbol of the trade. */
-	@Mandatory
-	String symbol;
-	/** The starting timestamp of the results */
-	Long startTime;
-	/** The ending timestamp of the results */
-	Long endTime;
-	/** The order id of the trade. */
-	Long orderId;
-	/** The id from which we search trades. */
-	Long fromId;
-	/** The size of the result. Default 500; max 1000. */
-	Integer limit;
-
+public record MyTradesParams(@Mandatory String symbol, Long orderId, Long fromId) implements Params {
 	/**
-	 * Default constructor
-	 *
-	 * @param symbol The symbol we want the trades.
+	 * Creates an instance of {@link MyTradesParams}.
+	 * 
+	 * @param symbol The symbol of the trade.
 	 */
 	public MyTradesParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null, null);
 	}
 
 	/**
-	 * @param symbol The symbol we want the trades.
-	 * @param limit  The result size.
+	 * Creates an instance of {@link MyTradesParams}.
+	 * 
+	 * @param symbol  The symbol of the trade.
+	 * @param orderId The order id of the trade.
 	 */
-	public MyTradesParams(String symbol, Integer limit) {
-		this(symbol);
-		this.limit = limit;
+	public MyTradesParams(String symbol, Long orderId) {
+		this(symbol, orderId, null);
 	}
 
 	/**
-	 * @return the symbol
+	 * Creates an instance of {@link MyTradesParams}.
+	 * 
+	 * @param fromId The id from which we search trades.
+	 * @param symbol The symbol of the trade.
 	 */
-	public String getSymbol() {
-		return symbol;
-	}
-
-	/**
-	 * @param symbol the symbol to set
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	/**
-	 * @return the orderId
-	 */
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	/**
-	 * @param orderId the orderId to set
-	 */
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	/**
-	 * @return the fromId
-	 */
-	public Long getFromId() {
-		return fromId;
-	}
-
-	/**
-	 * @param fromId the fromId to set
-	 */
-	public void setFromId(Long fromId) {
-		this.fromId = fromId;
-	}
-
-	/**
-	 * @return the limit
-	 */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/**
-	 * @param limit the limit to set
-	 */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	/** @return the startTime */
-	public Long getStartTime() {
-		return startTime;
-	}
-
-	/** @param startTime the startTime to set */
-	public void setStartTime(Long startTime) {
-		this.startTime = startTime;
-	}
-
-	/** @return the endTime */
-	public Long getEndTime() {
-		return endTime;
-	}
-
-	/** @param endTime the endTime to set */
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
+	public MyTradesParams(Long fromId, String symbol) {
+		this(symbol, null, fromId);
 	}
 }
