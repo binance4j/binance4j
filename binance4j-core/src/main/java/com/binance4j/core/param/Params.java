@@ -1,6 +1,7 @@
 package com.binance4j.core.param;
 
 import java.lang.reflect.Field;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -84,11 +85,59 @@ public interface Params {
 	/**
 	 * Merges two {@link Params} into a {@link Map}
 	 * 
+	 * @param params params to merge.
 	 * @return the merged maps.
 	 */
 	default Map<String, Object> toMap(Params params) {
+		return toMap(List.of(params.toMap()));
+	}
+
+	/**
+	 * Merges two {@link Params} into a {@link Map}
+	 * 
+	 * @param params params to merge.
+	 * @return the merged maps.
+	 */
+	default Map<String, Object> toMap(Params params, Map<String, String> replaceMap) {
+		return toMap(params.toMap(), replaceMap);
+	}
+
+	/**
+	 * Merges the {@link Params} with the {@link Map Maps}
+	 * 
+	 * @param params params to merge.
+	 * @return the merged maps.
+	 */
+	default Map<String, Object> toMap(Collection<Map<String, Object>> params) {
 		var map = toMap();
-		map.putAll(params.toMap());
+		params.forEach(map::putAll);
+		return map;
+	}
+
+	/**
+	 * Merges the {@link Params} with the {@link Map Maps} and replaces map1 keys with the map2 values through the map2 keys
+	 * 
+	 * @param params     params to merge.
+	 * @param replaceMap replace map.
+	 * @return the merged maps.
+	 */
+	default Map<String, Object> toMap(Map<String, Object> params, Map<String, String> replaceMap) {
+		return toMap(List.of(params), replaceMap);
+	}
+
+	/**
+	 * Merges the {@link Params} with the {@link Map Maps} and replaces map1 keys with the map2 values through the map2 keys
+	 * 
+	 * @param params     params to merge.
+	 * @param replaceMap replace map.
+	 * @return the merged maps.
+	 */
+	default Map<String, Object> toMap(Collection<Map<String, Object>> params, Map<String, String> replaceMap) {
+		var map = toMap(params);
+		replaceMap.entrySet().forEach(es -> {
+			map.put(es.getValue(), map.get(es.getKey()));
+			map.remove(es.getValue());
+		});
 		return map;
 	}
 
