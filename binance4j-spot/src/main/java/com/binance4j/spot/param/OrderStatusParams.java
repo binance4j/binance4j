@@ -7,7 +7,7 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * {@link SpotClient#getOrderStatus} params.
  */
-@Param
+@Param(weight = 2)
 public class OrderStatusParams implements Params {
 	/** The trading pair we want the order status. */
 	String symbol;

@@ -5,6 +5,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
+import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * {@link SpotClient#newOrder} params.
  */
-@Param(weight = 1, isOrder = true)
+@Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class NewOrderParams implements Params {
 	/** The order symbol */
 	@Mandatory
