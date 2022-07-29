@@ -3,24 +3,18 @@ package com.binance4j.savings.param;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
-/** {@link SavingsClient#getFlexibleProductPosition} params. */
-public class FlexibleProductPositionParams implements Params {
-	/** The asset. */
-	String asset;
+/**
+ * {@link SavingsClient#getFlexibleProductPosition} params.
+ * 
+ * @param asset The asset.
+ */
+public record FlexibleProductPositionParams(String asset) implements Params {
 
 	/**
-	 * Constructor.
+	 * Creates an instance of {@link FlexibleProductPositionParams}.
 	 */
 	public FlexibleProductPositionParams() {
+		this(null);
 	}
 
-	/**
-	 * Constructor.
-	 * 
-	 * @param asset The asset.
-	 */
-	public FlexibleProductPositionParams(String asset) {
-		this();
-		this.asset = asset;
-	}
 }

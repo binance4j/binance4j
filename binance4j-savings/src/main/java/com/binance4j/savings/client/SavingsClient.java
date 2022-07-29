@@ -1,9 +1,12 @@
 package com.binance4j.savings.client;
 
 import java.util.List;
+import java.util.Map;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
+import com.binance4j.core.param.Pagination;
+import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.savings.dto.FixedProject;
 import com.binance4j.savings.dto.FixedProjectPosition;
 import com.binance4j.savings.dto.FlexibleProduct;
@@ -51,6 +54,16 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 */
 	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params) {
 		return new Request<>(service.getFlexibleProducts(params.toMap()));
+	}
+
+	/**
+	 * Get flexible product list.
+	 *
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
+	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params, Pagination pagination) {
+		return new Request<>(service.getFlexibleProducts(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
 	}
 
 	/**
@@ -181,6 +194,41 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	}
 
 	/**
+	 * Get purchase record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<Purchase>> getPurchases(LendingParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getPurchases(params.toMap(intervalParams)));
+	}
+
+	/**
+	 * Get purchase record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @param pagination     The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Purchase>> getPurchases(LendingParams params, TimeIntervalParams intervalParams, Pagination pagination) {
+		return new Request<>(
+				service.getPurchases(params.toMap(List.of(intervalParams.toMap(), pagination.toMap()), Map.of("page", "current", "rows", "size"))));
+	}
+
+	/**
+	 * Get purchase record.
+	 * 
+	 * @param params     The request params.
+	 * @param pagination The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Purchase>> getPurchases(LendingParams params, Pagination pagination) {
+		return new Request<>(service.getPurchases(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
+	}
+
+	/**
 	 * Get redemption record.
 	 * 
 	 * @param params The request params.
@@ -191,6 +239,41 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	}
 
 	/**
+	 * Get redemption record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<Redemption>> getRedemptions(LendingParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getRedemptions(params.toMap(intervalParams)));
+	}
+
+	/**
+	 * Get redemption record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @param pagination     The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Redemption>> getRedemptions(LendingParams params, TimeIntervalParams intervalParams, Pagination pagination) {
+		return new Request<>(
+				service.getRedemptions(params.toMap(List.of(intervalParams.toMap(), pagination.toMap()), Map.of("page", "current", "rows", "size"))));
+	}
+
+	/**
+	 * Get redemption record.
+	 * 
+	 * @param params     The request params.
+	 * @param pagination The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Redemption>> getRedemptions(LendingParams params, Pagination pagination) {
+		return new Request<>(service.getRedemptions(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
+	}
+
+	/**
 	 * Get interest record.
 	 * 
 	 * @param params The request params.
@@ -198,6 +281,41 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 */
 	public Request<List<Interest>> getInterests(LendingParams params) {
 		return new Request<>(service.getInterests(params.toMap()));
+	}
+
+	/**
+	 * Get interest record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @return The request to execute.
+	 */
+	public Request<List<Interest>> getInterests(LendingParams params, TimeIntervalParams intervalParams) {
+		return new Request<>(service.getInterests(params.toMap(intervalParams)));
+	}
+
+	/**
+	 * Get interest record.
+	 * 
+	 * @param params         The request params.
+	 * @param intervalParams The interval search.
+	 * @param pagination     The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Interest>> getInterests(LendingParams params, TimeIntervalParams intervalParams, Pagination pagination) {
+		return new Request<>(
+				service.getInterests(params.toMap(List.of(intervalParams.toMap(), pagination.toMap()), Map.of("page", "current", "rows", "size"))));
+	}
+
+	/**
+	 * Get interest record.
+	 * 
+	 * @param params     The request params.
+	 * @param pagination The results pagination.
+	 * @return The request to execute.
+	 */
+	public Request<List<Interest>> getInterests(LendingParams params, Pagination pagination) {
+		return new Request<>(service.getInterests(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
 	}
 
 	/**

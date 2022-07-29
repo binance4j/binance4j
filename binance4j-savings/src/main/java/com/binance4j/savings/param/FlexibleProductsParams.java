@@ -5,71 +5,35 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.Featured;
 import com.binance4j.savings.dto.FlexibleProductStatus;
 
-/** {@link SavingsClient#getFlexibleProducts} params. */
-public class FlexibleProductsParams implements Params {
-	/** The product status. */
-	FlexibleProductStatus status;
-	/** TODO JAVADOC. */
-	Featured featured;
-	/** The current page. */
-	Long current;
-	/** The row size. */
-	Long size;
-
+/**
+ * {@link SavingsClient#getFlexibleProducts} params.
+ * 
+ * @param status   The product status.
+ * @param featured Featured.
+ */
+public record FlexibleProductsParams(FlexibleProductStatus status, Featured featured) implements Params {
 	/**
-	 * @return the status
+	 * Creates an instance of {@link FlexibleProductsParams}.
 	 */
-	public FlexibleProductStatus getStatus() {
-		return status;
+	public FlexibleProductsParams() {
+		this(null, null);
 	}
 
 	/**
-	 * @param status the status to set
+	 * Creates an instance of {@link FlexibleProductsParams}.
+	 * 
+	 * @param status The product status.
 	 */
-	public void setStatus(FlexibleProductStatus status) {
-		this.status = status;
+	public FlexibleProductsParams(FlexibleProductStatus status) {
+		this(status, null);
 	}
 
 	/**
-	 * @return the featured
+	 * Creates an instance of {@link FlexibleProductsParams}.
+	 * 
+	 * @param featured Featured.
 	 */
-	public Featured getFeatured() {
-		return featured;
+	public FlexibleProductsParams(Featured featured) {
+		this(null, featured);
 	}
-
-	/**
-	 * @param featured the featured to set
-	 */
-	public void setFeatured(Featured featured) {
-		this.featured = featured;
-	}
-
-	/**
-	 * @return the current
-	 */
-	public Long getCurrent() {
-		return current;
-	}
-
-	/**
-	 * @param current the current to set
-	 */
-	public void setCurrent(Long current) {
-		this.current = current;
-	}
-
-	/**
-	 * @return the size
-	 */
-	public Long getSize() {
-		return size;
-	}
-
-	/**
-	 * @param size the size to set
-	 */
-	public void setSize(Long size) {
-		this.size = size;
-	}
-
 }

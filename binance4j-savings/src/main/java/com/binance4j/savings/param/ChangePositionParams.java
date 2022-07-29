@@ -4,64 +4,20 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
-/** {@link SavingsClient#fixedToDailyPosition} params. */
-public class ChangePositionParams implements Params {
-	/** Project id. */
-	@Mandatory
-	String projectId;
-	/** Lot. */
-	Long lot;
-	/** Position id for fixed position. */
-	Long positionId;
+/**
+ * {@link SavingsClient#fixedToDailyPosition} params.
+ * 
+ * @param projectId  Project id.
+ * @param positionId Position id for fixed position.
+ */
+public record ChangePositionParams(@Mandatory String projectId, Long lot, Long positionId) implements Params {
 
 	/**
-	 * @param projectId The project id.
+	 * Creates an instance of {@link ChangePositionParams}
+	 * 
+	 * @param projectId Project id.
 	 */
 	public ChangePositionParams(String projectId) {
-
-		this.projectId = projectId;
+		this(projectId, null, null);
 	}
-
-	/**
-	 * @return the projectId
-	 */
-	public String getProjectId() {
-		return projectId;
-	}
-
-	/**
-	 * @param projectId the projectId to set
-	 */
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
-	}
-
-	/**
-	 * @return the lot
-	 */
-	public Long getLot() {
-		return lot;
-	}
-
-	/**
-	 * @param lot the lot to set
-	 */
-	public void setLot(Long lot) {
-		this.lot = lot;
-	}
-
-	/**
-	 * @return the positionId
-	 */
-	public Long getPositionId() {
-		return positionId;
-	}
-
-	/**
-	 * @param positionId the positionId to set
-	 */
-	public void setPositionId(Long positionId) {
-		this.positionId = positionId;
-	}
-
 }
