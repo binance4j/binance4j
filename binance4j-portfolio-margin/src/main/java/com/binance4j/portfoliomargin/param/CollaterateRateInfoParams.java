@@ -4,5 +4,5 @@ import com.binance4j.core.param.Params;
 import com.binance4j.portfoliomargin.client.PortfolioMarginClient;
 
 /** {@link PortfolioMarginClient#getAccountInfo} params. */
-public class CollaterateRateInfoParams implements Params {
+public record CollaterateRateInfoParams() implements Params {
 }
