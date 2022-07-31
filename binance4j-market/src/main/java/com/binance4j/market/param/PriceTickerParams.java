@@ -2,9 +2,10 @@ package com.binance4j.market.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.market.client.MarketClient;
 
 /**
- * The parameters to get the latest price for a symbol or symbols.
+ * {@link MarketClient#getTicker} params.
  * 
  * @param symbol Symbol.
  */

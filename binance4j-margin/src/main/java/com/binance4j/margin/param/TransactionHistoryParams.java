@@ -6,7 +6,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getInterestHistory} params.
+ * {@link MarginClient#getInterestHistory},{@link MarginClient#getTransferHistory},{@link MarginClient#getLoanRecord},{@link MarginClient#getRepayRecord}
+ * params.
  * 
  * @param asset          Related asset.
  * @param isolatedSymbol Isolated symbol.

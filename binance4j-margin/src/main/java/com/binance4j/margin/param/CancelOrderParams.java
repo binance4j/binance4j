@@ -3,9 +3,10 @@ package com.binance4j.margin.param;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.margin.client.MarginClient;
 
 /**
- * The request to cancel an order.
+ * {@link MarginClient#cancelOrder} params.
  * 
  * @param symbol            Trade symbol.
  * @param orderId           Order id.

@@ -6,9 +6,10 @@ import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
+import com.binance4j.wallet.client.WalletClient;
 
 /**
- * The parameters to convert small volumes (dust) into BNB.
+ * {@link WalletClient#dustTransfert} params.
  * 
  * @param assets The list of assets to convert into BNB.
  */

@@ -1,9 +1,10 @@
 package com.binance4j.wallet.param;
 
 import com.binance4j.core.param.Params;
+import com.binance4j.wallet.client.WalletClient;
 
 /**
- * The parameters to get details about a supported asset.
+ * {@link WalletClient#getAssetDetail} params.
  * 
  * @param asset The asset abbreviation.
  */

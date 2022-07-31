@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getAllOCO} params.
+ * {@link MarginClient#getOCO} params.
  * 
  * @param symbol            Symbol. Mandatory for isolated margin, not supported for cross margin.
  * @param isIsolated        Is the order isolated?

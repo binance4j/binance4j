@@ -6,7 +6,7 @@ import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
 /**
- * {@link StakingClient} params.
+ * {@link StakingClient#getLeftQuota} params.
  * 
  * @param product   Product type.
  * @param productId Product id.

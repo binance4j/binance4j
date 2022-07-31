@@ -3,9 +3,10 @@ package com.binance4j.market.param;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.market.client.MarketClient;
 
 /**
- * The parameters to get the historical trades of a trading pair.
+ * {@link MarketClient#getHistoricalTrades} params.
  * 
  * @param symbol Trading pair to get the trades.
  * @param limit  Default 500; max 1000.

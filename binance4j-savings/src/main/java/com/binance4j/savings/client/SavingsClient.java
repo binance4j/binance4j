@@ -21,6 +21,7 @@ import com.binance4j.savings.dto.PurchaseQuota;
 import com.binance4j.savings.dto.PurchaseResponse;
 import com.binance4j.savings.dto.Redemption;
 import com.binance4j.savings.dto.RedemptionQuota;
+import com.binance4j.savings.dto.Sorting;
 import com.binance4j.savings.param.ChangePositionParams;
 import com.binance4j.savings.param.FixedProjectListParams;
 import com.binance4j.savings.param.FixedProjectPositionParams;
@@ -145,6 +146,40 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 */
 	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params) {
 		return new Request<>(service.getFixedProjects(params.toMap()));
+	}
+
+	/**
+	 * Get fixed and activity project list.
+	 * 
+	 * @param params The request params.
+	 * @param paging Paging.
+	 * @return The request to execute.
+	 */
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging) {
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+	}
+
+	/**
+	 * Get fixed and activity project list.
+	 * 
+	 * @param params  The request params.
+	 * @param paging  Paging.
+	 * @param sorting Sorting.
+	 * @return The request to execute.
+	 */
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging, Sorting sorting) {
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+	}
+
+	/**
+	 * Get fixed and activity project list.
+	 * 
+	 * @param params  The request params.
+	 * @param sorting Sorting.
+	 * @return The request to execute.
+	 */
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Sorting sorting) {
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap())));
 	}
 
 	/**

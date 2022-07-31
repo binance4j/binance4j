@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.market.client.MarketClient;
 
 /**
- * The parameters to get the 24 hour rolling window price change statistics of specific symbols.
+ * {@link MarketClient#get24hTickerStatistics} params.
  * 
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'
  */

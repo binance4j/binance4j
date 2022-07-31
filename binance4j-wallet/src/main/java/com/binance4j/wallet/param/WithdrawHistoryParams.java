@@ -2,10 +2,11 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.dto.WithdrawStatus;
 
 /**
- * The parameters to fetch the user withdraw history.
+ * {@link WalletClient#getWithdrawHistory} params.
  * 
  * @param coin            The coin we want the history.
  * @param withdrawOrderId The withdraw order id to fetch.

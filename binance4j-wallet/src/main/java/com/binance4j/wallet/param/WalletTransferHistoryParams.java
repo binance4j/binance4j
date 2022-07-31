@@ -3,10 +3,11 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.dto.WalletTransferType;
 
 /**
- * Request to fetch User Universal Transfer History.
+ * {@link WalletClient#getTransferHistory} params.
  * 
  * @param type       User universal transfer type.
  * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.

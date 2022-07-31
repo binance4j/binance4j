@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.market.client.MarketClient;
 
 /**
- * The parameters to get the the best price/quantity on the order book for the given symbols.
+ * {@link MarketClient#getBookTicker} params.
  * 
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'.
  */

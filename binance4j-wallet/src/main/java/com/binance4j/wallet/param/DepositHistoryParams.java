@@ -2,10 +2,11 @@ package com.binance4j.wallet.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
+import com.binance4j.wallet.client.WalletClient;
 import com.binance4j.wallet.dto.DepositStatus;
 
 /**
- * The parameters to get a coin deposit history.
+ * {@link WalletClient#getDepositHistory} params.
  * 
  * @param coin   The deposited coin.
  * @param status The deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
