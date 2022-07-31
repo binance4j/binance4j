@@ -1,14 +1,11 @@
 package com.binance4j.mining.client;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Pagination;
+import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
-import com.binance4j.core.param.TimeIntervalParams;
 import com.binance4j.mining.dto.AlgorithmsAquisitionResponse;
 import com.binance4j.mining.dto.CoinsAquisitionResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
@@ -77,18 +74,10 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Void> getProfits(ProfitsParams params, TimeIntervalParams intervalParams, Pagination pagination) {
-		Map<String, String> replaceMap = new HashMap<>() {
-			{
-				put("startTime", "startDate");
-				put("endTime", "endDate");
-				put("page", "pageIndex");
-				put("rows", "pageSize");
-			}
-		};
-
-		var searchMap = List.of(intervalParams.toMap(), pagination.toMap());
-		return new Request<>(service.getProfits(params.toMap(searchMap, replaceMap)));
+	public Request<Void> getProfits(ProfitsParams params, FramedPaging interval) {
+		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
+		var map = Params.merge(params.toMap(), interval.toMap(replace));
+		return new Request<>(service.getProfits(map));
 	}
 
 	/**

@@ -18,7 +18,7 @@ public record HistoryParams(@Mandatory ProductType product, @Mandatory @JsonProp
 		implements Params {
 
 	/**
-	 * Creates an instance of {@code HistoryParams}.
+	 * Creates an instance of {@link HistoryParams}.
 	 * 
 	 * @param product         The product type.
 	 * @param transactionType The transaction type.

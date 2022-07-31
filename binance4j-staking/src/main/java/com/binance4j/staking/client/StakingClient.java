@@ -5,8 +5,9 @@ import java.util.Map;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Pagination;
-import com.binance4j.core.param.TimeIntervalParams;
+import com.binance4j.core.param.FramedPaging;
+import com.binance4j.core.param.Paging;
+import com.binance4j.core.param.Params;
 import com.binance4j.staking.dto.AutoStakingResponse;
 import com.binance4j.staking.dto.LeftQuota;
 import com.binance4j.staking.dto.Product;
@@ -53,8 +54,9 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param pagination The search pagination.
 	 * @return The request to execute.
 	 */
-	public Request<List<Product>> getProducts(ProductListParams params, Pagination pagination) {
-		return new Request<>(service.getProductList(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
+	public Request<List<Product>> getProducts(ProductListParams params, Paging pagination) {
+		var replaceMap = Map.of("page", "current", "limit", "size");
+		return new Request<>(service.getProductList(Params.merge(params.toMap(), pagination.toMap(replaceMap))));
 	}
 
 	/**
@@ -93,8 +95,9 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<ProductPosition>> getPosition(PositionParams params, Pagination pagination) {
-		return new Request<>(service.getPosition(params.toMap(pagination, Map.of("page", "current", "rows", "size"))));
+	public Request<List<ProductPosition>> getPosition(PositionParams params, Paging pagination) {
+		var replaceMap = Map.of("page", "current", "limit", "size");
+		return new Request<>(service.getPosition(Params.merge(params.toMap(), pagination.toMap(replaceMap))));
 	}
 
 	/**
@@ -110,23 +113,13 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get Staking product position.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams The search interval.
+	 * @param params   The request params.
+	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<List<StakingRecord>> getHistory(HistoryParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getHistory(params.toMap(intervalParams)));
-	}
-
-	/**
-	 * Get Staking product position.
-	 * 
-	 * @param params         The request params.
-	 * @param intervalParams The search interval.
-	 * @return The request to execute.
-	 */
-	public Request<List<StakingRecord>> getHistory(HistoryParams params, TimeIntervalParams intervalParams, Pagination pagination) {
-		return new Request<>(service.getHistory(params.toMap(List.of(intervalParams.toMap(), pagination.toMap()), Map.of("page", "current", "rows", "size"))));
+	public Request<List<StakingRecord>> getHistory(HistoryParams params, FramedPaging interval) {
+		var replaceMap = Map.of("page", "current", "limit", "size");
+		return new Request<>(service.getHistory(Params.merge(params.toMap(), interval.toMap(replaceMap))));
 	}
 
 	/**

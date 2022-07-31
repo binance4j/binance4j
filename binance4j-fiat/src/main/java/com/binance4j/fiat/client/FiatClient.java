@@ -2,7 +2,8 @@ package com.binance4j.fiat.client;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Pagination;
+import com.binance4j.core.param.Paging;
+import com.binance4j.core.param.Params;
 import com.binance4j.fiat.dto.PaymentHistory;
 import com.binance4j.fiat.dto.TransactionHistory;
 import com.binance4j.fiat.param.PaymentParams;
@@ -29,8 +30,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param pagination The pagination search.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionParams params, Pagination pagination) {
-		return new Request<>(service.getTransactions(params.toMap(pagination)));
+	public Request<TransactionHistory> getTransactions(TransactionParams params, Paging pagination) {
+		return new Request<>(service.getTransactions(Params.merge(params, pagination)));
 	}
 
 	/**
@@ -50,8 +51,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param pagination The pagination search.
 	 * @return The request to execute.
 	 */
-	public Request<PaymentHistory> getPayments(PaymentParams params, Pagination pagination) {
-		return new Request<>(service.getPayments(params.toMap(pagination)));
+	public Request<PaymentHistory> getPayments(PaymentParams params, Paging pagination) {
+		return new Request<>(service.getPayments(Params.merge(params, pagination)));
 	}
 
 	/**

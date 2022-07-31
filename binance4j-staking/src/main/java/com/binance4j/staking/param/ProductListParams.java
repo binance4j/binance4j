@@ -13,7 +13,7 @@ import com.binance4j.staking.dto.ProductType;
  */
 public record ProductListParams(@Mandatory ProductType product, String asset) implements Params {
 	/**
-	 * Creates an instance of {@code ProductListParams}.
+	 * Creates an instance of {@link ProductListParams}.
 	 * 
 	 * @param product The product type.
 	 */

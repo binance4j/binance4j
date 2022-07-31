@@ -15,7 +15,7 @@ import com.binance4j.staking.dto.ProductType;
  */
 public record PurchaseParams(@Mandatory ProductType product, @Mandatory String productId, @Mandatory String amount, Boolean renewable) implements Params {
 	/**
-	 * Creates an instance of {@code PurchaseParams}.
+	 * Creates an instance of {@link PurchaseParams}.
 	 * 
 	 * @param product   The product type.
 	 * @param productId The product id.

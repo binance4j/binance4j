@@ -5,7 +5,6 @@ import com.binance4j.wallet.dto.WalletTransferType;
 import com.binance4j.wallet.param.WalletTransferHistoryParams;
 
 class GetTransferHistoryTest extends WalletTest {
-
 	String asset = "BTC";
 
 	// @Test
@@ -16,15 +15,5 @@ class GetTransferHistoryTest extends WalletTest {
 	// @Test
 	void testGetTransferHistoryWithFromAndToSymbols() throws ApiException {
 		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)));
-	}
-
-	// @Test
-	void testGetTransferHistoryWithFromAndToSymbolsAndLimit() throws ApiException {
-		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit)));
-	}
-
-	// @Test
-	void testGetTransferHistoryWithFromAndToSymbolsAndLimitAndOffset() throws ApiException {
-		testNoNulls(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset, limit, 1)));
 	}
 }

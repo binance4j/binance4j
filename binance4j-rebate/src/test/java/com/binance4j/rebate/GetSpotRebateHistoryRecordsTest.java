@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.param.Page;
+import com.binance4j.core.param.FramedPaging;
 
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
@@ -16,6 +16,6 @@ public class GetSpotRebateHistoryRecordsTest extends RebateTest {
 
 	@Test
 	void testWithPage() throws ApiException {
-		testHasNulls(client.getSpotRebateHistoryRecords(new Page(1)), List.of("data"), true);
+		testHasNulls(client.getSpotRebateHistoryRecords(new FramedPaging(1)), List.of("data"), true);
 	}
 }

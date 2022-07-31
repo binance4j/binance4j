@@ -15,7 +15,7 @@ import com.binance4j.staking.dto.ProductType;
  */
 public record RedeemParams(@Mandatory ProductType product, @Mandatory String productId, String positionId, String amount) implements Params {
 	/**
-	 * Creates an instance of {@code RedeemParams}.
+	 * Creates an instance of {@link RedeemParams}.
 	 * 
 	 * @param product   Product type.
 	 * @param productId Product id.
@@ -25,7 +25,7 @@ public record RedeemParams(@Mandatory ProductType product, @Mandatory String pro
 	}
 
 	/**
-	 * Creates an instance of {@code RedeemParams}.
+	 * Creates an instance of {@link RedeemParams}.
 	 * 
 	 * @param product    Product type.
 	 * @param productId  Product id.

@@ -4,168 +4,49 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.dto.WithdrawStatus;
 
-/** The parameters to fetch the user withdraw history */
+/**
+ * The parameters to fetch the user withdraw history.
+ * 
+ * @param coin            The coin we want the history.
+ * @param withdrawOrderId The withdraw order id to fetch.
+ * @param status          The status to look for.
+ * @see <a href="https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data">Binance
+ *      doc</a>
+ */
 @Param
-public class WithdrawHistoryParams implements Params {
-	/** The starting timestamp of the results */
-	Long startTime;
-	/** The ending timestamp of the results */
-	Long endTime;
-	/** The coin we want the history. */
-	String coin;
-	/** The withdraw order id to fetch. */
-	String withdrawOrderId;
-	/** The status to look for. */
-	Integer status;
-	/** The offset. */
-	Integer offset;
-
-	/** Default:1000, Max:1000 */
-	Integer limit = 1000;
-
+public record WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) implements Params {
 	/**
-	 * Constructor.
+	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 */
 	public WithdrawHistoryParams() {
-
+		this(null, null, null);
 	}
 
 	/**
-	 * @param coin The coin we need deposit history.
+	 * Creates an instance of {@link WithdrawHistoryParams}.
+	 * 
+	 * @param withdrawOrderId The withdraw order id to fetch.
 	 */
-	public WithdrawHistoryParams(String coin) {
-		this();
-		this.coin = coin;
+	public WithdrawHistoryParams(String withdrawOrderId) {
+		this(null, withdrawOrderId, null);
 	}
 
 	/**
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success).
-	 */
-	public WithdrawHistoryParams(int status) {
-		this();
-		this.status = status;
-	}
-
-	/**
-	 * @param status The coin status 0(0:pending,6: credited but cannot withdraw, 1:success).
-	 */
-	public WithdrawHistoryParams(WithdrawStatus status) {
-		this();
-		this.status = status.getValue();
-	}
-
-	/**
-	 * @param coin   The coin we need deposit history.
-	 * @param status The coin status (EMAIL_SENT(0), CANCELLED(1), AWAITING_APPROVAL(2), REJECTED(3), PROCESSING(4),.
-	 *                   FAILURE(5), COMPLETED(6);
-	 */
-	public WithdrawHistoryParams(String coin, int status) {
-		this(coin);
-		this.status = status;
-	}
-
-	/**
-	 * @param coin   The coin we need deposit history.
-	 * @param status The coin status.
+	 * Creates an instance of {@link WithdrawHistoryParams}.
+	 * 
+	 * @param coin   The coin we want the history.
+	 * @param status The status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, WithdrawStatus status) {
-		this(coin, status.getValue());
+		this(coin, null, status);
 	}
 
 	/**
-	 * @param status The withdraw status.
+	 * Creates an instance of {@link WithdrawHistoryParams}.
+	 * 
+	 * @param status The status to look for.
 	 */
-	public void setStatus(WithdrawStatus status) {
-		this.status = status.getValue();
-	}
-
-	/**
-	 * @return the coin
-	 */
-	public String getCoin() {
-		return coin;
-	}
-
-	/**
-	 * @param coin the coin to set
-	 */
-	public void setCoin(String coin) {
-		this.coin = coin;
-	}
-
-	/**
-	 * @return the withdrawOrderId
-	 */
-	public String getWithdrawOrderId() {
-		return withdrawOrderId;
-	}
-
-	/**
-	 * @param withdrawOrderId the withdrawOrderId to set
-	 */
-	public void setWithdrawOrderId(String withdrawOrderId) {
-		this.withdrawOrderId = withdrawOrderId;
-	}
-
-	/**
-	 * @return the status
-	 */
-	public Integer getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	/**
-	 * @return the offset
-	 */
-	public Integer getOffset() {
-		return offset;
-	}
-
-	/**
-	 * @param offset the offset to set
-	 */
-	public void setOffset(Integer offset) {
-		this.offset = offset;
-	}
-
-	/**
-	 * @return the limit
-	 */
-	public Integer getLimit() {
-		return limit;
-	}
-
-	/**
-	 * @param limit the limit to set
-	 */
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	/** @return the startTime */
-	public Long getStartTime() {
-		return startTime;
-	}
-
-	/** @param startTime the startTime to set */
-	public void setStartTime(Long startTime) {
-		this.startTime = startTime;
-	}
-
-	/** @return the endTime */
-	public Long getEndTime() {
-		return endTime;
-	}
-
-	/** @param endTime the endTime to set */
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
+	public WithdrawHistoryParams(WithdrawStatus status) {
+		this(null, null, status);
 	}
 }

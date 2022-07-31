@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.AssetDividendRecord;
 import com.binance4j.wallet.param.AssetDividendRecordParams;
 
@@ -29,8 +30,8 @@ class GetAssetDividendTest extends WalletTest {
 
 	@Test
 	void testGetGivenAssetDividendWithLimit() throws ApiException {
-		AssetDividendRecordParams params = new AssetDividendRecordParams(asset, limit);
-		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
+		var interval = new TimeFrame(limit);
+		AssetDividendRecord record = client.getAssetDividendRecord(new AssetDividendRecordParams(asset), interval).execute();
 
 		assertTrue(record.total() <= limit);
 		testNoNulls(record);

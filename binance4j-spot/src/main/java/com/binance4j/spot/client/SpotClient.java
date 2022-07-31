@@ -8,7 +8,8 @@ import com.binance4j.core.dto.CancelOrderResponse;
 import com.binance4j.core.dto.OCOResponse;
 import com.binance4j.core.dto.OrderInfo;
 import com.binance4j.core.dto.Trade;
-import com.binance4j.core.param.TimeIntervalParams;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.spot.dto.Account;
 import com.binance4j.spot.dto.NewOrderResponse;
 import com.binance4j.spot.dto.OCOInfo;
@@ -132,12 +133,12 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Get all orders on a symbol.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams The search interval.
+	 * @param params   The request params.
+	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getAllOrders(params.toMap(intervalParams)));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame interval) {
+		return new Request<>(service.getAllOrders(Params.merge(params, interval)));
 	}
 
 	/**
@@ -195,8 +196,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getAllOCO(params.toMap(intervalParams)));
+	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame interval) {
+		return new Request<>(service.getAllOCO(Params.merge(params, interval)));
 	}
 
 	/**
@@ -204,8 +205,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOInfo>> getAllOCO(TimeIntervalParams intervalParams) {
-		return new Request<>(service.getAllOCO(new AllOCOInfoParams().toMap(intervalParams)));
+	public Request<List<OCOInfo>> getAllOCO(TimeFrame interval) {
+		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(), interval)));
 	}
 
 	/**
@@ -263,12 +264,12 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Get trades for a specific account and symbol. If fromId is set, it will get id &gt;= fromId. Otherwise most recent
 	 * trades are returned.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams The search interval.
+	 * @param params   The request params.
+	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getMyTrades(params.toMap(intervalParams)));
+	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeFrame interval) {
+		return new Request<>(service.getMyTrades(Params.merge(params, interval)));
 	}
 
 	/**

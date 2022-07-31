@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.FuturesAccountSnapshotResponse;
-import com.binance4j.wallet.param.AccountSnapshotParams;
 
 class GetFuturesAccountSnapshotTest extends WalletTest {
 
@@ -20,7 +20,7 @@ class GetFuturesAccountSnapshotTest extends WalletTest {
 
 	@Test
 	void testGetFuturesAccountSnapshotWithLimit() throws ApiException {
-		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new AccountSnapshotParams(limit)).execute();
+		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new TimeFrame(limit)).execute();
 		testNoNulls(snapshot);
 		assertTrue(snapshot.snapshotVos().size() <= limit);
 		assertNotEquals(0, snapshot.code());

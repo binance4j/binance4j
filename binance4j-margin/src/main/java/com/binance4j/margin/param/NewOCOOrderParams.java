@@ -10,7 +10,6 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-// TODO convert to record
 /** {@link MarginClient#newOCO} params. */
 @Param(type = RateLimitType.UID)
 public class NewOCOOrderParams implements Params {

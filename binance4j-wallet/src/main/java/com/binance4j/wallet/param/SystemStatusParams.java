@@ -5,5 +5,5 @@ import com.binance4j.core.param.Params;
 
 /** The request to obtain the system status */
 @Param
-public class SystemStatusParams implements Params {
+public record SystemStatusParams() implements Params {
 }

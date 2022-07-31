@@ -11,7 +11,6 @@ import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.SideEffectType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-// TODO convert to record?
 /** {@link MarginClient#newOrder} params. */
 @Param(weight = 6, isOrder = true)
 public class NewOrderParams implements Params {

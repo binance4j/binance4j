@@ -3,7 +3,7 @@ package com.binance4j.client;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.wallet.param.AccountSnapshotParams;
+import com.binance4j.core.param.TimeFrame;
 
 class GetSpotAccountSnapshotTest extends WalletTest {
 
@@ -14,6 +14,6 @@ class GetSpotAccountSnapshotTest extends WalletTest {
 
 	@Test
 	void testGetSpotAccountSnapshotWithLimit() throws ApiException {
-		testNoNulls(client.getSpotAccountSnapshot(new AccountSnapshotParams(limit)));
+		testNoNulls(client.getSpotAccountSnapshot(new TimeFrame(limit)));
 	}
 }

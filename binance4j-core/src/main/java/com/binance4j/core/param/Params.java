@@ -1,8 +1,8 @@
 package com.binance4j.core.param;
 
 import java.lang.reflect.Field;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -83,57 +83,14 @@ public interface Params {
 	}
 
 	/**
-	 * Merges two {@link Params} into a {@link Map}
+	 * Converts the object into a map and replace the keys names of the generated map with the values of the given map.
 	 * 
-	 * @param params params to merge.
+	 * @param replaceMap The map used to replace the keys of the generated map. The key in map2 is the key we want to change
+	 *                       the name in map1 with the value of map2.
 	 * @return the merged maps.
 	 */
-	default Map<String, Object> toMap(Params params) {
-		return toMap(List.of(params.toMap()));
-	}
-
-	/**
-	 * Merges two {@link Params} into a {@link Map}
-	 * 
-	 * @param params params to merge.
-	 * @return the merged maps.
-	 */
-	default Map<String, Object> toMap(Params params, Map<String, String> replaceMap) {
-		return toMap(params.toMap(), replaceMap);
-	}
-
-	/**
-	 * Merges the {@link Params} with the {@link Map Maps}
-	 * 
-	 * @param params params to merge.
-	 * @return the merged maps.
-	 */
-	default Map<String, Object> toMap(Collection<Map<String, Object>> params) {
+	default Map<String, Object> toMap(Map<String, String> replaceMap) {
 		var map = toMap();
-		params.forEach(map::putAll);
-		return map;
-	}
-
-	/**
-	 * Merges the {@link Params} with the {@link Map Maps} and replaces map1 keys with the map2 values through the map2 keys
-	 * 
-	 * @param params     params to merge.
-	 * @param replaceMap replace map.
-	 * @return the merged maps.
-	 */
-	default Map<String, Object> toMap(Map<String, Object> params, Map<String, String> replaceMap) {
-		return toMap(List.of(params), replaceMap);
-	}
-
-	/**
-	 * Merges the {@link Params} with the {@link Map Maps} and replaces map1 keys with the map2 values through the map2 keys
-	 * 
-	 * @param params     params to merge.
-	 * @param replaceMap replace map.
-	 * @return the merged maps.
-	 */
-	default Map<String, Object> toMap(Collection<Map<String, Object>> params, Map<String, String> replaceMap) {
-		var map = toMap(params);
 		replaceMap.entrySet().forEach(es -> {
 			map.put(es.getValue(), map.get(es.getKey()));
 			map.remove(es.getValue());
@@ -146,5 +103,26 @@ public interface Params {
 	 */
 	default List<Field> mandatoryFields() {
 		return List.of(getClass().getDeclaredFields()).stream().filter(f -> f.isAnnotationPresent(Mandatory.class)).toList();
+	}
+
+	/**
+	 * @param maps The maps to merge into one
+	 * @return A map mad of all the given maps
+	 */
+	@SafeVarargs
+	static Map<String, Object> merge(Map<String, Object>... maps) {
+		Map<String, Object> map = new HashMap<>();
+		List.of(maps).forEach(m -> map.putAll(m));
+		return map;
+	}
+
+	/**
+	 * @param maps The maps to merge into one
+	 * @return A map mad of all the given maps
+	 */
+	static Map<String, Object> merge(Params... maps) {
+		Map<String, Object> map = new HashMap<>();
+		List.of(maps).forEach(m -> map.putAll(m.toMap()));
+		return map;
 	}
 }

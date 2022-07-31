@@ -5,63 +5,65 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-// TODO convert to record
-/** {@link MarginClient#getOrder} params. */
+/**
+ * {@link MarginClient#getOrder} params.
+ * 
+ * @param symbol            Symbol.
+ * @param orderId           Order id.
+ * @param isIsolated        Is the order isolated?
+ * @param origClientOrderId Origin client order id.
+ */
 @Param(weight = 10)
-public class OrderParams implements Params {
-	/** The symbol */
-	@Mandatory
-	String symbol;
-	/** The order id */
-	long orderId;
-	/** Is the order isolated? */
-	Boolean isIsolated;
-	/** THe origin client order id */
-	String origClientOrderId;
+public record OrderParams(@Mandatory String symbol, Long orderId, Boolean isIsolated, String origClientOrderId) implements Params {
 
-	/** @param symbol The symbol */
+	/**
+	 * Creates an instance of {@link OrderParams}.
+	 * 
+	 * @param symbol Symbol.
+	 */
 	public OrderParams(String symbol) {
-		this.symbol = symbol;
+		this(symbol, null, null, null);
 	}
 
-	/** @return the symbol */
-	public String getSymbol() {
-		return symbol;
+	/**
+	 * Creates an instance of {@link OrderParams}.
+	 * 
+	 * @param symbol  Symbol.
+	 * @param orderId Order id.
+	 */
+	public OrderParams(String symbol, long orderId) {
+		this(symbol, orderId, null, null);
 	}
 
-	/** @param symbol the symbol to set */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	/**
+	 * Creates an instance of {@link OrderParams}.
+	 * 
+	 * @param symbol            Symbol.
+	 * @param origClientOrderId Origin client order id.
+	 */
+	public OrderParams(String symbol, String origClientOrderId) {
+		this(symbol, null, null, origClientOrderId);
 	}
 
-	/** @return the isIsolated */
-	public Boolean isIsolated() {
-		return isIsolated;
+	/**
+	 * Creates an instance of {@link OrderParams}.
+	 * 
+	 * @param symbol     Symbol.
+	 * @param isIsolated Is the order isolated?
+	 */
+	public OrderParams(String symbol, Boolean isIsolated) {
+		this(symbol, null, isIsolated, null);
 	}
 
-	/** @param isIsolated the isIsolated to set */
-	public void isIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
-	/** @return the orderId */
-	public long getOrderId() {
-		return orderId;
-	}
-
-	/** @param orderId the orderId to set */
-	public void setOrderId(long orderId) {
-		this.orderId = orderId;
-	}
-
-	/** @return the origClientOrderId */
-	public String getOrigClientOrderId() {
-		return origClientOrderId;
-	}
-
-	/** @param origClientOrderId the origClientOrderId to set */
-	public void setOrigClientOrderId(String origClientOrderId) {
-		this.origClientOrderId = origClientOrderId;
+	/**
+	 * Creates an instance of {@link OrderParams}.
+	 * 
+	 * @param symbol     Symbol.
+	 * @param orderId    Order id.
+	 * @param isIsolated Is the order isolated?
+	 */
+	public OrderParams(String symbol, long orderId, Boolean isIsolated) {
+		this(symbol, orderId, isIsolated, null);
 	}
 
 }

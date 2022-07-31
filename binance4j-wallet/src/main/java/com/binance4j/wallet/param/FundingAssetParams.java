@@ -3,62 +3,36 @@ package com.binance4j.wallet.param;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
-/** The parameters to get the funding wallet */
+/**
+ * The parameters to get the funding wallet.
+ * 
+ * @param asset            The asset we want the balance.
+ * @param needBtcValuation Get the BTC value of the asset.
+ */
 @Param
-public class FundingAssetParams implements Params {
-	/** The asset we want the balance. */
-	String asset;
-	/** Get the BTC value of the asset. */
-	Boolean needBtcValuation;
-
+public record FundingAssetParams(String asset, Boolean needBtcValuation) implements Params {
 	/**
-	 * Constructor
+	 * Creates an instance of {@link FundingAssetParams}.
 	 */
 	public FundingAssetParams() {
+		this(null, null);
 	}
 
 	/**
+	 * Creates an instance of {@link FundingAssetParams}.
+	 * 
 	 * @param asset The asset we want the balance.
 	 */
 	public FundingAssetParams(String asset) {
-		this.asset = asset;
+		this(asset, null);
 	}
 
 	/**
-	 * @param asset            The asset we want the balance.
-	 * @param needBtcValuation Dlo we want the value of the balance in bitcoin?
+	 * Creates an instance of {@link FundingAssetParams}.
+	 * 
+	 * @param needBtcValuation Get the BTC value of the asset.
 	 */
-	public FundingAssetParams(String asset, Boolean needBtcValuation) {
-		this(asset);
-		this.needBtcValuation = needBtcValuation;
+	public FundingAssetParams(Boolean needBtcValuation) {
+		this(null, needBtcValuation);
 	}
-
-	/**
-	 * @return the asset
-	 */
-	public String getAsset() {
-		return asset;
-	}
-
-	/**
-	 * @param asset the asset to set
-	 */
-	public void setAsset(String asset) {
-		this.asset = asset;
-	}
-
-	/**
-	 * @return the needBtcValuation
-	 */
-	public Boolean getNeedBtcValuation() {
-		return needBtcValuation;
-	}
-
-	/**
-	 * @param needBtcValuation the needBtcValuation to set
-	 */
-	public void setNeedBtcValuation(Boolean needBtcValuation) {
-		this.needBtcValuation = needBtcValuation;
-	}
-
 }

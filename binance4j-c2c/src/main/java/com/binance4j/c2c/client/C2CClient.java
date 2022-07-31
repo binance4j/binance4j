@@ -4,7 +4,8 @@ import com.binance4j.c2c.dto.TradeHistory;
 import com.binance4j.c2c.param.TradeHistoryParams;
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Pagination;
+import com.binance4j.core.param.Paging;
+import com.binance4j.core.param.Params;
 
 /**
  * Api client for the c2c endpoints
@@ -27,8 +28,8 @@ public class C2CClient extends RestClient<C2CMapping> {
 	 * @param pagination The pagination search.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades(TradeHistoryParams params, Pagination pagination) {
-		return new Request<>(service.getTrades(params.toMap(pagination)));
+	public Request<TradeHistory> getTrades(TradeHistoryParams params, Paging pagination) {
+		return new Request<>(service.getTrades(Params.merge(params, pagination)));
 	}
 
 	/**

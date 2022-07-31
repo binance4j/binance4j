@@ -15,7 +15,8 @@ import com.binance4j.blvt.param.TokenInfoParams;
 import com.binance4j.blvt.param.TransactionRecordParams;
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.TimeIntervalParams;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 
 /**
  * Api client for the NFT endpoints
@@ -63,12 +64,12 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get subscription record.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams The time search params.
+	 * @param params   The request params.
+	 * @param interval The time search params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getSubscriptions(params.toMap(intervalParams)));
+	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame interval) {
+		return new Request<>(service.getSubscriptions(Params.merge(params, interval)));
 	}
 
 	/**
@@ -106,8 +107,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getRedemptions(params.toMap(intervalParams)));
+	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame interval) {
+		return new Request<>(service.getRedemptions(Params.merge(params, interval)));
 	}
 
 	/**

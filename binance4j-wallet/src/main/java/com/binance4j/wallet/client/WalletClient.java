@@ -5,6 +5,9 @@ import java.util.Map;
 
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
+import com.binance4j.core.param.FramedPaging;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.AccountSnapshotType;
 import com.binance4j.wallet.dto.AccountStatus;
 import com.binance4j.wallet.dto.ApiPermissions;
@@ -93,11 +96,11 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the daily SPOT account snapshots.
 	 * 
-	 * @param params The request params.
+	 * @param timeinterval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, params.toMap()));
+	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
 	/**
@@ -106,17 +109,17 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot() {
-		return getSpotAccountSnapshot(new AccountSnapshotParams());
+		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, new AccountSnapshotParams().toMap()));
 	}
 
 	/**
 	 * Fetches the daily MARGIN account snapshots.
 	 * 
-	 * @param params The request params.
+	 * @param timeinterval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap()));
+	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
 	/**
@@ -125,17 +128,17 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot() {
-		return getMarginAccountSnapshot(new AccountSnapshotParams());
+		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, new AccountSnapshotParams().toMap()));
 	}
 
 	/**
 	 * Fetches the daily FUTURES account snapshots.
 	 * 
-	 * @param params The request params.
+	 * @param timeinterval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(AccountSnapshotParams params) {
-		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap()));
+	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
 	/**
@@ -144,7 +147,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot() {
-		return getFuturesAccountSnapshot(new AccountSnapshotParams());
+		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, new AccountSnapshotParams().toMap()));
 	}
 
 	/**
@@ -230,20 +233,51 @@ public class WalletClient extends RestClient<WalletMapping> {
 	}
 
 	/**
-	 * Fetches the withdraw history of one or multiple coins.
-	 * <p>
-	 * network may not be in the response for old withdraw.
+	 * Fetches the deposit history of one or multiple coins.
 	 * <p>
 	 * Please notice the default {@code startTime} and {@code endTime} to make sure that time interval is within 0-90 days.
 	 * <p>
-	 * If both {@code startTime} and {@code endTime} are sent, time between {@code startTime} and {@code endTime} must be
-	 * less than 90 days.
+	 * If both {@code startTime</code> and <code>endTime} are sent,
+	 * time between {@code startTime</code> and <code>endTime} must be less than 90 days.
+	 * 
+	 * @param params       The request params.
+	 * @param timeinterval The search interval.
+	 * @return The request to execute.
+	 */
+	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params, FramedPaging interval) {
+		return new Request<>(service.getDepositHistory(Params.merge(params.toMap(), interval.toMap(Map.of("page", "offset")))));
+	}
+
+	/**
+	 * Fetches the last deposit history of all coins.
+	 * 
+	 * @param timeinterval The search interval.
+	 * @param pagination   The search result.
+	 * @return The request to execute.
+	 */
+	public Request<List<DepositHistory>> getDepositHistory(FramedPaging interval) {
+		return new Request<>(service.getDepositHistory(Params.merge(new DepositHistoryParams().toMap(), interval.toMap(Map.of("page", "offset")))));
+	}
+
+	/**
+	 * Fetches the withdraw history of one or multiple coins.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
 		return new Request<>(service.getWithdrawHistory(params.toMap()));
+	}
+
+	/**
+	 * Fetches the withdraw history of one or multiple coins.
+	 * 
+	 * @param params       The request params.
+	 * @param timeinterval The search interval.
+	 * @return The request to execute.
+	 */
+	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params, FramedPaging interval) {
+		return new Request<>(service.getWithdrawHistory(Params.merge(params.toMap(), interval.toMap(Map.of("page", "offset")))));
 	}
 
 	/**
@@ -312,20 +346,20 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the dust transfer logs.
 	 * 
-	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<DustLog> getDustLog(DustLogParams params) {
-		return new Request<>(service.getDustLog(params.toMap()));
+	public Request<DustLog> getDustLog() {
+		return new Request<>(service.getDustLog(new DustLogParams().toMap()));
 	}
 
 	/**
 	 * Fetches the dust transfer logs.
 	 * 
+	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<DustLog> getDustLog() {
-		return getDustLog(new DustLogParams());
+	public Request<DustLog> getDustLog(TimeFrame interval) {
+		return new Request<>(service.getDustLog(Params.merge(new DustLogParams(), interval)));
 	}
 
 	/**
@@ -378,6 +412,27 @@ public class WalletClient extends RestClient<WalletMapping> {
 	}
 
 	/**
+	 * Queries the dividend record of one or multiple assets.
+	 * 
+	 * @param params       The request params.
+	 * @param timeinterval The search interval.
+	 * @return The request to execute.
+	 */
+	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame interval) {
+		return new Request<>(service.getAssetDividendRecord(Params.merge(params, interval)));
+	}
+
+	/**
+	 * Queries the last 20 dividend asset records.
+	 * 
+	 * @param timeinterval The search interval.
+	 * @return The request to execute.
+	 */
+	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame interval) {
+		return new Request<>(service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(), interval)));
+	}
+
+	/**
 	 * Fetches the details of an asset supported on Binance. Please get network and other deposit or withdraw details from
 	 * {@link #getAllCoinsInfo()}.
 	 * 
@@ -420,10 +475,6 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * Make a universal transfer.
 	 * <p>
 	 * You need to enable {@code Permits Universal Transfer} option for the api key which requests this endpoint.
-	 * <p>
-	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * <p>
-	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
@@ -434,20 +485,22 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/**
 	 * Fetches the user universal transfer history
-	 * <p>
-	 * fromSymbol must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * <p>
-	 * toSymbol must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
-	 * <p>
-	 * Support query within the last 6 months only
-	 * <p>
-	 * If startTime and endTime not sent, return records of the last 7 days by default
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
 	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
 		return new Request<>(service.getTransferHistory(params.toMap()));
+	}
+
+	/**
+	 * Fetches the user universal transfer history
+	 * 
+	 * @param params The request params.
+	 * @return The request to execute.
+	 */
+	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params, FramedPaging interval) {
+		return new Request<>(service.getTransferHistory(Params.merge(params.toMap(), interval.toMap(Map.of("limit", "size", "page", "current")))));
 	}
 
 	/**

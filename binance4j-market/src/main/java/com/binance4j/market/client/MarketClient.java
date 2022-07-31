@@ -6,7 +6,8 @@ import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
-import com.binance4j.core.param.TimeIntervalParams;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.market.dto.AveragePrice;
 import com.binance4j.market.dto.BookTicker;
 import com.binance4j.market.dto.ExchangeInfo;
@@ -138,12 +139,12 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
 	 * returned.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams Time interval search.
+	 * @param params   The request params.
+	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getAggTrades(params.toMap(intervalParams)));
+	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame interval) {
+		return new Request<>(service.getAggTrades(Params.merge(params, interval)));
 	}
 
 	/**
@@ -167,12 +168,12 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
 	 * 
-	 * @param params         The request params.
-	 * @param intervalParams Time interval search.
+	 * @param params   The request params.
+	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<Candle>> getKlines(KlinesParams params, TimeIntervalParams intervalParams) {
-		return new Request<>(service.getKlines(params.toMap(intervalParams)));
+	public Request<List<Candle>> getKlines(KlinesParams params, TimeFrame interval) {
+		return new Request<>(service.getKlines(Params.merge(params, interval)));
 	}
 
 	/**
