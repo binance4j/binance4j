@@ -9,17 +9,7 @@ package com.binance4j.wallet.dto;
  * @param withdrawStatus    The withdraw status (false if ALL of networks' are false).
  * @param depositTip        The reason of the status.
  */
-public record AssetDetail(
-		/** The minimal withdraw amount. */
-		String minWithdrawAmount,
-		/** The deposit status (false if ALL of networks' are false). */
-		boolean depositStatus,
-		/** The withdraw fee. */
-		Float withdrawFee,
-		/** The withdraw status (false if ALL of networks' are false). */
-		boolean withdrawStatus,
-		/** Reason. */
-		String depositTip) {
+public record AssetDetail(String minWithdrawAmount, boolean depositStatus, Float withdrawFee, boolean withdrawStatus, String depositTip) {
 	/** @return Reason. */
 	public String depositTip() {
 		return depositTip == null ? "" : depositTip;

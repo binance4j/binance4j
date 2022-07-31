@@ -11,15 +11,5 @@ import java.util.List;
  * @param total   Total.
  * @param success Success.
  */
-public record TradeHistory(
-		/** Code. */
-		String code,
-		/** Message. */
-		String message,
-		/** Trades. */
-		List<Trade> data,
-		/** Total. */
-		int total,
-		/** Success. */
-		boolean success) {
+public record TradeHistory(String code, String message, List<Trade> data, int total, boolean success) {
 }

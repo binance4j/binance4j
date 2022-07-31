@@ -10,13 +10,5 @@ import java.util.List;
  * @param leverage The leverage.
  * @param data     The isolated fee data.
  */
-public record IsolatedFee(
-		/** The VIP level. */
-		int vipLevel,
-		/** The related symbol. */
-		String symbol,
-		/** The leverage. */
-		String leverage,
-		/** The isolated fee data. */
-		List<IsolatedFeeData> data) {
+public record IsolatedFee(int vipLevel, String symbol, String leverage, List<IsolatedFeeData> data) {
 }

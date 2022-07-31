@@ -24,29 +24,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
  * @param orderReports          The order reports.
  */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
-public record NewOCOOrderRecord(
-		/** The order list id. */
-		long orderListId,
-		/** The contingency type */
-		String contingencyType,
-		/** The list status. */
-		String listStatusType,
-		/** The list order status. */
-		String listOrderStatus,
-		/** The list client order id. */
-		String listClientOrderId,
-		/** The order timestamp. */
-		long transactionTime,
-		/** The order symbol. */
-		String symbol,
-		/** The margin buy borrow amount. Will not return if no margin trade happens. */
-		Optional<String> marginBuyBorrowAmount,
-		/** The margin buy borrow asset. Will not return if no margin trade happens. */
-		Optional<String> marginBuyBorrowAsset,
-		/** Is the order isolated? */
-		boolean isIsolated,
-		/** The 2 orders. */
-		List<MiniOrderInfo> orders,
-		/** The order reports. */
-		List<OrderReport> orderReports) {
+public record NewOCOOrderRecord(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId,
+		long transactionTime, String symbol, Optional<String> marginBuyBorrowAmount, Optional<String> marginBuyBorrowAsset, boolean isIsolated,
+		List<MiniOrderInfo> orders, List<OrderReport> orderReports) {
 }

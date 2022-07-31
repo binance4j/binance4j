@@ -12,17 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transactionId       The transaction id.
  * @param transferedAmount    The transfered amount after fees.
  */
-public record DustTransferResult(
-		/** The amount of volume converted. */
-		String amount,
-		/** The converted asset abbreviation. */
-		String fromAsset,
-		/** The operation timestamp. */
-		long operateTime,
-		/** The fees. */
-		String serviceChargeAmount,
-		/** The transaction id. */
-		@JsonProperty("tranId") long transactionId,
-		/** The transfered amount after fees. */
+public record DustTransferResult(String amount, String fromAsset, long operateTime, String serviceChargeAmount, @JsonProperty("tranId") long transactionId,
 		String transferedAmount) {
 }

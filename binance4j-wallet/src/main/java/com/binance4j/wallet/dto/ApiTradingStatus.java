@@ -5,7 +5,5 @@ package com.binance4j.wallet.dto;
  * 
  * @param data The trading status data.
  */
-public record ApiTradingStatus(
-		/** The trading status data. */
-		ApiTradingStatusData data) {
+public record ApiTradingStatus(ApiTradingStatusData data) {
 }

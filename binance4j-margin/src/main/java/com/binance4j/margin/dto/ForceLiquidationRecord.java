@@ -18,25 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quantity         The order total quantity.
  * @param isIsolated       Is is isolated?
  */
-public record ForceLiquidationRecord(
-		/** The order id */
-		long orderId,
-		/** The liquidation timestamp in ms. */
-		long updatedTime,
-		/** The symbol average price. */
-		@JsonProperty("avgPrice") String averagePrice,
-		/** The executed quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** The order time in force. */
-		TimeInForce timeInForce,
-		/** The order side. */
-		OrderSide side,
-		/** The order symbol. */
-		String symbol,
-		/** The order price. */
-		String price,
-		/** The order total quantity. */
-		@JsonProperty("qty") String quantity,
-		/** Is is isolated? */
-		boolean isIsolated) {
+public record ForceLiquidationRecord(long orderId, long updatedTime, @JsonProperty("avgPrice") String averagePrice,
+		@JsonProperty("executedQty") String executedQuantity, TimeInForce timeInForce, OrderSide side, String symbol, String price,
+		@JsonProperty("qty") String quantity, boolean isIsolated) {
 }

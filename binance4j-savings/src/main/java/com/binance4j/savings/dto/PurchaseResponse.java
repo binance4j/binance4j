@@ -5,7 +5,5 @@ package com.binance4j.savings.dto;
  * 
  * @param purchaseId Purchase id.
  */
-public record PurchaseResponse(
-		/** Purchase id. */
-		String purchaseId) {
+public record PurchaseResponse(String purchaseId) {
 }

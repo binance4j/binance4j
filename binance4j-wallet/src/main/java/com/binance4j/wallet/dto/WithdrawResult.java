@@ -5,7 +5,5 @@ package com.binance4j.wallet.dto;
  * 
  * @param id The withdraw id.
  */
-public record WithdrawResult(
-		/** The withdraw id. */
-		String id) {
+public record WithdrawResult(String id) {
 }

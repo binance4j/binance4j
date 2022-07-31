@@ -13,19 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isBuyerMaker  Is the trade a buyer maker trade.
  * @param isBestMatch   Was the trade the best price match?
  */
-public record TradeHistoryItem(
-		/** The trade id. */
-		long id,
-		/** The trad price. */
-		String price,
-		/** The trade volume. */
-		@JsonProperty("qty") String quantity,
-		/** The trade opposite volume. */
-		@JsonProperty("quoteQty") String quoteQuantity,
-		/** The trade execution in ms. */
-		long time,
-		/** Is the trade a buyer maker trade. */
-		boolean isBuyerMaker,
-		/** Was the trade the best price match? */
-		boolean isBestMatch) {
+public record TradeHistoryItem(long id, String price, @JsonProperty("qty") String quantity, @JsonProperty("quoteQty") String quoteQuantity, long time,
+		boolean isBuyerMaker, boolean isBestMatch) {
 }

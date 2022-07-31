@@ -1,10 +1,8 @@
 package com.binance4j.pay.client;
 
 import java.util.Map;
-
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.pay.dto.TradeHistory;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -22,5 +20,4 @@ public interface PayMapping extends RestMapping {
 	@GET(BASE + "transactions")
 	@Headers(SIGNED_H)
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
-
 }

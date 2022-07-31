@@ -13,17 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param askPrice    The ask price.
  * @param askQuantity The ask quantity.
  */
-public record BookTicker(
-		/** The update id. */
-		@JsonProperty("u") Long updateId,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** The bid price. */
-		@JsonProperty("b") String bidPrice,
-		/** The bid quantity. */
-		@JsonProperty("B") String bidQuantity,
-		/** The ask price. */
-		@JsonProperty("a") String askPrice,
-		/** The ask quantity. */
-		@JsonProperty("A") String askQuantity) {
+public record BookTicker(@JsonProperty("u") Long updateId, @JsonProperty("s") String symbol, @JsonProperty("b") String bidPrice,
+		@JsonProperty("B") String bidQuantity, @JsonProperty("a") String askPrice, @JsonProperty("A") String askQuantity) {
 }

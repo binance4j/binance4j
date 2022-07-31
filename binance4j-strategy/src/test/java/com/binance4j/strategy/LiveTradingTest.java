@@ -3,16 +3,13 @@ package com.binance4j.strategy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
@@ -29,31 +26,26 @@ class LiveTradingTest extends CustomTest<Void> {
 
 	LiveTradingTest() {
 		callback = new StrategyCallback();
-
 		callback.onClosed(t -> {
 			testNoNulls(t);
 			future.complete(true);
 		});
-
 		callback.onFailure(t -> {
 			testNoNulls(t);
 			future.complete(true);
 		});
-
 		callback.onEnter(t -> {
 			Set<String> nulls = getNullProperties(t, true);
 			assertEquals(1, nulls.size());
 			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
-
 		callback.onExit(t -> {
 			Set<String> nulls = getNullProperties(t, true);
 			assertEquals(1, nulls.size());
 			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
-
 		callback.onMessage(t -> {
 			testNoNulls(t);
 		});
@@ -85,31 +77,22 @@ class LiveTradingTest extends CustomTest<Void> {
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();
 		StrategyCallback callback = new StrategyCallback();
 		WatchService service = new WatchService(strategy);
-
 		Set<String> set = new HashSet<>();
 		List<String> symbols = List.of("BTCBUSD", "BNBBTC", "SHIBBUSD");
-
 		callback.onFailure(t -> {
 			assertNotNull(t);
-
 			future.complete(true);
 		});
-
 		callback.onMessage(t -> {
 			assertNotNull(t);
-
 			count++;
 			set.add(t.getSymbol());
-
 			if (count >= 25) {
 				assertEquals(set.size(), symbols.size());
 				future.complete(true);
 			}
 		});
-
 		service.watch(symbols, CandlestickInterval.ONE_MINUTE, callback);
-
 		assertTrue(future.get());
 	}
-
 }

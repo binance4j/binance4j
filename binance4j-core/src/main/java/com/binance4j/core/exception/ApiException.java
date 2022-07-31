@@ -2,10 +2,8 @@ package com.binance4j.core.exception;
 
 /** An exception which can occur while invoking methods of the Binance API. */
 public class ApiException extends Exception {
-
 	/** The error code */
 	final int code;
-
 	/** The error code explanation */
 	final ApiErrorCode errorCode;
 
@@ -49,5 +47,4 @@ public class ApiException extends Exception {
 	public ApiErrorCode getErrorCode() {
 		return errorCode;
 	}
-
 }

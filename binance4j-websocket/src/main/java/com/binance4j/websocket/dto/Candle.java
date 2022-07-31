@@ -32,41 +32,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonFormat(shape = Shape.OBJECT)
 @JsonDeserialize(using = CandlestickEventDeserializer.class)
 @JsonSerialize(using = CandlestickEventSerializer.class)
-public record Candle(
-		/** The candlestick open timestamp in milliseconds */
-		Long openTime,
-		/** The Open value */
-		String open,
-		/** The High value */
-		String high,
-		/** The Low value */
-		String low,
-		/** The Close value */
-		String close,
-		/** The traded volume in the interval */
-		String volume,
-		/** The candlestick close timestamp in milliseconds */
-		Long closeTime,
-		/** The quote asset traded volume */
-		String quoteAssetVolume,
-		/** The number of trades */
-		Long numberOfTrades,
-		/** Taker buy base asset volume */
-		String takerBuyBaseAssetVolume,
-		/** Taker buy quote asset volume */
-		String takerBuyQuoteAssetVolume,
-		/** The event type. */
-		String eventType,
-		/** The timestamp in ms. */
-		Long eventTime,
-		/** The trading pair. */
-		String symbol,
-		/** The interval id. */
-		String intervalId,
-		/** The first trade id. */
-		Long firstTradeId,
-		/** The last trade id. */
-		Long lastTradeId,
-		/** Is it the last bar of the interval? */
-		Boolean isBarFinal) {
+public record Candle(Long openTime, String open, String high, String low, String close, String volume, Long closeTime, String quoteAssetVolume,
+		Long numberOfTrades, String takerBuyBaseAssetVolume, String takerBuyQuoteAssetVolume, String eventType, Long eventTime, String symbol,
+		String intervalId, Long firstTradeId, Long lastTradeId, Boolean isBarFinal) {
 }

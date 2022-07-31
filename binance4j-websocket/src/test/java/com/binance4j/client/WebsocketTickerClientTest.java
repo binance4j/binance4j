@@ -9,7 +9,6 @@ import com.binance4j.websocket.client.WebsocketTickerClient;
 import com.binance4j.websocket.dto.Ticker;
 
 class WebsocketTickerClientTest {
-
 	TestCallback<Ticker> callback = new TestCallback<>();
 
 	@Test

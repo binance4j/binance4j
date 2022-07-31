@@ -15,24 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param totalTradedBaseAssetVolume  Total traded base asset volume.
  * @param totalTradedQuoteAssetVolume Total traded quote asset volume.
  */
-
-public record MiniTicker(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** The close price. */
-		@JsonProperty("c") String closePrice,
-		/** The open price. */
-		@JsonProperty("o") String openPrice,
-		/** The highest price. */
-		@JsonProperty("h") String highPrice,
-		/** The lowest price. */
-		@JsonProperty("l") String lowPrice,
-		/** Total traded base asset volume. */
-		@JsonProperty("v") String totalTradedBaseAssetVolume,
-		/** Total traded quote asset volume. */
-		@JsonProperty("q") String totalTradedQuoteAssetVolume) {
+public record MiniTicker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
+		@JsonProperty("c") String closePrice, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
+		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume) {
 }

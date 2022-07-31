@@ -6,9 +6,5 @@ package com.binance4j.margin.dto;
  * @param enabledAccount Enabled account.
  * @param maxAccount     Account limit.
  */
-public record IsolatedAccountLimit(
-		/** Enabled account. */
-		int enabledAccount,
-		/** Account limit. */
-		int maxAccount) {
+public record IsolatedAccountLimit(int enabledAccount, int maxAccount) {
 }

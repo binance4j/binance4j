@@ -1,7 +1,6 @@
 package com.binance4j.spot.dto;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -22,33 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param side                     The order side.
  * @param fills                    The list of trades that partially of fully filled the order.
  */
-public record NewOrderResponse(
-		/** The trading pair to trade. */
-		String symbol,
-		/** The order id. */
-		long orderId,
-		/** The order list id. */
-		long orderListId,
-		/** The client order id. */
-		String clientOrderId,
-		/** The order transaction timestamp. */
-		long transactTime,
-		/** The price of trade. */
-		String price,
-		/** The original traded quantity. */
-		@JsonProperty("origQty") String origQuantity,
-		/** The current executed quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** The opposite coin quantity. */
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		/** The order status. */
-		String status,
-		/** How long the order will remain active. */
-		String timeInForce,
-		/** The order type. */
-		String type,
-		/** The order side. */
-		String side,
-		/** The list of trades that partially of fully filled the order. */
+public record NewOrderResponse(String symbol, long orderId, long orderListId, String clientOrderId, long transactTime, String price,
+		@JsonProperty("origQty") String origQuantity, @JsonProperty("executedQty") String executedQuantity,
+		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity, String status, String timeInForce, String type, String side,
 		List<OrderTrade> fills) {
 }

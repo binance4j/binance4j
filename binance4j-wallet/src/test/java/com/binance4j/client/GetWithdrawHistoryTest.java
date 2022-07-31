@@ -9,7 +9,6 @@ import com.binance4j.wallet.dto.WithdrawStatus;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
 
 class GetWithdrawHistoryTest extends WalletTest {
-
 	@Test
 	void testGetWithdrawHistory() throws ApiException {
 		testHasNulls(client.getWithdrawHistory(), List.of("withdrawOrderId"), true);

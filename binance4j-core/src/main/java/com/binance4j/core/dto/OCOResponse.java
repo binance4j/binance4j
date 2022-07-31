@@ -16,25 +16,6 @@ import java.util.List;
  * @param isIsolated        is it an isolated trade?
  * @param orderReports      The order reports.
  */
-public record OCOResponse(
-		/** The order list id. */
-		long orderListId,
-		/** The contingency type */
-		String contingencyType,
-		/** The list status. */
-		String listStatusType,
-		/** The list order status. */
-		String listOrderStatus,
-		/** The list client order id. */
-		String listClientOrderId,
-		/** The order timestamp. */
-		long transactionTime,
-		/** The order symbol. */
-		String symbol,
-		/** The 2 orders. */
-		List<MiniOrderInfo> orders,
-		/** is it an isolated trade? */
-		boolean isIsolated,
-		/** The order reports. */
-		List<OrderReport> orderReports) {
+public record OCOResponse(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId,
+		long transactionTime, String symbol, List<MiniOrderInfo> orders, boolean isIsolated, List<OrderReport> orderReports) {
 }

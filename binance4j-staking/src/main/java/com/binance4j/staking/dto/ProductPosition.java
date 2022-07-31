@@ -28,57 +28,8 @@ package com.binance4j.staking.dto;
  * @param type                  Order type is auto-staking or normal.
  * @param status                Position status.
  */
-public record ProductPosition(
-		/** Staking position ID. */
-		String positionId,
-		/** Staking project ID. */
-		String productId,
-		/** Locked asset. */
-		String asset,
-		/** Locked Amount. */
-		String amount,
-		/** Subscription time. */
-		String purchaseTime,
-		/** Lock period(days ). */
-		String duration,
-		/** Accrue days. */
-		String accrualDays,
-		/** Earned asset. */
-		String rewardAsset,
-		/** APY. */
-		String apy,
-		/** Earned amount. */
-		String rewardAmt,
-		/** Rewards assets of extra staking type. */
-		String extraRewardAsset,
-		/** APY of extra staking type. */
-		String extraRewardAPY,
-		/** Rewards of extra staking type, distribute when order expires. */
-		String estExtraRewardAmt,
-		/** Next estimated interest payment. */
-		String nextInterestPay,
-		/** Next interest payment date. */
-		String nextInterestPayDate,
-		/** Interest cycle. */
-		String payInterestPeriod,
-		/** Early redemption amount. */
-		String redeemAmountEarly,
-		/** Interest accrual end date. */
-		String interestEndDate,
-		/** Redemption arrival time. */
-		String deliverDate,
-		/** Redemption interval. */
-		String redeemPeriod,
-		/** Amount under redemption. */
-		String redeemingAmt,
-		/** Arrival time of partial redemption amount of order. */
-		String partialAmtDeliverDate,
-		/** When it is true, early redemption can be operated. */
-		boolean canRedeemEarly,
-		/** When it is true, auto staking can be operated. */
-		boolean renewable,
-		/** Order type is auto-staking or normal. */
-		String type,
-		/** Position status. */
-		String status) {
+public record ProductPosition(String positionId, String productId, String asset, String amount, String purchaseTime, String duration, String accrualDays,
+		String rewardAsset, String apy, String rewardAmt, String extraRewardAsset, String extraRewardAPY, String estExtraRewardAmt, String nextInterestPay,
+		String nextInterestPayDate, String payInterestPeriod, String redeemAmountEarly, String interestEndDate, String deliverDate, String redeemPeriod,
+		String redeemingAmt, String partialAmtDeliverDate, boolean canRedeemEarly, boolean renewable, String type, String status) {
 }

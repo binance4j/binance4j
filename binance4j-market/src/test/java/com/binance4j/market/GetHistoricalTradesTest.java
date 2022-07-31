@@ -2,22 +2,17 @@ package com.binance4j.market;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.dto.TradeHistoryItem;
 import com.binance4j.market.param.HistoricalTradesParams;
 
 class GetHistoricalTradesTest extends MarketTest {
-
 	@Test
 	void test1() throws ApiException {
 		HistoricalTradesParams params = new HistoricalTradesParams(symbol);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
-
 		testNoNulls(history);
 	}
 
@@ -26,7 +21,6 @@ class GetHistoricalTradesTest extends MarketTest {
 		HistoricalTradesParams params = new HistoricalTradesParams(symbol, limit);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
 		assertEquals(history.size(), limit);
-
 		testNoNulls(history);
 	}
 
@@ -35,7 +29,6 @@ class GetHistoricalTradesTest extends MarketTest {
 		long fromId = 186647289L;
 		HistoricalTradesParams params = new HistoricalTradesParams(symbol, fromId);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
-
 		history.forEach(h -> assertTrue(h.id() >= fromId));
 		testNoNulls(history);
 	}
@@ -45,10 +38,8 @@ class GetHistoricalTradesTest extends MarketTest {
 		long fromId = 186647289L;
 		HistoricalTradesParams params = new HistoricalTradesParams(symbol, limit, fromId);
 		List<TradeHistoryItem> history = client.getHistoricalTrades(params).execute();
-
 		history.forEach(h -> assertTrue(h.id() >= fromId));
 		assertEquals(history.size(), limit);
-
 		testNoNulls(history);
 	}
 }

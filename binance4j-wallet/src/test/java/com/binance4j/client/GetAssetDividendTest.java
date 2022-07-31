@@ -14,7 +14,6 @@ class GetAssetDividendTest extends WalletTest {
 	@Test
 	void testGetAnyAssetDividend() throws ApiException {
 		AssetDividendRecord record = client.getAssetDividendRecord().execute();
-
 		assertNotNull(record.total());
 		testNoNulls(record);
 	}
@@ -23,7 +22,6 @@ class GetAssetDividendTest extends WalletTest {
 	void testGetGivenAssetDividend() throws ApiException {
 		AssetDividendRecordParams params = new AssetDividendRecordParams(asset);
 		AssetDividendRecord record = client.getAssetDividendRecord(params).execute();
-
 		assertNotNull(record.total());
 		testNoNulls(record);
 	}
@@ -32,7 +30,6 @@ class GetAssetDividendTest extends WalletTest {
 	void testGetGivenAssetDividendWithLimit() throws ApiException {
 		var interval = new TimeFrame(limit);
 		AssetDividendRecord record = client.getAssetDividendRecord(new AssetDividendRecordParams(asset), interval).execute();
-
 		assertTrue(record.total() <= limit);
 		testNoNulls(record);
 	}

@@ -8,9 +8,5 @@ import java.util.List;
  * @param total The total number of records.
  * @param rows  The interest records.
  */
-public record InterestHistory(
-		/** The total number of records. */
-		int total,
-		/** The interest records. */
-		List<InterestRecord> rows) {
+public record InterestHistory(int total, List<InterestRecord> rows) {
 }

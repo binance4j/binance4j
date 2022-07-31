@@ -7,7 +7,6 @@ import com.binance4j.wallet.dto.DepositStatus;
 import com.binance4j.wallet.param.DepositHistoryParams;
 
 class GetDepositHistoryTest extends WalletTest {
-
 	@Test
 	void testGetDepositHistory() throws ApiException {
 		testNoNulls(client.getDepositHistory());

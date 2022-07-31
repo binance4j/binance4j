@@ -36,10 +36,8 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	protected ApiWebSocketListener<T> listener;
 	/** The client configuration. */
 	WebsocketClientConfiguration configuration;
-
 	/** Will call onClosing and onClosed of the interceptor callback if not. */
 	protected WebsocketForceClosingHandler forceClosingHandler;
-
 	/** Will close the client after some time. */
 	protected WebsocketCloseClientHandler closeClientHandler;
 
@@ -104,7 +102,6 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
 		String streamingUrl = String.format("%s/%s", configuration.getBaseUrl(), channel);
 		Request request = new Request.Builder().url(streamingUrl).build();
-
 		return new OkHttpClient.Builder().dispatcher(new Dispatcher()).pingInterval(configuration.getPingInterval()).build().newWebSocket(request, listener);
 	}
 

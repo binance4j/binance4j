@@ -4,7 +4,6 @@ import com.binance4j.core.Request;
 
 /** API client for market endpoints */
 public class TestClient extends RestClient<TestMapping> {
-
 	/** Constructor. */
 	public TestClient() {
 		super(TestMapping.class, null, null);
@@ -16,5 +15,4 @@ public class TestClient extends RestClient<TestMapping> {
 	public Request<Void> ping() {
 		return new Request<>(service.ping());
 	}
-
 }

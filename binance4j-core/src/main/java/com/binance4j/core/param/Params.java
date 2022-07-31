@@ -47,7 +47,6 @@ public interface Params {
 	 */
 	default int weight() {
 		return !getClass().isAnnotationPresent(Param.class) ? 1 : getClass().getAnnotation(Param.class).weight();
-
 	}
 
 	/**
@@ -78,7 +77,6 @@ public interface Params {
 		// remove
 		map.remove("order");
 		map.values().removeAll(Collections.singleton(null));
-
 		return map;
 	}
 

@@ -23,5 +23,4 @@ public interface PayMapping extends RestMapping {
 	@GET(BASE + "income")
 	@Headers(SIGNED_H)
 	Call<List<LoanIncome>> getLoansIncome(@QueryMap Map<String, Object> map);
-
 }

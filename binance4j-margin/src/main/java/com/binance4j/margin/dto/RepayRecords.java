@@ -8,9 +8,5 @@ import java.util.List;
  * @param total The total of repays.
  * @param rows  The repays.
  */
-public record RepayRecords(
-		/** The total of repays. */
-		int total,
-		/** The repays. */
-		List<RepayRecord> rows) {
+public record RepayRecords(int total, List<RepayRecord> rows) {
 }

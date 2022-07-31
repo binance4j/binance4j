@@ -17,33 +17,11 @@ package com.binance4j.margin.dto;
  * @param liquidateRate     The liquidate rate.
  * @see LevelStatus
  */
-public record IsolatedPair(
-		/** The base asset. */
-		IsolatedAsset baseAsset,
-		/** The quote asset. */
-		IsolatedAsset quoteAsset,
-		/** The asset symbol. */
-		String symbol,
-		/** is isolated asset created */
-		boolean isolatedCreated,
-		/** Is trading enabled? */
-		boolean tradeEnabled,
-		/** Is the pair enabled for the account? */
-		boolean enabled,
+public record IsolatedPair(IsolatedAsset baseAsset, IsolatedAsset quoteAsset, String symbol, boolean isolatedCreated, boolean tradeEnabled, boolean enabled,
 		/**
 		 * The margin level status.
 		 * 
 		 * @see LevelStatus
 		 */
-		String marginLevelStatus,
-		/** The margin level. */
-		String marginLevel,
-		/** The margin ratio. */
-		String marginRatio,
-		/** The index price. */
-		String indexPrice,
-		/** The liquidate price. */
-		String liquidatePrice,
-		/** The liquidate rate. */
-		String liquidateRate) {
+		String marginLevelStatus, String marginLevel, String marginRatio, String indexPrice, String liquidatePrice, String liquidateRate) {
 }

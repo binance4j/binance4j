@@ -10,9 +10,5 @@ import com.binance4j.core.dto.AssetBalance;
  * @param balances        The wallet asset balances.
  * @param totalAssetOfBtc The cumulated value of the wallet in Bitcoin.
  */
-public record SpotAccountSnapshotData(
-		/** The wallet asset balances. */
-		List<AssetBalance> balances,
-		/** The cumulated value of the wallet in Bitcoin. */
-		String totalAssetOfBtc) {
+public record SpotAccountSnapshotData(List<AssetBalance> balances, String totalAssetOfBtc) {
 }

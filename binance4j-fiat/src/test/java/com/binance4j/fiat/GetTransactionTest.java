@@ -7,7 +7,6 @@ import com.binance4j.fiat.dto.TransactionType;
 import com.binance4j.fiat.param.TransactionParams;
 
 public class GetTransactionTest extends FiatTest {
-
 	@Test
 	void testGetDeposits() throws ApiException {
 		var params = new TransactionParams(TransactionType.DEPOSIT, oneYearAgo, null);

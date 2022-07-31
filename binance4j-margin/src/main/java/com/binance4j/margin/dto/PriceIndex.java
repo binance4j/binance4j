@@ -9,11 +9,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param price           The price.
  * @param symbol          The asset pair.
  */
-public record PriceIndex(
-		/** The last price calculation timestamp in ms. */
-		@JsonProperty("calcTime") long calculationTime,
-		/** The price. */
-		String price,
-		/** The asset pair. */
-		String symbol) {
+public record PriceIndex(@JsonProperty("calcTime") long calculationTime, String price, String symbol) {
 }

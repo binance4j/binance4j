@@ -10,7 +10,6 @@ import retrofit2.Call;
 
 /** The trade request executor */
 public class TradeParams extends VisionParams<VisionTrade> {
-
 	/**
 	 * @param call The API call.
 	 */

@@ -10,7 +10,6 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.FuturesAccountSnapshotResponse;
 
 class GetFuturesAccountSnapshotTest extends WalletTest {
-
 	@Test
 	void testGetFuturesAccountSnapshot() throws ApiException {
 		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot().execute();

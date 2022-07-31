@@ -5,7 +5,5 @@ package com.binance4j.staking.dto;
  * 
  * @param leftPersonalQuota User left quota.
  */
-public record LeftQuota(
-		/** User left Quota. */
-		String leftPersonalQuota) {
+public record LeftQuota(String leftPersonalQuota) {
 }

@@ -9,11 +9,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param ifer Number of FOK/IOC orders.
  * @param ufr  Number of FOK/IOC orders.
  */
-public record ApiTradingStatusTriggerCondition(
-		/** Number of GTC orders. */
-		@JsonProperty("GCR") long gcr,
-		/** Number of FOK/IOC orders. */
-		@JsonProperty("IFER") long ifer,
-		/** Number of FOK/IOC orders. */
-		@JsonProperty("UFR") long ufr) {
+public record ApiTradingStatusTriggerCondition(@JsonProperty("GCR") long gcr, @JsonProperty("IFER") long ifer, @JsonProperty("UFR") long ufr) {
 }

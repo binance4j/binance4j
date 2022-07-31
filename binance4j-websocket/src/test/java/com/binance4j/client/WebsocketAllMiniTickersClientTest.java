@@ -10,7 +10,6 @@ import com.binance4j.websocket.dto.MiniTicker;
 
 /** endpoint doesn't seem to work */
 class WebsocketAllMiniTickersClientTest {
-
 	TestCallback<MiniTicker> callback = new TestCallback<>();
 
 	@Test

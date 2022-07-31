@@ -10,13 +10,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param name      BLVT name.
  * @param candle    BLVT candle.
  */
-public record BLVTCandleEvent(
-		/** Event name. */
-		@JsonProperty("e") String eventName,
-		/** Event time. */
-		@JsonProperty("E") long eventTime,
-		/** BLVT name. */
-		@JsonProperty("s") String name,
-		/** BLVT candle. */
+public record BLVTCandleEvent(@JsonProperty("e") String eventName, @JsonProperty("E") long eventTime, @JsonProperty("s") String name,
 		@JsonProperty("k") BLVTCandle candle) {
 }

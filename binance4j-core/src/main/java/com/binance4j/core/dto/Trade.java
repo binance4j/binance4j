@@ -18,29 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?
  */
-public record Trade(
-		/** Trade id. */
-		long id,
-		/** Price. */
-		String price,
-		/** Quantity. */
-		@JsonProperty("qty") String quantity,
-		/** Quote quantity for the trade (price * qty). */
-		@JsonProperty("quoteQty") String quoteQuantity,
-		/** Commission. */
-		String commission,
-		/** Asset on which commission is taken. */
-		String commissionAsset,
-		/** Trade execution time. */
-		long time,
-		/** The symbol of the trade. */
-		String symbol,
-		/** The order id. */
-		String orderId,
-		/** Is buyer trade. */
-		boolean isBuyer,
-		/** Is maker trade. */
-		boolean isMaker,
-		/** Is best mathc? */
-		boolean isBestMatch) {
+public record Trade(long id, String price, @JsonProperty("qty") String quantity, @JsonProperty("quoteQty") String quoteQuantity, String commission,
+		String commissionAsset, long time, String symbol, String orderId, boolean isBuyer, boolean isMaker, boolean isBestMatch) {
 }

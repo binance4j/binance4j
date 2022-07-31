@@ -11,16 +11,5 @@ import java.util.List;
  * @param total   Total.
  * @param success Success.
  */
-public record PaymentHistory(
-		/** Code. */
-		String code,
-		/** Message. */
-		String message,
-		/** Transactions. */
-		List<Payment> data,
-		/** Total. */
-		int total,
-		/** Success. */
-		boolean success) {
-
+public record PaymentHistory(String code, String message, List<Payment> data, int total, boolean success) {
 }

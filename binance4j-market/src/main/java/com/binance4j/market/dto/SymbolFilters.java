@@ -17,31 +17,8 @@ package com.binance4j.market.dto;
  * @param price               The {@link PriceFilter}.
  * @param trailingDelta       The {@link TrailingDeltaFilter}.
  */
-public record SymbolFilters(
-		/** The {@link IcebergPartsFilter} */
-		IcebergPartsFilter icebergParts,
-		/** The {@link LotSizeFilter} */
-		LotSizeFilter lotSize,
-		/** The {@link MarketLotSizeFilter} */
-		MarketLotSizeFilter marketLotSize,
-		/** The {@link MaxNumAlgoOrdersFilter} */
-		MaxNumAlgoOrdersFilter maxNumAlgoOrders,
-		/** The {@link MaxNumIcebergOrdersFilter} */
-		MaxNumIcebergOrdersFilter maxNumIcebergOrders,
-		/** The {@link MaxNumOrdersFilter} */
-		MaxNumOrdersFilter maxNumOrders,
-		/** The {@link MaxPositionFilter} */
-		MaxPositionFilter maxPosition,
-		/** The {@link MinNotionalFilter} */
-		MinNotionalFilter minNotional,
-		/** The {@link NotionalFilter} */
-		NotionalFilter notional,
-		/** The {@link PercentPriceBySideFilter} */
-		PercentPriceBySideFilter percentPriceBySide,
-		/** The {@link PercentPriceFilter} */
-		PercentPriceFilter percentPrice,
-		/** The {@link PriceFilter} */
-		PriceFilter price,
-		/** The {@link TrailingDeltaFilter} */
+public record SymbolFilters(IcebergPartsFilter icebergParts, LotSizeFilter lotSize, MarketLotSizeFilter marketLotSize, MaxNumAlgoOrdersFilter maxNumAlgoOrders,
+		MaxNumIcebergOrdersFilter maxNumIcebergOrders, MaxNumOrdersFilter maxNumOrders, MaxPositionFilter maxPosition, MinNotionalFilter minNotional,
+		NotionalFilter notional, PercentPriceBySideFilter percentPriceBySide, PercentPriceFilter percentPrice, PriceFilter price,
 		TrailingDeltaFilter trailingDelta) {
 }

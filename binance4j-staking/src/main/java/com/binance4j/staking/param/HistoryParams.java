@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public record HistoryParams(@Mandatory ProductType product, @Mandatory @JsonProperty("txnType") TransactionType transactionType, String asset)
 		implements Params {
-
 	/**
 	 * Creates an instance of {@link HistoryParams}.
 	 * 
@@ -26,5 +25,4 @@ public record HistoryParams(@Mandatory ProductType product, @Mandatory @JsonProp
 	public HistoryParams(ProductType product, TransactionType transactionType) {
 		this(product, transactionType, null);
 	}
-
 }

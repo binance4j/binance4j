@@ -10,13 +10,5 @@ import com.binance4j.rebate.client.RebateClient;
  * @param code   The code.
  * @param data   The data.
  */
-public record SpotRebateHistoryResponse(
-		/** The status */
-		String status,
-		/** The type */
-		String type,
-		/** The code */
-		String code,
-		/** The data */
-		RebateData data) {
+public record SpotRebateHistoryResponse(String status, String type, String code, RebateData data) {
 }

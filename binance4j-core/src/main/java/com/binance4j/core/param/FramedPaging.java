@@ -9,7 +9,6 @@ package com.binance4j.core.param;
  * @param limit     The results in the page.
  */
 public record FramedPaging(Long startTime, Long endTime, Integer page, Integer limit) implements Params {
-
 	/**
 	 * Creates an instance of {@link FramedPaging}
 	 * 

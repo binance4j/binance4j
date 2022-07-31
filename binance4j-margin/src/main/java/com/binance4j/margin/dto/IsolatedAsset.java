@@ -14,25 +14,6 @@ package com.binance4j.margin.dto;
  * @param netAssetOfBtc Can the account borrow this asset?
  * @param totalAsset    Can the account repay this asset?
  */
-public record IsolatedAsset(
-		/** The asset name. */
-		String asset,
-		/** The borrowed quantity. */
-		String borrowed,
-		/** The free quantity. */
-		String free,
-		/** The loan interest. */
-		String interest,
-		/** The locked quantity. */
-		String locked,
-		/** The net asset quantity. */
-		String netAsset,
-		/** The net asset of Bitcoin. */
-		String netAssetOfBtc,
-		/** The asset total quantity. */
-		String totalAsset,
-		/** Can the account borrow this asset? */
-		boolean borrowEnabled,
-		/** Can the account repay this asset? */
-		boolean repayEnabled) {
+public record IsolatedAsset(String asset, String borrowed, String free, String interest, String locked, String netAsset, String netAssetOfBtc,
+		String totalAsset, boolean borrowEnabled, boolean repayEnabled) {
 }

@@ -23,7 +23,6 @@ public class WebsocketForceClosingHandler extends BaseWebsocketEventHandler {
 
 	public void run() {
 		cancel();
-
 		eventHandler = new TimeoutEvent(websocketClient.getConfiguration().getDisconnectionTimeout(), () -> {
 			if (!callback.isOnClosingCalled()) {
 				callback.onClosing(closeObject);

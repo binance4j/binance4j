@@ -19,27 +19,6 @@ import com.binance4j.core.dto.AssetBalance;
  * @param accountType      The account Type .
  * @param permissions      The permissions list.
  */
-public record Account(
-		/** The maker commission. */
-		String makerCommission,
-		/** The taker commission. */
-		String takerCommission,
-		/** The buyer commission. */
-		String buyerCommission,
-		/** The seller commission. */
-		String sellerCommission,
-		/** The trade permission. */
-		boolean canTrade,
-		/** The withdrawal permission. */
-		boolean canWithdraw,
-		/** The deposit permission. */
-		boolean canDeposit,
-		/** The timestamp of the last data update. */
-		long updateTime,
-		/** The balances of each asset in the SPOT wallet. */
-		List<AssetBalance> balances,
-		/** The account Type. */
-		String accountType,
-		/** The permissions list. */
-		List<String> permissions) {
+public record Account(String makerCommission, String takerCommission, String buyerCommission, String sellerCommission, boolean canTrade, boolean canWithdraw,
+		boolean canDeposit, long updateTime, List<AssetBalance> balances, String accountType, List<String> permissions) {
 }

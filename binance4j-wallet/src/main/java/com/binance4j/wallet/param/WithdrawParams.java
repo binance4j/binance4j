@@ -177,5 +177,4 @@ public class WithdrawParams implements Params {
 	public void setWalletType(Integer walletType) {
 		this.walletType = walletType;
 	}
-
 }

@@ -6,7 +6,5 @@ package com.binance4j.market.dto;
  * @param maxPosition The max positions allowed.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
-public record MaxPositionFilter(
-		/** The max positions allowed */
-		String maxPosition) {
+public record MaxPositionFilter(String maxPosition) {
 }

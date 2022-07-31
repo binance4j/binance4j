@@ -27,47 +27,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param orderId                  /** Order id.
  * @param clientOrderId            /** Client order id.
  */
-public record OrderReport(
-		/** The order list id. */
-		long orderListId,
-		/** The original client order id. */
-		String origClientOrderId,
-		/** The order timestamp. */
-		long transactTime,
-		/** The order side. */
-		OrderSide side,
-		/** Price. */
-		String price,
-		/** Original quantity. */
-		@JsonProperty("origQty") String origQuantity,
-		/** Original quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** Used to calculate the average price. */
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		/** Order status. */
-		String status,
-		/** Time in force to indicate how long will the order remain active. */
-		String timeInForce,
-		/** Type of order. */
-		String type,
-		/** Used with stop orders. */
-		String stopPrice,
-		/** Used with iceberg orders. */
-		@JsonProperty("icebergQty") String icebergQuantity,
-		/** Order timestamp. */
-		long time,
-		/** Update timestamp. */
-		long updateTime,
-		/** Original quote order quantity. */
-		@JsonProperty("origQuoteOrderQty") String origQuoteOrderQuantity,
-		/** Is working */
-		boolean isWorking,
-		/** is isolated margin. */
-		boolean isIsolated,
-		/** The order symbol. */
-		String symbol,
-		/** Order id. */
-		long orderId,
-		/** Client order id. */
-		String clientOrderId) {
+public record OrderReport(long orderListId, String origClientOrderId, long transactTime, OrderSide side, String price,
+		@JsonProperty("origQty") String origQuantity, @JsonProperty("executedQty") String executedQuantity,
+		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity, String status, String timeInForce, String type, String stopPrice,
+		@JsonProperty("icebergQty") String icebergQuantity, long time, long updateTime, @JsonProperty("origQuoteOrderQty") String origQuoteOrderQuantity,
+		boolean isWorking, boolean isIsolated, String symbol, long orderId, String clientOrderId) {
 }

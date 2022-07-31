@@ -16,25 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param eventTime             The timestamp.
  * @param symbol                The trading pair.
  */
-public record AggTrade(
-		/** The agg trade id. */
-		@JsonProperty("a") Long aggregatedTradeId,
-		/** The price. */
-		@JsonProperty("p") String price,
-		/** The volume. */
-		@JsonProperty("q") String quantity,
-		/** First trade id. */
-		@JsonProperty("f") Long firstBreakdownTradeId,
-		/** Last trade id. */
-		@JsonProperty("l") Long lastBreakdownTradeId,
-		/** The timestamp. */
-		@JsonProperty("T") Long tradeTime,
-		/** Was the buyer the maker? */
-		@JsonProperty("m") Boolean isBuyerMaker,
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol) {
+public record AggTrade(@JsonProperty("a") Long aggregatedTradeId, @JsonProperty("p") String price, @JsonProperty("q") String quantity,
+		@JsonProperty("f") Long firstBreakdownTradeId, @JsonProperty("l") Long lastBreakdownTradeId, @JsonProperty("T") Long tradeTime,
+		@JsonProperty("m") Boolean isBuyerMaker, @JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol) {
 }

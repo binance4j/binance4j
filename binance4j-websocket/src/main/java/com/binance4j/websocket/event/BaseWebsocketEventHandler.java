@@ -14,13 +14,10 @@ import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler {
 	/** The websocket client handling this event handler. */
 	protected final WebsocketClient websocketClient;
-
 	/** The timeout ApiException. */
 	protected final ApiException timeoutException;
-
 	/** The disconnected ApiException. */
 	protected final ApiException disconnectedException;
-
 	/** The inner scheduled event. */
 	protected ScheduledEvent eventHandler;
 	/** The used callback. */
@@ -59,7 +56,6 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 			callback.onFailure(disconnectedException);
 			websocketClient.close(false);
 		};
-
 		eventHandler = new TimeoutEvent(timeout, timeoutTask);
 	}
 }

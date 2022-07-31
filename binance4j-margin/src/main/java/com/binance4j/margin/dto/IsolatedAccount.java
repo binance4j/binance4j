@@ -10,13 +10,5 @@ import java.util.List;
  * @param totalLiabilityOfBtc Total liability of Bitcoin.
  * @param totalNetAssetOfBtc  Total net asset of Bitcoin.
  */
-public record IsolatedAccount(
-		/** The owned assets. */
-		List<IsolatedPair> assets,
-		/** Total asset of Bitcoin. */
-		String totalAssetOfBtc,
-		/** Total liability of Bitcoin. */
-		String totalLiabilityOfBtc,
-		/** Total net asset of Bitcoin. */
-		String totalNetAssetOfBtc) {
+public record IsolatedAccount(List<IsolatedPair> assets, String totalAssetOfBtc, String totalLiabilityOfBtc, String totalNetAssetOfBtc) {
 }

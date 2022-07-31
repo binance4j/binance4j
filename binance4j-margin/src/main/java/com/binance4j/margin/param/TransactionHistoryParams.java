@@ -21,7 +21,6 @@ public record TransactionHistoryParams(@Mandatory String asset, String isolatedS
 	 */
 	public TransactionHistoryParams() {
 		this(null, null, null, null);
-
 	}
 
 	/**
@@ -31,7 +30,6 @@ public record TransactionHistoryParams(@Mandatory String asset, String isolatedS
 	 */
 	public TransactionHistoryParams(String asset) {
 		this(asset, null, null, null);
-
 	}
 
 	/**

@@ -9,17 +9,11 @@ package com.binance4j.rebate.dto;
  * @param updateTime The rebate update time.
  * @see RebateType
  */
-public record Rebate(
-		/** The rebate asset */
-		String asset,
+public record Rebate(String asset,
 		/**
 		 * The rebate type.
 		 * 
 		 * @see RebateType
 		 */
-		String type,
-		/** The rebate amount */
-		String amount,
-		/** The rebate update time */
-		long updateTime) {
+		String type, String amount, long updateTime) {
 }

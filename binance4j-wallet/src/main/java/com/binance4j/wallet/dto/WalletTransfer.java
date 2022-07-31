@@ -13,21 +13,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp     The transfer timestamp.
  * @see WalletTransferType
  */
-public record WalletTransfer(
-		/** The transfered asset. */
-		String asset,
-		/** The transfered amount. */
-		String amount,
+public record WalletTransfer(String asset, String amount,
 		/**
 		 * The transfer type (origin wallet to destination wallet).
 		 * 
 		 * @see WalletTransferType
 		 */
-		String type,
-		/** The transfer status. */
-		String status,
-		/** The transaction id. */
-		@JsonProperty("tranId") long transactionId,
-		/** The transfer timestamp. */
-		long timestamp) {
+		String type, String status, @JsonProperty("tranId") long transactionId, long timestamp) {
 }

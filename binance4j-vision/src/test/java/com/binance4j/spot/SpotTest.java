@@ -41,5 +41,4 @@ public class SpotTest extends CustomTest<VisionSpotClient> {
 	public CandlestickInterval getInterval() {
 		return interval;
 	}
-
 }

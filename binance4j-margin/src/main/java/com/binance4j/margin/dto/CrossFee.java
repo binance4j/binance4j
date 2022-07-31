@@ -15,21 +15,6 @@ import java.util.List;
  * @param transferIn      Is internal transfer allowed?
  * @param marginablePairs The bound pairs.
  */
-public record CrossFee(
-		/** The user's VIP level. */
-		int vipLevel,
-		/** The coin name. */
-		String coin,
-		/** The borrow limit. */
-		String borrowLimit,
-		/** The daily interest. */
-		String dailyInterest,
-		/** The yearly interest. */
-		String yearlyInterest,
-		/** Is it borrowable? */
-		boolean borrowable,
-		/** Is internal transfer allowed? */
-		boolean transferIn,
-		/** The bound pairs. */
+public record CrossFee(int vipLevel, String coin, String borrowLimit, String dailyInterest, String yearlyInterest, boolean borrowable, boolean transferIn,
 		List<String> marginablePairs) {
 }

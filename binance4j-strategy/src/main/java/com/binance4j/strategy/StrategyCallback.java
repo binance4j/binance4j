@@ -1,12 +1,10 @@
 package com.binance4j.strategy;
 
 import org.ta4j.core.BarSeries;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.websocket.callback.GenericCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
-
 import okhttp3.Response;
 
 /** Strategy Callback to handle stream events */
@@ -14,27 +12,21 @@ public class StrategyCallback {
 	/** The callback to trigger when receiving a message from the websocket. */
 	private GenericCallback<SymbolBar> onMessageConsumer = (SymbolBar bar) -> {
 	};
-
 	/** The callback to trigger when the strategy sends a BUY signal. */
 	private GenericCallback<BarSeries> onEnterConsumer = (BarSeries series) -> {
 	};
-
 	/** The callback to trigger when the strategy sends a SELL signal. */
 	private GenericCallback<BarSeries> onExitConsumer = (BarSeries series) -> {
 	};
-
 	/** The callback to trigger when the stream opens. */
 	private GenericCallback<Response> onOpenConsumer = (Response response) -> {
 	};
-
 	/** The callback to trigger when the stream is closing. */
 	private GenericCallback<WebsocketCloseObject> onClosingConsumer = (WebsocketCloseObject closeObject) -> {
 	};
-
 	/** The callback to trigger when the stream is closed. */
 	private GenericCallback<WebsocketCloseObject> onClosedConsumer = (WebsocketCloseObject closeObject) -> {
 	};
-
 	/** The callback to trigger when the connection fails. */
 	private GenericCallback<ApiException> onFailureConsumer = (ApiException response) -> {
 	};
@@ -150,5 +142,4 @@ public class StrategyCallback {
 	public GenericCallback<ApiException> getOnFailureConsumer() {
 		return onFailureConsumer;
 	}
-
 }

@@ -21,36 +21,7 @@ import java.util.List;
  * @param dailyRedeemLimit   Daily Redeem Limit.
  * @param timestamp          Timestamp.
  */
-public record Token(
-		/** Token name. */
-		String tokenName,
-		/** Description. */
-		String description,
-		/** Underlying. */
-		String underlying,
-		/** Token issued. */
-		String tokenIssued,
-		/** Basket. */
-		String basket,
-		/** Current baskets. */
-		List<Basket> currentBaskets,
-		/** Nav. */
-		String nav,
-		/** Real leverage. */
-		String realLeverage,
-		/** Funding rate. */
-		String fundingRate,
-		/** Daily management fee. */
-		String dailyManagementFee,
-		/** Purchase Fee Pct. */
-		String purchaseFeePct,
-		/** Daily Purchase Limit. */
-		String dailyPurchaseLimit,
-		/** Redeem Fee Pct. */
-		String redeemFeePct,
-		/** Daily Redeem Limit. */
-		String dailyRedeemLimit,
-		/** Timestamp in ms. */
-		long timestamp) {
-
+public record Token(String tokenName, String description, String underlying, String tokenIssued, String basket, List<Basket> currentBaskets, String nav,
+		String realLeverage, String fundingRate, String dailyManagementFee, String purchaseFeePct, String dailyPurchaseLimit, String redeemFeePct,
+		String dailyRedeemLimit, long timestamp) {
 }

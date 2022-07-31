@@ -48,5 +48,4 @@ public record OrderStatusParams(String symbol, String origClientOrderId, Long or
 	public OrderStatusParams(String symbol, Long orderId) {
 		this(symbol, null, orderId);
 	}
-
 }

@@ -11,19 +11,5 @@ package com.binance4j.mining.dto;
  * @param rejectRate    Real-time Rejection Rate.
  * @param lastShareTime Last submission time.
  */
-public record Miner(
-		/** The miner id. */
-		String workerId,
-		/** The miner's name'. */
-		String workerName,
-		/** Status：1 valid, 2 invalid, 3 no longer valid. */
-		long status,
-		/** Real-time rate. */
-		long hashRate,
-		/** 24H Hashrate. */
-		long dayHashRate,
-		/** Real-time Rejection Rate. */
-		long rejectRate,
-		/** Last submission time. */
-		long lastShareTime) {
+public record Worker(String workerId, String workerName, long status, long hashRate, long dayHashRate, long rejectRate, long lastShareTime) {
 }

@@ -10,17 +10,5 @@ package com.binance4j.margin.dto;
  * @param locked   The locked quantity.
  * @param netAsset The net asset.
  */
-public record AssetBalance(
-		/** The asset name. */
-		String asset,
-		/** The borrowed quantity. */
-		String borrowed,
-		/** The free quantity. */
-		String free,
-		/** The borrow interest. */
-		String interest,
-		/** The locked quantity. */
-		String locked,
-		/** The net asset. */
-		String netAsset) {
+public record AssetBalance(String asset, String borrowed, String free, String interest, String locked, String netAsset) {
 }

@@ -9,17 +9,12 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 /** {@link Candle} serializer */
 public class CandlestickEventSerializer extends JsonSerializer<Candle> {
-
 	@Override
 	public void serialize(Candle candlestickEvent, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-		gen.writeStartObject();
-
-		// Write header
+		gen.writeStartObject(); // Write header
 		gen.writeStringField("e", candlestickEvent.eventType());
 		gen.writeNumberField("E", candlestickEvent.eventTime());
-		gen.writeStringField("s", candlestickEvent.symbol());
-
-		// Write candlestick data
+		gen.writeStringField("s", candlestickEvent.symbol()); // Write candlestick data
 		gen.writeObjectFieldStart("k");
 		gen.writeNumberField("t", candlestickEvent.openTime());
 		gen.writeNumberField("T", candlestickEvent.closeTime());

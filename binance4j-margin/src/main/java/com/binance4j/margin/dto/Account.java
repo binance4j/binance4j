@@ -14,21 +14,6 @@ import java.util.List;
  * @param tradeEnabled        Is trade enabled?
  * @param transferEnabled     Is transfer Enabled?
  */
-public record Account(
-		/** The user assets. */
-		List<AssetBalance> userAssets,
-		/** The margin level. */
-		String marginLevel,
-		/** The total asset of Bitcoin. */
-		String totalAssetOfBtc,
-		/** The total liability of Bitcoin. */
-		String totalLiabilityOfBtc,
-		/** The total net asset of Bitcoin. */
-		String totalNetAssetOfBtc,
-		/** Is borrow enabled? */
-		boolean borrowEnabled,
-		/** Is trade enabled? */
-		boolean tradeEnabled,
-		/** Is transfer Enabled? */
-		boolean transferEnabled) {
+public record Account(List<AssetBalance> userAssets, String marginLevel, String totalAssetOfBtc, String totalLiabilityOfBtc, String totalNetAssetOfBtc,
+		boolean borrowEnabled, boolean tradeEnabled, boolean transferEnabled) {
 }

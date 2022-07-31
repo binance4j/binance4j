@@ -17,7 +17,6 @@ import retrofit2.Call;
 
 /** Base executor implementation for the public data enpoint */
 public abstract class VisionParams<T> extends Request<ResponseBody> {
-
 	/**
 	 * @param call The API call.
 	 */
@@ -54,7 +53,6 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 			@Override
 			public void onResponse(ResponseBody res) {
 				callback.onResponse(responseToZip(res));
-
 			}
 		});
 	}
@@ -109,7 +107,6 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 */
 	public void getData(ApiCallback<List<T>> callback) {
 		then(new ApiCallback<ResponseBody>() {
-
 			@Override
 			public void onResponse(ResponseBody res) {
 				try {
@@ -147,13 +144,10 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 		try {
 			List<List<String>> data = new ArrayList<>();
 			Scanner sc = new Scanner(zis);
-
 			zis.getNextEntry();
-
 			while (sc.hasNextLine()) {
 				data.add(Arrays.asList(sc.nextLine().split(",")));
 			}
-
 			sc.close();
 			return data;
 		} catch (IOException e) {

@@ -31,7 +31,6 @@ public enum UserDataUpdateType {
 		} else if (BALANCE_UPDATE.value.equals(eventTypeId)) {
 			return BALANCE_UPDATE;
 		}
-
 		throw new RuntimeException("Unrecognized user data update event type id: " + eventTypeId);
 	}
 

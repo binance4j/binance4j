@@ -10,14 +10,7 @@ import org.ta4j.core.TradingRecord;
  * @param statistics    The backtest positions statistics.
  * @param tradingRecord The positions record.
  */
-public record BackTestResult(
-		/** The series the backtest run. */
-		BarSeries series,
-		/** The backtest positions statistics. */
-		TradingStatistics statistics,
-		/** The positions record. */
-		TradingRecord tradingRecord) {
-
+public record BackTestResult(BarSeries series, TradingStatistics statistics, TradingRecord tradingRecord) {
 	/**
 	 * @param series        The series the backtest run.
 	 * @param tradingRecord The positions record.

@@ -10,17 +10,5 @@ package com.binance4j.wallet.dto;
  * @param divTime Dividend time in ms.
  * @param tranId  The transaction id.
  */
-public record AssetDividend(
-		/** The divident amount. */
-		String amount,
-		/** Info about the asset. */
-		String enInfo,
-		/** The asset abbreviation. */
-		String asset,
-		/** The id. */
-		long id,
-		/** Dividend time in ms. */
-		long divTime,
-		/** The transaction id. */
-		long tranId) {
+public record AssetDividend(String amount, String enInfo, String asset, long id, long divTime, long tranId) {
 }

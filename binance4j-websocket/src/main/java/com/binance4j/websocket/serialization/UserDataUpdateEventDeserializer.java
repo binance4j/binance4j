@@ -22,9 +22,7 @@ public class UserDataUpdateEventDeserializer extends JsonDeserializer<UserDataUp
 		String json = node.toString();
 		final String eventTypeId = node.get("e").asText();
 		final Long eventTime = node.get("E").asLong();
-
 		UserDataUpdateType userDataUpdateEventType = UserDataUpdateType.getValue(eventTypeId);
-
 		return switch (userDataUpdateEventType) {
 		case ACCOUNT_POSITION_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, mapper.readValue(json, AccountUpdate.class), null, null);
 		case BALANCE_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, null, mapper.readValue(json, BalanceUpdate.class), null);

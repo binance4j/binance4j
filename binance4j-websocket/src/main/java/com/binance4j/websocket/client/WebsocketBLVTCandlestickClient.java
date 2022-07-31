@@ -10,7 +10,6 @@ import com.binance4j.websocket.dto.BLVTCandleEvent;
  * @deprecated Disconnected right after after connection.
  */
 public class WebsocketBLVTCandlestickClient extends WebsocketBLVTClient<BLVTCandleEvent> {
-
 	/**
 	 * @param symbol   Trading pair separated by a coma.
 	 * @param interval The candlestick interval.

@@ -34,7 +34,6 @@ public class AuthenticationInterceptor implements Interceptor {
 	public static final String ENDPOINT_SECURITY_TYPE_SIGNED_HEADER = ENDPOINT_SECURITY_TYPE_SIGNED + ": #";
 	/** The API public key */
 	final String key;
-
 	/** The API private key */
 	final String secret;
 
@@ -57,17 +56,12 @@ public class AuthenticationInterceptor implements Interceptor {
 	public Response intercept(Chain chain) throws IOException {
 		Request original = chain.request();
 		Request.Builder newRequestBuilder = original.newBuilder();
-
 		boolean isApiKeyRequired = original.header(ENDPOINT_SECURITY_TYPE_APIKEY) != null;
 		boolean isSignatureRequired = original.header(ENDPOINT_SECURITY_TYPE_SIGNED) != null;
-		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED);
-
-		// Endpoint requires sending a valid API-KEY
+		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED); // Endpoint requires sending a valid API-KEY
 		if (isApiKeyRequired || isSignatureRequired) {
 			newRequestBuilder.addHeader(API_KEY_HEADER, key);
-		}
-
-		// Endpoint requires signing the payload
+		} // Endpoint requires signing the payload
 		if (isSignatureRequired) {
 			String payload = original.url().query();
 			if (payload != null && !"".equals(payload)) {
@@ -75,9 +69,7 @@ public class AuthenticationInterceptor implements Interceptor {
 				HttpUrl signedUrl = original.url().newBuilder().addQueryParameter("signature", signature).build();
 				newRequestBuilder.url(signedUrl);
 			}
-		}
-
-		// Build new request after adding the necessary authentication information
+		} // Build new request after adding the necessary authentication information
 		Request newRequest = newRequestBuilder.build();
 		return chain.proceed(newRequest);
 	}

@@ -1,11 +1,11 @@
 package com.binance4j.mining.dto;
 
-/** Hashrate data. */
-public record HashrateData(
-		/** Time in ms. */
-		long time,
-		/** Hashrate. */
-		String hashrate,
-		/** Rejection Rate. */
-		long reject) {
+/**
+ * Hashrate data.
+ * 
+ * @param time     Time in ms.
+ * @param hashrate Hashrate.
+ * @param reject   Rejection Rate.
+ */
+public record HashrateData(long time, String hashrate, long reject) {
 }

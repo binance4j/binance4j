@@ -9,7 +9,6 @@ import com.binance4j.websocket.service.DurationService;
 
 /** Websocket client handling Kline events on one or many symbols */
 public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
-
 	Duration noResponseMarginError = Duration.ofSeconds(10);
 
 	/**

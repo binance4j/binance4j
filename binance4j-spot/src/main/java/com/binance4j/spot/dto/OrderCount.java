@@ -9,15 +9,5 @@ package com.binance4j.spot.dto;
  * @param limit         The order limit.
  * @param count         The current order count.
  */
-public record OrderCount(
-		/** The type of order. */
-		String rateLimitType,
-		/** The order interval. */
-		String interval,
-		/** The order interval num. */
-		int intervalNum,
-		/** The order limit. */
-		int limit,
-		/** The current order count. */
-		int count) {
+public record OrderCount(String rateLimitType, String interval, int intervalNum, int limit, int count) {
 }

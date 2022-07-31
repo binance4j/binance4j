@@ -7,11 +7,5 @@ package com.binance4j.core.dto;
  * @param orderId       Order id.
  * @param clientOrderId Client order id.
  */
-public record MiniOrderInfo(
-		/** The order symbol. */
-		String symbol,
-		/** Order id. */
-		long orderId,
-		/** Client order id. */
-		String clientOrderId) {
+public record MiniOrderInfo(String symbol, long orderId, String clientOrderId) {
 }

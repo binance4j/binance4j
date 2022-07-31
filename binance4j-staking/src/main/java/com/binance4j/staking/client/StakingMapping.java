@@ -2,7 +2,6 @@ package com.binance4j.staking.client;
 
 import java.util.List;
 import java.util.Map;
-
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.staking.dto.AutoStakingResponse;
 import com.binance4j.staking.dto.LeftQuota;
@@ -11,7 +10,6 @@ import com.binance4j.staking.dto.ProductPosition;
 import com.binance4j.staking.dto.PurchaseResponse;
 import com.binance4j.staking.dto.RedeemResponse;
 import com.binance4j.staking.dto.StakingRecord;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -78,5 +76,4 @@ public interface StakingMapping extends RestMapping {
 	@GET(BASE + "personalLeftQuota")
 	@Headers(SIGNED_H)
 	Call<LeftQuota> getLeftQuota(@QueryMap Map<String, Object> map);
-
 }

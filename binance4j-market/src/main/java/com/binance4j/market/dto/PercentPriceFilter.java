@@ -9,11 +9,5 @@ package com.binance4j.market.dto;
  * @param avgPriceMins   Weighted average price.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a> *
  */
-public record PercentPriceFilter(
-		/** Multiplier up. */
-		String multiplierUp,
-		/** Multiplier down. */
-		String multiplierDown,
-		/** Weighted average price. */
-		String avgPriceMins) {
+public record PercentPriceFilter(String multiplierUp, String multiplierDown, String avgPriceMins) {
 }

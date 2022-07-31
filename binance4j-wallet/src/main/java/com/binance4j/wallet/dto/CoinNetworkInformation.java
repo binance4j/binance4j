@@ -26,49 +26,8 @@ package com.binance4j.wallet.dto;
  * @param withdrawEnable          If withdraw is enabled.
  * @param sameAddress             If the coin needs to provide memo to withdraw.
  */
-public record CoinNetworkInformation(
-		/** The address pattern. */
-		String addressRegex,
-		/** Address rule */
-		String addressRule,
-		/** The coin abbreviation. */
-		String coin,
-		/** The deposit description. */
-		String depositDesc,
-		/** The withdra description. */
-		String withdrawDesc,
-		/** The network name. */
-		String name,
-		/** The memo pattern. */
-		String memoRegex,
-		/** The network */
-		String network,
-		/** Tips about the network. */
-		String specialTips,
-		/** Tips about the withdraw. */
-		String specialWithdrawTips,
-		/** Deposit dust. */
-		String depositDust,
-		/** The withdraw fee. */
-		String withdrawFee,
-		/** Withdraw integer multiple */
-		String withdrawIntegerMultiple,
-		/** The maximal amount authorized to be withdrawn. */
-		String withdrawMax,
-		/** The minimal amount authorized to be withdrawn. */
-		String withdrawMin,
-		/** The min number for balance confirmation. */
-		int minConfirm,
-		/** The confirmation number for balance unlock. */
-		int unLockConfirm,
-		/** If deposit is enabled. */
-		boolean depositEnable,
-		/** if is the default network. */
-		boolean isDefault,
-		/** Reset address status. */
-		boolean resetAddressStatus,
-		/** If withdraw is enabled. */
-		boolean withdrawEnable,
-		/** If the coin needs to provide memo to withdraw. */
-		boolean sameAddress) {
+public record CoinNetworkInformation(String addressRegex, String addressRule, String coin, String depositDesc, String withdrawDesc, String name,
+		String memoRegex, String network, String specialTips, String specialWithdrawTips, String depositDust, String withdrawFee,
+		String withdrawIntegerMultiple, String withdrawMax, String withdrawMin, int minConfirm, int unLockConfirm, boolean depositEnable, boolean isDefault,
+		boolean resetAddressStatus, boolean withdrawEnable, boolean sameAddress) {
 }

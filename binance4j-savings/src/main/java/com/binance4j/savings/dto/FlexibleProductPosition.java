@@ -21,35 +21,7 @@ import java.util.Map;
  * @param totalAmount            Total amount.
  * @param totalInterest          Total interest.
  */
-public record FlexibleProductPosition(
-		/** Tier annual interest rate. */
-		Map<String, String> tierAnnualInterestRate,
-		/** Annual interest rate. */
-		String annualInterestRate,
-		/** Asset. */
-		String asset,
-		/** Avg annual interest rate. */
-		String avgAnnualInterestRate,
-		/** Can redeem. */
-		boolean canRedeem,
-		/** Daily interest rate. */
-		String dailyInterestRate,
-		/** Free amount. */
-		String freeAmount,
-		/** Freeze amount. */
-		String freezeAmount,
-		/** Locked amount. */
-		String lockedAmount,
-		/** Product id. */
-		String productId,
-		/** Product name. */
-		String productName,
-		/** Redeeming amount. */
-		String redeemingAmount,
-		/** Today purchased amount. */
-		String todayPurchasedAmount,
-		/** Total amount. */
-		String totalAmount,
-		/** Total interest. */
-		String totalInterest) {
+public record FlexibleProductPosition(Map<String, String> tierAnnualInterestRate, String annualInterestRate, String asset, String avgAnnualInterestRate,
+		boolean canRedeem, String dailyInterestRate, String freeAmount, String freezeAmount, String lockedAmount, String productId, String productName,
+		String redeemingAmount, String todayPurchasedAmount, String totalAmount, String totalInterest) {
 }

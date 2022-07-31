@@ -6,9 +6,5 @@ package com.binance4j.vision.dto;
  * @param checksum The MD5 checksum.
  * @param fileName The file name.
  */
-public record VisionChecksum(
-		/** The MD5 checksum. */
-		String checksum,
-		/** The file name. */
-		String fileName) {
+public record VisionChecksum(String checksum, String fileName) {
 }

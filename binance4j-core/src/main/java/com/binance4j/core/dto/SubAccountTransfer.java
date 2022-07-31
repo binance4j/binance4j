@@ -1,8 +1,7 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;// TODO transfer to sub account module when created
 
-// TODO transfer to sub account module when created
 /**
  * Sub account transfer
  * 
@@ -17,25 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param tranId          Transfer ID.
  * @param time            Transfer time.
  */
-public record SubAccountTransfer(
-		/** Counter party name. */
-		String counterParty,
-		/** Counter party email. */
-		String email,
-		/** Transfer in or transfer out. */
-		int type, // 1 for transfer in, 2 for transfer out
-		/** Transfer asset. */
-		String asset,
-		/** Quantity of transfer asset. */
-		@JsonProperty("qty") String quantity,
-		/** Type of from account. */
-		String fromAccountType,
-		/** Type of to account. */
-		String toAccountType,
-		/** Transfer status. */
-		String status,
-		/** Transfer ID. */
-		long tranId,
-		/** Transfer time. */
-		long time) {
+public record SubAccountTransfer(String counterParty, String email, int type, String asset, @JsonProperty("qty") String quantity, String fromAccountType,
+		String toAccountType, String status, long tranId, long time) {
 }

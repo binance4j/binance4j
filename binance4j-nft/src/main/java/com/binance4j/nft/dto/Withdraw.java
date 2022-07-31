@@ -13,19 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param fee             The withdraw fee.
  * @param feeAsset        The fee asset.
  */
-public record Withdraw(
-		/** NFT Network. */
-		String network,
-		/** NFT Contract Address. */
-		String contractAddress,
-		/** NFT Token ID. */
-		String tokenId,
-		/** Transaction ID. */
-		@JsonProperty("txID") String transactionId,
-		/** Deposit time in ms. */
-		long timestamp,
-		/** The withdraw fee. */
-		String fee,
-		/** The fee asset. */
+public record Withdraw(String network, String contractAddress, String tokenId, @JsonProperty("txID") String transactionId, long timestamp, String fee,
 		String feeAsset) {
 }

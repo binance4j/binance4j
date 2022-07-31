@@ -11,15 +11,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp     The timestamp in ms.
  * @param transactionId The transaction id.
  */
-public record LoanIncome(
-		/** The income asset. */
-		String asset,
-		/** The income type. */
-		String type,
-		/** The income maount. */
-		String amount,
-		/** The timestamp in ms. */
-		long timestamp,
-		/** The transaction id. */
-		@JsonProperty("tranId") String transactionId) {
+public record LoanIncome(String asset, String type, String amount, long timestamp, @JsonProperty("tranId") String transactionId) {
 }

@@ -15,21 +15,8 @@ import java.util.Optional;
  * @param type                The interest type.
  * @see InterestType
  */
-public record InterestRecord(
-		/** The isolated symbol. Will not be returned for crossed margin */
-		Optional<String> isolatedSymbol,
-		/** The related asset. */
-		String asset,
-		/** The related raw asset. Will not be returned for isolated margin. */
-		Optional<String> rawAsset,
-		/** The interest. */
-		String interest,
-		/** Interest accrued (?) time. */
-		long interestAccuredTime,
-		/** The interest rate. */
-		String interestRate,
-		/** The borrowed quantity (?). */
-		String principal,
+public record InterestRecord(Optional<String> isolatedSymbol, String asset, Optional<String> rawAsset, String interest, long interestAccuredTime,
+		String interestRate, String principal,
 		/**
 		 * The interest type.
 		 * 

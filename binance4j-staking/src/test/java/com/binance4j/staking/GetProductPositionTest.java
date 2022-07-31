@@ -1,15 +1,12 @@
 package com.binance4j.staking;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.param.PositionParams;
 
 public class GetProductPositionTest extends StakingTest {
-
 	public void test(Object bean) {
 		System.out.println(bean);
 		var nulls = getNullProperties(bean);

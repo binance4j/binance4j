@@ -10,14 +10,5 @@ import java.util.List;
  * @param data    The trades.
  * @param success Resposne success.
  */
-public record TradeHistory(
-		/** Response code. */
-		String code,
-		/** Response message. */
-		String message,
-		/** The trades. */
-		List<Trade> data,
-		/** Resposne success. */
-		boolean success) {
-
+public record TradeHistory(String code, String message, List<Trade> data, boolean success) {
 }

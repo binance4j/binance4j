@@ -6,7 +6,6 @@ import java.time.Duration;
  * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} at the given interval
  */
 public class IntervalEvent extends BaseScheduledEvent {
-
 	/**
 	 * @param interval      The event's interval.
 	 * @param delay         The event's delay.
@@ -25,7 +24,6 @@ public class IntervalEvent extends BaseScheduledEvent {
 	 */
 	public IntervalEvent(Duration interval, ScheduledTask scheduledTask) {
 		this(interval, interval, 0, scheduledTask);
-
 	}
 
 	/**

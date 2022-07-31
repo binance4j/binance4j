@@ -10,7 +10,6 @@ import com.binance4j.savings.param.FixedProjectListParams;
  * @param isSortAsc Sort ascending. Default: true.
  */
 public record Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) implements Params {
-
 	/**
 	 * Creates an instance of {@link Sorting}.
 	 * 
@@ -28,5 +27,4 @@ public record Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) implements 
 	public Sorting(Boolean isSortAsc) {
 		this(null, isSortAsc);
 	}
-
 }

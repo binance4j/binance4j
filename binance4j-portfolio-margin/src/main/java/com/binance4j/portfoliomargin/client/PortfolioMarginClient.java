@@ -1,7 +1,6 @@
 package com.binance4j.portfoliomargin.client;
 
 import java.util.List;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.portfoliomargin.dto.AccountInfo;

@@ -17,23 +17,6 @@ import com.binance4j.core.dto.OrderInfo;
  * @param isIsoslated       Is the order isolated?
  * @param orders            The two orders.
  */
-public record OCOOrderRecord(
-		/** The order list id. */
-		long orderListId,
-		/** The transaction timestamp in ms. */
-		long transactionTime,
-		/** The related symbol. */
-		String symbol,
-		/** The contingency type. */
-		String contingencyType,
-		/** The list status type. */
-		String listStatusType,
-		/** The list order status. */
-		String listOrderStatus,
-		/** The list client order id. */
-		String listClientOrderId,
-		/** Is the order isolated? */
-		boolean isIsoslated,
-		/** The two orders. */
-		List<OrderInfo> orders) {
+public record OCOOrderRecord(long orderListId, long transactionTime, String symbol, String contingencyType, String listStatusType, String listOrderStatus,
+		String listClientOrderId, boolean isIsoslated, List<OrderInfo> orders) {
 }

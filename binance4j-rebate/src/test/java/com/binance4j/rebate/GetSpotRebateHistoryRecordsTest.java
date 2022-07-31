@@ -8,7 +8,6 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 
 public class GetSpotRebateHistoryRecordsTest extends RebateTest {
-
 	@Test
 	void testWithoutPage() throws ApiException {
 		testHasNulls(client.getSpotRebateHistoryRecords(), List.of("data"), true);

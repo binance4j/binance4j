@@ -18,33 +18,6 @@ package com.binance4j.c2c.dto;
  * @param counterPartNickName Counter part nickname.
  * @param advertisementRole   Advertisement role.
  */
-public record Trade(
-		/** Order number. */
-		String orderNumber,
-		/** Adv No. */
-		long advNo,
-		/** Trade type. */
-		String tradeType,
-		/** Asset. */
-		String asset,
-		/** Fiat. */
-		String fiat,
-		/** Fiat symbol. */
-		String fiatSymbol,
-		/** Amount. */
-		String amount,
-		/** Total price. */
-		String totalPrice,
-		/** Unit price. */
-		String unitPrice,
-		/** Order status. */
-		String orderStatus,
-		/** Create time. */
-		long createTime,
-		/** Commission. */
-		String commission,
-		/** Counter part nickname. */
-		String counterPartNickName,
-		/** Advertisement role. */
-		String advertisementRole) {
+public record Trade(String orderNumber, long advNo, String tradeType, String asset, String fiat, String fiatSymbol, String amount, String totalPrice,
+		String unitPrice, String orderStatus, long createTime, String commission, String counterPartNickName, String advertisementRole) {
 }

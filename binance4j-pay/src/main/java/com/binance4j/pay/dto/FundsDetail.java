@@ -6,9 +6,5 @@ package com.binance4j.pay.dto;
  * @param currency The asset.
  * @param amount   The amount.
  */
-public record FundsDetail(
-		/** The asset. */
-		String currency,
-		/** The amount. */
-		String amount) {
+public record FundsDetail(String currency, String amount) {
 }

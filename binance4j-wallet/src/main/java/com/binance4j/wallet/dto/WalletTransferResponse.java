@@ -7,7 +7,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * @param transactionId The transaction id.
  */
-public record WalletTransferResponse(
-		/** The transaction id. */
-		@JsonProperty("tranId") long transactionId) {
+public record WalletTransferResponse(@JsonProperty("tranId") long transactionId) {
 }

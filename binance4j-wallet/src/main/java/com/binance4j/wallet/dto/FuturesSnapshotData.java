@@ -8,9 +8,5 @@ import java.util.List;
  * @param assets   The assets balances.
  * @param position Account snapshot position
  */
-public record FuturesSnapshotData(
-		/** The assets balances. */
-		List<FuturesSnapshotDataAssets> assets,
-		/** Account snapshot position */
-		List<FuturesAccountSnapshotPosition> position) {
+public record FuturesSnapshotData(List<FuturesSnapshotDataAssets> assets, List<FuturesAccountSnapshotPosition> position) {
 }

@@ -5,7 +5,5 @@ package com.binance4j.market.dto;
  * 
  * @param serverTime The server time in ms.
  */
-public record ServerTimeResponse(
-		/** The server time in ms. */
-		long serverTime) {
+public record ServerTimeResponse(long serverTime) {
 }

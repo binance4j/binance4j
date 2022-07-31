@@ -11,15 +11,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transactionId   Transaction ID.
  * @param timestamp       Deposit time in ms.
  */
-public record Deposit(
-		/** NFT Network. */
-		String network,
-		/** NFT Contract Address. */
-		String contractAddress,
-		/** NFT Token ID. */
-		String tokenId,
-		/** Transaction ID. */
-		@JsonProperty("txID") String transactionId,
-		/** Deposit time in ms. */
-		long timestamp) {
+public record Deposit(String network, String contractAddress, String tokenId, @JsonProperty("txID") String transactionId, long timestamp) {
 }

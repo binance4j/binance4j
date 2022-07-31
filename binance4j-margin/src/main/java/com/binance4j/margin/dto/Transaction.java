@@ -7,7 +7,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * @param id The transaction id.
  */
-public record Transaction(
-		/** The transaction id. */
-		@JsonProperty("tranId") String id) {
+public record Transaction(@JsonProperty("tranId") String id) {
 }

@@ -8,13 +8,5 @@ package com.binance4j.core.dto;
  * @param intervalNum   The limit interval number.
  * @param limit         The limit for the given interval.
  */
-public record RateLimit(
-		/** The rate limit type. */
-		String rateLimitType,
-		/** The limit interval type. */
-		String interval,
-		/** The limit interval number. */
-		int intervalNum,
-		/** The limit for the given interval. */
-		int limit) {
+public record RateLimit(String rateLimitType, String interval, int intervalNum, int limit) {
 }

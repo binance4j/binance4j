@@ -1,13 +1,13 @@
 package com.binance4j.mining.client;
 
 import java.util.Map;
-
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.mining.dto.AlgorithmsAquisitionResponse;
 import com.binance4j.mining.dto.CoinsAquisitionResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
-import com.binance4j.mining.dto.MinersResponse;
-
+import com.binance4j.mining.dto.OtherProfitsResponse;
+import com.binance4j.mining.dto.ProfitResponse;
+import com.binance4j.mining.dto.WorkersResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -49,7 +49,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "worker/list")
 	@Headers(SIGNED_H)
-	Call<MinersResponse> getMiners(@QueryMap Map<String, Object> map);
+	Call<WorkersResponse> getMiners(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -57,7 +57,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "payment/list")
 	@Headers(SIGNED_H)
-	Call<Void> getProfits(@QueryMap Map<String, Object> map);
+	Call<ProfitResponse> getProfits(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -65,7 +65,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "payment/other")
 	@Headers(SIGNED_H)
-	Call<Void> getOtherProfits(@QueryMap Map<String, Object> map);
+	Call<OtherProfitsResponse> getOtherProfits(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.

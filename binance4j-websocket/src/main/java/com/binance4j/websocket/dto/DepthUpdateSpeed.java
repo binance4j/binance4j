@@ -2,7 +2,6 @@ package com.binance4j.websocket.dto;
 
 /** The order book update speed */
 public enum DepthUpdateSpeed {
-
 	/** Update of 1000ms. */
 	MS_1000("1000ms"),
 	/** Update of 100ms. */

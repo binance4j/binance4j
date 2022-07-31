@@ -4,7 +4,6 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 
 /** A websocket client */
 public interface WebsocketClient {
-
 	/** Opens the stream. */
 	void open();
 

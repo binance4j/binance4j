@@ -13,19 +13,8 @@ import java.util.List;
  * @param isBuyerMaker  Was it a buyer maker.
  * @param isBestMatch   Was it the best price match?
  */
-public record VisionTrade(
-		/** The trade id. */
-		long tradeId,
-		/** The timestamp. */
-		long time,
-		/** The price. */
-		String price,
-		/** The quantity. */
-		String quantity,
-		/** The quote asset quantity. */
-		String quoteQuantity,
-		/** Was it a buyer maker. */
-		boolean isBuyerMaker, /** Was it the best price match? */
+public record VisionTrade(long tradeId, long time, String price, String quantity, String quoteQuantity, boolean isBuyerMaker,
+		/** Was it the best price match? */
 		boolean isBestMatch) {
 	/**
 	 * @param input A csv line in a list format

@@ -11,15 +11,5 @@ import java.util.List;
  * @param limit     Results limit.
  * @param moreData  Is there more data?
  */
-public record ConversionHistory(
-		/** The conversions. */
-		List<Conversion> list,
-		/** Start time in ms. */
-		long startTime,
-		/** End time in ms. */
-		long endTime,
-		/** Results limit. */
-		int limit,
-		/** Is there more data? */
-		boolean moreData) {
+public record ConversionHistory(List<Conversion> list, long startTime, long endTime, int limit, boolean moreData) {
 }

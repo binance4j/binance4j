@@ -11,17 +11,5 @@ package com.binance4j.wallet.dto;
  * @param withdrawing  The pending volume withdrawing.
  * @param btcValuation The value of the balance in BTC.
  */
-public record FundingAsset(
-		/** The asset abbreviation. */
-		String asset,
-		/** The available balancve. */
-		String free,
-		/** The locked balance (volume in the order book). */
-		String locked,
-		/** The freezed balance. Locked by binance (?) */
-		String freeze,
-		/** The pending volume withdrawing. */
-		String withdrawing,
-		/** The value of the balance in BTC. */
-		String btcValuation) {
+public record FundingAsset(String asset, String free, String locked, String freeze, String withdrawing, String btcValuation) {
 }

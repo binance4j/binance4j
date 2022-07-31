@@ -10,7 +10,6 @@ import com.binance4j.websocket.client.WebsocketCandlestickClient;
 import com.binance4j.websocket.dto.Candle;
 
 class WebsocketCandlestickClientTest {
-
 	TestCallback<Candle> callback = new TestCallback<>();
 
 	@Test

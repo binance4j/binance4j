@@ -12,7 +12,6 @@ import retrofit2.Call;
 /** The aggregated trade request executor */
 @Param
 public class AggTradeParams extends VisionParams<AggTrade> {
-
 	/**
 	 * @param call The API call.
 	 */

@@ -17,21 +17,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param status         The repay status.
  * @see LoanStatus
  */
-public record RepayRecord(
-		/** The transaction id. */
-		@JsonProperty("txId") long transactionId,
-		/** The transaction timestamp in ms. */
-		long timestamp,
-		/** The isolated symbol, will not be returned for crossed margin. */
-		Optional<String> isolatedSymbol,
-		/** The total amount repaid. */
-		String amount,
-		/** The asset. */
-		String asset,
-		/** The interest repaid. */
-		String interest,
-		/** The quantity repaid. */
-		String principal,
+public record RepayRecord(@JsonProperty("txId") long transactionId, long timestamp, Optional<String> isolatedSymbol, String amount, String asset,
+		String interest, String principal,
 		/**
 		 * The repay status.
 		 * 

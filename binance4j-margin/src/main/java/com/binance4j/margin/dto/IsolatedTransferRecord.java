@@ -13,17 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferFrom  The account the asset is transfered from.
  * @param transferTo    The account the asset is transfered to.
  */
-public record IsolatedTransferRecord(
-		/** The transfered amount. */
-		String amount,
-		/** The transfered asset. */
-		String asset,
-		/** The transfer status. */
-		String status,
-		/** The transfer timestamp in ms. */
-		long timestamp,
-		/** The transaction id. */
-		@JsonProperty("txId") long transactionId,
+public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, @JsonProperty("txId") long transactionId,
 		/**
 		 * The account the asset is transfered from.
 		 * 

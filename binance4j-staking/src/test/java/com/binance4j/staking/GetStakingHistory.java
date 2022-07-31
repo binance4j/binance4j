@@ -1,16 +1,13 @@
 package com.binance4j.staking;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.dto.TransactionType;
 import com.binance4j.staking.param.HistoryParams;
 
 public class GetStakingHistory extends StakingTest {
-
 	public void test(Object bean) {
 		var nulls = getNullProperties(bean);
 		assertTrue(nulls.contains("deliverDate") || !nulls.contains("deliverDate"));

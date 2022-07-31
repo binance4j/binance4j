@@ -148,5 +148,4 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	public Request<List<LimitInfo>> getLimitInfo() {
 		return new Request<>(service.getLimitInfo(new LimitInfoParams().toMap()));
 	}
-
 }

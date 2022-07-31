@@ -10,13 +10,5 @@ import java.util.List;
  * @param totalPageNum The total pages.
  * @param data         The rebates.
  */
-public record RebateData(
-		/** The current page. */
-		int page,
-		/** The total records. */
-		int totalRecords,
-		/** The total pages. */
-		int totalPageNum,
-		/** The rebates. */
-		List<Rebate> data) {
+public record RebateData(int page, int totalRecords, int totalPageNum, List<Rebate> data) {
 }

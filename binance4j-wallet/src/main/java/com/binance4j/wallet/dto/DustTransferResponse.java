@@ -9,11 +9,5 @@ import java.util.List;
  * @param totalTransfered    The volume converted into BNB after fees.
  * @param transferResult     Detailed transfer result asset by asset.
  */
-public record DustTransferResponse(
-		/** The fees. */
-		String totalServiceCharge,
-		/** The volume converted into BNB after fees. */
-		String totalTransfered,
-		/** Detailed transfer result asset by asset. */
-		List<DustTransferResult> transferResult) {
+public record DustTransferResponse(String totalServiceCharge, String totalTransfered, List<DustTransferResult> transferResult) {
 }

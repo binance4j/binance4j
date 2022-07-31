@@ -7,11 +7,5 @@ package com.binance4j.blvt.dto;
  * @param amount        Amount.
  * @param notionalValue Notional value.
  */
-public record Basket(
-		/** Symbol. */
-		String symbol,
-		/** Amount. */
-		String amount,
-		/** Notional value. */
-		String notionalValue) {
+public record Basket(String symbol, String amount, String notionalValue) {
 }

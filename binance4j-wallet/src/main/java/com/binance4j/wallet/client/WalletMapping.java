@@ -37,7 +37,6 @@ import retrofit2.http.QueryMap;
 
 /** Binance Wallet endpoints mapping. */
 public interface WalletMapping extends RestMapping {
-
 	/** Base url */
 	String BASE = "/sapi/v1/";
 	/** Base url */

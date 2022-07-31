@@ -18,7 +18,6 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
 @Param
 public record IsolatedTransferHistoryParams(@Mandatory String symbol, String asset, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo,
 		Boolean archived) implements Params {
-
 	/**
 	 * Creates an instance of {@link IsolatedTransferHistoryParams}.
 	 * 

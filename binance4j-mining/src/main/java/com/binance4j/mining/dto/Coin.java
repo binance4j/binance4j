@@ -9,15 +9,5 @@ package com.binance4j.mining.dto;
  * @param algoId    The algorithm id.
  * @param algoName  The name of the algorithm.
  */
-public record Coin(
-		/** The currency name. */
-		String coinName,
-		/** The coin id. */
-		long coinId,
-		/** The pool index. */
-		long poolIndex,
-		/** The algorithm id. */
-		long algoId,
-		/** The name of the algorithm. */
-		String algoName) {
+public record Coin(String coinName, long coinId, long poolIndex, long algoId, String algoName) {
 }

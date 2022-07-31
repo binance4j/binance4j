@@ -6,9 +6,5 @@ package com.binance4j.market.dto;
  * @param mins  Mins.
  * @param price The average price of the asset.
  */
-public record AveragePrice(
-		/** Mins */
-		int mins,
-		/** The average price of the asset. */
-		String price) {
+public record AveragePrice(int mins, String price) {
 }

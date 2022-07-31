@@ -8,13 +8,5 @@ package com.binance4j.savings.dto;
  * @param leftQuota           Left quota.
  * @param minRedemptionAmount Min redemption amount.
  */
-public record RedemptionQuota(
-		/** Asset. */
-		String asset,
-		/** Daily quota. */
-		String dailyQuota,
-		/** Left quota. */
-		String leftQuota,
-		/** Min redemption amount. */
-		String minRedemptionAmount) {
+public record RedemptionQuota(String asset, String dailyQuota, String leftQuota, String minRedemptionAmount) {
 }

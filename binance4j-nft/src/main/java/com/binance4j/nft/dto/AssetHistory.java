@@ -8,9 +8,5 @@ import java.util.List;
  * @param total Total records.
  * @param list  The transactions.
  */
-public record AssetHistory(
-		/** Total records. */
-		long total,
-		/** The transactions. */
-		List<Asset> list) {
+public record AssetHistory(long total, List<Asset> list) {
 }

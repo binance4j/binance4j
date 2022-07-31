@@ -2,7 +2,6 @@ package com.binance4j.staking.client;
 
 import java.util.List;
 import java.util.Map;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;

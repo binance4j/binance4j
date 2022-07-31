@@ -13,7 +13,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 50)
 public record MaxBorrowableParams(@Mandatory String asset, String isolatedSymbol) implements Params {
-
 	/**
 	 * Creates an instance of {@link MaxBorrowableParams}.
 	 * 

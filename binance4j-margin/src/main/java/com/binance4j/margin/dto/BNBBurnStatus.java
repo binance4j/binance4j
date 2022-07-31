@@ -8,9 +8,5 @@ import com.binance4j.margin.client.MarginClient;
  * @param spotBNBBurn     Is spot BNB burn allowed.
  * @param interestBNBBurn Is interest BNB burn allowed.
  */
-public record BNBBurnStatus(
-		/** Is spot BNB burn allowed */
-		boolean spotBNBBurn,
-		/** Is interest BNB burn allowed */
-		boolean interestBNBBurn) {
+public record BNBBurnStatus(boolean spotBNBBurn, boolean interestBNBBurn) {
 }

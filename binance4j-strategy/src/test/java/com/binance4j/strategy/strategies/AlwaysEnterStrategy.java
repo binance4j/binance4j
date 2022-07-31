@@ -5,7 +5,6 @@ import org.ta4j.core.BarSeries;
 import org.ta4j.core.Rule;
 import org.ta4j.core.indicators.helpers.ConstantIndicator;
 import org.ta4j.core.rules.BooleanIndicatorRule;
-
 import com.binance4j.strategy.TradingStrategy;
 
 /** A strategy that always enters */

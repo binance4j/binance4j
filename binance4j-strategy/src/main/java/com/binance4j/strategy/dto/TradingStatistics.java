@@ -1,7 +1,6 @@
 package com.binance4j.strategy.dto;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.Trade;
 import org.ta4j.core.TradingRecord;
@@ -93,7 +92,6 @@ public class TradingStatistics {
 	public TradingStatistics(TradingRecord tradingRecord, BarSeries series) {
 		this.tradingRecord = tradingRecord;
 		this.series = series;
-
 		grossReturn = getCriterionResult(GrossReturnCriterion.class);
 		grossProfit = getCriterionResult(GrossProfitCriterion.class);
 		grossLoss = getCriterionResult(GrossLossCriterion.class);
@@ -340,5 +338,4 @@ public class TradingStatistics {
 	public String getWinningPositionsRatio() {
 		return winningPositionsRatio;
 	}
-
 }

@@ -12,17 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isBorrowable      Is it borrowable?
  * @param isMortgageable    Is it mortgageable?
  */
-public record Asset(
-		/** The asset full name. */
-		String assetFullName,
-		/** The asset name. */
-		String assetName,
-		/** The user minimum borrow. */
-		@JsonProperty("userMinBorrow") String userMinimumBorrow,
-		/** The user minimum repay. */
-		@JsonProperty("userMinRepay") String userMinimumRepay,
-		/** Is it borrowable? */
-		boolean isBorrowable,
-		/** Is it mortgageable? */
-		boolean isMortgageable) {
+public record Asset(String assetFullName, String assetName, @JsonProperty("userMinBorrow") String userMinimumBorrow,
+		@JsonProperty("userMinRepay") String userMinimumRepay, boolean isBorrowable, boolean isMortgageable) {
 }

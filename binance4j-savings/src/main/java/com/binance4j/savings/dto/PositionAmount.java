@@ -8,13 +8,5 @@ package com.binance4j.savings.dto;
  * @param amountInUSDT Amount in USDT.
  * @param asset        Asset.
  */
-public record PositionAmount(
-		/** Amount. */
-		String amount,
-		/** Amount in BTC. */
-		String amountInBTC,
-		/** Amount in USDT. */
-		String amountInUSDT,
-		/** Asset. */
-		String asset) {
+public record PositionAmount(String amount, String amountInBTC, String amountInUSDT, String asset) {
 }

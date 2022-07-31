@@ -9,15 +9,5 @@ package com.binance4j.savings.dto;
  * @param productName ProductName.
  * @param time        Time in ms.
  */
-public record Interest(
-		/** Asset. */
-		String asset,
-		/** Interest. */
-		String interest,
-		/** LendingType. */
-		String lendingType,
-		/** ProductName. */
-		String productName,
-		/** Time in ms. */
-		long time) {
+public record Interest(String asset, String interest, String lendingType, String productName, long time) {
 }

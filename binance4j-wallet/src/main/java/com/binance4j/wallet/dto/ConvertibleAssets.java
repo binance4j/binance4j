@@ -10,13 +10,5 @@ import java.util.List;
  * @param totalTransferBNB   The BNB valuation.
  * @param dribbletPercentage The commission fee.
  */
-public record ConvertibleAssets(
-		/** Details. */
-		List<ConvertibleAsset> details,
-		/** The BTC valuation. */
-		String totalTransferBtc,
-		/** The BNB valuation. */
-		String totalTransferBNB,
-		/** The commission fee. */
-		String dribbletPercentage) {
+public record ConvertibleAssets(List<ConvertibleAsset> details, String totalTransferBtc, String totalTransferBNB, String dribbletPercentage) {
 }

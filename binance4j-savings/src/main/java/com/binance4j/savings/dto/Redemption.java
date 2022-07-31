@@ -12,21 +12,5 @@ package com.binance4j.savings.dto;
  * @param status      Status.
  * @param type        Type.
  */
-public record Redemption(
-		/** Amount. */
-		String amount,
-		/** Asset. */
-		String asset,
-		/** Create time. */
-		long createTime,
-		/** Principal. */
-		String principal,
-		/** Project id. */
-		String projectId,
-		/** Project name. */
-		String projectName,
-		/** Status. */
-		String status,
-		/** Type. */
-		String type) {
+public record Redemption(String amount, String asset, long createTime, String principal, String projectId, String projectName, String status, String type) {
 }

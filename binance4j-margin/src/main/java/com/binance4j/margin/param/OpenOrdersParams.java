@@ -12,7 +12,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record OpenOrdersParams(String symbol, Boolean isIsolated) implements Params {
-
 	/**
 	 * Creates an instance of {@link OpenOrdersParams}.
 	 */

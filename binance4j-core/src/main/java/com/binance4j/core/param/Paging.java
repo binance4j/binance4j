@@ -7,7 +7,6 @@ package com.binance4j.core.param;
  * @param limit The number of rows.
  */
 public record Paging(Integer page, Integer limit) implements Params {
-
 	/**
 	 * Creates an instance of {@link Paging}.
 	 * 

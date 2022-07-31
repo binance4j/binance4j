@@ -8,9 +8,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param symbol   Futures symbol.
  * @param position Position.
  */
-public record BLVTBasket(
-		/** Futures symbol. */
-		@JsonProperty("s") String symbol,
-		/** Position. */
-		@JsonProperty("n") long position) {
+public record BLVTBasket(@JsonProperty("s") String symbol, @JsonProperty("n") long position) {
 }

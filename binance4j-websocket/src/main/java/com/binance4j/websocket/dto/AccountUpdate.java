@@ -17,12 +17,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param balances  The assets balance.
  * @see UserDataUpdate
  */
-
-public record AccountUpdate(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The assets balance. */
+public record AccountUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime,
 		@JsonProperty("B") @JsonDeserialize(contentUsing = AssetBalanceDeserializer.class) List<AssetBalance> balances) {
 }

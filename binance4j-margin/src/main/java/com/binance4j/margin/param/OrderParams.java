@@ -15,7 +15,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record OrderParams(@Mandatory String symbol, Long orderId, Boolean isIsolated, String origClientOrderId) implements Params {
-
 	/**
 	 * Creates an instance of {@link OrderParams}.
 	 * 
@@ -65,5 +64,4 @@ public record OrderParams(@Mandatory String symbol, Long orderId, Boolean isIsol
 	public OrderParams(String symbol, long orderId, Boolean isIsolated) {
 		this(symbol, orderId, isIsolated, null);
 	}
-
 }

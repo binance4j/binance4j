@@ -6,7 +6,6 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 
 class GetSpotAccountSnapshotTest extends WalletTest {
-
 	@Test
 	void testGetSpotAccountSnapshot() throws ApiException {
 		testNoNulls(client.getSpotAccountSnapshot());

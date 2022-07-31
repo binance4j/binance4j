@@ -14,19 +14,6 @@ package com.binance4j.margin.dto;
  * @param quoteAssetMaxBorrowable The quote asset max borrowable.
  * @see <a href="https://www.binance.com/en/margin-data">Documentation</a>
  */
-public record IsolatedTierData(
-		/** The related symbol. */
-		String symbol,
-		/** The tier. */
-		int tier,
-		/** The effective multiple. */
-		String effectiveMultiple,
-		/** The initial risk ratio. */
-		String initialRiskRatio,
-		/** The liquidation risk ratio. */
-		String liquidationRiskRatio,
-		/** The base asset max borrowable. */
-		String baseAssetMaxBorrowable,
-		/** The quote asset max borrowable. */
-		String quoteAssetMaxBorrowable) {
+public record IsolatedTierData(String symbol, int tier, String effectiveMultiple, String initialRiskRatio, String liquidationRiskRatio,
+		String baseAssetMaxBorrowable, String quoteAssetMaxBorrowable) {
 }

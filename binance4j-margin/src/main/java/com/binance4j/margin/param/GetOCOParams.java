@@ -14,7 +14,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record GetOCOParams(String symbol, Boolean isIsolated, Long orderListId, String origClientOrderId) implements Params {
-
 	/**
 	 * Creates an instance of {@link GetOCOParams}.
 	 * 

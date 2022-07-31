@@ -5,6 +5,5 @@ import org.junit.jupiter.api.Test;
 public class CancelOrderTest extends MarginTest {
 	@Test
 	void test1() {
-
 	}
 }

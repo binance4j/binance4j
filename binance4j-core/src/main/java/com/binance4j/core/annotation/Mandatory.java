@@ -11,5 +11,4 @@ import com.binance4j.core.param.Params;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Mandatory {
-
 }

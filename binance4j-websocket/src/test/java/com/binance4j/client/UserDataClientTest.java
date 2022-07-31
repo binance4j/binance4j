@@ -12,7 +12,6 @@ import com.binance4j.websocket.param.IsolatedUserDataStreamParams;
 import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams;
 
 class UserDataClientTest {
-
 	final UserDataClient client;
 
 	UserDataClientTest() {
@@ -24,7 +23,6 @@ class UserDataClientTest {
 	void testUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startUserDataStream().execute();
 		assertTrue(listenKey.listenKey().length() > 0);
-
 		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.listenKey()));
 		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).execute());
 	}
@@ -33,19 +31,16 @@ class UserDataClientTest {
 	void testMarginUserDataStream() throws ApiException {
 		ListenKey listenKey = client.startMarginUserDataStream().execute();
 		assertTrue(listenKey.listenKey().length() > 0);
-
 		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
 		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).execute());
-	}
+	} // TODO activate isolated account
+		// @Test
 
-	// TODO activate isolated account
-	// @Test
 	void testIsolatedUserDataStream() throws ApiException {
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams("BNBBUSD");
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
 		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams("BNBBUSD",
 				listenKey.listenKey());
-
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
 		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).execute());

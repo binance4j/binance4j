@@ -10,24 +10,18 @@ import org.ta4j.core.rules.CrossedDownIndicatorRule;
 import org.ta4j.core.rules.CrossedUpIndicatorRule;
 import org.ta4j.core.rules.OverIndicatorRule;
 import org.ta4j.core.rules.UnderIndicatorRule;
-
 import com.binance4j.strategy.TradingStrategy;
 
 /** Test Strategy */
 public class TwoPeriodRSIStrategy implements TradingStrategy {
-
 	@NotNull
 	@Override
 	public Rule entry(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);
 		SMAIndicator shortSma = new SMAIndicator(closePrice, 5);
-		SMAIndicator longSma = new SMAIndicator(closePrice, 200);
-
-		// We use a 2-period RSI indicator to identify buying
+		SMAIndicator longSma = new SMAIndicator(closePrice, 200); // We use a 2-period RSI indicator to identify buying
 		// or selling opportunities within the bigger trend.
-		RSIIndicator rsi = new RSIIndicator(closePrice, 2);
-
-		// Entry rule
+		RSIIndicator rsi = new RSIIndicator(closePrice, 2); // Entry rule
 		// The long-term trend is up when a security is above its 200-period SMA.
 		return new OverIndicatorRule(shortSma, longSma) // Trend
 				.and(new CrossedDownIndicatorRule(rsi, 5)) // Signal 1
@@ -39,13 +33,9 @@ public class TwoPeriodRSIStrategy implements TradingStrategy {
 	public Rule exit(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);
 		SMAIndicator shortSma = new SMAIndicator(closePrice, 5);
-		SMAIndicator longSma = new SMAIndicator(closePrice, 200);
-
-		// We use a 2-period RSI indicator to identify buying
+		SMAIndicator longSma = new SMAIndicator(closePrice, 200); // We use a 2-period RSI indicator to identify buying
 		// or selling opportunities within the bigger trend.
-		RSIIndicator rsi = new RSIIndicator(closePrice, 2);
-
-		// Exit rule
+		RSIIndicator rsi = new RSIIndicator(closePrice, 2); // Exit rule
 		// The long-term trend is down when a security is below its 200-period SMA.
 		return new UnderIndicatorRule(shortSma, longSma) // Trend
 				.and(new CrossedUpIndicatorRule(rsi, 95)) // Signal 1

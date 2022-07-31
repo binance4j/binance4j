@@ -56,7 +56,6 @@ import com.binance4j.wallet.param.WithdrawParams;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints">Documentation</a>
  */
 public class WalletClient extends RestClient<WalletMapping> {
-
 	/**
 	 * @param key    The API public key.
 	 * @param secret The API secret key.
@@ -287,7 +286,6 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory() {
 		return getWithdrawHistory(new WithdrawHistoryParams());
-
 	}
 
 	/**

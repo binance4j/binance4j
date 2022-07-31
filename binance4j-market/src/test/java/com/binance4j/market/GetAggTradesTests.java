@@ -2,18 +2,14 @@ package com.binance4j.market;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.market.param.AggTradeParams;
 
 public class GetAggTradesTests extends MarketTest {
-
 	@Test
 	public void test1() throws ApiException {
 		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol)).execute();

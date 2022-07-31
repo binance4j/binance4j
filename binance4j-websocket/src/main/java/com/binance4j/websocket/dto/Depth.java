@@ -16,20 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param bids          The offers.
  * @param asks          The demands.
  */
-
-public record Depth(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** First update id. */
-		@JsonProperty("U") Long firstUpdateId,
-		/** Last update id. */
-		@JsonProperty("u") Long finalUpdateId,
-		/** The offers. */
-		@JsonProperty("b") List<OrderBookEntry> bids,
-		/** The demands. */
+public record Depth(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
+		@JsonProperty("U") Long firstUpdateId, @JsonProperty("u") Long finalUpdateId, @JsonProperty("b") List<OrderBookEntry> bids,
 		@JsonProperty("a") List<OrderBookEntry> asks) {
 }

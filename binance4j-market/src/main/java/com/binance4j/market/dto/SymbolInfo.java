@@ -1,7 +1,6 @@
 package com.binance4j.market.dto;
 
 import java.util.List;
-
 import com.binance4j.market.serialization.SymbolFiltersDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -27,37 +26,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param isMarginTradingAllowed          Is margin trading allowed?
  * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
  */
-public record SymbolInfo(
-		/** The allowed orders on the symbol*. */
-		List<String> orderTypes,
-		/** The symbol filters. */
-		@JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
-		/** The symbol permission. */
-		List<String> permissions,
-		/** The symbol name. */
-		String symbol,
-		/** The quote asset. */
-		String quoteAsset,
-		/** The base asset. */
-		String baseAsset,
-		/** The base asset precision. */
-		int baseAssetPrecision,
-		/** The base asset commission precision. */
-		int baseCommissionPrecision,
-		/** The quote asset precision. */
-		int quoteAssetPrecision,
-		/** The quote asset commission precision. */
-		int quoteCommissionPrecision,
-		/** Are iceberg orders allowed? */
-		boolean icebergAllowed,
-		/** Are OCO orders allowed? */
-		boolean ocoAllowed,
-		/** Are orders by quote quantity allowed? */
-		@JsonProperty("quoteOrderQtyMarketAllowed") boolean quoteOrderQuantityMarketAllowed,
-		/** Is spot trading allowed? */
-		boolean isSpotTradingAllowed,
-		/** Is margin trading allowed? */
-		boolean isMarginTradingAllowed,
+public record SymbolInfo(List<String> orderTypes, @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters, List<String> permissions,
+		String symbol, String quoteAsset, String baseAsset, int baseAssetPrecision, int baseCommissionPrecision, int quoteAssetPrecision,
+		int quoteCommissionPrecision, boolean icebergAllowed, boolean ocoAllowed,
+		@JsonProperty("quoteOrderQtyMarketAllowed") boolean quoteOrderQuantityMarketAllowed, boolean isSpotTradingAllowed, boolean isMarginTradingAllowed,
 		/**
 		 * The symbol status.
 		 * 

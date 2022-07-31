@@ -1,9 +1,7 @@
 package com.binance4j.nft;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.nft.dto.WithdrawHistory;

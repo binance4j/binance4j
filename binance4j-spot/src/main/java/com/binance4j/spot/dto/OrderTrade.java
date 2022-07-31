@@ -9,15 +9,5 @@ package com.binance4j.spot.dto;
  * @param commissionAsset The commission asset.
  * @param tradeId         The trade id.
  */
-public record OrderTrade(
-		/** The price. */
-		String price,
-		/** The quantity. */
-		String quantity,
-		/** The commission. */
-		String commission,
-		/** The commission asset. */
-		String commissionAsset,
-		/** The trade id. */
-		long tradeId) {
+public record OrderTrade(String price, String quantity, String commission, String commissionAsset, long tradeId) {
 }

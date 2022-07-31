@@ -19,31 +19,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param realLeverage  Real leverage.
  * @param updateNumbers Number of updates.
  */
-public record BLVTCandle(
-		/** Start time. */
-		@JsonProperty("t") long startTime,
-		/** End time. */
-		@JsonProperty("T") long endTime,
-		/** Name. */
-		@JsonProperty("s") String name,
-		/** Interval. */
-		@JsonProperty("i") CandlestickInterval interval,
-		/** First update. */
-		@JsonProperty("f") long firstUpdate,
-		/** Last update. */
-		@JsonProperty("L") long lastUpdate,
-		/** Open. */
-		@JsonProperty("o") String open,
-		/** Close. */
-		@JsonProperty("c") String close,
-		/** High. */
-		@JsonProperty("h") String high,
-		/** Low. */
-		@JsonProperty("l") String low,
-		/** Real leverage. */
-		@JsonProperty("v") String realLeverage,
-		/** Number of updates. */
-		@JsonProperty("n") long updateNumbers
+public record BLVTCandle(@JsonProperty("t") long startTime, @JsonProperty("T") long endTime, @JsonProperty("s") String name,
+		@JsonProperty("i") CandlestickInterval interval, @JsonProperty("f") long firstUpdate, @JsonProperty("L") long lastUpdate,
+		@JsonProperty("o") String open, @JsonProperty("c") String close, @JsonProperty("h") String high, @JsonProperty("l") String low,
+		@JsonProperty("v") String realLeverage, @JsonProperty("n") long updateNumbers
 // Ignore:
 // @JsonProperty("x") boolean x,
 // @JsonProperty("q") String q,
@@ -51,5 +30,4 @@ public record BLVTCandle(
 // @JsonProperty("Q") String Q,
 // @JsonProperty("B") String B,
 ) {
-
 }

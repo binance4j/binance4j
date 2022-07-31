@@ -6,9 +6,5 @@ package com.binance4j.margin.dto;
  * @param success Was the request a success?
  * @param symbol  The enabled/disabled symbol.
  */
-public record ToogleAccountResponse(
-		/** Was the request a success? */
-		boolean success,
-		/** The enabled/disabled symbol. */
-		String symbol) {
+public record ToogleAccountResponse(boolean success, String symbol) {
 }

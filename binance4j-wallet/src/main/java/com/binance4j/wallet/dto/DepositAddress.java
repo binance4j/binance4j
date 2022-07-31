@@ -8,13 +8,5 @@ package com.binance4j.wallet.dto;
  * @param tag     The deposit tag.
  * @param coin    The coin abbreviation.
  */
-public record DepositAddress(
-		/** The deposit url. */
-		String url,
-		/** The deposit address. */
-		String address,
-		/** The deposit tag. */
-		String tag,
-		/** The coin abbreviation. */
-		String coin) {
+public record DepositAddress(String url, String address, String tag, String coin) {
 }

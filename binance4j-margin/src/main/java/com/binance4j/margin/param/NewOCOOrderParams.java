@@ -261,5 +261,4 @@ public class NewOCOOrderParams implements Params {
 	public void setNewOrderRespType(NewOrderResponseType newOrderRespType) {
 		this.newOrderRespType = newOrderRespType;
 	}
-
 }

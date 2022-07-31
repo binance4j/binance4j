@@ -12,17 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp     The transaction time in ms.
  * @param type          The transfer history type.
  */
-public record TransferRecord(
-		/** The transaction id. */
-		@JsonProperty("txId") long transactionId,
-		/** The transfered amount. */
-		String amount,
-		/** The transfered asset. */
-		String asset,
-		/** The transfer status. */
-		String status,
-		/** The transaction time in ms. */
-		long timestamp,
+public record TransferRecord(@JsonProperty("txId") long transactionId, String amount, String asset, String status, long timestamp,
 		/**
 		 * The transfer history type.
 		 * 

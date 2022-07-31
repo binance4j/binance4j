@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 /** The coin deposit status */
 public enum DepositStatus {
-
 	/** Pending */
 	PENDING(0),
 	/** Cannot withdraw */

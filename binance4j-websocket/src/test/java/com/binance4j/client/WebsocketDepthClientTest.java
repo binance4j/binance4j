@@ -10,7 +10,6 @@ import com.binance4j.websocket.dto.Depth;
 import com.binance4j.websocket.dto.DepthUpdateSpeed;
 
 class WebsocketDepthClientTest {
-
 	TestCallback<Depth> callback = new TestCallback<>();
 
 	@Test

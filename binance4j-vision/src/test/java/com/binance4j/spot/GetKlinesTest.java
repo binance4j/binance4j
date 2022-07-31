@@ -13,14 +13,12 @@ public class GetKlinesTest extends SpotTest {
 	@Test
 	void testInvalidDate() {
 		Exception exception = assertThrows(ApiException.class, () -> client.getKlines(symbol, interval, year, month, "32").getData());
-
 		assertTrue(exception.getMessage().contains(new InvalidDateException().getMessage()));
 	}
 
 	@Test
 	void testNotFoundSync() {
 		Exception exception = assertThrows(ApiException.class, () -> client.getKlines(symbol, interval, "1995", month, day).getData());
-
 		assertTrue(exception.getMessage().contains(new NotFoundException().getMessage()));
 	}
 

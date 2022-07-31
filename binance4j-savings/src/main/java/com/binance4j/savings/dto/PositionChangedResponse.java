@@ -9,11 +9,5 @@ import com.binance4j.savings.client.SavingsClient;
  * @param success         Success.
  * @param time            Time.
  */
-public record PositionChangedResponse(
-		/** Daily purchase id. */
-		long dailyPurchaseId,
-		/** Success. */
-		boolean success,
-		/** Time. */
-		long time) {
+public record PositionChangedResponse(long dailyPurchaseId, boolean success, long time) {
 }

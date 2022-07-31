@@ -14,14 +14,12 @@ public class GetChecksumTest extends SpotTest {
 	@Test
 	void testInvalidDate() {
 		Exception exception = assertThrows(ApiException.class, () -> client.getAggTradesChecksum(symbol, year, month, "32").getChecksum());
-
 		assertTrue(exception.getMessage().contains(new InvalidDateException().getMessage()));
 	}
 
 	@Test
 	void testNotFoundSync() {
 		Exception exception = assertThrows(ApiException.class, () -> client.getAggTradesChecksum(symbol, "1995", month, day).getChecksum());
-
 		assertTrue(exception.getMessage().contains(new NotFoundException().getMessage()));
 	}
 

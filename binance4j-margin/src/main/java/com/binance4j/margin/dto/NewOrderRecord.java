@@ -27,37 +27,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isIsolated               Is the order isolated?
  * @param fills                    The filled trades.
  */
-public record NewOrderRecord(
-		/** The order id. */
-		long orderId,
-		/** The traded symbol. */
-		String symbol,
-		/** The order side. */
-		OrderSide side,
-		/** The order status. */
-		String status,
-		/** The order type. */
-		String type,
-		/** The order time in force. */
-		String timeInForce,
-		/** The transaction time. */
-		@JsonProperty("transactTime") long transactionTime,
-		/** The client order id. */
-		String clientOrderId,
-		/** The symbol price. */
-		String price,
-		/** The order original quantity. */
-		@JsonProperty("origQty") String originalQuantity,
-		/** The order executed quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** The cumulative quote quantity. */
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		/** The margin buy borrow amount. Will not return if no margin trade happens. */
-		Optional<String> marginBuyBorrowAmount,
-		/** The margin buy borrow asset. Will not return if no margin trade happens. */
-		Optional<String> marginBuyBorrowAsset,
-		/** Is the order isolated? */
-		boolean isIsolated,
-		/** The filled trades. */
-		List<Trade> fills) {
+public record NewOrderRecord(long orderId, String symbol, OrderSide side, String status, String type, String timeInForce,
+		@JsonProperty("transactTime") long transactionTime, String clientOrderId, String price, @JsonProperty("origQty") String originalQuantity,
+		@JsonProperty("executedQty") String executedQuantity, @JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
+		Optional<String> marginBuyBorrowAmount, Optional<String> marginBuyBorrowAsset, boolean isIsolated, List<Trade> fills) {
 }

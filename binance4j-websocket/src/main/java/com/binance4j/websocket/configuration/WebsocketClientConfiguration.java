@@ -30,7 +30,6 @@ public class WebsocketClientConfiguration {
 	Duration noResponseTimeoutMarginError = Duration.ofSeconds(5);
 	/** Time after which the client disconnects if stuck in closing state. */
 	Duration disconnectionTimeout = Duration.ofSeconds(5);
-
 	/**
 	 * Time after wich the client will disconnect. Default: 1 day.
 	 */
@@ -197,5 +196,4 @@ public class WebsocketClientConfiguration {
 				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval + ", reconnectionInterval="
 				+ reconnectionInterval + ", reconnectionRetries=" + reconnectionRetries + ", websocketPort=" + websocketPort + "]";
 	}
-
 }

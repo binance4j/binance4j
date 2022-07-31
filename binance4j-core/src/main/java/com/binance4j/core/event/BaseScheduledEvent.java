@@ -123,7 +123,6 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		public void setMaxTicks(int maxTicks) {
 			this.maxTicks = maxTicks;
 		}
-
 	}
 
 	/**

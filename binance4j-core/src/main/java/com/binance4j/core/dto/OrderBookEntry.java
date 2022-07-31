@@ -13,9 +13,5 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()
-public record OrderBookEntry(
-		/** The price. */
-		String price,
-		/** The quantity. */
-		@JsonProperty("qt") String quantity) {
+public record OrderBookEntry(String price, @JsonProperty("qt") String quantity) {
 }

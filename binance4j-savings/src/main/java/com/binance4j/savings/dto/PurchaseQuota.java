@@ -6,9 +6,5 @@ package com.binance4j.savings.dto;
  * @param asset     Asset.
  * @param leftQuota Left quota.
  */
-public record PurchaseQuota(
-		/** Asset. */
-		String asset,
-		/** Left quota. */
-		String leftQuota) {
+public record PurchaseQuota(String asset, String leftQuota) {
 }

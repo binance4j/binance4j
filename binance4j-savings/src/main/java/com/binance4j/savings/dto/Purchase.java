@@ -12,21 +12,5 @@ package com.binance4j.savings.dto;
  * @param purchaseId  Purchase id.
  * @param status      Status.
  */
-public record Purchase(
-		/** Amount. */
-		String amount,
-		/** Asset. */
-		String asset,
-		/** Create time. */
-		long createTime,
-		/** Lending type. */
-		String lendingType,
-		/** Lot. */
-		long lot,
-		/** Product name. */
-		String productName,
-		/** Purchase id. */
-		long purchaseId,
-		/** Status. */
-		String status) {
+public record Purchase(String amount, String asset, long createTime, String lendingType, long lot, String productName, long purchaseId, String status) {
 }

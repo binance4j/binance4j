@@ -35,51 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see UserDataUpdate
  */
 public record OrderTradeUpdate(/** The event type. */
-@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** Client order id. */
-		@JsonProperty("c") String newClientOrderId,
-		/** Buy/Sell order side. */
-		@JsonProperty("S") String side,
-		/** Type of order. */
-		@JsonProperty("o") String type,
-		/** Time in force to indicate how Long will the order remain active. */
-		@JsonProperty("f") TimeInForce timeInForce,
-		/** Original quantity in the order. */
-		@JsonProperty("q") String originalQuantity,
-		/** Price. */
-		@JsonProperty("p") String price,
-		/** Type of execution. */
-		@JsonProperty("x") String executionType,
-		/** Status of the order. */
-		@JsonProperty("X") String orderStatus,
-		/** Reason why the order was rejected. */
-		@JsonProperty("r") String orderRejectReason,
-		/** Order id. */
-		@JsonProperty("i") Long orderId,
-		/** Quantity of the last filled trade. */
-		@JsonProperty("l") String quantityLastFilledTrade,
-		/** Accumulated quantity of filled trades on this order. */
-		@JsonProperty("z") String accumulatedQuantity,
-		/** Price of last filled trade. */
-		@JsonProperty("L") String priceOfLastFilledTrade,
-		/** Commission. */
-		@JsonProperty("n") String commission,
-		/** Asset on which commission is taken. */
-		@JsonProperty("N") String commissionAsset,
-		/** Order/trade time. */
-		@JsonProperty("T") Long orderTradeTime,
-		/** Trade id. */
-		@JsonProperty("t") Long tradeId,
-		/** Order creation time. */
-		@JsonProperty("O") Long orderCreationTime,
-		/** Cumulative quote asset transacted quantity. */
-		@JsonProperty("Z") String cumulativeQuoteQuantity,
-		/** Last quote asset transacted quantity (i.e. lastPrice * lastQty). */
-		@JsonProperty("Y") String lastQuoteQuantity,
-		/** Quote Order quantity. */
+@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("c") String newClientOrderId,
+		@JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce, @JsonProperty("q") String originalQuantity,
+		@JsonProperty("p") String price, @JsonProperty("x") String executionType, @JsonProperty("X") String orderStatus,
+		@JsonProperty("r") String orderRejectReason, @JsonProperty("i") Long orderId, @JsonProperty("l") String quantityLastFilledTrade,
+		@JsonProperty("z") String accumulatedQuantity, @JsonProperty("L") String priceOfLastFilledTrade, @JsonProperty("n") String commission,
+		@JsonProperty("N") String commissionAsset, @JsonProperty("T") Long orderTradeTime, @JsonProperty("t") Long tradeId,
+		@JsonProperty("O") Long orderCreationTime, @JsonProperty("Z") String cumulativeQuoteQuantity, @JsonProperty("Y") String lastQuoteQuantity,
 		@JsonProperty("Q") String quoteOrderQuantity) {
 }

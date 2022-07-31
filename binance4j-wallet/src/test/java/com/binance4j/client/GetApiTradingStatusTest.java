@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import com.binance4j.core.exception.ApiException;
 
 public class GetApiTradingStatusTest extends WalletTest {
-
 	@Test
 	void testGetApiTradingStatusOfAll() throws ApiException {
 		testNoNulls(client.getApiTradingStatus());

@@ -21,30 +21,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param takerBuyQuoteAssetVolume Taker buy quote asset volume.
  */
 @JsonDeserialize(using = CandleDeserializer.class)
-public record Candle(
-		/** The candlestick open timestamp in milliseconds */
-		long openTime,
-		/** The Open value */
-		String open,
-		/** The High value */
-		String high,
-		/** The Low value */
-		String low,
-		/** The Close value */
-		String close,
-		/** The traded volume in the interval */
-		String volume,
-		/** The candlestick close timestamp in milliseconds */
-		long closeTime,
-		/** The quote asset traded volume */
-		String quoteAssetVolume,
-		/** The number of trades */
-		long numberOfTrades,
-		/** Taker buy base asset volume */
-		String takerBuyBaseAssetVolume,
-		/** Taker buy quote asset volume */
-		String takerBuyQuoteAssetVolume) {
-
+public record Candle(long openTime, String open, String high, String low, String close, String volume, long closeTime, String quoteAssetVolume,
+		long numberOfTrades, String takerBuyBaseAssetVolume, String takerBuyQuoteAssetVolume) {
 	/**
 	 * accepting a list of String acting like a line of data in a csv file
 	 * 

@@ -1,12 +1,9 @@
 package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.time.Duration;
-
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
-
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;

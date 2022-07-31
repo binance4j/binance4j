@@ -18,7 +18,6 @@ import com.binance4j.wallet.dto.WalletTransferType;
 @Param
 public record WalletTransferParams(@Mandatory String asset, @Mandatory WalletTransferType type, @Mandatory String amount, String fromSymbol, String toSymbol)
 		implements Params {
-
 	/**
 	 * Creates an instance of {@link WalletTransferParams}.
 	 * 
@@ -29,5 +28,4 @@ public record WalletTransferParams(@Mandatory String asset, @Mandatory WalletTra
 	public WalletTransferParams(String asset, WalletTransferType type, String amount) {
 		this(asset, type, amount, null, null);
 	}
-
 }

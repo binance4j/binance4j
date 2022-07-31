@@ -2,11 +2,8 @@ package com.binance4j.param;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.Map;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
@@ -16,7 +13,6 @@ public class MapTest {
 		var params = new CustomParams();
 		params.foo = "string";
 		params.bar = 2;
-
 		Map<String, Object> map = params.toMap();
 		assertEquals(map.get("foo"), params.foo);
 		assertEquals(map.get("bar"), params.bar);

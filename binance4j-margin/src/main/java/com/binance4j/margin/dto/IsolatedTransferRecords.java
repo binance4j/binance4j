@@ -8,9 +8,5 @@ import java.util.List;
  * @param rows  The transfers.
  * @param total The total records.
  */
-public record IsolatedTransferRecords(
-		/** The transfers. */
-		List<IsolatedTransferRecord> rows,
-		/** The total records. */
-		int total) {
+public record IsolatedTransferRecords(List<IsolatedTransferRecord> rows, int total) {
 }

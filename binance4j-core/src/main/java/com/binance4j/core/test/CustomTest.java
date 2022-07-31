@@ -129,7 +129,6 @@ public abstract class CustomTest<T> {
 			}
 			i++;
 		}
-
 		return map;
 	}
 
@@ -148,7 +147,6 @@ public abstract class CustomTest<T> {
 	 */
 	protected Set<String> getNullProperties(Object bean, boolean flatten) {
 		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
-
 		return !flatten ? set : set.stream().map(string -> {
 			String[] array = string.split("\\.");
 			return array[array.length - 1];
@@ -168,14 +166,12 @@ public abstract class CustomTest<T> {
 		// Handling collections
 		if (bean instanceof Collection) {
 			int i = 0;
-
 			for (Object b : (Collection<?>) bean) {
 				Set<String> nullProps = getNullProperties(b, bean.getClass().getSimpleName());
 				for (String np : nullProps) {
 					list.add(String.format("%s[%s].%s", parentBean, Integer.toString(i), np));
 				}
 				i++;
-
 			}
 		}
 		// Handling maps
@@ -375,5 +371,4 @@ public abstract class CustomTest<T> {
 	public T getTestnetClient() {
 		return testnetClient;
 	}
-
 }

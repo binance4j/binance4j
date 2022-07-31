@@ -9,17 +9,5 @@ package com.binance4j.blvt.dto;
  * @param amount    Subscribed token amount.
  * @param timestamp Timestamp in ms.
  */
-public record SubscriptionResponse(
-		/** Subscription id. */
-		long id,
-		/** Subscription status. S("success"), P("pending"), and F("failure"). */
-		String status,
-		/** Token name. */
-		String tokenName,
-		/** Subscribed token amount. */
-		String amount,
-		/** Subscription cost in usdt. */
-		String cost,
-		/** Timestamp in ms. */
-		long timestamp) {
+public record SubscriptionResponse(long id, String status, String tokenName, String amount, String cost, long timestamp) {
 }

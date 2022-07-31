@@ -9,7 +9,6 @@ import com.binance4j.websocket.dto.BLVT;
  * @deprecated Disconnected right after after connection.
  */
 public class WebsocketBLVTInfoClient extends WebsocketBLVTClient<BLVT> {
-
 	/**
 	 * @param symbol   Trading pair separated by a coma.
 	 * @param callback The events handler.
@@ -17,5 +16,4 @@ public class WebsocketBLVTInfoClient extends WebsocketBLVTClient<BLVT> {
 	public WebsocketBLVTInfoClient(String symbol, WebsocketCallback<BLVT> callback) {
 		super(symbol, "tokenNav", BLVT.class, callback);
 	}
-
 }

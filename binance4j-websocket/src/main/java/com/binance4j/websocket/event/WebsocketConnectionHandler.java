@@ -23,14 +23,11 @@ public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
 
 	public void run() {
 		cancel();
-
 		Duration reconnectionInterval = websocketClient.getConfiguration().getReconnectionInterval();
 		Duration timeoutInterval = websocketClient.getConfiguration().getReconnectionInterval();
 		int maxReconnection = websocketClient.getConfiguration().getMaxReconnections();
-
 		ScheduledTask reconnectTask = () -> {
 			callback.onFailure(timeoutException);
-
 			if (eventHandler.isFinalTick()) {
 				disconnect(timeoutInterval);
 			} else {
@@ -38,7 +35,6 @@ public class WebsocketConnectionHandler extends BaseWebsocketEventHandler {
 				websocketClient.open();
 			}
 		};
-
 		eventHandler = new IntervalEvent(reconnectionInterval, maxReconnection, reconnectTask);
 	}
 }

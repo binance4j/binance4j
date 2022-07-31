@@ -29,51 +29,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param lastTradeId                 Last trade Id.
  * @param totalNumberOfTrades         Total number of trades.
  */
-public record Ticker(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** The price change. */
-		@JsonProperty("p") String priceChange,
-		/** The price change percent. */
-		@JsonProperty("P") String priceChangePercent,
-		/** The weighted average price. */
-		@JsonProperty("w") String weightedAveragePrice,
-		/** The previous days close price. */
-		@JsonProperty("x") String previousDaysClosePrice,
-		/** The current days close price. */
-		@JsonProperty("c") String currentDaysClosePrice,
-		/** Last quantity. */
-		@JsonProperty("Q") String closeTradesQuantity,
-		/** Best bid price. */
-		@JsonProperty("b") String bestBidPrice,
-		/** Best bid quantity. */
-		@JsonProperty("B") String bestBidQuantity,
-		/** Best ask price. */
-		@JsonProperty("a") String bestAskPrice,
-		/** Best ask quantity. */
-		@JsonProperty("A") String bestAskQuantity,
-		/** The open price. */
-		@JsonProperty("o") String openPrice,
-		/** The highest price. */
-		@JsonProperty("h") String highPrice,
-		/** The lowest price. */
-		@JsonProperty("l") String lowPrice,
-		/** Total traded base asset volume. */
-		@JsonProperty("v") String totalTradedBaseAssetVolume,
-		/** Total traded quote asset volume. */
-		@JsonProperty("q") String totalTradedQuoteAssetVolume,
-		/** Statistics open time. */
-		@JsonProperty("O") Long statisticsOpenTime,
-		/** Statistics close time. */
-		@JsonProperty("C") Long statisticsCloseTime,
-		/** First trade ID. */
-		@JsonProperty("F") Long firstTradeId,
-		/** Last trade Id. */
-		@JsonProperty("L") Long lastTradeId,
-		/** Total number of trades. */
+public record Ticker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
+		@JsonProperty("p") String priceChange, @JsonProperty("P") String priceChangePercent, @JsonProperty("w") String weightedAveragePrice,
+		@JsonProperty("x") String previousDaysClosePrice, @JsonProperty("c") String currentDaysClosePrice, @JsonProperty("Q") String closeTradesQuantity,
+		@JsonProperty("b") String bestBidPrice, @JsonProperty("B") String bestBidQuantity, @JsonProperty("a") String bestAskPrice,
+		@JsonProperty("A") String bestAskQuantity, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
+		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume, @JsonProperty("O") Long statisticsOpenTime,
+		@JsonProperty("C") Long statisticsCloseTime, @JsonProperty("F") Long firstTradeId, @JsonProperty("L") Long lastTradeId,
 		@JsonProperty("n") Long totalNumberOfTrades) {
 }

@@ -1,7 +1,6 @@
 package com.binance4j.spot.client;
 
 import java.util.List;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CancelOrderResponse;
@@ -35,7 +34,6 @@ import com.binance4j.spot.param.OrderStatusParams;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade">Documentation</a>
  */
 public class SpotClient extends RestClient<SpotMapping> {
-
 	/**
 	 * @param key    The API public key.
 	 * @param secret The API secret key.

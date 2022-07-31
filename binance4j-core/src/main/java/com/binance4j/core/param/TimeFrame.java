@@ -8,7 +8,6 @@ package com.binance4j.core.param;
  * @param limit     Results limit.
  */
 public record TimeFrame(Long startTime, Long endTime, Integer limit) implements Params {
-
 	/**
 	 * Creates an instance of {@link TimeFrame}.
 	 * 

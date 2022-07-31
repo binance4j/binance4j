@@ -14,7 +14,6 @@ import com.binance4j.savings.dto.FixedProjectType;
  * @param status Project status. default: {@code START_TIME}.
  */
 public record FixedProjectListParams(@Mandatory FixedProjectType type, String asset, FixedProjectStatus status) implements Params {
-
 	/**
 	 * Creates an instance of {@link FixedProjectListParams}.
 	 * 
@@ -43,5 +42,4 @@ public record FixedProjectListParams(@Mandatory FixedProjectType type, String as
 	public FixedProjectListParams(FixedProjectType type, FixedProjectStatus status) {
 		this(type, null, status);
 	}
-
 }

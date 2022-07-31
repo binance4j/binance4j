@@ -1,7 +1,6 @@
 package com.binance4j.market.serialization;
 
 import java.io.IOException;
-
 import com.binance4j.market.dto.IcebergPartsFilter;
 import com.binance4j.market.dto.LotSizeFilter;
 import com.binance4j.market.dto.MarketLotSizeFilter;
@@ -40,10 +39,8 @@ public class SymbolFiltersDeserializer extends JsonDeserializer<SymbolFilters> {
 
 	@Override
 	public SymbolFilters deserialize(JsonParser jp, DeserializationContext ctx) throws IOException {
-
 		ObjectCodec oc = jp.getCodec();
 		ArrayNode node = (ArrayNode) oc.readTree(jp);
-
 		node.forEach(n -> {
 			switch (n.get("filterType").asText()) {
 			case "ICEBERG_PARTS" -> icebergPartsFilter = new IcebergPartsFilter(n.get("limit").asInt());
@@ -70,7 +67,6 @@ public class SymbolFiltersDeserializer extends JsonDeserializer<SymbolFilters> {
 			}
 			}
 		});
-
 		return new SymbolFilters(icebergPartsFilter, lotSizeFilter, marketLotSizeFilter, maxNumAlgoOrdersFilter, maxNumIcebergOrdersFilter, maxNumOrdersFilter,
 				maxPositionFilter, minNotionalFilter, notionalFilter, percentPriceBySideFilter, percentPriceFilter, priceFilter, trailingDeltaFilter);
 	}

@@ -6,7 +6,5 @@ package com.binance4j.market.dto;
  * @param limit The filter limit number.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
-public record IcebergPartsFilter(
-		/** The filter limit number */
-		int limit) {
+public record IcebergPartsFilter(int limit) {
 }

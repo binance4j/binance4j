@@ -1,15 +1,12 @@
 package com.binance4j.param;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 
 public class GetWeightTest {
-
 	@Test
 	@DisplayName("Annotated class must match default values")
 	void testDefault() {

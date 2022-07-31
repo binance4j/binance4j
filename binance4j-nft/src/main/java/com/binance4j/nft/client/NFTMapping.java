@@ -1,13 +1,11 @@
 package com.binance4j.nft.client;
 
 import java.util.Map;
-
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.nft.dto.AssetHistory;
 import com.binance4j.nft.dto.DepositHistory;
 import com.binance4j.nft.dto.TransactionHistory;
 import com.binance4j.nft.dto.WithdrawHistory;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;

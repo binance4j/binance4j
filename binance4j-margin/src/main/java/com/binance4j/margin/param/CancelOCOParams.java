@@ -92,5 +92,4 @@ public record CancelOCOParams(@Mandatory String symbol, Long orderListId, String
 	public CancelOCOParams(String symbol, String listClientOrderId, Boolean isIsolated, String newClientOrderId) {
 		this(symbol, null, listClientOrderId, isIsolated, newClientOrderId);
 	}
-
 }

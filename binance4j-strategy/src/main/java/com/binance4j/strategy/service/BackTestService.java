@@ -1,10 +1,8 @@
 package com.binance4j.strategy.service;
 
 import java.util.List;
-
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BarSeriesManager;
-
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -15,7 +13,6 @@ import com.binance4j.websocket.service.DurationService;
 
 /** Service to backtest a {@link TradingStrategy} */
 public class BackTestService {
-
 	/** Constructor */
 	private BackTestService() {
 	}

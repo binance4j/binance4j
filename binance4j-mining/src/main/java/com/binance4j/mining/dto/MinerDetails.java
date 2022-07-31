@@ -9,11 +9,5 @@ import java.util.List;
  * @param type          Type of hourly hashrate.
  * @param hashrateDatas Hashrate datas
  */
-public record MinerDetails(
-		/** Mining Account name. */
-		String workerName,
-		/** Type of hourly hashrate. */
-		String type,
-		/** Hashrate datas */
-		List<HashrateData> hashrateDatas) {
+public record MinerDetails(String workerName, String type, List<HashrateData> hashrateDatas) {
 }

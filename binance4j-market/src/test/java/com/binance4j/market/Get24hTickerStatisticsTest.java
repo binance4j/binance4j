@@ -2,11 +2,8 @@ package com.binance4j.market;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.market.dto.TickerStatistics;
 import com.binance4j.market.param.TickerStatisticsParams;
@@ -22,7 +19,6 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	void test2() throws ApiException {
 		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
 		TickerStatistics res = client.get24hTickerStatistics(params).execute();
-
 		assertEquals(res.symbol(), symbol);
 		testNoNulls(res);
 	}
@@ -31,7 +27,6 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	void test3() throws ApiException {
 		TickersStatisticsParams params = new TickersStatisticsParams(symbols);
 		List<TickerStatistics> res = client.get24hTickerStatistics(params).execute();
-
 		testNoNulls(res);
 		res.forEach(stats -> assertTrue(symbols.contains((stats.symbol()))));
 	}

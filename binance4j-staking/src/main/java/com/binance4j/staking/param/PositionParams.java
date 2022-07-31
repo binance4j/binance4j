@@ -13,7 +13,6 @@ import com.binance4j.staking.dto.ProductType;
  * @param asset     Product name.
  */
 public record PositionParams(@Mandatory ProductType product, String productId, String asset) implements Params {
-
 	/**
 	 * Creates an instance of {@link PositionParams}.
 	 * 
@@ -42,5 +41,4 @@ public record PositionParams(@Mandatory ProductType product, String productId, S
 	public PositionParams(String asset, ProductType product) {
 		this(product, null, asset);
 	}
-
 }

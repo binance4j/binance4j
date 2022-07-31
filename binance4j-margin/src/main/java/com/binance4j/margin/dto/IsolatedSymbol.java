@@ -10,17 +10,5 @@ package com.binance4j.margin.dto;
  * @param isBuyAllowed  Is purchase allowed?
  * @param isSellAllowed Is sale allowed?
  */
-public record IsolatedSymbol(
-		/** The asset pair. */
-		String symbol,
-		/** The base asset. */
-		String base,
-		/** The quote asset. */
-		String quote,
-		/** Is margin trade allowed? */
-		boolean isMarginTrade,
-		/** Is purchase allowed? */
-		boolean isBuyAllowed,
-		/** Is sale allowed? */
-		boolean isSellAllowed) {
+public record IsolatedSymbol(String symbol, String base, String quote, boolean isMarginTrade, boolean isBuyAllowed, boolean isSellAllowed) {
 }

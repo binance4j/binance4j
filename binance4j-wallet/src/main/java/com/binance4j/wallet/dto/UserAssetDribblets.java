@@ -11,15 +11,6 @@ import java.util.List;
  * @param transId                  The transaction id.
  * @param userAssetDribbletDetails Details of this exchange.
  */
-public record UserAssetDribblets(
-		/** The operation timestamp. */
-		long operateTime,
-		/** Total transfered BNB amount for this exchange. */
-		String totalTransferedAmount,
-		/** Total service charge amount for this exchange. */
-		String totalServiceChargeAmount,
-		/** The transaction id. */
-		long transId,
-		/** Details of this exchange. */
+public record UserAssetDribblets(long operateTime, String totalTransferedAmount, String totalServiceChargeAmount, long transId,
 		List<UserAssetDribbletDetails> userAssetDribbletDetails) {
 }

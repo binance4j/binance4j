@@ -27,5 +27,4 @@ public enum OrderType {
 	public String toString() {
 		return value;
 	}
-
 }

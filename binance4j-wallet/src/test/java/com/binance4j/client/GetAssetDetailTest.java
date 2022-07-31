@@ -12,7 +12,6 @@ import com.binance4j.wallet.dto.AssetDetail;
 import com.binance4j.wallet.param.AssetDetailParams;
 
 class GetAssetDetailTest extends WalletTest {
-
 	@Test
 	void testGetAllAssetsDetails() throws ApiException {
 		testNoNulls(client.getAssetDetail());
@@ -22,7 +21,6 @@ class GetAssetDetailTest extends WalletTest {
 	void testGetGivenAssetDetails() throws ApiException {
 		AssetDetailParams params = new AssetDetailParams(asset);
 		Map<String, AssetDetail> details = client.getAssetDetail(params).execute();
-
 		assertEquals(1, details.size());
 		assertTrue(details.containsKey(asset));
 		testNoNulls(details);

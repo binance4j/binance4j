@@ -247,5 +247,4 @@ public class NewOCOOrderParams implements Params {
 	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
 		this.stopLimitTimeInForce = stopLimitTimeInForce;
 	}
-
 }

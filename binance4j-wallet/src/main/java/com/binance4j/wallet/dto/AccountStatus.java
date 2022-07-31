@@ -5,7 +5,5 @@ package com.binance4j.wallet.dto;
  * 
  * @param data The account status.
  */
-public record AccountStatus(
-		/** The account status. */
-		String data) {
+public record AccountStatus(String data) {
 }

@@ -16,25 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param tradeTime          The timestamp.
  * @param buyerIsMarketMaker Is the buyer the market maker?
  */
-public record Trade(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The trading pair. */
-		@JsonProperty("s") String symbol,
-		/** The trade id. */
-		@JsonProperty("t") String tradeId,
-		/** The price. */
-		@JsonProperty("p") String price,
-		/** The price. */
-		@JsonProperty("q") String quantity,
-		/** The buyer order id. */
-		@JsonProperty("b") Long buyerOrderId,
-		/** The seller order id. */
-		@JsonProperty("a") Long sellerOrderId,
-		/** The timestamp. */
-		@JsonProperty("T") Long tradeTime,
-		/** Is the buyer the market maker? */
-		@JsonProperty("m") Boolean buyerIsMarketMaker) {
+public record Trade(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("t") String tradeId,
+		@JsonProperty("p") String price, @JsonProperty("q") String quantity, @JsonProperty("b") Long buyerOrderId, @JsonProperty("a") Long sellerOrderId,
+		@JsonProperty("T") Long tradeTime, @JsonProperty("m") Boolean buyerIsMarketMaker) {
 }

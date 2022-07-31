@@ -2,7 +2,6 @@ package com.binance4j.market.client;
 
 import java.util.List;
 import java.util.Map;
-
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
@@ -15,7 +14,6 @@ import com.binance4j.market.dto.PriceTicker;
 import com.binance4j.market.dto.ServerTimeResponse;
 import com.binance4j.market.dto.TickerStatistics;
 import com.binance4j.market.dto.TradeHistoryItem;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;

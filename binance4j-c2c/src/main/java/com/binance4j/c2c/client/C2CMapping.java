@@ -22,5 +22,4 @@ public interface C2CMapping extends RestMapping {
 	@GET(BASE + "orderMatch/listUserOrderHistory")
 	@Headers(SIGNED_H)
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
-
 }

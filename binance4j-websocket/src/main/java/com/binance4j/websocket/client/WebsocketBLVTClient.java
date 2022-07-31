@@ -4,7 +4,6 @@ import com.binance4j.websocket.callback.WebsocketCallback;
 
 /** BVLT websocket client base class. */
 public abstract class WebsocketBLVTClient<T> extends BaseWebsocketClient<T> {
-
 	/**
 	 * @param symbol       Trading pair separated by a coma.
 	 * @param stream       The stream name.

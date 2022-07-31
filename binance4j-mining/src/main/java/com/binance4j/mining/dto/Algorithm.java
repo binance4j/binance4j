@@ -3,18 +3,10 @@ package com.binance4j.mining.dto;
 /**
  * A mining algorithm.
  * 
- * @param algoName  The algorithm name.
- * @param algoId    The algorithm id.
- * @param poolIndex The sequence.
- * @param unit      The unit.
+ * @param algoName  Algorithm name.
+ * @param algoId    Algorithm id.
+ * @param poolIndex Sequence.
+ * @param unit      Unit.
  */
-public record Algorithm(
-		/** The algorithm name. */
-		String algoName,
-		/** The algorithm id. */
-		long algoId,
-		/** The sequence. */
-		long poolIndex,
-		/** The unit. */
-		String unit) {
+public record Algorithm(String algoName, long algoId, long poolIndex, String unit) {
 }

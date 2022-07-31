@@ -67,13 +67,10 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	public void onClosed(WebsocketCloseObject closeObject) {
 		// we stop disconnection forcing
 		disconnectionHandler.cancel();
-		callback.onClosed(closeObject);
-
-		// Reconnect if server closed stream and keepAlive is on
+		callback.onClosed(closeObject); // Reconnect if server closed stream and keepAlive is on
 		if (websocketClient.getConfiguration().isKeepAlive() && !closedByClient) {
 			websocketClient.open();
 		}
-
 		socket = null;
 	}
 
@@ -83,7 +80,6 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 		connectionHandler.cancel();
 		// we handle no response data
 		noResponseHandler.run();
-
 		callback.onOpen(response);
 	}
 
@@ -217,5 +213,4 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	public void setClosedByClient(boolean closedByClient) {
 		this.closedByClient = closedByClient;
 	}
-
 }

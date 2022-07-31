@@ -9,7 +9,6 @@ import com.binance4j.websocket.client.WebsocketAggTradeClient;
 import com.binance4j.websocket.dto.AggTrade;
 
 class WebsocketAggTradeClientTest {
-
 	TestCallback<AggTrade> callback = new TestCallback<>();
 
 	@Test

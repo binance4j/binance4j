@@ -6,7 +6,6 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.savings.param.PurchaseQuotaParams;
 
 public class PurchaseQuotaTest extends SavingsTest {
-
 	@Test
 	void test1() throws ApiException {
 		var productId = client.getFlexibleProducts().execute().get(0).productId();

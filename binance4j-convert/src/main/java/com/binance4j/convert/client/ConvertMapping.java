@@ -22,5 +22,4 @@ public interface ConvertMapping extends RestMapping {
 	@GET(BASE + "tradeFlow")
 	@Headers(SIGNED_H)
 	Call<ConversionHistory> getConversions(@QueryMap Map<String, Object> map);
-
 }

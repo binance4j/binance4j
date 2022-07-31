@@ -8,9 +8,8 @@ import com.binance4j.websocket.client.WebsocketUserDataClient;
 import com.binance4j.websocket.dto.UserDataUpdate;
 
 class WebsocketUserDataClientTest {
-	TestCallback<UserDataUpdate> callback = new TestCallback<>();
+	TestCallback<UserDataUpdate> callback = new TestCallback<>(); // @Test
 
-	// @Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {
 		WebsocketUserDataClient client = new WebsocketUserDataClient(new UserDataClient(callback.getKey(), callback.getSecret()), callback);
 		callback.setWebsocketClient(client);

@@ -21,41 +21,7 @@ package com.binance4j.savings.dto;
  * @param status          Status.
  * @param type            Type.
  */
-public record FixedProjectPosition(
-		/** Asset. */
-		String asset,
-		/** Can transfer. */
-		boolean canTransfer,
-		/** Create timestamp. */
-		long createTimestamp,
-		/** Duration. */
-		long duration,
-		/** Endtime. */
-		long endTime,
-		/** Interest. */
-		String interest,
-		/** Interest rate. */
-		String interestRate,
-		/** Lot. */
-		long lot,
-		/** Position id. */
-		long positionId,
-		/** Principal. */
-		String principal,
-		/** Project id. */
-		String projectId,
-		/** Project name. */
-		String projectName,
-		/** Purchase time. */
-		long purchaseTime,
-		/** Redeem date. */
-		String redeemDate,
-		/** Start time. */
-		long startTime,
-		/** Status. */
-		String status,
-		/** Type. */
-		String type
-
-) {
+public record FixedProjectPosition(String asset, boolean canTransfer, long createTimestamp, long duration, long endTime, String interest, String interestRate,
+		long lot, long positionId, String principal, String projectId, String projectName, long purchaseTime, String redeemDate, long startTime, String status,
+		String type) {
 }

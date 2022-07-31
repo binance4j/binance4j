@@ -13,7 +13,6 @@ import retrofit2.Response;
 
 /** A wrapper for the {@link ApiCallback} */
 public class ApiCallbackAdapter<T> implements Callback<T> {
-
 	/** The wrapped callback. */
 	final ApiCallback<T> callback;
 

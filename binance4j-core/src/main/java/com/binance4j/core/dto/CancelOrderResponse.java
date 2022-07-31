@@ -1,35 +1,23 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-/** The CancelOrder request result. */
-public record CancelOrderResponse(
-		/** The order status. */
-		String status,
-		/** The order side. */
-		String side,
-		/** The order type. */
-		String type,
-		/** The order timeInForce. */
-		String timeInForce,
-		/** The order id. */
-		long orderId,
-		/** The order list. */
-		long orderListId,
-		/** The order symbol. */
-		String symbol,
-		/** The original client order id. */
-		String origClientOrderId,
-		/** The client order id. */
-		String clientOrderId,
-		/** The order executed quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** The order price. */
-		String price,
-		/** The order original quantity. */
-		@JsonProperty("origQty") String origQuantity,
-		/** The order cumulative quote quantity. */
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		/** Is the order margin isolated. */
-		boolean isIsolated) {
+/**
+ * The CancelOrder request result.
+ * 
+ * @param status              Status.
+ * @param side                Side.
+ * @param type                Type.
+ * @param timeInForce         Time in force.
+ * @param orderId             Order id.
+ * @param orderListId         Order list id.
+ * @param symbol              Symbol.
+ * @param origClientOrderId   Orig client order id.
+ * @param clientOrderId       Client order id.
+ * @param executedQty         Executed quantity.
+ * @param price               Price.
+ * @param origQty             Original quantity.
+ * @param cummulativeQuoteQty Cummulative quote quantity.
+ * @param isIsolated          Is isolated.
+ */
+public record CancelOrderResponse(String status, String side, String type, String timeInForce, long orderId, long orderListId, String symbol,
+		String origClientOrderId, String clientOrderId, String executedQty, String price, String origQty, String cummulativeQuoteQty, boolean isIsolated) {
 }

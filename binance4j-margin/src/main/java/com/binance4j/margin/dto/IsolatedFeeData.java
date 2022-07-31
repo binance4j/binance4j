@@ -7,11 +7,5 @@ package com.binance4j.margin.dto;
  * @param dailyInterest The daily interest.
  * @param borrowLimit   The borrow limit.
  */
-public record IsolatedFeeData(
-		/** The related coin. */
-		String coin,
-		/** The daily interest. */
-		String dailyInterest,
-		/** The borrow limit. */
-		String borrowLimit) {
+public record IsolatedFeeData(String coin, String dailyInterest, String borrowLimit) {
 }

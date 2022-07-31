@@ -11,12 +11,10 @@ import com.binance4j.wallet.client.WalletClient;
  */
 @Param(weight = 10)
 public record AssetDividendRecordParams(String asset) implements Params {
-
 	/**
 	 * Creates an instance of {@link AssetDividendRecordParams}.
 	 */
 	public AssetDividendRecordParams() {
 		this(null);
 	}
-
 }

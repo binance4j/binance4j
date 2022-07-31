@@ -3,21 +3,17 @@ package com.binance4j.core.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.junit.jupiter.api.Test;
-
 import com.binance4j.core.pojo.TestObject;
 import com.binance4j.core.pojo.TestObject2;
 
 public class CustomTestTest extends CustomTest<Void> {
-
 	List<String> list = List.of("hello", "world");
 	TestObject obj1 = new TestObject("hello", null, null, null, null);
 	TestObject obj2 = new TestObject("world", null, 0, list, null);
@@ -31,7 +27,6 @@ public class CustomTestTest extends CustomTest<Void> {
 		TestObject obj = null;
 		Set<String> map = getNullProperties(obj);
 		assertTrue(map.contains("object"));
-
 	}
 
 	@Test
@@ -50,7 +45,6 @@ public class CustomTestTest extends CustomTest<Void> {
 		var expected = List.of("objVal[1]", "objVal[0]", "listVal[0]", "listVal[1]", "longVal[0]", "stringVal[1]", "longVal[1]", "intVal[0]", "stringVal[0]",
 				"intVal[1]");
 		Map<String, Object> map = getProperties(List.of(obj1, obj2));
-
 		assertTrue(map.keySet().containsAll(expected));
 		assertEquals(map.size(), expected.size());
 	}
@@ -68,7 +62,6 @@ public class CustomTestTest extends CustomTest<Void> {
 		obj.add(obj1);
 		obj.add(obj2);
 		Set<String> list = getNullProperties(obj);
-
 		assertEquals(6, list.size());
 		assertTrue(list.containsAll(List.of("ArrayList[0].intVal", "ArrayList[0].listVal", "ArrayList[0].longVal", "ArrayList[0].objVal",
 				"ArrayList[1].longVal", "ArrayList[1].objVal")));
@@ -79,7 +72,6 @@ public class CustomTestTest extends CustomTest<Void> {
 		List<String> list = new ArrayList<>();
 		list.add("hello");
 		list.add(null);
-
 		var nulls = getNullProperties(new TestObject(null, 0L, 0, null, new TestObject("world", null, 0, list, new TestObject("world", 0L, null, list, null))));
 		System.out.println(nulls);
 	}

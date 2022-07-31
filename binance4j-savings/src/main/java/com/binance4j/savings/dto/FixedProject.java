@@ -20,37 +20,7 @@ package com.binance4j.savings.dto;
  * @param type               Type.
  * @param withAreaLimitation With area limitation.
  */
-public record FixedProject(
-		/** Asset. */
-		String asset,
-		/** Display priority. */
-		long displayPriority,
-		/** Duration. */
-		long duration,
-		/** Interest per lot. */
-		String interestPerLot,
-		/** Interest rate. */
-		String interestRate,
-		/** Lot size. */
-		String lotSize,
-		/** Lots low limit. */
-		long lotsLowLimit,
-		/** Lots purchased. */
-		long lotsPurchased,
-		/** Lots up limit. */
-		long lotsUpLimit,
-		/** Max lots per user. */
-		long maxLotsPerUser,
-		/** Need kyc. */
-		boolean needKyc,
-		/** Project id. */
-		String projectId,
-		/** Project name. */
-		String projectName,
-		/** Status. */
-		String status,
-		/** Type. */
-		String type,
-		/** With area limitation. */
+public record FixedProject(String asset, long displayPriority, long duration, String interestPerLot, String interestRate, String lotSize, long lotsLowLimit,
+		long lotsPurchased, long lotsUpLimit, long maxLotsPerUser, boolean needKyc, String projectId, String projectName, String status, String type,
 		boolean withAreaLimitation) {
 }

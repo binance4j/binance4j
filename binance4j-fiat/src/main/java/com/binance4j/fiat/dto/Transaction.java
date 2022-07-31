@@ -13,24 +13,6 @@ package com.binance4j.fiat.dto;
  * @param createTime      Create time in ms.
  * @param updateTime      Update time in ms.
  */
-public record Transaction(
-		/** Order No. */
-		String orderNo,
-		/** Fiat currency. */
-		String fiatCurrency,
-		/** Indicated amount. */
-		String indicatedAmount,
-		/** Amount. */
-		String amount,
-		/** Total fee. */
-		String totalFee,
-		/** Method. */
-		String method,
-		/** Status. */
-		String status,
-		/** Create time in ms. */
-		long createTime,
-		/** Update time in ms. */
-		long updateTime) {
-
+public record Transaction(String orderNo, String fiatCurrency, String indicatedAmount, String amount, String totalFee, String method, String status,
+		long createTime, long updateTime) {
 }

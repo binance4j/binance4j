@@ -36,15 +36,5 @@ public record Trade(
 		 * <li>PAYOUT: B2C Disbursement Payment</li>
 		 * </ul>
 		 */
-		String orderType,
-		/** Transaction id. */
-		String transactionId,
-		/** Transaction time in ms. */
-		long transactionTime,
-		/** Transaction amount. */
-		String amount,
-		/** Transaction asset. */
-		String currency,
-		/** Funds details. */
-		List<FundsDetail> fundsDetail) {
+		String orderType, String transactionId, long transactionTime, String amount, String currency, List<FundsDetail> fundsDetail) {
 }

@@ -29,13 +29,5 @@ public record Transaction(
 		 * <li>4: mint fee</li>
 		 * </ul>
 		 */
-		String orderNo,
-		/** The tokens. */
-		List<NFT> tokens,
-		/** The trade time in ms. */
-		long tradeTime,
-		/** The trade amount. */
-		String tradeAmount,
-		/** The currency used to buy the NFT. */
-		String tradeCurrency) {
+		String orderNo, List<NFT> tokens, long tradeTime, String tradeAmount, String tradeCurrency) {
 }

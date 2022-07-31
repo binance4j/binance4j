@@ -11,19 +11,5 @@ package com.binance4j.wallet.dto;
  * @param toBNBOffExchange The BNB valuation commissions fees deducted.
  * @param exchange         Commission fees.
  */
-public record ConvertibleAsset(
-		/** The asset name. */
-		String asset,
-		/** The asset full name. */
-		String assetFullName,
-		/** The free balance. */
-		String amountFree,
-		/** The BTC valuation. */
-		String toBTC,
-		/** The BNB valuation. */
-		String toBNB,
-		/** The BNB valuation commissions fees deducted. */
-		String toBNBOffExchange,
-		/** Commission fees. */
-		String exchange) {
+public record ConvertibleAsset(String asset, String assetFullName, String amountFree, String toBTC, String toBNB, String toBNBOffExchange, String exchange) {
 }

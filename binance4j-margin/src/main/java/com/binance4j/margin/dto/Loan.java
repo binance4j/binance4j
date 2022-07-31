@@ -21,15 +21,5 @@ public record Loan(
 		 * 
 		 * @see LoanStatus
 		 */
-		String status,
-		/** The borrowed quantity. */
-		String principal,
-		/** The isolated symbol. Will not be returned for crossed margin */
-		Optional<String> isolatedSymbol,
-		/** The related asset. */
-		String asset,
-		/** The loan timestamp in ms. */
-		long timestamp,
-		/** The transaction id. */
-		@JsonProperty("txId") long transactionId) {
+		String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, @JsonProperty("txId") long transactionId) {
 }

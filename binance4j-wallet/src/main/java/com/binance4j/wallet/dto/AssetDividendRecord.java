@@ -8,9 +8,5 @@ import java.util.List;
  * @param rows  The records.
  * @param total The number of record.
  */
-public record AssetDividendRecord(
-		/** The records. */
-		List<AssetDividend> rows,
-		/** The number of record. */
-		long total) {
+public record AssetDividendRecord(List<AssetDividend> rows, long total) {
 }

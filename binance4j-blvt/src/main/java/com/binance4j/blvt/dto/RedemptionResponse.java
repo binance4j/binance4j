@@ -10,17 +10,5 @@ package com.binance4j.blvt.dto;
  * @param redeemAmount Redemption token amount.
  * @param timestamp    Timestamp in ms.
  */
-public record RedemptionResponse(
-		/** Subscription id. */
-		long id,
-		/** Subscription status. S("success"), P("pending"), and F("failure"). */
-		String status,
-		/** Token name. */
-		String tokenName,
-		/** Redemption token amount. */
-		String redeemAmount,
-		/** Redemption value in usdt. */
-		String amount,
-		/** Timestamp in ms. */
-		long timestamp) {
+public record RedemptionResponse(long id, String status, String tokenName, String redeemAmount, String amount, long timestamp) {
 }

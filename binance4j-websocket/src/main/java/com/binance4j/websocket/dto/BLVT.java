@@ -17,23 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param leverage     Leverage.
  * @param fundingRatio Funding ratio.
  */
-public record BLVT(
-		/** Event type. */
-		@JsonProperty("e") String eventType,
-		/** Event time. */
-		@JsonProperty("E") long eventTime,
-		/** Name. */
-		@JsonProperty("s") String name,
-		/** Tokens issued. */
-		@JsonProperty("m") String tokensIssued,
-		/** BVLT basket. */
-		@JsonProperty("b") List<BLVTBasket> baskets,
-		/** Nav. */
-		@JsonProperty("n") String nav,
-		/** Real leverage. */
-		@JsonProperty("l") String realLeverage,
-		/** Leverage. */
-		@JsonProperty("t") int leverage,
-		/** Funding ratio. */
-		@JsonProperty("f") String fundingRatio) {
+public record BLVT(@JsonProperty("e") String eventType, @JsonProperty("E") long eventTime, @JsonProperty("s") String name,
+		@JsonProperty("m") String tokensIssued, @JsonProperty("b") List<BLVTBasket> baskets, @JsonProperty("n") String nav,
+		@JsonProperty("l") String realLeverage, @JsonProperty("t") int leverage, @JsonProperty("f") String fundingRatio) {
 }

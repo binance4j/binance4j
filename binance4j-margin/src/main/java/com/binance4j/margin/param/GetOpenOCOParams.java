@@ -12,7 +12,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record GetOpenOCOParams(String symbol, Boolean isIsolated) implements Params {
-
 	/**
 	 * Creates an instance of {@link GetOpenOCOParams}.
 	 */
@@ -37,5 +36,4 @@ public record GetOpenOCOParams(String symbol, Boolean isIsolated) implements Par
 	public GetOpenOCOParams(String symbol) {
 		this(symbol, true);
 	}
-
 }

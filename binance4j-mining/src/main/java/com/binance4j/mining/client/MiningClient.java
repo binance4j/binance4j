@@ -1,7 +1,6 @@
 package com.binance4j.mining.client;
 
 import java.util.Map;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
@@ -9,7 +8,9 @@ import com.binance4j.core.param.Params;
 import com.binance4j.mining.dto.AlgorithmsAquisitionResponse;
 import com.binance4j.mining.dto.CoinsAquisitionResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
-import com.binance4j.mining.dto.MinersResponse;
+import com.binance4j.mining.dto.OtherProfitsResponse;
+import com.binance4j.mining.dto.ProfitResponse;
+import com.binance4j.mining.dto.WorkersResponse;
 import com.binance4j.mining.param.AlgorithmsAquisitionParams;
 import com.binance4j.mining.param.CoinsAquisitionParams;
 import com.binance4j.mining.param.MinerDetailsParams;
@@ -64,7 +65,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<MinersResponse> getMiners(MinersParams params) {
+	public Request<WorkersResponse> getMiners(MinersParams params) {
 		return new Request<>(service.getMiners(params.toMap()));
 	}
 
@@ -74,10 +75,9 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Void> getProfits(ProfitsParams params, FramedPaging interval) {
+	public Request<ProfitResponse> getProfits(ProfitsParams params, FramedPaging interval) {
 		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
-		var map = Params.merge(params.toMap(), interval.toMap(replace));
-		return new Request<>(service.getProfits(map));
+		return new Request<>(service.getProfits(Params.merge(params.toMap(), interval.toMap(replace))));
 	}
 
 	/**
@@ -86,8 +86,9 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<Void> getOtherProfits(Params params) {
-		return new Request<>(service.getOtherProfits(params.toMap()));
+	public Request<OtherProfitsResponse> getOtherProfits(ProfitsParams params, FramedPaging interval) {
+		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
+		return new Request<>(service.getOtherProfits(Params.merge(params.toMap(), interval.toMap(replace))));
 	}
 
 	/**
@@ -159,5 +160,4 @@ public class MiningClient extends RestClient<MiningMapping> {
 	public Request<Void> getAccounts(Params params) {
 		return new Request<>(service.getAccounts(params.toMap()));
 	}
-
 }

@@ -1,7 +1,6 @@
 package com.binance4j.market.client;
 
 import java.util.List;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.AggTrade;
@@ -36,7 +35,6 @@ import com.binance4j.market.param.TradesParams;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints">Documentation</a>
  */
 public class MarketClient extends RestClient<MarketMapping> {
-
 	/**
 	 * @param key    The API public key.
 	 * @param secret The API secret key.

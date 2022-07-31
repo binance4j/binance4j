@@ -7,7 +7,5 @@ package com.binance4j.market.dto;
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  * @param maxNumOrders The max number of orders allowed.
  */
-public record MaxNumOrdersFilter(
-		/** The max number of orders allowed. */
-		int maxNumOrders) {
+public record MaxNumOrdersFilter(int maxNumOrders) {
 }

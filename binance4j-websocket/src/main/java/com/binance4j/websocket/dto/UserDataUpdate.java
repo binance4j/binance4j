@@ -18,15 +18,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @param orderTradeUpdateEvent              The order trade update.
  */
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
-public record UserDataUpdate(
-		/** The event type. */
-		UserDataUpdateType eventType,
-		/** The timestamp. */
-		Long eventTime,
-		/** The account update. */
-		AccountUpdate outboundAccountPositionUpdateEvent,
-		/** The balance update. */
-		BalanceUpdate balanceUpdateEvent,
-		/** The order trade update. */
+public record UserDataUpdate(UserDataUpdateType eventType, Long eventTime, AccountUpdate outboundAccountPositionUpdateEvent, BalanceUpdate balanceUpdateEvent,
 		OrderTradeUpdate orderTradeUpdateEvent) {
 }

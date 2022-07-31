@@ -2,53 +2,46 @@ package com.binance4j.core.event;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class IntervalEventTest {
-    CompletableFuture<Integer> future;
-    boolean completed;
-    ScheduledEvent event;
-    final int maxTicks = 2;
+	CompletableFuture<Integer> future;
+	boolean completed;
+	ScheduledEvent event;
+	final int maxTicks = 2;
 
-    @BeforeEach
-    public void initFuture() {
-        future = new CompletableFuture<>();
-    }
+	@BeforeEach
+	public void initFuture() {
+		future = new CompletableFuture<>();
+	}
 
-    @Test
-    void testFixedExecution() throws InterruptedException, ExecutionException {
+	@Test
+	void testFixedExecution() throws InterruptedException, ExecutionException { // completes after the event is supposed to be called
+		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis());
+		event = new IntervalEvent(Duration.ofSeconds(1), maxTicks, () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
+		assertEquals(maxTicks, future.get());
+	}
 
-        // completes after the event is supposed to be called
-        new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis());
+	@Test
+	void testIndefinitelyExecution() throws InterruptedException, ExecutionException {
+		event = new IntervalEvent(Duration.ofSeconds(1), () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks())); // completes after
+																																				// the event is
+																																				// supposed to
+																																				// be called
+		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(6).toMillis());
+		assertNotNull(future.get());
+	}
 
-        event = new IntervalEvent(Duration.ofSeconds(1), maxTicks, () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
-
-        assertEquals(maxTicks, future.get());
-    }
-
-    @Test
-    void testIndefinitelyExecution() throws InterruptedException, ExecutionException {
-        event = new IntervalEvent(Duration.ofSeconds(1), () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
-
-        // completes after the event is supposed to be called
-        new Timer().schedule(new CompleteTask(), Duration.ofSeconds(6).toMillis());
-
-        assertNotNull(future.get());
-    }
-
-    class CompleteTask extends TimerTask {
-        @Override
-        public void run() {
-
-            future.complete(event.getTicks());
-        }
-    }
+	class CompleteTask extends TimerTask {
+		@Override
+		public void run() {
+			future.complete(event.getTicks());
+		}
+	}
 }

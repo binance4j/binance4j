@@ -11,7 +11,6 @@ import com.binance4j.savings.client.SavingsClient;
  * @param positionId Position id for fixed position.
  */
 public record ChangePositionParams(@Mandatory String projectId, Long lot, Long positionId) implements Params {
-
 	/**
 	 * Creates an instance of {@link ChangePositionParams}
 	 * 

@@ -13,15 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param clearTime    Clear time in ms.
  * @see UserDataUpdate
  */
-public record BalanceUpdate(
-		/** The event type. */
-		@JsonProperty("e") String eventType,
-		/** The timestamp. */
-		@JsonProperty("E") Long eventTime,
-		/** The asset. */
-		@JsonProperty("a") String asset,
-		/** The balance delta. */
-		@JsonProperty("d") String balanceDelta,
-		/** Clear time in ms. */
-		@JsonProperty("T") Long clearTime) {
+public record BalanceUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("a") String asset,
+		@JsonProperty("d") String balanceDelta, @JsonProperty("T") Long clearTime) {
 }

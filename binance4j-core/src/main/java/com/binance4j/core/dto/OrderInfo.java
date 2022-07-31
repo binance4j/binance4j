@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Trade order information.
  * 
@@ -24,41 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param orderId                  Order id.
  * @param clientOrderId            Client order id.
  */
-public record OrderInfo(
-		/** The order side */
-		String side,
-		/** Price. */
-		String price,
-		/** Original quantity. */
-		@JsonProperty("origQty") String origQuantity,
-		/** Original quantity. */
-		@JsonProperty("executedQty") String executedQuantity,
-		/** Used to calculate the average price */
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		/** Order status. */
-		String status,
-		/** Time in force to indicate how long will the order remain active. */
-		String timeInForce,
-		/** Type of order. */
-		String type,
-		/** Used with stop orders. */
-		String stopPrice,
-		/** Used with iceberg orders. */
-		@JsonProperty("icebergQty") String icebergQuantity,
-		/** Order timestamp */
-		long time,
-		/** Update timestamp. */
-		long updateTime,
-		/** Original quote order quantity. */
-		@JsonProperty("origQuoteOrderQty") String origQuoteOrderQuantity,
-		/** is working */
-		boolean isWorking,
-		/** is isolated margin */
-		boolean isIsolated,
-		/** The order symbol */
-		String symbol,
-		/** Order id. */
-		long orderId,
-		/** Client order id. */
-		String clientOrderId) {
+public record OrderInfo(String side, String price, String origQty, String executedQty, String cummulativeQuoteQty, String status, String timeInForce,
+		String type, String stopPrice, String icebergQty, long time, long updateTime, String origQuoteOrderQty, boolean isWorking, boolean isIsolated,
+		String symbol, long orderId, String clientOrderId) {
 }

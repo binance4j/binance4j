@@ -6,7 +6,6 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.wallet.param.TradeFeeParams;
 
 class GetTradeFeeTest extends WalletTest {
-
 	@Test
 	void testGetTradeFeeOfAll() throws ApiException {
 		testNoNulls(client.getTradeFee());

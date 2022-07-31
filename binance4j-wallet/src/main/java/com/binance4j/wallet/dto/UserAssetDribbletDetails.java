@@ -12,17 +12,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferedAmount    The transfered amount.
  * @param fromAsset           The transfered asset.
  */
-public record UserAssetDribbletDetails(
-		/** The transaction id. */
-		@JsonProperty("transId") long transactionId,
-		/** The timestamp. */
-		long operateTime,
-		/** The fees. */
-		String serviceChargeAmount,
-		/** The volume. */
-		String amount,
-		/** The transfered amount. */
-		String transferedAmount,
-		/** The transfered asset. */
-		String fromAsset) {
+public record UserAssetDribbletDetails(@JsonProperty("transId") long transactionId, long operateTime, String serviceChargeAmount, String amount,
+		String transferedAmount, String fromAsset) {
 }

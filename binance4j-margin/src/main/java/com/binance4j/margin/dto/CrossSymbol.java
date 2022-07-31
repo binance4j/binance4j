@@ -11,19 +11,5 @@ package com.binance4j.margin.dto;
  * @param isBuyAllowed  Is purchase allowed?
  * @param isSellAllowed Is sale allowed?
  */
-public record CrossSymbol(
-		/** The pair id. */
-		long id,
-		/** The asset pair. */
-		String symbol,
-		/** The base asset. */
-		String base,
-		/** The quote asset. */
-		String quote,
-		/** Is margin trade allowed? */
-		boolean isMarginTrade,
-		/** Is purchase allowed? */
-		boolean isBuyAllowed,
-		/** Is sale allowed? */
-		boolean isSellAllowed) {
+public record CrossSymbol(long id, String symbol, String base, String quote, boolean isMarginTrade, boolean isBuyAllowed, boolean isSellAllowed) {
 }

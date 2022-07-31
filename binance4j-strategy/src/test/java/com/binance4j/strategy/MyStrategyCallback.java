@@ -1,21 +1,16 @@
 package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import java.util.concurrent.CompletableFuture;
-
 import org.ta4j.core.BarSeries;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.strategy.dto.SymbolBar;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.websocket.callback.GenericCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
-
 import okhttp3.Response;
 
 public class MyStrategyCallback extends StrategyCallback {
-
 	final CompletableFuture<Boolean> future;
 	final WatchService service;
 
@@ -30,7 +25,6 @@ public class MyStrategyCallback extends StrategyCallback {
 		super.onClosed(callback);
 		assertNotNull(callback);
 		future.complete(true);
-
 	}
 
 	@Override

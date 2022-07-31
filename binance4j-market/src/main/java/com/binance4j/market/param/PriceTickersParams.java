@@ -2,7 +2,6 @@ package com.binance4j.market.param;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
-
 import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;

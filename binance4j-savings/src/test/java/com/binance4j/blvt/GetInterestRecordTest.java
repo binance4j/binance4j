@@ -7,7 +7,6 @@ import com.binance4j.savings.dto.LendingType;
 import com.binance4j.savings.param.LendingParams;
 
 public class GetInterestRecordTest extends SavingsTest {
-
 	@Test
 	void test1() throws ApiException {
 		testNoNulls(client.getInterests(new LendingParams(LendingType.DAILY)));

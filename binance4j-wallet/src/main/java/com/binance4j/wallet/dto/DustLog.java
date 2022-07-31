@@ -8,9 +8,5 @@ import java.util.List;
  * @param total              Total counts of exchange.
  * @param userAssetDribblets Dribblets.
  */
-public record DustLog(
-		/** Total counts of exchange. */
-		int total,
-		/** Dribblets. */
-		List<UserAssetDribblets> userAssetDribblets) {
+public record DustLog(int total, List<UserAssetDribblets> userAssetDribblets) {
 }

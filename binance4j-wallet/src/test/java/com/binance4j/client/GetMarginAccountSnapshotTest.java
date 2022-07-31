@@ -10,7 +10,6 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.MarginAccountSnapshotResponse;
 
 class GetMarginAccountSnapshotTest extends WalletTest {
-
 	@Test
 	void testMarginAccountSnapshotWithLimit() throws ApiException {
 		MarginAccountSnapshotResponse res = client.getMarginAccountSnapshot(new TimeFrame(limit)).execute();

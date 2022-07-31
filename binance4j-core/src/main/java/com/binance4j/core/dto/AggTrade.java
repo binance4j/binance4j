@@ -14,24 +14,7 @@ import java.util.List;
  * @param m Was it a buyer maker
  * @param M Was it the best price match?
  */
-public record AggTrade(
-		/** The trade id */
-		long a,
-		/** The price */
-		String p,
-		/** The quantity */
-		String q,
-		/** The first trade id */
-		long f,
-		/** The last trade id */
-		long l,
-		/** The timestamp */
-		long T,
-		/** Was it a buyer maker */
-		boolean m,
-		/** Was it the best price match? */
-		boolean M) {
-
+public record AggTrade(long a, String p, String q, long f, long l, long T, boolean m, boolean M) {
 	/**
 	 * @param input The CSV line.
 	 */
@@ -95,5 +78,4 @@ public record AggTrade(
 	public boolean isBestMatch() {
 		return M;
 	}
-
 }
