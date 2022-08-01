@@ -1,13 +1,22 @@
 package com.binance4j.mining.client;
 
 import java.util.Map;
+
 import com.binance4j.core.client.RestMapping;
-import com.binance4j.mining.dto.AlgorithmsAquisitionResponse;
-import com.binance4j.mining.dto.CoinsAquisitionResponse;
+import com.binance4j.mining.dto.AccountListResponse;
+import com.binance4j.mining.dto.AccountProfitsResponse;
+import com.binance4j.mining.dto.AlgorithmsResponse;
+import com.binance4j.mining.dto.CoinsResponse;
+import com.binance4j.mining.dto.HashrateResaleCancellationResponse;
+import com.binance4j.mining.dto.HashrateResaleDetailResponse;
+import com.binance4j.mining.dto.HashrateResaleListResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
 import com.binance4j.mining.dto.OtherProfitsResponse;
 import com.binance4j.mining.dto.ProfitResponse;
+import com.binance4j.mining.dto.StatisticsResponse;
 import com.binance4j.mining.dto.WorkersResponse;
+import com.binance4j.mining.param.HashrateResaleParams;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -25,7 +34,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "pub/algoList")
 	@Headers(SIGNED_H)
-	Call<AlgorithmsAquisitionResponse> getAlgorithms(@QueryMap Map<String, Object> map);
+	Call<AlgorithmsResponse> getAlgorithms(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -33,7 +42,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "pub/coinList")
 	@Headers(SIGNED_H)
-	Call<CoinsAquisitionResponse> getCoins(@QueryMap Map<String, Object> map);
+	Call<CoinsResponse> getCoins(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -73,7 +82,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "payment/uid")
 	@Headers(SIGNED_H)
-	Call<Void> getAccountProfits(@QueryMap Map<String, Object> map);
+	Call<AccountProfitsResponse> getAccountProfits(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -81,7 +90,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "hash-transfer/config/details/list")
 	@Headers(SIGNED_H)
-	Call<Void> getHashrateResales(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleListResponse> getHashrateResales(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -89,15 +98,15 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "hash-transfer/profit/details")
 	@Headers(SIGNED_H)
-	Call<Void> getHashrateResalesDetails(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleDetailResponse> getHashrateResalesDetails(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "hash-transfer/config")
+	@POST(BASE + "hash-transfer/config")
 	@Headers(SIGNED_H)
-	Call<Void> resellHashrate(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleParams> resellHashrate(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -105,7 +114,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@POST(BASE + "hash-transfer/config/cancel")
 	@Headers(SIGNED_H)
-	Call<Void> CancelHashrateResaleConfiguration(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleCancellationResponse> CancelHashrateResaleConfiguration(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -113,7 +122,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "statistics/user/status")
 	@Headers(SIGNED_H)
-	Call<Void> getStats(@QueryMap Map<String, Object> map);
+	Call<StatisticsResponse> getStatistics(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -121,5 +130,5 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@GET(BASE + "statistics/user/list")
 	@Headers(SIGNED_H)
-	Call<Void> getAccounts(@QueryMap Map<String, Object> map);
+	Call<AccountListResponse> getAccounts(@QueryMap Map<String, Object> map);
 }

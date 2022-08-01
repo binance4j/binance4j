@@ -9,5 +9,5 @@ import com.binance4j.mining.client.MiningClient;
  * @param msg  The response message.
  * @param data The response data.
  */
-public record OtherProfitsResponse(int code, String msg, OtherProfitsData data) {
+public record HashrateResaleListResponse(int code, String msg, HashrateResaleListDetailData data) {
 }

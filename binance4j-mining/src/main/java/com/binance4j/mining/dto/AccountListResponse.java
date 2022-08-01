@@ -1,5 +1,7 @@
 package com.binance4j.mining.dto;
 
+import java.util.List;
+
 import com.binance4j.mining.client.MiningClient;
 
 /**
@@ -9,5 +11,5 @@ import com.binance4j.mining.client.MiningClient;
  * @param msg  The response message.
  * @param data The response data.
  */
-public record OtherProfitsResponse(int code, String msg, OtherProfitsData data) {
+public record AccountListResponse(int code, String msg, List<AccountData> data) {
 }
