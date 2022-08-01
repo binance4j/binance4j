@@ -15,12 +15,19 @@ import com.binance4j.wallet.dto.WithdrawStatus;
  *      doc</a>
  */
 @Param
-public record WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) implements Params {
+public record WithdrawHistoryParams(String coin, String withdrawOrderId, String status) implements Params {
+	/**
+	 * 
+	 */
+	public WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) {
+		this(coin, withdrawOrderId, status.toString());
+	}
+
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 */
 	public WithdrawHistoryParams() {
-		this(null, null, null);
+		this(null, null, "");
 	}
 
 	/**
@@ -29,7 +36,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, Withdra
 	 * @param withdrawOrderId The withdraw order id to fetch.
 	 */
 	public WithdrawHistoryParams(String withdrawOrderId) {
-		this(null, withdrawOrderId, null);
+		this(null, withdrawOrderId, "");
 	}
 
 	/**
@@ -39,7 +46,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, Withdra
 	 * @param status The status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, WithdrawStatus status) {
-		this(coin, null, status);
+		this(coin, null, status.toString());
 	}
 
 	/**
@@ -48,6 +55,6 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, Withdra
 	 * @param status The status to look for.
 	 */
 	public WithdrawHistoryParams(WithdrawStatus status) {
-		this(null, null, status);
+		this(null, null, status.toString());
 	}
 }

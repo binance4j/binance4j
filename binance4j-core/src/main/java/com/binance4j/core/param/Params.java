@@ -75,6 +75,7 @@ public interface Params {
 		// remove
 		map.remove("order");
 		map.values().removeAll(Collections.singleton(null));
+		map.values().removeAll(Collections.singleton(""));
 		return map;
 	}
 

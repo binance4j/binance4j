@@ -23,20 +23,6 @@ public class ApiError {
 	}
 
 	/**
-	 * @return the code
-	 */
-	public int getCode() {
-		return code;
-	}
-
-	/**
-	 * @param code the code to set
-	 */
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	/**
 	 * @return the msg
 	 */
 	public String getMsg() {
@@ -48,5 +34,19 @@ public class ApiError {
 	 */
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+
+	/**
+	 * @return the code
+	 */
+	public int getCode() {
+		return code;
+	}
+
+	/**
+	 * @param code the code to set
+	 */
+	public void setCode(int code) {
+		this.code = code;
 	}
 }

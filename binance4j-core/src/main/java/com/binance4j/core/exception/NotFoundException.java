@@ -4,6 +4,6 @@ package com.binance4j.core.exception;
 public class NotFoundException extends ApiException {
 	/** Constructor */
 	public NotFoundException() {
-		super("404", "Not Found");
+		super(404, "Not Found");
 	}
 }

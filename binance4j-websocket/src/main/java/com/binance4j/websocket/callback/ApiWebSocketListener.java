@@ -53,7 +53,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 		try {
 			callback.onMessage(objectReader.readValue(text));
 		} catch (Exception e) {
-			callback.onFailure(new ApiException("-1000", e.getMessage()));
+			callback.onFailure(new ApiException(-1000, e.getMessage()));
 		}
 	}
 
@@ -68,7 +68,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 		try {
 			callback.onOpen(response);
 		} catch (Exception e) {
-			callback.onFailure(new ApiException("-1000", e.getMessage()));
+			callback.onFailure(new ApiException(-1000, e.getMessage()));
 		}
 	}
 
@@ -85,7 +85,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 		try {
 			callback.onClosing(new WebsocketCloseObject(code, reason));
 		} catch (Exception e) {
-			callback.onFailure(new ApiException("-1000", e.getMessage()));
+			callback.onFailure(new ApiException(-1000, e.getMessage()));
 		}
 	}
 
@@ -102,7 +102,7 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 		try {
 			callback.onClosed(new WebsocketCloseObject(code, reason));
 		} catch (Exception e) {
-			callback.onFailure(new ApiException("-1000", e.getMessage()));
+			callback.onFailure(new ApiException(-1000, e.getMessage()));
 		}
 	}
 
@@ -117,9 +117,9 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	public void onFailure(final WebSocket webSocket, final Throwable t, final Response response) {
 		if (!closing) {
 			try {
-				callback.onFailure(new ApiException("-1000", t.getMessage()));
+				callback.onFailure(new ApiException(-1000, t.getMessage()));
 			} catch (Exception e) {
-				callback.onFailure(new ApiException("-1000", e.getMessage()));
+				callback.onFailure(new ApiException(-1000, e.getMessage()));
 			}
 		}
 	}

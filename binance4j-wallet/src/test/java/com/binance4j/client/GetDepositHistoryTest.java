@@ -24,6 +24,6 @@ class GetDepositHistoryTest extends WalletTest {
 
 	@Test
 	void testGetDepositHistoryOfGivenAssetAndStatus() throws ApiException {
-		testNoNulls(client.getDepositHistory(new DepositHistoryParams(asset, DepositStatus.SUCCESS)));
+		testNoNulls(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS, asset)));
 	}
 }

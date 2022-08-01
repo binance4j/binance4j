@@ -12,5 +12,12 @@ import com.binance4j.market.client.MarketClient;
  * @param interval Candlestick interval.
  */
 @Param(recvWindow = false, timestamp = false)
-public record KlinesParams(String symbol, CandlestickInterval interval) implements Params {
+public record KlinesParams(String symbol, String interval) implements Params {
+	/**
+	 * @param symbol   Trading pair we want the data.
+	 * @param interval Candlestick interval.
+	 */
+	public KlinesParams(String symbol, CandlestickInterval interval) {
+		this(symbol, interval.toString());
+	}
 }

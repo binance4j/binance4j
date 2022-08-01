@@ -5,7 +5,6 @@ import java.time.Duration;
 import com.binance4j.core.event.ScheduledEvent;
 import com.binance4j.core.event.ScheduledTask;
 import com.binance4j.core.event.TimeoutEvent;
-import com.binance4j.core.exception.ApiErrorCode;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.websocket.client.WebsocketClient;
 import com.binance4j.websocket.client.WebsocketInterceptorCallback;
@@ -40,8 +39,8 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback, String timeoutMessage,
 			String disconnectedMessage) {
 		this.websocketClient = websocketClient;
-		timeoutException = new ApiException(ApiErrorCode.TIMEOUT, timeoutMessage);
-		disconnectedException = new ApiException(ApiErrorCode.DISCONNECTED, disconnectedMessage);
+		timeoutException = new ApiException(-1007, timeoutMessage);
+		disconnectedException = new ApiException(-1001, disconnectedMessage);
 		this.callback = callback;
 	}
 

@@ -15,13 +15,8 @@ class GetWithdrawHistoryTest extends WalletTest {
 	}
 
 	@Test
-	void testGetWithdrawHistoryWithAsset() throws ApiException {
-		testHasNulls(client.getWithdrawHistory(new WithdrawHistoryParams(asset)), List.of("withdrawOrderId"), true);
-	}
-
-	@Test
 	void testGetWithdrawHistoryWithAssetAndStatus() throws ApiException {
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		testHasNulls(client.getWithdrawHistory(new WithdrawHistoryParams(asset, status)), List.of("withdrawOrderId"), true);
+		testHasNulls(client.getWithdrawHistory(new WithdrawHistoryParams("FTM", status)), List.of("withdrawOrderId"), true);
 	}
 }

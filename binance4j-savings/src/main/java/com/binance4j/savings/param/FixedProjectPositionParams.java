@@ -1,5 +1,6 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.FixedProjectPositionStatus;
@@ -11,6 +12,7 @@ import com.binance4j.savings.dto.FixedProjectPositionStatus;
  * @param projectId Project id.
  * @param status    Status.
  */
+@Param
 public record FixedProjectPositionParams(String asset, String projectId, FixedProjectPositionStatus status) implements Params {
 	/**
 	 * Creates an instance of {@link FixedProjectPositionParams}.

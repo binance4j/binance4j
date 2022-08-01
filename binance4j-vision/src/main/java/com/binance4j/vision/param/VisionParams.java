@@ -151,7 +151,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 			sc.close();
 			return data;
 		} catch (IOException e) {
-			throw new ApiException("-400", e.getMessage());
+			throw new ApiException(-400, e.getMessage());
 		}
 	}
 
@@ -170,7 +170,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 				// The class must have a constructor that accepts a 2d list
 				obj.add(clazz.getConstructor(List.class).newInstance(csv));
 			} catch (Exception e) {
-				throw new ApiException("-300", e.getMessage());
+				throw new ApiException(-300, e.getMessage());
 			}
 		}
 		return obj;

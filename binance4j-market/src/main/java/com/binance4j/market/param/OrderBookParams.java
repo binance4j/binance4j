@@ -12,13 +12,22 @@ import com.binance4j.market.dto.OrderBookLimit;
  * @param limit  Market depth size.
  */
 @Param(recvWindow = false, timestamp = false)
-public record OrderBookParams(String symbol, OrderBookLimit limit) implements Params {
+public record OrderBookParams(String symbol, String limit) implements Params {
 	/**
 	 * Creates an instance of {@link OrderBookParams}.
 	 * 
 	 * @param symbol Trading pair we want the depth.
 	 */
 	public OrderBookParams(String symbol) {
-		this(symbol, null);
+		this(symbol, "100");
+	}
+
+	/**
+	 * Creates an instance of {@link OrderBookParams}.
+	 * 
+	 * @param symbol Trading pair we want the depth.
+	 */
+	public OrderBookParams(String symbol, OrderBookLimit limit) {
+		this(symbol, limit.toString());
 	}
 }

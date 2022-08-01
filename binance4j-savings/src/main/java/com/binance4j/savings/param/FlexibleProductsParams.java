@@ -1,5 +1,6 @@
 package com.binance4j.savings.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.Featured;
@@ -11,6 +12,7 @@ import com.binance4j.savings.dto.FlexibleProductStatus;
  * @param status   The product status.
  * @param featured Featured.
  */
+@Param
 public record FlexibleProductsParams(FlexibleProductStatus status, Featured featured) implements Params {
 	/**
 	 * Creates an instance of {@link FlexibleProductsParams}.

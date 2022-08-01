@@ -1,5 +1,6 @@
 package com.binance4j.staking.param;
 
+import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -11,14 +12,26 @@ import com.binance4j.staking.dto.ProductType;
  * @param productId Product id.
  * @param asset     Product name.
  */
-public record PositionParams(ProductType product, String productId, String asset) implements Params {
+@Param
+public record PositionParams(String product, String productId, String asset) implements Params {
+	/**
+	 * Creates an instance of {@link PositionParams}.
+	 * 
+	 * @param product   Product type.
+	 * @param productId Product id.
+	 * @param asset     Product name.
+	 */
+	public PositionParams(ProductType product, String productId, String asset) {
+		this(product.toString(), productId, asset);
+	}
+
 	/**
 	 * Creates an instance of {@link PositionParams}.
 	 * 
 	 * @param product Product type.
 	 */
 	public PositionParams(ProductType product) {
-		this(product, null, null);
+		this(product.toString(), null, null);
 	}
 
 	/**
@@ -28,7 +41,7 @@ public record PositionParams(ProductType product, String productId, String asset
 	 * @param productId Product id.
 	 */
 	public PositionParams(ProductType product, String productId) {
-		this(product, productId, null);
+		this(product.toString(), productId, null);
 	}
 
 	/**
@@ -38,6 +51,6 @@ public record PositionParams(ProductType product, String productId, String asset
 	 * @param asset   Product name.
 	 */
 	public PositionParams(String asset, ProductType product) {
-		this(product, null, asset);
+		this(product.toString(), null, asset);
 	}
 }
