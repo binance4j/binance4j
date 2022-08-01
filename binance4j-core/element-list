@@ -1,4 +1,5 @@
 com.binance4j.core
+com.binance4j.core.annotation
 com.binance4j.core.callback
 com.binance4j.core.client
 com.binance4j.core.dto
