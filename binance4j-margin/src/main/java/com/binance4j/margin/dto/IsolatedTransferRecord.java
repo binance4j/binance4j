@@ -10,18 +10,7 @@ package com.binance4j.margin.dto;
  * @param transactionId The transaction id.
  * @param transferFrom  The account the asset is transfered from.
  * @param transferTo    The account the asset is transfered to.
+ * @see IsolatedTransferAccount
  */
-public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, long txId,
-		/**
-		 * The account the asset is transfered from.
-		 * 
-		 * @see IsolatedTransferAccount
-		 */
-		String transFrom,
-		/**
-		 * The account the asset is transfered to.
-		 * 
-		 * @see IsolatedTransferAccount
-		 */
-		String transTo) {
+public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, long txId, String transFrom, String transTo) {
 }

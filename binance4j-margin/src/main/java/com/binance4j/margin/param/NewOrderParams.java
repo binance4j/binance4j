@@ -1,6 +1,5 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
@@ -17,16 +16,12 @@ public class NewOrderParams implements Params {
 	/** The default order time in force. */
 	TimeInForce timeInForce = TimeInForce.GTC;
 	/** The order symbol */
-	@Mandatory
 	String symbol;
 	/** The order type */
-	@Mandatory
 	OrderType type;
 	/** The order side */
-	@Mandatory
 	OrderSide side;
 	/** The order quantity */
-	@Mandatory
 	String quantity;
 	/** The order price */
 	String price;
@@ -108,7 +103,6 @@ public class NewOrderParams implements Params {
 		this.quantity = quantity;
 		this.price = price;
 	}
-
 	// STATIQUE //
 
 	/**
@@ -370,5 +364,4 @@ public class NewOrderParams implements Params {
 	public void setNewClientOrderId(String newClientOrderId) {
 		this.newClientOrderId = newClientOrderId;
 	}
-
 }

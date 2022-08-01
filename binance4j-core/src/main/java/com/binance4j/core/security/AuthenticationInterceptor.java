@@ -6,7 +6,6 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Hex;
-import org.jetbrains.annotations.NotNull;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.UnableToSignException;
@@ -51,7 +50,6 @@ public class AuthenticationInterceptor implements Interceptor {
 	 * 
 	 * @param chain The request chain.
 	 */
-	@NotNull
 	@Override
 	public Response intercept(Chain chain) throws IOException {
 		Request original = chain.request();

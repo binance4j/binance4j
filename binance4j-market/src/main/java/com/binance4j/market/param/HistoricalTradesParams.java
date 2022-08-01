@@ -1,6 +1,5 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
@@ -13,7 +12,7 @@ import com.binance4j.market.client.MarketClient;
  * @param fromId Trade id to fetch from. Default gets most recent trades.
  */
 @Param(weight = 5, recvWindow = false, timestamp = false)
-public record HistoricalTradesParams(@Mandatory String symbol, Integer limit, Long fromId) implements Params {
+public record HistoricalTradesParams(String symbol, Integer limit, Long fromId) implements Params {
 	/**
 	 * Creates an instance of {@link HistoricalTradesParams}.
 	 * 

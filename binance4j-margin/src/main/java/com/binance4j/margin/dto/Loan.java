@@ -13,11 +13,5 @@ import java.util.Optional;
  * @param transactionId  The transaction id.
  * @see LoanStatus
  */
-public record Loan(
-		/**
-		 * The loan status.
-		 * 
-		 * @see LoanStatus
-		 */
-		String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, long txId) {
+public record Loan(String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, long txId) {
 }

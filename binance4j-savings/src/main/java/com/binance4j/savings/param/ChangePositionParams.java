@@ -1,6 +1,5 @@
 package com.binance4j.savings.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
@@ -10,7 +9,7 @@ import com.binance4j.savings.client.SavingsClient;
  * @param projectId  Project id.
  * @param positionId Position id for fixed position.
  */
-public record ChangePositionParams(@Mandatory String projectId, Long lot, Long positionId) implements Params {
+public record ChangePositionParams(String projectId, Long lot, Long positionId) implements Params {
 	/**
 	 * Creates an instance of {@link ChangePositionParams}
 	 * 

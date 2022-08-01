@@ -1,6 +1,5 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
@@ -16,19 +15,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Param(weight = 2, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class NewOCOOrderParams implements Params {
 	/** The order symbol */
-	@Mandatory
 	String symbol;
 	/** The order side */
-	@Mandatory
 	OrderSide side;
 	/** The order quantity */
-	@Mandatory
 	String quantity;
 	/** The order price */
-	@Mandatory
 	String price;
 	/** The stop price */
-	@Mandatory
 	String stopPrice;
 	/** The order response type Default: RESULT. */
 	protected NewOrderResponseType newOrderRespType;

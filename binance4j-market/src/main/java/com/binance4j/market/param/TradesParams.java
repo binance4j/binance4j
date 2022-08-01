@@ -1,6 +1,5 @@
 package com.binance4j.market.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
@@ -12,7 +11,7 @@ import com.binance4j.market.client.MarketClient;
  * @param limit  The trades size. Default 500; max 1000.
  */
 @Param(recvWindow = false, timestamp = false)
-public record TradesParams(@Mandatory String symbol, Integer limit) implements Params {
+public record TradesParams(String symbol, Integer limit) implements Params {
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 

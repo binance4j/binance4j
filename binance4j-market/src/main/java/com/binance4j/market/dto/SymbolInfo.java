@@ -29,11 +29,5 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public record SymbolInfo(List<String> orderTypes, @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters, List<String> permissions,
 		String symbol, String quoteAsset, String baseAsset, int baseAssetPrecision, int baseCommissionPrecision, int quoteAssetPrecision,
 		int quoteCommissionPrecision, boolean icebergAllowed, boolean ocoAllowed, boolean quoteOrderQtyMarketAllowed, boolean isSpotTradingAllowed,
-		boolean isMarginTradingAllowed,
-		/**
-		 * The symbol status.
-		 * 
-		 * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
-		 */
-		String status) {
+		boolean isMarginTradingAllowed, String status) {
 }

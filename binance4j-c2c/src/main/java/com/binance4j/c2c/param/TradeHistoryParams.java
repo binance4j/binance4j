@@ -2,7 +2,6 @@ package com.binance4j.c2c.param;
 
 import com.binance4j.c2c.client.C2CClient;
 import com.binance4j.c2c.dto.TradeType;
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
@@ -12,5 +11,5 @@ import com.binance4j.core.param.Params;
  * @param tradeType Trade type.
  */
 @Param
-public record TradeHistoryParams(@Mandatory TradeType tradeType) implements Params {
+public record TradeHistoryParams(TradeType tradeType) implements Params {
 }

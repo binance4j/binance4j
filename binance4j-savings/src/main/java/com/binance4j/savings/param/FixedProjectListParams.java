@@ -1,6 +1,5 @@
 package com.binance4j.savings.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.FixedProjectStatus;
@@ -13,7 +12,7 @@ import com.binance4j.savings.dto.FixedProjectType;
  * @param asset  Asset.
  * @param status Project status. default: {@code START_TIME}.
  */
-public record FixedProjectListParams(@Mandatory FixedProjectType type, String asset, FixedProjectStatus status) implements Params {
+public record FixedProjectListParams(FixedProjectType type, String asset, FixedProjectStatus status) implements Params {
 	/**
 	 * Creates an instance of {@link FixedProjectListParams}.
 	 * 

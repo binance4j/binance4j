@@ -2,8 +2,6 @@ package com.binance4j.core.callback;
 
 import java.io.IOException;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
 
@@ -28,7 +26,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	 * @param response The API response.
 	 */
 	@Override
-	public void onResponse(@NotNull Call<T> call, Response<T> response) {
+	public void onResponse(Call<T> call, Response<T> response) {
 		switch (response.code()) {
 		case 200 -> callback.onResponse(response.body());
 		case 403 -> callback.onFailure(new ApiException(403, "The Web Application Firewall has been violated"));
@@ -52,7 +50,7 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	 * @param throwable The API error message.
 	 */
 	@Override
-	public void onFailure(@NotNull Call<T> call, Throwable throwable) {
+	public void onFailure(Call<T> call, Throwable throwable) {
 		callback.onFailure(new ApiException(-1000, throwable.getMessage()));
 	}
 }

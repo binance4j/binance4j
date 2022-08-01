@@ -1,6 +1,5 @@
 package com.binance4j.wallet.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.wallet.client.WalletClient;
@@ -14,7 +13,7 @@ import com.binance4j.wallet.dto.WalletTransferType;
  * @param toSymbol   Mandatory when {@code MARGIN_ISOLATEDMARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
  */
 @Param
-public record WalletTransferHistoryParams(@Mandatory WalletTransferType type, String fromSymbol, String toSymbol) implements Params {
+public record WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol) implements Params {
 	/**
 	 * Creates an instance of {@link WalletTransferHistoryParams}.
 	 * 

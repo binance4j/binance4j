@@ -1,6 +1,5 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
@@ -17,13 +16,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class NewOrderParams implements Params {
 	/** The order symbol */
-	@Mandatory
 	String symbol;
 	/** The order side */
-	@Mandatory
 	OrderSide side;
 	/** The order quantity */
-	@Mandatory
 	String quantity;
 	/** The order price */
 	String price;
@@ -113,7 +109,6 @@ public class NewOrderParams implements Params {
 		this.quantity = quantity;
 		this.price = price;
 	}
-
 	// STATIQUE //
 
 	/**
@@ -211,7 +206,6 @@ public class NewOrderParams implements Params {
 	public static NewOrderParams sellLimit(String symbol, String quantity, String price) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price);
 	}
-
 	// QUOTE ORDERS
 
 	/**
@@ -435,5 +429,4 @@ public class NewOrderParams implements Params {
 	public void setNewClientOrderId(String newClientOrderId) {
 		this.newClientOrderId = newClientOrderId;
 	}
-
 }

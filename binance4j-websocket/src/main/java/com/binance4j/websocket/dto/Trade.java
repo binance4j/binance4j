@@ -1,5 +1,7 @@
 package com.binance4j.websocket.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Pair trade data.
  * 
@@ -14,5 +16,7 @@ package com.binance4j.websocket.dto;
  * @param tradeTime          The timestamp.
  * @param buyerIsMarketMaker Is the buyer the market maker?
  */
-public record Trade(String e, Long E, String s, String t, String p, String q, Long b, Long a, Long T, Boolean m) {
+public record Trade(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("t") String tradeId,
+		@JsonProperty("p") String price, @JsonProperty("q") String quantity, @JsonProperty("b") Long buyerOrderId, @JsonProperty("a") Long sellerOrderId,
+		@JsonProperty("T") Long tradeTime, @JsonProperty("m") Boolean buyerIsMarketMaker) {
 }

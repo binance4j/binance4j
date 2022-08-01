@@ -1,6 +1,5 @@
 package com.binance4j.fiat.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.param.Params;
@@ -15,7 +14,7 @@ import com.binance4j.fiat.dto.TransactionType;
  * @param endTime         End time in ms.
  */
 @Param(weight = 90000, type = RateLimitType.UID)
-public record TransactionParams(@Mandatory TransactionType transactionType, Long beginTime, Long endTime) implements Params {
+public record TransactionParams(TransactionType transactionType, Long beginTime, Long endTime) implements Params {
 	/**
 	 * Creates an instance of {@link TransactionParams}.
 	 * 

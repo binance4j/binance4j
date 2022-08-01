@@ -1,6 +1,5 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -15,7 +14,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param archived       Set to true for archived data from 6 months ago.
  */
 @Param
-public record TransactionHistoryParams(@Mandatory String asset, String isolatedSymbol, Long txId, Boolean archived) implements Params {
+public record TransactionHistoryParams(String asset, String isolatedSymbol, Long txId, Boolean archived) implements Params {
 	/**
 	 * Creates an instance of {@link TransactionHistoryParams}.
 	 */

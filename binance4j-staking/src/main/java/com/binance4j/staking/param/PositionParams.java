@@ -1,6 +1,5 @@
 package com.binance4j.staking.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.param.Params;
 import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
@@ -12,7 +11,7 @@ import com.binance4j.staking.dto.ProductType;
  * @param productId Product id.
  * @param asset     Product name.
  */
-public record PositionParams(@Mandatory ProductType product, String productId, String asset) implements Params {
+public record PositionParams(ProductType product, String productId, String asset) implements Params {
 	/**
 	 * Creates an instance of {@link PositionParams}.
 	 * 

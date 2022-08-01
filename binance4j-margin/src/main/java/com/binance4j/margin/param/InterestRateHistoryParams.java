@@ -1,6 +1,5 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
@@ -12,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param vipLevel The VIP level.
  */
 @Param
-public record InterestRateHistoryParams(@Mandatory String asset, Integer vipLevel) implements Params {
+public record InterestRateHistoryParams(String asset, Integer vipLevel) implements Params {
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.
 	 * 

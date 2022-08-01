@@ -18,10 +18,5 @@ package com.binance4j.margin.dto;
  * @see LevelStatus
  */
 public record IsolatedPair(IsolatedAsset baseAsset, IsolatedAsset quoteAsset, String symbol, boolean isolatedCreated, boolean tradeEnabled, boolean enabled,
-		/**
-		 * The margin level status.
-		 * 
-		 * @see LevelStatus
-		 */
 		String marginLevelStatus, String marginLevel, String marginRatio, String indexPrice, String liquidatePrice, String liquidateRate) {
 }

@@ -1,6 +1,5 @@
 package com.binance4j.spot.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
@@ -12,7 +11,7 @@ import com.binance4j.spot.client.SpotClient;
  * @param isIsolated for isolated margin or not. Default: false.
  */
 @Param
-public record CancelOpenOrdersParams(@Mandatory String symbol, Boolean isIsolated) implements Params {
+public record CancelOpenOrdersParams(String symbol, Boolean isIsolated) implements Params {
 	/**
 	 * Creates an instance of {@link CancelOpenOrdersParams}.
 	 * 

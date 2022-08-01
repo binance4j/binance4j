@@ -1,7 +1,6 @@
 package com.binance4j.blvt.param;
 
 import com.binance4j.blvt.client.BLVTClient;
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
@@ -12,5 +11,5 @@ import com.binance4j.core.param.Params;
  * @param amount    Amount to redeem.
  */
 @Param
-public record RedemptionParams(@Mandatory String tokenName, @Mandatory String amount) implements Params {
+public record RedemptionParams(String tokenName, String amount) implements Params {
 }

@@ -3,8 +3,6 @@ package com.binance4j.market.param;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
@@ -15,7 +13,7 @@ import com.binance4j.market.client.MarketClient;
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'
  */
 @Param(weight = 40, recvWindow = false, timestamp = false)
-public record TickersStatisticsParams(@NotNull String symbols) implements Params {
+public record TickersStatisticsParams(String symbols) implements Params {
 	/**
 	 * Creates an instance of {@link TickersStatisticsParams}.
 	 * 

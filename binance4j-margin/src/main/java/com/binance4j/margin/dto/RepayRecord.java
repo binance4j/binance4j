@@ -16,10 +16,5 @@ import java.util.Optional;
  * @see LoanStatus
  */
 public record RepayRecord(long txId, long timestamp, Optional<String> isolatedSymbol, String amount, String asset, String interest, String principal,
-		/**
-		 * The repay status.
-		 * 
-		 * @see LoanStatus
-		 */
 		String status) {
 }

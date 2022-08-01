@@ -16,11 +16,5 @@ import java.util.Optional;
  * @see InterestType
  */
 public record InterestRecord(Optional<String> isolatedSymbol, String asset, Optional<String> rawAsset, String interest, long interestAccuredTime,
-		String interestRate, String principal,
-		/**
-		 * The interest type.
-		 * 
-		 * @see InterestType
-		 */
-		String type) {
+		String interestRate, String principal, String type) {
 }

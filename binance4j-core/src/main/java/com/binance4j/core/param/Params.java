@@ -1,12 +1,10 @@
 package com.binance4j.core.param;
 
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.RateLimitType;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -94,13 +92,6 @@ public interface Params {
 			map.remove(es.getValue());
 		});
 		return map;
-	}
-
-	/**
-	 * @return The param fields annotated with {@link Mandatory}.
-	 */
-	default List<Field> mandatoryFields() {
-		return List.of(getClass().getDeclaredFields()).stream().filter(f -> f.isAnnotationPresent(Mandatory.class)).toList();
 	}
 
 	/**

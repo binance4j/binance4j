@@ -1,6 +1,5 @@
 package com.binance4j.margin.param;
 
-import com.binance4j.core.annotation.Mandatory;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
@@ -13,19 +12,14 @@ import com.binance4j.margin.client.MarginClient;
 @Param(type = RateLimitType.UID)
 public class NewOCOOrderParams implements Params {
 	/** The order symbol */
-	@Mandatory
 	String symbol;
 	/** The order side */
-	@Mandatory
 	OrderSide side;
 	/** The order quantity */
-	@Mandatory
 	String quantity;
 	/** The order price */
-	@Mandatory
 	String price;
 	/** The stop price */
-	@Mandatory
 	String stopPrice;
 	/** The order response type Default: RESULT. */
 	NewOrderResponseType newOrderRespType;
@@ -258,5 +252,4 @@ public class NewOCOOrderParams implements Params {
 	public void setIsIsolated(Boolean isIsolated) {
 		this.isIsolated = isIsolated;
 	}
-
 }
