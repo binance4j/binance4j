@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Represents the best price/quantity on the order book for a given symbol.
  * 
@@ -11,6 +9,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param askPrice    Ask price.
  * @param askQuantity Ask quantity.
  */
-public record BookTicker(String symbol, String bidPrice, @JsonProperty("bidQty") String bidQuantity, String askPrice,
-		@JsonProperty("askQty") String askQuantity) {
+public record BookTicker(String symbol, String bidPrice, String bidQty, String askPrice, String askQty) {
 }

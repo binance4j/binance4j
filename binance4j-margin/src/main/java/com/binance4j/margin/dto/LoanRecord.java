@@ -10,5 +10,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param total The total records.
  * @param rows  The records.
  */
-public record LoanRecord(@JsonProperty("totalclas") int total, @JsonProperty("rowsclas") List<Loan> rows) {
+public record LoanRecord(int totalclas, @JsonProperty("rowsclas") List<Loan> rows) {
 }

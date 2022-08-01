@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Net asset value event.
  * 
@@ -10,6 +8,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param name      BLVT name.
  * @param candle    BLVT candle.
  */
-public record BLVTCandleEvent(@JsonProperty("e") String eventName, @JsonProperty("E") long eventTime, @JsonProperty("s") String name,
-		@JsonProperty("k") BLVTCandle candle) {
+public record BLVTCandleEvent(String e, long E, String s, BLVTCandle k) {
 }

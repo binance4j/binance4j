@@ -1,7 +1,6 @@
 package com.binance4j.spot.dto;
 
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The response of a SpotOrder.
@@ -21,8 +20,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param side                     The order side.
  * @param fills                    The list of trades that partially of fully filled the order.
  */
-public record NewOrderResponse(String symbol, long orderId, long orderListId, String clientOrderId, long transactTime, String price,
-		@JsonProperty("origQty") String origQuantity, @JsonProperty("executedQty") String executedQuantity,
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity, String status, String timeInForce, String type, String side,
-		List<OrderTrade> fills) {
+public record NewOrderResponse(String symbol, long orderId, long orderListId, String clientOrderId, long transactTime, String price, String origQty,
+		String executedQty, String cummulativeQuoteQty, String status, String timeInForce, String type, String side, List<OrderTrade> fills) {
 }

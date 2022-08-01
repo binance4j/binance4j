@@ -1,7 +1,5 @@
 package com.binance4j.nft.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * A NFT Withdraw.
  * 
@@ -13,6 +11,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param fee             The withdraw fee.
  * @param feeAsset        The fee asset.
  */
-public record Withdraw(String network, String contractAddress, String tokenId, @JsonProperty("txID") String transactionId, long timestamp, String fee,
-		String feeAsset) {
+public record Withdraw(String network, String contractAddress, String tokenId, String txID, long timestamp, String fee, String feeAsset) {
 }

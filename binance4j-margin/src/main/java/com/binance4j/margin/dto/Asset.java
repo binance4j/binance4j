@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An asset on the platform
  * 
@@ -12,6 +10,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isBorrowable      Is it borrowable?
  * @param isMortgageable    Is it mortgageable?
  */
-public record Asset(String assetFullName, String assetName, @JsonProperty("userMinBorrow") String userMinimumBorrow,
-		@JsonProperty("userMinRepay") String userMinimumRepay, boolean isBorrowable, boolean isMortgageable) {
+public record Asset(String assetFullName, String assetName, String userMinBorrow, String userMinRepay, boolean isBorrowable, boolean isMortgageable) {
 }

@@ -2,7 +2,6 @@ package com.binance4j.margin.dto;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Market order to exit leveraged position
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quantity         The order total quantity.
  * @param isIsolated       Is is isolated?
  */
-public record ForceLiquidationRecord(long orderId, long updatedTime, @JsonProperty("avgPrice") String averagePrice,
-		@JsonProperty("executedQty") String executedQuantity, TimeInForce timeInForce, OrderSide side, String symbol, String price,
-		@JsonProperty("qty") String quantity, boolean isIsolated) {
+public record ForceLiquidationRecord(long orderId, long updatedTime, String avgPrice, String executedQty, TimeInForce timeInForce, OrderSide side,
+		String symbol, String price, String qty, boolean isIsolated) {
 }

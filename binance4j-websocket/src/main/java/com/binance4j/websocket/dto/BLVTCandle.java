@@ -1,7 +1,6 @@
 package com.binance4j.websocket.dto;
 
 import com.binance4j.core.dto.CandlestickInterval;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Net asset value candle.
@@ -19,15 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param realLeverage  Real leverage.
  * @param updateNumbers Number of updates.
  */
-public record BLVTCandle(@JsonProperty("t") long startTime, @JsonProperty("T") long endTime, @JsonProperty("s") String name,
-		@JsonProperty("i") CandlestickInterval interval, @JsonProperty("f") long firstUpdate, @JsonProperty("L") long lastUpdate,
-		@JsonProperty("o") String open, @JsonProperty("c") String close, @JsonProperty("h") String high, @JsonProperty("l") String low,
-		@JsonProperty("v") String realLeverage, @JsonProperty("n") long updateNumbers
-// Ignore:
-// @JsonProperty("x") boolean x,
-// @JsonProperty("q") String q,
-// @JsonProperty("V") String V,
-// @JsonProperty("Q") String Q,
-// @JsonProperty("B") String B,
+public record BLVTCandle(long t, long T, String s, CandlestickInterval i, long f, long L, String o, String c, String h, String l, String v, long n
 ) {
 }

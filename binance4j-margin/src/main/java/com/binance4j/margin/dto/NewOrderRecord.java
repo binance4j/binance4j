@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.Trade;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * An newly placed order record.
@@ -27,8 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isIsolated               Is the order isolated?
  * @param fills                    The filled trades.
  */
-public record NewOrderRecord(long orderId, String symbol, OrderSide side, String status, String type, String timeInForce,
-		@JsonProperty("transactTime") long transactionTime, String clientOrderId, String price, @JsonProperty("origQty") String originalQuantity,
-		@JsonProperty("executedQty") String executedQuantity, @JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity,
-		Optional<String> marginBuyBorrowAmount, Optional<String> marginBuyBorrowAsset, boolean isIsolated, List<Trade> fills) {
+public record NewOrderRecord(long orderId, String symbol, OrderSide side, String status, String type, String timeInForce, long transactTime,
+		String clientOrderId, String price, String origQty, String executedQty, String cummulativeQuoteQty, Optional<String> marginBuyBorrowAmount,
+		Optional<String> marginBuyBorrowAsset, boolean isIsolated, List<Trade> fills) {
 }

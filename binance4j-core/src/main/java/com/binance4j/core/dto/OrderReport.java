@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An order report.
  * 
@@ -27,9 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param orderId                  /** Order id.
  * @param clientOrderId            /** Client order id.
  */
-public record OrderReport(long orderListId, String origClientOrderId, long transactTime, OrderSide side, String price,
-		@JsonProperty("origQty") String origQuantity, @JsonProperty("executedQty") String executedQuantity,
-		@JsonProperty("cummulativeQuoteQty") String cummulativeQuoteQuantity, String status, String timeInForce, String type, String stopPrice,
-		@JsonProperty("icebergQty") String icebergQuantity, long time, long updateTime, @JsonProperty("origQuoteOrderQty") String origQuoteOrderQuantity,
-		boolean isWorking, boolean isIsolated, String symbol, long orderId, String clientOrderId) {
+public record OrderReport(long orderListId, String origClientOrderId, long transactTime, OrderSide side, String price, String origQty, String executedQty,
+		String cummulativeQuoteQty, String status, String timeInForce, String type, String stopPrice, String icebergQty, long time, long updateTime,
+		String origQuoteOrderQty, boolean isWorking, boolean isIsolated, String symbol, long orderId, String clientOrderId) {
 }

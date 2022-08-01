@@ -16,7 +16,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param bids          The offers.
  * @param asks          The demands.
  */
-public record Depth(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("U") Long firstUpdateId, @JsonProperty("u") Long finalUpdateId, @JsonProperty("b") List<OrderBookEntry> bids,
-		@JsonProperty("a") List<OrderBookEntry> asks) {
+public record Depth(String e, Long E, String s, Long U, Long u, @JsonProperty("b") List<OrderBookEntry> bids, @JsonProperty("a") List<OrderBookEntry> asks) {
 }

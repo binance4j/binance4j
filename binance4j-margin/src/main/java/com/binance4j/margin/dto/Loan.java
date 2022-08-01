@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An executed trade history item.
  * 
@@ -21,5 +19,5 @@ public record Loan(
 		 * 
 		 * @see LoanStatus
 		 */
-		String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, @JsonProperty("txId") long transactionId) {
+		String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, long txId) {
 }

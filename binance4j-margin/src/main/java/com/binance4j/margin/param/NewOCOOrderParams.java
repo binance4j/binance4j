@@ -8,7 +8,6 @@ import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** {@link MarginClient#newOCO} params. */
 @Param(type = RateLimitType.UID)
@@ -35,15 +34,13 @@ public class NewOCOOrderParams implements Params {
 	/** A unique Id for the limit order */
 	String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
-	@JsonProperty("limitIcebergQty")
-	String limitIcebergQuantity;
+	String limitIcebergQty;
 	/** A unique Id for the stop loss/stop loss limit leg */
 	String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
 	String stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
-	@JsonProperty("stopIcebergQty")
-	String stopIcebergQuantity;
+	String stopIcebergQty;
 	/** Valid values are GTC/FOK/IOC */
 	TimeInForce stopLimitTimeInForce;
 	/** Is the order isolated? */
@@ -64,118 +61,6 @@ public class NewOCOOrderParams implements Params {
 		this.quantity = quantity;
 		this.price = price;
 		this.stopPrice = stopPrice;
-	}
-
-	/**
-	 * @return the listClientOrderId
-	 */
-	public String getListClientOrderId() {
-		return listClientOrderId;
-	}
-
-	/**
-	 * @param listClientOrderId the listClientOrderId to set
-	 */
-	public void setListClientOrderId(String listClientOrderId) {
-		this.listClientOrderId = listClientOrderId;
-	}
-
-	/**
-	 * @return the limitClientOrderId
-	 */
-	public String getLimitClientOrderId() {
-		return limitClientOrderId;
-	}
-
-	/**
-	 * @param limitClientOrderId the limitClientOrderId to set
-	 */
-	public void setLimitClientOrderId(String limitClientOrderId) {
-		this.limitClientOrderId = limitClientOrderId;
-	}
-
-	/**
-	 * @return the limitIcebergQuantity
-	 */
-	public String getLimitIcebergQuantity() {
-		return limitIcebergQuantity;
-	}
-
-	/**
-	 * @param limitIcebergQuantity the limitIcebergQuantity to set
-	 */
-	public void setLimitIcebergQuantity(String limitIcebergQuantity) {
-		this.limitIcebergQuantity = limitIcebergQuantity;
-	}
-
-	/**
-	 * @return the stopClientOrderId
-	 */
-	public String getStopClientOrderId() {
-		return stopClientOrderId;
-	}
-
-	/**
-	 * @param stopClientOrderId the stopClientOrderId to set
-	 */
-	public void setStopClientOrderId(String stopClientOrderId) {
-		this.stopClientOrderId = stopClientOrderId;
-	}
-
-	/**
-	 * @return the stopLimitPrice
-	 */
-	public String getStopLimitPrice() {
-		return stopLimitPrice;
-	}
-
-	/**
-	 * @param stopLimitPrice the stopLimitPrice to set
-	 */
-	public void setStopLimitPrice(String stopLimitPrice) {
-		this.stopLimitPrice = stopLimitPrice;
-	}
-
-	/**
-	 * @return the stopIcebergQuantity
-	 */
-	public String getStopIcebergQuantity() {
-		return stopIcebergQuantity;
-	}
-
-	/**
-	 * @param stopIcebergQuantity the stopIcebergQuantity to set
-	 */
-	public void setStopIcebergQuantity(String stopIcebergQuantity) {
-		this.stopIcebergQuantity = stopIcebergQuantity;
-	}
-
-	/**
-	 * @return the stopLimitTimeInForce
-	 */
-	public TimeInForce getStopLimitTimeInForce() {
-		return stopLimitTimeInForce;
-	}
-
-	/**
-	 * @param stopLimitTimeInForce the stopLimitTimeInForce to set
-	 */
-	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
-		this.stopLimitTimeInForce = stopLimitTimeInForce;
-	}
-
-	/**
-	 * @return the isIsolated
-	 */
-	public Boolean isIsolated() {
-		return isIsolated;
-	}
-
-	/**
-	 * @param isIsolated the isIsolated to set
-	 */
-	public void isIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
 	}
 
 	/**
@@ -261,4 +146,117 @@ public class NewOCOOrderParams implements Params {
 	public void setNewOrderRespType(NewOrderResponseType newOrderRespType) {
 		this.newOrderRespType = newOrderRespType;
 	}
+
+	/**
+	 * @return the listClientOrderId
+	 */
+	public String getListClientOrderId() {
+		return listClientOrderId;
+	}
+
+	/**
+	 * @param listClientOrderId the listClientOrderId to set
+	 */
+	public void setListClientOrderId(String listClientOrderId) {
+		this.listClientOrderId = listClientOrderId;
+	}
+
+	/**
+	 * @return the limitClientOrderId
+	 */
+	public String getLimitClientOrderId() {
+		return limitClientOrderId;
+	}
+
+	/**
+	 * @param limitClientOrderId the limitClientOrderId to set
+	 */
+	public void setLimitClientOrderId(String limitClientOrderId) {
+		this.limitClientOrderId = limitClientOrderId;
+	}
+
+	/**
+	 * @return the limitIcebergQty
+	 */
+	public String getLimitIcebergQty() {
+		return limitIcebergQty;
+	}
+
+	/**
+	 * @param limitIcebergQty the limitIcebergQty to set
+	 */
+	public void setLimitIcebergQty(String limitIcebergQty) {
+		this.limitIcebergQty = limitIcebergQty;
+	}
+
+	/**
+	 * @return the stopClientOrderId
+	 */
+	public String getStopClientOrderId() {
+		return stopClientOrderId;
+	}
+
+	/**
+	 * @param stopClientOrderId the stopClientOrderId to set
+	 */
+	public void setStopClientOrderId(String stopClientOrderId) {
+		this.stopClientOrderId = stopClientOrderId;
+	}
+
+	/**
+	 * @return the stopLimitPrice
+	 */
+	public String getStopLimitPrice() {
+		return stopLimitPrice;
+	}
+
+	/**
+	 * @param stopLimitPrice the stopLimitPrice to set
+	 */
+	public void setStopLimitPrice(String stopLimitPrice) {
+		this.stopLimitPrice = stopLimitPrice;
+	}
+
+	/**
+	 * @return the stopIcebergQty
+	 */
+	public String getStopIcebergQty() {
+		return stopIcebergQty;
+	}
+
+	/**
+	 * @param stopIcebergQty the stopIcebergQty to set
+	 */
+	public void setStopIcebergQty(String stopIcebergQty) {
+		this.stopIcebergQty = stopIcebergQty;
+	}
+
+	/**
+	 * @return the stopLimitTimeInForce
+	 */
+	public TimeInForce getStopLimitTimeInForce() {
+		return stopLimitTimeInForce;
+	}
+
+	/**
+	 * @param stopLimitTimeInForce the stopLimitTimeInForce to set
+	 */
+	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
+		this.stopLimitTimeInForce = stopLimitTimeInForce;
+	}
+
+	/**
+	 * @return the isIsolated
+	 */
+	public Boolean getIsIsolated() {
+		return isIsolated;
+	}
+
+	/**
+	 * @param isIsolated the isIsolated to set
+	 */
+	public void setIsIsolated(Boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
+
 }

@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An aggregated trade event for a symbol.
  * 
@@ -16,7 +14,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param eventTime             The timestamp.
  * @param symbol                The trading pair.
  */
-public record AggTrade(@JsonProperty("a") Long aggregatedTradeId, @JsonProperty("p") String price, @JsonProperty("q") String quantity,
-		@JsonProperty("f") Long firstBreakdownTradeId, @JsonProperty("l") Long lastBreakdownTradeId, @JsonProperty("T") Long tradeTime,
-		@JsonProperty("m") Boolean isBuyerMaker, @JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol) {
+public record AggTrade(Long a, String p, String q, Long f, Long l, Long T, Boolean m, String e, Long E, String s) {
 }

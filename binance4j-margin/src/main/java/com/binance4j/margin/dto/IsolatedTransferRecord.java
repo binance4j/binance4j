@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An asset transfer record between two accounts.
  * 
@@ -13,17 +11,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferFrom  The account the asset is transfered from.
  * @param transferTo    The account the asset is transfered to.
  */
-public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, @JsonProperty("txId") long transactionId,
+public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, long txId,
 		/**
 		 * The account the asset is transfered from.
 		 * 
 		 * @see IsolatedTransferAccount
 		 */
-		@JsonProperty("transFrom") String transferFrom,
+		String transFrom,
 		/**
 		 * The account the asset is transfered to.
 		 * 
 		 * @see IsolatedTransferAccount
 		 */
-		@JsonProperty("transTo") String transferTo) {
+		String transTo) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Details about an asset dust trasnfer (convertion into BNB).
  * 
@@ -12,6 +10,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transactionId       The transaction id.
  * @param transferedAmount    The transfered amount after fees.
  */
-public record DustTransferResult(String amount, String fromAsset, long operateTime, String serviceChargeAmount, @JsonProperty("tranId") long transactionId,
-		String transferedAmount) {
+public record DustTransferResult(String amount, String fromAsset, long operateTime, String serviceChargeAmount, long tranId, String transferedAmount) {
 }

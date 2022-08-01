@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Pair ticker.
  * 
@@ -29,12 +27,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param lastTradeId                 Last trade Id.
  * @param totalNumberOfTrades         Total number of trades.
  */
-public record Ticker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("p") String priceChange, @JsonProperty("P") String priceChangePercent, @JsonProperty("w") String weightedAveragePrice,
-		@JsonProperty("x") String previousDaysClosePrice, @JsonProperty("c") String currentDaysClosePrice, @JsonProperty("Q") String closeTradesQuantity,
-		@JsonProperty("b") String bestBidPrice, @JsonProperty("B") String bestBidQuantity, @JsonProperty("a") String bestAskPrice,
-		@JsonProperty("A") String bestAskQuantity, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
-		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume, @JsonProperty("O") Long statisticsOpenTime,
-		@JsonProperty("C") Long statisticsCloseTime, @JsonProperty("F") Long firstTradeId, @JsonProperty("L") Long lastTradeId,
-		@JsonProperty("n") Long totalNumberOfTrades) {
+public record Ticker(String e, Long E, String s, String p, String P, String w, String x, String c, String Q, String b, String B, String a, String A, String o,
+		String h, String l, String v, String q, Long O, Long C, Long F, Long L, Long n) {
 }

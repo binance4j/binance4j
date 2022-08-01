@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Account update event which will reflect the balance changes of the account. This event is embedded as part of a user
  * data update event.
@@ -13,6 +11,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param clearTime    Clear time in ms.
  * @see UserDataUpdate
  */
-public record BalanceUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("a") String asset,
-		@JsonProperty("d") String balanceDelta, @JsonProperty("T") Long clearTime) {
+public record BalanceUpdate(String e, Long E, String a, String d, Long T) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * A trade being part of a {@link NewOrderRecord}
  * 
@@ -18,6 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isMaker         Is it a maker trade?
  * @param isIsolated      Is it an isolated trade?
  */
-public record Trade(long id, long orderId, String symbol, String commissionAsset, String commission, String price, @JsonProperty("qty") String quantity,
-		long time, boolean isBestMatch, boolean isBuyer, boolean isMaker, boolean isIsolated) {
+public record Trade(long id, long orderId, String symbol, String commissionAsset, String commission, String price, String qty, long time, boolean isBestMatch,
+		boolean isBuyer, boolean isMaker, boolean isIsolated) {
 }

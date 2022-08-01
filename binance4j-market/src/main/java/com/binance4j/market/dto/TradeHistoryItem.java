@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Represents an executed trade history item.
  * 
@@ -13,6 +11,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isBuyerMaker  Is the trade a buyer maker trade.
  * @param isBestMatch   Was the trade the best price match?
  */
-public record TradeHistoryItem(long id, String price, @JsonProperty("qty") String quantity, @JsonProperty("quoteQty") String quoteQuantity, long time,
-		boolean isBuyerMaker, boolean isBestMatch) {
+public record TradeHistoryItem(long id, String price, String qty, String quoteQty, long time, boolean isBuyerMaker, boolean isBestMatch) {
 }

@@ -2,8 +2,6 @@ package com.binance4j.margin.dto;
 
 import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Data about a repay.
  * 
@@ -17,8 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param status         The repay status.
  * @see LoanStatus
  */
-public record RepayRecord(@JsonProperty("txId") long transactionId, long timestamp, Optional<String> isolatedSymbol, String amount, String asset,
-		String interest, String principal,
+public record RepayRecord(long txId, long timestamp, Optional<String> isolatedSymbol, String amount, String asset, String interest, String principal,
 		/**
 		 * The repay status.
 		 * 

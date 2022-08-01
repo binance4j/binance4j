@@ -1,7 +1,5 @@
 package com.binance4j.market.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * 24 hour price change statistics for a ticker.
  * 
@@ -28,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param count              Total number of trades during the last 24 hours.
  */
 public record TickerStatistics(String symbol, String priceChange, String priceChangePercent, String weightedAvgPrice, String prevClosePrice, String lastPrice,
-		@JsonProperty("lastQty") String lastQuantity, String bidPrice, @JsonProperty("bidQty") String bidQuantity, String askPrice,
-		@JsonProperty("askQty") String askQuantity, String openPrice, String highPrice, String lowPrice, String volume, String quoteVolume, long openTime,
-		long closeTime, long firstId, long lastId, long count) {
+		String lastQty, String bidPrice, String bidQty, String askPrice, String askQty, String openPrice, String highPrice, String lowPrice, String volume,
+		String quoteVolume, long openTime, long closeTime, long firstId, long lastId, long count) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * A wallet to wallet transfer.
  * 
@@ -19,5 +17,5 @@ public record WalletTransfer(String asset, String amount,
 		 * 
 		 * @see WalletTransferType
 		 */
-		String type, String status, @JsonProperty("tranId") long transactionId, long timestamp) {
+		String type, String status, long tranId, long timestamp) {
 }

@@ -1,7 +1,5 @@
 package com.binance4j.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * An executed trade
  * 
@@ -18,6 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?
  */
-public record Trade(long id, String price, @JsonProperty("qty") String quantity, @JsonProperty("quoteQty") String quoteQuantity, String commission,
-		String commissionAsset, long time, String symbol, String orderId, boolean isBuyer, boolean isMaker, boolean isBestMatch) {
+public record Trade(long id, String price, String qty, String quoteQty, String commission, String commissionAsset, long time, String symbol, String orderId,
+		boolean isBuyer, boolean isMaker, boolean isBestMatch) {
 }

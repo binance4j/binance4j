@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * A symbol price index.
  * 
@@ -9,5 +7,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param price           The price.
  * @param symbol          The asset pair.
  */
-public record PriceIndex(@JsonProperty("calcTime") long calculationTime, String price, String symbol) {
+public record PriceIndex(long calcTime, String price, String symbol) {
 }

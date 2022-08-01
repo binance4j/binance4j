@@ -1,7 +1,5 @@
 package com.binance4j.websocket.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Minimal infos Ticker.
  * 
@@ -15,7 +13,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param totalTradedBaseAssetVolume  Total traded base asset volume.
  * @param totalTradedQuoteAssetVolume Total traded quote asset volume.
  */
-public record MiniTicker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("c") String closePrice, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
-		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume) {
+public record MiniTicker(String e, Long E, String s, String c, String o, String h, String l, String v, String q) {
 }

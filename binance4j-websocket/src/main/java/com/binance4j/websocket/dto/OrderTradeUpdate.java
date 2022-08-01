@@ -1,7 +1,6 @@
 package com.binance4j.websocket.dto;
 
 import com.binance4j.core.dto.TimeInForce;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Order or trade report update event.
@@ -35,12 +34,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see UserDataUpdate
  */
 public record OrderTradeUpdate(/** The event type. */
-@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("c") String newClientOrderId,
-		@JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce, @JsonProperty("q") String originalQuantity,
-		@JsonProperty("p") String price, @JsonProperty("x") String executionType, @JsonProperty("X") String orderStatus,
-		@JsonProperty("r") String orderRejectReason, @JsonProperty("i") Long orderId, @JsonProperty("l") String quantityLastFilledTrade,
-		@JsonProperty("z") String accumulatedQuantity, @JsonProperty("L") String priceOfLastFilledTrade, @JsonProperty("n") String commission,
-		@JsonProperty("N") String commissionAsset, @JsonProperty("T") Long orderTradeTime, @JsonProperty("t") Long tradeId,
-		@JsonProperty("O") Long orderCreationTime, @JsonProperty("Z") String cumulativeQuoteQuantity, @JsonProperty("Y") String lastQuoteQuantity,
-		@JsonProperty("Q") String quoteOrderQuantity) {
+String e, Long E, String s, String c, String S, String o, TimeInForce f, String q, String p, String x, String X, String r, Long i, String l, String z, String L,
+		String n, String N, Long T, Long t, Long O, String Z, String Y, String Q) {
 }

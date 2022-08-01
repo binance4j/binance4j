@@ -1,7 +1,5 @@
 package com.binance4j.wallet.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Dust log details.
  * 
@@ -12,6 +10,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param transferedAmount    The transfered amount.
  * @param fromAsset           The transfered asset.
  */
-public record UserAssetDribbletDetails(@JsonProperty("transId") long transactionId, long operateTime, String serviceChargeAmount, String amount,
-		String transferedAmount, String fromAsset) {
+public record UserAssetDribbletDetails(long transId, long operateTime, String serviceChargeAmount, String amount, String transferedAmount, String fromAsset) {
 }

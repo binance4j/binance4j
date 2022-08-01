@@ -1,7 +1,5 @@
 package com.binance4j.margin.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * A transfer history record
  * 
@@ -12,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param timestamp     The transaction time in ms.
  * @param type          The transfer history type.
  */
-public record TransferRecord(@JsonProperty("txId") long transactionId, String amount, String asset, String status, long timestamp,
+public record TransferRecord(long txId, String amount, String asset, String status, long timestamp,
 		/**
 		 * The transfer history type.
 		 * 
