@@ -9,7 +9,7 @@ import com.binance4j.savings.param.RedemptionQuotaParams;
 public class RedemptionQuotaTest extends SavingsTest {
 	@Test
 	void test1() throws ApiException {
-		var productId = client.getFlexibleProducts().execute().get(0).productId();
+		var productId = client.getFlexibleProducts().fetch().get(0).productId();
 		testNoNulls(client.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, ProductType.FAST)));
 	}
 }

@@ -1,7 +1,9 @@
 package com.binance4j.staking;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.param.PositionParams;
@@ -20,16 +22,16 @@ public class GetProductPositionTest extends StakingTest {
 
 	@Test
 	void testGetStakingPosition() throws ApiException {
-		test(client.getPosition(new PositionParams(ProductType.STAKING)).execute());
+		test(client.getPosition(new PositionParams(ProductType.STAKING)).fetch());
 	}
 
 	@Test
 	void testGetFlexibleDeFiPosition() throws ApiException {
-		test(client.getPosition(new PositionParams(ProductType.F_DEFI)).execute());
+		test(client.getPosition(new PositionParams(ProductType.F_DEFI)).fetch());
 	}
 
 	@Test
 	void testGetLockedDeFiPosition() throws ApiException {
-		test(client.getPosition(new PositionParams(ProductType.L_DEFI)).execute());
+		test(client.getPosition(new PositionParams(ProductType.L_DEFI)).fetch());
 	}
 }

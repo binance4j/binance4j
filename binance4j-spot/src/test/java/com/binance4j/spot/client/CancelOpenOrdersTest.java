@@ -5,6 +5,6 @@ import com.binance4j.spot.param.CancelOpenOrdersParams;
 
 public class CancelOpenOrdersTest extends SpotTest { // @Test
 	public void testCancelOpenOrdersTest() throws ApiException {
-		testNoNulls((client.cancelOpenOrders(new CancelOpenOrdersParams("GMTBUSD")).execute()));
+		testNoNulls((client.cancelOpenOrders(new CancelOpenOrdersParams("GMTBUSD")).fetch()));
 	}
 }

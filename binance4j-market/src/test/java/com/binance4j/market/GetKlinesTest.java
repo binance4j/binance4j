@@ -20,7 +20,7 @@ class GetKlinesTest extends MarketTest {
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
 		for (CandlestickInterval interval : intervals) {
 			KlinesParams params = new KlinesParams(symbol, interval);
-			List<Candle> res = client.getKlines(params).execute();
+			List<Candle> res = client.getKlines(params).fetch();
 			testNoNulls(res);
 		}
 	}
@@ -28,7 +28,7 @@ class GetKlinesTest extends MarketTest {
 	@Test
 	void test2() throws ApiException {
 		KlinesParams params = new KlinesParams(symbol, CandlestickInterval.HOURLY);
-		List<Candle> res = client.getKlines(params, new TimeFrame(limit)).execute();
+		List<Candle> res = client.getKlines(params, new TimeFrame(limit)).fetch();
 		assertEquals(limit, res.size());
 		testNoNulls(res);
 	}

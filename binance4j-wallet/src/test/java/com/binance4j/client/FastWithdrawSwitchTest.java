@@ -9,11 +9,11 @@ import com.binance4j.core.exception.ApiException;
 class FastWithdrawSwitchTest extends WalletTest {
 	@Test
 	void testDisableFastWithdrawSwitch() {
-		assertDoesNotThrow(() -> client.disableFastWithdrawSwitch().execute());
+		assertDoesNotThrow(() -> client.disableFastWithdrawSwitch().fetch());
 	}
 
 	@Test
 	void testEnableFastWithdrawSwitch() throws ApiException {
-		assertDoesNotThrow(() -> client.enableFastWithdrawSwitch().execute());
+		assertDoesNotThrow(() -> client.enableFastWithdrawSwitch().fetch());
 	}
 }

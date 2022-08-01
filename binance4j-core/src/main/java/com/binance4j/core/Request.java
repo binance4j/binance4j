@@ -31,7 +31,7 @@ public class Request<T> {
 	 * @return The request response.
 	 * @throws ApiException The exception produced with the server error response
 	 */
-	public T execute() throws ApiException {
+	public T fetch() throws ApiException {
 		try {
 			Response<T> response = call.execute();
 			if (response.isSuccessful()) {
@@ -50,7 +50,7 @@ public class Request<T> {
 	 * 
 	 * @param callback The request callback managing a success or error response.
 	 */
-	public void then(ApiCallback<T> callback) {
+	public void fetch(ApiCallback<T> callback) {
 		call.enqueue(new ApiCallbackAdapter<>(callback));
 	}
 }

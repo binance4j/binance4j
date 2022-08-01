@@ -2,8 +2,11 @@ package com.binance4j.nft;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.nft.dto.OrderType;
@@ -18,7 +21,7 @@ public class GetTransactionsTest extends NFTTest {
 			TransactionHistoryParams params = new TransactionHistoryParams(v);
 			TransactionHistory history;
 			try {
-				history = client.getTransactions(params).execute();
+				history = client.getTransactions(params).fetch();
 				testNoNulls(history);
 			} catch (ApiException e) {
 				fail();
@@ -29,7 +32,7 @@ public class GetTransactionsTest extends NFTTest {
 	@Test
 	void testLimitAndPage() throws ApiException {
 		TransactionHistoryParams params = new TransactionHistoryParams(OrderType.SELL_ORDER);
-		TransactionHistory history = client.getTransactions(params, new FramedPaging(page)).execute();
+		TransactionHistory history = client.getTransactions(params, new FramedPaging(page)).fetch();
 		testNoNulls(history);
 		assertTrue(history.total() <= limit);
 	}

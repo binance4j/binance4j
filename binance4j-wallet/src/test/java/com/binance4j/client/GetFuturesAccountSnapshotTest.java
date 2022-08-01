@@ -12,14 +12,14 @@ import com.binance4j.wallet.dto.FuturesAccountSnapshotResponse;
 class GetFuturesAccountSnapshotTest extends WalletTest {
 	@Test
 	void testGetFuturesAccountSnapshot() throws ApiException {
-		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot().execute();
+		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot().fetch();
 		testNoNulls(snapshot);
 		assertNotEquals(0, snapshot.code());
 	}
 
 	@Test
 	void testGetFuturesAccountSnapshotWithLimit() throws ApiException {
-		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new TimeFrame(limit)).execute();
+		FuturesAccountSnapshotResponse snapshot = client.getFuturesAccountSnapshot(new TimeFrame(limit)).fetch();
 		testNoNulls(snapshot);
 		assertTrue(snapshot.snapshotVos().size() <= limit);
 		assertNotEquals(0, snapshot.code());

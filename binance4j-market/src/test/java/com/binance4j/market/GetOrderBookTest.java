@@ -15,14 +15,14 @@ class GetOrderBookTest extends MarketTest {
 	@Test
 	void testGetTrades() throws ApiException {
 		OrderBookParams params = new OrderBookParams(symbol);
-		OrderBook history = client.getOrderBook(params).execute();
+		OrderBook history = client.getOrderBook(params).fetch();
 		testNoNulls(history);
 	}
 
 	@Test
 	void testGetTradesWithLimit() throws ApiException {
 		OrderBookParams params = new OrderBookParams(symbol, orderBookLimit);
-		OrderBook orderBook = client.getOrderBook(params).execute();
+		OrderBook orderBook = client.getOrderBook(params).fetch();
 		assertTrue(orderBook.asks().size() <= Integer.valueOf(orderBookLimit.toString()));
 		assertTrue(orderBook.bids().size() <= Integer.valueOf(orderBookLimit.toString()));
 		testNoNulls(orderBook);

@@ -1,7 +1,9 @@
 package com.binance4j.staking;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.dto.TransactionType;
@@ -18,16 +20,16 @@ public class GetStakingHistory extends StakingTest {
 
 	@Test
 	void testGetInterestHistory() throws ApiException {
-		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.INTEREST)).execute());
+		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.INTEREST)));
 	}
 
 	@Test
 	void testGetRedemptionHistory() throws ApiException {
-		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.REDEMPTION)).execute());
+		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.REDEMPTION)));
 	}
 
 	@Test
 	void testGetSubscriptionHistory() throws ApiException {
-		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.SUBSCRIPTION)).execute());
+		test(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.SUBSCRIPTION)));
 	}
 }

@@ -20,7 +20,7 @@ class GetAssetDetailTest extends WalletTest {
 	@Test
 	void testGetGivenAssetDetails() throws ApiException {
 		AssetDetailParams params = new AssetDetailParams(asset);
-		Map<String, AssetDetail> details = client.getAssetDetail(params).execute();
+		Map<String, AssetDetail> details = client.getAssetDetail(params).fetch();
 		assertEquals(1, details.size());
 		assertTrue(details.containsKey(asset));
 		testNoNulls(details);

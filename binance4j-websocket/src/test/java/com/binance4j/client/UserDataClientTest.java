@@ -21,28 +21,28 @@ class UserDataClientTest {
 
 	@Test
 	void testUserDataStream() throws ApiException {
-		ListenKey listenKey = client.startUserDataStream().execute();
+		ListenKey listenKey = client.startUserDataStream().fetch();
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.listenKey()));
-		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).execute());
+		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).fetch());
 	}
 
 	@Test
 	void testMarginUserDataStream() throws ApiException {
-		ListenKey listenKey = client.startMarginUserDataStream().execute();
+		ListenKey listenKey = client.startMarginUserDataStream().fetch();
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
-		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).execute());
+		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).fetch());
 	} // TODO activate isolated account
 		// @Test
 
 	void testIsolatedUserDataStream() throws ApiException {
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams("BNBBUSD");
-		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).execute();
+		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).fetch();
 		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams("BNBBUSD",
 				listenKey.listenKey());
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
-		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).execute());
+		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).fetch());
 	}
 }

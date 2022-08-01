@@ -12,7 +12,7 @@ import com.binance4j.wallet.dto.MarginAccountSnapshotResponse;
 class GetMarginAccountSnapshotTest extends WalletTest {
 	@Test
 	void testMarginAccountSnapshotWithLimit() throws ApiException {
-		MarginAccountSnapshotResponse res = client.getMarginAccountSnapshot(new TimeFrame(limit)).execute();
+		MarginAccountSnapshotResponse res = client.getMarginAccountSnapshot(new TimeFrame(limit)).fetch();
 		assertDoesNotThrow(() -> assertTrue(getNullProperties(res, true).contains("marginLevel")));
 	}
 }
