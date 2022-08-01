@@ -132,8 +132,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Get all orders on a symbol.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The search interval.
+	 * @param params    The request params.
+	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
@@ -192,7 +192,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
 	 * 
-	 * @param params The request params.
+	 * @param params    The request params.
+	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame timeFrame) {
@@ -202,6 +203,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
 	 * 
+	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(TimeFrame timeFrame) {
@@ -263,8 +265,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Get trades for a specific account and symbol. If fromId is set, it will get id &gt;= fromId. Otherwise most recent
 	 * trades are returned.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The search interval.
+	 * @param params    The request params.
+	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeFrame timeFrame) {

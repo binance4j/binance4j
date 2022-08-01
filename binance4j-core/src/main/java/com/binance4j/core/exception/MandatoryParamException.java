@@ -4,6 +4,6 @@ package com.binance4j.core.exception;
 public class MandatoryParamException extends ApiException {
 	/** Constructor */
 	public MandatoryParamException() {
-		super(-3000, "A mandatory param is missing in the request");
+		super("-3000", "A mandatory param is missing in the request");
 	}
 }

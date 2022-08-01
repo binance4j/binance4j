@@ -30,6 +30,8 @@ public abstract class RestClient<T> {
 	protected String secret;
 	/** The current API service */
 	protected T service;
+	/** The Jackson object mapper for deserialization. */
+	protected ObjectMapper mapper = new ObjectMapper();
 
 	/** Constructor */
 	protected RestClient() {
@@ -53,7 +55,7 @@ public abstract class RestClient<T> {
 	 * @return The service responsible for making calls to the API.
 	 */
 	protected T createService() {
-		ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		Converter.Factory converterFactory = JacksonConverterFactory.create(mapper);
 		Dispatcher dispatcher = new Dispatcher();
 		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
@@ -134,5 +136,19 @@ public abstract class RestClient<T> {
 	 */
 	public void setUseTestnet(boolean useTestnet) {
 		this.useTestnet = useTestnet;
+	}
+
+	/**
+	 * @return the mapper
+	 */
+	public ObjectMapper getMapper() {
+		return mapper;
+	}
+
+	/**
+	 * @param mapper the mapper to set
+	 */
+	public void setMapper(ObjectMapper mapper) {
+		this.mapper = mapper;
 	}
 }

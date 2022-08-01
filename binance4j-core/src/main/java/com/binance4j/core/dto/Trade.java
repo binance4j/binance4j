@@ -5,8 +5,8 @@ package com.binance4j.core.dto;
  * 
  * @param id              Trade id.
  * @param price           Price.
- * @param quantity        Quantity.
- * @param quoteQuantity   Quote quantity for the trade (price * qty).
+ * @param qty             Quantity.
+ * @param quoteQty        Quote quantity for the trade (price * qty).
  * @param commission      Commission.
  * @param commissionAsset Asset on which commission is taken.
  * @param time            Trade execution time.

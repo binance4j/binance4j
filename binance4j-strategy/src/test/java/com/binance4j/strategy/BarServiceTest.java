@@ -1,15 +1,18 @@
 package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.Duration;
+
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
+
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.BarService;
 
-public class BarServiceTest extends CustomTest<Void> {
+public class BarServiceTest extends CustomTest {
 	final Candle candle;
 
 	public BarServiceTest() {

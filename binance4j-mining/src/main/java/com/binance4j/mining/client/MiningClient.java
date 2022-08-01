@@ -30,6 +30,7 @@ import com.binance4j.mining.param.HashrateResaleParams;
 import com.binance4j.mining.param.MinerDetailsParams;
 import com.binance4j.mining.param.MinersParams;
 import com.binance4j.mining.param.ProfitsParams;
+import com.binance4j.mining.param.StatisticsParams;
 
 /**
  * Api client for the NFT endpoints
@@ -87,22 +88,24 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * Get earnings list.
 	 *
 	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<ProfitResponse> getProfits(ProfitsParams params, FramedPaging interval) {
+	public Request<ProfitResponse> getProfits(ProfitsParams params, FramedPaging paging) {
 		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getProfits(Params.merge(params.toMap(), interval.toMap(replace))));
+		return new Request<>(service.getProfits(Params.merge(params.toMap(), paging.toMap(replace))));
 	}
 
 	/**
 	 * Get extra bonus list.
 	 *
 	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<OtherProfitsResponse> getOtherProfits(ProfitsParams params, FramedPaging interval) {
+	public Request<OtherProfitsResponse> getOtherProfits(ProfitsParams params, FramedPaging paging) {
 		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getOtherProfits(Params.merge(params.toMap(), interval.toMap(replace))));
+		return new Request<>(service.getOtherProfits(Params.merge(params.toMap(), paging.toMap(replace))));
 	}
 
 	/**
@@ -119,17 +122,17 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * Get mining account earning.
 	 *
 	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<AccountProfitsResponse> getAccountProfits(AccountProfitsParams params, FramedPaging interval) {
+	public Request<AccountProfitsResponse> getAccountProfits(AccountProfitsParams params, FramedPaging paging) {
 		var replace = Map.of("startTime", "startDate", "endTime", "endDate", "page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getAccountProfits(Params.merge(params.toMap(), interval.toMap(replace))));
+		return new Request<>(service.getAccountProfits(Params.merge(params.toMap(), paging.toMap(replace))));
 	}
 
 	/**
 	 * Get hashrate resale list.
-	 *
-	 * @param params The request params.
+	 * 
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleListResponse> getHashrateResales() {
@@ -139,7 +142,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale list.
 	 *
-	 * @param params The request params.
+	 * @param timeFrame The timeframe.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleListResponse> getHashrateResales(TimeFrame timeFrame) {
@@ -160,7 +163,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale detail.
 	 *
-	 * @param params The request params.
+	 * @param params    The request params.
+	 * @param timeFrame The timeframe.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, TimeFrame timeFrame) {
@@ -184,8 +188,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleCancellationResponse> CancelHashrateResaleConfiguration(HashrateResaleCancellationParams params) {
-		return new Request<>(service.CancelHashrateResaleConfiguration(params.toMap()));
+	public Request<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(HashrateResaleCancellationParams params) {
+		return new Request<>(service.cancelHashrateResaleConfiguration(params.toMap()));
 	}
 
 	/**
@@ -194,7 +198,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<StatisticsResponse> getStatistics(Params params) {
+	public Request<StatisticsResponse> getStatistics(StatisticsParams params) {
 		return new Request<>(service.getStatistics(params.toMap()));
 	}
 

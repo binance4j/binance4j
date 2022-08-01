@@ -8,9 +8,9 @@ import com.binance4j.staking.dto.TransactionType;
 /**
  * {@link StakingClient#getHistory} params.
  * 
- * @param product         The product type.
- * @param transactionType The transaction type.
- * @param asset           The product name.
+ * @param product The product type.
+ * @param txnType The transaction type.
+ * @param asset   The product name.
  */
 public record HistoryParams(ProductType product, TransactionType txnType, String asset) implements Params {
 	/**

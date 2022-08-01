@@ -138,8 +138,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
 	 * returned.
 	 * 
-	 * @param params   The request params.
-	 * @param interval Time interval search.
+	 * @param params    The request params.
+	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame timeFrame) {
@@ -167,8 +167,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
 	 * 
-	 * @param params   The request params.
-	 * @param interval Time interval search.
+	 * @param params    The request params.
+	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<List<Candle>> getKlines(KlinesParams params, TimeFrame timeFrame) {

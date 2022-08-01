@@ -3,17 +3,20 @@ package com.binance4j.core.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.pojo.TestObject;
 import com.binance4j.core.pojo.TestObject2;
 
-public class CustomTestTest extends CustomTest<Void> {
+public class CustomTestTest extends CustomTest {
 	List<String> list = List.of("hello", "world");
 	TestObject obj1 = new TestObject("hello", null, null, null, null);
 	TestObject obj2 = new TestObject("world", null, 0, list, null);

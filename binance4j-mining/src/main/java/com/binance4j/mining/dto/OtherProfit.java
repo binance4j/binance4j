@@ -15,11 +15,12 @@ package com.binance4j.mining.dto;
  * @param type         Type.
  *                         <ul>
  *                         <li>1: Merged Mining</li>
- *                         <li>2: Activity Bonus<l/i>
+ *                         <li>2: Activity Bonus</li>
  *                         <li>3: Rebate</li>
  *                         <li>4: Smart Pool</li>
  *                         <li>6: Income Transfer</li>
  *                         <li>7: Pool Savings</li>
+ *                         </ul>
  */
 public record OtherProfit(long time, String coinName, int type, String profitAmount, int status) {
 }

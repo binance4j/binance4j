@@ -33,7 +33,7 @@ public class PayClient extends RestClient<PayMapping> {
 	/**
 	 * Get pay trades.
 	 * 
-	 * @param interval The interval search.
+	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
 	public Request<TradeHistory> getTrades(TimeFrame timeFrame) {

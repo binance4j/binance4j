@@ -3,24 +3,22 @@ package com.binance4j.wallet.dto;
 /** A wallet type */
 public enum WalletType {
 	/** Spot */
-	SPOT(0),
+	SPOT("0"),
 	/** Funding */
-	FUNDING(1);
+	FUNDING("1");
 
 	/** Value. */
-	final int value;
+	final String value;
 
 	/**
 	 * @param value
 	 */
-	private WalletType(int value) {
+	private WalletType(String value) {
 		this.value = value;
 	}
 
-	/**
-	 * @return the value
-	 */
-	public int getValue() {
+	@Override
+	public String toString() {
 		return value;
 	}
 }

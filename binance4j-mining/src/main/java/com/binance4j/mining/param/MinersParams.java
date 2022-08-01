@@ -3,7 +3,7 @@ package com.binance4j.mining.param;
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.mining.client.MiningClient;
-import com.binance4j.mining.dto.MinerSort;
+import com.binance4j.mining.dto.MinerSorting;
 import com.binance4j.mining.dto.SortSequence;
 import com.binance4j.mining.dto.WorkerStatus;
 
@@ -18,7 +18,7 @@ import com.binance4j.mining.dto.WorkerStatus;
  * @param workerStatus Miner status.
  */
 @Param(weight = 5)
-public record MinersParams(String algo, String userName, Integer pageIndex, SortSequence sort, MinerSort sortColumn, WorkerStatus workerStatus)
+public record MinersParams(String algo, String userName, Integer pageIndex, SortSequence sort, MinerSorting sortColumn, WorkerStatus workerStatus)
 		implements Params {
 	/**
 	 * Creates an instance of {@link MinersParams}.

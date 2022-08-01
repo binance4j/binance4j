@@ -2,8 +2,11 @@ package com.binance4j.param;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Map;
+
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 
@@ -27,7 +30,7 @@ public class MapTest {
 		assertTrue(!map.containsKey("recvWindow"));
 	}
 
-	@Param(recvWindow = false, timestamp = false)
+	@Param
 	class CustomParams implements Params {
 		public String foo;
 		public int bar;

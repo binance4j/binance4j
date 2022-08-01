@@ -105,7 +105,7 @@ public class AuthenticationInterceptor implements Interceptor {
 			}
 			return buffer.readUtf8();
 		} catch (IOException e) {
-			throw new ApiException(-400, e.getMessage());
+			throw new ApiException("-400", e.getMessage());
 		}
 	}
 }

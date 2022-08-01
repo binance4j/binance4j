@@ -11,7 +11,11 @@ import com.binance4j.savings.dto.LendingType;
  * @param asset       Asset name.
  */
 public record LendingParams(LendingType lendingType, String asset) implements Params {
-	/** Creates an instance of {@link LendingParams}. */
+	/**
+	 * Creates an instance of {@link LendingParams}.
+	 * 
+	 * @param lendingType Lending type.
+	 */
 	public LendingParams(LendingType lendingType) {
 		this(lendingType, null);
 	}

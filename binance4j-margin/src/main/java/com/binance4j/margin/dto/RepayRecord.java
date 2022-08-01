@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * Data about a repay.
  * 
- * @param transactionId  The transaction id.
+ * @param txId           The transaction id.
  * @param timestamp      The transaction timestamp in ms.
  * @param isolatedSymbol The isolated symbol, will not be returned for crossed margin.
  * @param amount         The total amount repaid.

@@ -9,18 +9,8 @@ import com.binance4j.fiat.dto.PaymentType;
 /**
  * {@link FiatClient#getPayments} params.
  * 
- * @param paymentType Payment type.
- * @param beginTime   Begin time in ms.
- * @param endTime     End time in ms.
+ * @param transactionType Payment type.
  */
 @Param(weight = 90000, type = RateLimitType.UID)
-public record PaymentParams(PaymentType paymentType, Long beginTime, Long endTime) implements Params {
-	/**
-	 * Creates an instance of {@link PaymentParams}.
-	 * 
-	 * @param paymentType Payment type.
-	 */
-	public PaymentParams(PaymentType paymentType) {
-		this(paymentType, null, null);
-	}
+public record PaymentParams(PaymentType transactionType) implements Params {
 }

@@ -9,11 +9,11 @@ package com.binance4j.market.dto;
  * @param weightedAvgPrice   Weighted average price.
  * @param prevClosePrice     Previous close price.
  * @param lastPrice          Last price.
- * @param lastQuantity       Last quantity.
+ * @param lastQty            Last quantity.
  * @param bidPrice           Bid price.
- * @param bidQuantity        Bid quantity.
+ * @param bidQty             Bid quantity.
  * @param askPrice           Ask price.
- * @param askQuantity        Ask quantity.
+ * @param askQty             Ask quantity.
  * @param openPrice          Open price 24 hours ago.
  * @param highPrice          Highest price during the past 24 hours.
  * @param lowPrice           Lowest price during the past 24 hours.

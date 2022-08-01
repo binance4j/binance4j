@@ -24,12 +24,12 @@ public class C2CClient extends RestClient<C2CMapping> {
 	/**
 	 * Get C2C trades.
 	 * 
-	 * @param params     The request params.
-	 * @param pagination The pagination search.
+	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades(TradeHistoryParams params, Paging pagination) {
-		return new Request<>(service.getTrades(Params.merge(params, pagination)));
+	public Request<TradeHistory> getTrades(TradeHistoryParams params, Paging paging) {
+		return new Request<>(service.getTrades(Params.merge(params, paging)));
 	}
 
 	/**

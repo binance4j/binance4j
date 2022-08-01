@@ -2,17 +2,20 @@ package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 
-class NoResponseTimeoutTest extends CustomTest<Void> {
+class NoResponseTimeoutTest extends CustomTest {
 	int count;
 	final StrategyCallback callback;
 	CompletableFuture<Boolean> future;

@@ -30,7 +30,7 @@ public class WithdrawParams implements Params {
 	/** Description of the address. Space in name should be encoded into %20. */
 	String name;
 	/** The wallet type for withdraw. */
-	Integer walletType;
+	String walletType;
 
 	/**
 	 * @param coin    The coin to withdraw.
@@ -45,7 +45,7 @@ public class WithdrawParams implements Params {
 
 	/** @param type The wallet type to withdraw to. */
 	public void setWalletType(WalletType type) {
-		walletType = type.getValue();
+		walletType = type.toString();
 	}
 
 	/**
@@ -163,14 +163,14 @@ public class WithdrawParams implements Params {
 	/**
 	 * @return the walletType
 	 */
-	public Integer getWalletType() {
+	public String getWalletType() {
 		return walletType;
 	}
 
 	/**
 	 * @param walletType the walletType to set
 	 */
-	public void setWalletType(Integer walletType) {
+	public void setWalletType(String walletType) {
 		this.walletType = walletType;
 	}
 }

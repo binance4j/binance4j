@@ -10,6 +10,17 @@ public record Paging(Integer page, Integer limit) implements Params {
 	/**
 	 * Creates an instance of {@link Paging}.
 	 * 
+	 * @param page  The results page.
+	 * @param limit The number of rows.
+	 */
+	public Paging(Integer page, Integer limit) {
+		this.page = page;
+		this.limit = limit;
+	}
+
+	/**
+	 * Creates an instance of {@link Paging}.
+	 * 
 	 * @param page The results page.
 	 */
 	public Paging(Integer page) {

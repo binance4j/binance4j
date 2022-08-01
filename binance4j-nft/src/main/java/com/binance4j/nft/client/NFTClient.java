@@ -42,8 +42,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT Transaction History.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The time interval search.
+	 * @param params       The request params.
+	 * @param framedPaging The paging.
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params, FramedPaging framedPaging) {
@@ -91,13 +91,12 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT assets.
 	 * 
-	 * @param interval   The time interval search.
-	 * @param pagination The result pagination.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<AssetHistory> getAssets(Paging pagination) {
+	public Request<AssetHistory> getAssets(Paging paging) {
 		Map<String, String> replaceMap = Map.of("rows", "limit");
-		return new Request<>(service.getAssets(Params.merge(new AssetParams().toMap(), pagination.toMap(replaceMap))));
+		return new Request<>(service.getAssets(Params.merge(new AssetParams().toMap(), paging.toMap(replaceMap))));
 	}
 
 	/**

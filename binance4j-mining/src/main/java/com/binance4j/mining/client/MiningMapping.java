@@ -114,7 +114,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@POST(BASE + "hash-transfer/config/cancel")
 	@Headers(SIGNED_H)
-	Call<HashrateResaleCancellationResponse> CancelHashrateResaleConfiguration(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.

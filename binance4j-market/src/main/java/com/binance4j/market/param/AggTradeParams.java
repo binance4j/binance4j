@@ -15,6 +15,8 @@ import com.binance4j.market.client.MarketClient;
 public record AggTradeParams(String symbol, Long fromId) implements Params {
 	/**
 	 * Creates an instances of {@link AggTradeParams}.
+	 * 
+	 * @param symbol Symbol.
 	 */
 	public AggTradeParams(String symbol) {
 		this(symbol, null);

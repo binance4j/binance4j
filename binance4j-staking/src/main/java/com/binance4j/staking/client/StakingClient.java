@@ -2,6 +2,7 @@ package com.binance4j.staking.client;
 
 import java.util.List;
 import java.util.Map;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
@@ -92,11 +93,12 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * Get Staking product position.
 	 * 
 	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<List<ProductPosition>> getPosition(PositionParams params, Paging pagination) {
+	public Request<List<ProductPosition>> getPosition(PositionParams params, Paging paging) {
 		var replaceMap = Map.of("page", "current", "limit", "size");
-		return new Request<>(service.getPosition(Params.merge(params.toMap(), pagination.toMap(replaceMap))));
+		return new Request<>(service.getPosition(Params.merge(params.toMap(), paging.toMap(replaceMap))));
 	}
 
 	/**

@@ -7,9 +7,9 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * The {@link MiningClient#getAlgorithms} response.
  * 
- * @param code    Response code.
- * @param message Response message.
- * @param data    Response data.
+ * @param code Response code.
+ * @param msg  Response message.
+ * @param data Response data.
  */
 public record AlgorithmsResponse(int code, String msg, List<Algorithm> data) {
 }

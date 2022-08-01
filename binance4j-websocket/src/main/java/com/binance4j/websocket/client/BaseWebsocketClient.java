@@ -95,8 +95,9 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	/**
 	 * Generate the websocket communicating with the API
 	 *
-	 * @param channel  address containing the symbols and the stream name.
-	 * @param listener The websocket listener.
+	 * @param configuration Configuration.
+	 * @param channel       address containing the symbols and the stream name.
+	 * @param listener      The websocket listener.
 	 * @return The websocket to communicate with the API.
 	 */
 	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {

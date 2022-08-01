@@ -68,9 +68,9 @@ public interface Params {
 		Map<String, Object> map = mapper().convertValue(this, new TypeReference<Map<String, Object>>() {
 		});
 		// add
-		if (getClass().getAnnotation(Param.class).timestamp())
+		if (getClass().isAnnotationPresent(Param.class) && getClass().getAnnotation(Param.class).timestamp())
 			map.put("timestamp", timestamp());
-		if (getClass().getAnnotation(Param.class).recvWindow())
+		if (getClass().isAnnotationPresent(Param.class) && getClass().getAnnotation(Param.class).recvWindow())
 			map.put("recvWindow", recvWindow());
 		// remove
 		map.remove("order");

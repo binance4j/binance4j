@@ -7,7 +7,7 @@ package com.binance4j.core.dto;
  * @param email           Counter party email.
  * @param type            Transfer in or transfer out.
  * @param asset           Transfer asset.
- * @param quantity        Quantity of transfer asset.
+ * @param qty             Quantity of transfer asset.
  * @param fromAccountType Type of from account.
  * @param toAccountType   Type of to account.
  * @param status          Transfer status.

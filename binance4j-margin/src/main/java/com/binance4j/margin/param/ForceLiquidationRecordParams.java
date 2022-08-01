@@ -12,7 +12,7 @@ import com.binance4j.margin.client.MarginClient;
 @Param
 public record ForceLiquidationRecordParams(String isolatedSymbol) implements Params {
 	/**
-	 * @Creates an instance of {@link ForceLiquidationRecordParams}.
+	 * Creates an instance of {@link ForceLiquidationRecordParams}.
 	 */
 	public ForceLiquidationRecordParams() {
 		this(null);

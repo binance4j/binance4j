@@ -11,7 +11,16 @@ import com.binance4j.core.param.Params;
  */
 @Param
 public record LimitInfoParams(String tokenName) implements Params {
-	/** Creates instance of {@link LimitInfoParams}. */
+	/**
+	 * Creates instance of the class.
+	 * 
+	 * @param tokenName The token name.
+	 */
+	public LimitInfoParams(String tokenName) {
+		this.tokenName = tokenName;
+	}
+
+	/** Creates instance of the class. */
 	public LimitInfoParams() {
 		this(null);
 	}

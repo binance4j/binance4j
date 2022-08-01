@@ -239,23 +239,22 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * If both {@code startTime</code> and <code>endTime} are sent,
 	 * time between {@code startTime</code> and <code>endTime} must be less than 90 days.
 	 * 
-	 * @param params       The request params.
-	 * @param timeinterval The search interval.
+	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params, FramedPaging interval) {
-		return new Request<>(service.getDepositHistory(Params.merge(params.toMap(), interval.toMap(Map.of("page", "offset")))));
+	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getDepositHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
 	/**
 	 * Fetches the last deposit history of all coins.
 	 * 
-	 * @param timeinterval The search interval.
-	 * @param pagination   The search result.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<List<DepositHistory>> getDepositHistory(FramedPaging interval) {
-		return new Request<>(service.getDepositHistory(Params.merge(new DepositHistoryParams().toMap(), interval.toMap(Map.of("page", "offset")))));
+	public Request<List<DepositHistory>> getDepositHistory(FramedPaging paging) {
+		return new Request<>(service.getDepositHistory(Params.merge(new DepositHistoryParams().toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
 	/**
@@ -271,12 +270,12 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the withdraw history of one or multiple coins.
 	 * 
-	 * @param params       The request params.
-	 * @param timeinterval The search interval.
+	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params, FramedPaging interval) {
-		return new Request<>(service.getWithdrawHistory(Params.merge(params.toMap(), interval.toMap(Map.of("page", "offset")))));
+	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getWithdrawHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
 	/**
@@ -353,7 +352,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the dust transfer logs.
 	 * 
-	 * @param interval The search interval.
+	 * @param timeFrame The search interval.
 	 * @return The request to execute.
 	 */
 	public Request<DustLog> getDustLog(TimeFrame timeFrame) {
@@ -412,8 +411,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Queries the dividend record of one or multiple assets.
 	 * 
-	 * @param params       The request params.
-	 * @param timeinterval The search interval.
+	 * @param params    The request params.
+	 * @param timeFrame The search interval.
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame timeFrame) {
@@ -423,7 +422,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Queries the last 20 dividend asset records.
 	 * 
-	 * @param timeinterval The search interval.
+	 * @param timeFrame The search interval.
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame timeFrame) {
@@ -495,10 +494,11 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * Fetches the user universal transfer history
 	 * 
 	 * @param params The request params.
+	 * @param paging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params, FramedPaging interval) {
-		return new Request<>(service.getTransferHistory(Params.merge(params.toMap(), interval.toMap(Map.of("limit", "size", "page", "current")))));
+	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getTransferHistory(Params.merge(params.toMap(), paging.toMap(Map.of("limit", "size", "page", "current")))));
 	}
 
 	/**

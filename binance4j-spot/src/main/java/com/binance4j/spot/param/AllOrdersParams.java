@@ -15,6 +15,8 @@ import com.binance4j.spot.client.SpotClient;
 public record AllOrdersParams(String symbol, Long orderId) implements Params {
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
+	 * 
+	 * @param symbol The trading pair we want the orders.
 	 */
 	public AllOrdersParams(String symbol) {
 		this(symbol, null);

@@ -15,7 +15,18 @@ import com.binance4j.loan.dto.LoanIncomeType;
 @Param(weight = 6000, type = RateLimitType.UID)
 public record LoanIncomeHistoryParams(String asset, LoanIncomeType type) implements Params {
 	/**
-	 * Creates an instance of {@link LoanIncomeHistoryParams}.
+	 * Creates an instance of the class.
+	 * 
+	 * @param asset The asset we want the incomes.
+	 * @param type  The loan income type. All types will be returned by default.
+	 */
+	public LoanIncomeHistoryParams(String asset, LoanIncomeType type) {
+		this.asset = asset;
+		this.type = type;
+	}
+
+	/**
+	 * Creates an instance of the class.
 	 * 
 	 * @param asset The asset we want the incomes.
 	 */

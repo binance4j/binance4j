@@ -20,11 +20,7 @@ public record IsolatedTransferHistoryParams(String symbol, String asset, Isolate
 	/**
 	 * Creates an instance of {@link IsolatedTransferHistoryParams}.
 	 * 
-	 * @param symbol    Symbol.
-	 * @param asset     Asset.
-	 * @param transFrom Transfer origin.
-	 * @param transTo   Transfer destination.
-	 * @param archived  Set to true for archived data from 6 months ago.
+	 * @param symbol Symbol.
 	 */
 	public IsolatedTransferHistoryParams(String symbol) {
 		this(symbol, null, null, null, null);

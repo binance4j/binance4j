@@ -1,8 +1,10 @@
 package com.binance4j.fiat.client;
 
+import java.util.Map;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.param.Paging;
+import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
 import com.binance4j.fiat.dto.PaymentHistory;
 import com.binance4j.fiat.dto.TransactionHistory;
@@ -26,12 +28,12 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat transactions.
 	 * 
-	 * @param params     The request params.
-	 * @param pagination The pagination search.
+	 * @param params       The request params.
+	 * @param framedPaging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionParams params, Paging pagination) {
-		return new Request<>(service.getTransactions(Params.merge(params, pagination)));
+	public Request<TransactionHistory> getTransactions(TransactionParams params, FramedPaging framedPaging) {
+		return new Request<>(service.getTransactions(Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
 	/**
@@ -47,12 +49,12 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat payments.
 	 * 
-	 * @param params     The request params.
-	 * @param pagination The pagination search.
+	 * @param params       The request params.
+	 * @param framedPaging The paging.
 	 * @return The request to execute.
 	 */
-	public Request<PaymentHistory> getPayments(PaymentParams params, Paging pagination) {
-		return new Request<>(service.getPayments(Params.merge(params, pagination)));
+	public Request<PaymentHistory> getPayments(PaymentParams params, FramedPaging framedPaging) {
+		return new Request<>(service.getPayments(Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
 	/**

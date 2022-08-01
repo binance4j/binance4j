@@ -8,22 +8,22 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 /**
  * Symbol information (base/quote).
  * 
- * @param status                          The symbol status.
- * @param orderTypes                      The allowed orders on the symbol*.
- * @param filters                         The symbol filters.
- * @param permissions                     The symbol permission.
- * @param symbol                          The symbol name.
- * @param quoteAsset                      The quote asset.
- * @param baseAsset                       The base asset.
- * @param baseAssetPrecision              The base asset precision.
- * @param baseCommissionPrecision         The base asset commission precision.
- * @param quoteAssetPrecision             The quote asset precision.
- * @param quoteCommissionPrecision        The quote asset commission precision.
- * @param icebergAllowed                  Are iceberg orders allowed?
- * @param ocoAllowed                      Are OCO orders allowed?
- * @param quoteOrderQuantityMarketAllowed Are orders by quote quantity allowed?
- * @param isSpotTradingAllowed            Is spot trading allowed?
- * @param isMarginTradingAllowed          Is margin trading allowed?
+ * @param status                     The symbol status.
+ * @param orderTypes                 The allowed orders on the symbol*.
+ * @param filters                    The symbol filters.
+ * @param permissions                The symbol permission.
+ * @param symbol                     The symbol name.
+ * @param quoteAsset                 The quote asset.
+ * @param baseAsset                  The base asset.
+ * @param baseAssetPrecision         The base asset precision.
+ * @param baseCommissionPrecision    The base asset commission precision.
+ * @param quoteAssetPrecision        The quote asset precision.
+ * @param quoteCommissionPrecision   The quote asset commission precision.
+ * @param icebergAllowed             Are iceberg orders allowed?
+ * @param ocoAllowed                 Are OCO orders allowed?
+ * @param quoteOrderQtyMarketAllowed Are orders by quote quantity allowed?
+ * @param isSpotTradingAllowed       Is spot trading allowed?
+ * @param isMarginTradingAllowed     Is margin trading allowed?
  * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
  */
 public record SymbolInfo(List<String> orderTypes, @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters, List<String> permissions,

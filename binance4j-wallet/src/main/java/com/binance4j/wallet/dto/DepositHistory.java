@@ -16,7 +16,7 @@ package com.binance4j.wallet.dto;
  * @param transferType  The transfer type. 1 for internal transfer, 0 for external transfer.
  */
 public record DepositHistory(String amount, String coin, String network, String address, String addressTag, String txId, String unlockConfirm,
-		String confirmTimes, int status, long insertTime, int transferType) {
+		String confirmTimes, String status, long insertTime, int transferType) {
 	/** @return The withdraw status. */
 	public DepositStatus getDepositStatus() {
 		return DepositStatus.valueOf(status);

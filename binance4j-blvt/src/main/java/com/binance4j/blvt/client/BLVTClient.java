@@ -64,8 +64,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get subscription record.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The time search params.
+	 * @param params    The request params.
+	 * @param timeFrame The time search params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame timeFrame) {
@@ -104,7 +104,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get redemption record.
 	 * 
-	 * @param params The request params.
+	 * @param params    The request params.
+	 * @param timeFrame The time search params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame timeFrame) {

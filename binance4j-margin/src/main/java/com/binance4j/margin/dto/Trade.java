@@ -9,7 +9,7 @@ package com.binance4j.margin.dto;
  * @param commissionAsset The commission asset .
  * @param commission      The commission amount.
  * @param price           The trade price.
- * @param quantity        The traded quantity.
+ * @param qty             The traded quantity.
  * @param time            The transaction time.
  * @param isBestMatch     Is it the best match?
  * @param isBuyer         Is it a buyer trade?

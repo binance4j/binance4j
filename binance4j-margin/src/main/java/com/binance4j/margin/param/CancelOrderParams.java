@@ -37,7 +37,6 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
 	 * @param symbol            The related symbol.
-	 * @param orderId           The order id.
 	 * @param origClientOrderId Original client order id.
 	 */
 	public CancelOrderParams(String symbol, String origClientOrderId) {

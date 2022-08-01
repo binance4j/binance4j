@@ -25,8 +25,8 @@ public record AllOrdersParams(String symbol, Long orderId, Boolean isIsolated) i
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 
-	 * @param symbol     The order symbol
-	 * @param isIsolated Is the order isolated?
+	 * @param symbol  The order symbol
+	 * @param orderId The order id.
 	 */
 	public AllOrdersParams(String symbol, Long orderId) {
 		this(symbol, orderId, null);

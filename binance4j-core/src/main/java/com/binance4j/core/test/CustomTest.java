@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,7 +24,7 @@ import com.binance4j.core.exception.ApiException;
 
 /** Base class for Unit test. */
 @Execution(ExecutionMode.CONCURRENT)
-public abstract class CustomTest<T> {
+public abstract class CustomTest {
 	/** The key. */
 	protected String key = System.getenv("BINANCE_API_KEY");
 	/** The secret. */
@@ -44,47 +43,6 @@ public abstract class CustomTest<T> {
 	protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
 	/** The String. */
 	protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
-	/** The client. */
-	protected T client;
-	/** The testnetClient. */
-	protected T testnetClient;
-
-	/** Constructor */
-	protected CustomTest() {
-	}
-
-	/**
-	 * @param client The client
-	 */
-	protected CustomTest(T client) {
-		this.client = client;
-	}
-
-	/**
-	 * @param clientClass The client class
-	 */
-	protected CustomTest(Class<? extends T> clientClass) {
-		try {
-			this.client = clientClass.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-				| SecurityException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @param client        The client.
-	 * @param testnetClient The testnetClient.
-	 */
-	protected CustomTest(Class<? extends T> client, Class<? extends T> testnetClient) {
-		try {
-			this.client = client.getDeclaredConstructor(String.class, String.class).newInstance(getKey(), getSecret());
-			this.testnetClient = testnetClient.getDeclaredConstructor(String.class, String.class).newInstance(getTestnetKey(), getTestnetSecret());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-				| SecurityException e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * @return the properties of the given bean
@@ -356,19 +314,5 @@ public abstract class CustomTest<T> {
 	 */
 	public List<String> getSymbols() {
 		return symbols;
-	}
-
-	/**
-	 * @return the client
-	 */
-	public T getClient() {
-		return client;
-	}
-
-	/**
-	 * @return the testnetClient
-	 */
-	public T getTestnetClient() {
-		return testnetClient;
 	}
 }

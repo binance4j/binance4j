@@ -6,7 +6,7 @@ package com.binance4j.nft.dto;
  * @param network         NFT Network.
  * @param contractAddress NFT Contract Address.
  * @param tokenId         NFT Token ID.
- * @param transactionId   Transaction ID.
+ * @param txID            Transaction ID.
  * @param timestamp       Deposit time in ms.
  * @param fee             The withdraw fee.
  * @param feeAsset        The fee asset.

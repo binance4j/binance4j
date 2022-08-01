@@ -2,11 +2,14 @@ package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.BarSeries;
+
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -17,7 +20,7 @@ import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 import com.binance4j.vision.client.VisionSpotClient;
 
-class BackTestingTest extends CustomTest<Void> {
+class BackTestingTest extends CustomTest {
 	@Override
 	public void testNoNulls(Object bean) {
 		Set<String> nulls = getNullProperties(bean, true);

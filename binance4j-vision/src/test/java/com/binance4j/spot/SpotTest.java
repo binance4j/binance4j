@@ -4,11 +4,8 @@ import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.vision.client.VisionSpotClient;
 
-public class SpotTest extends CustomTest<VisionSpotClient> {
-	public SpotTest() {
-		super(new VisionSpotClient());
-	}
-
+public class SpotTest extends CustomTest {
+	VisionSpotClient client = new VisionSpotClient();
 	protected final String year = "2022";
 	protected final String month = "01";
 	protected final String day = "01";

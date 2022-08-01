@@ -1,12 +1,15 @@
 package com.binance4j.strategy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
+
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -14,11 +17,11 @@ import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.BarSeriesService;
 import com.binance4j.vision.client.VisionSpotClient;
 
-public class BarSeriesServiceTest extends CustomTest<VisionSpotClient> {
+public class BarSeriesServiceTest extends CustomTest {
 	List<Candle> bars;
+	VisionSpotClient client = new VisionSpotClient();
 
 	public BarSeriesServiceTest() throws ApiException {
-		super(new VisionSpotClient());
 		// Let's get some public data
 		bars = client.getKlines("BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01").getData();
 	}

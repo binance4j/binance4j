@@ -11,7 +11,7 @@ import com.binance4j.websocket.client.BaseWebsocketClient;
 import okhttp3.Response;
 
 /** Event handler callback. */
-public class TestCallback<T> extends CustomTest<Void> implements WebsocketCallback<T> {
+public class TestCallback<T> extends CustomTest implements WebsocketCallback<T> {
 	/** The CompletableFuture preventing the process to end before the tests. */
 	protected CompletableFuture<Void> future;
 	/** The ws client. */

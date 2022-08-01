@@ -7,7 +7,7 @@ package com.binance4j.wallet.dto;
  * @param fromAsset           The converted asset abbreviation.
  * @param operateTime         The operation timestamp.
  * @param serviceChargeAmount The fees.
- * @param transactionId       The transaction id.
+ * @param tranId              The transaction id.
  * @param transferedAmount    The transfered amount after fees.
  */
 public record DustTransferResult(String amount, String fromAsset, long operateTime, String serviceChargeAmount, long tranId, String transferedAmount) {

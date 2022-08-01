@@ -3,7 +3,7 @@ package com.binance4j.wallet.dto;
 /**
  * Dust log details.
  * 
- * @param transactionId       The transaction id.
+ * @param transId             The transaction id.
  * @param operateTime         The timestamp.
  * @param serviceChargeAmount The fees.
  * @param amount              The volume.

@@ -41,7 +41,7 @@ public class Request<T> {
 				throw new ApiException(error);
 			}
 		} catch (IOException e) {
-			throw new ApiException(-400, e.getMessage());
+			throw new ApiException("-400", e.getMessage());
 		}
 	}
 

@@ -29,15 +29,15 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	public void onResponse(Call<T> call, Response<T> response) {
 		switch (response.code()) {
 		case 200 -> callback.onResponse(response.body());
-		case 403 -> callback.onFailure(new ApiException(403, "The Web Application Firewall has been violated"));
+		case 403 -> callback.onFailure(new ApiException("403", "The Web Application Firewall has been violated"));
 		case 404 -> callback.onFailure(new NotFoundException());
-		case 418 -> callback.onFailure(new ApiException(418, "IP has been auto-banned for continuing to send requests after receiving 429 codes"));
-		case 429 -> callback.onFailure(new ApiException(429, "Request rate limit exceeded"));
+		case 418 -> callback.onFailure(new ApiException("418", "IP has been auto-banned for continuing to send requests after receiving 429 codes"));
+		case 429 -> callback.onFailure(new ApiException("429", "Request rate limit exceeded"));
 		default -> {
 			try {
-				callback.onFailure(new ApiException(response.code(), response.errorBody().string()));
+				callback.onFailure(new ApiException(Integer.toString(response.code()), response.errorBody().string()));
 			} catch (IOException e) {
-				callback.onFailure(new ApiException(-400, e.getMessage()));
+				callback.onFailure(new ApiException("-400", e.getMessage()));
 			}
 		}
 		}
@@ -51,6 +51,6 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	 */
 	@Override
 	public void onFailure(Call<T> call, Throwable throwable) {
-		callback.onFailure(new ApiException(-1000, throwable.getMessage()));
+		callback.onFailure(new ApiException("-1000", throwable.getMessage()));
 	}
 }

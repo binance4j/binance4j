@@ -7,8 +7,9 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * {@link MiningClient#getAccountProfits} params.
  * 
- * @param algo Transfer algorithm.
+ * @param algo     Transfer algorithm.
+ * @param userName Mining account.
  */
 @Param(weight = 5)
-public record AccountProfitsParams(String algo) implements Params {
+public record AccountProfitsParams(String algo, String userName) implements Params {
 }
