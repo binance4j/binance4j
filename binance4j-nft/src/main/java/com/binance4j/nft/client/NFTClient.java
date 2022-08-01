@@ -1,6 +1,7 @@
 package com.binance4j.nft.client;
 
 import java.util.Map;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
@@ -45,8 +46,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param interval The time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params, FramedPaging interval) {
-		return new Request<>(service.getTransactions(Params.merge(params, interval)));
+	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params, FramedPaging framedPaging) {
+		return new Request<>(service.getTransactions(Params.merge(params, framedPaging)));
 	}
 
 	/**

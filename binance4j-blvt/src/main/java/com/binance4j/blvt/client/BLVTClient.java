@@ -68,8 +68,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param interval The time search params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame interval) {
-		return new Request<>(service.getSubscriptions(Params.merge(params, interval)));
+	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getSubscriptions(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -107,8 +107,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame interval) {
-		return new Request<>(service.getRedemptions(Params.merge(params, interval)));
+	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getRedemptions(Params.merge(params, timeFrame)));
 	}
 
 	/**

@@ -284,8 +284,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param interval The interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<Interest>> getInterests(LendingParams params, TimeFrame interval) {
-		return new Request<>(service.getInterests(Params.merge(params, interval)));
+	public Request<List<Interest>> getInterests(LendingParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getInterests(Params.merge(params, timeFrame)));
 	}
 
 	/**

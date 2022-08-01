@@ -36,7 +36,7 @@ public class PayClient extends RestClient<PayMapping> {
 	 * @param interval The interval search.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades(TimeFrame interval) {
-		return new Request<>(service.getTrades(Params.merge(new TradeHistoryParams(), interval)));
+	public Request<TradeHistory> getTrades(TimeFrame timeFrame) {
+		return new Request<>(service.getTrades(Params.merge(new TradeHistoryParams(), timeFrame)));
 	}
 }

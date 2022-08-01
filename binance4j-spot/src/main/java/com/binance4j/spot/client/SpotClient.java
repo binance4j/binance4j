@@ -1,6 +1,7 @@
 package com.binance4j.spot.client;
 
 import java.util.List;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CancelOrderResponse;
@@ -135,8 +136,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame interval) {
-		return new Request<>(service.getAllOrders(Params.merge(params, interval)));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOrders(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -194,8 +195,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame interval) {
-		return new Request<>(service.getAllOCO(Params.merge(params, interval)));
+	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -203,8 +204,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOInfo>> getAllOCO(TimeFrame interval) {
-		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(), interval)));
+	public Request<List<OCOInfo>> getAllOCO(TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(), timeFrame)));
 	}
 
 	/**
@@ -266,8 +267,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeFrame interval) {
-		return new Request<>(service.getMyTrades(Params.merge(params, interval)));
+	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getMyTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package com.binance4j.market.client;
 
 import java.util.List;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.AggTrade;
@@ -141,8 +142,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame interval) {
-		return new Request<>(service.getAggTrades(Params.merge(params, interval)));
+	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAggTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -170,8 +171,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<Candle>> getKlines(KlinesParams params, TimeFrame interval) {
-		return new Request<>(service.getKlines(Params.merge(params, interval)));
+	public Request<List<Candle>> getKlines(KlinesParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getKlines(Params.merge(params, timeFrame)));
 	}
 
 	/**

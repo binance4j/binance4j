@@ -356,8 +356,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param interval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<DustLog> getDustLog(TimeFrame interval) {
-		return new Request<>(service.getDustLog(Params.merge(new DustLogParams(), interval)));
+	public Request<DustLog> getDustLog(TimeFrame timeFrame) {
+		return new Request<>(service.getDustLog(Params.merge(new DustLogParams(), timeFrame)));
 	}
 
 	/**
@@ -416,8 +416,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeinterval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame interval) {
-		return new Request<>(service.getAssetDividendRecord(Params.merge(params, interval)));
+	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAssetDividendRecord(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -426,8 +426,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeinterval The search interval.
 	 * @return The request to execute.
 	 */
-	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame interval) {
-		return new Request<>(service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(), interval)));
+	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame timeFrame) {
+		return new Request<>(service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(), timeFrame)));
 	}
 
 	/**

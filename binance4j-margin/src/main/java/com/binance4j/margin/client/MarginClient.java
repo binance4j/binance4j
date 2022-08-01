@@ -381,8 +381,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param interval The time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame interval) {
-		return new Request<>(service.getAllOrders(Params.merge(params, interval)));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOrders(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -432,8 +432,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param interval The time interval seach.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params, TimeFrame interval) {
-		return new Request<>(service.getAllOCO(Params.merge(params, interval)));
+	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -472,8 +472,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param interval The time interval seach.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(TradeParams params, TimeFrame interval) {
-		return new Request<>(service.getMyTrades(Params.merge(params, interval)));
+	public Request<List<Trade>> getMyTrades(TradeParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getMyTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -482,8 +482,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param interval The time interval seach.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(TimeFrame interval) {
-		return new Request<>(service.getMyTrades(interval.toMap()));
+	public Request<List<Trade>> getMyTrades(TimeFrame timeFrame) {
+		return new Request<>(service.getMyTrades(timeFrame.toMap()));
 	}
 
 	/**

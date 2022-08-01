@@ -26,12 +26,12 @@ public class LoanClient extends RestClient<PayMapping> {
 	/**
 	 * Get crypto loans income history.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The time interval search.
+	 * @param params    The request params.
+	 * @param timeFrame The time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<LoanIncome>> getLoansIncome(LoanIncomeHistoryParams params, TimeFrame interval) {
-		return new Request<>(service.getLoansIncome(Params.merge(params, interval)));
+	public Request<List<LoanIncome>> getLoansIncome(LoanIncomeHistoryParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getLoansIncome(Params.merge(params, timeFrame)));
 	}
 
 	/**
