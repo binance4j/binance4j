@@ -2,8 +2,6 @@ package com.binance4j.spot.dto;
 
 import java.util.List;
 
-import com.binance4j.core.dto.OrderInfo;
-
 /**
  * An OCO Order details.
  * 
@@ -17,5 +15,5 @@ import com.binance4j.core.dto.OrderInfo;
  * @param orders            The two orders of the OCO order.
  */
 public record OCOInfo(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId, long transactionTime,
-		String symbol, List<OrderInfo> orders) {
+		String symbol, List<OCOOrder> orders) {
 }

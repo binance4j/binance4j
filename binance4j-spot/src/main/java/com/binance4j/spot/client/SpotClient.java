@@ -5,7 +5,6 @@ import java.util.List;
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CancelOrderResponse;
-import com.binance4j.core.dto.OCOResponse;
 import com.binance4j.core.dto.OrderInfo;
 import com.binance4j.core.dto.Trade;
 import com.binance4j.core.param.Params;
@@ -13,6 +12,7 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.spot.dto.Account;
 import com.binance4j.spot.dto.NewOrderResponse;
 import com.binance4j.spot.dto.OCOInfo;
+import com.binance4j.spot.dto.OCOResponse;
 import com.binance4j.spot.dto.OrderCount;
 import com.binance4j.spot.param.AccountParams;
 import com.binance4j.spot.param.AllOCOInfoParams;
@@ -20,7 +20,6 @@ import com.binance4j.spot.param.AllOrdersParams;
 import com.binance4j.spot.param.CancelOCOParams;
 import com.binance4j.spot.param.CancelOpenOrdersParams;
 import com.binance4j.spot.param.CancelOrderParams;
-import com.binance4j.spot.param.MyTradesParams;
 import com.binance4j.spot.param.NewOCOOrderParams;
 import com.binance4j.spot.param.NewOrderParams;
 import com.binance4j.spot.param.OCOInfoParams;
@@ -28,6 +27,7 @@ import com.binance4j.spot.param.OpenOCOParams;
 import com.binance4j.spot.param.OpenOrdersStatusParams;
 import com.binance4j.spot.param.OrderCountParams;
 import com.binance4j.spot.param.OrderStatusParams;
+import com.binance4j.spot.param.TradesParams;
 
 /**
  * API client for the SPOT endpoints
@@ -41,6 +41,15 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 */
 	public SpotClient(String key, String secret) {
 		super(SpotMapping.class, key, secret);
+	}
+
+	/**
+	 * @param key        The API public key.
+	 * @param secret     The API secret key.
+	 * @param useTestnet use testnet.
+	 */
+	protected SpotClient(String key, String secret, boolean useTestnet) {
+		super(SpotMapping.class, key, secret, useTestnet);
 	}
 
 	/**
@@ -156,7 +165,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<OCOResponse>> cancelOCO(CancelOCOParams params) {
+	public Request<OCOResponse> cancelOCO(CancelOCOParams params) {
 		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
@@ -213,31 +222,10 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all open OCO.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<List<OCOInfo>> getOpenOCO(OpenOCOParams params) {
-		return new Request<>(service.getOpenOCO(params.toMap()));
-	}
-
-	/**
-	 * Retrieves all open OCO.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getOpenOCO() {
-		OpenOCOParams params = new OpenOCOParams();
-		return new Request<>(service.getOpenOCO(params.toMap()));
-	}
-
-	/**
-	 * Get current account information.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<Account> getAccount(AccountParams params) {
-		return new Request<>(service.getAccount(params.toMap()));
+		return new Request<>(service.getOpenOCO(new OpenOCOParams().toMap()));
 	}
 
 	/**
@@ -246,8 +234,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Account> getAccount() {
-		AccountParams params = new AccountParams();
-		return new Request<>(service.getAccount(params.toMap()));
+		return new Request<>(service.getAccount(new AccountParams().toMap()));
 	}
 
 	/**
@@ -257,7 +244,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(MyTradesParams params) {
+	public Request<List<Trade>> getTrades(TradesParams params) {
 		return new Request<>(service.getMyTrades(params.toMap()));
 	}
 
@@ -269,18 +256,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param timeFrame The time frame.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getMyTrades(MyTradesParams params, TimeFrame timeFrame) {
+	public Request<List<Trade>> getTrades(TradesParams params, TimeFrame timeFrame) {
 		return new Request<>(service.getMyTrades(Params.merge(params, timeFrame)));
-	}
-
-	/**
-	 * Displays the user's current order count usage for all intervals.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<List<OrderCount>> getOrderCount(OrderCountParams params) {
-		return new Request<>(service.getOrderCount(params.toMap()));
 	}
 
 	/**
@@ -289,7 +266,6 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderCount>> getOrderCount() {
-		OrderCountParams params = new OrderCountParams();
-		return new Request<>(service.getOrderCount(params.toMap()));
+		return new Request<>(service.getOrderCount(new OrderCountParams().toMap()));
 	}
 }

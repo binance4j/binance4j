@@ -17,6 +17,21 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 
+	 * @param symbol            The trade symbol.
+	 * @param orderId           The order id.
+	 * @param origClientOrderId The original client order id.
+	 * @param newClientOrderId  The new client order id.
+	 */
+	public CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId) {
+		this.symbol = symbol;
+		this.orderId = orderId;
+		this.origClientOrderId = origClientOrderId;
+		this.newClientOrderId = newClientOrderId;
+	}
+
+	/**
+	 * Creates an instance of {@link OpenOrdersStatusParams}.
+	 * 
 	 * @param symbol  The trade symbol.
 	 * @param orderId The order id.
 	 */

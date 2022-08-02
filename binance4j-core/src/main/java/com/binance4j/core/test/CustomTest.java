@@ -16,14 +16,11 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.exception.ApiException;
 
 /** Base class for Unit test. */
-@Execution(ExecutionMode.CONCURRENT)
+// @Execution(ExecutionMode.CONCURRENT)
 public abstract class CustomTest {
 	/** The key. */
 	protected String key = System.getenv("BINANCE_API_KEY");

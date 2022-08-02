@@ -1,6 +1,8 @@
-package com.binance4j.core.dto;
+package com.binance4j.spot.dto;
 
 import java.util.List;
+
+import com.binance4j.core.dto.MiniOrderInfo;
 
 /**
  * The response of an OCO order.
@@ -17,5 +19,5 @@ import java.util.List;
  * @param orderReports      The order reports.
  */
 public record OCOResponse(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId,
-		long transactionTime, String symbol, List<MiniOrderInfo> orders, boolean isIsolated, List<OrderReport> orderReports) {
+		long transactionTime, String symbol, List<MiniOrderInfo> orders, boolean isIsolated, List<OCOOrderReport> orderReports) {
 }

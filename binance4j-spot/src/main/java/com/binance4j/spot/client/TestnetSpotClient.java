@@ -7,7 +7,6 @@ public class TestnetSpotClient extends SpotClient {
 	 * @param secret The Testnet secret key.
 	 */
 	public TestnetSpotClient(String key, String secret) {
-		super(key, secret);
-		useTestnet = true;
+		super(key, secret, true);
 	}
 }

@@ -50,6 +50,20 @@ public abstract class RestClient<T> {
 	}
 
 	/**
+	 * @param mapping    The retrofit Service mapping interface.
+	 * @param key        The API public key.
+	 * @param secret     The API secret key.
+	 * @param useTestnet use testnet.
+	 */
+	protected RestClient(Class<T> mapping, String key, String secret, boolean useTestnet) {
+		this.mapping = mapping;
+		this.key = key;
+		this.secret = secret;
+		this.useTestnet = useTestnet;
+		service = createService();
+	}
+
+	/**
 	 * Generates the retrofit service that makes the API calls
 	 *
 	 * @return The service responsible for making calls to the API.

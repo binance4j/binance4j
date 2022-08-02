@@ -114,36 +114,12 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET buy order
 	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param timeInForce The lifetime of the order.
-	 * @return The order to execute.
-	 */
-	public static NewOrderParams buyMarket(String symbol, String quantity, TimeInForce timeInForce) {
-		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity, timeInForce);
-	}
-
-	/**
-	 * Produces a MARKET buy order
-	 *
 	 * @param symbol   The asset pair.
 	 * @param quantity The quantity.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyMarket(String symbol, String quantity) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, quantity);
-	}
-
-	/**
-	 * Produces a MARKET order
-	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param timeInForce The lifetime of the order.
-	 * @return The order to execute.
-	 */
-	public static NewOrderParams sellMarket(String symbol, String quantity, TimeInForce timeInForce) {
-		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity, timeInForce);
 	}
 
 	/**
@@ -179,7 +155,7 @@ public class NewOrderParams implements Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyLimit(String symbol, String quantity, String price) {
-		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price, TimeInForce.GTC);
 	}
 
 	/**
@@ -204,7 +180,7 @@ public class NewOrderParams implements Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellLimit(String symbol, String quantity, String price) {
-		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, TimeInForce.GTC);
 	}
 	// QUOTE ORDERS
 
@@ -230,7 +206,7 @@ public class NewOrderParams implements Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyQuote(String symbol, String quantity) {
-		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null);
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null, TimeInForce.GTC);
 		order.setQuoteOrderQuantity(quantity);
 		return order;
 	}
@@ -257,7 +233,7 @@ public class NewOrderParams implements Params {
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellQuote(String symbol, String quantity) {
-		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null);
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null, TimeInForce.GTC);
 		order.setQuoteOrderQuantity(quantity);
 		return order;
 	}

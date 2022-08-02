@@ -79,6 +79,15 @@ import com.binance4j.margin.param.TransferParams;
  */
 public class MarginClient extends RestClient<MarginMapping> {
 	/**
+	 * @param key        The API public key.
+	 * @param secret     The API secret key.
+	 * @param useTestnet use testnet?
+	 */
+	protected MarginClient(String key, String secret, boolean useTestnet) {
+		super(MarginMapping.class, key, secret, useTestnet);
+	}
+
+	/**
 	 * @param key    The API public key.
 	 * @param secret The API secret key.
 	 */
@@ -321,20 +330,10 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Margin Account Details.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<Account> getAccount(GetAccountParams params) {
-		return new Request<>(service.getAccount(params.toMap()));
-	}
-
-	/**
-	 * Get Margin Account Details.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<Account> getAccount() {
-		return getAccount(new GetAccountParams());
+		return new Request<>(service.getAccount(new GetAccountParams().toMap()));
 	}
 
 	/**
@@ -619,20 +618,10 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Gets the informations about all the isolated symbols.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<List<IsolatedSymbol>> getAllIsolatedSymbols(AllMarginPairsParams params) {
-		return new Request<>(service.getAllIsolatedSymbols(params.toMap()));
-	}
-
-	/**
-	 * Gets the informations about all the isolated symbols.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedSymbol>> getAllIsolatedSymbols() {
-		return getAllIsolatedSymbols(new AllMarginPairsParams());
+		return new Request<>(service.getAllIsolatedSymbols(new AllMarginPairsParams().toMap()));
 	}
 
 	/**
