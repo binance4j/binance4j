@@ -9,7 +9,7 @@ package com.binance4j.staking.dto;
  * @param renewable        Renewable.
  * @param apy              Apy.
  * @param extraRewardAsset Extra reward asset.
- * @param extraRewardAPY   Extra reward APY.
+ * @param extraRewardsAPY  Extra reward APY.
  * @param project          project.
  */
 public record ProductDetail(String asset, String rewardAsset, int duration, boolean renewable, String apy, String extraRewardAsset, String extraRewardsAPY,

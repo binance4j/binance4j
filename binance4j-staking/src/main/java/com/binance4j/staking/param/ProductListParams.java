@@ -14,7 +14,10 @@ import com.binance4j.staking.dto.ProductType;
 @Param
 public record ProductListParams(String product, String asset) implements Params {
 	/**
+	 * Creates an instance of {@link ProductListParams}.
 	 * 
+	 * @param product The product type.
+	 * @param asset   The product name.
 	 */
 	public ProductListParams(ProductType product, String asset) {
 		this(product.toString(), asset);
