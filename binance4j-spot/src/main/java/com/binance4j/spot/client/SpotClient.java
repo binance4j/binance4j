@@ -63,8 +63,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	}
 
 	/**
-	 * Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send it into
-	 * the matching engine.
+	 * Creates and validates a new order but does not send it into the matching engine.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.

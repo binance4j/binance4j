@@ -4,7 +4,7 @@ package com.binance4j.staking.dto;
 public enum ProductType {
 	/** Locked staking. */
 	STAKING,
-	/** Dlexible DeFi staking. */
+	/** Flexible DeFi staking. */
 	F_DEFI,
 	/** Locked DeFi staking. */
 	L_DEFI

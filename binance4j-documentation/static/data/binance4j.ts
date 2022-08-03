@@ -154,6 +154,15 @@ const vision: Repo = {
     icon: imgBase + "eye.svg",
 };
 
+const staking: Repo = {
+    name: "staking",
+    artifactId: "binance4j-staking",
+    title: "Strategy",
+    javadoc: javadocBase + "binance4j-staking/",
+    description: "Connect to the staking endpoints",
+    icon: imgBase + "staking.svg",
+};
+
 const strategy: Repo = {
     name: "strategy",
     artifactId: "binance4j-strategy",
@@ -229,6 +238,7 @@ const binance4j: Binance4JData = {
         pay,
         portFolio,
         rebate,
+        staking,
         core,
         wallet,
         market,

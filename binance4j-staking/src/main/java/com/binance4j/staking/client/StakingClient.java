@@ -102,7 +102,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	}
 
 	/**
-	 * Get Staking product position.
+	 * Get staking history.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
@@ -112,7 +112,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	}
 
 	/**
-	 * Get Staking product position.
+	 * Get staking history.
 	 * 
 	 * @param params   The request params.
 	 * @param interval The search interval.
