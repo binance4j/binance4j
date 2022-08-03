@@ -7,6 +7,6 @@ import org.junit.jupiter.api.Test;
 public class PingTest extends MarketTest {
 	@Test
 	public void testPing() {
-		assertDoesNotThrow(() -> client.ping().fetch());
+		assertDoesNotThrow(() -> client.ping().sync());
 	}
 }

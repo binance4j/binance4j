@@ -14,6 +14,7 @@ import com.binance4j.mining.dto.CoinsResponse;
 import com.binance4j.mining.dto.HashrateResaleCancellationResponse;
 import com.binance4j.mining.dto.HashrateResaleDetailResponse;
 import com.binance4j.mining.dto.HashrateResaleListResponse;
+import com.binance4j.mining.dto.HashrateResaleResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
 import com.binance4j.mining.dto.OtherProfitsResponse;
 import com.binance4j.mining.dto.ProfitResponse;
@@ -178,7 +179,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleParams> resellHashrate(HashrateResaleParams params) {
+	public Request<HashrateResaleResponse> resellHashrate(HashrateResaleParams params) {
 		return new Request<>(service.resellHashrate(params.toMap()));
 	}
 

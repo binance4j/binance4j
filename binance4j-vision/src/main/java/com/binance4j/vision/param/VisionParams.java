@@ -32,7 +32,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 */
 	public ZipInputStream getZip() throws ApiException {
 		try {
-			return responseToZip(fetch());
+			return responseToZip(sync());
 		} catch (ApiException e) {
 			throw new NotFoundException();
 		}
@@ -44,7 +44,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getZip(ApiCallback<ZipInputStream> callback) {
-		fetch(new ApiCallback<ResponseBody>() {
+		async(new ApiCallback<ResponseBody>() {
 			@Override
 			public void onFailure(ApiException exception) {
 				callback.onFailure(exception);
@@ -73,7 +73,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getCSV(ApiCallback<List<List<String>>> callback) {
-		fetch(new ApiCallback<ResponseBody>() {
+		async(new ApiCallback<ResponseBody>() {
 			@Override
 			public void onResponse(ResponseBody res) {
 				try {
@@ -106,7 +106,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getData(ApiCallback<List<T>> callback) {
-		fetch(new ApiCallback<ResponseBody>() {
+		async(new ApiCallback<ResponseBody>() {
 			@Override
 			public void onResponse(ResponseBody res) {
 				try {

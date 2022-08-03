@@ -1,0 +1,151 @@
+---
+title: Mining endpoints
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="mining" />
+
+## Installation
+
+<InstallationInstructions repo="mining" />
+
+## Examples
+
+### Get accounts
+
+<Examples
+    payload="AccountListResponse"
+    method="getAccounts"
+    items={[
+        {
+            params: "new AccountListParams(algo, userName)",
+        },
+    ]}
+/>
+
+### Get algorithms
+
+<Examples payload="AlgorithmsResponse" method="getAlgorithms" items={[{}]} />
+
+### Get coins
+
+<Examples payload="CoinsResponse" method="getCoins" items={[{}]} />
+
+### Get statistics
+
+<Examples
+    payload="StatisticsResponse"
+    method="getStatistics"
+    items={[{ params: "new StatisticsParams(aldo, userName)" }]}
+/>
+
+### Resell hasrate
+
+<Examples
+    payload="HashrateResaleResponse"
+    method="resellHashrate"
+    items={[{ params: "new HashrateResaleParams(userName, algo, startTime, endTime, userName, hashrate)" }]}
+/>
+
+### Cancel hashrate resale configuration
+
+<Examples
+    payload="HashrateResaleCancellationResponse"
+    method="cancelHashrateResaleConfiguration"
+    items={[{ params: "new HashrateResaleCancellationParams(configId, userName)" }]}
+/>
+
+### Get earnings list
+
+<Examples
+    payload="ProfitResponse"
+    method="getProfits"
+    items={[{ params: "new ProfitsParams(sha256, userName), new FramedPaging(startTime, endTime, page, limit)" }]}
+/>
+
+### Get extra bonus list.
+
+<Examples
+    payload="OtherProfitsResponse"
+    method="getOtherProfits"
+    items={[{ params: "new ProfitsParams(sha256, userName), new FramedPaging(startTime, endTime, page, limit)" }]}
+/>
+
+### Get mining account earning
+
+<Examples
+    payload="AccountProfitsResponse"
+    method="getAccountProfits"
+    items={[
+        {
+            label: "Default",
+            params: "new AccountProfitsParams(algo, userName)",
+        },
+        {
+            label: "Paginated",
+            params: "new AccountProfitsParams(algo, userName), new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get hashrate resale list
+
+<Examples
+    payload="HashrateResaleListResponse"
+    method="getHashrateResales"
+    items={[
+        {
+            label: "Default",
+        },
+        {
+            label: "Framed",
+            params: "new TimeFrame(startTime, endTime, limit)",
+        },
+    ]}
+/>
+
+### Get hashrate resale detail
+
+<Examples
+    payload="HashrateResaleDetailResponse"
+    method="getHashrateResalesDetails"
+    items={[
+        {
+            label: "Default",
+            params: "new HashrateResaleDetailParam(configId, userName)",
+        },
+        {
+            label: "Framed",
+            params: "new HashrateResaleDetailParam(configId, userName),new TimeFrame(startTime, endTime, limit)",
+        },
+    ]}
+/>
+
+### Get miners list
+
+<Examples
+    payload="WorkersResponse"
+    method="getMiners"
+    items={[
+        {
+            label: "Default",
+            params: "new MinersParams(algo, userName)",
+        },
+    ]}
+/>
+
+### Get miners details list
+
+<Examples
+    payload="MinerDetailsResponse"
+    method="getMinersDetails"
+    items={[
+        {
+            label: "Default",
+            params: "new MinerDetailsParams(algo, userName, workerName)",
+        },
+    ]}
+/>

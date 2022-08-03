@@ -1,0 +1,30 @@
+---
+title: Rebate endpoints
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import CodeBlock from "@theme/CodeBlock";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
+import data from "./data";
+
+<RepoBadges artifact="rebate" version={data.version} />
+
+## Installation
+
+<InstallationInstructions repo="rebate" version={data.version} />
+
+## Client instantiation
+
+```java
+RebateClient client = new RebateClient(key, secret);
+```
+
+## Get the spot rebate history records
+
+<ExampleList labels={["Default", "Framed"]}>
+    <Example payload="SpotRebateHistoryResponse" method="getSpotRebateHistoryRecords()" />
+    <Example payload="SpotRebateHistoryResponse" method="getSpotRebateHistoryRecords(new FramedPaging(1))" />
+</ExampleList>

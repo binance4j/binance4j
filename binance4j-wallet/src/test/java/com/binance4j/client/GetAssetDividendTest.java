@@ -13,7 +13,7 @@ import com.binance4j.wallet.param.AssetDividendRecordParams;
 class GetAssetDividendTest extends WalletTest {
 	@Test
 	void testGetAnyAssetDividend() throws ApiException {
-		AssetDividendRecord record = client.getAssetDividendRecord().fetch();
+		AssetDividendRecord record = client.getAssetDividendRecord().sync();
 		assertNotNull(record.total());
 		testNoNulls(record);
 	}
@@ -21,7 +21,7 @@ class GetAssetDividendTest extends WalletTest {
 	@Test
 	void testGetGivenAssetDividend() throws ApiException {
 		AssetDividendRecordParams params = new AssetDividendRecordParams(asset);
-		AssetDividendRecord record = client.getAssetDividendRecord(params).fetch();
+		AssetDividendRecord record = client.getAssetDividendRecord(params).sync();
 		assertNotNull(record.total());
 		testNoNulls(record);
 	}
@@ -29,7 +29,7 @@ class GetAssetDividendTest extends WalletTest {
 	@Test
 	void testGetGivenAssetDividendWithLimit() throws ApiException {
 		var interval = new TimeFrame(limit);
-		AssetDividendRecord record = client.getAssetDividendRecord(new AssetDividendRecordParams(asset), interval).fetch();
+		AssetDividendRecord record = client.getAssetDividendRecord(new AssetDividendRecordParams(asset), interval).sync();
 		assertTrue(record.total() <= limit);
 		testNoNulls(record);
 	}

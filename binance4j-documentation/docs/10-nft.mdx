@@ -1,0 +1,53 @@
+---
+title: NFT endpoints.
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import CodeBlock from "@theme/CodeBlock";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
+import data from "./data";
+<RepoBadges artifact="nft" version={data.version} />;
+
+## Installation
+
+<InstallationInstructions repo="nft" version={data.version} />
+
+## Client instantiation
+
+```java
+NFTClient client = new NFTClient(key, secret);
+```
+
+## Get transaction history
+
+<ExampleList labels={["Default", "Framed"]}>
+    <Example
+        payload="TransactionHistory"
+        method="getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER))"
+    />
+    <Example payload="TransactionHistory" method="getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER)" />
+</ExampleList>
+
+## Get deposit history
+
+<ExampleList labels={["Default", "Framed"]}>
+    <Example payload="DepositHistory" method="getDeposits()" />
+    <Example payload="DepositHistory" method="getDeposits(new FramedPaging(page))" />
+</ExampleList>
+
+## Get withdraw history
+
+<ExampleList labels={["Default", "Framed"]}>
+    <Example payload="WithdrawHistory" method="getWithdraws()" />
+    <Example payload="WithdrawHistory" method="getWithdraws(new FramedPaging(page))" />
+</ExampleList>
+
+## Get NFT assets
+
+<ExampleList labels={["Default", "Paginated"]}>
+    <Example payload="AssetHistory" method="getAssets()" />
+    <Example payload="AssetHistory" method="getAssets(new Paging(1))" />
+</ExampleList>

@@ -2,6 +2,7 @@ package com.binance4j.market.client;
 
 import java.util.List;
 import java.util.Map;
+
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
@@ -13,7 +14,8 @@ import com.binance4j.market.dto.OrderBook;
 import com.binance4j.market.dto.PriceTicker;
 import com.binance4j.market.dto.ServerTimeResponse;
 import com.binance4j.market.dto.TickerStatistics;
-import com.binance4j.market.dto.TradeHistoryItem;
+import com.binance4j.market.dto.Trade;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -55,7 +57,7 @@ public interface MarketMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "trades")
-	Call<List<TradeHistoryItem>> getTrades(@QueryMap Map<String, Object> map);
+	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -63,7 +65,7 @@ public interface MarketMapping extends RestMapping {
 	 */
 	@Headers(AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
 	@GET(BASE + "historicalTrades")
-	Call<List<TradeHistoryItem>> getHistoricalTrades(@QueryMap Map<String, Object> map);
+	Call<List<Trade>> getHistoricalTrades(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.

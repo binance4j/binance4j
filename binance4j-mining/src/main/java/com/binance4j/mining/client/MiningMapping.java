@@ -10,12 +10,12 @@ import com.binance4j.mining.dto.CoinsResponse;
 import com.binance4j.mining.dto.HashrateResaleCancellationResponse;
 import com.binance4j.mining.dto.HashrateResaleDetailResponse;
 import com.binance4j.mining.dto.HashrateResaleListResponse;
+import com.binance4j.mining.dto.HashrateResaleResponse;
 import com.binance4j.mining.dto.MinerDetailsResponse;
 import com.binance4j.mining.dto.OtherProfitsResponse;
 import com.binance4j.mining.dto.ProfitResponse;
 import com.binance4j.mining.dto.StatisticsResponse;
 import com.binance4j.mining.dto.WorkersResponse;
-import com.binance4j.mining.param.HashrateResaleParams;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -106,7 +106,7 @@ public interface MiningMapping extends RestMapping {
 	 */
 	@POST(BASE + "hash-transfer/config")
 	@Headers(SIGNED_H)
-	Call<HashrateResaleParams> resellHashrate(@QueryMap Map<String, Object> map);
+	Call<HashrateResaleResponse> resellHashrate(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.

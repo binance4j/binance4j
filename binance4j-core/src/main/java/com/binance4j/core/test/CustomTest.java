@@ -208,7 +208,7 @@ public abstract class CustomTest {
 	 * @throws ApiException thrown if execution failed.
 	 */
 	public void testNoNulls(Request<?> request) throws ApiException {
-		testNoNulls(request.fetch());
+		testNoNulls(request.sync());
 	}
 
 	/**
@@ -233,7 +233,7 @@ public abstract class CustomTest {
 	 * @throws ApiException thrown if execution failed.
 	 */
 	public void testHasNulls(Request<?> request, Collection<String> expectedNulls, boolean flatten) throws ApiException {
-		testHasNulls(request.fetch(), expectedNulls, flatten);
+		testHasNulls(request.sync(), expectedNulls, flatten);
 	}
 
 	/**

@@ -10,7 +10,7 @@ class GetAveragePriceTest extends MarketTest {
 	@Test
 	void testGetAveragePrice() throws ApiException {
 		AveragePriceParams params = new AveragePriceParams(symbol);
-		AveragePrice res = client.getAveragePrice(params).fetch();
+		AveragePrice res = client.getAveragePrice(params).sync();
 		testNoNulls(res);
 	}
 }

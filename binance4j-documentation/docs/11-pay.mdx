@@ -1,0 +1,30 @@
+---
+title: Pay endpoints
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import CodeBlock from "@theme/CodeBlock";
+import InstallationInstructions from "@site/src/components/InstallationInstructions";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
+import data from "./data";
+
+<RepoBadges artifact="pay" version={data.version} />
+
+## Installation
+
+<InstallationInstructions repo="pay" version={data.version} />
+
+## Client instantiation
+
+```java
+PayClient client = new PayClient(key, secret);
+```
+
+## Get pay trades
+
+<ExampleList labels={["Default", "Framed"]}>
+    <Example payload="TradeHistory" method="getTrades()" />
+    <Example payload="TradeHistory" method="getTrades(new TimeFrame(10))" />
+</ExampleList>

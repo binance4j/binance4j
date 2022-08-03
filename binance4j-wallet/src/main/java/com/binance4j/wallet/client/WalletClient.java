@@ -74,22 +74,12 @@ public class WalletClient extends RestClient<WalletMapping> {
 	}
 
 	/**
-	 * Gets information of coins (available for deposit and withdraw) for user.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<List<CoinInformation>> getAllCoinsInfo(CoinInformationParams params) {
-		return new Request<>(service.getAllCoinsInfo(params.toMap()));
-	}
-
-	/**
 	 * Gets the information of coins (available for deposit and withdraw) for user .
 	 * 
 	 * @return The request to execute.
 	 */
 	public Request<List<CoinInformation>> getAllCoinsInfo() {
-		return getAllCoinsInfo(new CoinInformationParams());
+		return new Request<>(service.getAllCoinsInfo(new CoinInformationParams().toMap()));
 	}
 
 	/**
@@ -151,38 +141,11 @@ public class WalletClient extends RestClient<WalletMapping> {
 
 	/**
 	 * Disables fast withdraw switch under your account.
-	 * <p>
-	 * You need to enable {@code trade} option for the api key which requests this endpoint.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<Void> disableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
-		return new Request<>(service.disableFastWithdrawSwitch(params.toMap()));
-	}
-
-	/**
-	 * Disables fast withdraw switch under your account.
 	 * 
 	 * @return The request to execute.
 	 */
 	public Request<Void> disableFastWithdrawSwitch() {
-		return disableFastWithdrawSwitch(new FastWithdrawSwitchParams());
-	}
-
-	/**
-	 * Enables fast withdraw switch under your account.
-	 * <p>
-	 * You need to enable "trade" option for the api key which requests this endpoint.
-	 * <p>
-	 * When Fast Withdraw Switch is on, transferring funds to a Binance account will be done instantly. There is no on-chain
-	 * transaction, no transaction ID and no withdrawal fee.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<Void> enableFastWithdrawSwitch(FastWithdrawSwitchParams params) {
-		return new Request<>(service.enableFastWithdrawSwitch(params.toMap()));
+		return new Request<>(service.disableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
 	}
 
 	/**
@@ -191,7 +154,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Void> enableFastWithdrawSwitch() {
-		return enableFastWithdrawSwitch(new FastWithdrawSwitchParams());
+		return new Request<>(service.enableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
 	}
 
 	/**
@@ -305,30 +268,10 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the account status detail.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<AccountStatus> getAccountstatus(AccountStatusParams params) {
-		return new Request<>(service.getAccountstatus(params.toMap()));
-	}
-
-	/**
-	 * Fetches the account status detail.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<AccountStatus> getAccountstatus() {
-		return getAccountstatus(new AccountStatusParams());
-	}
-
-	/**
-	 * Fetches the account api trading status detail.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<ApiTradingStatus> getApiTradingStatus(ApiTradingStatusParams params) {
-		return new Request<>(service.getApiTradingStatus(params.toMap()));
+		return new Request<>(service.getAccountstatus(new AccountStatusParams().toMap()));
 	}
 
 	/**
@@ -337,7 +280,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<ApiTradingStatus> getApiTradingStatus() {
-		return getApiTradingStatus(new ApiTradingStatusParams());
+		return new Request<>(service.getApiTradingStatus(new ApiTradingStatusParams().toMap()));
 	}
 
 	/**
@@ -525,19 +468,9 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the API Key Permission.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<ApiPermissions> getApiPermissions(ApiPermissionsParams params) {
-		return new Request<>(service.getApiPermissions(params.toMap()));
-	}
-
-	/**
-	 * Fetches the API Key Permission.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<ApiPermissions> getApiPermissions() {
-		return getApiPermissions(new ApiPermissionsParams());
+		return new Request<>(service.getApiPermissions(new ApiPermissionsParams().toMap()));
 	}
 }

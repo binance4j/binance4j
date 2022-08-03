@@ -10,7 +10,7 @@ import com.binance4j.market.dto.ServerTimeResponse;
 public class ServerTimeTest extends MarketTest {
 	@Test
 	public void testGetServerTime() throws ApiException {
-		ServerTimeResponse res = client.getServerTime().fetch();
+		ServerTimeResponse res = client.getServerTime().sync();
 		assertTrue(hasNoNullProperty(res));
 	}
 }

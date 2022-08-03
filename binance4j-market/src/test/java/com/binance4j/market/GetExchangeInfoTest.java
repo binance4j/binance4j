@@ -10,12 +10,12 @@ import com.binance4j.market.param.ExchangeInfoParams;
 class GetExchangeInfoTest extends MarketTest {
 	@Test
 	void test1() throws ApiException {
-		testHasNulls((client.getExchangeInfo().fetch()), List.of("notional", "percentPriceBySide", "maxPosition", "maxNumIcebergOrders"), true);
+		testHasNulls((client.getExchangeInfo().sync()), List.of("notional", "percentPriceBySide", "maxPosition", "maxNumIcebergOrders"), true);
 	}
 
 	@Test
 	void test2() throws ApiException {
-		testHasNulls((client.getExchangeInfo(new ExchangeInfoParams(symbol)).fetch()),
+		testHasNulls((client.getExchangeInfo(new ExchangeInfoParams(symbol)).sync()),
 				List.of("notional", "percentPriceBySide", "maxPosition", "maxNumIcebergOrders"), true);
 	}
 }

@@ -11,5 +11,5 @@ package com.binance4j.market.dto;
  * @param isBuyerMaker Is the trade a buyer maker trade.
  * @param isBestMatch  Was the trade the best price match?
  */
-public record TradeHistoryItem(long id, String price, String qty, String quoteQty, long time, boolean isBuyerMaker, boolean isBestMatch) {
+public record Trade(long id, String price, String qty, String quoteQty, long time, boolean isBuyerMaker, boolean isBestMatch) {
 }

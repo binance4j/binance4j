@@ -41,9 +41,9 @@ public class StakingClientTest extends CustomTest {
 
 	@Test
 	void testGetPosition() throws ApiException {
-		testPosition(client.getPosition(new PositionParams(ProductType.STAKING)).fetch());
-		testPosition(client.getPosition(new PositionParams(ProductType.F_DEFI)).fetch());
-		testPosition(client.getPosition(new PositionParams(ProductType.L_DEFI)).fetch());
+		testPosition(client.getPosition(new PositionParams(ProductType.STAKING)).sync());
+		testPosition(client.getPosition(new PositionParams(ProductType.F_DEFI)).sync());
+		testPosition(client.getPosition(new PositionParams(ProductType.L_DEFI)).sync());
 	}
 
 	@Test

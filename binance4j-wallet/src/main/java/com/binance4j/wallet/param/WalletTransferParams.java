@@ -19,6 +19,23 @@ public record WalletTransferParams(String asset, WalletTransferType type, String
 	/**
 	 * Creates an instance of {@link WalletTransferParams}.
 	 * 
+	 * @param asset      Asset.
+	 * @param type       Transfer type.
+	 * @param amount     Volume.
+	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 */
+	public WalletTransferParams(String asset, WalletTransferType type, String amount, String fromSymbol, String toSymbol) {
+		this.asset = asset;
+		this.type = type;
+		this.amount = amount;
+		this.fromSymbol = fromSymbol;
+		this.toSymbol = toSymbol;
+	}
+
+	/**
+	 * Creates an instance of {@link WalletTransferParams}.
+	 * 
 	 * @param asset  Asset.
 	 * @param type   Transfer type.
 	 * @param amount Volume.

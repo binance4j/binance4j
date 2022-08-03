@@ -21,7 +21,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	void test2() throws ApiException {
 		TickerStatisticsParams params = new TickerStatisticsParams(symbol);
-		TickerStatistics res = client.get24hTickerStatistics(params).fetch();
+		TickerStatistics res = client.get24hTickerStatistics(params).sync();
 		assertEquals(res.symbol(), symbol);
 		testNoNulls(res);
 	}
@@ -29,7 +29,7 @@ class Get24hTickerStatisticsTest extends MarketTest {
 	@Test
 	void test3() throws ApiException {
 		TickersStatisticsParams params = new TickersStatisticsParams(symbols);
-		List<TickerStatistics> res = client.get24hTickerStatistics(params).fetch();
+		List<TickerStatistics> res = client.get24hTickerStatistics(params).sync();
 		testNoNulls(res);
 		res.forEach(stats -> assertTrue(symbols.contains((stats.symbol()))));
 	}

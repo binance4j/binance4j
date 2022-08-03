@@ -157,7 +157,7 @@ public class MarginClientTest extends CustomTest {
 
 	// @Test WORKS!
 	void testGetOpenOrdersAndGetOrder() throws ApiException {
-		List<OrderInfo> orders = client.getOpenOrders().fetch();
+		List<OrderInfo> orders = client.getOpenOrders().sync();
 		testHasNulls(orders, List.of("origQuoteOrderQty"), true);
 
 		orders.forEach(o -> {

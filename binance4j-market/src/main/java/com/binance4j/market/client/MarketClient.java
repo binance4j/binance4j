@@ -15,7 +15,7 @@ import com.binance4j.market.dto.OrderBook;
 import com.binance4j.market.dto.PriceTicker;
 import com.binance4j.market.dto.ServerTimeResponse;
 import com.binance4j.market.dto.TickerStatistics;
-import com.binance4j.market.dto.TradeHistoryItem;
+import com.binance4j.market.dto.Trade;
 import com.binance4j.market.param.AggTradeParams;
 import com.binance4j.market.param.AveragePriceParams;
 import com.binance4j.market.param.BookTickerParams;
@@ -99,7 +99,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<TradeHistoryItem>> getTrades(TradesParams params) {
+	public Request<List<Trade>> getTrades(TradesParams params) {
 		return new Request<>(service.getTrades(params.toMap()));
 	}
 
@@ -109,7 +109,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<TradeHistoryItem>> getHistoricalTrades(HistoricalTradesParams params) {
+	public Request<List<Trade>> getHistoricalTrades(HistoricalTradesParams params) {
 		return new Request<>(service.getHistoricalTrades(params.toMap()));
 	}
 

@@ -8,7 +8,7 @@ public class GetAccountInfosTest extends PortfolioMarginTest {
 	@Test
 	void test1() {
 		try {
-			testNoNulls(client.getAccountInfo().fetch());
+			testNoNulls(client.getAccountInfo().sync());
 		} catch (ApiException e) {
 		}
 	}

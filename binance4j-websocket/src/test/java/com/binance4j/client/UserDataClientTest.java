@@ -21,29 +21,29 @@ class UserDataClientTest {
 
 	@Test
 	void testUserDataStream() throws ApiException {
-		ListenKey listenKey = client.startUserDataStream().fetch();
+		ListenKey listenKey = client.startUserDataStream().sync();
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.listenKey()));
-		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).fetch());
+		assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).sync());
 	}
 
 	@Test
 	void testMarginUserDataStream() throws ApiException {
-		ListenKey listenKey = client.startMarginUserDataStream().fetch();
+		ListenKey listenKey = client.startMarginUserDataStream().sync();
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
-		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).fetch());
+		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).sync());
 	}
 
 	@Test
 	void testIsolatedUserDataStream() throws ApiException {
 		String isolatedSymbol = "BTCUSDT";
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(isolatedSymbol);
-		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).fetch();
+		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).sync();
 		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(isolatedSymbol,
 				listenKey.listenKey());
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
-		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).fetch());
+		assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).sync());
 	}
 }

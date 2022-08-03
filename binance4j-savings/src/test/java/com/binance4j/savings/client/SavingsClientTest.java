@@ -66,13 +66,13 @@ public class SavingsClientTest extends CustomTest {
 
 	@Test
 	void testGetLeftDailyFlexiblePurchaseQuota() throws ApiException {
-		var productId = client.getFlexibleProducts().fetch().get(0).productId();
+		var productId = client.getFlexibleProducts().sync().get(0).productId();
 		testNoNulls(client.getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)));
 	}
 
 	@Test
 	void testGetLeftDailyRedemptionQuota() throws ApiException {
-		var productId = client.getFlexibleProducts().fetch().get(0).productId();
+		var productId = client.getFlexibleProducts().sync().get(0).productId();
 		testNoNulls(client.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, ProductType.FAST)));
 	}
 

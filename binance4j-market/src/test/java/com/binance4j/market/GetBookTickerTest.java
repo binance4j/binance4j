@@ -15,14 +15,14 @@ import com.binance4j.market.param.BookTickersParams;
 class GetBookTickerTest extends MarketTest {
 	@Test
 	void test1() throws ApiException {
-		List<BookTicker> bookTickers = client.getBookTicker().fetch();
+		List<BookTicker> bookTickers = client.getBookTicker().sync();
 		testNoNulls(bookTickers);
 	}
 
 	@Test
 	void test2() throws ApiException {
 		BookTickerParams params = new BookTickerParams(symbol);
-		BookTicker bookTicker = client.getBookTicker(params).fetch();
+		BookTicker bookTicker = client.getBookTicker(params).sync();
 		assertEquals(bookTicker.symbol(), symbol);
 		testNoNulls(bookTicker);
 	}
@@ -30,7 +30,7 @@ class GetBookTickerTest extends MarketTest {
 	@Test
 	void test3() throws ApiException {
 		BookTickersParams params = new BookTickersParams(symbols);
-		List<BookTicker> bookTickers = client.getBookTicker(params).fetch();
+		List<BookTicker> bookTickers = client.getBookTicker(params).sync();
 		bookTickers.forEach(bt -> assertTrue(symbols.contains(bt.symbol())));
 		testNoNulls(bookTickers);
 	}

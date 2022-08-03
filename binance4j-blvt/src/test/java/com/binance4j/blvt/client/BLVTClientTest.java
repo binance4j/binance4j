@@ -43,11 +43,6 @@ public class BLVTClientTest extends CustomTest {
 	}
 
 	@Test
-	void testGetSubscriptionsWithParams() throws ApiException {
-		testNoNulls(client.getSubscriptions(new TransactionRecordParams()));
-	}
-
-	@Test
 	void testGetSubscriptionsWithTimeFrame() throws ApiException {
 		testNoNulls(client.getSubscriptions(new TransactionRecordParams(tokenName), timeFrame));
 	}

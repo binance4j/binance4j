@@ -24,7 +24,7 @@ public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdate>
 	 * @throws ApiException Will be thrown if the client is unable to fetch the listen key
 	 */
 	public WebsocketUserDataClient(UserDataClient client, WebsocketCallback<UserDataUpdate> callback) throws ApiException {
-		super(null, client.startUserDataStream().fetch().listenKey(), UserDataUpdate.class, callback);
+		super(null, client.startUserDataStream().sync().listenKey(), UserDataUpdate.class, callback);
 		userDataClient = client;
 	}
 

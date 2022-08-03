@@ -42,13 +42,13 @@ public class ChecksumParams extends Request<ResponseBody> {
 	 * @throws ApiException Thrown if data fetching failed.
 	 */
 	public VisionChecksum getChecksum() throws ApiException {
-		return resToChecksum(fetch());
+		return resToChecksum(sync());
 	}
 
 	@Override
-	public ResponseBody fetch() throws ApiException {
+	public ResponseBody sync() throws ApiException {
 		try {
-			return super.fetch();
+			return super.sync();
 		} catch (Exception e) {
 			throw new NotFoundException();
 		}
@@ -60,7 +60,7 @@ public class ChecksumParams extends Request<ResponseBody> {
 	 * @param callback The callback handling the deserialized data and the API response error.
 	 */
 	public void getChecksum(ApiCallback<VisionChecksum> callback) {
-		fetch(new ApiCallback<ResponseBody>() {
+		async(new ApiCallback<ResponseBody>() {
 			@Override
 			public void onFailure(ApiException exception) {
 				callback.onFailure(exception);

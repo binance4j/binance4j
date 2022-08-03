@@ -15,27 +15,27 @@ import com.binance4j.market.param.AggTradeParams;
 public class GetAggTradesTests extends MarketTest {
 	@Test
 	public void test1() throws ApiException {
-		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol)).fetch();
+		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol)).sync();
 		testNoNulls(res);
 	}
 
 	@Test
 	public void test2() throws ApiException {
-		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(limit)).fetch();
+		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(limit)).sync();
 		assertEquals(res.size(), limit);
 		testNoNulls(res);
 	}
 
 	@Test
 	public void test3() throws ApiException {
-		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(1640991600000L, 1640994900000L)).fetch();
+		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(1640991600000L, 1640994900000L)).sync();
 		res.forEach(at -> assertTrue(at.time() >= 1640991600000L && at.time() <= 1640994900000L));
 		testNoNulls(res);
 	}
 
 	@Test
 	public void test4() throws ApiException {
-		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol, 244397449L)).fetch();
+		List<AggTrade> res = client.getAggTrades(new AggTradeParams(symbol, 244397449L)).sync();
 		res.forEach(at -> assertTrue(at.tradeId() >= 244397449L));
 		testNoNulls(res);
 	}

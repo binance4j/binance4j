@@ -4,6 +4,8 @@ import com.binance4j.convert.dto.ConversionHistory;
 import com.binance4j.convert.param.ConversionParams;
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 
 /**
  * Api client for the convert endpoints
@@ -25,7 +27,7 @@ public class ConvertClient extends RestClient<ConvertMapping> {
 	 * @param params The request params.
 	 * @return The request to execute.
 	 */
-	public Request<ConversionHistory> getConversions(ConversionParams params) {
-		return new Request<>(service.getConversions(params.toMap()));
+	public Request<ConversionHistory> getConversions(TimeFrame params) {
+		return new Request<>(service.getConversions(Params.merge(new ConversionParams(), params)));
 	}
 }
