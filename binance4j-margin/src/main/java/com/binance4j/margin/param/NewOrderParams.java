@@ -148,7 +148,7 @@ public class NewOrderParams implements Params {
 	 * @return The generated {@link NewOrderParams}.
 	 */
 	public static NewOrderParams sellMarket(String symbol, String quantity) {
-		return buyMarket(symbol, quantity);
+		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity, TimeInForce.GTC);
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class NewOrderParams implements Params {
 	 * @return The generated {@link NewOrderParams}.
 	 */
 	public static NewOrderParams buyLimit(String symbol, String quantity, String price) {
-		return buyLimit(symbol, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.BUY, quantity, price, TimeInForce.GTC);
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class NewOrderParams implements Params {
 	 * @return The generated {@link NewOrderParams}.
 	 */
 	public static NewOrderParams sellLimit(String symbol, String quantity, String price) {
-		return sellLimit(symbol, quantity, price);
+		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, TimeInForce.GTC);
 	}
 
 	/** @return The sideEffectType */

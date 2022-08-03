@@ -488,15 +488,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Query Margin Account's Trade List.
-	 * 
-	 * @return The request to execute.
-	 */
-	public Request<List<Trade>> getMyTrades() {
-		return getMyTrades(new TradeParams());
-	}
-
-	/**
 	 * Query Max Borrow.
 	 * 
 	 * @param params The request params.

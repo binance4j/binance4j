@@ -1,6 +1,6 @@
 package com.binance4j.savings.dto;
 
-/** TODO JAVADOC */
+/** Featured. */
 public enum Featured {
 	/** All. */
 	ALL,

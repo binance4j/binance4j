@@ -1,5 +1,6 @@
 package com.binance4j.client;
 
+import java.time.Duration;
 import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ class WebsocketAggTradeClientTest {
 	void test1() throws ApiException, InterruptedException, ExecutionException {
 		WebsocketAggTradeClient client = new WebsocketAggTradeClient(callback.getSymbol(), callback);
 		callback.setWebsocketClient(client);
+		client.getConfiguration().setNoResponseTimeout(Duration.ofMinutes(1));
 		client.open();
 		callback.future.get();
 	}

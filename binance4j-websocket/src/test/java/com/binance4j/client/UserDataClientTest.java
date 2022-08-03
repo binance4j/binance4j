@@ -33,13 +33,14 @@ class UserDataClientTest {
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
 		assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).fetch());
-	} // TODO activate isolated account
-		// @Test
+	}
 
+	@Test
 	void testIsolatedUserDataStream() throws ApiException {
-		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams("BNBBUSD");
+		String isolatedSymbol = "BTCUSDT";
+		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(isolatedSymbol);
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).fetch();
-		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams("BNBBUSD",
+		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(isolatedSymbol,
 				listenKey.listenKey());
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));

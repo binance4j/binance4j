@@ -32,11 +32,6 @@ public class BLVTClientTest extends CustomTest {
 		testNoNulls(client.getRedemptions());
 	}
 
-	// TODO @Test
-	void testGetRedemptionsWithParams() throws ApiException {
-		testNoNulls(client.getRedemptions(new TransactionRecordParams(tokenName, 0L)));
-	}
-
 	@Test
 	void testGetRedemptionsWithTimeFrame() throws ApiException {
 		testNoNulls(client.getRedemptions(new TransactionRecordParams(tokenName, 0L), timeFrame));
@@ -67,6 +62,8 @@ public class BLVTClientTest extends CustomTest {
 		testNoNulls(client.getTokenInfo(new TokenInfoParams(tokenName)));
 	}
 
+	// NOT TEST DUE TO NEW FRENCH LAWS
+
 	// TODO @Test
 	void testRedeem() throws ApiException {
 		testNoNulls(client.redeem(new RedemptionParams(tokenName, amount)));
@@ -75,5 +72,10 @@ public class BLVTClientTest extends CustomTest {
 	// TODO @Test
 	void testSubscribe() throws ApiException {
 		testNoNulls(client.subscribe(new SubscriptionParams(tokenName, amount)));
+	}
+
+	// TODO @Test
+	void testGetRedemptionsWithParams() throws ApiException {
+		testNoNulls(client.getRedemptions(new TransactionRecordParams(tokenName, 0L)));
 	}
 }

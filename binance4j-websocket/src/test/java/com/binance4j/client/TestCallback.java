@@ -35,6 +35,7 @@ public class TestCallback<T> extends CustomTest implements WebsocketCallback<T> 
 	}
 
 	public void onFailure(ApiException exception) {
+		testNoNulls(exception);
 		websocketClient.close();
 		future.complete(null);
 	}

@@ -1,5 +1,6 @@
 package com.binance4j.websocket.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param lastTradeId                 Last trade Id.
  * @param totalNumberOfTrades         Total number of trades.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record Ticker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
 		@JsonProperty("p") String priceChange, @JsonProperty("P") String priceChangePercent, @JsonProperty("w") String weightedAveragePrice,
 		@JsonProperty("x") String previousDaysClosePrice, @JsonProperty("c") String currentDaysClosePrice, @JsonProperty("Q") String closeTradesQuantity,

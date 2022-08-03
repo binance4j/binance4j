@@ -13,12 +13,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record TradeParams(String symbol, Long fromId, Boolean isIsolated) implements Params {
-	/**
-	 * Creates an instance of {@link TradeParams}.
-	 */
-	public TradeParams() {
-		this(null, null, null);
-	}
 
 	/**
 	 * Creates an instance of {@link TradeParams}.
@@ -37,25 +31,6 @@ public record TradeParams(String symbol, Long fromId, Boolean isIsolated) implem
 	 */
 	public TradeParams(String symbol, Long fromId) {
 		this(symbol, fromId, null);
-	}
-
-	/**
-	 * Creates an instance of {@link TradeParams}.
-	 * 
-	 * @param fromId Search from id.
-	 */
-	public TradeParams(Long fromId) {
-		this(null, fromId, null);
-	}
-
-	/**
-	 * Creates an instance of {@link TradeParams}.
-	 * 
-	 * @param fromId     Search from id.
-	 * @param isIsolated Is isolated margin?
-	 */
-	public TradeParams(Long fromId, Boolean isIsolated) {
-		this(null, fromId, isIsolated);
 	}
 
 	/**

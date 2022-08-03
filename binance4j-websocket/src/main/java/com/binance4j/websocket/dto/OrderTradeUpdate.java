@@ -1,6 +1,7 @@
 package com.binance4j.websocket.dto;
 
 import com.binance4j.core.dto.TimeInForce;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -34,13 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param quoteOrderQuantity      Quote Order quantity.
  * @see UserDataUpdate
  */
-public record OrderTradeUpdate(/** The event type. */
-@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("c") String newClientOrderId,
-		@JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce, @JsonProperty("q") String originalQuantity,
-		@JsonProperty("p") String price, @JsonProperty("x") String executionType, @JsonProperty("X") String orderStatus,
-		@JsonProperty("r") String orderRejectReason, @JsonProperty("i") Long orderId, @JsonProperty("l") String quantityLastFilledTrade,
-		@JsonProperty("z") String accumulatedQuantity, @JsonProperty("L") String priceOfLastFilledTrade, @JsonProperty("n") String commission,
-		@JsonProperty("N") String commissionAsset, @JsonProperty("T") Long orderTradeTime, @JsonProperty("t") Long tradeId,
-		@JsonProperty("O") Long orderCreationTime, @JsonProperty("Z") String cumulativeQuoteQuantity, @JsonProperty("Y") String lastQuoteQuantity,
-		@JsonProperty("Q") String quoteOrderQuantity) {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record OrderTradeUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
+		@JsonProperty("c") String newClientOrderId, @JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce,
+		@JsonProperty("q") String originalQuantity, @JsonProperty("p") String price, @JsonProperty("x") String executionType,
+		@JsonProperty("X") String orderStatus, @JsonProperty("r") String orderRejectReason, @JsonProperty("i") Long orderId,
+		@JsonProperty("l") String quantityLastFilledTrade, @JsonProperty("z") String accumulatedQuantity, @JsonProperty("L") String priceOfLastFilledTrade,
+		@JsonProperty("n") String commission, @JsonProperty("N") String commissionAsset, @JsonProperty("T") Long orderTradeTime,
+		@JsonProperty("t") Long tradeId, @JsonProperty("O") Long orderCreationTime, @JsonProperty("Z") String cumulativeQuoteQuantity,
+		@JsonProperty("Y") String lastQuoteQuantity, @JsonProperty("Q") String quoteOrderQuantity) {
 }

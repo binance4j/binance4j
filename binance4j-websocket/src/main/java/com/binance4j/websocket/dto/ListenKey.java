@@ -5,5 +5,6 @@ package com.binance4j.websocket.dto;
  * 
  * @param listenKey The key used to open a user data stream.
  */
+
 public record ListenKey(String listenKey) {
 }

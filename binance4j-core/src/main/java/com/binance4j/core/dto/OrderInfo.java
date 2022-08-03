@@ -21,8 +21,9 @@ package com.binance4j.core.dto;
  * @param symbol              The order symbol.
  * @param orderId             Order id.
  * @param clientOrderId       Client order id.
+ * @param accountId           Account id.
  */
 public record OrderInfo(String side, String price, String origQty, String executedQty, String cummulativeQuoteQty, String status, String timeInForce,
 		String type, String stopPrice, String icebergQty, long time, long updateTime, String origQuoteOrderQty, boolean isWorking, boolean isIsolated,
-		String symbol, long orderId, String clientOrderId) {
+		String symbol, long orderId, String clientOrderId, String accountId) {
 }

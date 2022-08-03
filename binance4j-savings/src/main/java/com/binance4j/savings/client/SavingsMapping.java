@@ -140,7 +140,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @param map The query map.
 	 * @return The generated Retrofit call.
 	 */
-	@POST(BASE + "union/positionChanged")
+	@POST(BASE + "positionChanged")
 	@Headers(SIGNED_H)
 	Call<PositionChangedResponse> fixedToDailyPosition(@QueryMap Map<String, Object> map);
 }

@@ -5,8 +5,8 @@ import java.util.List;
 /**
  * A loan record.
  * 
- * @param totalclas The total records.
- * @param rowsclas  The records.
+ * @param total The total records.
+ * @param rows  The records.
  */
-public record LoanRecord(int totalclas, List<Loan> rowsclas) {
+public record LoanRecord(int total, List<Loan> rows) {
 }

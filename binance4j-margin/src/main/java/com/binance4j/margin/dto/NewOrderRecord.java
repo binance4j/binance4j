@@ -1,7 +1,6 @@
 package com.binance4j.margin.dto;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.Trade;
@@ -27,6 +26,6 @@ import com.binance4j.core.dto.Trade;
  * @param fills                 The filled trades.
  */
 public record NewOrderRecord(long orderId, String symbol, OrderSide side, String status, String type, String timeInForce, long transactTime,
-		String clientOrderId, String price, String origQty, String executedQty, String cummulativeQuoteQty, Optional<String> marginBuyBorrowAmount,
-		Optional<String> marginBuyBorrowAsset, boolean isIsolated, List<Trade> fills) {
+		String clientOrderId, String price, String origQty, String executedQty, String cummulativeQuoteQty, String marginBuyBorrowAmount,
+		String marginBuyBorrowAsset, boolean isIsolated, List<Trade> fills) {
 }

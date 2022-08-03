@@ -1,5 +1,7 @@
 package com.binance4j.mining.client;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -34,6 +36,33 @@ public class MiningClientTest extends CustomTest {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 	}
 
+	@Test
+	void testGetAccounts() throws ApiException {
+		testHasNulls(client.getAccounts(new AccountListParams(algo, userName)), List.of("list", "userName"), true);
+	}
+
+	@Test
+	void testGetAlgorithms() throws ApiException {
+		testNoNulls(client.getAlgorithms());
+	}
+
+	@Test
+	void testGetCoins() throws ApiException {
+		testNoNulls(client.getCoins());
+	}
+
+	@Test
+	void testGetStatistics() throws ApiException {
+		testNoNulls(client.getStatistics(new StatisticsParams(algo, userName)));
+	}
+
+	// NOT TESTED SINCE I DON'T MINE
+
+	// TODO @Test
+	void testResellHashrate() throws ApiException {
+		testNoNulls(client.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
+	}
+
 	// TODO @Test
 	void testCancelHashrateResaleConfiguration() throws ApiException {
 		testNoNulls(client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
@@ -47,21 +76,6 @@ public class MiningClientTest extends CustomTest {
 	// TODO @Test
 	void testGetAccountProfitsFramed() throws ApiException {
 		testNoNulls(client.getAccountProfits(new AccountProfitsParams(algo, userName), framedPaging));
-	}
-
-	// TODO @Test
-	void testGetAccounts() throws ApiException {
-		testNoNulls(client.getAccounts(new AccountListParams(algo, userName)));
-	}
-
-	@Test
-	void testGetAlgorithms() throws ApiException {
-		testNoNulls(client.getAlgorithms());
-	}
-
-	@Test
-	void testGetCoins() throws ApiException {
-		testNoNulls(client.getCoins());
 	}
 
 	// TODO @Test
@@ -104,13 +118,4 @@ public class MiningClientTest extends CustomTest {
 		testNoNulls(client.getProfits(new ProfitsParams(algo, userName), framedPaging));
 	}
 
-	@Test
-	void testGetStatistics() throws ApiException {
-		testNoNulls(client.getStatistics(new StatisticsParams(algo, userName)));
-	}
-
-	// TODO @Test
-	void testResellHashrate() throws ApiException {
-		testNoNulls(client.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
-	}
 }

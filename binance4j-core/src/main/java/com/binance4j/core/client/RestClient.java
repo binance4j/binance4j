@@ -74,8 +74,7 @@ public abstract class RestClient<T> {
 		Dispatcher dispatcher = new Dispatcher();
 		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
 		AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);
-		String domain = useTestnet ? testnetDomain : baseDomain;
-		String apiUrl = String.format("https://%s", domain);
+		String apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
 		OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
 		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
 	}

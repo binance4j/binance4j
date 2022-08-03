@@ -1,5 +1,6 @@
 package com.binance4j.websocket.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param clearTime    Clear time in ms.
  * @see UserDataUpdate
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record BalanceUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("a") String asset,
 		@JsonProperty("d") String balanceDelta, @JsonProperty("T") Long clearTime) {
 }
