@@ -19,7 +19,7 @@ interface Props {
 interface ExampleListProps {
     items: ParamsItem[],
     method: string,
-    payload: string
+    payload?: string
 }
 
 interface ParamsItem {
@@ -35,7 +35,7 @@ export function SyncRequest(props: Props) {
     return (
         <CodeBlock language="java">
             {`try{
-    ${props.payload} res = client.${props.method}.sync();
+    ${props.payload != "Void" ? props.payload + " res = " : ""} client.${props.method}.sync();
 }catch(ApiException e){ 
 //...
 }`}

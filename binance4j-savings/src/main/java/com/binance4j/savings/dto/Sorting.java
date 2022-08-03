@@ -9,14 +9,25 @@ import com.binance4j.savings.param.FixedProjectListParams;
  * @param sortBy    Project sorting.
  * @param isSortAsc Sort ascending. Default: true.
  */
-public record Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) implements Params {
+public record Sorting(String sortBy, Boolean isSortAsc) implements Params {
+
+	/**
+	 * Creates an instance of {@link Sorting}.
+	 * 
+	 * @param sortBy    Project sorting.
+	 * @param isSortAsc Sort ascending. Default: true.
+	 */
+	public Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) {
+		this(sortBy.toString(), null);
+	}
+
 	/**
 	 * Creates an instance of {@link Sorting}.
 	 * 
 	 * @param sortBy Project sorting.
 	 */
 	public Sorting(FixedProjectSorting sortBy) {
-		this(sortBy, null);
+		this(sortBy.toString(), null);
 	}
 
 	/**
@@ -25,6 +36,6 @@ public record Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) implements 
 	 * @param isSortAsc Sort ascending. Default: true.
 	 */
 	public Sorting(Boolean isSortAsc) {
-		this(null, isSortAsc);
+		this((String) null, isSortAsc);
 	}
 }

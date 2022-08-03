@@ -37,6 +37,15 @@ const blvt: Repo = {
     icon: imgBase + "blvt.svg",
 };
 
+const portFolio: Repo = {
+    name: "blvt",
+    artifactId: "binance4j-portfolio-margin",
+    title: "BLVT",
+    javadoc: javadocBase + "binance4j-portfolio-margin/",
+    description: "Connect to the portfolio margin endpoints",
+    icon: imgBase + "portfolio-margin.svg",
+};
+
 const c2c: Repo = {
     name: "c2c",
     artifactId: "binance4j-c2c",
@@ -163,6 +172,15 @@ const nft: Repo = {
     icon: imgBase + "nft.svg",
 };
 
+const savings: Repo = {
+    name: "savings",
+    artifactId: "binance4j-savings",
+    title: "NFT",
+    javadoc: javadocBase + "binance4j-savings/",
+    description: "Connect to the savings endpoints",
+    icon: imgBase + "savings.svg",
+};
+
 export interface ProjectManager {
     img: string;
     href: string;
@@ -209,6 +227,7 @@ const binance4j: Binance4JData = {
         loan,
         mining,
         pay,
+        portFolio,
         rebate,
         core,
         wallet,
@@ -217,6 +236,7 @@ const binance4j: Binance4JData = {
         nft,
         websocket,
         vision,
+        savings,
         strategy,
         //strategies,
     },

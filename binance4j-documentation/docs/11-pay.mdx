@@ -2,19 +2,15 @@
 title: Pay endpoints
 ---
 
-import TabItem from "@theme/TabItem";
-import Tabs from "@theme/Tabs";
-import CodeBlock from "@theme/CodeBlock";
-import InstallationInstructions from "@site/src/components/InstallationInstructions";
-import RepoBadges from "@site/src/components/badge/RepoBadges";
-import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
-import data from "./data";
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
 
-<RepoBadges artifact="pay" version={data.version} />
+<RepoBadges artifact="pay" />
 
 ## Installation
 
-<InstallationInstructions repo="pay" version={data.version} />
+<InstallationInstructions repo="pay" />
 
 ## Client instantiation
 
@@ -22,9 +18,20 @@ import data from "./data";
 PayClient client = new PayClient(key, secret);
 ```
 
-## Get pay trades
+## Examples
 
-<ExampleList labels={["Default", "Framed"]}>
-    <Example payload="TradeHistory" method="getTrades()" />
-    <Example payload="TradeHistory" method="getTrades(new TimeFrame(10))" />
-</ExampleList>
+### Get pay trades
+
+<Examples
+    payload="TradeHistory"
+    method="getTrades"
+    items={[
+        {
+            label: "Default",
+        },
+        {
+            label: "Framed",
+            params: "new TimeFrame(startTime, endTime, 10)",
+        },
+    ]}
+/>

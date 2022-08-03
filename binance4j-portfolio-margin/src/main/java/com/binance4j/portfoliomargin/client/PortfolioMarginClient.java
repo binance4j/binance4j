@@ -1,6 +1,7 @@
 package com.binance4j.portfoliomargin.client;
 
 import java.util.List;
+
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.portfoliomargin.dto.AccountInfo;
@@ -25,30 +26,10 @@ public class PortfolioMarginClient extends RestClient<PortfolioMarginMapping> {
 	/**
 	 * Get account infos.
 	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<AccountInfo> getAccountInfo(AccountInfoParams params) {
-		return new Request<>(service.getAccountInfo(params.toMap()));
-	}
-
-	/**
-	 * Get account infos.
-	 * 
 	 * @return The request to execute.
 	 */
 	public Request<AccountInfo> getAccountInfo() {
 		return new Request<>(service.getAccountInfo(new AccountInfoParams().toMap()));
-	}
-
-	/**
-	 * Get collateral rate.
-	 * 
-	 * @param params The request params.
-	 * @return The request to execute.
-	 */
-	public Request<List<CollaterateRateInfo>> getCollateralRate(CollaterateRateInfoParams params) {
-		return new Request<>(service.getCollateralRate(params.toMap()));
 	}
 
 	/**

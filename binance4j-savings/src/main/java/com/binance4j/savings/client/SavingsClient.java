@@ -300,7 +300,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	}
 
 	/**
-	 * Get interest record.
+	 * Change fixed/activity position to daily position.
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.
