@@ -19,7 +19,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
 
 /**
- * Api client for the NFT endpoints
+ * Api client for the BLVT endpoints
  * 
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints">Documentation</a>
  */
