@@ -2,6 +2,8 @@ package com.binance4j.staking.client;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -46,24 +48,9 @@ public class StakingClientTest extends CustomTest {
 
 	@Test
 	void testGetProducts() throws ApiException {
-		testNoNulls(client.getProducts(new ProductListParams(ProductType.STAKING)));
-		testNoNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)));
-		testNoNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)));
-	}
-
-	@Test
-	void testPurchase() throws ApiException {
-		testNoNulls(client.purchase(new PurchaseParams(ProductType.STAKING, "productId", "amount")));
-	}
-
-	@Test
-	void testRedeem() throws ApiException {
-		testNoNulls(client.redeem(new RedeemParams(ProductType.STAKING, "productId")));
-	}
-
-	@Test
-	void testSetAutoStaking() throws ApiException {
-		testNoNulls(client.setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.STAKING)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
 	}
 
 	public void testHistory(Object bean) {
@@ -83,5 +70,22 @@ public class StakingClientTest extends CustomTest {
 		assertTrue(nulls.contains("extraRewardAPY") || !nulls.contains("extraRewardAPY"));
 		assertTrue(nulls.contains("estExtraRewardAmt") || !nulls.contains("estExtraRewardAmt"));
 		assertTrue(nulls.contains("redeemingAmt") || !nulls.contains("redeemingAmt"));
+	}
+
+	// NOT TESTED
+
+	// TODO @Test
+	void testPurchase() throws ApiException {
+		testNoNulls(client.purchase(new PurchaseParams(ProductType.STAKING, "productId", "amount")));
+	}
+
+	// TODO @Test
+	void testRedeem() throws ApiException {
+		testNoNulls(client.redeem(new RedeemParams(ProductType.STAKING, "productId")));
+	}
+
+	// TODO @Test
+	void testSetAutoStaking() throws ApiException {
+		testNoNulls(client.setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
 	}
 }

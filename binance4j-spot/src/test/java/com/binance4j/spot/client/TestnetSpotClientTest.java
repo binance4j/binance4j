@@ -100,7 +100,7 @@ public class TestnetSpotClientTest extends CustomTest {
 		// buy
 		var buyOrder = client.newOrder(NewOrderParams.buyMarket(symbol, quantity)).fetch();
 		// get order status
-		testNoNulls(client.getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())));
+		testHasNulls(client.getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())), List.of("accountId"), false);
 		// Sell
 		client.newOrder(NewOrderParams.sellMarket(symbol, buyOrder.executedQty())).fetch();
 	}
@@ -132,13 +132,13 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Test
 	@Order(9)
 	void testGetAllOrders() throws ApiException {
-		testNoNulls(client.getAllOrders(new AllOrdersParams(symbol)));
+		testHasNulls(client.getAllOrders(new AllOrdersParams(symbol)), List.of("accountId"), true);
 	}
 
 	@Test
 	@Order(10)
 	void testGetAllOrders2() throws ApiException {
-		testNoNulls(client.getAllOrders(new AllOrdersParams(symbol, orderId)));
+		testHasNulls(client.getAllOrders(new AllOrdersParams(symbol, orderId)), List.of("accountId"), true);
 	}
 
 	@Test
