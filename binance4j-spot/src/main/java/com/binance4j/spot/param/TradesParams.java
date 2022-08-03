@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getMyTrades} params.
+ * {@link SpotClient#getTrades} params.
  * 
  * @param symbol  The symbol of the trade.
  * @param orderId The order id of the trade.
