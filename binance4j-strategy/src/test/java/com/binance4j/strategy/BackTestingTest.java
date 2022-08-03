@@ -1,11 +1,7 @@
 package com.binance4j.strategy;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.Duration;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.BarSeries;
@@ -21,14 +17,6 @@ import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 import com.binance4j.vision.client.VisionSpotClient;
 
 class BackTestingTest extends CustomTest {
-	@Override
-	public void testNoNulls(Object bean) {
-		Set<String> nulls = getNullProperties(bean, true);
-		List<String> expected = List.of("amount", "entry", "exit", "name");
-		assertEquals(expected.size(), nulls.size());
-		assertTrue(nulls.containsAll(expected));
-	}
-
 	@Test
 	void testBacktestWithInputBars() throws ApiException {
 		// Let's get some public data
@@ -36,13 +24,13 @@ class BackTestingTest extends CustomTest {
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(1));
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, series);
-		testNoNulls(result);
+		testHasNulls(result, List.of("amount", "entry", "exit", "name"), true);
 	}
 
 	@Test
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01");
-		testNoNulls(result);
+		testHasNulls(result, List.of("amount", "entry", "exit", "name"), true);
 	}
 }

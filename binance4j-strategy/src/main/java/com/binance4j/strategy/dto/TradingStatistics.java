@@ -1,6 +1,7 @@
 package com.binance4j.strategy.dto;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.Trade;
 import org.ta4j.core.TradingRecord;
@@ -338,4 +339,22 @@ public class TradingStatistics {
 	public String getWinningPositionsRatio() {
 		return winningPositionsRatio;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+
+	@Override
+	public String toString() {
+		return "TradingStatistics [averageLoss=" + averageLoss + ", averageProfit=" + averageProfit + ", averageReturnPerBar=" + averageReturnPerBar
+				+ ", buyAndHoldReturn=" + buyAndHoldReturn + ", expectancy=" + expectancy + ", grossLoss=" + grossLoss + ", grossProfit=" + grossProfit
+				+ ", grossReturn=" + grossReturn + ", losingPositionsRatio=" + losingPositionsRatio + ", maximumDrawdown=" + maximumDrawdown + ", netLoss="
+				+ netLoss + ", netProfit=" + netProfit + ", numberOfBars=" + numberOfBars + ", numberOfBreakEvenPositions=" + numberOfBreakEvenPositions
+				+ ", numberOfConsecutiveWinningPositions=" + numberOfConsecutiveWinningPositions + ", numberOfLosingPositions=" + numberOfLosingPositions
+				+ ", numberOfPositions=" + numberOfPositions + ", numberOfWinningPositions=" + numberOfWinningPositions + ", profitLoss=" + profitLoss
+				+ ", profitLossPercentage=" + profitLossPercentage + ", profitLossRatio=" + profitLossRatio + ", returnOverMaxDrawdown=" + returnOverMaxDrawdown
+				+ ", series=" + series + ", tradingRecord=" + tradingRecord + ", winningPositionsRatio=" + winningPositionsRatio + "]";
+	}
+
 }
