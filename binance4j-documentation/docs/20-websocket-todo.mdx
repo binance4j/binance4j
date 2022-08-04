@@ -7,7 +7,7 @@ import Tabs from "@theme/Tabs";
 import CodeBlock from "@theme/CodeBlock";
 import InstallationInstructions from "@site/src/components/InstallationInstructions";
 import RepoBadges from "@site/src/components/badge/RepoBadges";
-import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
+import Examples from "@site/src/components/v2/ApiExamples";
 import data from "./data";
 
 <RepoBadges artifact="websocket" version={data.version} />;
@@ -136,10 +136,6 @@ Since Binance recommends a 30 minutes interval, i wouldn't recommend to change t
 
 ### Individual Symbol Ticker Streams
 
-<Badge label="WebsocketTickerClient" javadoc="client/WebsocketTickerClient.html" />
-&nbsp;
-<Badge label="TickerPayload" javadoc="payload/TickerPayload.html" />
-
 Handles 24hr rolling window ticker statistics for a single symbol.
 
 <Tabs>
@@ -163,10 +159,6 @@ These are NOT the statistics of the UTC day, but a 24hr rolling window for the p
 :::
 
 ### Individual Symbol Mini Ticker Stream
-
-<Badge label="WebsocketMiniTickerClient" javadoc="client/WebsocketMiniTickerClient.html" />
-&nbsp;
-<Badge label="MiniTickerPayload" javadoc="payload/MiniTickerPayload.html" />
 
 24hr rolling window mini-ticker statistics.
 
@@ -194,10 +186,6 @@ These are NOT the statistics of the UTC day, but a 24hr rolling window for the p
 
 ### All Market Tickers Stream
 
-<Badge label="WebsocketAllMiniTickersClient" javadoc="client/WebsocketAllMiniTickersClient.html" />
-&nbsp;
-<Badge label="TickerPayload" javadoc="payload/TickerPayload.html" />
-
 24hr rolling window ticker statistics for all symbols that changed.
 
 <CodeBlock language="java">WebsocketAllTickersClient client = new WebsocketAllTickersClient();</CodeBlock>
@@ -208,10 +196,6 @@ These are NOT the statistics of the UTC day, but a 24hr rolling window for the p
 
 ### All Market Mini Tickers Stream
 
-<Badge label="WebsocketAllMiniTickersClient" javadoc="client/WebsocketAllMiniTickersClient.html" />
-&nbsp;
-<Badge label="MiniTickerPayload" javadoc="payload/MiniTickerPayload.html" />
-
 24hr rolling window mini-ticker statistics for all symbols that changed.
 
 <CodeBlock language="java">WebsocketAllMiniTickersClient client = new WebsocketAllMiniTickersClient();</CodeBlock>
@@ -221,10 +205,6 @@ These are NOT the statistics of the UTC day, but a 24hr rolling window for the p
 :::
 
 ### Individual Symbol Book Ticker Streams
-
-<Badge label="WebsocketBookTickerClient" javadoc="client/WebsocketBookTickerClient.html" />
-&nbsp;
-<Badge label="BookTickerPayload" javadoc="payload/BookTickerPayload.html" />
 
 Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
 
@@ -248,10 +228,6 @@ Pushes any update to the best bid or ask's price or quantity in real-time for a 
 
 ### All Book Tickers Stream
 
-<Badge label="WebsocketAllBookTickersClient" javadoc="client/WebsocketAllBookTickersClient.html" />
-&nbsp;
-<Badge label="BookTickerPayload" javadoc="payload/BookTickerPayload.html" />
-
 Pushes any update to the best bid or ask's price or quantity in real-time for all symbols.
 
 ```java
@@ -259,10 +235,6 @@ WebsocketAllBookTickersClient client = new WebsocketAllBookTickersClient();
 ```
 
 ### Kline/Candlestick Streams
-
-<Badge label="WebsocketCandlestickClient" javadoc="client/WebsocketCandlestickClient.html" />
-&nbsp;
-<Badge label="CandlestickBarPayload" javadoc="payload/CandlestickBarPayload.html" />
 
 The Kline/Candlestick Stream push updates to the current klines/candlestick every second.
 
@@ -289,10 +261,6 @@ The Kline/Candlestick Stream push updates to the current klines/candlestick ever
 
 ### Diff. Depth Stream
 
-<Badge label="WebsocketDepthClient" javadoc="client/WebsocketDepthClient.html" />
-&nbsp;
-<Badge label="DepthPayload" javadoc="payload/DepthPayload.html" />
-
 Order book price and quantity depth updates used to locally manage an order book.
 
 <Tabs>
@@ -312,10 +280,6 @@ Order book price and quantity depth updates used to locally manage an order book
 </Tabs>
 
 ### Partial Book Depth Streams
-
-<Badge label="WebsocketMiniDepthClient" javadoc="client/WebsocketMiniDepthClient.html" />
-&nbsp;
-<Badge label="MiniDepthPayload" javadoc="payload/MiniDepthPayload.html" />
 
 Top bids and asks, Valid are 5, 10, or 20.
 
@@ -337,10 +301,6 @@ Top bids and asks, Valid are 5, 10, or 20.
 
 ### Trade Streams
 
-<Badge label="WebsocketTradeClient" javadoc="client/WebsocketTradeClient.html" />
-&nbsp;
-<Badge label="TradePayload" javadoc="payload/TradePayload.html" />
-
 The Trade Streams push raw trade information; each trade has a unique buyer and seller.
 
 <Tabs>
@@ -361,10 +321,6 @@ The Trade Streams push raw trade information; each trade has a unique buyer and 
 
 ### Aggregate Trade Streams
 
-<Badge label="WebsocketAggTradeClient" javadoc="client/WebsocketAggTradeClient.html" />
-&nbsp;
-<Badge label="AggTradePayload" javadoc="payload/AggTradePayload.html" />
-
 The Aggregate Trade Streams push trade information that is aggregated for a single taker order.
 
 <Tabs>
@@ -384,10 +340,6 @@ The Aggregate Trade Streams push trade information that is aggregated for a sing
 </Tabs>
 
 ### User Data Streams
-
-<Badge label="WebsocketUserDataClient" javadoc="client/WebsocketUserDataClient.html" />
-&nbsp;
-<Badge label="UserDataUpdatePayload" javadoc="payload/UserDataUpdatePayload.html" />
 
 The User Data Streams push account, balance and order update infos.
 
@@ -436,79 +388,118 @@ The stream must be closed or this won't work. If you need to change this interva
 
 Since Binance recommends a 30 minutes interval, i wouldn't recommend to change this value.
 
+## WebsocketClientConfiguration
+
+Every `WebsocketClient` can be configured with a `WebsocketClientConfiguration`.
+
+### Access configuration
+
+```java
+client.getConfiguration();
+```
+
+### Available parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tr class="fw-400">
+        <th>baseUrl</th>
+        <th>String</th>
+        <th>The stream base url</th>
+        <th>wss://stream.binance.com:9443/ws</th>
+    </tr>
+    <tr class="fw-400">
+        <th>pingInterval</th>
+        <th>Duration</th>
+        <th>The interval the client will send a ping</th>
+        <th>3m</th>
+    </tr>
+    <tr class="fw-400">
+        <th>keepAlive</th>
+        <th>Boolean</th>
+        <th>Reconnect if stream is closed by server</th>
+        <th>true</th>
+    </tr>
+    <tr class="fw-400">
+        <th>maxReconnections</th>
+        <th>Integer</th>
+        <th>The number of time the client tries to reconnect</th>
+        <th>5</th>
+    </tr>
+    <tr class="fw-400">
+        <th>reconnectionInterval</th>
+        <th>Duration</th>
+        <th>The reconnection interval</th>
+        <th>10s</th>
+    </tr>
+    <tr class="fw-400">
+        <th>noResponseTimeout</th>
+        <th>Duration</th>
+        <th>The time the client waits for a server response before triggering a timeout</th>
+        <th>3m</th>
+    </tr>
+    <tr class="fw-400">
+        <th>noResponseTimeoutMarginError</th>
+        <th>Duration</th>
+        <th>
+            Margin error added to <code>WebsocketCandleStickClient</code> <code>noResponseTimeout</code>'s configuration
+        </th>
+        <th>5s</th>
+    </tr>
+    <tr class="fw-400">
+        <th>disconnectionTimeout</th>
+        <th>Duration</th>
+        <th>Time after which the client disconnects if stuck in closing state</th>
+        <th>5s</th>
+    </tr>
+    <tr class="fw-400">
+        <th>disconnectionTimeout</th>
+        <th>Duration</th>
+        <th>
+            Time after which the client will disconnect. If <code>keepAlive</code> is true, will reconnect. Prevents
+            that the server closes itself the stream.
+        </th>
+        <th>1d</th>
+    </tr>
+</table>
+
 ## User data endpoints
 
 ### Start user data stream
 
-<Badges
-    label="startUserDataStream()"
-    version={data.version}
-    artifact="websocket"
-    javadoc="client/UserDataClient.html#startUserDataStream()"
-    weight="1 (IP)"
-    signature="signed (HMAC SHA256)"
-    path="POST /api/v3/userDataStream"
-/>
-
 Returns a listen key to open a user data websocket stream.
 
-<Examples
-    client="UserDataClient"
-    constructorParams={["key", "secret"]}
-    method="startUserDataStream"
-    responseType="ListenKey"
-/>
+<Examples payload="ListenKey" method="startUserDataStream" items={[{}]} />
 
 :::note
 The stream will close after 60 minutes unless a keepalive is sent.
 
 If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
+
+If you're using `WebsocketUserDataClient`, this is done automatically.
 :::
 
 ### Keep alive user data stream
 
-<Badges
-    label="keepAliveUserDataStream()"
-    version={data.version}
-    artifact="websocket"
-    javadoc="client/UserDataClient.html#keepAliveUserDataStream(java.lang.String)"
-    weight="1 (IP)"
-    signature="signed (HMAC SHA256)"
-    path="PUT /api/v3/userDataStream"
-/>
-
 Keepalive a user data stream to prevent a time out.
 
-<Examples
-    client="UserDataClient"
-    constructorParams={["key", "secret"]}
-    method="keepAliveUserDataStream"
-    requestType="String"
-    requestParameters={["/** listenKey */"]}
-/>
+<Examples payload="Void" method="keepAliveUserDataStream" items={[{ params: "listenKey" }]} />
 
 :::note
 User data streams will close after 60 minutes.
 
 It's recommended to send a ping about every 30 minutes.
+
+If you're using `WebsocketUserDataClient`, this is done automatically.
 :::
 
 ### Close out a user data stream
 
-<Badges
-    label="closeUserDataStream()"
-    version={data.version}
-    artifact="websocket"
-    javadoc="client/UserDataClient.html#closeUserDataStream(java.lang.String)"
-    weight="1 (IP)"
-    signature="signed (HMAC SHA256)"
-    path="DELETE /api/v3/userDataStream"
-/>
-
-<Examples
-    client="UserDataClient"
-    constructorParams={["key", "secret"]}
-    method="loseUserDataStream"
-    requestType="String"
-    requestParameters={["/** listenKey */"]}
-/>
+<Examples payload="Void" method="closeUserDataStream" items={[{ params: "listenKey" }]} />

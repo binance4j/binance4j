@@ -53,3 +53,7 @@
 	margin: 0 calc(-1 * var(--ifm-pre-padding));
 	padding: 0 var(--ifm-pre-padding);
 }
+
+.fw-400,.fw-400 *{
+	font-weight: 400 !important;
+}

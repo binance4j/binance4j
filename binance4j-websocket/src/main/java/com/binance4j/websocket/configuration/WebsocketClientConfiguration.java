@@ -4,21 +4,15 @@ import java.time.Duration;
 
 /** The websocket client ocnfiguration */
 public class WebsocketClientConfiguration {
-	/** The websocket connection port. Default: 9443. */
-	int websocketPort = 9443;
-	/** stream base domain. */
-	String baseDomain = "binance.com";
 	/** The stream base url. */
-	String baseUrl = String.format("wss://stream.%s:%s/ws", baseDomain, websocketPort);
+	String baseUrl = "wss://stream.binance.com:9443/ws";
 	/** The interval the client will send a ping. Default: 3m. */
 	Duration pingInterval = Duration.ofMinutes(3);
 	/** Reconnect if stream is closed by server. Default: true. */
 	boolean keepAlive = true;
-	/** The number of time the client tries to reconnect. Default: 10. */
-	int reconnectionRetries = 10;
 	/** The reconnection interval. Default: 30s. */
 	Duration reconnectionInterval = Duration.ofSeconds(10);
-	/** The reconnection interval. Default: 30s. */
+	/** The number of time the client tries to reconnect. Default: 5. */
 	int maxReconnections = 5;
 	/**
 	 * The time the client waits for a server response before triggering a timeout. Default: 3min.
@@ -34,20 +28,6 @@ public class WebsocketClientConfiguration {
 	 * Time after wich the client will disconnect. Default: 1 day.
 	 */
 	Duration closeAfter = Duration.ofDays(1);
-
-	/**
-	 * @return the websocketPort
-	 */
-	public int getWebsocketPort() {
-		return websocketPort;
-	}
-
-	/**
-	 * @param websocketPort the websocketPort to set
-	 */
-	public void setWebsocketPort(int websocketPort) {
-		this.websocketPort = websocketPort;
-	}
 
 	/**
 	 * @return the baseUrl
@@ -89,20 +69,6 @@ public class WebsocketClientConfiguration {
 	 */
 	public void setKeepAlive(boolean keepAlive) {
 		this.keepAlive = keepAlive;
-	}
-
-	/**
-	 * @return the reconnectionRetries
-	 */
-	public int getReconnectionRetries() {
-		return reconnectionRetries;
-	}
-
-	/**
-	 * @param reconnectionRetries the reconnectionRetries to set
-	 */
-	public void setReconnectionRetries(int reconnectionRetries) {
-		this.reconnectionRetries = reconnectionRetries;
 	}
 
 	/**
@@ -194,6 +160,6 @@ public class WebsocketClientConfiguration {
 		return "WebsocketClientConfiguration [baseUrl=" + baseUrl + ", closeAfter=" + closeAfter + ", disconnectionTimeout=" + disconnectionTimeout
 				+ ", keepAlive=" + keepAlive + ", maxReconnections=" + maxReconnections + ", noResponseTimeout=" + noResponseTimeout
 				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval + ", reconnectionInterval="
-				+ reconnectionInterval + ", reconnectionRetries=" + reconnectionRetries + ", websocketPort=" + websocketPort + "]";
+				+ reconnectionInterval + "]";
 	}
 }
