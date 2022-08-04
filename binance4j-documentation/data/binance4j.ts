@@ -1,3 +1,6 @@
+const javadocBase = "https://binance4j.github.io/";
+const imgBase = "/img/svg/";
+
 export type RepoList = { [key: string]: Repo };
 
 export interface Binance4JData {
@@ -20,72 +23,180 @@ const core: Repo = {
     name: "core",
     artifactId: "binance4j-core",
     title: "Core",
-    javadoc: "https://binance4j.github.io/binance4j-core/",
+    javadoc: javadocBase + "binance4j-core/",
     description: "The core of every connector",
-    icon: "/img/svg/gear.svg",
+    icon: imgBase + "gear.svg",
+};
+
+const blvt: Repo = {
+    name: "blvt",
+    artifactId: "binance4j-blvt",
+    title: "BLVT",
+    javadoc: javadocBase + "binance4j-blvt/",
+    description: "Connect to the BLVT endpoints",
+    icon: imgBase + "blvt.svg",
+};
+
+const portFolio: Repo = {
+    name: "blvt",
+    artifactId: "binance4j-portfolio-margin",
+    title: "BLVT",
+    javadoc: javadocBase + "binance4j-portfolio-margin/",
+    description: "Connect to the portfolio margin endpoints",
+    icon: imgBase + "portfolio-margin.svg",
+};
+
+const c2c: Repo = {
+    name: "c2c",
+    artifactId: "binance4j-c2c",
+    title: "C2C",
+    javadoc: javadocBase + "binance4j-c2c/",
+    description: "Connect to the C2C endpoints",
+    icon: imgBase + "c2c.svg",
+};
+
+const convert: Repo = {
+    name: "convert",
+    artifactId: "binance4j-convert",
+    title: "Convert",
+    javadoc: javadocBase + "binance4j-convert/",
+    description: "Connect to the convert endpoints",
+    icon: imgBase + "convert.svg",
+};
+
+const connectors: Repo = {
+    name: "connectors",
+    artifactId: "binance4j-connectors",
+    title: "Convert",
+    javadoc: javadocBase + "binance4j-connectors/",
+    description: "All REST clients in one place",
+    icon: imgBase + "connectors.svg",
+};
+
+const fiat: Repo = {
+    name: "fiat",
+    artifactId: "binance4j-fiat",
+    title: "Fiat",
+    javadoc: javadocBase + "binance4j-fiat/",
+    description: "Connect to the fiat endpoints",
+    icon: imgBase + "fiat.svg",
+};
+
+const loan: Repo = {
+    name: "loan",
+    artifactId: "binance4j-loan",
+    title: "Loan",
+    javadoc: javadocBase + "binance4j-loan/",
+    description: "Connect to the loan endpoints",
+    icon: imgBase + "loan.svg",
+};
+
+const mining: Repo = {
+    name: "mining",
+    artifactId: "binance4j-mining",
+    title: "Mining",
+    javadoc: javadocBase + "binance4j-mining/",
+    description: "Connect to the mining endpoints",
+    icon: imgBase + "mining.svg",
+};
+
+const pay: Repo = {
+    name: "pay",
+    artifactId: "binance4j-pay",
+    title: "Pay",
+    javadoc: javadocBase + "binance4j-pay/",
+    description: "Connect to the pay endpoints",
+    icon: imgBase + "pay.svg",
 };
 
 const wallet: Repo = {
     name: "wallet",
     artifactId: "binance4j-wallet",
     title: "Wallet",
-    javadoc: "https://binance4j.github.io/binance4j-wallet/",
+    javadoc: javadocBase + "binance4j-wallet/",
     description: "Connect to the Wallet endpoints",
-    icon: "/img/svg/wallet.svg",
+    icon: imgBase + "wallet.svg",
 };
 
 const market: Repo = {
     name: "market",
     artifactId: "binance4j-market",
     title: "Market",
-    javadoc: "https://binance4j.github.io/binance4j-market/",
+    javadoc: javadocBase + "binance4j-market/",
     description: "Connect to the Market endpoints",
-    icon: "/img/svg/market.svg",
+    icon: imgBase + "market.svg",
+};
+
+const rebate: Repo = {
+    name: "rebate",
+    artifactId: "binance4j-rebate",
+    title: "Rebate",
+    javadoc: javadocBase + "binance4j-rebate/",
+    description: "Connect to the rebate endpoints",
+    icon: imgBase + "rebate.svg",
 };
 
 const spot: Repo = {
     name: "spot",
     artifactId: "binance4j-spot",
     title: "Spot",
-    javadoc: "https://binance4j.github.io/binance4j-spot/",
+    javadoc: javadocBase + "binance4j-spot/",
     description: "Connect to the SPOT endpoints",
-    icon: "/img/svg/dollar.svg",
+    icon: imgBase + "dollar.svg",
 };
 
 const websocket: Repo = {
     name: "websocket",
     artifactId: "binance4j-websocket",
     title: "Websocket",
-    javadoc: "https://binance4j.github.io/binance4j-websocket/",
+    javadoc: javadocBase + "binance4j-websocket/",
     description: "Connect to the Websocket endpoints",
-    icon: "/img/svg/websocket.svg",
+    icon: imgBase + "websocket.svg",
 };
 
 const vision: Repo = {
     name: "vision",
     artifactId: "binance4j-vision",
     title: "Vision",
-    javadoc: "https://binance4j.github.io/binance4j-vision/",
+    javadoc: javadocBase + "binance4j-vision/",
     description: "Connect to the Public Data endpoints",
-    icon: "/img/svg/eye.svg",
+    icon: imgBase + "eye.svg",
+};
+
+const staking: Repo = {
+    name: "staking",
+    artifactId: "binance4j-staking",
+    title: "Strategy",
+    javadoc: javadocBase + "binance4j-staking/",
+    description: "Connect to the staking endpoints",
+    icon: imgBase + "staking.svg",
 };
 
 const strategy: Repo = {
     name: "strategy",
     artifactId: "binance4j-strategy",
     title: "Strategy",
-    javadoc: "https://binance4j.github.io/binance4j-strategy/",
+    javadoc: javadocBase + "binance4j-strategy/",
     description: "Technical analysis for the Binance4j ecosystem",
-    icon: "/img/svg/strategy.svg",
+    icon: imgBase + "strategy.svg",
 };
 
 const nft: Repo = {
     name: "nft",
     artifactId: "binance4j-nft",
     title: "NFT",
-    javadoc: "https://binance4j.github.io/binance4j-nft/",
+    javadoc: javadocBase + "binance4j-nft/",
     description: "Connect to the NFT endpoints",
-    icon: "/img/svg/nft.svg",
+    icon: imgBase + "nft.svg",
+};
+
+const savings: Repo = {
+    name: "savings",
+    artifactId: "binance4j-savings",
+    title: "NFT",
+    javadoc: javadocBase + "binance4j-savings/",
+    description: "Connect to the savings endpoints",
+    icon: imgBase + "savings.svg",
 };
 
 export interface ProjectManager {
@@ -127,6 +238,17 @@ const binance4j: Binance4JData = {
     baseUrl: "https://github.com/binance4j/",
     groupId: "com.binance4j",
     repos: {
+        blvt,
+        connectors,
+        c2c,
+        convert,
+        fiat,
+        loan,
+        mining,
+        pay,
+        portFolio,
+        rebate,
+        staking,
         core,
         wallet,
         market,
@@ -134,6 +256,7 @@ const binance4j: Binance4JData = {
         nft,
         websocket,
         vision,
+        savings,
         strategy,
         //strategies,
     },
