@@ -32,9 +32,9 @@ public class AuthenticationInterceptor implements Interceptor {
 	/** The signed http full header. */
 	public static final String ENDPOINT_SECURITY_TYPE_SIGNED_HEADER = ENDPOINT_SECURITY_TYPE_SIGNED + ": #";
 	/** The API public key */
-	final String key;
+	String key;
 	/** The API private key */
-	final String secret;
+	String secret;
 
 	/**
 	 * @param key    The API public key.
@@ -107,5 +107,16 @@ public class AuthenticationInterceptor implements Interceptor {
 		} catch (IOException e) {
 			throw new ApiException(-400, e.getMessage());
 		}
+	}
+
+	/**
+	 * Updates the API keys.
+	 * 
+	 * @param key    The new public key.
+	 * @param secret The new secret key.
+	 */
+	public void updateKeys(String key, String secret) {
+		this.key = key;
+		this.secret = secret;
 	}
 }

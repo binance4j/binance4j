@@ -25,13 +25,25 @@ public abstract class RestClient<T> {
 	/** The retrofit API mapping. */
 	protected Class<T> mapping;
 	/** The API public key. */
-	protected final String key;
+	protected String key;
 	/** The API private key. */
-	protected final String secret;
+	protected String secret;
 	/** The current API service */
 	protected T service;
 	/** The Jackson object mapper for deserialization. */
 	protected ObjectMapper mapper = new ObjectMapper();
+	/** */
+	protected Converter.Factory converterFactory;
+	/** */
+	protected Dispatcher dispatcher;
+	/** */
+	protected OkHttpClient httpClient;
+	/** */
+	protected String apiUrl;
+	/** */
+	protected AuthenticationInterceptor interceptor;
+	/** */
+	protected OkHttpClient client;
 
 	/**
 	 * @param mapping The retrofit Service mapping interface.
@@ -42,7 +54,7 @@ public abstract class RestClient<T> {
 		this.mapping = mapping;
 		this.key = key;
 		this.secret = secret;
-		service = createService();
+		createService();
 	}
 
 	/**
@@ -56,33 +68,33 @@ public abstract class RestClient<T> {
 		this.key = key;
 		this.secret = secret;
 		this.useTestnet = useTestnet;
-		service = createService();
+
+		createService();
+	}
+
+	/** Generates the API service. */
+	protected void createService() {
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		converterFactory = JacksonConverterFactory.create(mapper);
+		dispatcher = new Dispatcher();
+		httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
+		apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
+		interceptor = new AuthenticationInterceptor(key, secret);
+		client = httpClient.newBuilder().addInterceptor(interceptor).build();
+		service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
 	}
 
 	/**
-	 * Generates the retrofit service that makes the API calls
-	 *
-	 * @return The service responsible for making calls to the API.
+	 * Updates the API keys.
+	 * 
+	 * @param key    The new public key.
+	 * @param secret The new secret key.
 	 */
-	protected T createService() {
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		Converter.Factory converterFactory = JacksonConverterFactory.create(mapper);
-		Dispatcher dispatcher = new Dispatcher();
-		OkHttpClient httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
-		AuthenticationInterceptor interceptor = new AuthenticationInterceptor(key, secret);
-		String apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
-		OkHttpClient client = httpClient.newBuilder().addInterceptor(interceptor).build();
-		return new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
-	}
-
-	/** @return the key */
-	public String getKey() {
-		return key;
-	}
-
-	/** @return the secret */
-	public String getSecret() {
-		return secret;
+	public void updateKeys(String key, String secret) {
+		this.key = key;
+		this.secret = secret;
+		// We also update the authentication interceptor keys
+		interceptor.updateKeys(key, secret);
 	}
 
 	/**
@@ -105,4 +117,19 @@ public abstract class RestClient<T> {
 	public ObjectMapper getMapper() {
 		return mapper;
 	}
+
+	/**
+	 * @return the key
+	 */
+	public String getKey() {
+		return key;
+	}
+
+	/**
+	 * @return the secret
+	 */
+	public String getSecret() {
+		return secret;
+	}
+
 }
