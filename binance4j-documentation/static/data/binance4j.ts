@@ -64,6 +64,15 @@ const convert: Repo = {
     icon: imgBase + "convert.svg",
 };
 
+const connectors: Repo = {
+    name: "connectors",
+    artifactId: "binance4j-connectors",
+    title: "Convert",
+    javadoc: javadocBase + "binance4j-connectors/",
+    description: "All REST clients in one place",
+    icon: imgBase + "connectors.svg",
+};
+
 const fiat: Repo = {
     name: "fiat",
     artifactId: "binance4j-fiat",
@@ -230,6 +239,7 @@ const binance4j: Binance4JData = {
     groupId: "com.binance4j",
     repos: {
         blvt,
+        connectors,
         c2c,
         convert,
         fiat,
