@@ -66,7 +66,6 @@ public class WatchService {
 	 * @param symbols  The symbols to listen to.
 	 * @param interval The candlestick interval.
 	 * @param zoneId   The {@link Bar} zone id.
-	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId) {
@@ -130,7 +129,6 @@ public class WatchService {
 	 * @param symbols  The symbols to listen to.
 	 * @param interval The candlestick interval.
 	 * @param zoneId   The {@link Bar} zone id.
-	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, ZoneId zoneId) {
@@ -143,7 +141,6 @@ public class WatchService {
 	 *
 	 * @param symbols  The symbols to listen to.
 	 * @param interval The candlestick interval.
-	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval) {
@@ -156,7 +153,6 @@ public class WatchService {
 	 *
 	 * @param symbols  The symbols to listen to.
 	 * @param interval The candlestick interval.
-	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval) {

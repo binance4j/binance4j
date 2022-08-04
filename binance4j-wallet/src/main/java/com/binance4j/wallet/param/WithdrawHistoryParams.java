@@ -17,7 +17,11 @@ import com.binance4j.wallet.dto.WithdrawStatus;
 @Param
 public record WithdrawHistoryParams(String coin, String withdrawOrderId, String status) implements Params {
 	/**
+	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
+	 * @param coin            The coin we want the history.
+	 * @param withdrawOrderId The withdraw order id to fetch.
+	 * @param status          The status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) {
 		this(coin, withdrawOrderId, status.toString());

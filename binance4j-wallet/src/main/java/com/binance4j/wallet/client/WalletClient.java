@@ -255,8 +255,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * If {@code network} is not sent, return the coin.
 	 * <p>
-	 * You can get {@code network} and {@code isDefault} in {@code networkList} in the response of
-	 * {@link #getAllCoinsInfo(CoinInformationParams)}
+	 * You can get {@code network} and {@code isDefault} in {@code networkList} in the response of {@link #getAllCoinsInfo}
 	 * 
 	 * @param params The request params.
 	 * @return The request to execute.

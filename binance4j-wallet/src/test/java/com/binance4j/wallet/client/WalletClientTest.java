@@ -227,7 +227,7 @@ public class WalletClientTest extends CustomTest {
 
 	}
 
-	@Test
+	// @Test
 	void testWithdraw() throws ApiException {
 		testNoNulls(client.withdraw(new WithdrawParams("amount", "coin", "address")));
 	}
