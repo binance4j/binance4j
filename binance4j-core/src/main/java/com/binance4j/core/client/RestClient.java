@@ -17,25 +17,21 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  */
 public abstract class RestClient<T> {
 	/** URL base domain. */
-	protected String baseDomain = "api.binance.com";
+	protected final String baseDomain = "api.binance.com";
 	/** Testnet URL base domain. */
-	protected String testnetDomain = "testnet.binance.vision";
+	protected final String testnetDomain = "testnet.binance.vision";
 	/** Defines if the services use the test network. */
 	protected boolean useTestnet = false;
 	/** The retrofit API mapping. */
 	protected Class<T> mapping;
 	/** The API public key. */
-	protected String key;
+	protected final String key;
 	/** The API private key. */
-	protected String secret;
+	protected final String secret;
 	/** The current API service */
 	protected T service;
 	/** The Jackson object mapper for deserialization. */
 	protected ObjectMapper mapper = new ObjectMapper();
-
-	/** Constructor */
-	protected RestClient() {
-	}
 
 	/**
 	 * @param mapping The retrofit Service mapping interface.
@@ -84,29 +80,9 @@ public abstract class RestClient<T> {
 		return key;
 	}
 
-	/** @param key the key to set */
-	public void setKey(String key) {
-		this.key = key;
-	}
-
 	/** @return the secret */
 	public String getSecret() {
 		return secret;
-	}
-
-	/** @param secret the secret to set */
-	public void setSecret(String secret) {
-		this.secret = secret;
-	}
-
-	/** @return the mapping. */
-	public Class<T> getMapping() {
-		return mapping;
-	}
-
-	/** @param mapping the mapping to set */
-	public void setMapping(Class<T> mapping) {
-		this.mapping = mapping;
 	}
 
 	/**
@@ -117,13 +93,6 @@ public abstract class RestClient<T> {
 	}
 
 	/**
-	 * @param baseDomain the baseDomain to set
-	 */
-	public void setBaseDomain(String baseDomain) {
-		this.baseDomain = baseDomain;
-	}
-
-	/**
 	 * @return the testnetDomain
 	 */
 	public String getTestnetDomain() {
@@ -131,37 +100,9 @@ public abstract class RestClient<T> {
 	}
 
 	/**
-	 * @param testnetDomain the testnetDomain to set
-	 */
-	public void setTestnetDomain(String testnetDomain) {
-		this.testnetDomain = testnetDomain;
-	}
-
-	/**
-	 * @return the useTestnet
-	 */
-	public boolean isUseTestnet() {
-		return useTestnet;
-	}
-
-	/**
-	 * @param useTestnet the useTestnet to set
-	 */
-	public void setUseTestnet(boolean useTestnet) {
-		this.useTestnet = useTestnet;
-	}
-
-	/**
 	 * @return the mapper
 	 */
 	public ObjectMapper getMapper() {
 		return mapper;
-	}
-
-	/**
-	 * @param mapper the mapper to set
-	 */
-	public void setMapper(ObjectMapper mapper) {
-		this.mapper = mapper;
 	}
 }

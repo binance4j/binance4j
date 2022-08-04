@@ -133,11 +133,4 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	public void setConfiguration(WebsocketClientConfiguration configuration) {
 		this.configuration = configuration;
 	}
-
-	/**
-	 * @return the interceptorCallback
-	 */
-	public WebsocketInterceptorCallback<T> getInterceptorCallback() {
-		return interceptorCallback;
-	}
 }
