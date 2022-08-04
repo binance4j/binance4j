@@ -34,6 +34,7 @@ class NoResponseTimeoutTest extends CustomTest {
 		});
 		callback.onFailure(t -> {
 			assertNotNull(t);
+			service.unwatch();
 			future.complete(true);
 		});
 		callback.onEnter(t -> {
@@ -44,9 +45,7 @@ class NoResponseTimeoutTest extends CustomTest {
 			assertNotNull(t);
 			service.unwatch();
 		});
-		callback.onFailure(t -> {
-			service.unwatch();
-		});
+
 		callback.onMessage(Assertions::assertNotNull);
 	}
 
@@ -55,12 +54,12 @@ class NoResponseTimeoutTest extends CustomTest {
 		count = 0;
 		future = new CompletableFuture<>();
 		strategy = new AlwaysEnterStrategy();
-		service = new WatchService(strategy);
+		service = new WatchService(strategy, callback);
 	}
 
 	@Test
 	void test() throws InterruptedException, ExecutionException {
-		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
+		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE);
 		assertTrue(future.get());
 	}
 }

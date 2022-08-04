@@ -29,26 +29,31 @@ class LiveTradingTest extends CustomTest {
 
 	LiveTradingTest() {
 		callback = new StrategyCallback();
+
 		callback.onClosed(t -> {
 			testNoNulls(t);
 			future.complete(true);
 		});
+
 		callback.onFailure(t -> {
 			testNoNulls(t);
 			future.complete(true);
 		});
+
 		callback.onEnter(t -> {
 			Set<String> nulls = getNullProperties(t, true);
 			assertEquals(1, nulls.size());
 			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
+
 		callback.onExit(t -> {
 			Set<String> nulls = getNullProperties(t, true);
 			assertEquals(1, nulls.size());
 			assertTrue(nulls.contains("amount"));
 			service.unwatch();
 		});
+
 		callback.onMessage(t -> {
 			testNoNulls(t);
 		});
@@ -62,15 +67,15 @@ class LiveTradingTest extends CustomTest {
 
 	@Test
 	void testEnter() throws InterruptedException, ExecutionException {
-		service = new WatchService(enterStrategy);
-		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE, callback);
+		service = new WatchService(enterStrategy, callback);
+		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE);
 		assertTrue(future.get());
 	}
 
 	@Test
 	void testExit() throws InterruptedException, ExecutionException {
-		service = new WatchService(exitStrategy);
-		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE, callback);
+		service = new WatchService(exitStrategy, callback);
+		service.watch("BTCBUSD", CandlestickInterval.ONE_MINUTE);
 		assertTrue(future.get());
 	}
 
@@ -79,7 +84,7 @@ class LiveTradingTest extends CustomTest {
 		CompletableFuture<Boolean> future = new CompletableFuture<>();
 		AlwaysExitStrategy strategy = new AlwaysExitStrategy();
 		StrategyCallback callback = new StrategyCallback();
-		WatchService service = new WatchService(strategy);
+		WatchService service = new WatchService(strategy, callback);
 		Set<String> set = new HashSet<>();
 		List<String> symbols = List.of("BTCBUSD", "BNBBTC", "SHIBBUSD");
 		callback.onFailure(t -> {
@@ -95,7 +100,7 @@ class LiveTradingTest extends CustomTest {
 				future.complete(true);
 			}
 		});
-		service.watch(symbols, CandlestickInterval.ONE_MINUTE, callback);
+		service.watch(symbols, CandlestickInterval.ONE_MINUTE);
 		assertTrue(future.get());
 	}
 }

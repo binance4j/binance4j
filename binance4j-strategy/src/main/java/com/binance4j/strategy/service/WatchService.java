@@ -6,10 +6,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BaseBarSeries;
 import org.ta4j.core.Strategy;
+
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.strategy.StrategyCallback;
@@ -21,6 +23,7 @@ import com.binance4j.websocket.client.WebsocketCandlestickClient;
 import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
 import com.binance4j.websocket.dto.Candle;
 import com.binance4j.websocket.service.DurationService;
+
 import okhttp3.Response;
 
 /** Service to live trade a {@link TradingStrategy}. */
@@ -35,12 +38,15 @@ public class WatchService {
 	protected Map<String, BarSeries> barSeries;
 	/** The trading strategy */
 	protected TradingStrategy tradingStrategy;
+	/** The live trading callback */
+	protected StrategyCallback callback;
 
 	/**
 	 * @param strategy The strategy used to live trade.
 	 */
-	public WatchService(TradingStrategy strategy) {
+	public WatchService(TradingStrategy strategy, StrategyCallback callback) {
 		this.tradingStrategy = strategy;
+		this.callback = callback;
 		configuration = new WebsocketClientConfiguration();
 	}
 
@@ -63,21 +69,22 @@ public class WatchService {
 	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
-	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId, StrategyCallback callback) {
-		barSeries = new HashMap<>(); // let's initialize a BarSeries for each symbol with the symbol as name of the
-		// series and a limit size
+	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId) {
+		barSeries = new HashMap<>();
+		// let's initialize a BarSeries for each symbol with the symbol as name of the series and a limit size
 		Arrays.stream(symbols.split(",")).map(String::trim).forEach(symbol -> {
 			BarSeries bar = new BaseBarSeries(symbol);
 			bar.setMaximumBarCount(maximumBarCount);
 			barSeries.put(symbol, bar);
 		});
+
 		Duration duration = DurationService.convert(interval);
 		wsClient = new WebsocketCandlestickClient(symbols, interval, new WebsocketCallback<Candle>() {
 			public void onMessage(Candle response) {
 				// let's convert the bar and give it the symbol name
 				Bar bar = BarService.convert(response, duration, zoneId);
-				callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(), response.symbol())); // we determinate what method to call
-																													// according to the strategy
+				callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(), response.symbol()));
+				// we determinate what method to call according to the strategy
 				if (response.isBarFinal()) {
 					BarSeries series = barSeries.get(response.symbol());
 					series.addBar(bar);
@@ -126,8 +133,8 @@ public class WatchService {
 	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
-	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, ZoneId zoneId, StrategyCallback callback) {
-		return watch(String.join(",", symbols), interval, zoneId, callback);
+	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, ZoneId zoneId) {
+		return watch(String.join(",", symbols), interval, zoneId);
 	}
 
 	/**
@@ -139,8 +146,8 @@ public class WatchService {
 	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
-	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, StrategyCallback callback) {
-		return watch(symbols, interval, ZoneId.systemDefault(), callback);
+	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval) {
+		return watch(symbols, interval, ZoneId.systemDefault());
 	}
 
 	/**
@@ -152,8 +159,8 @@ public class WatchService {
 	 * @param callback The methods to call according to the server response.
 	 * @return The websocket client connected to the server.
 	 */
-	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, StrategyCallback callback) {
-		return watch(String.join(",", symbols), interval, callback);
+	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval) {
+		return watch(String.join(",", symbols), interval);
 	}
 
 	/** Closes the websocket transaction */
@@ -181,5 +188,33 @@ public class WatchService {
 	 */
 	public int getMaximumBarCount() {
 		return maximumBarCount;
+	}
+
+	/**
+	 * @return the tradingStrategy
+	 */
+	public TradingStrategy getTradingStrategy() {
+		return tradingStrategy;
+	}
+
+	/**
+	 * @param tradingStrategy the tradingStrategy to set
+	 */
+	public void setTradingStrategy(TradingStrategy tradingStrategy) {
+		this.tradingStrategy = tradingStrategy;
+	}
+
+	/**
+	 * @return the callback
+	 */
+	public StrategyCallback getCallback() {
+		return callback;
+	}
+
+	/**
+	 * @param callback the callback to set
+	 */
+	public void setCallback(StrategyCallback callback) {
+		this.callback = callback;
 	}
 }
