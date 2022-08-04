@@ -73,7 +73,7 @@ public class Connectors {
 	 * @param client
 	 */
 	private void updateClientKeys(RestClient<?> client) {
-		if (!client.getKey().equals(key)) {
+		if (!client.getKey().equals(key) || !client.getSecret().equals(secret)) {
 			client.updateKeys(key, secret);
 		}
 	}
