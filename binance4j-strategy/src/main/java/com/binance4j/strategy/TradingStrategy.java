@@ -1,9 +1,5 @@
 package com.binance4j.strategy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.Indicator;
 import org.ta4j.core.Rule;
@@ -30,16 +26,4 @@ public interface TradingStrategy {
 	 * @return the exit rule.
 	 */
 	Rule exit(BarSeries series);
-
-	/**
-	 * Concats the current strategy with the given
-	 * 
-	 * @param strategies The other strategies.
-	 * @return The concatenation.
-	 */
-	default TradingStrategy[] concat(TradingStrategy... strategies) {
-		List<TradingStrategy> list = new ArrayList<>(Arrays.asList(strategies));
-		list.add(this);
-		return list.toArray(new TradingStrategy[list.size()]);
-	}
 }
