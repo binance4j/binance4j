@@ -2,6 +2,7 @@ package com.binance4j.connectors;
 
 import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.c2c.client.C2CClient;
+import com.binance4j.core.client.RestClient;
 import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.margin.client.MarginClient;
@@ -67,6 +68,17 @@ public class Connectors {
 	}
 
 	/**
+	 * Will update the client's keys if they have changed in the container.
+	 * 
+	 * @param client
+	 */
+	private void updateClientKeys(RestClient<?> client) {
+		if (!client.getKey().equals(key)) {
+			client.updateKeys(key, secret);
+		}
+	}
+
+	/**
 	 * Lazy loads and returns a cached instance of {@link BLVTClient}.
 	 * 
 	 * @return an instance of {@link BLVTClient}.
@@ -75,7 +87,7 @@ public class Connectors {
 		if (blvtClient == null) {
 			blvtClient = new BLVTClient(key, secret);
 		}
-		blvtClient.updateKeys(key, secret);
+		updateClientKeys(blvtClient);
 		return blvtClient;
 	}
 
@@ -88,7 +100,7 @@ public class Connectors {
 		if (c2cClient == null) {
 			c2cClient = new C2CClient(key, secret);
 		}
-		c2cClient.updateKeys(key, secret);
+		updateClientKeys(c2cClient);
 		return c2cClient;
 	}
 
@@ -101,7 +113,7 @@ public class Connectors {
 		if (fiatClient == null) {
 			fiatClient = new FiatClient(key, secret);
 		}
-		fiatClient.updateKeys(key, secret);
+		updateClientKeys(fiatClient);
 		return fiatClient;
 	}
 
@@ -114,7 +126,7 @@ public class Connectors {
 		if (loanClient == null) {
 			loanClient = new LoanClient(key, secret);
 		}
-		loanClient.updateKeys(key, secret);
+		updateClientKeys(loanClient);
 		return loanClient;
 	}
 
@@ -127,7 +139,7 @@ public class Connectors {
 		if (marginClient == null) {
 			marginClient = new MarginClient(key, secret);
 		}
-		marginClient.updateKeys(key, secret);
+		updateClientKeys(marginClient);
 		return marginClient;
 	}
 
@@ -140,7 +152,7 @@ public class Connectors {
 		if (marketClient == null) {
 			marketClient = new MarketClient(key, secret);
 		}
-		marketClient.updateKeys(key, secret);
+		updateClientKeys(marketClient);
 		return marketClient;
 	}
 
@@ -153,7 +165,7 @@ public class Connectors {
 		if (miningClient == null) {
 			miningClient = new MiningClient(key, secret);
 		}
-		miningClient.updateKeys(key, secret);
+		updateClientKeys(miningClient);
 		return miningClient;
 	}
 
@@ -166,7 +178,7 @@ public class Connectors {
 		if (nftClient == null) {
 			nftClient = new NFTClient(key, secret);
 		}
-		nftClient.updateKeys(key, secret);
+		updateClientKeys(nftClient);
 		return nftClient;
 	}
 
@@ -179,7 +191,7 @@ public class Connectors {
 		if (payClient == null) {
 			payClient = new PayClient(key, secret);
 		}
-		payClient.updateKeys(key, secret);
+		updateClientKeys(payClient);
 		return payClient;
 	}
 
@@ -192,7 +204,7 @@ public class Connectors {
 		if (portfolioMarginClient == null) {
 			portfolioMarginClient = new PortfolioMarginClient(key, secret);
 		}
-		portfolioMarginClient.updateKeys(key, secret);
+		updateClientKeys(portfolioMarginClient);
 		return portfolioMarginClient;
 	}
 
@@ -205,7 +217,7 @@ public class Connectors {
 		if (rebateClient == null) {
 			rebateClient = new RebateClient(key, secret);
 		}
-		rebateClient.updateKeys(key, secret);
+		updateClientKeys(rebateClient);
 		return rebateClient;
 	}
 
@@ -218,7 +230,7 @@ public class Connectors {
 		if (savingsClient == null) {
 			savingsClient = new SavingsClient(key, secret);
 		}
-		savingsClient.updateKeys(key, secret);
+		updateClientKeys(savingsClient);
 		return savingsClient;
 	}
 
@@ -231,7 +243,7 @@ public class Connectors {
 		if (spotClient == null) {
 			spotClient = new SpotClient(key, secret);
 		}
-		spotClient.updateKeys(key, secret);
+		updateClientKeys(spotClient);
 		return spotClient;
 	}
 
@@ -244,7 +256,7 @@ public class Connectors {
 		if (stakingClient == null) {
 			stakingClient = new StakingClient(key, secret);
 		}
-		stakingClient.updateKeys(key, secret);
+		updateClientKeys(stakingClient);
 		return stakingClient;
 	}
 
@@ -269,7 +281,7 @@ public class Connectors {
 		if (walletClient == null) {
 			walletClient = new WalletClient(key, secret);
 		}
-		walletClient.updateKeys(key, secret);
+		updateClientKeys(walletClient);
 		return walletClient;
 	}
 

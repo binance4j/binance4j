@@ -42,7 +42,7 @@ public class ConnectorsTest extends CustomTest {
 
 	@Test
 	void testGetMarketClient() {
-		assertNotNull(connectors.marketClient());
+		assertNotNull(connectors.marketClient().getBookTicker());
 	}
 
 	@Test
