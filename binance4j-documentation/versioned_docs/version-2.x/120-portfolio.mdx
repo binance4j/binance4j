@@ -1,0 +1,29 @@
+---
+title: Portfolio margin endpoint
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="portFolio" />
+
+## Installation
+
+<ArtifactInstall repo="portFolio" />
+
+## Client instantiation
+
+```java
+PortfolioMarginClient client = new PortfolioMarginClient(key, secret);
+```
+
+## Examples
+
+### Get account infos
+
+<Examples payload="AccountInfo" method="getAccountInfo" items={[{}]} />
+
+### Get collateral rate
+
+<Examples payload="List<CollaterateRateInfo>" method="getCollateralRate" items={[{}]} />

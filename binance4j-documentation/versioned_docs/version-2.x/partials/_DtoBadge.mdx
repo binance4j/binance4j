@@ -1,0 +1,9 @@
+import JavadocBadge from "@site/src/components/badge/JavadocBadge";
+import data from "@site/docs/data";
+
+<JavadocBadge
+    artifact="core"
+    javadoc={`com/binance4j/{props.artifact}/dto/${props.className}`}
+    version={data.version}
+    label={props.label}
+/>

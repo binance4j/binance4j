@@ -1,0 +1,35 @@
+---
+title: Loan endpoints
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="loan" />
+
+## Installation
+
+<ArtifactInstall repo="loan" />
+
+## Client instantiation
+
+```java
+LoanClient client = new LoanClient(key, secret);
+```
+
+## Examples
+
+### Get crypto loans income history.
+
+<Examples
+    payload="List<LoanIncome>"
+    method="getLoansIncome"
+    items={[
+        { params: "new LoanIncomeHistoryParams(asset)" },
+        {
+            label: "Framed",
+            params: "new LoanIncomeHistoryParams(asset), new TimeFrame(startTime, endTime, limit)",
+        },
+    ]}
+/>
