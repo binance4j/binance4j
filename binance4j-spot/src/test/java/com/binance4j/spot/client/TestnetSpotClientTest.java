@@ -44,27 +44,27 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Test
 	@Order(0)
 	void testNewOrderTest() throws ApiException {
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buyMarket(symbol, "1")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sellMarket(symbol, "1")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buyLimit(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sellLimit(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buyLimit(symbol, "1", price, TimeInForce.FOK)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sellLimit(symbol, "1", price, TimeInForce.FOK)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buyLimit(symbol, "1", price, TimeInForce.GTC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sellLimit(symbol, "1", price, TimeInForce.GTC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buyLimit(symbol, "1", price, TimeInForce.IOC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sellLimit(symbol, "1", price, TimeInForce.IOC)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1")).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1")).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.FOK)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.FOK)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.GTC)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.GTC)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.IOC)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.IOC)).sync());
 	}
 
 	@Test
 	@Order(1)
 	void testNewOrderMarket() throws ApiException {
 		// buy market
-		var buyOrder = client.newOrder(NewOrderParams.buyMarket(symbol, quantity)).sync();
+		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity)).sync();
 		assertTrue(buyOrder.side().equals("BUY"));
 		testNoNulls(buyOrder);
 		// Sell market
-		var sellOrder = client.newOrder(NewOrderParams.sellMarket(symbol, buyOrder.executedQty())).sync();
+		var sellOrder = client.newOrder(NewOrderParams.sell(symbol, buyOrder.executedQty())).sync();
 		assertTrue(sellOrder.side().equals("SELL"));
 		testNoNulls(sellOrder);
 	}
@@ -73,7 +73,7 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Order(2)
 	void testNewOrderBuyLimit() throws ApiException {
 		// buy limit
-		var buyOrder = client.newOrder(NewOrderParams.buyLimit(symbol, quantity, "0.011160")).sync();
+		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity, "0.011160")).sync();
 		assertTrue(buyOrder.side().equals("BUY"));
 		testNoNulls(buyOrder);
 	}
@@ -98,18 +98,18 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Order(5)
 	void testGetOrderStatus() throws ApiException {
 		// buy
-		var buyOrder = client.newOrder(NewOrderParams.buyMarket(symbol, quantity)).sync();
+		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity)).sync();
 		// get order status
 		testHasNulls(client.getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())), List.of("accountId"), false);
 		// Sell
-		client.newOrder(NewOrderParams.sellMarket(symbol, buyOrder.executedQty())).sync();
+		client.newOrder(NewOrderParams.sell(symbol, buyOrder.executedQty())).sync();
 	}
 
 	@Test
 	@Order(6)
 	void testCancelOrder() throws ApiException {
 		// buy limit
-		var buyOrder = client.newOrder(NewOrderParams.buyLimit(symbol, quantity, "0.011160")).sync();
+		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity, "0.011160")).sync();
 		assertTrue(buyOrder.side().equals("BUY"));
 		testNoNulls(buyOrder);
 		var cancellation = client.cancelOrder(new CancelOrderParams(symbol, buyOrder.orderId()));
@@ -143,16 +143,14 @@ public class TestnetSpotClientTest extends CustomTest {
 
 	@Test
 	@Order(11)
-	void testGetMyTrades() throws ApiException {
+	void testGetTrades() throws ApiException {
 		testNoNulls(client.getTrades(new TradesParams(orderId, symbol)));
 	}
 
 	@Test
 	@Order(12)
 	void testNewOCOAndGetOCO() throws ApiException {
-		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice);
-		oco.setStopLimitPrice(ocoStopPrice);
-		oco.setStopLimitTimeInForce(TimeInForce.GTC);
+		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice, TimeInForce.GTC);
 
 		var res = client.newOCO(oco).sync();
 		System.out.println(res);
