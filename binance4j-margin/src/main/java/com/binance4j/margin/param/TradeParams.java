@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getMyTrades} params.
+ * {@link MarginClient#getTrades} params.
  * 
  * @param symbol     Symbol.
  * @param fromId     Search from id.

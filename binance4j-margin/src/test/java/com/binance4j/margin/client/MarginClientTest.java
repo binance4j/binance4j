@@ -30,6 +30,7 @@ import com.binance4j.margin.param.NewOrderParams;
 import com.binance4j.margin.param.OrderParams;
 import com.binance4j.margin.param.PairParams;
 import com.binance4j.margin.param.PriceIndexParams;
+import com.binance4j.margin.param.RateLimitParams;
 import com.binance4j.margin.param.RepayParams;
 import com.binance4j.margin.param.ToggleBurnParams;
 import com.binance4j.margin.param.ToogleAccountParams;
@@ -199,7 +200,7 @@ public class MarginClientTest extends CustomTest {
 
 	// @Test WORKS!
 	void testNewOrder() throws ApiException {
-		testHasNulls(client.newOrder(NewOrderParams.buyLimit("BTCBUSD", "0.0004", "25000")),
+		testHasNulls(client.newOrder(NewOrderParams.buy("BTCBUSD", "0.0004", "25000")),
 				List.of("orderId", "quoteQty", "symbol", "marginBuyBorrowAmount", "marginBuyBorrowAsset"), true);
 	}
 
@@ -246,8 +247,8 @@ public class MarginClientTest extends CustomTest {
 	}
 
 	// TODO @Test
-	void testGetMyTrades() throws ApiException {
-		testNoNulls(client.getMyTrades(new TradeParams(isolatedSymbol)));
+	void testGetTrades() throws ApiException {
+		testNoNulls(client.getTrades(new TradeParams(isolatedSymbol)));
 	}
 
 	// TODO @Test
@@ -273,5 +274,20 @@ public class MarginClientTest extends CustomTest {
 	// TODO @Test
 	void testRepay() throws ApiException {
 		testNoNulls(client.repay(new RepayParams(asset, "amount")));
+	}
+
+	@Test
+	void testGetRateLimit() throws ApiException {
+		testNoNulls(client.getOrderRateLimit());
+	}
+
+	@Test
+	void testGetRateLimit2() throws ApiException {
+		testNoNulls(client.getRateLimit(new RateLimitParams("BTC")));
+	}
+
+	@Test
+	void testGetDustLog() throws ApiException {
+		testNoNulls(client.getDustLog());
 	}
 }

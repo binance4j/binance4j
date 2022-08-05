@@ -12,10 +12,4 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 300, type = RateLimitType.UID)
 public record ToogleAccountParams(String symbol) implements Params {
-	/**
-	 * Creates an instance of {@link ToogleAccountParams}.
-	 */
-	public ToogleAccountParams() {
-		this(null);
-	}
 }
