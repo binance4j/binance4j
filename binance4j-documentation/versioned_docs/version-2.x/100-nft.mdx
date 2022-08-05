@@ -1,0 +1,77 @@
+---
+title: NFT endpoints.
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="nft" />
+
+## Installation
+
+<ArtifactInstall repo="nft" />
+
+## Client instantiation
+
+```java
+PortfolioMarginClient client = new PortfolioMarginClient(key, secret);
+```
+
+### Get NFT Transaction History
+
+<Examples
+    payload="TransactionHistory"
+    method="getTransactions"
+    items={[
+        {
+            params: "new TransactionHistoryParams(orderType)",
+        },
+        {
+            label: "Paginated",
+            params: "new TransactionHistoryParams(orderType), new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get NFT deposit History
+
+<Examples
+    payload="DepositHistory"
+    method="getDeposits"
+    items={[
+        {},
+        {
+            label: "Paginated",
+            params: "new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get NFT withdraw History
+
+<Examples
+    payload="WithdrawHistory"
+    method="getWithdraws"
+    items={[
+        {},
+        {
+            label: "Paginated",
+            params: "new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get NFT assets
+
+<Examples
+    payload="WithdrawHistory"
+    method="getAssets"
+    items={[
+        {},
+        {
+            label: "Paginated",
+            params: "Paging(page, limit)",
+        },
+    ]}
+/>

@@ -87,7 +87,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-market</artifactId>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>2.0.1</version>
 </dependency>
 ```
 
@@ -129,7 +129,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
 	<groupId>com.binance4j</groupId>
 	<artifactId>binance4j-nft</artifactId>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>2.0.1</version>
 </dependency>
 ```
 
@@ -173,7 +173,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-spot</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -228,7 +228,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-wallet</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -279,7 +279,7 @@ This is a personal project for educational purpose. Use at your own risk. I am n
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-websocket</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -326,7 +326,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-vision</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -369,7 +369,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-strategy</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -447,7 +447,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-convert</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -486,7 +486,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-rebate</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -526,7 +526,7 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-fiat</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -566,6 +566,6 @@ coming soon
 <dependency>
   <groupId>com.binance4j</groupId>
   <artifactId>binance4j-core</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
 </dependency>
 ```
