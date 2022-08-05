@@ -11,10 +11,5 @@ import com.binance4j.wallet.client.WalletClient;
  */
 @Param
 public record TradeFeeParams(String symbol) implements Params {
-	/**
-	 * Creates an instance of {@link TradeFeeParams}.
-	 */
-	public TradeFeeParams() {
-		this(null);
-	}
+
 }

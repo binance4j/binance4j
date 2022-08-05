@@ -347,7 +347,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord() {
-		return getAssetDividendRecord(new AssetDividendRecordParams());
+		return getAssetDividendRecord(new AssetDividendRecordParams(null));
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame timeFrame) {
-		return new Request<>(service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(), timeFrame)));
+		return new Request<>(service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(null), timeFrame)));
 	}
 
 	/**
@@ -388,7 +388,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<Map<String, AssetDetail>> getAssetDetail() {
-		return getAssetDetail(new AssetDetailParams());
+		return getAssetDetail(new AssetDetailParams(null));
 	}
 
 	/**
@@ -407,7 +407,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<TradeFee>> getTradeFee() {
-		return getTradeFee(new TradeFeeParams());
+		return getTradeFee(new TradeFeeParams(null));
 	}
 
 	/**

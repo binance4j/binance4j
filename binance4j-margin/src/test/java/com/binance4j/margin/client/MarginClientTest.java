@@ -233,7 +233,7 @@ public class MarginClientTest extends CustomTest {
 
 	@Test
 	void testGetForceLiquidationRecord() throws ApiException {
-		testNoNulls(client.getForceLiquidationRecord(new ForceLiquidationRecordParams()));
+		testNoNulls(client.getForceLiquidationRecord(new ForceLiquidationRecordParams(null)));
 	}
 
 	// TODO @Test

@@ -19,9 +19,4 @@ public record LimitInfoParams(String tokenName) implements Params {
 	public LimitInfoParams(String tokenName) {
 		this.tokenName = tokenName;
 	}
-
-	/** Creates instance of the class. */
-	public LimitInfoParams() {
-		this(null);
-	}
 }

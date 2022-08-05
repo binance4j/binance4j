@@ -11,10 +11,5 @@ import com.binance4j.market.client.MarketClient;
  */
 @Param(weight = 40, recvWindow = false, timestamp = false)
 public record TickerStatisticsParams(String symbol) implements Params {
-	/**
-	 * Creates an instance of {@link TickerStatisticsParams}.
-	 */
-	public TickerStatisticsParams() {
-		this(null);
-	}
+
 }

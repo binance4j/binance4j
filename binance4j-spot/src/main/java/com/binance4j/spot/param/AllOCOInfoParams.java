@@ -11,10 +11,5 @@ import com.binance4j.spot.client.SpotClient;
  */
 @Param(weight = 10)
 public record AllOCOInfoParams(Long fromId) implements Params {
-	/**
-	 * Creates an instance of {@link AllOCOInfoParams}.
-	 */
-	public AllOCOInfoParams() {
-		this(null);
-	}
+
 }

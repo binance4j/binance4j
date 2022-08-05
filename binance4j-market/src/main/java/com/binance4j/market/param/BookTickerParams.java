@@ -11,10 +11,5 @@ import com.binance4j.market.client.MarketClient;
  */
 @Param(weight = 2, recvWindow = false, timestamp = false)
 public record BookTickerParams(String symbol) implements Params {
-	/**
-	 * Creates an instance of {@link BookTickerParams}.
-	 */
-	public BookTickerParams() {
-		this(null);
-	}
+
 }

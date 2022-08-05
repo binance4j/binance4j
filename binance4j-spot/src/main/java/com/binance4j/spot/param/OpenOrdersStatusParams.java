@@ -11,10 +11,5 @@ import com.binance4j.spot.client.SpotClient;
  */
 @Param(weight = 40)
 public record OpenOrdersStatusParams(String symbol) implements Params {
-	/**
-	 * Creates an instance of {@link OpenOrdersStatusParams}.
-	 */
-	public OpenOrdersStatusParams() {
-		this(null);
-	}
+
 }

@@ -11,8 +11,4 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record IsolatedAccountParams(String symbols) implements Params {
-	/** Creates an instance of {@link IsolatedAccountParams}. */
-	public IsolatedAccountParams() {
-		this(null);
-	}
 }

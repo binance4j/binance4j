@@ -538,7 +538,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedAccount> getIsolatedAccount() {
-		return getIsolatedAccount(new IsolatedAccountParams());
+		return getIsolatedAccount(new IsolatedAccountParams(null));
 	}
 
 	/**

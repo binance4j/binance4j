@@ -11,10 +11,5 @@ import com.binance4j.wallet.client.WalletClient;
  */
 @Param
 public record AssetDetailParams(String asset) implements Params {
-	/**
-	 * Creates an instance of {@link AssetDetailParams}.
-	 */
-	public AssetDetailParams() {
-		this(null);
-	}
+
 }

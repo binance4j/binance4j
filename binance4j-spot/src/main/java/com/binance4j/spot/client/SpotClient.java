@@ -123,7 +123,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getOpenOrders() {
-		OpenOrdersStatusParams params = new OpenOrdersStatusParams();
+		OpenOrdersStatusParams params = new OpenOrdersStatusParams(null);
 		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
@@ -194,7 +194,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO() {
-		return new Request<>(service.getAllOCO(new AllOCOInfoParams().toMap()));
+		return new Request<>(service.getAllOCO(new AllOCOInfoParams(null).toMap()));
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(TimeFrame timeFrame) {
-		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(), timeFrame)));
+		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(null), timeFrame)));
 	}
 
 	/**

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
     <artifactId>binance4j-savings</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <packaging>jar</packaging>
 
     <repositories>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-core</artifactId>
-            <version>2.0.1</version>
+            <version>2.0.2</version>
         </dependency>
 
     </dependencies>

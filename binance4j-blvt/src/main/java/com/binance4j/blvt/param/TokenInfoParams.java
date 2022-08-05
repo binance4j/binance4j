@@ -19,9 +19,4 @@ public record TokenInfoParams(String tokenName) implements Params {
 	public TokenInfoParams(String tokenName) {
 		this.tokenName = tokenName;
 	}
-
-	/** Creates instance of the class. */
-	public TokenInfoParams() {
-		this(null);
-	}
 }

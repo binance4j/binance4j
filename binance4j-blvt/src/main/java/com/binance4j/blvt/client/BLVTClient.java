@@ -48,7 +48,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Token>> getTokenInfo() {
-		return new Request<>(service.getTokenInfo(new TokenInfoParams().toMap()));
+		return new Request<>(service.getTokenInfo(new TokenInfoParams(null).toMap()));
 	}
 
 	/**
@@ -147,6 +147,6 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @return The request to LimitInfo
 	 */
 	public Request<List<LimitInfo>> getLimitInfo() {
-		return new Request<>(service.getLimitInfo(new LimitInfoParams().toMap()));
+		return new Request<>(service.getLimitInfo(new LimitInfoParams(null).toMap()));
 	}
 }
