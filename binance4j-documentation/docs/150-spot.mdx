@@ -33,7 +33,7 @@ TestnetSpotClient client = new TestnetSpotClient(testnetKey, testnetSecret);
     method="newOrderTest"
     items={[
         {
-            params: "NewOrderParams.buyMarket(symbol, amount)",
+            params: "NewOrderParams.buy(symbol, amount)",
         },
     ]}
 />
@@ -46,22 +46,34 @@ TestnetSpotClient client = new TestnetSpotClient(testnetKey, testnetSecret);
     items={[
         {
             label: "Market purchase",
-            params: "NewOrderParams.buyMarket(symbol, amount)",
+            params: "NewOrderParams.buy(symbol, amount)",
         },
         {
             label: "Market sale",
-            params: "NewOrderParams.sellMarket(symbol, amount)",
+            params: "NewOrderParams.sell(symbol, amount)",
         },
         {
-            label: "Market purchase",
-            params: "NewOrderParams.buyLimit(symbol, amount,price)",
+            label: "Limit purchase",
+            params: "NewOrderParams.buy(symbol, amount, price)",
         },
         {
-            label: "Market sale",
-            params: "NewOrderParams.sellLimit(symbol, amount,price)",
+            label: "Limit sale",
+            params: "NewOrderParams.sell(symbol, amount, price)",
+        },
+        {
+            label: "Market purchase with quote asset",
+            params: "NewOrderParams.buyQuote(symbol, amount)",
+        },
+        {
+            label: "Market sale with quote asset",
+            params: "NewOrderParams.sellQuote(symbol, amount)",
         },
     ]}
 />
+
+:::note
+`buyQuote` and `sellQuote` let you buy the base asset by providing the quote asset amount.
+:::
 
 ### Get open orders
 
