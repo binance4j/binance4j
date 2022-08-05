@@ -1,5 +1,5 @@
 ---
-title: Manipulate trading strategies
+title: Trading strategies
 ---
 
 import TabItem from "@theme/TabItem";
@@ -123,59 +123,69 @@ boolean shouldExit = PositionService.shouldExit(strategy, series);
 
 ## Live trading
 
-First of all we need a Strategy callback.
+In order to handle your strategy signals, you need to implement a `StrategyCallback`.
 
 ```java
-StrategyCallback callback = new StrategyCallback();
+public class MyStrategyCallback implements StrategyCallback {
 
-//Stream is open
-callback.onOpen(response -> {
-    //...
-});
+	public MyStrategyCallback() {
+		//...
+	}
 
-//Stream is closed
-callback.onClosed(WebsocketCloseObject -> {
-    //...
-});
+	// Handle BUY signal
+	@Override
+	public void onEnter(BarSeries series) {
+		//...
+	}
 
-//Stream is closing
-callback.onClosing(WebsocketCloseObject -> {
-    //...
-});
+	// Handle SELL signal
+	@Override
+	public void onExit(BarSeries series) {
+		//...
+	}
 
-//Stream failure
-callback.onFailure(apiException -> {
-	//...
-});
-//On BUY signal
-callback.onEnter(barSeries -> {
-    //...
-});
-//On SELL signal
-callback.onExit(barSeries -> {
-	 //...
-});
+	// server sent data
+	@Override
+	public void onMessage(SymbolBar symbolBar) {
+		//...
+	}
 
-//On every received kline
-callback.onMessage(symbolBar -> {
-    //...
-});
+	// Stream is open
+	@Override
+	public void onOpen(Response response) {
+		//...
+	}
+
+	// Stream is closing
+	@Override
+	public void onClosing(WebsocketCloseObject closeObject) {
+		//...
+	}
+
+	// Stream is closed
+	@Override
+	public void onClosed(WebsocketCloseObject closeObject) {
+		//...
+	}
+
+	// Something went wrong
+	@Override
+	public void onFailure(ApiException apiException) {
+		//...
+	}
+}
+
 ```
 
-Then a WatchService:
+Let's instantiate and run a service.
 
 ```java
 //we will use the previous strategy
-WatchService service = new WatchService(strategy, callback);
-```
-
-Now let's just run the service on the BTCBUSD pair on a 5min interval.
-
-```java
+WatchService service = new WatchService(strategy, myStrategyCallback);
 service.watch("BTCBUSD", CandlestickInterval.FIVE_MINUTE);
 ```
 
-Closing the service:
+When done, stop the service:
 
 ```java
 service.unwatch();
