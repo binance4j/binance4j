@@ -244,7 +244,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradesParams params) {
-		return new Request<>(service.getMyTrades(params.toMap()));
+		return new Request<>(service.getTrades(params.toMap()));
 	}
 
 	/**
@@ -256,7 +256,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradesParams params, TimeFrame timeFrame) {
-		return new Request<>(service.getMyTrades(Params.merge(params, timeFrame)));
+		return new Request<>(service.getTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**

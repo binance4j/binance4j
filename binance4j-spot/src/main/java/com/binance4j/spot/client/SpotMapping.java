@@ -135,7 +135,7 @@ public interface SpotMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "myTrades")
-	Call<List<Trade>> getMyTrades(@QueryMap Map<String, Object> map);
+	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
