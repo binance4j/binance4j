@@ -45,7 +45,7 @@ public abstract class CustomTest {
 	 * @return the properties of the given bean
 	 * @param bean The bean we want the properties
 	 */
-	protected Map<String, Object> getProperties(Object bean) {
+	public Map<String, Object> getProperties(Object bean) {
 		Map<String, Object> map = new HashMap<>();
 		try {
 			if (bean != null) {
@@ -75,7 +75,7 @@ public abstract class CustomTest {
 	 * @return the properties of the given bean
 	 * @param collection The collection we want the properties
 	 */
-	protected Map<String, Object> getProperties(Collection<?> collection) {
+	public Map<String, Object> getProperties(Collection<?> collection) {
 		Map<String, Object> map = new HashMap<>();
 		int i = 0;
 		for (var bean : collection) {
@@ -91,7 +91,7 @@ public abstract class CustomTest {
 	 * @return the bean properties with a null walue
 	 * @param bean The bean we want the properties
 	 */
-	protected Set<String> getNullProperties(Object bean) {
+	public Set<String> getNullProperties(Object bean) {
 		return getNullProperties(bean, bean == null ? "object" : bean.getClass().getSimpleName());
 	}
 
@@ -100,7 +100,7 @@ public abstract class CustomTest {
 	 * @param bean    The bean we want the properties
 	 * @param flatten Flatten the result to only show the properties names
 	 */
-	protected Set<String> getNullProperties(Object bean, boolean flatten) {
+	public Set<String> getNullProperties(Object bean, boolean flatten) {
 		Set<String> set = getNullProperties(bean, bean.getClass().getSimpleName());
 		return !flatten ? set : set.stream().map(string -> {
 			String[] array = string.split("\\.");
@@ -113,7 +113,7 @@ public abstract class CustomTest {
 	 * @param bean       The bean we want the properties
 	 * @param parentBean The enclosing class
 	 */
-	protected Set<String> getNullProperties(Object bean, String parentBean) {
+	public Set<String> getNullProperties(Object bean, String parentBean) {
 		List<String> list = new ArrayList<>();
 		if (bean == null) {
 			return Set.of(parentBean);
@@ -154,7 +154,7 @@ public abstract class CustomTest {
 	 * @return if the given object has no null property
 	 * @param bean The bean to verify
 	 */
-	protected boolean hasNoNullProperty(Object bean) {
+	public boolean hasNoNullProperty(Object bean) {
 		return getNullProperties(bean).isEmpty();
 	}
 
@@ -162,7 +162,7 @@ public abstract class CustomTest {
 	 * @return if the bean has properties
 	 * @param bean The bean we want to inspect
 	 */
-	protected boolean hasProperties(Object bean) {
+	public boolean hasProperties(Object bean) {
 		return getProperties(bean).size() != 0;
 	}
 
@@ -170,7 +170,7 @@ public abstract class CustomTest {
 	 * @return if the object is from the java lang package
 	 * @param bean The bean to inspect
 	 */
-	protected boolean isJavaBean(Object bean) {
+	public boolean isJavaBean(Object bean) {
 		return bean.getClass().getName().startsWith("java");
 	}
 
@@ -178,7 +178,7 @@ public abstract class CustomTest {
 	 * @return if the object is a Map
 	 * @param bean The bean to inspect
 	 */
-	protected boolean isMap(Object bean) {
+	public boolean isMap(Object bean) {
 		return bean instanceof Map;
 	}
 
@@ -186,7 +186,7 @@ public abstract class CustomTest {
 	 * @return if the object is a Collection (Map excluded)
 	 * @param bean The bean to inspect
 	 */
-	protected boolean isCollection(Object bean) {
+	public boolean isCollection(Object bean) {
 		return bean instanceof Collection;
 	}
 
