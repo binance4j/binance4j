@@ -12,7 +12,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
 /** The {@link LoanClient} mapping. */
-public interface PayMapping extends RestMapping {
+public interface LoanMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/loan/";
 

@@ -14,13 +14,13 @@ import com.binance4j.loan.param.LoanIncomeHistoryParams;
  * 
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints">Documentation</a>
  */
-public class LoanClient extends RestClient<PayMapping> {
+public class LoanClient extends RestClient<LoanMapping> {
 	/**
 	 * @param key    The API public key.
 	 * @param secret The API secret key.
 	 */
 	public LoanClient(String key, String secret) {
-		super(PayMapping.class, key, secret);
+		super(LoanMapping.class, key, secret);
 	}
 
 	/**
