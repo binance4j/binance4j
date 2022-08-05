@@ -1,0 +1,42 @@
+---
+title: Core
+id: Core
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/src/components/badge/RepoBadges";
+import Example, { ExampleList } from "@site/src/components/v2/ApiCallExample";
+
+<RepoBadges artifact="core" />
+
+## Description
+
+Binance4j-core is the core module of the binance4j ecosystem.
+
+## Installation
+
+<ArtifactInstall repo="core" />
+
+## Rest client
+
+Every REST client needs an `API key` and a `secret key` when instanciated.
+
+```java title="Client new instance"
+MarketClient client = new MarketClient(key, secret);
+```
+
+## Parameters
+
+Most client requests require query parameters.
+
+```java title="Get klines with MarketClient"
+// ...
+KlinesParams params = new KlinesParams("BTCBUSD", "1m");
+Request<List<Candle>> req = client.getKlines(params);
+```
+
+## Request
+
+The code above won't call the API. It returns an instance of a `Request` that can make a `synchronous` or `asynchronous` call.
+
+<Example payload="List<Candle>" method="getKlines(params)" />

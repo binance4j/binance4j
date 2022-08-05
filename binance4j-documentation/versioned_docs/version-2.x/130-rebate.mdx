@@ -1,0 +1,35 @@
+---
+title: Rebate endpoints
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="rebate" />
+
+## Installation
+
+<ArtifactInstall repo="rebate" />
+
+## Client instantiation
+
+```java
+RebateClient client = new RebateClient(key, secret);
+```
+
+## Features
+
+### Get the spot rebate history records
+
+<Examples
+    payload="SpotRebateHistoryResponse"
+    method="getSpotRebateHistoryRecords"
+    items={[
+        {},
+        {
+            label: "Framed",
+            params: "new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>

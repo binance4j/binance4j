@@ -1,0 +1,126 @@
+---
+title: Staking endpoints
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="staking" />
+
+## Installation
+
+<ArtifactInstall repo="staking" />
+
+## Client instantiation
+
+```java
+StakingClient client = new StakingClient(key, secret);
+```
+
+## Features
+
+### Get staking history
+
+<Examples
+    payload="List<StakingRecord>"
+    method="getHistory"
+    items={[
+        {
+            label: "Default",
+            params: "new HistoryParams(ProductType.STAKING, TransactionType.INTEREST, asset)",
+        },
+        {
+            label: "Paginated",
+            params: "new HistoryParams(ProductType.STAKING, TransactionType.INTEREST, asset), FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get personal left quota of Staking product
+
+<Examples
+    payload="LeftQuota"
+    method="getLeftQuota"
+    items={[
+        {
+            label: "Default",
+            params: "new LeftQuotaParams(ProductType.STAKING, productId)",
+        },
+    ]}
+/>
+
+### Get Staking product position.
+
+<Examples
+    payload="List<ProductPosition>"
+    method="getPosition"
+    items={[
+        {
+            label: "Staking",
+            params: "new PositionParams(ProductType.STAKING)",
+        },
+        {
+            label: "Flexible DeFi",
+            params: "new PositionParams(ProductType.F_DEFI)",
+        },
+        {
+            label: "Locked DeFi",
+            params: "new PositionParams(ProductType.L_DEFI)",
+        },
+    ]}
+/>
+
+### Purchase Staking product
+
+<Examples
+    payload="PurchaseResponse"
+    method="purchase"
+    items={[
+        {
+            label: "Staking product",
+            params: "new PurchaseParams(ProductType.STAKING, productId, amount)",
+        },
+        {
+            label: "Flexible DeFi product",
+            params: "new PurchaseParams(ProductType.F_DEFI, productId, amount)",
+        },
+        {
+            label: "Locked DeFi product",
+            params: "new PurchaseParams(ProductType.L_DEFI, productId, amount)",
+        },
+    ]}
+/>
+
+### Redeem Staking product
+
+<Examples
+    payload="RedeemResponse"
+    method="redeem"
+    items={[
+        {
+            label: "Staking product",
+            params: "new RedeemParams(ProductType.STAKING, productId)",
+        },
+        {
+            label: "Flexible DeFi product",
+            params: "new RedeemParams(ProductType.F_DEFI, productId)",
+        },
+        {
+            label: "Locked DeFi product",
+            params: "new RedeemParams(ProductType.L_DEFI, productId)",
+        },
+    ]}
+/>
+
+### Set auto staking on Locked Staking or Locked DeFi Staking
+
+<Examples
+    payload="AutoStakingResponse"
+    method="setAutoStaking"
+    items={[
+        {
+            params: "new AutoStakingParams(ProductType.STAKING, productId, true/false)",
+        },
+    ]}
+/>

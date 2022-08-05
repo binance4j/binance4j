@@ -1,0 +1,49 @@
+---
+title: Fiat endpoints
+---
+
+import ArtifactInstall from "@site/docs/partials/_ArtifactInstall.mdx";
+import RepoBadges from "@site/docs/partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="fiat" />
+
+## Installation
+
+<ArtifactInstall repo="fiat" />
+
+## Client instantiation
+
+```java
+FiatClient client = new FiatClient(key, secret);
+```
+
+## Features
+
+### Get payments
+
+<Examples
+    payload="PaymentHistory"
+    method="getPayments"
+    items={[
+        { label: "Sales", params: "new PaymentParams(PaymentType.SELL)" },
+        {
+            label: "Purchases (paginated)",
+            params: 'new PaymentParams("BUY"), new FramedPaging(startTime, endTime, page, limit)',
+        },
+    ]}
+/>
+
+### Get Transactions
+
+<Examples
+    payload="TransactionHistory"
+    method="getTransactions"
+    items={[
+        { label: "Withdraws", params: "new TransactionParams(TransactionType.WITHDRAW)" },
+        {
+            label: "Deposits (paginated)",
+            params: 'new TransactionParams("DEPOSIT"), new FramedPaging(startTime, endTime, page, limit)',
+        },
+    ]}
+/>
