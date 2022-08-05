@@ -11,6 +11,7 @@ import com.binance4j.margin.dto.Asset;
 import com.binance4j.margin.dto.BNBBurnStatus;
 import com.binance4j.margin.dto.CrossFee;
 import com.binance4j.margin.dto.CrossSymbol;
+import com.binance4j.margin.dto.DustLogRecord;
 import com.binance4j.margin.dto.ForceLiquidationRecords;
 import com.binance4j.margin.dto.InterestHistory;
 import com.binance4j.margin.dto.InterestRate;
@@ -26,6 +27,7 @@ import com.binance4j.margin.dto.MaxTransferable;
 import com.binance4j.margin.dto.NewOCOOrderRecord;
 import com.binance4j.margin.dto.NewOrderRecord;
 import com.binance4j.margin.dto.OCOOrderRecord;
+import com.binance4j.margin.dto.OrderRateLimit;
 import com.binance4j.margin.dto.PriceIndex;
 import com.binance4j.margin.dto.RepayRecords;
 import com.binance4j.margin.dto.ToogleAccountResponse;
@@ -252,7 +254,7 @@ public interface MarginMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "myTrades")
-	Call<List<Trade>> getMyTrades(@QueryMap Map<String, Object> map);
+	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map The query map.
@@ -381,4 +383,20 @@ public interface MarginMapping extends RestMapping {
 	@Headers(SIGNED_H)
 	@GET(BASE + "isolatedMarginTier")
 	Call<List<IsolatedTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
+
+	/**
+	 * @param map The query map.
+	 * @return The generated Retrofit call.
+	 */
+	@Headers(SIGNED_H)
+	@GET(BASE + "rateLimit/order")
+	Call<List<OrderRateLimit>> getRateLimit(@QueryMap Map<String, Object> map);
+
+	/**
+	 * @param map The query map.
+	 * @return The generated Retrofit call.
+	 */
+	@Headers(SIGNED_H)
+	@GET(BASE + "dribblet")
+	Call<DustLogRecord> getDustLog(@QueryMap Map<String, Object> map);
 }
