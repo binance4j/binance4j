@@ -33,16 +33,16 @@ const blvt: Repo = {
     artifactId: "binance4j-blvt",
     title: "BLVT",
     javadoc: javadocBase + "binance4j-blvt/",
-    description: "Connect to the BLVT endpoints",
+    description: "Manage Binance Leveraged Tokens",
     icon: imgBase + "blvt.svg",
 };
 
 const portFolio: Repo = {
-    name: "blvt",
+    name: "portfolio-margin",
     artifactId: "binance4j-portfolio-margin",
-    title: "BLVT",
+    title: "Portfolio margin",
     javadoc: javadocBase + "binance4j-portfolio-margin/",
-    description: "Connect to the portfolio margin endpoints",
+    description: "Manage your portfolio margin account",
     icon: imgBase + "portfolio-margin.svg",
 };
 
@@ -51,7 +51,7 @@ const c2c: Repo = {
     artifactId: "binance4j-c2c",
     title: "C2C",
     javadoc: javadocBase + "binance4j-c2c/",
-    description: "Connect to the C2C endpoints",
+    description: "Get c2c trade history",
     icon: imgBase + "c2c.svg",
 };
 
@@ -67,7 +67,7 @@ const convert: Repo = {
 const connectors: Repo = {
     name: "connectors",
     artifactId: "binance4j-connectors",
-    title: "Convert",
+    title: "Connectors",
     javadoc: javadocBase + "binance4j-connectors/",
     description: "All REST clients in one place",
     icon: imgBase + "connectors.svg",
@@ -78,7 +78,7 @@ const fiat: Repo = {
     artifactId: "binance4j-fiat",
     title: "Fiat",
     javadoc: javadocBase + "binance4j-fiat/",
-    description: "Connect to the fiat endpoints",
+    description: "Retrieve fiat transactions",
     icon: imgBase + "fiat.svg",
 };
 
@@ -87,7 +87,7 @@ const loan: Repo = {
     artifactId: "binance4j-loan",
     title: "Loan",
     javadoc: javadocBase + "binance4j-loan/",
-    description: "Connect to the loan endpoints",
+    description: "Get crypto loans income history",
     icon: imgBase + "loan.svg",
 };
 
@@ -96,7 +96,7 @@ const mining: Repo = {
     artifactId: "binance4j-mining",
     title: "Mining",
     javadoc: javadocBase + "binance4j-mining/",
-    description: "Connect to the mining endpoints",
+    description: "Get workers/earnings data and manage hashrate resales",
     icon: imgBase + "mining.svg",
 };
 
@@ -105,7 +105,7 @@ const pay: Repo = {
     artifactId: "binance4j-pay",
     title: "Pay",
     javadoc: javadocBase + "binance4j-pay/",
-    description: "Connect to the pay endpoints",
+    description: "Get pay trade history",
     icon: imgBase + "pay.svg",
 };
 
@@ -114,7 +114,7 @@ const wallet: Repo = {
     artifactId: "binance4j-wallet",
     title: "Wallet",
     javadoc: javadocBase + "binance4j-wallet/",
-    description: "Connect to the Wallet endpoints",
+    description: "Retrieve your assets balance and transaction records",
     icon: imgBase + "wallet.svg",
 };
 
@@ -123,8 +123,17 @@ const market: Repo = {
     artifactId: "binance4j-market",
     title: "Market",
     javadoc: javadocBase + "binance4j-market/",
-    description: "Connect to the Market endpoints",
+    description: "Get infos about the crypto Market",
     icon: imgBase + "market.svg",
+};
+
+const margin: Repo = {
+    name: "margin",
+    artifactId: "binance4j-margin",
+    title: "Margin",
+    javadoc: javadocBase + "binance4j-margin/",
+    description: "Borrow tokens and multiply your investment thanks to leverage effect",
+    icon: imgBase + "margin.svg",
 };
 
 const rebate: Repo = {
@@ -132,7 +141,7 @@ const rebate: Repo = {
     artifactId: "binance4j-rebate",
     title: "Rebate",
     javadoc: javadocBase + "binance4j-rebate/",
-    description: "Connect to the rebate endpoints",
+    description: "Get Spot rebate history records",
     icon: imgBase + "rebate.svg",
 };
 
@@ -141,7 +150,7 @@ const spot: Repo = {
     artifactId: "binance4j-spot",
     title: "Spot",
     javadoc: javadocBase + "binance4j-spot/",
-    description: "Connect to the SPOT endpoints",
+    description: "Trade on the SPOT market",
     icon: imgBase + "dollar.svg",
 };
 
@@ -150,7 +159,7 @@ const websocket: Repo = {
     artifactId: "binance4j-websocket",
     title: "Websocket",
     javadoc: javadocBase + "binance4j-websocket/",
-    description: "Connect to the Websocket endpoints",
+    description: "Get real-time data about the market",
     icon: imgBase + "websocket.svg",
 };
 
@@ -159,16 +168,16 @@ const vision: Repo = {
     artifactId: "binance4j-vision",
     title: "Vision",
     javadoc: javadocBase + "binance4j-vision/",
-    description: "Connect to the Public Data endpoints",
+    description: "Get historical market data",
     icon: imgBase + "eye.svg",
 };
 
 const staking: Repo = {
     name: "staking",
     artifactId: "binance4j-staking",
-    title: "Strategy",
+    title: "Staking",
     javadoc: javadocBase + "binance4j-staking/",
-    description: "Connect to the staking endpoints",
+    description: "Interact with staking products",
     icon: imgBase + "staking.svg",
 };
 
@@ -186,16 +195,16 @@ const nft: Repo = {
     artifactId: "binance4j-nft",
     title: "NFT",
     javadoc: javadocBase + "binance4j-nft/",
-    description: "Connect to the NFT endpoints",
+    description: "Get NFT transaction records",
     icon: imgBase + "nft.svg",
 };
 
 const savings: Repo = {
     name: "savings",
     artifactId: "binance4j-savings",
-    title: "NFT",
+    title: "Savings",
     javadoc: javadocBase + "binance4j-savings/",
-    description: "Connect to the savings endpoints",
+    description: "Interact with Binance savings products",
     icon: imgBase + "savings.svg",
 };
 
@@ -238,26 +247,27 @@ const binance4j: Binance4JData = {
     baseUrl: "https://github.com/binance4j/",
     groupId: "com.binance4j",
     repos: {
+        strategy,
+        websocket,
+        wallet,
+        market,
+        spot,
+        margin,
+        mining,
         blvt,
-        connectors,
         c2c,
         convert,
         fiat,
         loan,
-        mining,
         pay,
         portFolio,
         rebate,
         staking,
-        core,
-        wallet,
-        market,
-        spot,
         nft,
-        websocket,
         vision,
         savings,
-        strategy,
+        connectors,
+        core,
         //strategies,
     },
     managersList,
