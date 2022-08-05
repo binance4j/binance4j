@@ -232,6 +232,7 @@
         >
         >
         >
+        >
         <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression" value="16" />
         <setting id="org.eclipse.jdt.core.formatter.wrap_before_assertion_message_operator" value="true" />
         <setting id="org.eclipse.jdt.core.formatter.insert_space_before_additive_operator" value="insert" />
