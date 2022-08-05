@@ -4,144 +4,64 @@ import org.ta4j.core.BarSeries;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.strategy.dto.SymbolBar;
-import com.binance4j.websocket.callback.GenericCallback;
 import com.binance4j.websocket.callback.WebsocketCloseObject;
 
 import okhttp3.Response;
 
-/** Strategy Callback to handle stream events */
-public class StrategyCallback {
-	/** The callback to trigger when receiving a message from the websocket. */
-	private GenericCallback<SymbolBar> onMessageConsumer = (SymbolBar bar) -> {
-	};
-	/** The callback to trigger when the strategy sends a BUY signal. */
-	private GenericCallback<BarSeries> onEnterConsumer = (BarSeries series) -> {
-	};
-	/** The callback to trigger when the strategy sends a SELL signal. */
-	private GenericCallback<BarSeries> onExitConsumer = (BarSeries series) -> {
-	};
-	/** The callback to trigger when the stream opens. */
-	private GenericCallback<Response> onOpenConsumer = (Response response) -> {
-	};
-	/** The callback to trigger when the stream is closing. */
-	private GenericCallback<WebsocketCloseObject> onClosingConsumer = (WebsocketCloseObject closeObject) -> {
-	};
-	/** The callback to trigger when the stream is closed. */
-	private GenericCallback<WebsocketCloseObject> onClosedConsumer = (WebsocketCloseObject closeObject) -> {
-	};
-	/** The callback to trigger when the connection fails. */
-	private GenericCallback<ApiException> onFailureConsumer = (ApiException response) -> {
-	};
+/** Strategy and stream handler. */
+public interface StrategyCallback {
 
 	/**
-	 * Defines the callback to trigger when receiving a message from the websocket
-	 *
-	 * @param callback The event callback.
+	 * Triggered when the strategy sends a BUY message.
+	 * 
+	 * @param series The bar series we are working on.
 	 */
-	public void onMessage(GenericCallback<SymbolBar> callback) {
-		this.onMessageConsumer = callback;
+	public void onEnter(BarSeries series);
+
+	/**
+	 * Triggered when the strategy sends a SELL message.
+	 * 
+	 * @param series The bar series we are working on.
+	 */
+	public void onExit(BarSeries series);
+
+	/**
+	 * Triggered when receiving a bar.
+	 * 
+	 * @param symbolBar Last ohlcv bar.
+	 */
+	default void onMessage(SymbolBar symbolBar) {
 	}
 
 	/**
-	 * Defines the callback to trigger when the strategy sends a BUY signal
-	 *
-	 * @param callback The event callback.
+	 * Triggered when stream is open.
+	 * 
+	 * @param response The opening response.
 	 */
-	public void onEnter(GenericCallback<BarSeries> callback) {
-		this.onEnterConsumer = callback;
+	default void onOpen(Response response) {
 	}
 
 	/**
-	 * Defines the callback to trigger when the strategy sends a SELL signal
-	 *
-	 * @param callback The event callback.
+	 * Triggered when stream is closing.
+	 * 
+	 * @param closeObject close object.
 	 */
-	public void onExit(GenericCallback<BarSeries> callback) {
-		this.onExitConsumer = callback;
+	default void onClosing(WebsocketCloseObject closeObject) {
 	}
 
 	/**
-	 * Defines the callback to trigger when the stream opens
-	 *
-	 * @param callback The event callback.
+	 * Triggered when stream is closed.
+	 * 
+	 * @param closeObject close object.
 	 */
-	public void onOpen(GenericCallback<Response> callback) {
-		this.onOpenConsumer = callback;
+	default void onClosed(WebsocketCloseObject closeObject) {
 	}
 
 	/**
-	 * Defines the callback to trigger when the stream is closing
-	 *
-	 * @param callback The event callback.
+	 * Something went wrong.
+	 * 
+	 * @param apiException Thrown exception.
 	 */
-	public void onClosing(GenericCallback<WebsocketCloseObject> callback) {
-		this.onClosingConsumer = callback;
-	}
-
-	/**
-	 * Defines the callback to trigger when the stream is closed
-	 *
-	 * @param callback The event callback.
-	 */
-	public void onClosed(GenericCallback<WebsocketCloseObject> callback) {
-		this.onClosedConsumer = callback;
-	}
-
-	/**
-	 * Defines the callback to trigger when the stream fails
-	 *
-	 * @param callback The event callback.
-	 */
-	public void onFailure(GenericCallback<ApiException> callback) {
-		this.onFailureConsumer = callback;
-	}
-
-	/**
-	 * @return the onMessageConsumer
-	 */
-	public GenericCallback<SymbolBar> getOnMessageConsumer() {
-		return onMessageConsumer;
-	}
-
-	/**
-	 * @return the onEnterConsumer
-	 */
-	public GenericCallback<BarSeries> getOnEnterConsumer() {
-		return onEnterConsumer;
-	}
-
-	/**
-	 * @return the onExitConsumer
-	 */
-	public GenericCallback<BarSeries> getOnExitConsumer() {
-		return onExitConsumer;
-	}
-
-	/**
-	 * @return the onOpenConsumer
-	 */
-	public GenericCallback<Response> getOnOpenConsumer() {
-		return onOpenConsumer;
-	}
-
-	/**
-	 * @return the onClosingConsumer
-	 */
-	public GenericCallback<WebsocketCloseObject> getOnClosingConsumer() {
-		return onClosingConsumer;
-	}
-
-	/**
-	 * @return the onClosedConsumer
-	 */
-	public GenericCallback<WebsocketCloseObject> getOnClosedConsumer() {
-		return onClosedConsumer;
-	}
-
-	/**
-	 * @return the onFailureConsumer
-	 */
-	public GenericCallback<ApiException> getOnFailureConsumer() {
-		return onFailureConsumer;
+	default void onFailure(ApiException apiException) {
 	}
 }

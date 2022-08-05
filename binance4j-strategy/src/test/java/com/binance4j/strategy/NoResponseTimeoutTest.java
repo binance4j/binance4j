@@ -1,65 +1,26 @@
 package com.binance4j.strategy;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.LiveTradingCallback;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
 import com.binance4j.strategy.strategies.AlwaysEnterStrategy;
 
 class NoResponseTimeoutTest extends CustomTest {
-	int count;
-	final StrategyCallback callback;
-	CompletableFuture<Boolean> future;
-	AlwaysEnterStrategy strategy;
-	WatchService service;
-	long startTime;
-
-	NoResponseTimeoutTest() {
-		callback = new StrategyCallback();
-		callback.onOpen(t -> {
-			startTime = System.currentTimeMillis();
-		});
-		callback.onClosed(t -> {
-			assertNotNull(t);
-			future.complete(true);
-		});
-		callback.onFailure(t -> {
-			assertNotNull(t);
-			service.unwatch();
-			future.complete(true);
-		});
-		callback.onEnter(t -> {
-			assertNotNull(t);
-			service.unwatch();
-		});
-		callback.onExit(t -> {
-			assertNotNull(t);
-			service.unwatch();
-		});
-
-		callback.onMessage(Assertions::assertNotNull);
-	}
-
-	@BeforeEach
-	void beforeEach() {
-		count = 0;
-		future = new CompletableFuture<>();
-		strategy = new AlwaysEnterStrategy();
-		service = new WatchService(strategy, callback);
-	}
 
 	@Test
 	void test() throws InterruptedException, ExecutionException {
+		CompletableFuture<Void> future = new CompletableFuture<>();
+		AlwaysEnterStrategy strategy = new AlwaysEnterStrategy();
+		var callback = new LiveTradingCallback(future, this);
+		WatchService service = new WatchService(strategy, callback);
+		callback.setService(service);
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE);
-		assertTrue(future.get());
+		future.get();
 	}
 }

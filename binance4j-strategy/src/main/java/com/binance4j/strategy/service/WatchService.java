@@ -82,7 +82,7 @@ public class WatchService {
 			public void onMessage(Candle response) {
 				// let's convert the bar and give it the symbol name
 				Bar bar = BarService.convert(response, duration, zoneId);
-				callback.getOnMessageConsumer().call(new SymbolBar(bar, response.isBarFinal(), response.symbol()));
+				callback.onMessage(new SymbolBar(bar, response.isBarFinal(), response.symbol()));
 				// we determinate what method to call according to the strategy
 				if (response.isBarFinal()) {
 					BarSeries series = barSeries.get(response.symbol());
@@ -91,31 +91,31 @@ public class WatchService {
 					// we add the bar to the series
 					Strategy strategy = StrategyBuilder.build(tradingStrategy, series);
 					if (strategy.shouldEnter(lastIndex)) {
-						callback.getOnEnterConsumer().call(series);
+						callback.onEnter(series);
 					} else if (strategy.shouldExit(lastIndex)) {
-						callback.getOnExitConsumer().call(series);
+						callback.onExit(series);
 					}
 				}
 			}
 
 			@Override
 			public void onOpen(Response response) {
-				callback.getOnOpenConsumer().call(response);
+				callback.onOpen(response);
 			}
 
 			@Override
 			public void onClosed(WebsocketCloseObject websocketCloseObject) {
-				callback.getOnClosedConsumer().call(websocketCloseObject);
+				callback.onClosed(websocketCloseObject);
 			}
 
 			@Override
 			public void onClosing(WebsocketCloseObject websocketCloseObject) {
-				callback.getOnClosingConsumer().call(websocketCloseObject);
+				callback.onClosing(websocketCloseObject);
 			}
 
 			@Override
 			public void onFailure(ApiException exception) {
-				callback.getOnFailureConsumer().call(exception);
+				callback.onFailure(exception);
 			}
 		});
 		wsClient.setConfiguration(configuration);
