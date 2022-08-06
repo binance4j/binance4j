@@ -2,6 +2,9 @@ package com.binance4j.savings.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Lending account.
  * 
@@ -13,6 +16,8 @@ import java.util.List;
  * @param totalFlexibleInBTC     Total flexible in btc.
  * @param totalFlexibleInUSDT    Total flexible in usdt.
  */
-public record LendingAccount(List<PositionAmount> positionAmountVos, String totalAmountInBTC, String totalAmountInUSDT, String totalFixedAmountInBTC,
-		String totalFixedAmountInUSDT, String totalFlexibleInBTC, String totalFlexibleInUSDT) {
+@ApiModel("")
+public record LendingAccount(@ApiModelProperty("") List<PositionAmount> positionAmountVos, @ApiModelProperty("") String totalAmountInBTC,
+		@ApiModelProperty("") String totalAmountInUSDT, @ApiModelProperty("") String totalFixedAmountInBTC, @ApiModelProperty("") String totalFixedAmountInUSDT,
+		@ApiModelProperty("") String totalFlexibleInBTC, @ApiModelProperty("") String totalFlexibleInUSDT) {
 }

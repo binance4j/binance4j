@@ -2,6 +2,9 @@ package com.binance4j.vision.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The representation of a trade.
  * 
@@ -13,7 +16,9 @@ import java.util.List;
  * @param isBuyerMaker  Was it a buyer maker.
  * @param isBestMatch   Was it the best price match?
  */
-public record VisionTrade(long tradeId, long time, String price, String quantity, String quoteQuantity, boolean isBuyerMaker,
+@ApiModel("")
+public record VisionTrade(@ApiModelProperty("") long tradeId, @ApiModelProperty("") long time, @ApiModelProperty("") String price,
+		@ApiModelProperty("") String quantity, @ApiModelProperty("") String quoteQuantity, @ApiModelProperty("") boolean isBuyerMaker, @ApiModelProperty("")
 		/** Was it the best price match? */
 		boolean isBestMatch) {
 	/**

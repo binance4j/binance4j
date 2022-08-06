@@ -2,6 +2,9 @@ package com.binance4j.rebate.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Rebate data
  * 
@@ -10,5 +13,7 @@ import java.util.List;
  * @param totalPageNum The total pages.
  * @param data         The rebates.
  */
-public record RebateData(int page, int totalRecords, int totalPageNum, List<Rebate> data) {
+@ApiModel("")
+public record RebateData(@ApiModelProperty("") int page, @ApiModelProperty("") int totalRecords, @ApiModelProperty("") int totalPageNum,
+		@ApiModelProperty("") List<Rebate> data) {
 }

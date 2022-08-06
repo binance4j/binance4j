@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * * Defines the maximum number of orders an account is allowed to have open on a symbol. Note that both "algo" orders
  * and normal orders are counted for this filter.
@@ -9,10 +12,11 @@ package com.binance4j.market.dto;
  *                             orders are {@code STOP_LOSS} {@code STOP_LOSS_LIMIT} {@code TAKE_PROFIT} and
  *                             {@code TAKE_PROFIT_LIMIT} orders.
  */
-public record MaxNumAlgoOrdersFilter(
-		/**
-		 * The maximum number of "algo" orders an account is allowed to have open on a symbol. "Algo" orders are
-		 * {@code STOP_LOSS} {@code STOP_LOSS_LIMIT} {@code TAKE_PROFIT} and {@code TAKE_PROFIT_LIMIT} orders.
-		 */
-		String maxNumAlgoOrders) {
+@ApiModel("")
+public record MaxNumAlgoOrdersFilter(@ApiModelProperty("")
+/**
+ * The maximum number of "algo" orders an account is allowed to have open on a symbol. "Algo" orders are
+ * {@code STOP_LOSS} {@code STOP_LOSS_LIMIT} {@code TAKE_PROFIT} and {@code TAKE_PROFIT_LIMIT} orders.
+ */
+String maxNumAlgoOrders) {
 }

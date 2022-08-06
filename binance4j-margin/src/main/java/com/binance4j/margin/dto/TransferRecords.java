@@ -2,11 +2,15 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * A list of transfer history records
+ * A list of transfer history records.
  * 
- * @param total The total of records.
+ * @param total Total of records.
  * @param rows  The records.
  */
-public record TransferRecords(int total, List<TransferRecord> rows) {
+@ApiModel("A list of transfer history records.")
+public record TransferRecords(@ApiModelProperty("Total of records.") int total, @ApiModelProperty("The records.") List<TransferRecord> rows) {
 }

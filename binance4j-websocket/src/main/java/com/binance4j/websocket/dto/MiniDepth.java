@@ -5,6 +5,9 @@ import java.util.List;
 import com.binance4j.core.dto.OrderBookEntry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Top bids and asks.
  * 
@@ -13,5 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @param asks         Asks.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record MiniDepth(Long lastUpdateId, List<OrderBookEntry> bids, List<OrderBookEntry> asks) {
+@ApiModel("")
+public record MiniDepth(@ApiModelProperty("") Long lastUpdateId, @ApiModelProperty("") List<OrderBookEntry> bids,
+		@ApiModelProperty("") List<OrderBookEntry> asks) {
 }

@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Kline/candle for a symbol.
  * 
@@ -34,7 +37,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonFormat(shape = Shape.OBJECT)
 @JsonDeserialize(using = CandlestickEventDeserializer.class)
 @JsonSerialize(using = CandlestickEventSerializer.class)
-public record Candle(Long openTime, String open, String high, String low, String close, String volume, Long closeTime, String quoteAssetVolume,
-		Long numberOfTrades, String takerBuyBaseAssetVolume, String takerBuyQuoteAssetVolume, String eventType, Long eventTime, String symbol,
-		String intervalId, Long firstTradeId, Long lastTradeId, Boolean isBarFinal) {
+@ApiModel("")
+public record Candle(@ApiModelProperty("") Long openTime, @ApiModelProperty("") String open, @ApiModelProperty("") String high,
+		@ApiModelProperty("") String low, @ApiModelProperty("") String close, @ApiModelProperty("") String volume, @ApiModelProperty("") Long closeTime,
+		@ApiModelProperty("") String quoteAssetVolume, @ApiModelProperty("") Long numberOfTrades, @ApiModelProperty("") String takerBuyBaseAssetVolume,
+		@ApiModelProperty("") String takerBuyQuoteAssetVolume, @ApiModelProperty("") String eventType, @ApiModelProperty("") Long eventTime,
+		@ApiModelProperty("") String symbol, @ApiModelProperty("") String intervalId, @ApiModelProperty("") Long firstTradeId,
+		@ApiModelProperty("") Long lastTradeId, @ApiModelProperty("") Boolean isBarFinal) {
 }

@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Details about an asset dust trasnfer (convertion into BNB).
  * 
@@ -10,5 +13,7 @@ package com.binance4j.wallet.dto;
  * @param tranId              The transaction id.
  * @param transferedAmount    The transfered amount after fees.
  */
-public record DustTransferResult(String amount, String fromAsset, long operateTime, String serviceChargeAmount, long tranId, String transferedAmount) {
+@ApiModel("")
+public record DustTransferResult(@ApiModelProperty("") String amount, @ApiModelProperty("") String fromAsset, @ApiModelProperty("") long operateTime,
+		@ApiModelProperty("") String serviceChargeAmount, @ApiModelProperty("") long tranId, @ApiModelProperty("") String transferedAmount) {
 }

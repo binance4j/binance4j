@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Account statistics
  * 
@@ -7,5 +10,6 @@ package com.binance4j.mining.dto;
  * @param hashrate Hashrate.
  * @param reject   Reject rate.
  */
-public record AccountList(long time, String hashrate, String reject) {
+@ApiModel("")
+public record AccountList(@ApiModelProperty("") long time, @ApiModelProperty("") String hashrate, @ApiModelProperty("") String reject) {
 }

@@ -4,6 +4,9 @@ import com.binance4j.websocket.serialization.UserDataUpdateEventDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * User data update event:
  * <ul>
@@ -20,6 +23,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
-public record UserDataUpdate(UserDataUpdateType eventType, Long eventTime, AccountUpdate outboundAccountPositionUpdateEvent, BalanceUpdate balanceUpdateEvent,
-		OrderTradeUpdate orderTradeUpdateEvent) {
+@ApiModel("")
+public record UserDataUpdate(@ApiModelProperty("") UserDataUpdateType eventType, @ApiModelProperty("") Long eventTime,
+		@ApiModelProperty("") AccountUpdate outboundAccountPositionUpdateEvent, @ApiModelProperty("") BalanceUpdate balanceUpdateEvent,
+		@ApiModelProperty("") OrderTradeUpdate orderTradeUpdateEvent) {
 }

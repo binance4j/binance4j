@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Represents an executed trade history item.
  * 
@@ -11,5 +14,7 @@ package com.binance4j.market.dto;
  * @param isBuyerMaker Is the trade a buyer maker trade.
  * @param isBestMatch  Was the trade the best price match?
  */
-public record Trade(long id, String price, String qty, String quoteQty, long time, boolean isBuyerMaker, boolean isBestMatch) {
+@ApiModel("")
+public record Trade(@ApiModelProperty("") long id, @ApiModelProperty("") String price, @ApiModelProperty("") String qty, @ApiModelProperty("") String quoteQty,
+		@ApiModelProperty("") long time, @ApiModelProperty("") boolean isBuyerMaker, @ApiModelProperty("") boolean isBestMatch) {
 }

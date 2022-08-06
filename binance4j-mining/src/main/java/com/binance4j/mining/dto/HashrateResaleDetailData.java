@@ -2,6 +2,9 @@ package com.binance4j.mining.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Hashrate detail data.
  * 
@@ -9,5 +12,7 @@ import java.util.List;
  * @param totalNum              Total amount.
  * @param pageSize              Rows per page.
  */
-public record HashrateResaleDetailData(List<HashrateResaleDetail> profitTransferDetails, long totalNum, long pageSize) {
+@ApiModel("")
+public record HashrateResaleDetailData(@ApiModelProperty("") List<HashrateResaleDetail> profitTransferDetails, @ApiModelProperty("") long totalNum,
+		@ApiModelProperty("") long pageSize) {
 }

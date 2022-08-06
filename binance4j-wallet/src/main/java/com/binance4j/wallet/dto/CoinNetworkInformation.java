@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The coin network informations.
  * 
@@ -26,8 +29,13 @@ package com.binance4j.wallet.dto;
  * @param withdrawEnable          If withdraw is enabled.
  * @param sameAddress             If the coin needs to provide memo to withdraw.
  */
-public record CoinNetworkInformation(String addressRegex, String addressRule, String coin, String depositDesc, String withdrawDesc, String name,
-		String memoRegex, String network, String specialTips, String specialWithdrawTips, String depositDust, String withdrawFee,
-		String withdrawIntegerMultiple, String withdrawMax, String withdrawMin, int minConfirm, int unLockConfirm, boolean depositEnable, boolean isDefault,
-		boolean resetAddressStatus, boolean withdrawEnable, boolean sameAddress) {
+@ApiModel("")
+public record CoinNetworkInformation(@ApiModelProperty("") String addressRegex, @ApiModelProperty("") String addressRule, @ApiModelProperty("") String coin,
+		@ApiModelProperty("") String depositDesc, @ApiModelProperty("") String withdrawDesc, @ApiModelProperty("") String name,
+		@ApiModelProperty("") String memoRegex, @ApiModelProperty("") String network, @ApiModelProperty("") String specialTips,
+		@ApiModelProperty("") String specialWithdrawTips, @ApiModelProperty("") String depositDust, @ApiModelProperty("") String withdrawFee,
+		@ApiModelProperty("") String withdrawIntegerMultiple, @ApiModelProperty("") String withdrawMax, @ApiModelProperty("") String withdrawMin,
+		@ApiModelProperty("") int minConfirm, @ApiModelProperty("") int unLockConfirm, @ApiModelProperty("") boolean depositEnable,
+		@ApiModelProperty("") boolean isDefault, @ApiModelProperty("") boolean resetAddressStatus, @ApiModelProperty("") boolean withdrawEnable,
+		@ApiModelProperty("") boolean sameAddress) {
 }

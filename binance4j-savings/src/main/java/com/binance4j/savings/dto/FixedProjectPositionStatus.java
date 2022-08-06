@@ -1,9 +1,11 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /** Project status. */
 public enum FixedProjectPositionStatus {
 	/** Holding. */
-	HOLDING,
+	HOLDING, @ApiModelProperty("")
 	/** Redeemed. */
 	REDEEMED
 }

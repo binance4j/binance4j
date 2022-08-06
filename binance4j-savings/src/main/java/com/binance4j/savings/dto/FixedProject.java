@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Fixed or activity project.
  * 
@@ -20,7 +23,11 @@ package com.binance4j.savings.dto;
  * @param type               Type.
  * @param withAreaLimitation With area limitation.
  */
-public record FixedProject(String asset, long displayPriority, long duration, String interestPerLot, String interestRate, String lotSize, long lotsLowLimit,
-		long lotsPurchased, long lotsUpLimit, long maxLotsPerUser, boolean needKyc, String projectId, String projectName, String status, String type,
-		boolean withAreaLimitation) {
+@ApiModel("")
+public record FixedProject(@ApiModelProperty("") String asset, @ApiModelProperty("") long displayPriority, @ApiModelProperty("") long duration,
+		@ApiModelProperty("") String interestPerLot, @ApiModelProperty("") String interestRate, @ApiModelProperty("") String lotSize,
+		@ApiModelProperty("") long lotsLowLimit, @ApiModelProperty("") long lotsPurchased, @ApiModelProperty("") long lotsUpLimit,
+		@ApiModelProperty("") long maxLotsPerUser, @ApiModelProperty("") boolean needKyc, @ApiModelProperty("") String projectId,
+		@ApiModelProperty("") String projectName, @ApiModelProperty("") String status, @ApiModelProperty("") String type,
+		@ApiModelProperty("") boolean withAreaLimitation) {
 }

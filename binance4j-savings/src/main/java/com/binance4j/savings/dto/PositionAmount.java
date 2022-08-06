@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Position Amount.
  * 
@@ -8,5 +11,7 @@ package com.binance4j.savings.dto;
  * @param amountInUSDT Amount in USDT.
  * @param asset        Asset.
  */
-public record PositionAmount(String amount, String amountInBTC, String amountInUSDT, String asset) {
+@ApiModel("")
+public record PositionAmount(@ApiModelProperty("") String amount, @ApiModelProperty("") String amountInBTC, @ApiModelProperty("") String amountInUSDT,
+		@ApiModelProperty("") String asset) {
 }

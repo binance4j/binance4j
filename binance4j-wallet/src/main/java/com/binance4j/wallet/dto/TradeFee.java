@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A trading pair trade fees.
  * 
@@ -7,5 +10,6 @@ package com.binance4j.wallet.dto;
  * @param makerCommission The maker fees (limit order).
  * @param takerCommission The taker fees (market order).
  */
-public record TradeFee(String symbol, String makerCommission, String takerCommission) {
+@ApiModel("")
+public record TradeFee(@ApiModelProperty("") String symbol, @ApiModelProperty("") String makerCommission, @ApiModelProperty("") String takerCommission) {
 }

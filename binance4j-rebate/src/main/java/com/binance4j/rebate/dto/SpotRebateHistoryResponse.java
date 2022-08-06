@@ -2,6 +2,9 @@ package com.binance4j.rebate.dto;
 
 import com.binance4j.rebate.client.RebateClient;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * {@link RebateClient#getSpotRebateHistoryRecords} response.
  * 
@@ -10,5 +13,7 @@ import com.binance4j.rebate.client.RebateClient;
  * @param code   The code.
  * @param data   The data.
  */
-public record SpotRebateHistoryResponse(String status, String type, String code, RebateData data) {
+@ApiModel("")
+public record SpotRebateHistoryResponse(@ApiModelProperty("") String status, @ApiModelProperty("") String type, @ApiModelProperty("") String code,
+		@ApiModelProperty("") RebateData data) {
 }

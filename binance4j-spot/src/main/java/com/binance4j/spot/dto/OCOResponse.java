@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.binance4j.core.dto.MiniOrderInfo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The response of an OCO order.
  * 
@@ -18,6 +21,9 @@ import com.binance4j.core.dto.MiniOrderInfo;
  * @param isIsolated        is it an isolated trade?
  * @param orderReports      The order reports.
  */
-public record OCOResponse(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId,
-		long transactionTime, String symbol, List<MiniOrderInfo> orders, boolean isIsolated, List<OCOOrderReport> orderReports) {
+@ApiModel("")
+public record OCOResponse(@ApiModelProperty("") long orderListId, @ApiModelProperty("") String contingencyType, @ApiModelProperty("") String listStatusType,
+		@ApiModelProperty("") String listOrderStatus, @ApiModelProperty("") String listClientOrderId, @ApiModelProperty("") long transactionTime,
+		@ApiModelProperty("") String symbol, @ApiModelProperty("") List<MiniOrderInfo> orders, @ApiModelProperty("") boolean isIsolated,
+		@ApiModelProperty("") List<OCOOrderReport> orderReports) {
 }

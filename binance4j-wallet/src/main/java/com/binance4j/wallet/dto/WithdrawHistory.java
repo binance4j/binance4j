@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The withdraw history.
  * 
@@ -11,12 +14,16 @@ package com.binance4j.wallet.dto;
  * @param network         The network to withdraw on.
  * @param info            The reason for withdrawal failure.
  * @param txId            The transaction id.
- * @param transferType    1 for internal transfer, 0 for external transfer.
- * @param status          (0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)
+ * @param transferType    1 for internal transfer,@ApiModelProperty("") 0 for external transfer.
+ * @param status          (0:Email Sent,@ApiModelProperty("")1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing
+ *                            5:Failure 6:Completed)
  * @param confirmNo       Confirm times for withdraw.
  * @param amount          The withdrawn colume.
  * @param transactionFee  The withdraw fees.
  */
-public record WithdrawHistory(String address, String applyTime, String coin, String id, String withdrawOrderId, String network, String info, String txId,
-		int transferType, int status, int confirmNo, String amount, String transactionFee) {
+@ApiModel("")
+public record WithdrawHistory(@ApiModelProperty("") String address, @ApiModelProperty("") String applyTime, @ApiModelProperty("") String coin,
+		@ApiModelProperty("") String id, @ApiModelProperty("") String withdrawOrderId, @ApiModelProperty("") String network, @ApiModelProperty("") String info,
+		@ApiModelProperty("") String txId, @ApiModelProperty("") int transferType, @ApiModelProperty("") int status, @ApiModelProperty("") int confirmNo,
+		@ApiModelProperty("") String amount, @ApiModelProperty("") String transactionFee) {
 }

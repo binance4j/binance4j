@@ -1,5 +1,8 @@
 package com.binance4j.spot.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * OCO order report.
  * 
@@ -18,6 +21,10 @@ package com.binance4j.spot.dto;
  * @param side                Side.
  * @param stopPrice           StopPrice.
  */
-public record OCOOrderReport(String symbol, long orderId, long orderListId, String clientOrderId, long transactTime, String price, String origQty,
-		String executedQty, String cummulativeQuoteQty, String status, String timeInForce, String type, String side, String stopPrice) {
+@ApiModel("")
+public record OCOOrderReport(@ApiModelProperty("") String symbol, @ApiModelProperty("") long orderId, @ApiModelProperty("") long orderListId,
+		@ApiModelProperty("") String clientOrderId, @ApiModelProperty("") long transactTime, @ApiModelProperty("") String price,
+		@ApiModelProperty("") String origQty, @ApiModelProperty("") String executedQty, @ApiModelProperty("") String cummulativeQuoteQty,
+		@ApiModelProperty("") String status, @ApiModelProperty("") String timeInForce, @ApiModelProperty("") String type, @ApiModelProperty("") String side,
+		@ApiModelProperty("") String stopPrice) {
 }

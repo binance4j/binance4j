@@ -1,5 +1,8 @@
 package com.binance4j.fiat.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A fiat transaction.
  * 
@@ -13,6 +16,9 @@ package com.binance4j.fiat.dto;
  * @param createTime      Create time in ms.
  * @param updateTime      Update time in ms.
  */
-public record Transaction(String orderNo, String fiatCurrency, String indicatedAmount, String amount, String totalFee, String method, String status,
-		long createTime, long updateTime) {
+@ApiModel("A fiat transaction.")
+public record Transaction(@ApiModelProperty("Order No.") String orderNo, @ApiModelProperty("Fiat currency.") String fiatCurrency,
+		@ApiModelProperty("Indicated amount.") String indicatedAmount, @ApiModelProperty("Amount.") String amount,
+		@ApiModelProperty("Total fee.") String totalFee, @ApiModelProperty("Method.") String method, @ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Create time in ms.") long createTime, @ApiModelProperty("Update time in ms.") long updateTime) {
 }

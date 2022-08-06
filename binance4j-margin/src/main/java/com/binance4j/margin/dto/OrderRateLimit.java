@@ -1,14 +1,19 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * margin Order rate limit
+ * Margin Order rate limit.
  * 
- * @param rateLimitType
- * @param interval
- * @param intervalNum
- * @param limit
- * @param count
+ * @param rateLimitType Rate limit type.
+ * @param interval      Interval.
+ * @param intervalNum   Interval num.
+ * @param limit         Limit.
+ * @param count         Count.
  */
-public record OrderRateLimit(String rateLimitType, String interval, int intervalNum, int limit, int count) {
+@ApiModel("Margin Order rate limit.")
+public record OrderRateLimit(@ApiModelProperty("Rate limit type.") String rateLimitType, @ApiModelProperty("Interval.") String interval,
+		@ApiModelProperty("Interval num.") int intervalNum, @ApiModelProperty("Limit.") int limit, @ApiModelProperty("Count.") int count) {
 
 }

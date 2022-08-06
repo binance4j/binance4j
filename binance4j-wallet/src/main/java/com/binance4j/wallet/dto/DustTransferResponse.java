@@ -2,6 +2,9 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The dust transfer (asset to BNB) response.
  * 
@@ -9,5 +12,7 @@ import java.util.List;
  * @param totalTransfered    The volume converted into BNB after fees.
  * @param transferResult     Detailed transfer result asset by asset.
  */
-public record DustTransferResponse(String totalServiceCharge, String totalTransfered, List<DustTransferResult> transferResult) {
+@ApiModel("")
+public record DustTransferResponse(@ApiModelProperty("") String totalServiceCharge, @ApiModelProperty("") String totalTransfered,
+		@ApiModelProperty("") List<DustTransferResult> transferResult) {
 }

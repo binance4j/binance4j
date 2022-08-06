@@ -4,6 +4,8 @@ import com.binance4j.core.dto.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * Order or trade report update event.
  * <p>
@@ -36,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see UserDataUpdate
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@ApiModel("")
 public record OrderTradeUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
 		@JsonProperty("c") String newClientOrderId, @JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce,
 		@JsonProperty("q") String originalQuantity, @JsonProperty("p") String price, @JsonProperty("x") String executionType,

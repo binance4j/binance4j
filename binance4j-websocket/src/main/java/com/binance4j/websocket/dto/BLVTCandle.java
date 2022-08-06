@@ -4,6 +4,9 @@ import com.binance4j.core.dto.CandlestickInterval;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Net asset value candle.
  * 
@@ -21,8 +24,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param updateNumbers Number of updates.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record BLVTCandle(@JsonProperty("t") long startTime, @JsonProperty("T") long endTime, @JsonProperty("s") String name,
-		@JsonProperty("i") CandlestickInterval interval, @JsonProperty("f") long firstUpdate, @JsonProperty("L") long lastUpdate,
-		@JsonProperty("o") String open, @JsonProperty("c") String close, @JsonProperty("h") String high, @JsonProperty("l") String low,
-		@JsonProperty("v") String realLeverage, @JsonProperty("n") long updateNumbers) {
+@ApiModel("")
+public record BLVTCandle(@JsonProperty("t")long startTime,@ApiModelProperty("")@JsonProperty("T")long endTime,@ApiModelProperty("")
+@JsonProperty(@ApiModelProperty("")"s") String name,
+@ApiModelProperty("")
+@JsonProperty("i")
+CandlestickInterval interval,
+@ApiModelProperty("")
+@JsonProperty("f")
+long firstUpdate,
+@ApiModelProperty("")
+@JsonProperty("L")
+long lastUpdate,
+@ApiModelProperty("")
+@JsonProperty("o")
+String open,
+@ApiModelProperty("")
+@JsonProperty("c")
+String close,
+@ApiModelProperty("")
+@JsonProperty("h")
+String high,
+@ApiModelProperty("")
+@JsonProperty("l")
+String low,
+@ApiModelProperty("")
+@JsonProperty("v")
+String realLeverage,
+@ApiModelProperty("")
+@JsonProperty("n")
+long updateNumbers)
+{
 }

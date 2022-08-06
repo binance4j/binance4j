@@ -1,14 +1,20 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An isolated {@link Asset} pair.
  * 
- * @param symbol        The asset pair.
- * @param base          The base asset.
- * @param quote         The quote asset.
+ * @param symbol        Asset pair.
+ * @param base          Base asset.
+ * @param quote         Quote asset.
  * @param isMarginTrade Is margin trade allowed?
  * @param isBuyAllowed  Is purchase allowed?
  * @param isSellAllowed Is sale allowed?
  */
-public record IsolatedSymbol(String symbol, String base, String quote, boolean isMarginTrade, boolean isBuyAllowed, boolean isSellAllowed) {
+@ApiModel("An isolated asset pair.")
+public record IsolatedSymbol(@ApiModelProperty("Asset pair.") String symbol, @ApiModelProperty("Base asset.") String base,
+		@ApiModelProperty("Quote asset.") String quote, @ApiModelProperty("Is margin trade allowed?") boolean isMarginTrade,
+		@ApiModelProperty("Is purchase allowed?") boolean isBuyAllowed, @ApiModelProperty("Is sale allowed?") boolean isSellAllowed) {
 }

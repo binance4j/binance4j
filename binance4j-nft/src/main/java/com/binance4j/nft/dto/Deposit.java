@@ -1,5 +1,8 @@
 package com.binance4j.nft.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A NFT Deposit
  * 
@@ -9,5 +12,7 @@ package com.binance4j.nft.dto;
  * @param txID            Transaction ID.
  * @param timestamp       Deposit time in ms.
  */
-public record Deposit(String network, String contractAddress, String tokenId, String txID, long timestamp) {
+@ApiModel("")
+public record Deposit(@ApiModelProperty("") String network, @ApiModelProperty("") String contractAddress, @ApiModelProperty("") String tokenId,
+		@ApiModelProperty("") String txID, @ApiModelProperty("") long timestamp) {
 }

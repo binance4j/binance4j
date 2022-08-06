@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A wallet to wallet transfer.
  * 
@@ -11,5 +14,7 @@ package com.binance4j.wallet.dto;
  * @param timestamp The transfer timestamp.
  * @see WalletTransferType
  */
-public record WalletTransfer(String asset, String amount, String type, String status, long tranId, long timestamp) {
+@ApiModel("")
+public record WalletTransfer(@ApiModelProperty("") String asset, @ApiModelProperty("") String amount, @ApiModelProperty("") String type,
+		@ApiModelProperty("") String status, @ApiModelProperty("") long tranId, @ApiModelProperty("") long timestamp) {
 }

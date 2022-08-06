@@ -2,11 +2,15 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A repay record.
  * 
- * @param total The total of repays.
- * @param rows  The repays.
+ * @param total Total of repays.
+ * @param rows  Repays.
  */
-public record RepayRecords(int total, List<RepayRecord> rows) {
+@ApiModel("A repay record.")
+public record RepayRecords(@ApiModelProperty("Total of repays.") int total, @ApiModelProperty("Repays.") List<RepayRecord> rows) {
 }

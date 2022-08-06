@@ -1,5 +1,8 @@
 package com.binance4j.staking.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Staking record.
  * 
@@ -13,6 +16,8 @@ package com.binance4j.staking.dto;
  * @param type        type.
  * @param status      status.
  */
-public record StakingRecord(String positionId, String time, String asset, String project, String amount, String lockPeriod, String deliverDate, String type,
-		String status) {
+@ApiModel("")
+public record StakingRecord(@ApiModelProperty("") String positionId, @ApiModelProperty("") String time, @ApiModelProperty("") String asset,
+		@ApiModelProperty("") String project, @ApiModelProperty("") String amount, @ApiModelProperty("") String lockPeriod,
+		@ApiModelProperty("") String deliverDate, @ApiModelProperty("") String type, @ApiModelProperty("") String status) {
 }

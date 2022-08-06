@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Dust log details.
  * 
@@ -10,5 +13,8 @@ package com.binance4j.wallet.dto;
  * @param transferedAmount    The transfered amount.
  * @param fromAsset           The transfered asset.
  */
-public record UserAssetDribbletDetails(long transId, long operateTime, String serviceChargeAmount, String amount, String transferedAmount, String fromAsset) {
+@ApiModel("")
+public record UserAssetDribbletDetails(@ApiModelProperty("") long transId, @ApiModelProperty("") long operateTime,
+		@ApiModelProperty("") String serviceChargeAmount, @ApiModelProperty("") String amount, @ApiModelProperty("") String transferedAmount,
+		@ApiModelProperty("") String fromAsset) {
 }

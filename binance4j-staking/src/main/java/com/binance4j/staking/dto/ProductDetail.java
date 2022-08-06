@@ -1,5 +1,8 @@
 package com.binance4j.staking.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Staking product detail.
  * 
@@ -12,6 +15,8 @@ package com.binance4j.staking.dto;
  * @param extraRewardsAPY  Extra reward APY.
  * @param project          project.
  */
-public record ProductDetail(String asset, String rewardAsset, int duration, boolean renewable, String apy, String extraRewardAsset, String extraRewardsAPY,
-		String project) {
+@ApiModel("")
+public record ProductDetail(@ApiModelProperty("") String asset, @ApiModelProperty("") String rewardAsset, @ApiModelProperty("") int duration,
+		@ApiModelProperty("") boolean renewable, @ApiModelProperty("") String apy, @ApiModelProperty("") String extraRewardAsset,
+		@ApiModelProperty("") String extraRewardsAPY, @ApiModelProperty("") String project) {
 }

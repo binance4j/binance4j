@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Account profit.
  * 
@@ -26,5 +29,8 @@ package com.binance4j.mining.dto;
  *                           <li>2: Paid</li>
  *                           </ul>
  */
-public record Profit(long time, int type, long hashTransfer, String transferAmount, long dayHashRate, String profitAmount, String coinName, int status) {
+@ApiModel("")
+public record Profit(@ApiModelProperty("") long time, @ApiModelProperty("") int type, @ApiModelProperty("") long hashTransfer,
+		@ApiModelProperty("") String transferAmount, @ApiModelProperty("") long dayHashRate, @ApiModelProperty("") String profitAmount,
+		@ApiModelProperty("") String coinName, @ApiModelProperty("") int status) {
 }

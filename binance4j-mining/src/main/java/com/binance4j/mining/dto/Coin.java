@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A mineable coin.
  * 
@@ -9,5 +12,7 @@ package com.binance4j.mining.dto;
  * @param algoId    The algorithm id.
  * @param algoName  The name of the algorithm.
  */
-public record Coin(String coinName, long coinId, long poolIndex, long algoId, String algoName) {
+@ApiModel("")
+public record Coin(@ApiModelProperty("") String coinName, @ApiModelProperty("") long coinId, @ApiModelProperty("") long poolIndex,
+		@ApiModelProperty("") long algoId, @ApiModelProperty("") String algoName) {
 }

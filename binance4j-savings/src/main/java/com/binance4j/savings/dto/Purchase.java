@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Purchase infos.
  * 
@@ -12,5 +15,8 @@ package com.binance4j.savings.dto;
  * @param purchaseId  Purchase id.
  * @param status      Status.
  */
-public record Purchase(String amount, String asset, long createTime, String lendingType, long lot, String productName, long purchaseId, String status) {
+@ApiModel("")
+public record Purchase(@ApiModelProperty("") String amount, @ApiModelProperty("") String asset, @ApiModelProperty("") long createTime,
+		@ApiModelProperty("") String lendingType, @ApiModelProperty("") long lot, @ApiModelProperty("") String productName,
+		@ApiModelProperty("") long purchaseId, @ApiModelProperty("") String status) {
 }

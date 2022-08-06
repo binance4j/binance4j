@@ -1,5 +1,8 @@
 package com.binance4j.rebate.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A rebate
  * 
@@ -9,5 +12,7 @@ package com.binance4j.rebate.dto;
  * @param updateTime The rebate update time.
  * @see RebateType
  */
-public record Rebate(String asset, String type, String amount, long updateTime) {
+@ApiModel("")
+public record Rebate(@ApiModelProperty("") String asset, @ApiModelProperty("") String type, @ApiModelProperty("") String amount,
+		@ApiModelProperty("") long updateTime) {
 }

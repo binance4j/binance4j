@@ -1,14 +1,20 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * An asset on the platform
+ * An asset on the platform.
  * 
- * @param assetFullName  The asset full name.
- * @param assetName      The asset name.
- * @param userMinBorrow  The user minimum borrow.
- * @param userMinRepay   The user minimum repay.
+ * @param assetFullName  Asset full name.
+ * @param assetName      Asset name.
+ * @param userMinBorrow  User minimum borrow.
+ * @param userMinRepay   User minimum repay.
  * @param isBorrowable   Is it borrowable?
  * @param isMortgageable Is it mortgageable?
  */
-public record Asset(String assetFullName, String assetName, String userMinBorrow, String userMinRepay, boolean isBorrowable, boolean isMortgageable) {
+@ApiModel("An asset on the platform.")
+public record Asset(@ApiModelProperty("Asset full name.") String assetFullName, @ApiModelProperty("Asset name.") String assetName,
+		@ApiModelProperty("User minimum borrow.") String userMinBorrow, @ApiModelProperty("User minimum repay.") String userMinRepay,
+		@ApiModelProperty("Is it borrowable?") boolean isBorrowable, @ApiModelProperty("Is it mortgageable?") boolean isMortgageable) {
 }

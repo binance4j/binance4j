@@ -2,6 +2,9 @@ package com.binance4j.savings.dto;
 
 import java.util.Map;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A Flexible product.
  * 
@@ -18,7 +21,10 @@ import java.util.Map;
  * @param upLimit                Up limit.
  * @param upLimitPerUser         Up limit per user.
  */
-public record FlexibleProduct(String asset, String avgAnnualInterestRate, Map<String, String> tierAnnualInterestRate, String latestAnnualInterestRate,
-		boolean canPurchase, boolean canRedeem, boolean featured, String minPurchaseAmount, String productId, String purchasedAmount, String status,
-		String upLimit, String upLimitPerUser) {
+@ApiModel("")
+public record FlexibleProduct(@ApiModelProperty("") String asset, @ApiModelProperty("") String avgAnnualInterestRate,
+		@ApiModelProperty("") Map<String, String> tierAnnualInterestRate, @ApiModelProperty("") String latestAnnualInterestRate,
+		@ApiModelProperty("") boolean canPurchase, @ApiModelProperty("") boolean canRedeem, @ApiModelProperty("") boolean featured,
+		@ApiModelProperty("") String minPurchaseAmount, @ApiModelProperty("") String productId, @ApiModelProperty("") String purchasedAmount,
+		@ApiModelProperty("") String status, @ApiModelProperty("") String upLimit, @ApiModelProperty("") String upLimitPerUser) {
 }

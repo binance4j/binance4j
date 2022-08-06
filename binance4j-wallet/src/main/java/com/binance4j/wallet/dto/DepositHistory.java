@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A deposit history.
  * 
@@ -13,10 +16,13 @@ package com.binance4j.wallet.dto;
  * @param confirmTimes  Confirm times
  * @param status        The withdraw status code.
  * @param insertTime    confirm times for insertion (?)
- * @param transferType  The transfer type. 1 for internal transfer, 0 for external transfer.
+ * @param transferType  The transfer type. 1 for internal transfer,@ApiModelProperty("") 0 for external transfer.
  */
-public record DepositHistory(String amount, String coin, String network, String address, String addressTag, String txId, String unlockConfirm,
-		String confirmTimes, String status, long insertTime, int transferType) {
+@ApiModel("")
+public record DepositHistory(@ApiModelProperty("") String amount, @ApiModelProperty("") String coin, @ApiModelProperty("") String network,
+		@ApiModelProperty("") String address, @ApiModelProperty("") String addressTag, @ApiModelProperty("") String txId,
+		@ApiModelProperty("") String unlockConfirm, @ApiModelProperty("") String confirmTimes, @ApiModelProperty("") String status,
+		@ApiModelProperty("") long insertTime, @ApiModelProperty("") int transferType) {
 	/** @return The withdraw status. */
 	public DepositStatus getDepositStatus() {
 		return DepositStatus.valueOf(status);

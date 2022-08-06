@@ -2,6 +2,9 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Dribblets.
  * 
@@ -11,6 +14,8 @@ import java.util.List;
  * @param transId                  The transaction id.
  * @param userAssetDribbletDetails Details of this exchange.
  */
-public record UserAssetDribblets(long operateTime, String totalTransferedAmount, String totalServiceChargeAmount, long transId,
-		List<UserAssetDribbletDetails> userAssetDribbletDetails) {
+@ApiModel("")
+public record UserAssetDribblets(@ApiModelProperty("") long operateTime, @ApiModelProperty("") String totalTransferedAmount,
+		@ApiModelProperty("") String totalServiceChargeAmount, @ApiModelProperty("") long transId,
+		@ApiModelProperty("") List<UserAssetDribbletDetails> userAssetDribbletDetails) {
 }

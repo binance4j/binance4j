@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Flexible redemption quota.
  * 
@@ -8,5 +11,7 @@ package com.binance4j.savings.dto;
  * @param leftQuota           Left quota.
  * @param minRedemptionAmount Min redemption amount.
  */
-public record RedemptionQuota(String asset, String dailyQuota, String leftQuota, String minRedemptionAmount) {
+@ApiModel("")
+public record RedemptionQuota(@ApiModelProperty("") String asset, @ApiModelProperty("") String dailyQuota, @ApiModelProperty("") String leftQuota,
+		@ApiModelProperty("") String minRedemptionAmount) {
 }

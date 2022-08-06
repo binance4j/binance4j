@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A mining algorithm.
  * 
@@ -8,5 +11,7 @@ package com.binance4j.mining.dto;
  * @param poolIndex Sequence.
  * @param unit      Unit.
  */
-public record Algorithm(String algoName, long algoId, long poolIndex, String unit) {
+@ApiModel("")
+public record Algorithm(@ApiModelProperty("") String algoName, @ApiModelProperty("") long algoId, @ApiModelProperty("") long poolIndex,
+		@ApiModelProperty("") String unit) {
 }

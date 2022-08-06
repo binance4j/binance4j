@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The trading rules of a symbol.
  * 
@@ -17,8 +20,11 @@ package com.binance4j.market.dto;
  * @param price               The {@link PriceFilter}.
  * @param trailingDelta       The {@link TrailingDeltaFilter}.
  */
-public record SymbolFilters(IcebergPartsFilter icebergParts, LotSizeFilter lotSize, MarketLotSizeFilter marketLotSize, MaxNumAlgoOrdersFilter maxNumAlgoOrders,
-		MaxNumIcebergOrdersFilter maxNumIcebergOrders, MaxNumOrdersFilter maxNumOrders, MaxPositionFilter maxPosition, MinNotionalFilter minNotional,
-		NotionalFilter notional, PercentPriceBySideFilter percentPriceBySide, PercentPriceFilter percentPrice, PriceFilter price,
-		TrailingDeltaFilter trailingDelta) {
+@ApiModel("")
+public record SymbolFilters(@ApiModelProperty("") IcebergPartsFilter icebergParts, @ApiModelProperty("") LotSizeFilter lotSize,
+		@ApiModelProperty("") MarketLotSizeFilter marketLotSize, @ApiModelProperty("") MaxNumAlgoOrdersFilter maxNumAlgoOrders,
+		@ApiModelProperty("") MaxNumIcebergOrdersFilter maxNumIcebergOrders, @ApiModelProperty("") MaxNumOrdersFilter maxNumOrders,
+		@ApiModelProperty("") MaxPositionFilter maxPosition, @ApiModelProperty("") MinNotionalFilter minNotional, @ApiModelProperty("") NotionalFilter notional,
+		@ApiModelProperty("") PercentPriceBySideFilter percentPriceBySide, @ApiModelProperty("") PercentPriceFilter percentPrice,
+		@ApiModelProperty("") PriceFilter price, @ApiModelProperty("") TrailingDeltaFilter trailingDelta) {
 }

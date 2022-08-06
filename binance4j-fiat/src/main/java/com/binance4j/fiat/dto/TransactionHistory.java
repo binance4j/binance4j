@@ -2,6 +2,9 @@ package com.binance4j.fiat.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Transaction history.
  * 
@@ -11,5 +14,7 @@ import java.util.List;
  * @param total   Total.
  * @param success Success.
  */
-public record TransactionHistory(String code, String message, List<Transaction> data, int total, boolean success) {
+@ApiModel("Transaction history.")
+public record TransactionHistory(@ApiModelProperty("Code.") String code, @ApiModelProperty("Message.") String message,
+		@ApiModelProperty("Transactions.") List<Transaction> data, @ApiModelProperty("Total.") int total, @ApiModelProperty("Success.") boolean success) {
 }

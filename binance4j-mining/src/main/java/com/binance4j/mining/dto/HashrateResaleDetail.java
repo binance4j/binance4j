@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @param poolUsername   Transfer out of sub-account.
  * @param toPoolUsername Transfer into subaccount.
@@ -9,5 +12,8 @@ package com.binance4j.mining.dto;
  * @param amount         Transferred income.
  * @param coinName       Coin Name.
  */
-public record HashrateResaleDetail(String poolUsername, String toPoolUsername, String algoName, long hashRate, long day, String amount, String coinName) {
+@ApiModel("")
+public record HashrateResaleDetail(@ApiModelProperty("") String poolUsername, @ApiModelProperty("") String toPoolUsername,
+		@ApiModelProperty("") String algoName, @ApiModelProperty("") long hashRate, @ApiModelProperty("") long day, @ApiModelProperty("") String amount,
+		@ApiModelProperty("") String coinName) {
 }

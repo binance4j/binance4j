@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 24 hour price change statistics for a ticker.
  * 
@@ -25,7 +28,12 @@ package com.binance4j.market.dto;
  * @param lastId             Last trade id.
  * @param count              Total number of trades during the last 24 hours.
  */
-public record TickerStatistics(String symbol, String priceChange, String priceChangePercent, String weightedAvgPrice, String prevClosePrice, String lastPrice,
-		String lastQty, String bidPrice, String bidQty, String askPrice, String askQty, String openPrice, String highPrice, String lowPrice, String volume,
-		String quoteVolume, long openTime, long closeTime, long firstId, long lastId, long count) {
+@ApiModel("")
+public record TickerStatistics(@ApiModelProperty("") String symbol, @ApiModelProperty("") String priceChange, @ApiModelProperty("") String priceChangePercent,
+		@ApiModelProperty("") String weightedAvgPrice, @ApiModelProperty("") String prevClosePrice, @ApiModelProperty("") String lastPrice,
+		@ApiModelProperty("") String lastQty, @ApiModelProperty("") String bidPrice, @ApiModelProperty("") String bidQty, @ApiModelProperty("") String askPrice,
+		@ApiModelProperty("") String askQty, @ApiModelProperty("") String openPrice, @ApiModelProperty("") String highPrice,
+		@ApiModelProperty("") String lowPrice, @ApiModelProperty("") String volume, @ApiModelProperty("") String quoteVolume,
+		@ApiModelProperty("") long openTime, @ApiModelProperty("") long closeTime, @ApiModelProperty("") long firstId, @ApiModelProperty("") long lastId,
+		@ApiModelProperty("") long count) {
 }

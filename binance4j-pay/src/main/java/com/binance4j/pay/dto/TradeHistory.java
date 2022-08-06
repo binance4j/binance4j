@@ -2,6 +2,9 @@ package com.binance4j.pay.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A pay trade history.
  * 
@@ -10,5 +13,7 @@ import java.util.List;
  * @param data    The trades.
  * @param success Resposne success.
  */
-public record TradeHistory(String code, String message, List<Trade> data, boolean success) {
+@ApiModel("")
+public record TradeHistory(@ApiModelProperty("") String code, @ApiModelProperty("") String message, @ApiModelProperty("") List<Trade> data,
+		@ApiModelProperty("") boolean success) {
 }

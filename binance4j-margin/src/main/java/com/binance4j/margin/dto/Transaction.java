@@ -1,10 +1,14 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A transfer, borrow or repay transaction.
  * 
- * @param tranId    The transaction id.
- * @param clientTag The client tag.
+ * @param tranId    Transaction id.
+ * @param clientTag Client tag.
  */
-public record Transaction(String tranId, String clientTag) {
+@ApiModel("A transfer, borrow or repay transaction.")
+public record Transaction(@ApiModelProperty("Transaction id.") String tranId, @ApiModelProperty("Client tag.") String clientTag) {
 }

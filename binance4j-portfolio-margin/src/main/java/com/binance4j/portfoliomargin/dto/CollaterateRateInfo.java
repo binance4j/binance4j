@@ -1,10 +1,14 @@
 package com.binance4j.portfoliomargin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Collaterate rate info.
  * 
  * @param asset          The asset.
  * @param collateralRate The collateral rate.
  */
-public record CollaterateRateInfo(String asset, String collateralRate) {
+@ApiModel("")
+public record CollaterateRateInfo(@ApiModelProperty("") String asset, @ApiModelProperty("") String collateralRate) {
 }

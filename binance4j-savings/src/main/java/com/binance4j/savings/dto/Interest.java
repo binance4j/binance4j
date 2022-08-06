@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Lending interest.
  * 
@@ -9,5 +12,7 @@ package com.binance4j.savings.dto;
  * @param productName ProductName.
  * @param time        Time in ms.
  */
-public record Interest(String asset, String interest, String lendingType, String productName, long time) {
+@ApiModel("")
+public record Interest(@ApiModelProperty("") String asset, @ApiModelProperty("") String interest, @ApiModelProperty("") String lendingType,
+		@ApiModelProperty("") String productName, @ApiModelProperty("") long time) {
 }

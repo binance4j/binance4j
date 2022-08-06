@@ -2,6 +2,9 @@ package com.binance4j.savings.dto;
 
 import java.util.Map;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Flexible product position.
  * 
@@ -21,7 +24,11 @@ import java.util.Map;
  * @param totalAmount            Total amount.
  * @param totalInterest          Total interest.
  */
-public record FlexibleProductPosition(Map<String, String> tierAnnualInterestRate, String annualInterestRate, String asset, String avgAnnualInterestRate,
-		boolean canRedeem, String dailyInterestRate, String freeAmount, String freezeAmount, String lockedAmount, String productId, String productName,
-		String redeemingAmount, String todayPurchasedAmount, String totalAmount, String totalInterest) {
+@ApiModel("")
+public record FlexibleProductPosition(@ApiModelProperty("") Map<String, String> tierAnnualInterestRate, @ApiModelProperty("") String annualInterestRate,
+		@ApiModelProperty("") String asset, @ApiModelProperty("") String avgAnnualInterestRate, @ApiModelProperty("") boolean canRedeem,
+		@ApiModelProperty("") String dailyInterestRate, @ApiModelProperty("") String freeAmount, @ApiModelProperty("") String freezeAmount,
+		@ApiModelProperty("") String lockedAmount, @ApiModelProperty("") String productId, @ApiModelProperty("") String productName,
+		@ApiModelProperty("") String redeemingAmount, @ApiModelProperty("") String todayPurchasedAmount, @ApiModelProperty("") String totalAmount,
+		@ApiModelProperty("") String totalInterest) {
 }

@@ -1,9 +1,11 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /** Sorting. */
 public enum SortSequence {
 	/** Positive. */
-	POSITIVE("0"),
+	POSITIVE("0"), @ApiModelProperty("")
 	/** Negative. */
 	NEGATIVE("1");
 

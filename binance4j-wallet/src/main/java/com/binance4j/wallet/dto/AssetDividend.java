@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An asset divident.
  * 
@@ -10,5 +13,7 @@ package com.binance4j.wallet.dto;
  * @param divTime Dividend time in ms.
  * @param tranId  The transaction id.
  */
-public record AssetDividend(String amount, String enInfo, String asset, long id, long divTime, long tranId) {
+@ApiModel("")
+public record AssetDividend(@ApiModelProperty("") String amount, @ApiModelProperty("") String enInfo, @ApiModelProperty("") String asset,
+		@ApiModelProperty("") long id, @ApiModelProperty("") long divTime, @ApiModelProperty("") long tranId) {
 }

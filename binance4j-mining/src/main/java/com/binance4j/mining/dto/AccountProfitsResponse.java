@@ -2,6 +2,9 @@ package com.binance4j.mining.dto;
 
 import com.binance4j.mining.client.MiningClient;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The {@link MiningClient#getAccountProfits} response.
  * 
@@ -9,5 +12,6 @@ import com.binance4j.mining.client.MiningClient;
  * @param msg  The response message.
  * @param data The response data.
  */
-public record AccountProfitsResponse(int code, String msg, AccountProfitsData data) {
+@ApiModel("")
+public record AccountProfitsResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg, @ApiModelProperty("") AccountProfitsData data) {
 }

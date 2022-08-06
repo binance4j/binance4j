@@ -1,5 +1,8 @@
 package com.binance4j.spot.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The user's current order count usage for all intervals.
  * 
@@ -9,5 +12,7 @@ package com.binance4j.spot.dto;
  * @param limit         The order limit.
  * @param count         The current order count.
  */
-public record OrderCount(String rateLimitType, String interval, int intervalNum, int limit, int count) {
+@ApiModel("")
+public record OrderCount(@ApiModelProperty("") String rateLimitType, @ApiModelProperty("") String interval, @ApiModelProperty("") int intervalNum,
+		@ApiModelProperty("") int limit, @ApiModelProperty("") int count) {
 }

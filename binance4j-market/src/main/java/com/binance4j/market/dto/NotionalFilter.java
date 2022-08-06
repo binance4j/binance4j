@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Defines the acceptable notional range allowed for an order on a symbol.
  * 
@@ -12,5 +15,7 @@ package com.binance4j.market.dto;
  * @param minNotional      The number of minutes the average price is calculated over. 0 means the last price is used.
  * @see <a href="https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a> *
  */
-public record NotionalFilter(String minNotional, String maxNotional, boolean applyMinToMarket, boolean applyMaxToMarket, int avgPriceMins) {
+@ApiModel("")
+public record NotionalFilter(@ApiModelProperty("") String minNotional, @ApiModelProperty("") String maxNotional, @ApiModelProperty("") boolean applyMinToMarket,
+		@ApiModelProperty("") boolean applyMaxToMarket, @ApiModelProperty("") int avgPriceMins) {
 }

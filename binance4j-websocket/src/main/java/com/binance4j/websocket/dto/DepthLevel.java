@@ -1,11 +1,13 @@
 package com.binance4j.websocket.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /** The order book size */
 public enum DepthLevel {
 	/** Depth of 5 results. */
-	LEVEL_5("5"),
+	LEVEL_5("5"), @ApiModelProperty("")
 	/** Depth of 10 results. */
-	LEVEL_10("10"),
+	LEVEL_10("10"), @ApiModelProperty("")
 	/** Depth of 20 results. */
 	LEVEL_20("20");
 

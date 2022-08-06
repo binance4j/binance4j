@@ -1,5 +1,8 @@
 package com.binance4j.market.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Represents the best price/quantity on the order book for a given symbol.
  * 
@@ -9,5 +12,7 @@ package com.binance4j.market.dto;
  * @param askPrice Ask price.
  * @param askQty   Ask quantity.
  */
-public record BookTicker(String symbol, String bidPrice, String bidQty, String askPrice, String askQty) {
+@ApiModel("")
+public record BookTicker(@ApiModelProperty("") String symbol, @ApiModelProperty("") String bidPrice, @ApiModelProperty("") String bidQty,
+		@ApiModelProperty("") String askPrice, @ApiModelProperty("") String askQty) {
 }

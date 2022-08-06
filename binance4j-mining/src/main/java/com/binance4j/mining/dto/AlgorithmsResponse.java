@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.binance4j.mining.client.MiningClient;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The {@link MiningClient#getAlgorithms} response.
  * 
@@ -11,5 +14,6 @@ import com.binance4j.mining.client.MiningClient;
  * @param msg  Response message.
  * @param data Response data.
  */
-public record AlgorithmsResponse(int code, String msg, List<Algorithm> data) {
+@ApiModel("")
+public record AlgorithmsResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg, @ApiModelProperty("") List<Algorithm> data) {
 }

@@ -1,5 +1,8 @@
 package com.binance4j.staking.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A staking product.
  * 
@@ -7,5 +10,6 @@ package com.binance4j.staking.dto;
  * @param detail    Detail.
  * @param quota     Quota.
  */
-public record Product(String projectId, ProductDetail detail, ProductQuota quota) {
+@ApiModel("")
+public record Product(@ApiModelProperty("") String projectId, @ApiModelProperty("") ProductDetail detail, @ApiModelProperty("") ProductQuota quota) {
 }

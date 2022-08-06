@@ -3,13 +3,17 @@ package com.binance4j.savings.dto;
 import com.binance4j.core.param.Params;
 import com.binance4j.savings.param.FixedProjectListParams;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * {@link FixedProjectListParams} sorting.
  * 
  * @param sortBy    Project sorting.
  * @param isSortAsc Sort ascending. Default: true.
  */
-public record Sorting(String sortBy, Boolean isSortAsc) implements Params {
+@ApiModel("")
+public record Sorting(@ApiModelProperty("") String sortBy, @ApiModelProperty("") Boolean isSortAsc) implements Params {
 
 	/**
 	 * Creates an instance of {@link Sorting}.

@@ -1,5 +1,8 @@
 package com.binance4j.mining.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @param configId       Mining ID.
  * @param poolUsername   Transfer out of subaccount.
@@ -10,6 +13,8 @@ package com.binance4j.mining.dto;
  * @param endDay         End date.
  * @param status         Status：0 Processing，1：Cancelled，2：Terminated.
  */
-public record HashrateResaleListDetail(int configId, String poolUsername, String toPoolUsername, String algoName, long hashRate, long startDay, long endDay,
-		int status) {
+@ApiModel("")
+public record HashrateResaleListDetail(@ApiModelProperty("") int configId, @ApiModelProperty("") String poolUsername,
+		@ApiModelProperty("") String toPoolUsername, @ApiModelProperty("") String algoName, @ApiModelProperty("") long hashRate,
+		@ApiModelProperty("") long startDay, @ApiModelProperty("") long endDay, @ApiModelProperty("") int status) {
 }

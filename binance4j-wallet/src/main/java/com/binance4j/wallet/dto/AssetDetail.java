@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Details of a supported asset.
  * 
@@ -9,7 +12,9 @@ package com.binance4j.wallet.dto;
  * @param withdrawStatus    The withdraw status (false if ALL of networks' are false).
  * @param depositTip        The reason of the status.
  */
-public record AssetDetail(String minWithdrawAmount, boolean depositStatus, Float withdrawFee, boolean withdrawStatus, String depositTip) {
+@ApiModel("")
+public record AssetDetail(@ApiModelProperty("") String minWithdrawAmount, @ApiModelProperty("") boolean depositStatus, @ApiModelProperty("") Float withdrawFee,
+		@ApiModelProperty("") boolean withdrawStatus, @ApiModelProperty("") String depositTip) {
 	/** @return Reason. */
 	public String depositTip() {
 		return depositTip == null ? "" : depositTip;

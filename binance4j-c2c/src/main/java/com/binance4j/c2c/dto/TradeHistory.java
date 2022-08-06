@@ -2,6 +2,9 @@ package com.binance4j.c2c.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * C2C trades history.
  * 
@@ -11,5 +14,7 @@ import java.util.List;
  * @param total   Total.
  * @param success Success.
  */
-public record TradeHistory(String code, String message, List<Trade> data, int total, boolean success) {
+@ApiModel("C2C trades history.")
+public record TradeHistory(@ApiModelProperty("Code.") String code, @ApiModelProperty("Message.") String message, @ApiModelProperty("Trades.") List<Trade> data,
+		@ApiModelProperty("Total.") int total, @ApiModelProperty("Success.") boolean success) {
 }

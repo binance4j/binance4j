@@ -5,6 +5,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * Net asset value.
  * 
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @param fundingRatio Funding ratio.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@ApiModel("")
 public record BLVT(@JsonProperty("e") String eventType, @JsonProperty("E") long eventTime, @JsonProperty("s") String name,
 		@JsonProperty("m") String tokensIssued, @JsonProperty("b") List<BLVTBasket> baskets, @JsonProperty("n") String nav,
 		@JsonProperty("l") String realLeverage, @JsonProperty("t") int leverage, @JsonProperty("f") String fundingRatio) {

@@ -2,6 +2,9 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Assets that can be converted into BNB.
  * 
@@ -10,5 +13,7 @@ import java.util.List;
  * @param totalTransferBNB   The BNB valuation.
  * @param dribbletPercentage The commission fee.
  */
-public record ConvertibleAssets(List<ConvertibleAsset> details, String totalTransferBtc, String totalTransferBNB, String dribbletPercentage) {
+@ApiModel("")
+public record ConvertibleAssets(@ApiModelProperty("") List<ConvertibleAsset> details, @ApiModelProperty("") String totalTransferBtc,
+		@ApiModelProperty("") String totalTransferBNB, @ApiModelProperty("") String dribbletPercentage) {
 }

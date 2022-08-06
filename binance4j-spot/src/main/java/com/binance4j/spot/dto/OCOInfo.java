@@ -2,6 +2,9 @@ package com.binance4j.spot.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An OCO Order details.
  * 
@@ -14,6 +17,8 @@ import java.util.List;
  * @param symbol            The orders symbol.
  * @param orders            The two orders of the OCO order.
  */
-public record OCOInfo(long orderListId, String contingencyType, String listStatusType, String listOrderStatus, String listClientOrderId, long transactionTime,
-		String symbol, List<OCOOrder> orders) {
+@ApiModel("")
+public record OCOInfo(@ApiModelProperty("") long orderListId, @ApiModelProperty("") String contingencyType, @ApiModelProperty("") String listStatusType,
+		@ApiModelProperty("") String listOrderStatus, @ApiModelProperty("") String listClientOrderId, @ApiModelProperty("") long transactionTime,
+		@ApiModelProperty("") String symbol, @ApiModelProperty("") List<OCOOrder> orders) {
 }

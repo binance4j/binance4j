@@ -1,11 +1,13 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /** Flexible product status. */
 public enum FlexibleProductStatus {
 	/** All. */
-	ALL,
+	ALL, @ApiModelProperty("")
 	/** Subscribable. */
-	SUBSCRIBABLE,
+	SUBSCRIBABLE, @ApiModelProperty("")
 	/** Unsubscribable. */
 	UNSUBSCRIBABLE
 }

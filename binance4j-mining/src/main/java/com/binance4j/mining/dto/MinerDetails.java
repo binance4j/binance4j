@@ -2,6 +2,9 @@ package com.binance4j.mining.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Miner details.
  * 
@@ -9,5 +12,6 @@ import java.util.List;
  * @param type          Type of hourly hashrate.
  * @param hashrateDatas Hashrate datas
  */
-public record MinerDetails(String workerName, String type, List<HashrateData> hashrateDatas) {
+@ApiModel("")
+public record MinerDetails(@ApiModelProperty("") String workerName, @ApiModelProperty("") String type, @ApiModelProperty("") List<HashrateData> hashrateDatas) {
 }

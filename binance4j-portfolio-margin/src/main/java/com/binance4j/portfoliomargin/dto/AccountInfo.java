@@ -1,11 +1,18 @@
 package com.binance4j.portfoliomargin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /** Margin portfolio account infos */
-public record AccountInfo(String uniMMR, String accountEquity, String accountMaintMargin,
+@ApiModel("")
+public record AccountInfo(@ApiModelProperty("") String uniMMR, @ApiModelProperty("") String accountEquity, @ApiModelProperty("") String accountMaintMargin,
+		@ApiModelProperty("")
 		/**
 		 * Portfolio margin account status.
 		 * <p>
-		 * Enum: NORMAL, MARGIN_CALL, SUPPLY_MARGIN, REDUCE_ONLY, ACTIVE_LIQUIDATION, FORCE_LIQUIDATION, BANKRUPTED
+		 * Enum: NORMAL,@ApiModelProperty("") MARGIN_CALL,@ApiModelProperty("") SUPPLY_MARGIN,@ApiModelProperty("")
+		 * REDUCE_ONLY,@ApiModelProperty("") ACTIVE_LIQUIDATION,@ApiModelProperty("") FORCE_LIQUIDATION,@ApiModelProperty("")
+		 * BANKRUPTED
 		 */
 		String accountStatus) {
 }

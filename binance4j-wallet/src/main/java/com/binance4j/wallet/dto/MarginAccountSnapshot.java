@@ -1,5 +1,10 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /** A daily MARGIN account snapshot */
-public record MarginAccountSnapshot(String type, long updateTime, MarginAccountSnapshotData data) implements Snapshot {
+@ApiModel("")
+public record MarginAccountSnapshot(@ApiModelProperty("") String type, @ApiModelProperty("") long updateTime,
+		@ApiModelProperty("") MarginAccountSnapshotData data) implements Snapshot {
 }

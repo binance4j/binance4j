@@ -2,6 +2,9 @@ package com.binance4j.wallet.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The coin infos for the authenticated account.
  * 
@@ -20,6 +23,10 @@ import java.util.List;
  * @param withdrawing       The withdrawing balance.
  * @param networkList       The coin network information.
  */
-public record CoinInformation(String coin, String name, boolean depositAllEnable, boolean isLegalMoney, boolean trading, boolean withdrawAllEnable, String free,
-		String freeze, String ipoable, String ipoing, String locked, String storage, String withdrawing, List<CoinNetworkInformation> networkList) {
+@ApiModel("")
+public record CoinInformation(@ApiModelProperty("") String coin, @ApiModelProperty("") String name, @ApiModelProperty("") boolean depositAllEnable,
+		@ApiModelProperty("") boolean isLegalMoney, @ApiModelProperty("") boolean trading, @ApiModelProperty("") boolean withdrawAllEnable,
+		@ApiModelProperty("") String free, @ApiModelProperty("") String freeze, @ApiModelProperty("") String ipoable, @ApiModelProperty("") String ipoing,
+		@ApiModelProperty("") String locked, @ApiModelProperty("") String storage, @ApiModelProperty("") String withdrawing,
+		@ApiModelProperty("") List<CoinNetworkInformation> networkList) {
 }

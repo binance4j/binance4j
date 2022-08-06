@@ -1,5 +1,8 @@
 package com.binance4j.nft.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * NFT asset
  * 
@@ -7,5 +10,6 @@ package com.binance4j.nft.dto;
  * @param contractAddress NFT Contract Address.
  * @param tokenId         NFT Token ID.
  */
-public record Asset(String network, String contractAddress, String tokenId) {
+@ApiModel("")
+public record Asset(@ApiModelProperty("") String network, @ApiModelProperty("") String contractAddress, @ApiModelProperty("") String tokenId) {
 }

@@ -2,11 +2,16 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * A {@link ForceLiquidationRecord} records container
+ * A {@link ForceLiquidationRecord} records container.
  * 
- * @param rows  The records.
- * @param total The total number of records.
+ * @param rows  Records.
+ * @param total Total number of records.
  */
-public record ForceLiquidationRecords(List<ForceLiquidationRecord> rows, int total) {
+@ApiModel("ForceLiquidationRecord records container.")
+public record ForceLiquidationRecords(@ApiModelProperty("Records.") List<ForceLiquidationRecord> rows,
+		@ApiModelProperty("Total number of records.") int total) {
 }

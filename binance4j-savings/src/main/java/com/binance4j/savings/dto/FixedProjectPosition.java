@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A fixed project.
  * 
@@ -21,7 +24,11 @@ package com.binance4j.savings.dto;
  * @param status          Status.
  * @param type            Type.
  */
-public record FixedProjectPosition(String asset, boolean canTransfer, long createTimestamp, long duration, long endTime, String interest, String interestRate,
-		long lot, long positionId, String principal, String projectId, String projectName, long purchaseTime, String redeemDate, long startTime, String status,
-		String type) {
+@ApiModel("")
+public record FixedProjectPosition(@ApiModelProperty("") String asset, @ApiModelProperty("") boolean canTransfer, @ApiModelProperty("") long createTimestamp,
+		@ApiModelProperty("") long duration, @ApiModelProperty("") long endTime, @ApiModelProperty("") String interest,
+		@ApiModelProperty("") String interestRate, @ApiModelProperty("") long lot, @ApiModelProperty("") long positionId,
+		@ApiModelProperty("") String principal, @ApiModelProperty("") String projectId, @ApiModelProperty("") String projectName,
+		@ApiModelProperty("") long purchaseTime, @ApiModelProperty("") String redeemDate, @ApiModelProperty("") long startTime,
+		@ApiModelProperty("") String status, @ApiModelProperty("") String type) {
 }

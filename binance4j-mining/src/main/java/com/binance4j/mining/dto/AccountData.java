@@ -2,6 +2,9 @@ package com.binance4j.mining.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Account data
  * 
@@ -9,5 +12,6 @@ import java.util.List;
  * @param userName Mining account.
  * @param list     List.
  */
-public record AccountData(String type, String userName, List<AccountList> list) {
+@ApiModel("")
+public record AccountData(@ApiModelProperty("") String type, @ApiModelProperty("") String userName, @ApiModelProperty("") List<AccountList> list) {
 }

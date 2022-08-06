@@ -2,11 +2,15 @@ package com.binance4j.margin.dto;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A loan record.
  * 
- * @param total The total records.
- * @param rows  The records.
+ * @param total Total records.
+ * @param rows  Records.
  */
-public record LoanRecord(int total, List<Loan> rows) {
+@ApiModel("A loan record.")
+public record LoanRecord(@ApiModelProperty("Total records.") int total, @ApiModelProperty("Records.") List<Loan> rows) {
 }

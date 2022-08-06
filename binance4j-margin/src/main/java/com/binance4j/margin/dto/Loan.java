@@ -2,16 +2,23 @@ package com.binance4j.margin.dto;
 
 import java.util.Optional;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An executed trade history item.
  * 
- * @param status         The loan status.
- * @param principal      The borrowed quantity.
- * @param isolatedSymbol The isolated symbol. Will not be returned for crossed margin.
- * @param asset          The related asset.
- * @param timestamp      The loan timestamp in ms.
- * @param txId           The transaction id.
+ * @param status         Loan status.
+ * @param principal      Borrowed quantity.
+ * @param isolatedSymbol Isolated symbol. Will not be returned for crossed margin.
+ * @param asset          Related asset.
+ * @param timestamp      Loan timestamp in ms.
+ * @param txId           Transaction id.
  * @see LoanStatus
  */
-public record Loan(String status, String principal, Optional<String> isolatedSymbol, String asset, long timestamp, long txId) {
+@ApiModel("An executed trade history item.")
+public record Loan(@ApiModelProperty("Loan status.") String status, @ApiModelProperty("Borrowed quantity.") String principal,
+		@ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.") Optional<String> isolatedSymbol,
+		@ApiModelProperty("Related asset.") String asset, @ApiModelProperty("Loan timestamp in ms.") long timestamp,
+		@ApiModelProperty("Transaction id.") long txId) {
 }

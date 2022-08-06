@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.binance4j.core.dto.AssetBalance;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The SPOT account information.
  * 
@@ -19,6 +22,9 @@ import com.binance4j.core.dto.AssetBalance;
  * @param accountType      The account Type .
  * @param permissions      The permissions list.
  */
-public record Account(String makerCommission, String takerCommission, String buyerCommission, String sellerCommission, boolean canTrade, boolean canWithdraw,
-		boolean canDeposit, long updateTime, List<AssetBalance> balances, String accountType, List<String> permissions) {
+@ApiModel("")
+public record Account(@ApiModelProperty("") String makerCommission, @ApiModelProperty("") String takerCommission, @ApiModelProperty("") String buyerCommission,
+		@ApiModelProperty("") String sellerCommission, @ApiModelProperty("") boolean canTrade, @ApiModelProperty("") boolean canWithdraw,
+		@ApiModelProperty("") boolean canDeposit, @ApiModelProperty("") long updateTime, @ApiModelProperty("") List<AssetBalance> balances,
+		@ApiModelProperty("") String accountType, @ApiModelProperty("") List<String> permissions) {
 }

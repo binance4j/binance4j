@@ -1,13 +1,19 @@
 package com.binance4j.loan.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A loan income.
  * 
- * @param asset     The income asset.
- * @param type      The income type.
- * @param amount    The income maount.
- * @param timestamp The timestamp in ms.
- * @param tranId    The transaction id.
+ * @param asset     Income asset.
+ * @param type      Income type.
+ * @param amount    Income maount.
+ * @param timestamp Timestamp in ms.
+ * @param tranId    Transaction id.
  */
-public record LoanIncome(String asset, String type, String amount, long timestamp, String tranId) {
+@ApiModel("A loan income.")
+public record LoanIncome(@ApiModelProperty("Income asset.") String asset, @ApiModelProperty("Income type.") String type,
+		@ApiModelProperty("Income maount.") String amount, @ApiModelProperty("Timestamp in ms.") long timestamp,
+		@ApiModelProperty("Transaction id.") String tranId) {
 }

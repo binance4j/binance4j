@@ -1,5 +1,8 @@
 package com.binance4j.nft.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * A NFT Withdraw.
  * 
@@ -11,5 +14,7 @@ package com.binance4j.nft.dto;
  * @param fee             The withdraw fee.
  * @param feeAsset        The fee asset.
  */
-public record Withdraw(String network, String contractAddress, String tokenId, String txID, long timestamp, String fee, String feeAsset) {
+@ApiModel("")
+public record Withdraw(@ApiModelProperty("") String network, @ApiModelProperty("") String contractAddress, @ApiModelProperty("") String tokenId,
+		@ApiModelProperty("") String txID, @ApiModelProperty("") long timestamp, @ApiModelProperty("") String fee, @ApiModelProperty("") String feeAsset) {
 }

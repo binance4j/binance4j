@@ -1,16 +1,23 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An asset transfer record between two accounts.
  * 
- * @param amount    The transfered amount.
- * @param asset     The transfered asset.
- * @param status    The transfer status.
- * @param timestamp The transfer timestamp in ms.
- * @param txId      The transaction id.
- * @param transFrom The account the asset is transfered from.
- * @param transTo   The account the asset is transfered to.
+ * @param amount    Transfered amount.
+ * @param asset     Transfered asset.
+ * @param status    Transfer status.
+ * @param timestamp Transfer timestamp in ms.
+ * @param txId      Transaction id.
+ * @param transFrom Account the asset is transfered from.
+ * @param transTo   Account the asset is transfered to.
  * @see IsolatedTransferAccount
  */
-public record IsolatedTransferRecord(String amount, String asset, String status, long timestamp, long txId, String transFrom, String transTo) {
+@ApiModel("An asset transfer record between two accounts.")
+public record IsolatedTransferRecord(@ApiModelProperty("Transfered amount.") String amount, @ApiModelProperty("Transfered asset.") String asset,
+		@ApiModelProperty("Transfer status.") String status, @ApiModelProperty("Transfer timestamp in ms.") long timestamp,
+		@ApiModelProperty("Transaction id.") long txId, @ApiModelProperty("Account the asset is transfered from.") String transFrom,
+		@ApiModelProperty("Account the asset is transfered to.") String transTo) {
 }

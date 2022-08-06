@@ -1,5 +1,8 @@
 package com.binance4j.savings.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Redemption infos.
  * 
@@ -12,5 +15,8 @@ package com.binance4j.savings.dto;
  * @param status      Status.
  * @param type        Type.
  */
-public record Redemption(String amount, String asset, long createTime, String principal, String projectId, String projectName, String status, String type) {
+@ApiModel("")
+public record Redemption(@ApiModelProperty("") String amount, @ApiModelProperty("") String asset, @ApiModelProperty("") long createTime,
+		@ApiModelProperty("") String principal, @ApiModelProperty("") String projectId, @ApiModelProperty("") String projectName,
+		@ApiModelProperty("") String status, @ApiModelProperty("") String type) {
 }

@@ -1,11 +1,16 @@
 package com.binance4j.margin.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * Isolated fee data
+ * Isolated fee data.
  * 
- * @param coin          The related coin.
- * @param dailyInterest The daily interest.
- * @param borrowLimit   The borrow limit.
+ * @param coin          Related coin.
+ * @param dailyInterest Daily interest.
+ * @param borrowLimit   Borrow limit.
  */
-public record IsolatedFeeData(String coin, String dailyInterest, String borrowLimit) {
+@ApiModel("Isolated fee data.")
+public record IsolatedFeeData(@ApiModelProperty("Related coin.") String coin, @ApiModelProperty("Daily interest.") String dailyInterest,
+		@ApiModelProperty("Borrow limit.") String borrowLimit) {
 }

@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The API key permissions.
  * 
@@ -21,16 +24,18 @@ package com.binance4j.wallet.dto;
  * @param createTime                     The API key creation timestamp.
  * @param tradingAuthorityExpirationTime Expiration time for spot and margin trading permission.
  */
-public record ApiPermissions(boolean ipRestrict,
-		/**
-		 * This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable
-		 * withdrawals.
-		 */
-		boolean enableWithdrawals, boolean enableInternalTransfer,
-		/**
-		 * Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each
-		 * business's own transfer API rights are not affected by this authorization.
-		 */
-		boolean permitsUniversalTransfer, boolean enableVanillaOptions, boolean enableReading, boolean enableFutures, boolean enableMargin,
-		boolean enableSpotAndMarginTrading, long createTime, long tradingAuthorityExpirationTime) {
+@ApiModel("")
+public record ApiPermissions(@ApiModelProperty("") boolean ipRestrict, @ApiModelProperty("")
+/**
+ * This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable
+ * withdrawals.
+ */
+boolean enableWithdrawals, @ApiModelProperty("") boolean enableInternalTransfer, @ApiModelProperty("")
+/**
+ * Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each
+ * business's own transfer API rights are not affected by this authorization.
+ */
+boolean permitsUniversalTransfer, @ApiModelProperty("") boolean enableVanillaOptions, @ApiModelProperty("") boolean enableReading,
+		@ApiModelProperty("") boolean enableFutures, @ApiModelProperty("") boolean enableMargin, @ApiModelProperty("") boolean enableSpotAndMarginTrading,
+		@ApiModelProperty("") long createTime, @ApiModelProperty("") long tradingAuthorityExpirationTime) {
 }

@@ -1,5 +1,8 @@
 package com.binance4j.wallet.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Margin account snapshot user assets.
  * 
@@ -10,17 +13,18 @@ package com.binance4j.wallet.dto;
  * @param locked   The locked volume
  * @param netAsset Net asset
  */
-public record MarginAccountSnapshotUserAssets(
-		/** The asset abbreviation **/
-		String asset,
-		/** The borrowed amount **/
-		String borrowed,
-		/** The fee amount **/
-		String free,
-		/** The interest amount **/
-		String interest,
-		/** The locked volume **/
-		String locked,
-		/** Net asset **/
-		String netAsset) {
+@ApiModel("")
+public record MarginAccountSnapshotUserAssets(@ApiModelProperty("")
+/** The asset abbreviation **/
+String asset, @ApiModelProperty("")
+/** The borrowed amount **/
+String borrowed, @ApiModelProperty("")
+/** The fee amount **/
+String free, @ApiModelProperty("")
+/** The interest amount **/
+String interest, @ApiModelProperty("")
+/** The locked volume **/
+String locked, @ApiModelProperty("")
+/** Net asset **/
+String netAsset) {
 }
