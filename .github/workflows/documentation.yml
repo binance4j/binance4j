@@ -46,7 +46,6 @@ jobs:
 
   deploy-doc:
       name: Deploy doc
-      needs: [verify-blvt,verify-c2c,verify-connectors,verify-convert,verify-core,verify-fiat,verify-loan,verify-market,verify-margin,verify-mining,verify-nft,verify-pay,verify-portfolio-margin,verify-rebate,verify-savings,verify-spot,verify-staking,verify-strategy,verify-vision,verify-wallet,verify-websocket]
 
       runs-on: ubuntu-latest
       steps:
