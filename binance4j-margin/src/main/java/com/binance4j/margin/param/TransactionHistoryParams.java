@@ -17,13 +17,6 @@ import com.binance4j.margin.client.MarginClient;
 public record TransactionHistoryParams(String asset, String isolatedSymbol, Long txId, Boolean archived) implements Params {
 	/**
 	 * Creates an instance of {@link TransactionHistoryParams}.
-	 */
-	public TransactionHistoryParams() {
-		this(null, null, null, null);
-	}
-
-	/**
-	 * Creates an instance of {@link TransactionHistoryParams}.
 	 * 
 	 * @param asset Related asset.
 	 */

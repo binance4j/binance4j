@@ -14,12 +14,6 @@ import com.binance4j.savings.dto.FixedProjectPositionStatus;
  */
 @Param
 public record FixedProjectPositionParams(String asset, String projectId, FixedProjectPositionStatus status) implements Params {
-	/**
-	 * Creates an instance of {@link FixedProjectPositionParams}.
-	 */
-	public FixedProjectPositionParams() {
-		this(null, null, null);
-	}
 
 	/**
 	 * Creates an instance of {@link FixedProjectPositionParams}.

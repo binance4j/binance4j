@@ -85,7 +85,7 @@ public class SavingsClientTest extends CustomTest {
 
 	// TODO @Test
 	void testGetFixedProjectPosition() throws ApiException {
-		testNoNulls(client.getFixedProjectPosition(new FixedProjectPositionParams()));
+		testNoNulls(client.getFixedProjectPosition(new FixedProjectPositionParams(null, null, null)));
 	}
 
 	// TODO @Test

@@ -12,12 +12,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 10)
 public record IsolatedFeeParams(String symbol, Integer vipLevel) implements Params {
-	/**
-	 * Creates an instance of {@link InterestRateHistoryParams}.
-	 */
-	public IsolatedFeeParams() {
-		this(null, null);
-	}
 
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.

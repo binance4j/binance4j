@@ -228,7 +228,7 @@ public class MarginClientTest extends CustomTest {
 
 	// TODO @Test
 	void testGetAllOCO() throws ApiException {
-		testNoNulls(client.getAllOCO(new GetAllOCOParams()));
+		testNoNulls(client.getAllOCO(new GetAllOCOParams(null, null)));
 	}
 
 	@Test

@@ -356,7 +356,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getOpenOrders() {
-		return getOpenOrders(new OpenOrdersParams());
+		return getOpenOrders(new OpenOrdersParams(null, null));
 	}
 
 	/**
@@ -447,7 +447,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getOpenOCO() {
-		return getOpenOCO(new GetOpenOCOParams());
+		return getOpenOCO(new GetOpenOCOParams(null, null));
 	}
 
 	/**
@@ -636,7 +636,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<CrossFee>> getMarginFeeData() {
-		return getMarginFeeData(new CrossFeeParams());
+		return getMarginFeeData(new CrossFeeParams(null, null));
 	}
 
 	/**
@@ -657,7 +657,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedFee>> getIsolatedFeeData() {
-		return getIsolatedFeeData(new IsolatedFeeParams());
+		return getIsolatedFeeData(new IsolatedFeeParams(null, null));
 	}
 
 	/**

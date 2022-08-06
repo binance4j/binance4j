@@ -88,7 +88,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Subscription>> getSubscriptions() {
-		return new Request<>(service.getSubscriptions(new TransactionRecordParams().toMap()));
+		return new Request<>(service.getSubscriptions(new TransactionRecordParams(null, null).toMap()));
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions() {
-		return new Request<>(service.getRedemptions(new TransactionRecordParams().toMap()));
+		return new Request<>(service.getRedemptions(new TransactionRecordParams(null, null).toMap()));
 	}
 
 	/**

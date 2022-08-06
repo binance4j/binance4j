@@ -14,13 +14,6 @@ import com.binance4j.core.param.Params;
 public record TransactionRecordParams(String tokenName, Long id) implements Params {
 	/**
 	 * Creates instance of the class.
-	 */
-	public TransactionRecordParams() {
-		this(null, null);
-	}
-
-	/**
-	 * Creates instance of the class.
 	 * 
 	 * @param tokenName The token name.
 	 * @param id        The subscription id.

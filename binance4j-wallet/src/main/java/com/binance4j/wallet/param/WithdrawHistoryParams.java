@@ -29,13 +29,6 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
-	 */
-	public WithdrawHistoryParams() {
-		this(null, null, "");
-	}
-
-	/**
-	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
 	 * @param withdrawOrderId The withdraw order id to fetch.
 	 */

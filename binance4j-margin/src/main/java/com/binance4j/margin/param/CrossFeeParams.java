@@ -12,11 +12,6 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 5)
 public record CrossFeeParams(String coin, Integer vipLevel) implements Params {
-	/** Creates an instance of {@link CrossFeeParams} */
-	public CrossFeeParams() {
-		this(null, null);
-	}
-
 	/**
 	 * Creates an instance of {@link CrossFeeParams}
 	 * 

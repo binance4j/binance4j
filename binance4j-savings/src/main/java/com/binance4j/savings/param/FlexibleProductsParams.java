@@ -14,12 +14,6 @@ import com.binance4j.savings.dto.FlexibleProductStatus;
  */
 @Param
 public record FlexibleProductsParams(FlexibleProductStatus status, Featured featured) implements Params {
-	/**
-	 * Creates an instance of {@link FlexibleProductsParams}.
-	 */
-	public FlexibleProductsParams() {
-		this(null, null);
-	}
 
 	/**
 	 * Creates an instance of {@link FlexibleProductsParams}.

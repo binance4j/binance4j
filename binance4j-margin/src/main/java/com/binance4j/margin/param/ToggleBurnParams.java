@@ -12,10 +12,5 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param
 public record ToggleBurnParams(Boolean spotBNBBurn, Boolean interestBNBBurn) implements Params {
-	/**
-	 * Creates an instance of {@link ToggleBurnParams}.
-	 */
-	public ToggleBurnParams() {
-		this(null, null);
-	}
+
 }

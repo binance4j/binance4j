@@ -12,12 +12,6 @@ import com.binance4j.wallet.client.WalletClient;
  */
 @Param
 public record FundingAssetParams(String asset, Boolean needBtcValuation) implements Params {
-	/**
-	 * Creates an instance of {@link FundingAssetParams}.
-	 */
-	public FundingAssetParams() {
-		this(null, null);
-	}
 
 	/**
 	 * Creates an instance of {@link FundingAssetParams}.
