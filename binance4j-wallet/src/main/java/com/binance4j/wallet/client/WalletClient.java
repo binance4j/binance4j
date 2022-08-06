@@ -247,7 +247,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory() {
-		return getWithdrawHistory(new WithdrawHistoryParams(null, null));
+		return getWithdrawHistory(new WithdrawHistoryParams((String) null));
 	}
 
 	/**
