@@ -1,7 +1,10 @@
 package com.binance4j.core.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * An executed trade
+ * An executed trade.
  * 
  * @param id              Trade id.
  * @param price           Price.
@@ -16,6 +19,11 @@ package com.binance4j.core.dto;
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?
  */
-public record Trade(long id, String price, String qty, String quoteQty, String commission, String commissionAsset, long time, String symbol, String orderId,
-		boolean isBuyer, boolean isMaker, boolean isBestMatch) {
+@ApiModel("An executed trade.")
+public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("Price.") String price, @ApiModelProperty("Quantity.") String qty,
+		@ApiModelProperty("Quote quantity for the trade (price * qty).") String quoteQty, @ApiModelProperty("Commission.") String commission,
+		@ApiModelProperty("Asset on which commission is taken.") String commissionAsset, @ApiModelProperty("Trade execution time.") long time,
+		@ApiModelProperty("The symbol of the trade.") String symbol, @ApiModelProperty("The order id.") String orderId,
+		@ApiModelProperty("Is buyer trade.") boolean isBuyer, @ApiModelProperty("Is maker trade.") boolean isMaker,
+		@ApiModelProperty("Is best match?") boolean isBestMatch) {
 }

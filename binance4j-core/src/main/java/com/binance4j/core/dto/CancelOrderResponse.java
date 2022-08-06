@@ -1,5 +1,8 @@
 package com.binance4j.core.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * The CancelOrder request result.
  * 
@@ -18,6 +21,12 @@ package com.binance4j.core.dto;
  * @param cummulativeQuoteQty Cummulative quote quantity.
  * @param isIsolated          Is isolated.
  */
-public record CancelOrderResponse(String status, String side, String type, String timeInForce, long orderId, long orderListId, String symbol,
-		String origClientOrderId, String clientOrderId, String executedQty, String price, String origQty, String cummulativeQuoteQty, boolean isIsolated) {
+@ApiModel("The CancelOrder request result.")
+public record CancelOrderResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Side.") String side, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Time in force.") String timeInForce, @ApiModelProperty("Order id.") long orderId,
+		@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Symbol.") String symbol,
+		@ApiModelProperty("Orig client order id.") String origClientOrderId, @ApiModelProperty("Client order id.") String clientOrderId,
+		@ApiModelProperty("Executed quantity.") String executedQty, @ApiModelProperty("Price.") String price,
+		@ApiModelProperty("Original quantity.") String origQty, @ApiModelProperty("Cummulative quote quantity.") String cummulativeQuoteQty,
+		@ApiModelProperty("Is isolated.") boolean isIsolated) {
 }

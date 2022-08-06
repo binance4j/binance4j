@@ -1,7 +1,10 @@
 package com.binance4j.core.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * Trade order information
+ * Trade order information.
  * 
  * @param side                The order side.
  * @param price               Price.
@@ -23,7 +26,15 @@ package com.binance4j.core.dto;
  * @param clientOrderId       Client order id.
  * @param accountId           Account id.
  */
-public record OrderInfo(String side, String price, String origQty, String executedQty, String cummulativeQuoteQty, String status, String timeInForce,
-		String type, String stopPrice, String icebergQty, long time, long updateTime, String origQuoteOrderQty, boolean isWorking, boolean isIsolated,
-		String symbol, long orderId, String clientOrderId, String accountId) {
+@ApiModel("Trade order information.")
+public record OrderInfo(@ApiModelProperty("The order side.") String side, @ApiModelProperty("Price.") String price,
+		@ApiModelProperty("Original quantity.") String origQty, @ApiModelProperty("Original quantity.") String executedQty,
+		@ApiModelProperty("Used to calculate the average price.") String cummulativeQuoteQty, @ApiModelProperty("Order status.") String status,
+		@ApiModelProperty("Time in force to indicate how long will the order remain active.") String timeInForce,
+		@ApiModelProperty("Type of order.") String type, @ApiModelProperty("Used with stop orders.") String stopPrice,
+		@ApiModelProperty("Used with iceberg orders.") String icebergQty, @ApiModelProperty("Order timestamp.") long time,
+		@ApiModelProperty("Update timestamp.") long updateTime, @ApiModelProperty("Original quote order quantity.") String origQuoteOrderQty,
+		@ApiModelProperty("is working.") boolean isWorking, @ApiModelProperty("is isolated margin.") boolean isIsolated,
+		@ApiModelProperty("The order symbol.") String symbol, @ApiModelProperty("Order id.") long orderId,
+		@ApiModelProperty("Client order id.") String clientOrderId, @ApiModelProperty("Account id.") String accountId) {
 }

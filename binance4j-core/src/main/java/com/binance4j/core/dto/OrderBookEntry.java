@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * An order book entry consisting of price and quantity.
  * 
@@ -12,5 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()
-public record OrderBookEntry(String price, String qt) {
+@ApiModel("An order book entry consisting of price and quantity.")
+public record OrderBookEntry(@ApiModelProperty("The price.") String price, @ApiModelProperty("The quantity.") String qt) {
 }
