@@ -26,6 +26,7 @@ public record OrderBookParams(String symbol, String limit) implements Params {
 	 * Creates an instance of {@link OrderBookParams}.
 	 * 
 	 * @param symbol Trading pair we want the depth.
+	 * @param limit  Order book limit.
 	 */
 	public OrderBookParams(String symbol, OrderBookLimit limit) {
 		this(symbol, limit.toString());
