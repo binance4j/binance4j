@@ -6,9 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Trading rules of the exchange.
  * 
- * @param filterType The filter type.
- * @param limit      The filter limit.
+ * @param filterType Filter type.
+ * @param limit      Filter limit.
  */
-@ApiModel("")
-public record ExchangeFilter(@ApiModelProperty("") ExchangeFilterType filterType, @ApiModelProperty("") int limit) {
+@ApiModel("Trading rules of the exchange.")
+public record ExchangeFilter(@ApiModelProperty("Trading rules of the exchange.") ExchangeFilterType filterType,
+		@ApiModelProperty("Trading rules of the exchange.") int limit) {
 }

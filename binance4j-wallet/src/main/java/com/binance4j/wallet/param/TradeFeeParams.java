@@ -7,7 +7,7 @@ import com.binance4j.wallet.client.WalletClient;
 /**
  * {@link WalletClient#getTradeFee} params.
  * 
- * @param symbol The trading pair we want the fees.
+ * @param symbol Trading pair we want the fees.
  */
 @Param
 public record TradeFeeParams(String symbol) implements Params {

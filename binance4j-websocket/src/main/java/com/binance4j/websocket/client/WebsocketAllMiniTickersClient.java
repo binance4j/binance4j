@@ -8,7 +8,7 @@ import com.binance4j.websocket.dto.MiniTicker;
  */
 public class WebsocketAllMiniTickersClient extends BaseWebsocketClient<MiniTicker> {
 	/**
-	 * @param callback The events handler.
+	 * @param callback Events handler.
 	 */
 	public WebsocketAllMiniTickersClient(WebsocketCallback<MiniTicker> callback) {
 		super(null, "!miniTicker", MiniTicker.class, callback);

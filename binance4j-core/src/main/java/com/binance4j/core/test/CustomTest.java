@@ -43,7 +43,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return the properties of the given bean
-	 * @param bean The bean we want the properties
+	 * @param bean Bean we want the properties
 	 */
 	public Map<String, Object> getProperties(Object bean) {
 		Map<String, Object> map = new HashMap<>();
@@ -73,7 +73,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return the properties of the given bean
-	 * @param collection The collection we want the properties
+	 * @param collection Collection we want the properties
 	 */
 	public Map<String, Object> getProperties(Collection<?> collection) {
 		Map<String, Object> map = new HashMap<>();
@@ -89,7 +89,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return the bean properties with a null walue
-	 * @param bean The bean we want the properties
+	 * @param bean Bean we want the properties
 	 */
 	public Set<String> getNullProperties(Object bean) {
 		return getNullProperties(bean, bean == null ? "object" : bean.getClass().getSimpleName());
@@ -97,7 +97,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return the bean properties with a null walue
-	 * @param bean    The bean we want the properties
+	 * @param bean    Bean we want the properties
 	 * @param flatten Flatten the result to only show the properties names
 	 */
 	public Set<String> getNullProperties(Object bean, boolean flatten) {
@@ -110,8 +110,8 @@ public abstract class CustomTest {
 
 	/**
 	 * @return the bean properties with a null walue
-	 * @param bean       The bean we want the properties
-	 * @param parentBean The enclosing class
+	 * @param bean       Bean we want the properties
+	 * @param parentBean Enclosing class
 	 */
 	public Set<String> getNullProperties(Object bean, String parentBean) {
 		List<String> list = new ArrayList<>();
@@ -152,7 +152,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return if the given object has no null property
-	 * @param bean The bean to verify
+	 * @param bean Bean to verify
 	 */
 	public boolean hasNoNullProperty(Object bean) {
 		return getNullProperties(bean).isEmpty();
@@ -160,7 +160,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return if the bean has properties
-	 * @param bean The bean we want to inspect
+	 * @param bean Bean we want to inspect
 	 */
 	public boolean hasProperties(Object bean) {
 		return getProperties(bean).size() != 0;
@@ -168,7 +168,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return if the object is from the java lang package
-	 * @param bean The bean to inspect
+	 * @param bean Bean to inspect
 	 */
 	public boolean isJavaBean(Object bean) {
 		return bean.getClass().getName().startsWith("java");
@@ -176,7 +176,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return if the object is a Map
-	 * @param bean The bean to inspect
+	 * @param bean Bean to inspect
 	 */
 	public boolean isMap(Object bean) {
 		return bean instanceof Map;
@@ -184,7 +184,7 @@ public abstract class CustomTest {
 
 	/**
 	 * @return if the object is a Collection (Map excluded)
-	 * @param bean The bean to inspect
+	 * @param bean Bean to inspect
 	 */
 	public boolean isCollection(Object bean) {
 		return bean instanceof Collection;
@@ -193,7 +193,7 @@ public abstract class CustomTest {
 	/**
 	 * Tests that the object has no null properties.
 	 * 
-	 * @param bean The bean to test.
+	 * @param bean Bean to test.
 	 */
 	public void testNoNulls(Object bean) {
 		Set<String> nulls = getNullProperties(bean);
@@ -204,7 +204,7 @@ public abstract class CustomTest {
 	/**
 	 * Tests that the object has no null properties.
 	 * 
-	 * @param request The request to execute.
+	 * @param request Request to execute.
 	 * @throws ApiException thrown if execution failed.
 	 */
 	public void testNoNulls(Request<?> request) throws ApiException {
@@ -214,8 +214,8 @@ public abstract class CustomTest {
 	/**
 	 * Tests that the object has the expected null properties.
 	 * 
-	 * @param bean          The bean to test.
-	 * @param expectedNulls THe expected null properties.
+	 * @param bean          Bean to test.
+	 * @param expectedNulls Expected null properties.
 	 * @param flatten       Flatten the properties.
 	 */
 	public void testHasNulls(Object bean, Collection<String> expectedNulls, boolean flatten) {
@@ -227,8 +227,8 @@ public abstract class CustomTest {
 	/**
 	 * Tests that the object has the expected null properties.
 	 * 
-	 * @param request       The request to execute.
-	 * @param expectedNulls THe expected null properties.
+	 * @param request       Request to execute.
+	 * @param expectedNulls Expected null properties.
 	 * @param flatten       Flatten the properties.
 	 * @throws ApiException thrown if execution failed.
 	 */
@@ -239,8 +239,8 @@ public abstract class CustomTest {
 	/**
 	 * Prints the bean null values
 	 * 
-	 * @param nulls The null values
-	 * @param bean  The bean
+	 * @param nulls Null values
+	 * @param bean  Bean
 	 */
 	private void printNulls(Set<String> nulls, Object bean) {
 		String text = String.format("Testing %s object...\n\n%s\n\n", bean.getClass().getSimpleName(), bean);

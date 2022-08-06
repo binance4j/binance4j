@@ -1,49 +1,47 @@
 package com.binance4j.wallet.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** User universal transfer type */
 public enum WalletTransferType {
 	/** Spot account transfer to USDⓈ-M Futures account. */
-	MAIN_UMFUTURE, @ApiModelProperty("")
+	MAIN_UMFUTURE,
 	/** Spot account transfer to COIN-M Futures account. */
-	MAIN_CMFUTURE, @ApiModelProperty("")
+	MAIN_CMFUTURE,
 	/** Spot account transfer to Margin（cross）account. */
-	MAIN_MARGIN, @ApiModelProperty("")
+	MAIN_MARGIN,
 	/** USDⓈ-M Futures account transfer to Spot account. */
-	UMFUTURE_MAIN, @ApiModelProperty("")
+	UMFUTURE_MAIN,
 	/** USDⓈ-M Futures account transfer to Margin（cross）account. */
-	UMFUTURE_MARGIN, @ApiModelProperty("")
+	UMFUTURE_MARGIN,
 	/** COIN-M Futures account transfer to Spot account. */
-	CMFUTURE_MAIN, @ApiModelProperty("")
+	CMFUTURE_MAIN,
 	/** COIN-M Futures account transfer to Margin(cross) account. */
-	CMFUTURE_MARGIN, @ApiModelProperty("")
+	CMFUTURE_MARGIN,
 	/** Margin（cross）account transfer to Spot account. */
-	MARGIN_MAIN, @ApiModelProperty("")
+	MARGIN_MAIN,
 	/** Margin（cross）account transfer to USDⓈ-M Futures. */
-	MARGIN_UMFUTURE, @ApiModelProperty("")
+	MARGIN_UMFUTURE,
 	/** Margin（cross）account transfer to COIN-M Futures. */
-	MARGIN_CMFUTURE, @ApiModelProperty("")
+	MARGIN_CMFUTURE,
 	/** Isolated margin account transfer to Margin(cross) account. */
-	ISOLATEDMARGIN_MARGIN, @ApiModelProperty("")
+	ISOLATEDMARGIN_MARGIN,
 	/** Margin(cross) account transfer to Isolated margin account. */
-	MARGIN_ISOLATEDMARGIN, @ApiModelProperty("")
+	MARGIN_ISOLATEDMARGIN,
 	/** Isolated margin account transfer to Isolated margin account. */
-	ISOLATEDMARGIN_ISOLATEDMARGIN, @ApiModelProperty("")
+	ISOLATEDMARGIN_ISOLATEDMARGIN,
 	/** Spot account transfer to Funding account. */
-	MAIN_FUNDING, @ApiModelProperty("")
+	MAIN_FUNDING,
 	/** Funding account transfer to Spot account. */
-	FUNDING_MAIN, @ApiModelProperty("")
+	FUNDING_MAIN,
 	/** Funding account transfer to UMFUTURE account. */
-	FUNDING_UMFUTURE, @ApiModelProperty("")
+	FUNDING_UMFUTURE,
 	/** UMFUTURE account transfer to Funding account. */
-	UMFUTURE_FUNDING, @ApiModelProperty("")
+	UMFUTURE_FUNDING,
 	/** MARGIN account transfer to Funding account. */
-	MARGIN_FUNDING, @ApiModelProperty("")
+	MARGIN_FUNDING,
 	/** Funding account transfer to Margin account. */
-	FUNDING_MARGIN, @ApiModelProperty("")
+	FUNDING_MARGIN,
 	/** Funding account transfer to CMFUTURE account. */
-	FUNDING_CMFUTURE, @ApiModelProperty("")
+	FUNDING_CMFUTURE,
 	/** CMFUTURE account transfer to Funding account. */
 	CMFUTURE_FUNDING
 }

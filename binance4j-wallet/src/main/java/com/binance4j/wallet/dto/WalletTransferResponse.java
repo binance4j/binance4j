@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The user universal transfer response.
  * 
- * @param tranId The transaction id.
+ * @param tranId Transaction id.
  */
-@ApiModel("")
-public record WalletTransferResponse(@ApiModelProperty("") long tranId) {
+@ApiModel("The user universal transfer response.")
+public record WalletTransferResponse(@ApiModelProperty("Transaction id.") long tranId) {
 }

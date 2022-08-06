@@ -9,18 +9,18 @@ import com.binance4j.staking.dto.TransactionType;
 /**
  * {@link StakingClient#getHistory} params.
  * 
- * @param product The product type.
- * @param txnType The transaction type.
- * @param asset   The product name.
+ * @param product Product type.
+ * @param txnType Transaction type.
+ * @param asset   Product name.
  */
 @Param
 public record HistoryParams(String product, String txnType, String asset) implements Params {
 	/**
 	 * Creates an instance of {@link HistoryParams}.
 	 * 
-	 * @param product The product type.
-	 * @param txnType The transaction type.
-	 * @param asset   The product name.
+	 * @param product Product type.
+	 * @param txnType Transaction type.
+	 * @param asset   Product name.
 	 */
 	public HistoryParams(ProductType product, TransactionType txnType, String asset) {
 		this(product.toString(), txnType.toString(), null);
@@ -29,8 +29,8 @@ public record HistoryParams(String product, String txnType, String asset) implem
 	/**
 	 * Creates an instance of {@link HistoryParams}.
 	 * 
-	 * @param product The product type.
-	 * @param txnType The transaction type.
+	 * @param product Product type.
+	 * @param txnType Transaction type.
 	 */
 	public HistoryParams(ProductType product, TransactionType txnType) {
 		this(product.toString(), txnType.toString(), null);

@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A list of transfer history records.
  * 
  * @param total Total of records.
- * @param rows  The records.
+ * @param rows  Records.
  */
 @ApiModel("A list of transfer history records.")
 public record TransferRecords(@ApiModelProperty("Total of records.") int total, @ApiModelProperty("The records.") List<TransferRecord> rows) {

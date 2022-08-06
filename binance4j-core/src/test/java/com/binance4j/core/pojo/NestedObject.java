@@ -11,7 +11,7 @@ public class NestedObject {
 		return subs;
 	}
 
-	/** @param sub the sub to set */
+	/** @param sub Sub to set */
 	public void setSubs(List<SubObject> sub) {
 		this.subs = sub;
 	}

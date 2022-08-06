@@ -10,13 +10,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link ConvertClient} mapping. */
+/** {@link ConvertClient} mapping. */
 public interface ConvertMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/convert/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "tradeFlow")

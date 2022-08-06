@@ -8,9 +8,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An asset divident record.
  * 
- * @param rows  The records.
- * @param total The number of record.
+ * @param rows  Records.
+ * @param total Number of record.
  */
-@ApiModel("")
-public record AssetDividendRecord(@ApiModelProperty("") List<AssetDividend> rows, @ApiModelProperty("") long total) {
+@ApiModel("An asset divident record.")
+public record AssetDividendRecord(@ApiModelProperty("Records.") List<AssetDividend> rows, @ApiModelProperty("Number of record.") long total) {
 }

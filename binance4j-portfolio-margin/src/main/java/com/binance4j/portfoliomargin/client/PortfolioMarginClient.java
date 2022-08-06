@@ -16,8 +16,8 @@ import com.binance4j.portfoliomargin.param.CollaterateRateInfoParams;
  */
 public class PortfolioMarginClient extends RestClient<PortfolioMarginMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public PortfolioMarginClient(String key, String secret) {
 		super(PortfolioMarginMapping.class, key, secret);

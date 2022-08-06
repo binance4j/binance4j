@@ -57,7 +57,7 @@ public class TestCallback<T> extends CustomTest implements WebsocketCallback<T> 
 	}
 
 	/**
-	 * @param future the future to set.
+	 * @param future Future to set.
 	 */
 	public void setFuture(CompletableFuture<Void> future) {
 		this.future = future;
@@ -71,7 +71,7 @@ public class TestCallback<T> extends CustomTest implements WebsocketCallback<T> 
 	}
 
 	/**
-	 * @param websocketClient the websocketClient to set.
+	 * @param websocketClient WebsocketClient to set.
 	 */
 	public void setWebsocketClient(BaseWebsocketClient<T> websocketClient) {
 		this.websocketClient = websocketClient;

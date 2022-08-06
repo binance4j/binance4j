@@ -15,16 +15,17 @@ import io.swagger.annotations.ApiModelProperty;
  * <li>{@code balanceUpdate}: the change in account balance (delta).</li>
  * </ul>
  * 
- * @param eventType                          The event type.
- * @param eventTime                          The timestamp.
- * @param outboundAccountPositionUpdateEvent The account update.
- * @param balanceUpdateEvent                 The balance update.
- * @param orderTradeUpdateEvent              The order trade update.
+ * @param eventType                          Event type.
+ * @param eventTime                          Timestamp.
+ * @param outboundAccountPositionUpdateEvent Account update.
+ * @param balanceUpdateEvent                 Balance update.
+ * @param orderTradeUpdateEvent              Order trade update.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
-@ApiModel("")
-public record UserDataUpdate(@ApiModelProperty("") UserDataUpdateType eventType, @ApiModelProperty("") Long eventTime,
-		@ApiModelProperty("") AccountUpdate outboundAccountPositionUpdateEvent, @ApiModelProperty("") BalanceUpdate balanceUpdateEvent,
-		@ApiModelProperty("") OrderTradeUpdate orderTradeUpdateEvent) {
+@ApiModel("User data update event")
+public record UserDataUpdate(@ApiModelProperty("Event type.") UserDataUpdateType eventType, @ApiModelProperty("Timestamp.") Long eventTime,
+		@ApiModelProperty("Account update.") AccountUpdate outboundAccountPositionUpdateEvent,
+		@ApiModelProperty("Balance update.") BalanceUpdate balanceUpdateEvent,
+		@ApiModelProperty("Order trade update.") OrderTradeUpdate orderTradeUpdateEvent) {
 }

@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * A NFT Deposit
+ * NFT Deposit.
  * 
  * @param network         NFT Network.
  * @param contractAddress NFT Contract Address.
@@ -12,7 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param txID            Transaction ID.
  * @param timestamp       Deposit time in ms.
  */
-@ApiModel("")
-public record Deposit(@ApiModelProperty("") String network, @ApiModelProperty("") String contractAddress, @ApiModelProperty("") String tokenId,
-		@ApiModelProperty("") String txID, @ApiModelProperty("") long timestamp) {
+@ApiModel("NFT Deposit.")
+public record Deposit(@ApiModelProperty("NFT Network.") String network, @ApiModelProperty("NFT Contract Address.") String contractAddress,
+		@ApiModelProperty("NFT Token ID.") String tokenId, @ApiModelProperty("Transaction ID.") String txID,
+		@ApiModelProperty("Deposit time in ms.") long timestamp) {
 }

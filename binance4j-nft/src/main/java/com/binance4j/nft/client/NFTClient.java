@@ -22,8 +22,8 @@ import com.binance4j.nft.param.TransactionHistoryParams;
  */
 public class NFTClient extends RestClient<NFTMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public NFTClient(String key, String secret) {
 		super(NFTMapping.class, key, secret);
@@ -32,7 +32,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT Transaction History.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params) {
@@ -42,8 +42,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT Transaction History.
 	 * 
-	 * @param params       The request params.
-	 * @param framedPaging The paging.
+	 * @param params       Request params.
+	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params, FramedPaging framedPaging) {
@@ -53,7 +53,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT deposit History.
 	 * 
-	 * @param interval The time interval search.
+	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<DepositHistory> getDeposits(FramedPaging interval) {
@@ -72,7 +72,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT withdraw History.
 	 * 
-	 * @param interval The time interval search.
+	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<WithdrawHistory> getWithdraws(FramedPaging interval) {
@@ -91,7 +91,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	/**
 	 * Get NFT assets.
 	 * 
-	 * @param paging The paging.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<AssetHistory> getAssets(Paging paging) {

@@ -6,8 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The tiers for the number of Base Coins Borrowings and Quote Coins Borrowings currently exist in your account. Your
  * Isolated Margin account tier is determined by whichever is higher. Each tier corresponds to a different Initial Risk
- * Rate and Liquidation Risk Ratio,@ApiModelProperty("") and the Initial Risk Ratio determines your highest available
- * leverage multiple.
+ * Rate and Liquidation Risk Ratio, and the Initial Risk Ratio determines your highest available leverage multiple.
  * 
  * @param symbol                  Related symbol.
  * @param tier                    Tier.

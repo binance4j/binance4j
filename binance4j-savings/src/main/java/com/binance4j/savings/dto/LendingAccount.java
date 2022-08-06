@@ -16,8 +16,10 @@ import io.swagger.annotations.ApiModelProperty;
  * @param totalFlexibleInBTC     Total flexible in btc.
  * @param totalFlexibleInUSDT    Total flexible in usdt.
  */
-@ApiModel("")
-public record LendingAccount(@ApiModelProperty("") List<PositionAmount> positionAmountVos, @ApiModelProperty("") String totalAmountInBTC,
-		@ApiModelProperty("") String totalAmountInUSDT, @ApiModelProperty("") String totalFixedAmountInBTC, @ApiModelProperty("") String totalFixedAmountInUSDT,
-		@ApiModelProperty("") String totalFlexibleInBTC, @ApiModelProperty("") String totalFlexibleInUSDT) {
+@ApiModel("Lending account.")
+public record LendingAccount(@ApiModelProperty("Position amount.") List<PositionAmount> positionAmountVos,
+		@ApiModelProperty("Total amount in btc.") String totalAmountInBTC, @ApiModelProperty("Total amount in usdt.") String totalAmountInUSDT,
+		@ApiModelProperty("Total fixed amount in btc.") String totalFixedAmountInBTC,
+		@ApiModelProperty("Total fixed amount in usdt.") String totalFixedAmountInUSDT, @ApiModelProperty("Total flexible in btc.") String totalFlexibleInBTC,
+		@ApiModelProperty("Total flexible in usdt.") String totalFlexibleInUSDT) {
 }

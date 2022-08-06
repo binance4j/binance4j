@@ -82,8 +82,8 @@ public interface Params {
 	/**
 	 * Converts the object into a map and replace the keys names of the generated map with the values of the given map.
 	 * 
-	 * @param replaceMap The map used to replace the keys of the generated map. The key in map2 is the key we want to change
-	 *                       the name in map1 with the value of map2.
+	 * @param replaceMap Map used to replace the keys of the generated map. The key in map2 is the key we want to change the
+	 *                       name in map1 with the value of map2.
 	 * @return the merged maps.
 	 */
 	default Map<String, Object> toMap(Map<String, String> replaceMap) {
@@ -96,7 +96,7 @@ public interface Params {
 	}
 
 	/**
-	 * @param maps The maps to merge into one
+	 * @param maps Maps to merge into one
 	 * @return A map mad of all the given maps
 	 */
 	@SafeVarargs
@@ -107,7 +107,7 @@ public interface Params {
 	}
 
 	/**
-	 * @param maps The maps to merge into one
+	 * @param maps Maps to merge into one
 	 * @return A map mad of all the given maps
 	 */
 	static Map<String, Object> merge(Params... maps) {

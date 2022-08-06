@@ -7,8 +7,8 @@ package com.binance4j.margin.client;
  */
 public class TestnetMarginClient extends MarginClient {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public TestnetMarginClient(String key, String secret) {
 		super(key, secret, true);

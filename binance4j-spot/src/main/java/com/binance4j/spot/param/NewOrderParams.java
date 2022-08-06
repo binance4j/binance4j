@@ -45,11 +45,11 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces an order without a price
 	 *
-	 * @param symbol      the asset pair on which to place the order.
-	 * @param type        the order type.
+	 * @param symbol      Asset pair on which to place the order.
+	 * @param type        Order type.
 	 * @param side        order direction.
-	 * @param quantity    the quantity of the order.
-	 * @param timeInForce the lifetime of the order.
+	 * @param quantity    Quantity of the order.
+	 * @param timeInForce Lifetime of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, TimeInForce timeInForce) {
 		this.type = type;
@@ -62,12 +62,12 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces an order with a price
 	 *
-	 * @param symbol      the asset pair on which to place the order.
-	 * @param type        the order type.
-	 * @param side        the direction of the order.
-	 * @param quantity    the quantity of the order.
-	 * @param price       the order price.
-	 * @param timeInForce the lifetime of the order.
+	 * @param symbol      Asset pair on which to place the order.
+	 * @param type        Order type.
+	 * @param side        Direction of the order.
+	 * @param quantity    Quantity of the order.
+	 * @param price       Order price.
+	 * @param timeInForce Lifetime of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
 		this.type = type;
@@ -81,10 +81,10 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces an order without price with time in force GTC by default
 	 *
-	 * @param symbol   the asset pair on which to place the order.
-	 * @param type     the order type.
-	 * @param side     the direction of the order.
-	 * @param quantity the quantity of the order.
+	 * @param symbol   Asset pair on which to place the order.
+	 * @param type     Order type.
+	 * @param side     Direction of the order.
+	 * @param quantity Quantity of the order.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity) {
 		this.type = type;
@@ -96,11 +96,11 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces an order with a default price and time in force GTC
 	 *
-	 * @param symbol   the asset pair on which to place the order.
-	 * @param type     the order type.
-	 * @param side     the direction of the order.
-	 * @param quantity the quantity of the order.
-	 * @param price    the order price.
+	 * @param symbol   Asset pair on which to place the order.
+	 * @param type     Order type.
+	 * @param side     Direction of the order.
+	 * @param quantity Quantity of the order.
+	 * @param price    Order price.
 	 */
 	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price) {
 		this.type = type;
@@ -114,8 +114,8 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET buy order
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buy(String symbol, String quantity) {
@@ -125,8 +125,8 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET order
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sell(String symbol, String quantity) {
@@ -136,10 +136,10 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a LIMIT buy order
 	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param price       The purchase price.
-	 * @param timeInForce The lifetime of the order.
+	 * @param symbol      Asset pair.
+	 * @param quantity    Quantity.
+	 * @param price       Purchase price.
+	 * @param timeInForce Lifetime of the order.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buy(String symbol, String quantity, String price, TimeInForce timeInForce) {
@@ -149,9 +149,9 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a LIMIT buy order
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
-	 * @param price    The purchase price.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
+	 * @param price    Purchase price.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buy(String symbol, String quantity, String price) {
@@ -161,10 +161,10 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a sell LIMIT order
 	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param price       The selling price.
-	 * @param timeInForce The lifetime of the order.
+	 * @param symbol      Asset pair.
+	 * @param quantity    Quantity.
+	 * @param price       Selling price.
+	 * @param timeInForce Lifetime of the order.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sell(String symbol, String quantity, String price, TimeInForce timeInForce) {
@@ -174,9 +174,9 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a sell LIMIT order
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
-	 * @param price    The purchase prices.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
+	 * @param price    Purchase prices.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sell(String symbol, String quantity, String price) {
@@ -187,9 +187,9 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET buy order with quote quantity
 	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param timeInForce The lifetime of the order.
+	 * @param symbol      Asset pair.
+	 * @param quantity    Quantity.
+	 * @param timeInForce Lifetime of the order.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buy(String symbol, String quantity, TimeInForce timeInForce) {
@@ -201,8 +201,8 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET buy order with quote quantity and default timeInForce
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams buyQuote(String symbol, String quantity) {
@@ -214,9 +214,9 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET order with quote quantity
 	 *
-	 * @param symbol      The asset pair.
-	 * @param quantity    The quantity.
-	 * @param timeInForce The lifetime of the order.
+	 * @param symbol      Asset pair.
+	 * @param quantity    Quantity.
+	 * @param timeInForce Lifetime of the order.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellQuote(String symbol, String quantity, TimeInForce timeInForce) {
@@ -228,8 +228,8 @@ public class NewOrderParams implements Params {
 	/**
 	 * Produces a MARKET order with quote quantity and default timeInForce
 	 *
-	 * @param symbol   The asset pair.
-	 * @param quantity The quantity.
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
 	 * @return The order to execute.
 	 */
 	public static NewOrderParams sellQuote(String symbol, String quantity) {
@@ -246,7 +246,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopLimitPrice the stopLimitPrice to set
+	 * @param stopLimitPrice StopLimitPrice to set
 	 */
 	public void setStopLimitPrice(String stopLimitPrice) {
 		this.stopLimitPrice = stopLimitPrice;
@@ -260,7 +260,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol Symbol to set
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
@@ -274,7 +274,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param side the side to set
+	 * @param side Side to set
 	 */
 	public void setSide(OrderSide side) {
 		this.side = side;
@@ -288,7 +288,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param quantity Quantity to set
 	 */
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
@@ -302,7 +302,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price Price to set
 	 */
 	public void setPrice(String price) {
 		this.price = price;
@@ -316,7 +316,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopPrice the stopPrice to set
+	 * @param stopPrice StopPrice to set
 	 */
 	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
@@ -330,7 +330,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param newOrderRespType the newOrderRespType to set
+	 * @param newOrderRespType NewOrderRespType to set
 	 */
 	public void setNewOrderRespType(NewOrderResponseType newOrderRespType) {
 		this.newOrderRespType = newOrderRespType;
@@ -344,7 +344,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param type Type to set
 	 */
 	public void setType(OrderType type) {
 		this.type = type;
@@ -358,7 +358,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param timeInForce the timeInForce to set
+	 * @param timeInForce TimeInForce to set
 	 */
 	public void setTimeInForce(TimeInForce timeInForce) {
 		this.timeInForce = timeInForce;
@@ -372,7 +372,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param quoteOrderQuantity the quoteOrderQuantity to set
+	 * @param quoteOrderQuantity QuoteOrderQuantity to set
 	 */
 	public void setQuoteOrderQuantity(String quoteOrderQuantity) {
 		this.quoteOrderQuantity = quoteOrderQuantity;
@@ -386,7 +386,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param icebergQuantity the icebergQuantity to set
+	 * @param icebergQuantity IcebergQuantity to set
 	 */
 	public void setIcebergQuantity(String icebergQuantity) {
 		this.icebergQuantity = icebergQuantity;
@@ -400,7 +400,7 @@ public class NewOrderParams implements Params {
 	}
 
 	/**
-	 * @param newClientOrderId the newClientOrderId to set
+	 * @param newClientOrderId NewClientOrderId to set
 	 */
 	public void setNewClientOrderId(String newClientOrderId) {
 		this.newClientOrderId = newClientOrderId;

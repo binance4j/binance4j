@@ -52,8 +52,8 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		int maxTicks;
 
 		/**
-		 * @param task           The task to execute.
-		 * @param scheduledEvent The event wrapper.
+		 * @param task           Task to execute.
+		 * @param scheduledEvent Event wrapper.
 		 */
 		public Task(ScheduledTask task, BaseScheduledEvent scheduledEvent) {
 			this.innerTask = task;
@@ -61,9 +61,9 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		}
 
 		/**
-		 * @param task           The task to execute.
-		 * @param scheduledEvent The event wrapper.
-		 * @param maxTicks       The max times the task can be called.
+		 * @param task           Task to execute.
+		 * @param scheduledEvent Event wrapper.
+		 * @param maxTicks       Max times the task can be called.
 		 */
 		public Task(ScheduledTask task, BaseScheduledEvent scheduledEvent, int maxTicks) {
 			this(task, scheduledEvent);
@@ -104,7 +104,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		}
 
 		/**
-		 * @param ticks the ticks to set
+		 * @param ticks Ticks to set
 		 */
 		public void setTicks(int ticks) {
 			this.ticks = ticks;
@@ -118,7 +118,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 		}
 
 		/**
-		 * @param maxTicks the maxTicks to set
+		 * @param maxTicks MaxTicks to set
 		 */
 		public void setMaxTicks(int maxTicks) {
 			this.maxTicks = maxTicks;

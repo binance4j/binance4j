@@ -12,9 +12,9 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	Duration noResponseMarginError = Duration.ofSeconds(10);
 
 	/**
-	 * @param symbols  The symbols we want the klines.
-	 * @param interval The candlestick interval.
-	 * @param callback The events handler.
+	 * @param symbols  Symbols we want the klines.
+	 * @param interval Candlestick interval.
+	 * @param callback Events handler.
 	 */
 	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval, WebsocketCallback<Candle> callback) {
 		super(symbols, String.format("kline_%s", interval.toString()), Candle.class, callback);
@@ -23,9 +23,9 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	}
 
 	/**
-	 * @param symbols  The trading pair iterable.
-	 * @param interval The candlestick interval.
-	 * @param callback The events handler.
+	 * @param symbols  Trading pair iterable.
+	 * @param interval Candlestick interval.
+	 * @param callback Events handler.
 	 */
 	public WebsocketCandlestickClient(Iterable<? extends CharSequence> symbols, CandlestickInterval interval, WebsocketCallback<Candle> callback) {
 		this(String.join(",", symbols), interval, callback);
@@ -39,7 +39,7 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	}
 
 	/**
-	 * @param noResponseMarginError the noResponseMarginError to set
+	 * @param noResponseMarginError NoResponseMarginError to set
 	 */
 	public void setNoResponseMarginError(Duration noResponseMarginError) {
 		this.noResponseMarginError = noResponseMarginError;

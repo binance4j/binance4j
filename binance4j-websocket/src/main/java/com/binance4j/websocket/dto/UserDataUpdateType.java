@@ -1,13 +1,11 @@
 package com.binance4j.websocket.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** The user data update type */
 public enum UserDataUpdateType {
 	/** Corresponds to "outboundAccountPosition" events. */
-	ACCOUNT_POSITION_UPDATE("outboundAccountPosition"), @ApiModelProperty("")
+	ACCOUNT_POSITION_UPDATE("outboundAccountPosition"),
 	/** Corresponds to "balanceUpdate" events. */
-	BALANCE_UPDATE("balanceUpdate"), @ApiModelProperty("")
+	BALANCE_UPDATE("balanceUpdate"),
 	/** Corresponds to "executionReport" events. */
 	ORDER_TRADE_UPDATE("executionReport");
 
@@ -22,7 +20,7 @@ public enum UserDataUpdateType {
 	}
 
 	/**
-	 * @param eventTypeId The enum string value.
+	 * @param eventTypeId Enum string value.
 	 * @return The enum value.
 	 */
 	public static UserDataUpdateType getValue(String eventTypeId) {

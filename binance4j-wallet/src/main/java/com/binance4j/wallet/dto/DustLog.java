@@ -11,6 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param total              Total counts of exchange.
  * @param userAssetDribblets Dribblets.
  */
-@ApiModel("")
-public record DustLog(@ApiModelProperty("") int total, @ApiModelProperty("") List<UserAssetDribblets> userAssetDribblets) {
+@ApiModel("Logs of assets converted in BNB.")
+public record DustLog(@ApiModelProperty("Total counts of exchange.") int total, @ApiModelProperty("Dribblets.") List<UserAssetDribblets> userAssetDribblets) {
 }

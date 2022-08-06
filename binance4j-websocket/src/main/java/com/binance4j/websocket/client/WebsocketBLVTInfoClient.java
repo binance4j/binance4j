@@ -11,7 +11,7 @@ import com.binance4j.websocket.dto.BLVT;
 public class WebsocketBLVTInfoClient extends WebsocketBLVTClient<BLVT> {
 	/**
 	 * @param symbol   Trading pair separated by a coma.
-	 * @param callback The events handler.
+	 * @param callback Events handler.
 	 */
 	public WebsocketBLVTInfoClient(String symbol, WebsocketCallback<BLVT> callback) {
 		super(symbol, "tokenNav", BLVT.class, callback);

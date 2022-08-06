@@ -5,8 +5,14 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/** The response of a MARGIN account snapshot request */
-@ApiModel("")
-public record MarginAccountSnapshotResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg,
-		@ApiModelProperty("") List<MarginAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<MarginAccountSnapshot> {
+/**
+ * Response of a MARGIN account snapshot request.
+ * 
+ * @param code        Code.
+ * @param msg         Message.
+ * @param snapshotVos Snapshot.
+ */
+@ApiModel("Response of a MARGIN account snapshot request.")
+public record MarginAccountSnapshotResponse(@ApiModelProperty("Code.") int code, @ApiModelProperty("Message.") String msg,
+		@ApiModelProperty("Snapshot.") List<MarginAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<MarginAccountSnapshot> {
 }

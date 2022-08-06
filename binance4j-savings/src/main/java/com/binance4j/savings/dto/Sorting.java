@@ -12,8 +12,9 @@ import io.swagger.annotations.ApiModelProperty;
  * @param sortBy    Project sorting.
  * @param isSortAsc Sort ascending. Default: true.
  */
-@ApiModel("")
-public record Sorting(@ApiModelProperty("") String sortBy, @ApiModelProperty("") Boolean isSortAsc) implements Params {
+@ApiModel("Sorting.")
+public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiModelProperty("Sort ascending. Default: true.") Boolean isSortAsc)
+		implements Params {
 
 	/**
 	 * Creates an instance of {@link Sorting}.

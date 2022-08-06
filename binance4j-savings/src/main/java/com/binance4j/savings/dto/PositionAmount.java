@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param amountInUSDT Amount in USDT.
  * @param asset        Asset.
  */
-@ApiModel("")
-public record PositionAmount(@ApiModelProperty("") String amount, @ApiModelProperty("") String amountInBTC, @ApiModelProperty("") String amountInUSDT,
-		@ApiModelProperty("") String asset) {
+@ApiModel("Position Amount.")
+public record PositionAmount(@ApiModelProperty("Amount.") String amount, @ApiModelProperty("Amount in BTC.") String amountInBTC,
+		@ApiModelProperty("Amount in USDT.") String amountInUSDT, @ApiModelProperty("Asset.") String asset) {
 }

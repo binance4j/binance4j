@@ -19,9 +19,9 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a BUY signal on the selected bar of the given {@link BarSeries}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param series   The {@link BarSeries} to analyze.
-	 * @param index    The {@link Bar} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param series   {@link BarSeries} to analyze.
+	 * @param index    {@link Bar} to analyze.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldEnter(TradingStrategy strategy, BarSeries series, int index) {
@@ -31,8 +31,8 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a BUY signal on the last bar of the given {@link BarSeries}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param series   The {@link BarSeries} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param series   {@link BarSeries} to analyze.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldEnter(TradingStrategy strategy, BarSeries series) {
@@ -42,9 +42,9 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a SELL signal on the selected bar of the given {@link BarSeries}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param series   The {@link BarSeries} to analyze.
-	 * @param index    The {@link Bar} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param series   {@link BarSeries} to analyze.
+	 * @param index    {@link Bar} to analyze.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldExit(TradingStrategy strategy, BarSeries series, int index) {
@@ -54,8 +54,8 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a SELL signal on the last bar of the given {@link BarSeries}
 	 *
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param series   The {@link BarSeries} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param series   {@link BarSeries} to analyze.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldExit(TradingStrategy strategy, BarSeries series) {
@@ -67,10 +67,10 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a BUY signal on the selected bar of the given {@link CandlestickInterval}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param bars     The {@link Candle CandlestickBars} to analyze.
-	 * @param interval The interval between every bar.
-	 * @param index    The {@link Bar} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param bars     {@link Candle CandlestickBars} to analyze.
+	 * @param interval Interval between every bar.
+	 * @param index    {@link Bar} to analyze.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldEnter(TradingStrategy strategy, List<Candle> bars, CandlestickInterval interval, int index) {
@@ -80,9 +80,9 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a BUY signal on the selected bar of the given {@link CandlestickInterval}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param bars     The {@link Candle CandlestickBars} to analyze.
-	 * @param interval The interval between every bar.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param bars     {@link Candle CandlestickBars} to analyze.
+	 * @param interval Interval between every bar.
 	 * @return If the strategy sends a BUY signal.
 	 */
 	public static boolean shouldEnter(TradingStrategy strategy, List<Candle> bars, CandlestickInterval interval) {
@@ -92,10 +92,10 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a SELL signal on the selected bar of the given {@link CandlestickInterval}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param bars     The {@link Candle CandlestickBars} to analyze.
-	 * @param interval The interval between every bar.
-	 * @param index    The {@link Bar} to analyze.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param bars     {@link Candle CandlestickBars} to analyze.
+	 * @param interval Interval between every bar.
+	 * @param index    {@link Bar} to analyze.
 	 * @return If the strategy sends a SELL signal.
 	 */
 	public static boolean shouldExit(TradingStrategy strategy, List<Candle> bars, CandlestickInterval interval, int index) {
@@ -105,9 +105,9 @@ public class PositionService {
 	/**
 	 * Tells if the strategy sends a SELL signal on the selected bar of the given {@link CandlestickInterval}
 	 * 
-	 * @param strategy The {@link TradingStrategy} to analyze.
-	 * @param bars     The {@link Candle CandlestickBars} to analyze.
-	 * @param interval The interval between every bar.
+	 * @param strategy {@link TradingStrategy} to analyze.
+	 * @param bars     {@link Candle CandlestickBars} to analyze.
+	 * @param interval Interval between every bar.
 	 * @return If the strategy sends a SELL signal.
 	 */
 	public static boolean shouldExit(TradingStrategy strategy, List<Candle> bars, CandlestickInterval interval) {

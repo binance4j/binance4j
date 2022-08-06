@@ -1,13 +1,11 @@
 package com.binance4j.savings.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** Transaction type. */
 public enum LendingType {
 	/** Daily. */
-	DAILY, @ApiModelProperty("")
+	DAILY,
 	/** Activity. */
-	ACTIVITY, @ApiModelProperty("")
+	ACTIVITY,
 	/** Customized fixed. */
 	CUSTOMIZED_FIXED
 }

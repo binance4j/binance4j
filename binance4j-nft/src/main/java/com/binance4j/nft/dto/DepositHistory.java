@@ -6,11 +6,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * A NFT deposit history
+ * NFT deposit history.
  * 
  * @param total Total records.
- * @param list  The transactions.
+ * @param list  Transactions.
  */
-@ApiModel("")
-public record DepositHistory(@ApiModelProperty("") long total, @ApiModelProperty("") List<Deposit> list) {
+@ApiModel("NFT deposit history.")
+public record DepositHistory(@ApiModelProperty("Total records.") long total, @ApiModelProperty("Transactions.") List<Deposit> list) {
 }

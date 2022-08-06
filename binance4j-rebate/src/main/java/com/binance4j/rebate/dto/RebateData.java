@@ -6,14 +6,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Rebate data
+ * Rebate data.
  * 
- * @param page         The current page.
- * @param totalRecords The total records.
- * @param totalPageNum The total pages.
- * @param data         The rebates.
+ * @param page         Current page.
+ * @param totalRecords Total records.
+ * @param totalPageNum Total pages.
+ * @param data         Rebates.
  */
-@ApiModel("")
-public record RebateData(@ApiModelProperty("") int page, @ApiModelProperty("") int totalRecords, @ApiModelProperty("") int totalPageNum,
-		@ApiModelProperty("") List<Rebate> data) {
+@ApiModel("Rebate data.")
+public record RebateData(@ApiModelProperty("Current page.") int page, @ApiModelProperty("Total records.") int totalRecords,
+		@ApiModelProperty("Total pages.") int totalPageNum, @ApiModelProperty("Rebates.") List<Rebate> data) {
 }

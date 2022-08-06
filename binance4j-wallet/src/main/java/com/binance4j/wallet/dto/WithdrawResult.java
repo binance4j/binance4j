@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The result of a withdraw.
  * 
- * @param id The withdraw id.
+ * @param id Withdraw id.
  */
-@ApiModel("")
-public record WithdrawResult(@ApiModelProperty("") String id) {
+@ApiModel("The result of a withdraw.")
+public record WithdrawResult(@ApiModelProperty("Withdraw id.") String id) {
 }

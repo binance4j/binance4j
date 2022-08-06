@@ -11,7 +11,7 @@ public enum TransactionType {
 	String value;
 
 	/**
-	 * @param value The value
+	 * @param value Value
 	 */
 	private TransactionType(String value) {
 		this.value = value;

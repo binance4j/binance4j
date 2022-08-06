@@ -6,14 +6,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An asset divident.
  * 
- * @param amount  The divident amount.
+ * @param amount  Divident amount.
  * @param enInfo  Info about the asset.
- * @param asset   The asset abbreviation.
- * @param id      The id.
+ * @param asset   Asset abbreviation.
+ * @param id      Id.
  * @param divTime Dividend time in ms.
- * @param tranId  The transaction id.
+ * @param tranId  Transaction id.
  */
-@ApiModel("")
-public record AssetDividend(@ApiModelProperty("") String amount, @ApiModelProperty("") String enInfo, @ApiModelProperty("") String asset,
-		@ApiModelProperty("") long id, @ApiModelProperty("") long divTime, @ApiModelProperty("") long tranId) {
+@ApiModel("An asset divident.")
+public record AssetDividend(@ApiModelProperty("Divident amount.") String amount, @ApiModelProperty("Info about the asset.") String enInfo,
+		@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Id.") long id, @ApiModelProperty("Dividend time in ms.") long divTime,
+		@ApiModelProperty("Transaction id.") long tranId) {
 }

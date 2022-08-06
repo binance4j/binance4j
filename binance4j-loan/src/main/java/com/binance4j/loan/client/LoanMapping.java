@@ -11,13 +11,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link LoanClient} mapping. */
+/** {@link LoanClient} mapping. */
 public interface LoanMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/loan/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "income")

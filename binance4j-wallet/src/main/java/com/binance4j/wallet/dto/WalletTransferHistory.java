@@ -8,9 +8,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The transfers wrapper.
  * 
- * @param rows  The list of transfers.
- * @param total The result size.
+ * @param rows  List of transfers.
+ * @param total Result size.
  */
-@ApiModel("")
-public record WalletTransferHistory(@ApiModelProperty("") List<WalletTransfer> rows, @ApiModelProperty("") long total) {
+@ApiModel("The transfers wrapper.")
+public record WalletTransferHistory(@ApiModelProperty("List of transfers.") List<WalletTransfer> rows, @ApiModelProperty("Result size.") long total) {
 }

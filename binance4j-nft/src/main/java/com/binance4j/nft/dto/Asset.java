@@ -4,12 +4,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * NFT asset
+ * NFT asset.
  * 
  * @param network         NFT Network.
  * @param contractAddress NFT Contract Address.
  * @param tokenId         NFT Token ID.
  */
-@ApiModel("")
-public record Asset(@ApiModelProperty("") String network, @ApiModelProperty("") String contractAddress, @ApiModelProperty("") String tokenId) {
+@ApiModel("NFT asset.")
+public record Asset(@ApiModelProperty("NFT Network.") String network, @ApiModelProperty("NFT Contract Address.") String contractAddress,
+		@ApiModelProperty("NFT Token ID.") String tokenId) {
 }

@@ -6,9 +6,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A wrapper for the listen key.
  * 
- * @param listenKey The key used to open a user data stream.
+ * @param listenKey Key used to open a user data stream.
  */
 
-@ApiModel("")
-public record ListenKey(@ApiModelProperty("") String listenKey) {
+@ApiModel("A wrapper for the listen key.")
+public record ListenKey(@ApiModelProperty("Key used to open a user data stream.") String listenKey) {
 }

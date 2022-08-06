@@ -13,7 +13,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param subName  Mining account.
  * @param amount   Amount.
  */
-@ApiModel("")
-public record AccountProfit(@ApiModelProperty("") long time, @ApiModelProperty("") String coinName, @ApiModelProperty("") int type,
-		@ApiModelProperty("") int puid, @ApiModelProperty("") String subName, @ApiModelProperty("") String amount) {
+@ApiModel("Account profit.")
+public record AccountProfit(@ApiModelProperty("Time in ms.") long time, @ApiModelProperty("Coin.") String coinName,
+		@ApiModelProperty("0:Referral 1：Refund 2：Rebate.") int type, @ApiModelProperty("Sub-account id.") int puid,
+		@ApiModelProperty("Mining account.") String subName, @ApiModelProperty("Amount.") String amount) {
 }

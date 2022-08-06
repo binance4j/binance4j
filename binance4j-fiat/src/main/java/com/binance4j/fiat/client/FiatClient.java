@@ -18,8 +18,8 @@ import com.binance4j.fiat.param.TransactionParams;
  */
 public class FiatClient extends RestClient<FiatMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public FiatClient(String key, String secret) {
 		super(FiatMapping.class, key, secret);
@@ -28,8 +28,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat transactions.
 	 * 
-	 * @param params       The request params.
-	 * @param framedPaging The paging.
+	 * @param params       Request params.
+	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionParams params, FramedPaging framedPaging) {
@@ -39,7 +39,7 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat transactions.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionParams params) {
@@ -49,8 +49,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat payments.
 	 * 
-	 * @param params       The request params.
-	 * @param framedPaging The paging.
+	 * @param params       Request params.
+	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<PaymentHistory> getPayments(PaymentParams params, FramedPaging framedPaging) {
@@ -60,7 +60,7 @@ public class FiatClient extends RestClient<FiatMapping> {
 	/**
 	 * Get fiat payments.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PaymentHistory> getPayments(PaymentParams params) {

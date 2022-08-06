@@ -9,16 +9,16 @@ import com.binance4j.websocket.dto.Ticker;
  */
 public class WebsocketTickerClient extends BaseWebsocketClient<Ticker> {
 	/**
-	 * @param symbols  The symbols we want the data.
-	 * @param callback The events handler.
+	 * @param symbols  Symbols we want the data.
+	 * @param callback Events handler.
 	 */
 	public WebsocketTickerClient(String symbols, WebsocketCallback<Ticker> callback) {
 		super(symbols, "ticker", Ticker.class, callback);
 	}
 
 	/**
-	 * @param symbols  The trading pair iterable.
-	 * @param callback The events handler.
+	 * @param symbols  Trading pair iterable.
+	 * @param callback Events handler.
 	 */
 	public WebsocketTickerClient(Iterable<? extends CharSequence> symbols, WebsocketCallback<Ticker> callback) {
 		this(String.join(",", symbols), callback);

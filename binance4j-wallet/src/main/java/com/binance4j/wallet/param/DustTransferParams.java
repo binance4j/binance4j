@@ -10,7 +10,7 @@ import com.binance4j.wallet.client.WalletClient;
 /**
  * {@link WalletClient#dustTransfert} params.
  * 
- * @param assets The list of assets to convert into BNB.
+ * @param assets List of assets to convert into BNB.
  */
 @Param(weight = 10, type = RateLimitType.UID)
 public record DustTransferParams(List<String> assets) implements Params {

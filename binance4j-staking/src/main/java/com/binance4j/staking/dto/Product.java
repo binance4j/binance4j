@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param detail    Detail.
  * @param quota     Quota.
  */
-@ApiModel("")
-public record Product(@ApiModelProperty("") String projectId, @ApiModelProperty("") ProductDetail detail, @ApiModelProperty("") ProductQuota quota) {
+@ApiModel("A staking product.")
+public record Product(@ApiModelProperty("Project id.") String projectId, @ApiModelProperty("Detail.") ProductDetail detail,
+		@ApiModelProperty("Quota.") ProductQuota quota) {
 }

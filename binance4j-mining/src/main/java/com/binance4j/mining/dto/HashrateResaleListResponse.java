@@ -6,13 +6,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The {@link MiningClient} response.
+ * {@link MiningClient#getHashrateResales} response.
  * 
- * @param code The response code.
- * @param msg  The response message.
- * @param data The response data.
+ * @param code Response code.
+ * @param msg  Response message.
+ * @param data Response data.
  */
-@ApiModel("")
-public record HashrateResaleListResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg,
-		@ApiModelProperty("") HashrateResaleListDetailData data) {
+@ApiModel("Hashrate resale list wrapper")
+public record HashrateResaleListResponse(@ApiModelProperty("Response code.") int code, @ApiModelProperty("Response message.") String msg,
+		@ApiModelProperty("Response data.") HashrateResaleListDetailData data) {
 }

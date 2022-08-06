@@ -7,16 +7,16 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * {@link SpotClient#getTrades} params.
  * 
- * @param symbol  The symbol of the trade.
- * @param orderId The order id of the trade.
- * @param fromId  The id from which we search trades.
+ * @param symbol  Symbol of the trade.
+ * @param orderId Order id of the trade.
+ * @param fromId  Id from which we search trades.
  */
 @Param(weight = 10)
 public record TradesParams(String symbol, Long orderId, Long fromId) implements Params {
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 
-	 * @param symbol The symbol of the trade.
+	 * @param symbol Symbol of the trade.
 	 */
 	public TradesParams(String symbol) {
 		this(symbol, null, null);
@@ -25,8 +25,8 @@ public record TradesParams(String symbol, Long orderId, Long fromId) implements 
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 
-	 * @param symbol  The symbol of the trade.
-	 * @param orderId The order id of the trade.
+	 * @param symbol  Symbol of the trade.
+	 * @param orderId Order id of the trade.
 	 */
 	public TradesParams(String symbol, Long orderId) {
 		this(symbol, orderId, null);
@@ -35,8 +35,8 @@ public record TradesParams(String symbol, Long orderId, Long fromId) implements 
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 
-	 * @param fromId The id from which we search trades.
-	 * @param symbol The symbol of the trade.
+	 * @param fromId Id from which we search trades.
+	 * @param symbol Symbol of the trade.
 	 */
 	public TradesParams(Long fromId, String symbol) {
 		this(symbol, null, fromId);

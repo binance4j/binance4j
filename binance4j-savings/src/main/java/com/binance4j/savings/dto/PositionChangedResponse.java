@@ -6,12 +6,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The {@link SavingsClient#fixedToDailyPosition} response.
+ * {@link SavingsClient#fixedToDailyPosition} response.
  * 
  * @param dailyPurchaseId Daily purchase id.
  * @param success         Success.
  * @param timestamp       Time.
  */
-@ApiModel("")
-public record PositionChangedResponse(@ApiModelProperty("") long dailyPurchaseId, @ApiModelProperty("") boolean success, @ApiModelProperty("") long timestamp) {
+@ApiModel("Response for changing fixed product to flexible.")
+public record PositionChangedResponse(@ApiModelProperty("Daily purchase id.") long dailyPurchaseId, @ApiModelProperty("Success.") boolean success,
+		@ApiModelProperty("Time.") long timestamp) {
 }

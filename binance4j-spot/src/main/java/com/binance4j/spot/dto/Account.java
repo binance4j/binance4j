@@ -10,21 +10,23 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The SPOT account information.
  * 
- * @param makerCommission  The maker commission.
- * @param takerCommission  The taker commission.
- * @param buyerCommission  The buyer commission.
- * @param sellerCommission The seller commission.
- * @param canTrade         The trade permission.
- * @param canWithdraw      The withdrawal permission.
- * @param canDeposit       The deposit permission.
- * @param updateTime       The timestamp of the last data update.
- * @param balances         The balances of each asset in the SPOT wallet.
- * @param accountType      The account Type .
- * @param permissions      The permissions list.
+ * @param makerCommission  Maker commission.
+ * @param takerCommission  Taker commission.
+ * @param buyerCommission  Buyer commission.
+ * @param sellerCommission Seller commission.
+ * @param canTrade         Trade permission.
+ * @param canWithdraw      Withdrawal permission.
+ * @param canDeposit       Deposit permission.
+ * @param updateTime       Timestamp of the last data update.
+ * @param balances         Balances of each asset in the SPOT wallet.
+ * @param accountType      Account Type .
+ * @param permissions      Permissions list.
  */
-@ApiModel("")
-public record Account(@ApiModelProperty("") String makerCommission, @ApiModelProperty("") String takerCommission, @ApiModelProperty("") String buyerCommission,
-		@ApiModelProperty("") String sellerCommission, @ApiModelProperty("") boolean canTrade, @ApiModelProperty("") boolean canWithdraw,
-		@ApiModelProperty("") boolean canDeposit, @ApiModelProperty("") long updateTime, @ApiModelProperty("") List<AssetBalance> balances,
-		@ApiModelProperty("") String accountType, @ApiModelProperty("") List<String> permissions) {
+@ApiModel("The SPOT account information.")
+public record Account(@ApiModelProperty("Maker commission.") String makerCommission, @ApiModelProperty("Taker commission.") String takerCommission,
+		@ApiModelProperty("Buyer commission.") String buyerCommission, @ApiModelProperty("Seller commission.") String sellerCommission,
+		@ApiModelProperty("Trade permission.") boolean canTrade, @ApiModelProperty("Withdrawal permission.") boolean canWithdraw,
+		@ApiModelProperty("Deposit permission.") boolean canDeposit, @ApiModelProperty("Timestamp of the last data update.") long updateTime,
+		@ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances, @ApiModelProperty("Account Type .") String accountType,
+		@ApiModelProperty("Permissions list.") List<String> permissions) {
 }

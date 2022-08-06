@@ -2,6 +2,7 @@ package com.binance4j.core.pojo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.binance4j.core.dto.AggTrade;
 
 public class SubSubObject {
@@ -12,7 +13,7 @@ public class SubSubObject {
 		return trades;
 	}
 
-	/** @param trades the trades to set */
+	/** @param trades Trades to set */
 	public void setTrades(List<AggTrade> trades) {
 		this.trades = trades;
 	}

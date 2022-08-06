@@ -6,9 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The system status.
  * 
- * @param status The system status code (0: normal，1：maintenance).
- * @param msg    The system status message ("normal" or "system_maintenance").
+ * @param status System status code (0: normal，1：maintenance).
+ * @param msg    System status message ("normal" or "system_maintenance").
  */
-@ApiModel("")
-public record SystemStatus(@ApiModelProperty("") int status, @ApiModelProperty("") String msg) {
+@ApiModel("The system status.")
+public record SystemStatus(@ApiModelProperty("System status code (0: normal，1：maintenance).") int status,
+		@ApiModelProperty("System status message (\"normal\" or \"system_maintenance\").") String msg) {
 }

@@ -1,13 +1,11 @@
 package com.binance4j.wallet.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
-/** The coin deposit status */
+/** The coin deposit status. */
 public enum DepositStatus {
 	/** Pending */
-	PENDING("0"), @ApiModelProperty("")
+	PENDING("0"),
 	/** Cannot withdraw */
-	CANNOT_WITHDRAW("6"), @ApiModelProperty("")
+	CANNOT_WITHDRAW("6"),
 	/** Success */
 	SUCCESS("1");
 

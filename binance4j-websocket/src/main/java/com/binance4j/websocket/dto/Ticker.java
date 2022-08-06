@@ -4,26 +4,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Pair ticker.
  * 
- * @param eventType                   The event type.
- * @param eventTime                   The timestamp.
- * @param symbol                      The trading pair.
- * @param priceChange                 The price change.
- * @param priceChangePercent          The price change percent.
- * @param weightedAveragePrice        The weighted average price.
- * @param previousDaysClosePrice      The previous days close price.
- * @param currentDaysClosePrice       The current days close price.
+ * @param eventType                   Event type.
+ * @param eventTime                   Timestamp.
+ * @param symbol                      Trading pair.
+ * @param priceChange                 Price change.
+ * @param priceChangePercent          Price change percent.
+ * @param weightedAveragePrice        Weighted average price.
+ * @param previousDaysClosePrice      Previous days close price.
+ * @param currentDaysClosePrice       Current days close price.
  * @param closeTradesQuantity         Last quantity.
  * @param bestBidPrice                Best bid price.
  * @param bestBidQuantity             Best bid quantity.
  * @param bestAskPrice                Best ask price.
  * @param bestAskQuantity             Best ask quantity.
- * @param openPrice                   The open price.
- * @param highPrice                   The highest price.
- * @param lowPrice                    The lowest price.
+ * @param openPrice                   Open price.
+ * @param highPrice                   Highest price.
+ * @param lowPrice                    Lowest price.
  * @param totalTradedBaseAssetVolume  Total traded base asset volume.
  * @param totalTradedQuoteAssetVolume Total traded quote asset volume.
  * @param statisticsOpenTime          Statistics open time.
@@ -33,13 +34,23 @@ import io.swagger.annotations.ApiModel;
  * @param totalNumberOfTrades         Total number of trades.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record Ticker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("p") String priceChange, @JsonProperty("P") String priceChangePercent, @JsonProperty("w") String weightedAveragePrice,
-		@JsonProperty("x") String previousDaysClosePrice, @JsonProperty("c") String currentDaysClosePrice, @JsonProperty("Q") String closeTradesQuantity,
-		@JsonProperty("b") String bestBidPrice, @JsonProperty("B") String bestBidQuantity, @JsonProperty("a") String bestAskPrice,
-		@JsonProperty("A") String bestAskQuantity, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
-		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume, @JsonProperty("O") Long statisticsOpenTime,
-		@JsonProperty("C") Long statisticsCloseTime, @JsonProperty("F") Long firstTradeId, @JsonProperty("L") Long lastTradeId,
-		@JsonProperty("n") Long totalNumberOfTrades) {
+@ApiModel("Pair ticker.")
+public record Ticker(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType, @ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol, @ApiModelProperty("Price change.") @JsonProperty("p") String priceChange,
+		@ApiModelProperty("Price change percent.") @JsonProperty("P") String priceChangePercent,
+		@ApiModelProperty("Weighted average price.") @JsonProperty("w") String weightedAveragePrice,
+		@ApiModelProperty("Previous days close price.") @JsonProperty("x") String previousDaysClosePrice,
+		@ApiModelProperty("Current days close price.") @JsonProperty("c") String currentDaysClosePrice,
+		@ApiModelProperty("Last quantity.") @JsonProperty("Q") String closeTradesQuantity,
+		@ApiModelProperty("Best bid price.") @JsonProperty("b") String bestBidPrice,
+		@ApiModelProperty("Best bid quantity.") @JsonProperty("B") String bestBidQuantity,
+		@ApiModelProperty("Best ask price.") @JsonProperty("a") String bestAskPrice,
+		@ApiModelProperty("Best ask quantity.") @JsonProperty("A") String bestAskQuantity, @ApiModelProperty("Open price.") @JsonProperty("o") String openPrice,
+		@ApiModelProperty("Highest price.") @JsonProperty("h") String highPrice, @ApiModelProperty("Lowest price.") @JsonProperty("l") String lowPrice,
+		@ApiModelProperty("Total traded base asset volume.") @JsonProperty("v") String totalTradedBaseAssetVolume,
+		@ApiModelProperty("Total traded quote asset volume.") @JsonProperty("q") String totalTradedQuoteAssetVolume,
+		@ApiModelProperty("Statistics open time.") @JsonProperty("O") Long statisticsOpenTime,
+		@ApiModelProperty("Statistics close time.") @JsonProperty("C") Long statisticsCloseTime,
+		@ApiModelProperty("First trade ID.") @JsonProperty("F") Long firstTradeId, @ApiModelProperty("Last trade Id.") @JsonProperty("L") Long lastTradeId,
+		@ApiModelProperty("Total number of trades.") @JsonProperty("n") Long totalNumberOfTrades) {
 }

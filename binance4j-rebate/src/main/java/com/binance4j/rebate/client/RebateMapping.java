@@ -10,13 +10,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link RebateClient} mapping. */
+/** {@link RebateClient} mapping. */
 public interface RebateMapping extends RestMapping {
 	/** The API base url. */
 	String BASE = "/sapi/v1/rebate/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)

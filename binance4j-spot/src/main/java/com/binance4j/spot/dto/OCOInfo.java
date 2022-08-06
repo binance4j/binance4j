@@ -8,17 +8,18 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An OCO Order details.
  * 
- * @param orderListId       The order list id.
- * @param contingencyType   The contingency type.
- * @param listStatusType    The list status type.
- * @param listOrderStatus   The list order status.
- * @param listClientOrderId The list client order id.
- * @param transactionTime   The transaction timestamp in ms.
- * @param symbol            The orders symbol.
- * @param orders            The two orders of the OCO order.
+ * @param orderListId       Order list id.
+ * @param contingencyType   Contingency type.
+ * @param listStatusType    List status type.
+ * @param listOrderStatus   List order status.
+ * @param listClientOrderId List client order id.
+ * @param transactionTime   Transaction timestamp in ms.
+ * @param symbol            Orders symbol.
+ * @param orders            Two orders of the OCO order.
  */
-@ApiModel("")
-public record OCOInfo(@ApiModelProperty("") long orderListId, @ApiModelProperty("") String contingencyType, @ApiModelProperty("") String listStatusType,
-		@ApiModelProperty("") String listOrderStatus, @ApiModelProperty("") String listClientOrderId, @ApiModelProperty("") long transactionTime,
-		@ApiModelProperty("") String symbol, @ApiModelProperty("") List<OCOOrder> orders) {
+@ApiModel("An OCO Order details.")
+public record OCOInfo(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Contingency type.") String contingencyType,
+		@ApiModelProperty("List status type.") String listStatusType, @ApiModelProperty("List order status.") String listOrderStatus,
+		@ApiModelProperty("List client order id.") String listClientOrderId, @ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
+		@ApiModelProperty("Orders symbol.") String symbol, @ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders) {
 }

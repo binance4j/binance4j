@@ -8,25 +8,27 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The coin infos for the authenticated account.
  * 
- * @param coin              The coin abbreviation.
- * @param name              The coin name.
- * @param depositAllEnable  The deposit permission.
- * @param isLegalMoney      if the coin is a legal money.
- * @param trading           if the coin can be traded.
- * @param withdrawAllEnable The withdraw permission.
- * @param free              The free balance.
- * @param freeze            The freezed balance.
- * @param ipoable           The Initial Public Offering balance (?)
- * @param ipoing            The Initial Public Offering freezed balance (?)
- * @param locked            The locked balance.
- * @param storage           The storage
- * @param withdrawing       The withdrawing balance.
- * @param networkList       The coin network information.
+ * @param coin              Coin abbreviation.
+ * @param name              Coin name.
+ * @param depositAllEnable  Deposit permission.
+ * @param isLegalMoney      Is the coin a legal money?
+ * @param trading           Can the coin be traded?
+ * @param withdrawAllEnable Withdraw permission.
+ * @param free              Free balance.
+ * @param freeze            Freezed balance.
+ * @param ipoable           Initial Public Offering balance (?)
+ * @param ipoing            Initial Public Offering freezed balance (?)
+ * @param locked            Locked balance.
+ * @param storage           Storage
+ * @param withdrawing       Withdrawing balance.
+ * @param networkList       Coin network information.
  */
-@ApiModel("")
-public record CoinInformation(@ApiModelProperty("") String coin, @ApiModelProperty("") String name, @ApiModelProperty("") boolean depositAllEnable,
-		@ApiModelProperty("") boolean isLegalMoney, @ApiModelProperty("") boolean trading, @ApiModelProperty("") boolean withdrawAllEnable,
-		@ApiModelProperty("") String free, @ApiModelProperty("") String freeze, @ApiModelProperty("") String ipoable, @ApiModelProperty("") String ipoing,
-		@ApiModelProperty("") String locked, @ApiModelProperty("") String storage, @ApiModelProperty("") String withdrawing,
-		@ApiModelProperty("") List<CoinNetworkInformation> networkList) {
+@ApiModel("The coin infos for the authenticated account.")
+public record CoinInformation(@ApiModelProperty("Coin abbreviation.") String coin, @ApiModelProperty("Coin name.") String name,
+		@ApiModelProperty("Deposit permission.") boolean depositAllEnable, @ApiModelProperty("Is the coin a legal money?") boolean isLegalMoney,
+		@ApiModelProperty("Can the coin be traded?") boolean trading, @ApiModelProperty("Withdraw permission.") boolean withdrawAllEnable,
+		@ApiModelProperty("Free balance.") String free, @ApiModelProperty("Freezed balance.") String freeze,
+		@ApiModelProperty("Initial Public Offering balance (?)") String ipoable, @ApiModelProperty("Initial Public Offering freezed balance (?)") String ipoing,
+		@ApiModelProperty("Locked balance.") String locked, @ApiModelProperty("Storage") String storage,
+		@ApiModelProperty("Withdrawing balance.") String withdrawing, @ApiModelProperty("Coin network information.") List<CoinNetworkInformation> networkList) {
 }

@@ -28,7 +28,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<ListenKey> startUserDataStream();
 
 	/**
-	 * @param listenKey The authenticated account user listen key.
+	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -36,7 +36,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
 
 	/**
-	 * @param listenKey The authenticated account user listen key.
+	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -53,7 +53,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<ListenKey> startMarginUserDataStream();
 
 	/**
-	 * @param listenKey The authenticated account user listen key.
+	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -61,7 +61,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<Void> keepAliveMarginUserDataStream(@Query("listenKey") String listenKey);
 
 	/**
-	 * @param listenKey The authenticated account user listen key.
+	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -70,7 +70,7 @@ public interface UserDataMapping extends RestMapping {
 
 	// ISOLATED
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -78,7 +78,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<ListenKey> startIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)
@@ -86,7 +86,7 @@ public interface UserDataMapping extends RestMapping {
 	Call<Void> keepAliveIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
 	@Headers(API_H)

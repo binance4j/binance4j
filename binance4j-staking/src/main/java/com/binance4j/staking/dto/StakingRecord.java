@@ -6,18 +6,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Staking record.
  * 
- * @param positionId  position id.
- * @param time        time.
- * @param asset       asset.
- * @param project     project.
- * @param amount      amount.
- * @param lockPeriod  lock period.
- * @param deliverDate deliver date.
- * @param type        type.
- * @param status      status.
+ * @param positionId  Position id.
+ * @param time        Time.
+ * @param asset       Asset.
+ * @param project     Project.
+ * @param amount      Amount.
+ * @param lockPeriod  Lock period.
+ * @param deliverDate Deliver date.
+ * @param type        Type.
+ * @param status      Status.
  */
-@ApiModel("")
-public record StakingRecord(@ApiModelProperty("") String positionId, @ApiModelProperty("") String time, @ApiModelProperty("") String asset,
-		@ApiModelProperty("") String project, @ApiModelProperty("") String amount, @ApiModelProperty("") String lockPeriod,
-		@ApiModelProperty("") String deliverDate, @ApiModelProperty("") String type, @ApiModelProperty("") String status) {
+@ApiModel("Staking record.")
+public record StakingRecord(@ApiModelProperty("Position id.") String positionId, @ApiModelProperty("Time.") String time,
+		@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Project.") String project, @ApiModelProperty("Amount.") String amount,
+		@ApiModelProperty("Lock period.") String lockPeriod, @ApiModelProperty("Deliver date.") String deliverDate, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Status.") String status) {
 }

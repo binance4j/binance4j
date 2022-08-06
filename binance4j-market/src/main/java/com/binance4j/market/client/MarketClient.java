@@ -37,8 +37,8 @@ import com.binance4j.market.param.TradesParams;
  */
 public class MarketClient extends RestClient<MarketMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public MarketClient(String key, String secret) {
 		super(MarketMapping.class, key, secret);
@@ -67,7 +67,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If any symbol provided in either {@code symbol} or {@code symbols} do not exist, the endpoint will throw an error.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ExchangeInfo> getExchangeInfo(ExchangeInfoParams params) {
@@ -86,7 +86,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get the symbol order book.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OrderBook> getOrderBook(OrderBookParams params) {
@@ -96,7 +96,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get recent trades.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradesParams params) {
@@ -106,7 +106,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get older market trades.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getHistoricalTrades(HistoricalTradesParams params) {
@@ -122,7 +122,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
 	 * returned.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<AggTrade>> getAggTrades(AggTradeParams params) {
@@ -138,7 +138,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
 	 * returned.
 	 * 
-	 * @param params    The request params.
+	 * @param params    Request params.
 	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
@@ -153,7 +153,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Candle>> getKlines(KlinesParams params) {
@@ -167,7 +167,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
 	 * 
-	 * @param params    The request params.
+	 * @param params    Request params.
 	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
@@ -178,7 +178,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get Current average price for a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<AveragePrice> getAveragePrice(AveragePriceParams params) {
@@ -188,7 +188,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get 24 hour rolling window price change statistics of a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<TickerStatistics> get24hTickerStatistics(TickerStatisticsParams params) {
@@ -207,7 +207,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get 24 hour rolling window price change statistics of specific symbols.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
@@ -226,7 +226,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Latest price for a symbol or symbols.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PriceTicker> getTicker(PriceTickerParams params) {
@@ -236,7 +236,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Latest price for a symbol or symbols.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<PriceTicker>> getTicker(PriceTickersParams params) {
@@ -246,7 +246,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get best price/quantity on the order book for a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<BookTicker> getBookTicker(BookTickerParams params) {
@@ -265,7 +265,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get best price/quantity on the order book for the given symbols.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {

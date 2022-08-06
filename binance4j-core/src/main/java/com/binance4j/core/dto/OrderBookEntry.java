@@ -10,8 +10,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An order book entry consisting of price and quantity.
  * 
- * @param price The price.
- * @param qt    The quantity.
+ * @param price Price.
+ * @param qt    Quantity.
  */
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()

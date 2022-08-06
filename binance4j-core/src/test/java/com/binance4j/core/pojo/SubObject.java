@@ -11,7 +11,7 @@ public class SubObject {
 		return subSubObjects;
 	}
 
-	/** @param subSubObjects the subSubObjects to set */
+	/** @param subSubObjects SubSubObjects to set */
 	public void setSubSubObjects(List<SubSubObject> subSubObjects) {
 		this.subSubObjects = subSubObjects;
 	}

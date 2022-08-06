@@ -85,7 +85,7 @@ public class MultipleSymbolTradingCallback implements StrategyCallback {
 	}
 
 	/**
-	 * @param service the service to set
+	 * @param service Service to set
 	 */
 	public void setService(WatchService service) {
 		this.service = service;

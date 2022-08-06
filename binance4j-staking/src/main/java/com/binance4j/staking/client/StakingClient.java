@@ -30,8 +30,8 @@ import com.binance4j.staking.param.RedeemParams;
  */
 public class StakingClient extends RestClient<StakingMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public StakingClient(String key, String secret) {
 		super(StakingMapping.class, key, secret);
@@ -40,7 +40,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get available Staking product list.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Product>> getProducts(ProductListParams params) {
@@ -50,8 +50,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get available Staking product list.
 	 * 
-	 * @param params     The request params.
-	 * @param pagination The search pagination.
+	 * @param params     Request params.
+	 * @param pagination Search pagination.
 	 * @return The request to execute.
 	 */
 	public Request<List<Product>> getProducts(ProductListParams params, Paging pagination) {
@@ -62,7 +62,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Purchase Staking product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PurchaseResponse> purchase(PurchaseParams params) {
@@ -72,7 +72,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Redeem Staking product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<RedeemResponse> redeem(RedeemParams params) {
@@ -82,7 +82,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get Staking product position.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<ProductPosition>> getPosition(PositionParams params) {
@@ -92,8 +92,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get Staking product position.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<ProductPosition>> getPosition(PositionParams params, Paging paging) {
@@ -104,7 +104,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get staking history.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<StakingRecord>> getHistory(HistoryParams params) {
@@ -114,8 +114,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get staking history.
 	 * 
-	 * @param params   The request params.
-	 * @param interval The search interval.
+	 * @param params   Request params.
+	 * @param interval Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<List<StakingRecord>> getHistory(HistoryParams params, FramedPaging interval) {
@@ -126,7 +126,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Set auto staking on Locked Staking or Locked DeFi Staking.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<AutoStakingResponse> setAutoStaking(AutoStakingParams params) {
@@ -136,7 +136,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	/**
 	 * Get personal left quota of Staking product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<LeftQuota> getLeftQuota(LeftQuotaParams params) {

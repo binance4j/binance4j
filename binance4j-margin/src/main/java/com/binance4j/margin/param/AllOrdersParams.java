@@ -7,16 +7,16 @@ import com.binance4j.margin.client.MarginClient;
 /**
  * {@link MarginClient#getAllOrders} params.
  * 
- * @param symbol     The order symbol.
+ * @param symbol     Order symbol.
  * @param isIsolated Is the order isolated?
- * @param orderId    The order id.
+ * @param orderId    Order id.
  */
 @Param(weight = 200)
 public record AllOrdersParams(String symbol, Long orderId, Boolean isIsolated) implements Params {
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 
-	 * @param symbol The order symbol
+	 * @param symbol Order symbol
 	 */
 	public AllOrdersParams(String symbol) {
 		this(symbol, null, null);
@@ -25,8 +25,8 @@ public record AllOrdersParams(String symbol, Long orderId, Boolean isIsolated) i
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 
-	 * @param symbol  The order symbol
-	 * @param orderId The order id.
+	 * @param symbol  Order symbol
+	 * @param orderId Order id.
 	 */
 	public AllOrdersParams(String symbol, Long orderId) {
 		this(symbol, orderId, null);
@@ -35,7 +35,7 @@ public record AllOrdersParams(String symbol, Long orderId, Boolean isIsolated) i
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 
-	 * @param symbol     The order symbol
+	 * @param symbol     Order symbol
 	 * @param isIsolated Is the order isolated?
 	 */
 	public AllOrdersParams(String symbol, Boolean isIsolated) {

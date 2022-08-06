@@ -50,7 +50,7 @@ public interface MarginMapping extends RestMapping {
 	String BASE = "/sapi/v1/margin/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -58,7 +58,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Transaction> transfer(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -66,7 +66,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Transaction> borrow(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -74,7 +74,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Transaction> repay(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
@@ -82,7 +82,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Asset> getAsset(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
@@ -90,7 +90,7 @@ public interface MarginMapping extends RestMapping {
 	Call<CrossSymbol> getCrossMarginPair(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
@@ -105,7 +105,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<Asset>> getAllAssets();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers({ API_H })
@@ -113,7 +113,7 @@ public interface MarginMapping extends RestMapping {
 	Call<PriceIndex> getPriceIndex(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -121,7 +121,7 @@ public interface MarginMapping extends RestMapping {
 	Call<NewOrderRecord> newOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -129,7 +129,7 @@ public interface MarginMapping extends RestMapping {
 	Call<CancelOrderResponse> cancelOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -137,7 +137,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<CancelOrderResponse>> cancelOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -145,7 +145,7 @@ public interface MarginMapping extends RestMapping {
 	Call<TransferRecords> getTransferHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -153,7 +153,7 @@ public interface MarginMapping extends RestMapping {
 	Call<LoanRecord> getLoanRecord(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -161,7 +161,7 @@ public interface MarginMapping extends RestMapping {
 	Call<RepayRecords> getRepayRecord(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -169,7 +169,7 @@ public interface MarginMapping extends RestMapping {
 	Call<InterestHistory> getInterestHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -177,7 +177,7 @@ public interface MarginMapping extends RestMapping {
 	Call<ForceLiquidationRecords> getForceLiquidationRecord(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -185,7 +185,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Account> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -193,7 +193,7 @@ public interface MarginMapping extends RestMapping {
 	Call<OrderInfo> getOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -201,7 +201,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<OrderInfo>> getOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -209,7 +209,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<OrderInfo>> getAllOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -217,7 +217,7 @@ public interface MarginMapping extends RestMapping {
 	Call<NewOCOOrderRecord> newOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -225,7 +225,7 @@ public interface MarginMapping extends RestMapping {
 	Call<NewOCOOrderRecord> cancelOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -233,7 +233,7 @@ public interface MarginMapping extends RestMapping {
 	Call<OCOOrderRecord> getOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -241,7 +241,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<OCOOrderRecord>> getAllOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -249,7 +249,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<OCOOrderRecord>> getOpenOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -257,7 +257,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -265,7 +265,7 @@ public interface MarginMapping extends RestMapping {
 	Call<MaxBorrowable> getMaxBorrowable(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -273,7 +273,7 @@ public interface MarginMapping extends RestMapping {
 	Call<MaxTransferable> getMaxTransferable(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -281,7 +281,7 @@ public interface MarginMapping extends RestMapping {
 	Call<Transaction> isolatedTransfer(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -289,7 +289,7 @@ public interface MarginMapping extends RestMapping {
 	Call<IsolatedTransferRecords> getIsolatedTransferHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -297,7 +297,7 @@ public interface MarginMapping extends RestMapping {
 	Call<IsolatedAccount> getIsolatedAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -305,7 +305,7 @@ public interface MarginMapping extends RestMapping {
 	Call<ToogleAccountResponse> disableIsolatedAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -313,7 +313,7 @@ public interface MarginMapping extends RestMapping {
 	Call<ToogleAccountResponse> enableIsolatedAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -321,7 +321,7 @@ public interface MarginMapping extends RestMapping {
 	Call<IsolatedAccountLimit> getEnabledIsolatedAccountLimit(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -329,7 +329,7 @@ public interface MarginMapping extends RestMapping {
 	Call<IsolatedSymbol> getIsolatedSymbol(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -337,7 +337,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<IsolatedSymbol>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -345,7 +345,7 @@ public interface MarginMapping extends RestMapping {
 	Call<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -353,7 +353,7 @@ public interface MarginMapping extends RestMapping {
 	Call<BNBBurnStatus> getBNBBurnStatus(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -361,7 +361,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<InterestRate>> getInterestRateHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -369,7 +369,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<CrossFee>> getMarginFeeData(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -377,7 +377,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<IsolatedFee>> getIsolatedFeeData(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -385,7 +385,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<IsolatedTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -393,7 +393,7 @@ public interface MarginMapping extends RestMapping {
 	Call<List<OrderRateLimit>> getRateLimit(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)

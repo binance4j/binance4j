@@ -6,10 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A trading pair trade fees.
  * 
- * @param symbol          The trading pair.
- * @param makerCommission The maker fees (limit order).
- * @param takerCommission The taker fees (market order).
+ * @param symbol          Trading pair.
+ * @param makerCommission Maker fees (limit order).
+ * @param takerCommission Taker fees (market order).
  */
-@ApiModel("")
-public record TradeFee(@ApiModelProperty("") String symbol, @ApiModelProperty("") String makerCommission, @ApiModelProperty("") String takerCommission) {
+@ApiModel("A trading pair trade fees.")
+public record TradeFee(@ApiModelProperty("Trading pair.") String symbol, @ApiModelProperty("Maker fees (limit order).") String makerCommission,
+		@ApiModelProperty("Taker fees (market order).") String takerCommission) {
 }

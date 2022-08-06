@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * A fixed project.
+ * A fixed project position.
  * 
  * @param asset           Asset.
  * @param canTransfer     Can transfer.
@@ -24,11 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
  * @param status          Status.
  * @param type            Type.
  */
-@ApiModel("")
-public record FixedProjectPosition(@ApiModelProperty("") String asset, @ApiModelProperty("") boolean canTransfer, @ApiModelProperty("") long createTimestamp,
-		@ApiModelProperty("") long duration, @ApiModelProperty("") long endTime, @ApiModelProperty("") String interest,
-		@ApiModelProperty("") String interestRate, @ApiModelProperty("") long lot, @ApiModelProperty("") long positionId,
-		@ApiModelProperty("") String principal, @ApiModelProperty("") String projectId, @ApiModelProperty("") String projectName,
-		@ApiModelProperty("") long purchaseTime, @ApiModelProperty("") String redeemDate, @ApiModelProperty("") long startTime,
-		@ApiModelProperty("") String status, @ApiModelProperty("") String type) {
+@ApiModel("A fixed project position.")
+public record FixedProjectPosition(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Can transfer.") boolean canTransfer,
+		@ApiModelProperty("Create timestamp.") long createTimestamp, @ApiModelProperty("Duration.") long duration, @ApiModelProperty("Endtime.") long endTime,
+		@ApiModelProperty("Interest.") String interest, @ApiModelProperty("Interest rate.") String interestRate, @ApiModelProperty("Lot.") long lot,
+		@ApiModelProperty("Position id.") long positionId, @ApiModelProperty("Principal.") String principal, @ApiModelProperty("Project id.") String projectId,
+		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Purchase time.") long purchaseTime,
+		@ApiModelProperty("Redeem date.") String redeemDate, @ApiModelProperty("Start time.") long startTime, @ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Type.") String type) {
 }

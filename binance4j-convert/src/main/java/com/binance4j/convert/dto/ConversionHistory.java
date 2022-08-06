@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Conversions history.
  * 
- * @param list      The conversions.
+ * @param list      Conversions.
  * @param startTime Start time in ms.
  * @param endTime   End time in ms.
  * @param limit     Results limit.

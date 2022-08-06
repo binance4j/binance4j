@@ -7,16 +7,16 @@ import com.binance4j.core.param.Params;
 /**
  * {@link BLVTClient#getRedemptions} params.
  * 
- * @param tokenName The token name.
- * @param id        The subscription id.
+ * @param tokenName Token name.
+ * @param id        Subscription id.
  */
 @Param
 public record TransactionRecordParams(String tokenName, Long id) implements Params {
 	/**
 	 * Creates instance of the class.
 	 * 
-	 * @param tokenName The token name.
-	 * @param id        The subscription id.
+	 * @param tokenName Token name.
+	 * @param id        Subscription id.
 	 */
 	public TransactionRecordParams(String tokenName, Long id) {
 		this.id = id;
@@ -26,7 +26,7 @@ public record TransactionRecordParams(String tokenName, Long id) implements Para
 	/**
 	 * Creates instance of the class.
 	 * 
-	 * @param tokenName The token name.
+	 * @param tokenName Token name.
 	 */
 	public TransactionRecordParams(String tokenName) {
 		this(tokenName, null);
@@ -35,7 +35,7 @@ public record TransactionRecordParams(String tokenName, Long id) implements Para
 	/**
 	 * Creates instance of the class.
 	 * 
-	 * @param id The subscription id.
+	 * @param id Subscription id.
 	 */
 	public TransactionRecordParams(Long id) {
 		this(null, id);

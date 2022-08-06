@@ -10,14 +10,14 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the server sends data
 	 *
-	 * @param message The server message.
+	 * @param message Server message.
 	 */
 	void onMessage(T message);
 
 	/**
 	 * Triggered when the connection fails
 	 *
-	 * @param exception The Exception containing the API code and message error.
+	 * @param exception Exception containing the API code and message error.
 	 */
 	default void onFailure(ApiException exception) {
 	}
@@ -41,7 +41,7 @@ public interface WebsocketCallback<T> {
 	/**
 	 * Triggered when the connection is opened
 	 *
-	 * @param response The API open response.
+	 * @param response API open response.
 	 */
 	default void onOpen(Response response) {
 	}

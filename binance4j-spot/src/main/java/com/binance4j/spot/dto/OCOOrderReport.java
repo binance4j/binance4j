@@ -21,10 +21,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @param side                Side.
  * @param stopPrice           StopPrice.
  */
-@ApiModel("")
-public record OCOOrderReport(@ApiModelProperty("") String symbol, @ApiModelProperty("") long orderId, @ApiModelProperty("") long orderListId,
-		@ApiModelProperty("") String clientOrderId, @ApiModelProperty("") long transactTime, @ApiModelProperty("") String price,
-		@ApiModelProperty("") String origQty, @ApiModelProperty("") String executedQty, @ApiModelProperty("") String cummulativeQuoteQty,
-		@ApiModelProperty("") String status, @ApiModelProperty("") String timeInForce, @ApiModelProperty("") String type, @ApiModelProperty("") String side,
-		@ApiModelProperty("") String stopPrice) {
+@ApiModel("OCO order report.")
+public record OCOOrderReport(@ApiModelProperty("Symbol.") String symbol, @ApiModelProperty("Order Id.") long orderId,
+		@ApiModelProperty("Order List Id.") long orderListId, @ApiModelProperty("Client Order Id.") String clientOrderId,
+		@ApiModelProperty("Transact Time.") long transactTime, @ApiModelProperty("Price.") String price, @ApiModelProperty("Original Quantity.") String origQty,
+		@ApiModelProperty("Executed Quantity.") String executedQty, @ApiModelProperty("Cummulative Quote Quantity.") String cummulativeQuoteQty,
+		@ApiModelProperty("Status.") String status, @ApiModelProperty("Time In Force.") String timeInForce, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Side.") String side, @ApiModelProperty("StopPrice.") String stopPrice) {
 }

@@ -23,18 +23,18 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 	protected WebsocketInterceptorCallback<?> callback;
 
 	/**
-	 * @param websocketClient The websocket client
-	 * @param callback        The callback
+	 * @param websocketClient Websocket client
+	 * @param callback        Callback
 	 */
 	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		this(websocketClient, callback, "Timeout", "Disconnected");
 	}
 
 	/**
-	 * @param websocketClient     The websocket client
-	 * @param callback            The callback
-	 * @param timeoutMessage      The timeout message
-	 * @param disconnectedMessage The disconnection message
+	 * @param websocketClient     Websocket client
+	 * @param callback            Callback
+	 * @param timeoutMessage      Timeout message
+	 * @param disconnectedMessage Disconnection message
 	 */
 	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback, String timeoutMessage,
 			String disconnectedMessage) {

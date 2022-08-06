@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param listOrderStatus   List order status.
  * @param listClientOrderId List client order id.
  * @param isIsoslated       Is the order isolated?
- * @param orders            The two orders.
+ * @param orders            Two orders.
  */
 @ApiModel("An OCO order record.")
 public record OCOOrderRecord(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Transaction timestamp in ms.") long transactionTime,

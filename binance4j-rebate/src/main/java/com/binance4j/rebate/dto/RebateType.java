@@ -1,16 +1,14 @@
 package com.binance4j.rebate.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** The rebate type. */
 public enum RebateType {
 	/** commission rebate */
-	COMMISSION_REBATE("1"), @ApiModelProperty("")
+	COMMISSION_REBATE("1"),
 	/** referral kickback */
 	REFERRAL_KICKBACK("2");
 
 	/**
-	 * @param value The value.
+	 * @param value Value.
 	 */
 	private RebateType(String value) {
 		this.value = value;

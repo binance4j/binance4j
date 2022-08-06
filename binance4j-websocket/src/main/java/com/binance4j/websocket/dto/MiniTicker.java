@@ -4,23 +4,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Minimal infos Ticker.
  * 
- * @param eventType                   The event type.
- * @param eventTime                   The timestamp.
- * @param symbol                      The trading pair.
- * @param closePrice                  The close price.
- * @param openPrice                   The open price.
- * @param highPrice                   The highest price.
- * @param lowPrice                    The lowest price.
+ * @param eventType                   Event type.
+ * @param eventTime                   Timestamp.
+ * @param symbol                      Trading pair.
+ * @param closePrice                  Close price.
+ * @param openPrice                   Open price.
+ * @param highPrice                   Highest price.
+ * @param lowPrice                    Lowest price.
  * @param totalTradedBaseAssetVolume  Total traded base asset volume.
  * @param totalTradedQuoteAssetVolume Total traded quote asset volume.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record MiniTicker(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("c") String closePrice, @JsonProperty("o") String openPrice, @JsonProperty("h") String highPrice, @JsonProperty("l") String lowPrice,
-		@JsonProperty("v") String totalTradedBaseAssetVolume, @JsonProperty("q") String totalTradedQuoteAssetVolume) {
+@ApiModel("Minimal infos Ticker.")
+public record MiniTicker(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime, @ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Close price.") @JsonProperty("c") String closePrice, @ApiModelProperty("Open price.") @JsonProperty("o") String openPrice,
+		@ApiModelProperty("Highest price.") @JsonProperty("h") String highPrice, @ApiModelProperty("Lowest price.") @JsonProperty("l") String lowPrice,
+		@ApiModelProperty("Total traded base asset volume.") @JsonProperty("v") String totalTradedBaseAssetVolume,
+		@ApiModelProperty("Total traded quote asset volume.") @JsonProperty("q") String totalTradedQuoteAssetVolume) {
 }

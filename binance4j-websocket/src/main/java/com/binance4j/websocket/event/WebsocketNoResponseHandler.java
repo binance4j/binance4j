@@ -10,8 +10,8 @@ import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
  */
 public class WebsocketNoResponseHandler extends BaseWebsocketEventHandler {
 	/**
-	 * @param websocketClient The websocket client.
-	 * @param callback        The callback.
+	 * @param websocketClient Websocket client.
+	 * @param callback        Callback.
 	 */
 	public WebsocketNoResponseHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "No response from the server", "Disconnected");

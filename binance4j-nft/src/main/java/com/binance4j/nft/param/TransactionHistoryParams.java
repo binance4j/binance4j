@@ -9,12 +9,12 @@ import com.binance4j.nft.dto.OrderType;
 /**
  * {@link NFTClient#getTransactions} params.
  * 
- * @param orderType The order type.
+ * @param orderType Order type.
  */
 @Param(weight = 3000, type = RateLimitType.UID)
 public record TransactionHistoryParams(String orderType) implements Params {
 	/**
-	 * @param orderType The order type.
+	 * @param orderType Order type.
 	 */
 	public TransactionHistoryParams(OrderType orderType) {
 		this(orderType.toString());

@@ -7,20 +7,20 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * {@link SpotClient#cancelOrder} params.
  * 
- * @param symbol            The trade symbol.
- * @param orderId           The order id.
- * @param origClientOrderId The original client order id.
- * @param newClientOrderId  The new client order id.
+ * @param symbol            Trade symbol.
+ * @param orderId           Order id.
+ * @param origClientOrderId Original client order id.
+ * @param newClientOrderId  New client order id.
  */
 @Param(weight = 10)
 public record CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId) implements Params {
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 
-	 * @param symbol            The trade symbol.
-	 * @param orderId           The order id.
-	 * @param origClientOrderId The original client order id.
-	 * @param newClientOrderId  The new client order id.
+	 * @param symbol            Trade symbol.
+	 * @param orderId           Order id.
+	 * @param origClientOrderId Original client order id.
+	 * @param newClientOrderId  New client order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId) {
 		this.symbol = symbol;
@@ -32,8 +32,8 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 
-	 * @param symbol  The trade symbol.
-	 * @param orderId The order id.
+	 * @param symbol  Trade symbol.
+	 * @param orderId Order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId) {
 		this(symbol, orderId, null, null);
@@ -42,9 +42,9 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 
-	 * @param symbol            The trade symbol.
-	 * @param orderId           The order id.
-	 * @param origClientOrderId The original client order id.
+	 * @param symbol            Trade symbol.
+	 * @param orderId           Order id.
+	 * @param origClientOrderId Original client order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId, String origClientOrderId) {
 		this(symbol, orderId, origClientOrderId, null);

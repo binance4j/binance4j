@@ -14,8 +14,8 @@ import com.binance4j.core.param.Params;
  */
 public class C2CClient extends RestClient<C2CMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public C2CClient(String key, String secret) {
 		super(C2CMapping.class, key, secret);
@@ -24,8 +24,8 @@ public class C2CClient extends RestClient<C2CMapping> {
 	/**
 	 * Get C2C trades.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<TradeHistory> getTrades(TradeHistoryParams params, Paging paging) {
@@ -35,7 +35,7 @@ public class C2CClient extends RestClient<C2CMapping> {
 	/**
 	 * Get C2C trades.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<TradeHistory> getTrades(TradeHistoryParams params) {

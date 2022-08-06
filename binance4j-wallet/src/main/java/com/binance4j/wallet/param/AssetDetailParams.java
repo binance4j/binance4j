@@ -7,7 +7,7 @@ import com.binance4j.wallet.client.WalletClient;
 /**
  * {@link WalletClient#getAssetDetail} params.
  * 
- * @param asset The asset abbreviation.
+ * @param asset Asset abbreviation.
  */
 @Param
 public record AssetDetailParams(String asset) implements Params {

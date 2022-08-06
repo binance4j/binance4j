@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The authenticated account api trading status detail.
  * 
- * @param data The trading status data.
+ * @param data Trading status data.
  */
-@ApiModel("")
-public record ApiTradingStatus(@ApiModelProperty("") ApiTradingStatusData data) {
+@ApiModel("The authenticated account api trading status detail.")
+public record ApiTradingStatus(@ApiModelProperty("Trading status data.") ApiTradingStatusData data) {
 }

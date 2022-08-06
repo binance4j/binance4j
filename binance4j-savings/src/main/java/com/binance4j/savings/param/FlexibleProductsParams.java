@@ -9,7 +9,7 @@ import com.binance4j.savings.dto.FlexibleProductStatus;
 /**
  * {@link SavingsClient#getFlexibleProducts} params.
  * 
- * @param status   The product status.
+ * @param status   Product status.
  * @param featured Featured.
  */
 @Param
@@ -18,7 +18,7 @@ public record FlexibleProductsParams(FlexibleProductStatus status, Featured feat
 	/**
 	 * Creates an instance of {@link FlexibleProductsParams}.
 	 * 
-	 * @param status The product status.
+	 * @param status Product status.
 	 */
 	public FlexibleProductsParams(FlexibleProductStatus status) {
 		this(status, null);

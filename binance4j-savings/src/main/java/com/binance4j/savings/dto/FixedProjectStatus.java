@@ -1,13 +1,11 @@
 package com.binance4j.savings.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** Project status. */
 public enum FixedProjectStatus {
 	/** All. */
-	ALL, @ApiModelProperty("")
+	ALL,
 	/** Subscribable. */
-	SUBSCRIBABLE, @ApiModelProperty("")
+	SUBSCRIBABLE,
 	/** Unsubscribable. */
 	UNSUBSCRIBABLE
 }

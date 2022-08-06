@@ -25,8 +25,8 @@ import com.binance4j.core.param.TimeFrame;
  */
 public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public BLVTClient(String key, String secret) {
 		super(BLVTMapping.class, key, secret);
@@ -35,7 +35,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get BLVT Info.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Token>> getTokenInfo(TokenInfoParams params) {
@@ -54,7 +54,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Subscribe BLVT.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<SubscriptionResponse> subscribe(SubscriptionParams params) {
@@ -64,8 +64,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get subscription record.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time search params.
+	 * @param params    Request params.
+	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame timeFrame) {
@@ -75,7 +75,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get subscription record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params) {
@@ -94,7 +94,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Redeem BLVT.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<RedemptionResponse> redeem(RedemptionParams params) {
@@ -104,8 +104,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get redemption record.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time search params.
+	 * @param params    Request params.
+	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame timeFrame) {
@@ -115,7 +115,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get redemption record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params) {
@@ -134,7 +134,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	/**
 	 * Get user limit info.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to LimitInfo
 	 */
 	public Request<List<LimitInfo>> getLimitInfo(LimitInfoParams params) {

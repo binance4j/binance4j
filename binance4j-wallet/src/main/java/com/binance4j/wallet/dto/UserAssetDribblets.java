@@ -8,14 +8,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Dribblets.
  * 
- * @param operateTime              The operation timestamp.
+ * @param operateTime              Operation timestamp.
  * @param totalTransferedAmount    Total transfered BNB amount for this exchange.
  * @param totalServiceChargeAmount Total service charge amount for this exchange.
- * @param transId                  The transaction id.
+ * @param transId                  Transaction id.
  * @param userAssetDribbletDetails Details of this exchange.
  */
-@ApiModel("")
-public record UserAssetDribblets(@ApiModelProperty("") long operateTime, @ApiModelProperty("") String totalTransferedAmount,
-		@ApiModelProperty("") String totalServiceChargeAmount, @ApiModelProperty("") long transId,
-		@ApiModelProperty("") List<UserAssetDribbletDetails> userAssetDribbletDetails) {
+@ApiModel("Dribblets.")
+public record UserAssetDribblets(@ApiModelProperty("Operation timestamp.") long operateTime,
+		@ApiModelProperty("Total transfered BNB amount for this exchange.") String totalTransferedAmount,
+		@ApiModelProperty("Total service charge amount for this exchange.") String totalServiceChargeAmount, @ApiModelProperty("Transaction id.") long transId,
+		@ApiModelProperty("Details of this exchange.") List<UserAssetDribbletDetails> userAssetDribbletDetails) {
 }

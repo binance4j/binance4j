@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Trade order information.
  * 
- * @param symbol        The order symbol.
+ * @param symbol        Order symbol.
  * @param orderId       Order id.
  * @param clientOrderId Client order id.
  */

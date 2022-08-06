@@ -28,12 +28,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param lastId             Last trade id.
  * @param count              Total number of trades during the last 24 hours.
  */
-@ApiModel("")
-public record TickerStatistics(@ApiModelProperty("") String symbol, @ApiModelProperty("") String priceChange, @ApiModelProperty("") String priceChangePercent,
-		@ApiModelProperty("") String weightedAvgPrice, @ApiModelProperty("") String prevClosePrice, @ApiModelProperty("") String lastPrice,
-		@ApiModelProperty("") String lastQty, @ApiModelProperty("") String bidPrice, @ApiModelProperty("") String bidQty, @ApiModelProperty("") String askPrice,
-		@ApiModelProperty("") String askQty, @ApiModelProperty("") String openPrice, @ApiModelProperty("") String highPrice,
-		@ApiModelProperty("") String lowPrice, @ApiModelProperty("") String volume, @ApiModelProperty("") String quoteVolume,
-		@ApiModelProperty("") long openTime, @ApiModelProperty("") long closeTime, @ApiModelProperty("") long firstId, @ApiModelProperty("") long lastId,
-		@ApiModelProperty("") long count) {
+@ApiModel("24 hour price change statistics for a ticker.")
+public record TickerStatistics(@ApiModelProperty("Ticker symbol.") String symbol,
+		@ApiModelProperty("Price change during the last 24 hours.") String priceChange,
+		@ApiModelProperty("Price change; in percentage; during the last 24 hours.") String priceChangePercent,
+		@ApiModelProperty("Weighted average price.") String weightedAvgPrice, @ApiModelProperty("Previous close price.") String prevClosePrice,
+		@ApiModelProperty("Last price.") String lastPrice, @ApiModelProperty("Last quantity.") String lastQty, @ApiModelProperty("Bid price.") String bidPrice,
+		@ApiModelProperty("Bid quantity.") String bidQty, @ApiModelProperty("Ask price.") String askPrice, @ApiModelProperty("Ask quantity.") String askQty,
+		@ApiModelProperty("Open price 24 hours ago.") String openPrice, @ApiModelProperty("Highest price during the past 24 hours.") String highPrice,
+		@ApiModelProperty("Lowest price during the past 24 hours.") String lowPrice, @ApiModelProperty("Total volume during the past 24 hours.") String volume,
+		@ApiModelProperty("Total quote volume during the past 24 hours.") String quoteVolume, @ApiModelProperty("Open time.") long openTime,
+		@ApiModelProperty("Close time.") long closeTime, @ApiModelProperty("First trade id.") long firstId, @ApiModelProperty("Last trade id.") long lastId,
+		@ApiModelProperty("Total number of trades during the last 24 hours.") long count) {
 }

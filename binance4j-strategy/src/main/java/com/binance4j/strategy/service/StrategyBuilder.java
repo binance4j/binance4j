@@ -14,8 +14,8 @@ public class StrategyBuilder {
 	/**
 	 * Builds a trading strategy from a {@link TradingStrategy} and a {@link BarSeries}
 	 *
-	 * @param strategy The {@link TradingStrategy}.
-	 * @param series   The {@link BarSeries}.
+	 * @param strategy {@link TradingStrategy}.
+	 * @param series   {@link BarSeries}.
 	 * @return The generated t4j {@link Strategy}.
 	 */
 	public static Strategy build(TradingStrategy strategy, BarSeries series) {

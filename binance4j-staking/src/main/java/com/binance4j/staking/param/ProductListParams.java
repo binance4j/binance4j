@@ -8,16 +8,16 @@ import com.binance4j.staking.dto.ProductType;
 /**
  * {@link StakingClient#getProducts} params.
  * 
- * @param product The product type.
- * @param asset   The product name.
+ * @param product Product type.
+ * @param asset   Product name.
  */
 @Param
 public record ProductListParams(String product, String asset) implements Params {
 	/**
 	 * Creates an instance of {@link ProductListParams}.
 	 * 
-	 * @param product The product type.
-	 * @param asset   The product name.
+	 * @param product Product type.
+	 * @param asset   Product name.
 	 */
 	public ProductListParams(ProductType product, String asset) {
 		this(product.toString(), asset);
@@ -26,7 +26,7 @@ public record ProductListParams(String product, String asset) implements Params 
 	/**
 	 * Creates an instance of {@link ProductListParams}.
 	 * 
-	 * @param product The product type.
+	 * @param product Product type.
 	 */
 	public ProductListParams(ProductType product) {
 		this(product.toString(), null);

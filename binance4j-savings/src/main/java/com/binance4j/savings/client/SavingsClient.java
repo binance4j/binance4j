@@ -42,8 +42,8 @@ import com.binance4j.savings.param.RedemptionQuotaParams;
  */
 public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public SavingsClient(String key, String secret) {
 		super(SavingsMapping.class, key, secret);
@@ -52,7 +52,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get flexible product list.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params) {
@@ -62,8 +62,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get flexible product list.
 	 *
-	 * @param params The request params.
-	 * @param paging The pagign.
+	 * @param params Request params.
+	 * @param paging Pagign.
 	 * @return The request to execute.
 	 */
 	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params, Paging paging) {
@@ -83,7 +83,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get left daily purchase quota of flexible product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PurchaseQuota> getLeftDailyFlexiblePurchaseQuota(PurchaseQuotaParams params) {
@@ -93,7 +93,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Purchase Flexible Product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PurchaseResponse> purchaseFlexible(FlexiblePurchaseParams params) {
@@ -103,7 +103,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get Left Daily Redemption Quota of Flexible Product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<RedemptionQuota> getLeftDailyRedemptionQuota(RedemptionQuotaParams params) {
@@ -113,7 +113,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Redeem Flexible Product.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Void> redeemFlexible(RedemptionParams params) {
@@ -123,7 +123,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get flexible product position.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<FlexibleProductPosition>> getFlexibleProductPosition(FlexibleProductPositionParams params) {
@@ -142,7 +142,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get fixed and activity project list.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params) {
@@ -152,7 +152,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get fixed and activity project list.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
@@ -163,7 +163,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get fixed and activity project list.
 	 * 
-	 * @param params  The request params.
+	 * @param params  Request params.
 	 * @param paging  Paging.
 	 * @param sorting Sorting.
 	 * @return The request to execute.
@@ -175,7 +175,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get fixed and activity project list.
 	 * 
-	 * @param params  The request params.
+	 * @param params  Request params.
 	 * @param sorting Sorting.
 	 * @return The request to execute.
 	 */
@@ -186,7 +186,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Purchase fixed project.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PurchaseResponse> purchaseFixed(FixedPurchaseParams params) {
@@ -196,7 +196,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get fixed/activity project position.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<FixedProjectPosition>> getFixedProjectPosition(FixedProjectPositionParams params) {
@@ -206,7 +206,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get lending account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<LendingAccount> getAccount(LendingAccountParams params) {
@@ -225,7 +225,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get purchase record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Purchase>> getPurchases(LendingParams params) {
@@ -235,8 +235,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get purchase record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<Purchase>> getPurchases(LendingParams params, FramedPaging paging) {
@@ -247,7 +247,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get redemption record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions(LendingParams params) {
@@ -257,8 +257,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get redemption record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<Redemption>> getRedemptions(LendingParams params, FramedPaging paging) {
@@ -269,7 +269,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get interest record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Interest>> getInterests(LendingParams params) {
@@ -279,8 +279,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get interest record.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time frame.
+	 * @param params    Request params.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<Interest>> getInterests(LendingParams params, TimeFrame timeFrame) {
@@ -290,8 +290,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Get interest record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<Interest>> getInterests(LendingParams params, FramedPaging paging) {
@@ -302,7 +302,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
 	 * Change fixed/activity position to daily position.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PositionChangedResponse> fixedToDailyPosition(ChangePositionParams params) {

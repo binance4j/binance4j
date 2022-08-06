@@ -23,7 +23,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
-/** The {@link SavingsClient} mapping. */
+/** {@link SavingsClient} mapping. */
 public interface SavingsMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/lending/";
@@ -31,7 +31,7 @@ public interface SavingsMapping extends RestMapping {
 	// FLEXIBLE //
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/product/list")
@@ -39,7 +39,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<FlexibleProduct>> getFlexibleProducts(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/userLeftQuota")
@@ -47,7 +47,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<PurchaseQuota> getLeftDailyFlexiblePurchaseQuota(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "daily/purchase")
@@ -55,7 +55,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<PurchaseResponse> purchaseFlexible(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/userRedemptionQuota")
@@ -63,7 +63,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<RedemptionQuota> getLeftDailyRedemptionQuota(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "daily/redeem")
@@ -71,7 +71,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<Void> redeemFlexible(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/token/position")
@@ -81,7 +81,7 @@ public interface SavingsMapping extends RestMapping {
 	// FIXED //
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "project/list")
@@ -89,7 +89,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<FixedProject>> getFixedProjects(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "customizedFixed/purchase")
@@ -97,7 +97,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<PurchaseResponse> purchaseFixed(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "project/position/list")
@@ -105,7 +105,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<FixedProjectPosition>> getFixedProjectPosition(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/account")
@@ -113,7 +113,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<LendingAccount> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/purchaseRecord")
@@ -121,7 +121,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<Purchase>> getPurchases(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/redemptionRecord")
@@ -129,7 +129,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<Redemption>> getRedemptions(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/interestHistory")
@@ -137,7 +137,7 @@ public interface SavingsMapping extends RestMapping {
 	Call<List<Interest>> getInterests(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "positionChanged")

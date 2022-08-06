@@ -7,14 +7,14 @@ import com.binance4j.core.param.Params;
 /**
  * {@link BLVTClient#getLimitInfo} params.
  * 
- * @param tokenName The token name.
+ * @param tokenName Token name.
  */
 @Param
 public record LimitInfoParams(String tokenName) implements Params {
 	/**
 	 * Creates instance of the class.
 	 * 
-	 * @param tokenName The token name.
+	 * @param tokenName Token name.
 	 */
 	public LimitInfoParams(String tokenName) {
 		this.tokenName = tokenName;

@@ -4,24 +4,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Pair trade data.
  * 
- * @param eventType          The event type.
- * @param eventTime          The timestamp.
- * @param symbol             The trading pair.
- * @param tradeId            The trade id.
- * @param price              The price.
- * @param quantity           The price.
- * @param buyerOrderId       The buyer order id.
- * @param sellerOrderId      The seller order id.
- * @param tradeTime          The timestamp.
+ * @param eventType          Event type.
+ * @param eventTime          Timestamp.
+ * @param symbol             Trading pair.
+ * @param tradeId            Trade id.
+ * @param price              Price.
+ * @param quantity           Price.
+ * @param buyerOrderId       Buyer order id.
+ * @param sellerOrderId      Seller order id.
+ * @param tradeTime          Timestamp.
  * @param buyerIsMarketMaker Is the buyer the market maker?
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record Trade(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol, @JsonProperty("t") String tradeId,
-		@JsonProperty("p") String price, @JsonProperty("q") String quantity, @JsonProperty("b") Long buyerOrderId, @JsonProperty("a") Long sellerOrderId,
-		@JsonProperty("T") Long tradeTime, @JsonProperty("m") Boolean buyerIsMarketMaker) {
+@ApiModel("Pair trade data.")
+public record Trade(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType, @ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol, @ApiModelProperty("Trade id.") @JsonProperty("t") String tradeId,
+		@ApiModelProperty("Price.") @JsonProperty("p") String price, @ApiModelProperty("Price.") @JsonProperty("q") String quantity,
+		@ApiModelProperty("Buyer order id.") @JsonProperty("b") Long buyerOrderId, @ApiModelProperty("Seller order id.") @JsonProperty("a") Long sellerOrderId,
+		@ApiModelProperty("Timestamp.") @JsonProperty("T") Long tradeTime,
+		@ApiModelProperty("Is the buyer the market maker?") @JsonProperty("m") Boolean buyerIsMarketMaker) {
 }

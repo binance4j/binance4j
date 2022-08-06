@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The authenticated account status.
  * 
- * @param data The account status.
+ * @param data Account status.
  */
-@ApiModel("")
-public record AccountStatus(@ApiModelProperty("") String data) {
+@ApiModel("The authenticated account status.")
+public record AccountStatus(@ApiModelProperty("Account status.") String data) {
 }

@@ -8,11 +8,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The dust transfer (asset to BNB) response.
  * 
- * @param totalServiceCharge The fees.
- * @param totalTransfered    The volume converted into BNB after fees.
+ * @param totalServiceCharge Fees.
+ * @param totalTransfered    Volume converted into BNB after fees.
  * @param transferResult     Detailed transfer result asset by asset.
  */
-@ApiModel("")
-public record DustTransferResponse(@ApiModelProperty("") String totalServiceCharge, @ApiModelProperty("") String totalTransfered,
-		@ApiModelProperty("") List<DustTransferResult> transferResult) {
+@ApiModel("The dust transfer (asset to BNB) response.")
+public record DustTransferResponse(@ApiModelProperty("Fees.") String totalServiceCharge,
+		@ApiModelProperty("Volume converted into BNB after fees.") String totalTransfered,
+		@ApiModelProperty("Detailed transfer result asset by asset.") List<DustTransferResult> transferResult) {
 }

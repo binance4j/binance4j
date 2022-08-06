@@ -6,7 +6,7 @@ import com.binance4j.websocket.client.UserDataClient;
 /**
  * {@link UserDataClient#startIsolatedUserDataStream} params.
  * 
- * @param symbol The symbol.
+ * @param symbol Symbol.
  */
 public record IsolatedUserDataStreamParams(String symbol) implements Params {
 }

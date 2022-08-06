@@ -4,7 +4,7 @@ import java.util.List;
 
 /** The base of an account snapshot response. */
 public interface AccountSnapshotResponse<T> {
-	/** @return The response status code (200 for success; others are error codes) */
+	/** @return Response status code (200 for success; others are error codes) */
 	int code();
 
 	/** @return The potential response error message. */

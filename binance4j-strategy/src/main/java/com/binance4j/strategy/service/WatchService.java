@@ -42,7 +42,7 @@ public class WatchService {
 	protected StrategyCallback callback;
 
 	/**
-	 * @param strategy The strategy used to live trade.
+	 * @param strategy Strategy used to live trade.
 	 */
 	public WatchService(TradingStrategy strategy, StrategyCallback callback) {
 		this.tradingStrategy = strategy;
@@ -53,7 +53,7 @@ public class WatchService {
 	/**
 	 * Updates all the series max size, preventing memory overload
 	 *
-	 * @param maximumBarCount The series size.
+	 * @param maximumBarCount Series size.
 	 */
 	public void setMaximumBarCount(int maximumBarCount) {
 		this.maximumBarCount = maximumBarCount;
@@ -63,9 +63,9 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
 	 *
-	 * @param symbols  The symbols to listen to.
-	 * @param interval The candlestick interval.
-	 * @param zoneId   The {@link Bar} zone id.
+	 * @param symbols  Symbols to listen to.
+	 * @param interval Candlestick interval.
+	 * @param zoneId   {@link Bar} zone id.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId) {
@@ -126,9 +126,9 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
 	 *
-	 * @param symbols  The symbols to listen to.
-	 * @param interval The candlestick interval.
-	 * @param zoneId   The {@link Bar} zone id.
+	 * @param symbols  Symbols to listen to.
+	 * @param interval Candlestick interval.
+	 * @param zoneId   {@link Bar} zone id.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval, ZoneId zoneId) {
@@ -139,8 +139,8 @@ public class WatchService {
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
-	 * @param symbols  The symbols to listen to.
-	 * @param interval The candlestick interval.
+	 * @param symbols  Symbols to listen to.
+	 * @param interval Candlestick interval.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval) {
@@ -151,8 +151,8 @@ public class WatchService {
 	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
-	 * @param symbols  The symbols to listen to.
-	 * @param interval The candlestick interval.
+	 * @param symbols  Symbols to listen to.
+	 * @param interval Candlestick interval.
 	 * @return The websocket client connected to the server.
 	 */
 	public WebsocketCandlestickClient watch(Collection<String> symbols, CandlestickInterval interval) {
@@ -173,7 +173,7 @@ public class WatchService {
 	}
 
 	/**
-	 * @param configuration the configuration to set
+	 * @param configuration Configuration to set
 	 */
 	public void setConfiguration(WebsocketClientConfiguration configuration) {
 		this.configuration = configuration;
@@ -194,7 +194,7 @@ public class WatchService {
 	}
 
 	/**
-	 * @param tradingStrategy the tradingStrategy to set
+	 * @param tradingStrategy TradingStrategy to set
 	 */
 	public void setTradingStrategy(TradingStrategy tradingStrategy) {
 		this.tradingStrategy = tradingStrategy;
@@ -208,7 +208,7 @@ public class WatchService {
 	}
 
 	/**
-	 * @param callback the callback to set
+	 * @param callback Callback to set
 	 */
 	public void setCallback(StrategyCallback callback) {
 		this.callback = callback;

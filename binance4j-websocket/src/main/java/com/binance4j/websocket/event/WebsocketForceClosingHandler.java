@@ -6,7 +6,7 @@ import com.binance4j.websocket.client.WebsocketClient;
 import com.binance4j.websocket.client.WebsocketInterceptorCallback;
 
 /**
- * Forces the call of the {@code onClosing} and {@code onClosed} event handlers of the {@link WebsocketClient
+ * Forces the call of the {@code onClosing} and {@code onClosed} event handlers of {@link WebsocketClient
  * WebsocketClient's} {@link WebsocketInterceptorCallback}
  */
 public class WebsocketForceClosingHandler extends BaseWebsocketEventHandler {
@@ -14,8 +14,8 @@ public class WebsocketForceClosingHandler extends BaseWebsocketEventHandler {
 	protected WebsocketCloseObject closeObject = new WebsocketCloseObject(-1000, "Client forced to close");
 
 	/**
-	 * @param websocketClient The websocket client.
-	 * @param callback        The callback.
+	 * @param websocketClient Websocket client.
+	 * @param callback        Callback.
 	 */
 	public WebsocketForceClosingHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback) {
 		super(websocketClient, callback, "Client not calling onClosing and onClosed event handlers", "Disconnected");

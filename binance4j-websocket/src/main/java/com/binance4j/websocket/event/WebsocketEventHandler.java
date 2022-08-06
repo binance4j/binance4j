@@ -13,7 +13,7 @@ public interface WebsocketEventHandler {
 	/**
 	 * Disconnect the websocket.
 	 * 
-	 * @param timeout The timeout to disconnect the handler.
+	 * @param timeout Timeout to disconnect the handler.
 	 */
 	void disconnect(Duration timeout);
 }

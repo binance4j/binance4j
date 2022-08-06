@@ -7,7 +7,7 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * {@link SpotClient#cancelOpenOrders} params.
  * 
- * @param symbol     The trade symbol.
+ * @param symbol     Trade symbol.
  * @param isIsolated for isolated margin or not. Default: false.
  */
 @Param
@@ -15,7 +15,7 @@ public record CancelOpenOrdersParams(String symbol, Boolean isIsolated) implemen
 	/**
 	 * Creates an instance of {@link CancelOpenOrdersParams}.
 	 * 
-	 * @param symbol The trade symbol.
+	 * @param symbol Trade symbol.
 	 */
 	public CancelOpenOrdersParams(String symbol) {
 		this(symbol, null);

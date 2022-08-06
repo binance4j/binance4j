@@ -10,9 +10,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The SPOT account snapshot data.
  * 
- * @param balances        The wallet asset balances.
- * @param totalAssetOfBtc The cumulated value of the wallet in Bitcoin.
+ * @param balances        Wallet asset balances.
+ * @param totalAssetOfBtc Cumulated value of the wallet in Bitcoin.
  */
-@ApiModel("")
-public record SpotAccountSnapshotData(@ApiModelProperty("") List<AssetBalance> balances, @ApiModelProperty("") String totalAssetOfBtc) {
+@ApiModel("The SPOT account snapshot data.")
+public record SpotAccountSnapshotData(@ApiModelProperty("Wallet asset balances.") List<AssetBalance> balances,
+		@ApiModelProperty("Cumulated value of the wallet in Bitcoin.") String totalAssetOfBtc) {
 }

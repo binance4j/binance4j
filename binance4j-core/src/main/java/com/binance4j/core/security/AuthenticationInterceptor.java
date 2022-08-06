@@ -37,8 +37,8 @@ public class AuthenticationInterceptor implements Interceptor {
 	String secret;
 
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API private key.
+	 * @param key    API public key.
+	 * @param secret API private key.
 	 */
 	public AuthenticationInterceptor(String key, String secret) {
 		this.key = key;
@@ -48,7 +48,7 @@ public class AuthenticationInterceptor implements Interceptor {
 	/**
 	 * Intercepts the request
 	 * 
-	 * @param chain The request chain.
+	 * @param chain Request chain.
 	 */
 	@Override
 	public Response intercept(Chain chain) throws IOException {
@@ -112,8 +112,8 @@ public class AuthenticationInterceptor implements Interceptor {
 	/**
 	 * Updates the API keys.
 	 * 
-	 * @param key    The new public key.
-	 * @param secret The new secret key.
+	 * @param key    New public key.
+	 * @param secret New secret key.
 	 */
 	public void updateKeys(String key, String secret) {
 		this.key = key;

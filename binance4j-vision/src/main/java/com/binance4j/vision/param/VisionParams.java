@@ -18,7 +18,7 @@ import retrofit2.Call;
 /** Base executor implementation for the public data enpoint */
 public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
-	 * @param call The API call.
+	 * @param call API call.
 	 */
 	protected VisionParams(Call<ResponseBody> call) {
 		super(call);
@@ -41,7 +41,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response error.
 	 */
 	public void getZip(ApiCallback<ZipInputStream> callback) {
 		async(new ApiCallback<ResponseBody>() {
@@ -70,7 +70,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously and returns the data in a csv style (2d list)
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response error.
 	 */
 	public void getCSV(ApiCallback<List<List<String>>> callback) {
 		async(new ApiCallback<ResponseBody>() {
@@ -103,7 +103,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously and returns the data in the csv as a list of objects
 	 *
-	 * @param callback The callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response error.
 	 */
 	public void getData(ApiCallback<List<T>> callback) {
 		async(new ApiCallback<ResponseBody>() {
@@ -126,7 +126,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Converts the responseBody into a zip stream
 	 *
-	 * @param res The responseBody.
+	 * @param res ResponseBody.
 	 * @return The zip stream.
 	 */
 	protected ZipInputStream responseToZip(ResponseBody res) {
@@ -136,7 +136,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Extracts the csv from the zip
 	 *
-	 * @param zis the zip stream.
+	 * @param zis Zip stream.
 	 * @return The data as a list of string arrays.
 	 * @throws ApiException Thrown if data fetching failed
 	 */
@@ -158,8 +158,8 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Converts the csv into a list of the desired type
 	 *
-	 * @param clazz the object class
-	 * @param input The data as a list of string arrays.
+	 * @param clazz Object class
+	 * @param input Data as a list of string arrays.
 	 * @return The data as a list of objects.
 	 * @throws ApiException Thrown if data fetching failed
 	 */
@@ -179,7 +179,7 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * The child class method to convert the csv list into a list of the generic type
 	 *
-	 * @param input The csv input.
+	 * @param input Csv input.
 	 * @return A list of.
 	 * @throws ApiException Thrown if data fetching failed
 	 */

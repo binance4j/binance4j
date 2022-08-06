@@ -6,12 +6,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Workers data.
+ * Other profits data.
  * 
  * @param otherProfits Profits datas.
  * @param totalNum     Total amount.
  * @param pageSize     Rows per page.
  */
-@ApiModel("")
-public record OtherProfitsData(@ApiModelProperty("") List<OtherProfit> otherProfits, @ApiModelProperty("") long totalNum, @ApiModelProperty("") long pageSize) {
+@ApiModel("Other profits data.")
+public record OtherProfitsData(@ApiModelProperty("Profits datas.") List<OtherProfit> otherProfits, @ApiModelProperty("Total amount.") long totalNum,
+		@ApiModelProperty("Rows per page.") long pageSize) {
 }

@@ -1,15 +1,13 @@
 package com.binance4j.mining.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** Worker status. */
 public enum WorkerStatus {
 	/** All. */
-	ALL("0"), @ApiModelProperty("")
+	ALL("0"),
 	/** Valid. */
-	VALID("1"), @ApiModelProperty("")
+	VALID("1"),
 	/** Invalid. */
-	INVALID("2"), @ApiModelProperty("")
+	INVALID("2"),
 	/** Failure. */
 	FAILURE("3");
 

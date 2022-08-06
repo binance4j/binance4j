@@ -41,12 +41,12 @@ public class AggTrade {
 	}
 
 	/**
-	 * @param tradeId      The trade id
-	 * @param price        The price
-	 * @param quantity     The quantity
-	 * @param firstTradeId The first trade id
-	 * @param lastTradeId  The last trade id
-	 * @param time         The timestamp
+	 * @param tradeId      Trade id
+	 * @param price        Price
+	 * @param quantity     Quantity
+	 * @param firstTradeId First trade id
+	 * @param lastTradeId  Last trade id
+	 * @param time         Timestamp
 	 * @param isBuyerMaker Was it a buyer maker
 	 * @param isBestMatch  Was it the best price match?
 	 */
@@ -64,7 +64,7 @@ public class AggTrade {
 	}
 
 	/**
-	 * @param input The CSV line.
+	 * @param input CSV line.
 	 */
 	public AggTrade(List<String> input) {
 		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),

@@ -59,8 +59,8 @@ public class Connectors {
 	protected WalletClient walletClient;
 
 	/**
-	 * @param key    The API key
-	 * @param secret The API secret
+	 * @param key    API key
+	 * @param secret API secret
 	 */
 	public Connectors(String key, String secret) {
 		this.key = key;
@@ -288,8 +288,8 @@ public class Connectors {
 	/**
 	 * Updates the API keys.
 	 * 
-	 * @param key    The new public key.
-	 * @param secret The new secret key.
+	 * @param key    New public key.
+	 * @param secret New secret key.
 	 */
 	public void updateKeys(String key, String secret) {
 		this.key = key;

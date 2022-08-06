@@ -1,8 +1,10 @@
 package com.binance4j.strategy.service;
 
 import java.util.List;
+
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BarSeriesManager;
+
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -20,9 +22,9 @@ public class BackTestService {
 	/**
 	 * Runs the strategy over a {@link BarSeries}.
 	 * 
-	 * @param strategy The {@link TradingStrategy} to backtest.
-	 * @param series   The candles.
-	 * @return The {@link BackTestResult} of the trading session.
+	 * @param strategy {@link TradingStrategy} to backtest.
+	 * @param series   Candles.
+	 * @return {@link BackTestResult} of the trading session.
 	 */
 	public static BackTestResult backTest(TradingStrategy strategy, BarSeries series) {
 		return new BackTestResult(series, new BarSeriesManager(series).run(StrategyBuilder.build(strategy, series)));
@@ -31,10 +33,10 @@ public class BackTestService {
 	/**
 	 * Runs the strategy over a {@link Candle} list.
 	 * 
-	 * @param strategy The {@link TradingStrategy} to backtest.
-	 * @param bars     The candles.
-	 * @param interval The interval between two bars.
-	 * @return The {@link BackTestResult} of the trading session.
+	 * @param strategy {@link TradingStrategy} to backtest.
+	 * @param bars     Candles.
+	 * @param interval Interval between two bars.
+	 * @return {@link BackTestResult} of the trading session.
 	 */
 	public static BackTestResult backTest(TradingStrategy strategy, List<Candle> bars, CandlestickInterval interval) {
 		return backTest(strategy, BarSeriesService.convert(bars, DurationService.convert(interval)));
@@ -43,11 +45,11 @@ public class BackTestService {
 	/**
 	 * Runs a strategy over the data.binance.vision public spot klines data.
 	 * 
-	 * @param strategy The {@link TradingStrategy} to backtest.
-	 * @param symbol   The trading pair.
-	 * @param interval The candlestick interval.
-	 * @param year     The year of the data.
-	 * @param month    The month of the data.
+	 * @param strategy {@link TradingStrategy} to backtest.
+	 * @param symbol   Trading pair.
+	 * @param interval Candlestick interval.
+	 * @param year     Year of the data.
+	 * @param month    Month of the data.
 	 * @return The backtest result.
 	 * @throws ApiException Thrown if data fetching failed
 	 */
@@ -60,12 +62,12 @@ public class BackTestService {
 	/**
 	 * Runs a strategy over the data.binance.vision spot klines data.
 	 * 
-	 * @param strategy The {@link TradingStrategy} to backtest.
-	 * @param symbol   The trading pair.
-	 * @param interval The candlestick interval.
-	 * @param year     The year of the data.
-	 * @param month    The month of the data.
-	 * @param day      The day of the data.
+	 * @param strategy {@link TradingStrategy} to backtest.
+	 * @param symbol   Trading pair.
+	 * @param interval Candlestick interval.
+	 * @param year     Year of the data.
+	 * @param month    Month of the data.
+	 * @param day      Day of the data.
 	 * @return The backtest result.
 	 * @throws ApiException Thrown if data fetching failed
 	 */

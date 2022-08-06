@@ -6,33 +6,18 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * NFT transaction
+ * NFT transaction.
  * 
- * @param orderNo       The Order number.
- *                          <ul>
- *                          <li>0: purchase order</li>
- *                          <li>1: sell order</li>
- *                          <li>2: royalty income</li>
- *                          <li>3: primary market order</li>
- *                          <li>4: mint fee</li>
- *                          </ul>
- * @param tokens        The tokens.
- * @param tradeTime     The trade time in ms.
- * @param tradeAmount   The trade amount.
- * @param tradeCurrency The currency used to buy the NFT.
+ * @param orderNo       Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint
+ *                          fee
+ * @param tokens        Tokens.
+ * @param tradeTime     Trade time in ms.
+ * @param tradeAmount   Trade amount.
+ * @param tradeCurrency Currency used to buy the NFT.
  */
-@ApiModel("")
-public record Transaction(@ApiModelProperty("")
-/**
- * The Order number.
- * <ul>
- * <li>0: purchase order</li>
- * <li>1: sell order</li>
- * <li>2: royalty income</li>
- * <li>3: primary market order</li>
- * <li>4: mint fee</li>
- * </ul>
- */
-String orderNo, @ApiModelProperty("") List<NFT> tokens, @ApiModelProperty("") long tradeTime, @ApiModelProperty("") String tradeAmount,
-		@ApiModelProperty("") String tradeCurrency) {
+@ApiModel("NFT transaction.")
+public record Transaction(
+		@ApiModelProperty("Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee") String orderNo,
+		@ApiModelProperty("Tokens.") List<NFT> tokens, @ApiModelProperty("Trade time in ms.") long tradeTime,
+		@ApiModelProperty("Trade amount.") String tradeAmount, @ApiModelProperty("Currency used to buy the NFT.") String tradeCurrency) {
 }

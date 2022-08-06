@@ -5,8 +5,14 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/** The response of a SPOT account snapshot request */
-@ApiModel("")
-public record SpotAccountSnapshotResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg,
-		@ApiModelProperty("") List<SpotAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<SpotAccountSnapshot> {
+/**
+ * Response of a SPOT account snapshot request.
+ * 
+ * @param code        Code.
+ * @param msg         Message.
+ * @param snapshotVos Snapshot.
+ */
+@ApiModel("Response of a SPOT account snapshot request.")
+public record SpotAccountSnapshotResponse(@ApiModelProperty("Code.") int code, @ApiModelProperty("Message.") String msg,
+		@ApiModelProperty("Snapshot.") List<SpotAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<SpotAccountSnapshot> {
 }

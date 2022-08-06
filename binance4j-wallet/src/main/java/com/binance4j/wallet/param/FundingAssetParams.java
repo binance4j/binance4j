@@ -7,7 +7,7 @@ import com.binance4j.wallet.client.WalletClient;
 /**
  * {@link WalletClient#getFundingAsset} params.
  * 
- * @param asset            The asset we want the balance.
+ * @param asset            Asset we want the balance.
  * @param needBtcValuation Get the BTC value of the asset.
  */
 @Param
@@ -16,7 +16,7 @@ public record FundingAssetParams(String asset, Boolean needBtcValuation) impleme
 	/**
 	 * Creates an instance of {@link FundingAssetParams}.
 	 * 
-	 * @param asset The asset we want the balance.
+	 * @param asset Asset we want the balance.
 	 */
 	public FundingAssetParams(String asset) {
 		this(asset, null);

@@ -14,7 +14,7 @@ public interface TradingStrategy {
 	/**
 	 * The BUY signal {@link Rule}
 	 *
-	 * @param series The {@link BarSeries}.
+	 * @param series {@link BarSeries}.
 	 * @return the entry rule.
 	 */
 	Rule entry(BarSeries series);
@@ -22,7 +22,7 @@ public interface TradingStrategy {
 	/**
 	 * The SELL signal {@link Rule}
 	 *
-	 * @param series The {@link BarSeries}.
+	 * @param series {@link BarSeries}.
 	 * @return the exit rule.
 	 */
 	Rule exit(BarSeries series);

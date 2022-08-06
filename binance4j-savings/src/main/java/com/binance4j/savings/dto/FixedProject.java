@@ -23,11 +23,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @param type               Type.
  * @param withAreaLimitation With area limitation.
  */
-@ApiModel("")
-public record FixedProject(@ApiModelProperty("") String asset, @ApiModelProperty("") long displayPriority, @ApiModelProperty("") long duration,
-		@ApiModelProperty("") String interestPerLot, @ApiModelProperty("") String interestRate, @ApiModelProperty("") String lotSize,
-		@ApiModelProperty("") long lotsLowLimit, @ApiModelProperty("") long lotsPurchased, @ApiModelProperty("") long lotsUpLimit,
-		@ApiModelProperty("") long maxLotsPerUser, @ApiModelProperty("") boolean needKyc, @ApiModelProperty("") String projectId,
-		@ApiModelProperty("") String projectName, @ApiModelProperty("") String status, @ApiModelProperty("") String type,
-		@ApiModelProperty("") boolean withAreaLimitation) {
+@ApiModel("Fixed or activity project.")
+public record FixedProject(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Display priority.") long displayPriority,
+		@ApiModelProperty("Duration.") long duration, @ApiModelProperty("Interest per lot.") String interestPerLot,
+		@ApiModelProperty("Interest rate.") String interestRate, @ApiModelProperty("Lot size.") String lotSize,
+		@ApiModelProperty("Lots low limit.") long lotsLowLimit, @ApiModelProperty("Lots purchased.") long lotsPurchased,
+		@ApiModelProperty("Lots up limit.") long lotsUpLimit, @ApiModelProperty("Max lots per user.") long maxLotsPerUser,
+		@ApiModelProperty("Need kyc.") boolean needKyc, @ApiModelProperty("Project id.") String projectId,
+		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Status.") String status, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("With area limitation.") boolean withAreaLimitation) {
 }

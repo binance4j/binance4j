@@ -6,11 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The snapshot assets balances.
  * 
- * @param asset         The asset abbreviation.
- * @param marginBalance The margin balance.
- * @param walletBalance The wallet balance.
+ * @param asset         Asset abbreviation.
+ * @param marginBalance Margin balance.
+ * @param walletBalance Wallet balance.
  */
-@ApiModel("")
-public record FuturesSnapshotDataAssets(@ApiModelProperty("") String asset, @ApiModelProperty("") String marginBalance,
-		@ApiModelProperty("") String walletBalance) {
+@ApiModel("The snapshot assets balances.")
+public record FuturesSnapshotDataAssets(@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Margin balance.") String marginBalance,
+		@ApiModelProperty("Wallet balance.") String walletBalance) {
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Net asset value basket.
@@ -12,6 +13,7 @@ import io.swagger.annotations.ApiModel;
  * @param position Position.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record BLVTBasket(@JsonProperty("s") String symbol, @JsonProperty("n") long position) {
+@ApiModel("Net asset value basket.")
+public record BLVTBasket(@ApiModelProperty("Futures symbol.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Position.") @JsonProperty("n") long position) {
 }

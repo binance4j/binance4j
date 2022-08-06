@@ -17,13 +17,13 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
-/** The {@link BLVTClient} mapping. */
+/** {@link BLVTClient} mapping. */
 public interface BLVTMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/blvt/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "tokenInfo")
@@ -31,7 +31,7 @@ public interface BLVTMapping extends RestMapping {
 	Call<List<Token>> getTokenInfo(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "subscribe")
@@ -39,7 +39,7 @@ public interface BLVTMapping extends RestMapping {
 	Call<SubscriptionResponse> subscribe(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "subscribe/record")
@@ -47,7 +47,7 @@ public interface BLVTMapping extends RestMapping {
 	Call<List<Subscription>> getSubscriptions(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "redeem")
@@ -55,7 +55,7 @@ public interface BLVTMapping extends RestMapping {
 	Call<RedemptionResponse> redeem(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "redeem/record")
@@ -63,7 +63,7 @@ public interface BLVTMapping extends RestMapping {
 	Call<List<Redemption>> getRedemptions(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "userLimit")

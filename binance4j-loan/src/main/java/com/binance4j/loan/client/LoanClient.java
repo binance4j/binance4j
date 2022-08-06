@@ -16,8 +16,8 @@ import com.binance4j.loan.param.LoanIncomeHistoryParams;
  */
 public class LoanClient extends RestClient<LoanMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public LoanClient(String key, String secret) {
 		super(LoanMapping.class, key, secret);
@@ -26,8 +26,8 @@ public class LoanClient extends RestClient<LoanMapping> {
 	/**
 	 * Get crypto loans income history.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time interval search.
+	 * @param params    Request params.
+	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<List<LoanIncome>> getLoansIncome(LoanIncomeHistoryParams params, TimeFrame timeFrame) {
@@ -37,7 +37,7 @@ public class LoanClient extends RestClient<LoanMapping> {
 	/**
 	 * Get crypto loans income history.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<LoanIncome>> getLoansIncome(LoanIncomeHistoryParams params) {

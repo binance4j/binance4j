@@ -57,8 +57,8 @@ import com.binance4j.wallet.param.WithdrawParams;
  */
 public class WalletClient extends RestClient<WalletMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public WalletClient(String key, String secret) {
 		super(WalletMapping.class, key, secret);
@@ -85,7 +85,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the daily SPOT account snapshots.
 	 * 
-	 * @param timeinterval The search interval.
+	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(TimeFrame timeinterval) {
@@ -104,7 +104,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the daily MARGIN account snapshots.
 	 * 
-	 * @param timeinterval The search interval.
+	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(TimeFrame timeinterval) {
@@ -123,7 +123,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the daily FUTURES account snapshots.
 	 * 
-	 * @param timeinterval The search interval.
+	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(TimeFrame timeinterval) {
@@ -163,7 +163,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * If network not send, return You can get {@code network} and {@code isDefault} in networkList of a coin in the
 	 * response of {@link #getAllCoinsInfo()}
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<WithdrawResult> withdraw(WithdrawParams params) {
@@ -178,7 +178,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * If both {@code startTime</code> and <code>endTime} are sent,
 	 * time between {@code startTime</code> and <code>endTime} must be less than 90 days.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params) {
@@ -202,8 +202,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * If both {@code startTime</code> and <code>endTime} are sent,
 	 * time between {@code startTime</code> and <code>endTime} must be less than 90 days.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params, FramedPaging paging) {
@@ -213,7 +213,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the last deposit history of all coins.
 	 * 
-	 * @param paging The paging.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<DepositHistory>> getDepositHistory(FramedPaging paging) {
@@ -223,7 +223,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the withdraw history of one or multiple coins.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
@@ -233,8 +233,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the withdraw history of one or multiple coins.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params, FramedPaging paging) {
@@ -257,7 +257,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * You can get {@code network} and {@code isDefault} in {@code networkList} in the response of {@link #getAllCoinsInfo}
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<DepositAddress> getDepositAddress(DepositAddressParams params) {
@@ -294,7 +294,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the dust transfer logs.
 	 * 
-	 * @param timeFrame The search interval.
+	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<DustLog> getDustLog(TimeFrame timeFrame) {
@@ -314,7 +314,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Retrieves the assets convertible into BNB.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ConvertibleAssets> getConvertibleAssets(ConvertibleAssetParams params) {
@@ -324,7 +324,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Convert dust assets to BNB.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<DustTransferResponse> dustTransfert(DustTransferParams params) {
@@ -334,7 +334,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Queries the dividend record of one or multiple assets.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params) {
@@ -353,8 +353,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Queries the dividend record of one or multiple assets.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The search interval.
+	 * @param params    Request params.
+	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame timeFrame) {
@@ -364,7 +364,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Queries the last 20 dividend asset records.
 	 * 
-	 * @param timeFrame The search interval.
+	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
 	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame timeFrame) {
@@ -375,7 +375,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * Fetches the details of an asset supported on Binance. Please get network and other deposit or withdraw details from
 	 * {@link #getAllCoinsInfo()}.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Map<String, AssetDetail>> getAssetDetail(AssetDetailParams params) {
@@ -394,7 +394,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the trade fee.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<TradeFee>> getTradeFee(TradeFeeParams params) {
@@ -415,7 +415,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * You need to enable {@code Permits Universal Transfer} option for the api key which requests this endpoint.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<WalletTransferResponse> transfer(WalletTransferParams params) {
@@ -425,7 +425,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the user universal transfer history
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
@@ -435,8 +435,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Fetches the user universal transfer history
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params, FramedPaging paging) {
@@ -448,7 +448,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * <p>
 	 * Currently supports querying the following business assets：Binance Pay, Binance Card, Binance Gift Card, Stock Token
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<FundingAsset>> getFundingAsset(FundingAssetParams params) {

@@ -48,8 +48,8 @@ public class BarSeriesServiceTest extends CustomTest {
 	/**
 	 * Compares input and output equality
 	 *
-	 * @param bars   the candles.
-	 * @param series the converted bars.
+	 * @param bars   Candles.
+	 * @param series Converted bars.
 	 */
 	void makeAssertion(List<Candle> bars, BarSeries series) {
 		for (int i = 0; i < series.getBarCount(); i++) {

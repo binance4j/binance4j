@@ -6,12 +6,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The {@link MiningClient#getAccountProfits} response.
+ * {@link MiningClient#getAccountProfits} response.
  * 
- * @param code The response code.
- * @param msg  The response message.
- * @param data The response data.
+ * @param code Response code.
+ * @param msg  Response message.
+ * @param data Response data.
  */
-@ApiModel("")
-public record AccountProfitsResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg, @ApiModelProperty("") AccountProfitsData data) {
+@ApiModel("Account profits wrapper.")
+public record AccountProfitsResponse(@ApiModelProperty("Response code.") int code, @ApiModelProperty("Response message.") String msg,
+		@ApiModelProperty("Response data.") AccountProfitsData data) {
 }

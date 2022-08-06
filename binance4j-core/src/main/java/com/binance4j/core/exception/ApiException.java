@@ -6,8 +6,8 @@ public class ApiException extends Exception {
 	final int code;
 
 	/**
-	 * @param code    The API response code.
-	 * @param message The API response message.
+	 * @param code    API response code.
+	 * @param message API response message.
 	 */
 	public ApiException(int code, String message) {
 		super(message);
@@ -15,7 +15,7 @@ public class ApiException extends Exception {
 	}
 
 	/**
-	 * @param error The API response error.
+	 * @param error API response error.
 	 */
 	public ApiException(ApiError error) {
 		this(error.getCode(), error.getMsg());

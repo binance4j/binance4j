@@ -34,10 +34,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the candlestick data for a symbol (monthly)
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval.
-	 * @param year                The year.
-	 * @param month               The month.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval.
+	 * @param year                Year.
+	 * @param month               Month.
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
@@ -51,10 +51,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval.
-	 * @param year                The year.
-	 * @param month               The month.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval.
+	 * @param year                Year.
+	 * @param month               Month.
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
@@ -68,11 +68,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the candlestick data for a symbol (daily)
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval.
-	 * @param year                The year.
-	 * @param month               The month.
-	 * @param day                 The day.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval.
+	 * @param year                Year.
+	 * @param month               Month.
+	 * @param day                 Day.
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
@@ -86,11 +86,11 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval.
-	 * @param year                The year.
-	 * @param month               The month.
-	 * @param day                 The day.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval.
+	 * @param year                Year.
+	 * @param month               Month.
+	 * @param day                 Day.
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
@@ -106,9 +106,9 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the trades data for a symbol (monthly)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -122,9 +122,9 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -138,10 +138,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the trades data for a symbol (daily)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -155,10 +155,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -174,9 +174,9 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the aggTrades data for a symbol (monthly)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -190,9 +190,9 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (monthly)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -206,10 +206,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the compressed csv containing the aggTrades data for a symbol (daily)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -223,10 +223,10 @@ public class VisionSpotClient {
 	/**
 	 * Get the checksum of the zip archive (daily)
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
@@ -240,9 +240,9 @@ public class VisionSpotClient {
 	/**
 	 * Checks if the given date is valid
 	 *
-	 * @param year  The year.
-	 * @param month The month.
-	 * @param day   The day.
+	 * @param year  Year.
+	 * @param month Month.
+	 * @param day   Day.
 	 * @return if the date exists.
 	 */
 	private boolean isValidDate(String year, String month, String day) {
@@ -259,8 +259,8 @@ public class VisionSpotClient {
 	/**
 	 * Checks if the given date is valid
 	 *
-	 * @param year  The year.
-	 * @param month The month.
+	 * @param year  Year.
+	 * @param month Month.
 	 * @return if the date exists.
 	 */
 	private boolean isValidDate(String year, String month) {

@@ -6,13 +6,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The user's current order count usage for all intervals.
  * 
- * @param rateLimitType The type of order.
- * @param interval      The order interval.
- * @param intervalNum   The order interval num.
- * @param limit         The order limit.
- * @param count         The current order count.
+ * @param rateLimitType Type of order.
+ * @param interval      Order interval.
+ * @param intervalNum   Order interval num.
+ * @param limit         Order limit.
+ * @param count         Current order count.
  */
-@ApiModel("")
-public record OrderCount(@ApiModelProperty("") String rateLimitType, @ApiModelProperty("") String interval, @ApiModelProperty("") int intervalNum,
-		@ApiModelProperty("") int limit, @ApiModelProperty("") int count) {
+@ApiModel("The user's current order count usage for all intervals.")
+public record OrderCount(@ApiModelProperty("Type of order.") String rateLimitType, @ApiModelProperty("Order interval.") String interval,
+		@ApiModelProperty("Order interval num.") int intervalNum, @ApiModelProperty("Order limit.") int limit,
+		@ApiModelProperty("Current order count.") int count) {
 }

@@ -46,11 +46,11 @@ public class NewOCOOrderParams implements Params {
 	/**
 	 * Produces an OCO order
 	 *
-	 * @param symbol    The symbol the order is made on.
-	 * @param side      The order side (BUY/SELL).
-	 * @param quantity  The order quantity.
-	 * @param price     The order price.
-	 * @param stopPrice The stop price.
+	 * @param symbol    Symbol the order is made on.
+	 * @param side      Order side (BUY/SELL).
+	 * @param quantity  Order quantity.
+	 * @param price     Order price.
+	 * @param stopPrice Stop price.
 	 */
 	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice) {
 		this.symbol = symbol;
@@ -90,7 +90,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param symbol the symbol to set
+	 * @param symbol Symbol to set
 	 */
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
@@ -104,7 +104,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param side the side to set
+	 * @param side Side to set
 	 */
 	public void setSide(OrderSide side) {
 		this.side = side;
@@ -118,7 +118,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param quantity Quantity to set
 	 */
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
@@ -132,7 +132,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price Price to set
 	 */
 	public void setPrice(String price) {
 		this.price = price;
@@ -146,7 +146,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopPrice the stopPrice to set
+	 * @param stopPrice StopPrice to set
 	 */
 	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
@@ -160,7 +160,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param newOrderRespType the newOrderRespType to set
+	 * @param newOrderRespType NewOrderRespType to set
 	 */
 	public void setNewOrderRespType(NewOrderResponseType newOrderRespType) {
 		this.newOrderRespType = newOrderRespType;
@@ -174,7 +174,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param listClientOrderId the listClientOrderId to set
+	 * @param listClientOrderId ListClientOrderId to set
 	 */
 	public void setListClientOrderId(String listClientOrderId) {
 		this.listClientOrderId = listClientOrderId;
@@ -188,7 +188,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param limitClientOrderId the limitClientOrderId to set
+	 * @param limitClientOrderId LimitClientOrderId to set
 	 */
 	public void setLimitClientOrderId(String limitClientOrderId) {
 		this.limitClientOrderId = limitClientOrderId;
@@ -202,7 +202,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param limitIcebergQuantity the limitIcebergQuantity to set
+	 * @param limitIcebergQuantity LimitIcebergQuantity to set
 	 */
 	public void setLimitIcebergQuantity(String limitIcebergQuantity) {
 		this.limitIcebergQuantity = limitIcebergQuantity;
@@ -216,7 +216,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopClientOrderId the stopClientOrderId to set
+	 * @param stopClientOrderId StopClientOrderId to set
 	 */
 	public void setStopClientOrderId(String stopClientOrderId) {
 		this.stopClientOrderId = stopClientOrderId;
@@ -230,7 +230,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopLimitPrice the stopLimitPrice to set
+	 * @param stopLimitPrice StopLimitPrice to set
 	 */
 	public void setStopLimitPrice(String stopLimitPrice) {
 		this.stopLimitPrice = stopLimitPrice;
@@ -244,7 +244,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopIcebergQuantity the stopIcebergQuantity to set
+	 * @param stopIcebergQuantity StopIcebergQuantity to set
 	 */
 	public void setStopIcebergQuantity(String stopIcebergQuantity) {
 		this.stopIcebergQuantity = stopIcebergQuantity;
@@ -258,7 +258,7 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
-	 * @param stopLimitTimeInForce the stopLimitTimeInForce to set
+	 * @param stopLimitTimeInForce StopLimitTimeInForce to set
 	 */
 	public void setStopLimitTimeInForce(TimeInForce stopLimitTimeInForce) {
 		this.stopLimitTimeInForce = stopLimitTimeInForce;

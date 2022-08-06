@@ -8,6 +8,6 @@ import io.swagger.annotations.ApiModelProperty;
  * 
  * @param success Success.
  */
-@ApiModel("")
-public record AutoStakingResponse(@ApiModelProperty("") boolean success) {
+@ApiModel("Auto staking response.")
+public record AutoStakingResponse(@ApiModelProperty("Success.") boolean success) {
 }

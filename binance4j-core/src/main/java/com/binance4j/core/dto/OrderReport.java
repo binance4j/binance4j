@@ -6,10 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An order report.
  * 
- * @param orderListId         The order list id.
- * @param origClientOrderId   The original client order id.
- * @param transactTime        The order timestamp.
- * @param side                The order side.
+ * @param orderListId         Order list id.
+ * @param origClientOrderId   Original client order id.
+ * @param transactTime        Order timestamp.
+ * @param side                Order side.
  * @param price               Price.
  * @param origQty             Original quantity.
  * @param executedQty         Original quantity.
@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param origQuoteOrderQty   Original quote order quantity.
  * @param isWorking           Is working.
  * @param isIsolated          is isolated margin.
- * @param symbol              The order symbol.
+ * @param symbol              Order symbol.
  * @param orderId             Order id.
  * @param clientOrderId       Client order id.
  */

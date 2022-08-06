@@ -24,11 +24,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @param totalAmount            Total amount.
  * @param totalInterest          Total interest.
  */
-@ApiModel("")
-public record FlexibleProductPosition(@ApiModelProperty("") Map<String, String> tierAnnualInterestRate, @ApiModelProperty("") String annualInterestRate,
-		@ApiModelProperty("") String asset, @ApiModelProperty("") String avgAnnualInterestRate, @ApiModelProperty("") boolean canRedeem,
-		@ApiModelProperty("") String dailyInterestRate, @ApiModelProperty("") String freeAmount, @ApiModelProperty("") String freezeAmount,
-		@ApiModelProperty("") String lockedAmount, @ApiModelProperty("") String productId, @ApiModelProperty("") String productName,
-		@ApiModelProperty("") String redeemingAmount, @ApiModelProperty("") String todayPurchasedAmount, @ApiModelProperty("") String totalAmount,
-		@ApiModelProperty("") String totalInterest) {
+@ApiModel("Flexible product position.")
+public record FlexibleProductPosition(@ApiModelProperty("Tier annual interest rate.") Map<String, String> tierAnnualInterestRate,
+		@ApiModelProperty("Annual interest rate.") String annualInterestRate, @ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Avg annual interest rate.") String avgAnnualInterestRate, @ApiModelProperty("Can redeem.") boolean canRedeem,
+		@ApiModelProperty("Daily interest rate.") String dailyInterestRate, @ApiModelProperty("Free amount.") String freeAmount,
+		@ApiModelProperty("Freeze amount.") String freezeAmount, @ApiModelProperty("Locked amount.") String lockedAmount,
+		@ApiModelProperty("Product id.") String productId, @ApiModelProperty("Product name.") String productName,
+		@ApiModelProperty("Redeeming amount.") String redeemingAmount, @ApiModelProperty("Today purchased amount.") String todayPurchasedAmount,
+		@ApiModelProperty("Total amount.") String totalAmount, @ApiModelProperty("Total interest.") String totalInterest) {
 }

@@ -14,8 +14,8 @@ import com.binance4j.core.param.TimeFrame;
  */
 public class ConvertClient extends RestClient<ConvertMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public ConvertClient(String key, String secret) {
 		super(ConvertMapping.class, key, secret);
@@ -24,7 +24,7 @@ public class ConvertClient extends RestClient<ConvertMapping> {
 	/**
 	 * Get assets conversion history.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ConversionHistory> getConversions(TimeFrame params) {

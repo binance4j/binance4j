@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Trade order information.
  * 
- * @param side                The order side.
+ * @param side                Order side.
  * @param price               Price.
  * @param origQty             Original quantity.
  * @param executedQty         Original quantity.
@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param origQuoteOrderQty   Original quote order quantity.
  * @param isWorking           is working.
  * @param isIsolated          is isolated margin.
- * @param symbol              The order symbol.
+ * @param symbol              Order symbol.
  * @param orderId             Order id.
  * @param clientOrderId       Client order id.
  * @param accountId           Account id.

@@ -5,8 +5,14 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/** The response of a FUTURES account snapshot request */
-@ApiModel("")
-public record FuturesAccountSnapshotResponse(@ApiModelProperty("") int code, @ApiModelProperty("") String msg,
-		@ApiModelProperty("") List<FuturesAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<FuturesAccountSnapshot> {
+/**
+ * Response of a FUTURES account snapshot request.
+ * 
+ * @param code        Code.
+ * @param msg         Message.
+ * @param snapshotVos Snapshot.
+ */
+@ApiModel("Response of a FUTURES account snapshot request.")
+public record FuturesAccountSnapshotResponse(@ApiModelProperty("Code.") int code, @ApiModelProperty("Message.") String msg,
+		@ApiModelProperty("Snapshot.") List<FuturesAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<FuturesAccountSnapshot> {
 }

@@ -4,13 +4,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Defines the quantity (aka "lots" in auction terms) rules for MARKET orders on a symbol.
+ * The quantity (aka "lots" in auction terms) rules for MARKET orders on a symbol.
  * 
- * @param minQty   The minimum quantity/iceberg quantity allowed.
- * @param maxQty   The maximum quantity/iceberg quantity allowed.
- * @param stepSize The intervals that a quantity/iceberg quantity can be increased/decreased by.
+ * @param minQty   Minimum quantity/iceberg quantity allowed.
+ * @param maxQty   Maximum quantity/iceberg quantity allowed.
+ * @param stepSize Intervals that a quantity/iceberg quantity can be increased/decreased by.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
-@ApiModel("")
-public record MarketLotSizeFilter(@ApiModelProperty("") String minQty, @ApiModelProperty("") String maxQty, @ApiModelProperty("") String stepSize) {
+@ApiModel("The quantity (aka \"lots\" in auction terms) rules for MARKET orders on a symbol.")
+public record MarketLotSizeFilter(@ApiModelProperty("Minimum quantity/iceberg quantity allowed.") String minQty,
+		@ApiModelProperty("Maximum quantity/iceberg quantity allowed.") String maxQty,
+		@ApiModelProperty("Intervals that a quantity/iceberg quantity can be increased/decreased by.") String stepSize) {
 }

@@ -19,7 +19,7 @@ public class Request<T> {
 	final Call<T> call;
 
 	/**
-	 * @param call The retrofit call.
+	 * @param call Retrofit call.
 	 */
 	public Request(Call<T> call) {
 		this.call = call;
@@ -48,7 +48,7 @@ public class Request<T> {
 	/**
 	 * Executes the request asynchronously
 	 * 
-	 * @param callback The request callback managing a success or error response.
+	 * @param callback Request callback managing a success or error response.
 	 */
 	public void async(ApiCallback<T> callback) {
 		call.enqueue(new ApiCallbackAdapter<>(callback));

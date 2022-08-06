@@ -6,7 +6,7 @@ import com.binance4j.websocket.dto.BookTicker;
 /** Websocket client handling book ticker events on all symbols */
 public class WebsocketAllBookTickersClient extends BaseWebsocketClient<BookTicker> {
 	/**
-	 * @param callback The events handler.
+	 * @param callback Events handler.
 	 */
 	public WebsocketAllBookTickersClient(WebsocketCallback<BookTicker> callback) {
 		super(null, "!bookTicker", BookTicker.class, callback);

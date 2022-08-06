@@ -7,7 +7,7 @@ import com.binance4j.core.param.Params;
 /**
  * {@link BLVTClient#subscribe} params.
  * 
- * @param tokenName The token name.
+ * @param tokenName Token name.
  * @param cost      Cost to subscribe to.
  */
 @Param

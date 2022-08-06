@@ -10,25 +10,27 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * {@link SpotClient#newOrder} response.
  * 
- * @param symbol              The trading pair to trade.
- * @param orderId             The order id.
- * @param orderListId         The order list id.
- * @param clientOrderId       The client order id.
- * @param transactTime        The order transaction timestamp.
- * @param price               The price of trade.
- * @param origQty             The original traded quantity.
- * @param executedQty         The current executed quantity.
- * @param cummulativeQuoteQty The opposite coin quantity.
- * @param status              The order status.
+ * @param symbol              Trading pair to trade.
+ * @param orderId             Order id.
+ * @param orderListId         Order list id.
+ * @param clientOrderId       Client order id.
+ * @param transactTime        Order transaction timestamp.
+ * @param price               Price of trade.
+ * @param origQty             Original traded quantity.
+ * @param executedQty         Current executed quantity.
+ * @param cummulativeQuoteQty Opposite coin quantity.
+ * @param status              Order status.
  * @param timeInForce         How long the order will remain active.
- * @param type                The order type.
- * @param side                The order side.
- * @param fills               The list of trades that partially of fully filled the order.
+ * @param type                Order type.
+ * @param side                Order side.
+ * @param fills               List of trades that partially of fully filled the order.
  */
-@ApiModel("")
-public record NewOrderResponse(@ApiModelProperty("") String symbol, @ApiModelProperty("") long orderId, @ApiModelProperty("") long orderListId,
-		@ApiModelProperty("") String clientOrderId, @ApiModelProperty("") long transactTime, @ApiModelProperty("") String price,
-		@ApiModelProperty("") String origQty, @ApiModelProperty("") String executedQty, @ApiModelProperty("") String cummulativeQuoteQty,
-		@ApiModelProperty("") String status, @ApiModelProperty("") String timeInForce, @ApiModelProperty("") String type, @ApiModelProperty("") String side,
-		@ApiModelProperty("") List<OrderTrade> fills) {
+@ApiModel("New order response.")
+public record NewOrderResponse(@ApiModelProperty("Trading pair to trade.") String symbol, @ApiModelProperty("Order id.") long orderId,
+		@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Client order id.") String clientOrderId,
+		@ApiModelProperty("Order transaction timestamp.") long transactTime, @ApiModelProperty("Price of trade.") String price,
+		@ApiModelProperty("Original traded quantity.") String origQty, @ApiModelProperty("Current executed quantity.") String executedQty,
+		@ApiModelProperty("Opposite coin quantity.") String cummulativeQuoteQty, @ApiModelProperty("Order status.") String status,
+		@ApiModelProperty("How long the order will remain active.") String timeInForce, @ApiModelProperty("Order type.") String type,
+		@ApiModelProperty("Order side.") String side, @ApiModelProperty("List of trades that partially of fully filled the order.") List<OrderTrade> fills) {
 }

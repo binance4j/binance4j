@@ -1,28 +1,26 @@
 package com.binance4j.wallet.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** The status of a withdraw. */
 public enum WithdrawStatus {
 	/** Email sent. */
-	EMAIL_SENT("0"), @ApiModelProperty("")
+	EMAIL_SENT("0"),
 	/** Cancelled. */
-	CANCELLED("1"), @ApiModelProperty("")
+	CANCELLED("1"),
 	/** Awaiting approval. */
-	AWAITING_APPROVAL("2"), @ApiModelProperty("")
+	AWAITING_APPROVAL("2"),
 	/** Rejected. */
-	REJECTED("3"), @ApiModelProperty("")
+	REJECTED("3"),
 	/** Processing. */
-	PROCESSING("4"), @ApiModelProperty("")
+	PROCESSING("4"),
 	/** Failure. */
-	FAILURE("5"), @ApiModelProperty("")
+	FAILURE("5"),
 	/** Completed. */
 	COMPLETED("6");
 
 	final String value;
 
 	/**
-	 * @param value The value.
+	 * @param value Value.
 	 */
 	private WithdrawStatus(String value) {
 		this.value = value;

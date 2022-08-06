@@ -46,10 +46,10 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	}
 
 	/**
-	 * @param symbols      The pairs of assets.
-	 * @param stream       The stream.
-	 * @param payloadClass The payload type.
-	 * @param callback     The events handler.
+	 * @param symbols      Pairs of assets.
+	 * @param stream       Stream.
+	 * @param payloadClass Payload type.
+	 * @param callback     Events handler.
 	 */
 	protected BaseWebsocketClient(String symbols, String stream, Class<T> payloadClass, WebsocketCallback<T> callback) {
 		this.symbols = symbols;
@@ -97,7 +97,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 *
 	 * @param configuration Configuration.
 	 * @param channel       address containing the symbols and the stream name.
-	 * @param listener      The websocket listener.
+	 * @param listener      Websocket listener.
 	 * @return The websocket to communicate with the API.
 	 */
 	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
@@ -128,7 +128,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	}
 
 	/**
-	 * @param configuration the configuration to set
+	 * @param configuration Configuration to set
 	 */
 	public void setConfiguration(WebsocketClientConfiguration configuration) {
 		this.configuration = configuration;

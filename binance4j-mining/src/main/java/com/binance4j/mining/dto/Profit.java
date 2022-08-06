@@ -12,25 +12,14 @@ import io.swagger.annotations.ApiModelProperty;
  * @param dayHashRate    Daily Hashrate.
  * @param profitAmount   Earnings Amount.
  * @param coinName       Coin type.
- * @param type           Type.
- *                           <ul>
- *                           <li>0: Mining Wallet</li>
- *                           <li>5: Mining Address</li>
- *                           <li>7: Pool Savings</li>
- *                           <li>8: Transferred</li>
- *                           <li>31: Income Transfer</li>
- *                           <li>32: Hashrate Resale-Mining Wallet</li>
- *                           <li>33: Hashrate Resale-Pool Savings</li>
- *                           </ul>
- * @param status         Status.
- *                           <ul>
- *                           <li>0: Unpaid</li>
- *                           <li>1: Paying</li>
- *                           <li>2: Paid</li>
- *                           </ul>
+ * @param type           Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32:
+ *                           Hashrate Resale-Mining Wallet 33: Hashrate Resale-Pool Savings
+ * @param status         Status. 0: Unpaid 1: Paying 2: Paid
  */
-@ApiModel("")
-public record Profit(@ApiModelProperty("") long time, @ApiModelProperty("") int type, @ApiModelProperty("") long hashTransfer,
-		@ApiModelProperty("") String transferAmount, @ApiModelProperty("") long dayHashRate, @ApiModelProperty("") String profitAmount,
-		@ApiModelProperty("") String coinName, @ApiModelProperty("") int status) {
+@ApiModel("Account profit.")
+public record Profit(@ApiModelProperty("Mining date in ms.") long time, @ApiModelProperty("Transferred Hashrate.") int type,
+		@ApiModelProperty("Transferred Income.") long hashTransfer, @ApiModelProperty("Daily Hashrate.") String transferAmount,
+		@ApiModelProperty("Earnings Amount.") long dayHashRate, @ApiModelProperty("Coin type.") String profitAmount,
+		@ApiModelProperty("Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32: Hashrate Resale-Mining Wallet 33: Hashrate Resale-Pool Savings") String coinName,
+		@ApiModelProperty("Status. 0: Unpaid 1: Paying 2: Paid") int status) {
 }

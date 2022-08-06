@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param avgPriceMins   Weighted average price.
  * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a> *
  */
-@ApiModel("")
-public record PercentPriceFilter(@ApiModelProperty("") String multiplierUp, @ApiModelProperty("") String multiplierDown,
-		@ApiModelProperty("") String avgPriceMins) {
+@ApiModel("Defines valid range for a price based on the average of the previous trades. avgPriceMins is the number of minutes the average price is calculated over. 0 means the last price is used.")
+public record PercentPriceFilter(@ApiModelProperty("Multiplier up.") String multiplierUp, @ApiModelProperty("Multiplier down.") String multiplierDown,
+		@ApiModelProperty("Weighted average price.") String avgPriceMins) {
 }

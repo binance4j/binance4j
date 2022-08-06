@@ -5,7 +5,7 @@ public interface GenericCallback<T> {
 	/**
 	 * The main method.
 	 * 
-	 * @param data The data to pass.
+	 * @param data Data to pass.
 	 */
 	void call(T data);
 }

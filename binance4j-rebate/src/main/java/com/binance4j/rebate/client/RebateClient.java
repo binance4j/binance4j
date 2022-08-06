@@ -14,8 +14,8 @@ import com.binance4j.rebate.param.SpotRebateHistoryParams;
  */
 public class RebateClient extends RestClient<RebateMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public RebateClient(String key, String secret) {
 		super(RebateMapping.class, key, secret);
@@ -33,7 +33,7 @@ public class RebateClient extends RestClient<RebateMapping> {
 	/**
 	 * Get the spot rebate history records.
 	 * 
-	 * @param interval The interval search.
+	 * @param interval Interval search.
 	 * @return The request to execute.
 	 */
 	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(FramedPaging interval) {

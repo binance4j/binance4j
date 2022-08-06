@@ -25,10 +25,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly candlestick data call
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval between two candles.
-	 * @param year                The year.
-	 * @param month               The month.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval between two candles.
+	 * @param year                Year.
+	 * @param month               Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_KLINES_URL)
@@ -38,10 +38,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly candlestick data cheksum call
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval between two candles.
-	 * @param year                The year.
-	 * @param month               The month.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval between two candles.
+	 * @param year                Year.
+	 * @param month               Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_KLINES_URL + ".CHECKSUM")
@@ -51,11 +51,11 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily candlestick data call
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval between two candles.
-	 * @param year                The year.
-	 * @param month               The month.
-	 * @param day                 The day.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval between two candles.
+	 * @param year                Year.
+	 * @param month               Month.
+	 * @param day                 Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_KLINES_URL)
@@ -65,11 +65,11 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily candlestick data checksum call
 	 *
-	 * @param symbol              The trading pair.
-	 * @param candlestickInterval The interval between two candles.
-	 * @param year                The year.
-	 * @param month               The month.
-	 * @param day                 The day.
+	 * @param symbol              Trading pair.
+	 * @param candlestickInterval Interval between two candles.
+	 * @param year                Year.
+	 * @param month               Month.
+	 * @param day                 Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_KLINES_URL + ".CHECKSUM")
@@ -81,9 +81,9 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly trades call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_TRADES_URL)
@@ -92,9 +92,9 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly trades cheksum call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_TRADES_URL + ".CHECKSUM")
@@ -103,10 +103,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily trades call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_TRADES_URL)
@@ -115,10 +115,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily trades checksum call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_TRADES_URL + ".CHECKSUM")
@@ -129,9 +129,9 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly aggTrades call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_AGGTRADES_URL)
@@ -140,9 +140,9 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the monthly aggTrades cheksum call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_AGGTRADES_URL + ".CHECKSUM")
@@ -151,10 +151,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily aggTrades call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_AGGTRADES_URL)
@@ -163,10 +163,10 @@ public interface VisionSpotMapping extends RestMapping {
 	/**
 	 * Mapping of the daily aggTrades checksum call
 	 *
-	 * @param symbol The trading pair.
-	 * @param year   The year.
-	 * @param month  The month.
-	 * @param day    The day.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
+	 * @param day    Day.
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_AGGTRADES_URL + ".CHECKSUM")

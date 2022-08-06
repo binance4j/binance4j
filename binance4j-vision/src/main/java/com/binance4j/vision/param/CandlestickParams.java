@@ -11,7 +11,7 @@ import retrofit2.Call;
 /** The candlestick request executor */
 public class CandlestickParams extends VisionParams<Candle> {
 	/**
-	 * @param call The API call.
+	 * @param call API call.
 	 */
 	public CandlestickParams(Call<ResponseBody> call) {
 		super(call);

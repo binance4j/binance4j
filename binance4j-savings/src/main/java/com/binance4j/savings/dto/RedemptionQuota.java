@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param leftQuota           Left quota.
  * @param minRedemptionAmount Min redemption amount.
  */
-@ApiModel("")
-public record RedemptionQuota(@ApiModelProperty("") String asset, @ApiModelProperty("") String dailyQuota, @ApiModelProperty("") String leftQuota,
-		@ApiModelProperty("") String minRedemptionAmount) {
+@ApiModel("Flexible redemption quota.")
+public record RedemptionQuota(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Daily quota.") String dailyQuota,
+		@ApiModelProperty("Left quota.") String leftQuota, @ApiModelProperty("Min redemption amount.") String minRedemptionAmount) {
 }

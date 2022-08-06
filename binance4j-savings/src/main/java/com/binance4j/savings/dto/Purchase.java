@@ -15,8 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param purchaseId  Purchase id.
  * @param status      Status.
  */
-@ApiModel("")
-public record Purchase(@ApiModelProperty("") String amount, @ApiModelProperty("") String asset, @ApiModelProperty("") long createTime,
-		@ApiModelProperty("") String lendingType, @ApiModelProperty("") long lot, @ApiModelProperty("") String productName,
-		@ApiModelProperty("") long purchaseId, @ApiModelProperty("") String status) {
+@ApiModel("Purchase infos.")
+public record Purchase(@ApiModelProperty("Amount.") String amount, @ApiModelProperty("Asset.") String asset, @ApiModelProperty("Create time.") long createTime,
+		@ApiModelProperty("Lending type.") String lendingType, @ApiModelProperty("Lot.") long lot, @ApiModelProperty("Product name.") String productName,
+		@ApiModelProperty("Purchase id.") long purchaseId, @ApiModelProperty("Status.") String status) {
 }

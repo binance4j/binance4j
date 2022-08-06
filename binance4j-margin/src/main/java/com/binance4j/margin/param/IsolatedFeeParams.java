@@ -7,8 +7,8 @@ import com.binance4j.margin.client.MarginClient;
 /**
  * {@link MarginClient#getIsolatedFeeData} params.
  * 
- * @param symbol   The asset.
- * @param vipLevel The vip level.
+ * @param symbol   Asset.
+ * @param vipLevel Vip level.
  */
 @Param(weight = 10)
 public record IsolatedFeeParams(String symbol, Integer vipLevel) implements Params {
@@ -16,7 +16,7 @@ public record IsolatedFeeParams(String symbol, Integer vipLevel) implements Para
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.
 	 * 
-	 * @param symbol The asset.
+	 * @param symbol Asset.
 	 */
 	public IsolatedFeeParams(String symbol) {
 		this(symbol, null);
@@ -25,7 +25,7 @@ public record IsolatedFeeParams(String symbol, Integer vipLevel) implements Para
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.
 	 * 
-	 * @param vipLevel The vip level.
+	 * @param vipLevel Vip level.
 	 */
 	public IsolatedFeeParams(Integer vipLevel) {
 		this(null, vipLevel);

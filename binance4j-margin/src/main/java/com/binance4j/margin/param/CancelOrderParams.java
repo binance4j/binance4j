@@ -17,7 +17,7 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
-	 * @param symbol The related symbol.
+	 * @param symbol Related symbol.
 	 */
 	public CancelOrderParams(String symbol) {
 		this(symbol, null, null, null);
@@ -26,8 +26,8 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
-	 * @param symbol  The related symbol.
-	 * @param orderId The order id.
+	 * @param symbol  Related symbol.
+	 * @param orderId Order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId) {
 		this(symbol, orderId, null, null);
@@ -36,7 +36,7 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
-	 * @param symbol            The related symbol.
+	 * @param symbol            Related symbol.
 	 * @param origClientOrderId Original client order id.
 	 */
 	public CancelOrderParams(String symbol, String origClientOrderId) {
@@ -46,7 +46,7 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
-	 * @param symbol            The related symbol.
+	 * @param symbol            Related symbol.
 	 * @param origClientOrderId Original client order id.
 	 * @param newClientOrderId  New client order id.
 	 */
@@ -57,8 +57,8 @@ public record CancelOrderParams(String symbol, Long orderId, String origClientOr
 	/**
 	 * Creates an instance of {@link CancelOrderParams}
 	 * 
-	 * @param symbol            The related symbol.
-	 * @param orderId           The order id.
+	 * @param symbol            Related symbol.
+	 * @param orderId           Order id.
 	 * @param origClientOrderId Original client order id.
 	 */
 	public CancelOrderParams(String symbol, Long orderId, String origClientOrderId) {

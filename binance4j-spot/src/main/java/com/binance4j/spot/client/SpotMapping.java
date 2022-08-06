@@ -26,7 +26,7 @@ public interface SpotMapping extends RestMapping {
 	String BASE = "/api/v3/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -34,7 +34,7 @@ public interface SpotMapping extends RestMapping {
 	Call<NewOrderResponse> newOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -42,7 +42,7 @@ public interface SpotMapping extends RestMapping {
 	Call<Void> newOrderTest(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -50,7 +50,7 @@ public interface SpotMapping extends RestMapping {
 	Call<CancelOrderResponse> cancelOrder(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -58,7 +58,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<CancelOrderResponse>> cancelOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -66,7 +66,7 @@ public interface SpotMapping extends RestMapping {
 	Call<OrderInfo> getOrderStatus(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -74,7 +74,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<OrderInfo>> getOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -82,7 +82,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<OrderInfo>> getAllOrders(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -90,7 +90,7 @@ public interface SpotMapping extends RestMapping {
 	Call<OCOResponse> newOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -98,7 +98,7 @@ public interface SpotMapping extends RestMapping {
 	Call<OCOResponse> cancelOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -106,7 +106,7 @@ public interface SpotMapping extends RestMapping {
 	Call<OCOInfo> queryOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -114,7 +114,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<OCOInfo>> getAllOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -122,7 +122,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<OCOInfo>> getOpenOCO(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -130,7 +130,7 @@ public interface SpotMapping extends RestMapping {
 	Call<Account> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -138,7 +138,7 @@ public interface SpotMapping extends RestMapping {
 	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)

@@ -8,12 +8,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * {@link RebateClient#getSpotRebateHistoryRecords} response.
  * 
- * @param status The status.
- * @param type   The type.
- * @param code   The code.
- * @param data   The data.
+ * @param status Status.
+ * @param type   Type.
+ * @param code   Code.
+ * @param data   Data.
  */
-@ApiModel("")
-public record SpotRebateHistoryResponse(@ApiModelProperty("") String status, @ApiModelProperty("") String type, @ApiModelProperty("") String code,
-		@ApiModelProperty("") RebateData data) {
+@ApiModel("Rebate history record")
+public record SpotRebateHistoryResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Code.") String code, @ApiModelProperty("Data.") RebateData data) {
 }

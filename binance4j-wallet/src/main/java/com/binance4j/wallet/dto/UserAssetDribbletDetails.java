@@ -6,15 +6,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Dust log details.
  * 
- * @param transId             The transaction id.
- * @param operateTime         The timestamp.
- * @param serviceChargeAmount The fees.
- * @param amount              The volume.
- * @param transferedAmount    The transfered amount.
- * @param fromAsset           The transfered asset.
+ * @param transId             Transaction id.
+ * @param operateTime         Timestamp.
+ * @param serviceChargeAmount Fees.
+ * @param amount              Volume.
+ * @param transferedAmount    Transfered amount.
+ * @param fromAsset           Transfered asset.
  */
-@ApiModel("")
-public record UserAssetDribbletDetails(@ApiModelProperty("") long transId, @ApiModelProperty("") long operateTime,
-		@ApiModelProperty("") String serviceChargeAmount, @ApiModelProperty("") String amount, @ApiModelProperty("") String transferedAmount,
-		@ApiModelProperty("") String fromAsset) {
+@ApiModel("Dust log details.")
+public record UserAssetDribbletDetails(@ApiModelProperty("Transaction id.") long transId, @ApiModelProperty("Timestamp.") long operateTime,
+		@ApiModelProperty("Fees.") String serviceChargeAmount, @ApiModelProperty("Volume.") String amount,
+		@ApiModelProperty("Transfered amount.") String transferedAmount, @ApiModelProperty("Transfered asset.") String fromAsset) {
 }

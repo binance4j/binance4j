@@ -12,7 +12,7 @@ import okhttp3.Response;
 import okhttp3.WebSocket;
 
 /**
- * Interceptor callback for the {@link WebsocketClient} main callback to handle event failures
+ * Interceptor callback for {@link WebsocketClient} main callback to handle event failures
  */
 public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	/** The main ws client. */
@@ -35,8 +35,8 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	WebSocket socket;
 
 	/**
-	 * @param websocketClient The main ws client.
-	 * @param callback        The callback.
+	 * @param websocketClient Main ws client.
+	 * @param callback        Callback.
 	 */
 	public WebsocketInterceptorCallback(WebsocketClient websocketClient, WebsocketCallback<T> callback) {
 		this.websocketClient = websocketClient;
@@ -96,7 +96,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param onClosingCalled the onClosingCalled to set
+	 * @param onClosingCalled OnClosingCalled to set
 	 */
 	public void setOnClosingCalled(boolean onClosingCalled) {
 		this.onClosingCalled = onClosingCalled;
@@ -110,7 +110,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param socket the socket to set
+	 * @param socket Socket to set
 	 */
 	public void setSocket(WebSocket socket) {
 		this.socket = socket;
@@ -124,7 +124,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param websocketClient the websocketClient to set
+	 * @param websocketClient WebsocketClient to set
 	 */
 	public void setWebsocketClient(WebsocketClient websocketClient) {
 		this.websocketClient = websocketClient;
@@ -138,7 +138,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param connectionHandler the connectionHandler to set
+	 * @param connectionHandler ConnectionHandler to set
 	 */
 	public void setConnectionHandler(WebsocketEventHandler connectionHandler) {
 		this.connectionHandler = connectionHandler;
@@ -152,7 +152,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param noResponseHandler the noResponseHandler to set
+	 * @param noResponseHandler NoResponseHandler to set
 	 */
 	public void setNoResponseHandler(WebsocketEventHandler noResponseHandler) {
 		this.noResponseHandler = noResponseHandler;
@@ -166,7 +166,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param disconnectionHandler the disconnectionHandler to set
+	 * @param disconnectionHandler DisconnectionHandler to set
 	 */
 	public void setDisconnectionHandler(WebsocketEventHandler disconnectionHandler) {
 		this.disconnectionHandler = disconnectionHandler;
@@ -180,7 +180,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param forceClosingHandler the forceClosingHandler to set
+	 * @param forceClosingHandler ForceClosingHandler to set
 	 */
 	public void setForceClosingHandler(WebsocketEventHandler forceClosingHandler) {
 		this.forceClosingHandler = forceClosingHandler;
@@ -194,7 +194,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param callback the callback to set
+	 * @param callback Callback to set
 	 */
 	public void setCallback(WebsocketCallback<T> callback) {
 		this.callback = callback;
@@ -208,7 +208,7 @@ public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	}
 
 	/**
-	 * @param closedByClient the closedByClient to set
+	 * @param closedByClient ClosedByClient to set
 	 */
 	public void setClosedByClient(boolean closedByClient) {
 		this.closedByClient = closedByClient;

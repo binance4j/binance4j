@@ -39,28 +39,28 @@ public interface MarketMapping extends RestMapping {
 	Call<ServerTimeResponse> getServerTime();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "exchangeInfo")
 	Call<ExchangeInfo> getExchangeInfo(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "depth")
 	Call<OrderBook> getOrderBook(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "trades")
 	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
@@ -68,21 +68,21 @@ public interface MarketMapping extends RestMapping {
 	Call<List<Trade>> getHistoricalTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "aggTrades")
 	Call<List<AggTrade>> getAggTrades(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "klines")
 	Call<List<Candle>> getKlines(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "avgPrice")
@@ -95,14 +95,14 @@ public interface MarketMapping extends RestMapping {
 	Call<List<TickerStatistics>> get24hTickerStatistics();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/24hr")
 	Call<TickerStatistics> get24hTickerStatistics(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/24hr")
@@ -115,14 +115,14 @@ public interface MarketMapping extends RestMapping {
 	Call<List<PriceTicker>> getTicker();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/price")
 	Call<List<PriceTicker>> getTickers(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/price")
@@ -135,14 +135,14 @@ public interface MarketMapping extends RestMapping {
 	Call<List<BookTicker>> getBookTicker();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/bookTicker")
 	Call<BookTicker> getBookTicker(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "ticker/bookTicker")

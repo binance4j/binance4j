@@ -11,15 +11,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An ohlc candle for a symbol.
  * 
- * @param openTime                 The candlestick open timestamp in milliseconds.
- * @param open                     The Open value.
- * @param high                     The High value.
- * @param low                      The Low value.
- * @param close                    The Close value.
- * @param volume                   The traded volume in the interval.
- * @param closeTime                The candlestick close timestamp in milliseconds.
- * @param quoteAssetVolume         The quote asset traded volume.
- * @param numberOfTrades           The number of trades.
+ * @param openTime                 Candlestick open timestamp in milliseconds.
+ * @param open                     Open value.
+ * @param high                     High value.
+ * @param low                      Low value.
+ * @param close                    Close value.
+ * @param volume                   Traded volume in the interval.
+ * @param closeTime                Candlestick close timestamp in milliseconds.
+ * @param quoteAssetVolume         Quote asset traded volume.
+ * @param numberOfTrades           Number of trades.
  * @param takerBuyBaseAssetVolume  Taker buy base asset volume.
  * @param takerBuyQuoteAssetVolume Taker buy quote asset volume.
  */
@@ -35,7 +35,7 @@ public record Candle(@ApiModelProperty("The candlestick open timestamp in millis
 	/**
 	 * accepting a list of String acting like a line of data in a csv file
 	 * 
-	 * @param input The String input.
+	 * @param input String input.
 	 */
 	public Candle(List<String> input) {
 		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), input.get(3), input.get(4), input.get(5), Long.parseLong(input.get(6)), input.get(7),

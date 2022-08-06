@@ -1,11 +1,9 @@
 package com.binance4j.websocket.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
-/** The order book update speed */
+/** The order book update speed. */
 public enum DepthUpdateSpeed {
 	/** Update of 1000ms. */
-	MS_1000("1000ms"), @ApiModelProperty("")
+	MS_1000("1000ms"),
 	/** Update of 100ms. */
 	MS_100("100ms");
 
@@ -13,7 +11,7 @@ public enum DepthUpdateSpeed {
 	final String value;
 
 	/**
-	 * @param value the value
+	 * @param value Value
 	 */
 	private DepthUpdateSpeed(String value) {
 		this.value = value;

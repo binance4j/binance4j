@@ -40,8 +40,8 @@ import com.binance4j.mining.param.StatisticsParams;
  */
 public class MiningClient extends RestClient<MiningMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public MiningClient(String key, String secret) {
 		super(MiningMapping.class, key, secret);
@@ -68,7 +68,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Request for detail miner list.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<MinerDetailsResponse> getMinersDetails(MinerDetailsParams params) {
@@ -78,7 +78,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Request for miner list.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<WorkersResponse> getMiners(MinersParams params) {
@@ -88,8 +88,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get earnings list.
 	 *
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<ProfitResponse> getProfits(ProfitsParams params, FramedPaging paging) {
@@ -100,8 +100,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get extra bonus list.
 	 *
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<OtherProfitsResponse> getOtherProfits(ProfitsParams params, FramedPaging paging) {
@@ -112,7 +112,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get mining account earning.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<AccountProfitsResponse> getAccountProfits(AccountProfitsParams params) {
@@ -122,8 +122,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get mining account earning.
 	 *
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<AccountProfitsResponse> getAccountProfits(AccountProfitsParams params, FramedPaging paging) {
@@ -143,7 +143,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale list.
 	 *
-	 * @param timeFrame The timeframe.
+	 * @param timeFrame Timeframe.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleListResponse> getHashrateResales(TimeFrame timeFrame) {
@@ -154,7 +154,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale detail.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params) {
@@ -164,8 +164,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale detail.
 	 *
-	 * @param params    The request params.
-	 * @param timeFrame The timeframe.
+	 * @param params    Request params.
+	 * @param timeFrame Timeframe.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, TimeFrame timeFrame) {
@@ -176,7 +176,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Hashrate resale request.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleResponse> resellHashrate(HashrateResaleParams params) {
@@ -186,7 +186,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Cancel hashrate resale configuration.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(HashrateResaleCancellationParams params) {
@@ -196,7 +196,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get Statistic list.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<StatisticsResponse> getStatistics(StatisticsParams params) {
@@ -206,7 +206,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get Account list.
 	 *
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<AccountListResponse> getAccounts(AccountListParams params) {

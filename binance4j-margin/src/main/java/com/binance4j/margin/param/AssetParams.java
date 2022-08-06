@@ -7,7 +7,7 @@ import com.binance4j.margin.client.MarginClient;
 /**
  * {@link MarginClient#getAsset} params.
  * 
- * @param asset The asset we want infos about.
+ * @param asset Asset we want infos about.
  */
 @Param(weight = 10)
 public record AssetParams(String asset) implements Params {

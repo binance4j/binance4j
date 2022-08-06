@@ -1,15 +1,13 @@
 package com.binance4j.savings.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /** Project sorting. */
 public enum FixedProjectSorting {
 	/** Start time. */
-	START_TIME, @ApiModelProperty("")
+	START_TIME,
 	/** Lot size. */
-	LOT_SIZE, @ApiModelProperty("")
+	LOT_SIZE,
 	/** Interest rate. */
-	INTEREST_RATE, @ApiModelProperty("")
+	INTEREST_RATE,
 	/** Duration. */
 	DURATION
 }

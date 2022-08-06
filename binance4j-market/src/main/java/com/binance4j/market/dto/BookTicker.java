@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param askPrice Ask price.
  * @param askQty   Ask quantity.
  */
-@ApiModel("")
-public record BookTicker(@ApiModelProperty("") String symbol, @ApiModelProperty("") String bidPrice, @ApiModelProperty("") String bidQty,
-		@ApiModelProperty("") String askPrice, @ApiModelProperty("") String askQty) {
+@ApiModel("Represents the best price/quantity on the order book for a given symbol.")
+public record BookTicker(@ApiModelProperty("Ticker symbol.") String symbol, @ApiModelProperty("Bid price.") String bidPrice,
+		@ApiModelProperty("Bid quantity.") String bidQty, @ApiModelProperty("Ask price.") String askPrice, @ApiModelProperty("Ask quantity.") String askQty) {
 }

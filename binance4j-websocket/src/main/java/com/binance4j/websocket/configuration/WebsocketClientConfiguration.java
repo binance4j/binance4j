@@ -37,7 +37,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param baseUrl the baseUrl to set
+	 * @param baseUrl BaseUrl to set
 	 */
 	public void setBaseUrl(String baseUrl) {
 		this.baseUrl = baseUrl;
@@ -51,7 +51,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param pingInterval the pingInterval to set
+	 * @param pingInterval PingInterval to set
 	 */
 	public void setPingInterval(Duration pingInterval) {
 		this.pingInterval = pingInterval;
@@ -65,7 +65,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param keepAlive the keepAlive to set
+	 * @param keepAlive KeepAlive to set
 	 */
 	public void setKeepAlive(boolean keepAlive) {
 		this.keepAlive = keepAlive;
@@ -79,7 +79,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param reconnectionInterval the reconnectionInterval to set
+	 * @param reconnectionInterval ReconnectionInterval to set
 	 */
 	public void setReconnectionInterval(Duration reconnectionInterval) {
 		this.reconnectionInterval = reconnectionInterval;
@@ -93,7 +93,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param maxReconnections the maxReconnections to set
+	 * @param maxReconnections MaxReconnections to set
 	 */
 	public void setMaxReconnections(int maxReconnections) {
 		this.maxReconnections = maxReconnections;
@@ -107,7 +107,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param noResponseTimeout the noResponseTimeout to set
+	 * @param noResponseTimeout NoResponseTimeout to set
 	 */
 	public void setNoResponseTimeout(Duration noResponseTimeout) {
 		this.noResponseTimeout = noResponseTimeout;
@@ -121,7 +121,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param noResponseTimeoutMarginError the noResponseTimeoutMarginError to set
+	 * @param noResponseTimeoutMarginError NoResponseTimeoutMarginError to set
 	 */
 	public void setNoResponseTimeoutMarginError(Duration noResponseTimeoutMarginError) {
 		this.noResponseTimeoutMarginError = noResponseTimeoutMarginError;
@@ -135,7 +135,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param disconnectionTimeout the disconnectionTimeout to set
+	 * @param disconnectionTimeout DisconnectionTimeout to set
 	 */
 	public void setDisconnectionTimeout(Duration disconnectionTimeout) {
 		this.disconnectionTimeout = disconnectionTimeout;
@@ -149,7 +149,7 @@ public class WebsocketClientConfiguration {
 	}
 
 	/**
-	 * @param closeAfter the closeAfter to set
+	 * @param closeAfter CloseAfter to set
 	 */
 	public void setCloseAfter(Duration closeAfter) {
 		this.closeAfter = closeAfter;

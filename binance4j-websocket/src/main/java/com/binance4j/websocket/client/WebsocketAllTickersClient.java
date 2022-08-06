@@ -8,7 +8,7 @@ import com.binance4j.websocket.dto.Ticker;
  */
 public class WebsocketAllTickersClient extends BaseWebsocketClient<Ticker> {
 	/**
-	 * @param callback The events handler.
+	 * @param callback Events handler.
 	 */
 	public WebsocketAllTickersClient(WebsocketCallback<Ticker> callback) {
 		super(null, "!ticker", Ticker.class, callback);

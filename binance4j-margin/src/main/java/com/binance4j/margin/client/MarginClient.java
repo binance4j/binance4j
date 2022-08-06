@@ -83,8 +83,8 @@ import com.binance4j.margin.param.TransferParams;
  */
 public class MarginClient extends RestClient<MarginMapping> {
 	/**
-	 * @param key        The API public key.
-	 * @param secret     The API secret key.
+	 * @param key        API public key.
+	 * @param secret     API secret key.
 	 * @param useTestnet use testnet?
 	 */
 	protected MarginClient(String key, String secret, boolean useTestnet) {
@@ -92,8 +92,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public MarginClient(String key, String secret) {
 		super(MarginMapping.class, key, secret);
@@ -102,7 +102,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Execute transfer between spot account and cross margin account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> transfer(TransferParams params) {
@@ -112,7 +112,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Apply for a loan.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> borrow(BorrowParams params) {
@@ -122,7 +122,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Repay loan for margin account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> repay(RepayParams params) {
@@ -132,7 +132,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get info about an asset.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Asset> getAsset(AssetParams params) {
@@ -151,7 +151,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get info about a cross margin pair.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<CrossSymbol> getCrossMarginPair(PairParams params) {
@@ -170,7 +170,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Gets the price Index of a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<PriceIndex> getPriceIndex(PriceIndexParams params) {
@@ -180,7 +180,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Post a new order for margin account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<NewOrderRecord> newOrder(NewOrderParams params) {
@@ -190,7 +190,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Cancel an active order for margin account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
@@ -200,7 +200,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Cancel all active orders on a symbol for margin account. This includes OCO orders.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
@@ -219,7 +219,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Cross Margin Transfer History.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<TransferRecords> getTransferHistory(TransactionHistoryParams params) {
@@ -229,8 +229,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Cross Margin Transfer History.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<TransferRecords> getTransferHistory(TransactionHistoryParams params, FramedPaging paging) {
@@ -240,7 +240,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Loan Record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<LoanRecord> getLoanRecord(TransactionHistoryParams params) {
@@ -250,8 +250,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Loan Record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<LoanRecord> getLoanRecord(TransactionHistoryParams params, FramedPaging paging) {
@@ -261,7 +261,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Repay Record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<RepayRecords> getRepayRecord(TransactionHistoryParams params) {
@@ -271,8 +271,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Repay Record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<RepayRecords> getRepayRecord(TransactionHistoryParams params, FramedPaging paging) {
@@ -282,7 +282,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query interest Record.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<InterestHistory> getInterestHistory(TransactionHistoryParams params) {
@@ -292,8 +292,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query interest Record.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<InterestHistory> getInterestHistory(TransactionHistoryParams params, FramedPaging paging) {
@@ -303,7 +303,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Force Liquidation Record. Response in descending order.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
@@ -313,8 +313,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Force Liquidation Record. Response in descending order.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paging.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params, FramedPaging paging) {
@@ -333,7 +333,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get order status.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OrderInfo> getOrder(OrderParams params) {
@@ -343,7 +343,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get open orders.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersParams params) {
@@ -362,7 +362,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get all orders.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
@@ -372,8 +372,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get all orders.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time interval search.
+	 * @param params    Request params.
+	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
@@ -383,7 +383,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Send in a new OCO for a margin account.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<NewOCOOrderRecord> newOCO(NewOCOOrderParams params) {
@@ -393,7 +393,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Cancel an entire Order List.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<NewOCOOrderRecord> cancelOCO(CancelOCOParams params) {
@@ -403,7 +403,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Retrieves a specific OCO based on provided optional parameters.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OCOOrderRecord> getOCO(GetOCOParams params) {
@@ -413,7 +413,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Retrieves all OCO for a specific margin account based on provided optional parameters.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params) {
@@ -423,8 +423,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Retrieves all OCO for a specific margin account based on provided optional parameters.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time interval seach.
+	 * @param params    Request params.
+	 * @param timeFrame Time interval seach.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params, TimeFrame timeFrame) {
@@ -434,7 +434,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Retrieves all open OCO
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOOrderRecord>> getOpenOCO(GetOpenOCOParams params) {
@@ -453,7 +453,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Margin Account's Trade List.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradeParams params) {
@@ -463,8 +463,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Margin Account's Trade List.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time interval seach.
+	 * @param params    Request params.
+	 * @param timeFrame Time interval seach.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradeParams params, TimeFrame timeFrame) {
@@ -474,7 +474,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Max Borrow.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<MaxBorrowable> getMaxBorrowable(MaxBorrowableParams params) {
@@ -484,7 +484,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Max Transfer-Out Amount.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<MaxTransferable> getMaxTransferable(MaxTransferableParams params) {
@@ -494,7 +494,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Make an Isolated Margin Account Transfer.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Transaction> newIsolatedTransfer(NewIsolatedTransferParams params) {
@@ -504,7 +504,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Isolated Margin Transfer History.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
@@ -514,8 +514,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get Isolated Margin Transfer History.
 	 * 
-	 * @param params The request params.
-	 * @param paging The paginated result.
+	 * @param params Request params.
+	 * @param paging Paginated result.
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params, FramedPaging paging) {
@@ -525,7 +525,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Isolated Margin Account Info.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedAccount> getIsolatedAccount(IsolatedAccountParams params) {
@@ -544,7 +544,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Disable isolated margin account for a specific symbol. Each trading pair can only be deactivated once every 24 hours.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ToogleAccountResponse> disableIsolatedAccount(ToogleAccountParams params) {
@@ -554,7 +554,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Enable isolated margin account for a specific symbol(Only supports activation of previously disabled accounts).
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<ToogleAccountResponse> enableIsolatedAccount(ToogleAccountParams params) {
@@ -573,7 +573,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Get info about an isolated symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<IsolatedSymbol> getIsolatedSymbol(PairParams params) {
@@ -592,7 +592,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Toggle BNB Burn On Spot Trade And Margin Interest
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams params) {
@@ -611,7 +611,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query Margin Interest Rate History.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<InterestRate>> getInterestRateHistory(InterestRateHistoryParams params) {
@@ -622,7 +622,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * Get cross margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<CrossFee>> getMarginFeeData(CrossFeeParams params) {
@@ -643,7 +643,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * Get isolated margin fee data collection with any vip level or user's current specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedFee>> getIsolatedFeeData(IsolatedFeeParams params) {
@@ -664,7 +664,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * Get isolated margin tier data collection with any tier defined
 	 * <a href="https://www.binance.com/en/margin-data">here</a>.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<IsolatedTierData>> getIsolatedMarginTierData(IsolatedTierDataParams params) {
@@ -674,7 +674,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Displays the user's current margin order count usage for all intervals.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderRateLimit>> getRateLimit(RateLimitParams params) {
@@ -702,7 +702,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	/**
 	 * Query the historical information of user's margin account small-value asset conversion BNB.
 	 * 
-	 * @param timeFrame The result time frame.
+	 * @param timeFrame Result time frame.
 	 * @return The request to execute.
 	 */
 	public Request<DustLogRecord> getDustLog(TimeFrame timeFrame) {

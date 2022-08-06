@@ -13,8 +13,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param commission      Commission.
  * @param commissionAsset Asset on which commission is taken.
  * @param time            Trade execution time.
- * @param symbol          The symbol of the trade.
- * @param orderId         The order id.
+ * @param symbol          Symbol of the trade.
+ * @param orderId         Order id.
  * @param isBuyer         Is buyer trade.
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?

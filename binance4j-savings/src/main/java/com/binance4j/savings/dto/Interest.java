@@ -12,7 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param productName ProductName.
  * @param time        Time in ms.
  */
-@ApiModel("")
-public record Interest(@ApiModelProperty("") String asset, @ApiModelProperty("") String interest, @ApiModelProperty("") String lendingType,
-		@ApiModelProperty("") String productName, @ApiModelProperty("") long time) {
+@ApiModel("Lending interest.")
+public record Interest(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Interest.") String interest,
+		@ApiModelProperty("LendingType.") String lendingType, @ApiModelProperty("ProductName.") String productName,
+		@ApiModelProperty("Time in ms.") long time) {
 }

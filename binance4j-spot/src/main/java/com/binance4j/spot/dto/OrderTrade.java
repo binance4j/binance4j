@@ -6,13 +6,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The partial trade of an order.
  * 
- * @param price           The price.
- * @param qty             The quantity.
- * @param commission      The commission.
- * @param commissionAsset The commission asset.
- * @param tradeId         The trade id.
+ * @param price           Price.
+ * @param qty             Quantity.
+ * @param commission      Commission.
+ * @param commissionAsset Commission asset.
+ * @param tradeId         Trade id.
  */
-@ApiModel("")
-public record OrderTrade(@ApiModelProperty("") String price, @ApiModelProperty("") String qty, @ApiModelProperty("") String commission,
-		@ApiModelProperty("") String commissionAsset, @ApiModelProperty("") long tradeId) {
+@ApiModel("The partial trade of an order.")
+public record OrderTrade(@ApiModelProperty("Price.") String price, @ApiModelProperty("Quantity.") String qty,
+		@ApiModelProperty("Commission.") String commission, @ApiModelProperty("Commission asset.") String commissionAsset,
+		@ApiModelProperty("Trade id.") long tradeId) {
 }

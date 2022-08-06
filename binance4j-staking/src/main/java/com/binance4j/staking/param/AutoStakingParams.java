@@ -8,8 +8,8 @@ import com.binance4j.staking.dto.ProductType;
 /**
  * {@link StakingClient#setAutoStaking} params.
  * 
- * @param product    The product type.
- * @param positionId The position id.
+ * @param product    Product type.
+ * @param positionId Position id.
  * @param renewable  Renew purchase?
  */
 @Param

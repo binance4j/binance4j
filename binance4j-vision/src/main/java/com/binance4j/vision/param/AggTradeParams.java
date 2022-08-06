@@ -13,7 +13,7 @@ import retrofit2.Call;
 @Param
 public class AggTradeParams extends VisionParams<AggTrade> {
 	/**
-	 * @param call The API call.
+	 * @param call API call.
 	 */
 	public AggTradeParams(Call<ResponseBody> call) {
 		super(call);

@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param totalNum      Total amount.
  * @param pageSize      Rows per page.
  */
-@ApiModel("")
-public record HashrateResaleListDetailData(@ApiModelProperty("") List<HashrateResaleListDetail> configDetails, @ApiModelProperty("") long totalNum,
-		@ApiModelProperty("") long pageSize) {
+@ApiModel("Hashrate detail data.")
+public record HashrateResaleListDetailData(@ApiModelProperty("Config details.") List<HashrateResaleListDetail> configDetails,
+		@ApiModelProperty("Total amount.") long totalNum, @ApiModelProperty("Rows per page.") long pageSize) {
 }

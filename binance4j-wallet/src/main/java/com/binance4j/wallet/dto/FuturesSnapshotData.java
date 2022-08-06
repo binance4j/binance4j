@@ -8,10 +8,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The account snapshot data.
  * 
- * @param assets   The assets balances.
- * @param position Account snapshot position
+ * @param assets   Assets balances.
+ * @param position Account snapshot position.
  */
-@ApiModel("")
-public record FuturesSnapshotData(@ApiModelProperty("") List<FuturesSnapshotDataAssets> assets,
-		@ApiModelProperty("") List<FuturesAccountSnapshotPosition> position) {
+@ApiModel("The account snapshot data.")
+public record FuturesSnapshotData(@ApiModelProperty("Assets balances.") List<FuturesSnapshotDataAssets> assets,
+		@ApiModelProperty("Account snapshot position.") List<FuturesAccountSnapshotPosition> position) {
 }

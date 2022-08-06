@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param minimum            Minimum.
  * @param quotaPerOrder      Quota per order.
  */
-@ApiModel("")
-public record ProductQuota(@ApiModelProperty("") String totalPersonalQuota, @ApiModelProperty("") String minimum, @ApiModelProperty("") String quotaPerOrder) {
+@ApiModel("Staking product quota.")
+public record ProductQuota(@ApiModelProperty("Total personal quota.") String totalPersonalQuota, @ApiModelProperty("Minimum.") String minimum,
+		@ApiModelProperty("Quota per order.") String quotaPerOrder) {
 }

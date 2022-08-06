@@ -6,15 +6,16 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A wallet to wallet transfer.
  * 
- * @param asset     The transfered asset.
- * @param amount    The transfered amount.
- * @param type      The transfer type (origin wallet to destination wallet).
- * @param status    The transfer status.
- * @param tranId    The transaction id.
- * @param timestamp The transfer timestamp.
+ * @param asset     Transfered asset.
+ * @param amount    Transfered amount.
+ * @param type      Transfer type (origin wallet to destination wallet).
+ * @param status    Transfer status.
+ * @param tranId    Transaction id.
+ * @param timestamp Transfer timestamp.
  * @see WalletTransferType
  */
-@ApiModel("")
-public record WalletTransfer(@ApiModelProperty("") String asset, @ApiModelProperty("") String amount, @ApiModelProperty("") String type,
-		@ApiModelProperty("") String status, @ApiModelProperty("") long tranId, @ApiModelProperty("") long timestamp) {
+@ApiModel("A wallet to wallet transfer.")
+public record WalletTransfer(@ApiModelProperty("Transfered asset.") String asset, @ApiModelProperty("Transfered amount.") String amount,
+		@ApiModelProperty("Transfer type (origin wallet to destination wallet).") String type, @ApiModelProperty("Transfer status.") String status,
+		@ApiModelProperty("Transaction id.") long tranId, @ApiModelProperty("Transfer timestamp.") long timestamp) {
 }

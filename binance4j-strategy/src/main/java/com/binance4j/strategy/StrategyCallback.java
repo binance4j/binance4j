@@ -14,14 +14,14 @@ public interface StrategyCallback {
 	/**
 	 * Triggered when the strategy sends a BUY message.
 	 * 
-	 * @param series The bar series we are working on.
+	 * @param series Bar series we are working on.
 	 */
 	public void onEnter(BarSeries series);
 
 	/**
 	 * Triggered when the strategy sends a SELL message.
 	 * 
-	 * @param series The bar series we are working on.
+	 * @param series Bar series we are working on.
 	 */
 	public void onExit(BarSeries series);
 
@@ -36,7 +36,7 @@ public interface StrategyCallback {
 	/**
 	 * Triggered when stream is open.
 	 * 
-	 * @param response The opening response.
+	 * @param response Opening response.
 	 */
 	default void onOpen(Response response) {
 	}

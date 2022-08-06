@@ -9,11 +9,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Assets that can be converted into BNB.
  * 
  * @param details            Details.
- * @param totalTransferBtc   The BTC valuation.
- * @param totalTransferBNB   The BNB valuation.
- * @param dribbletPercentage The commission fee.
+ * @param totalTransferBtc   BTC valuation.
+ * @param totalTransferBNB   BNB valuation.
+ * @param dribbletPercentage Commission fee.
  */
-@ApiModel("")
-public record ConvertibleAssets(@ApiModelProperty("") List<ConvertibleAsset> details, @ApiModelProperty("") String totalTransferBtc,
-		@ApiModelProperty("") String totalTransferBNB, @ApiModelProperty("") String dribbletPercentage) {
+@ApiModel("Assets that can be converted into BNB.")
+public record ConvertibleAssets(@ApiModelProperty("Details.") List<ConvertibleAsset> details, @ApiModelProperty("BTC valuation.") String totalTransferBtc,
+		@ApiModelProperty("BNB valuation.") String totalTransferBNB, @ApiModelProperty("Commission fee.") String dribbletPercentage) {
 }

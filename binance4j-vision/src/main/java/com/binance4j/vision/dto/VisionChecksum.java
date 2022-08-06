@@ -6,9 +6,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The representation of a checksum.
  * 
- * @param checksum The MD5 checksum.
- * @param fileName The file name.
+ * @param checksum MD5 checksum.
+ * @param fileName File name.
  */
-@ApiModel("")
-public record VisionChecksum(@ApiModelProperty("") String checksum, @ApiModelProperty("") String fileName) {
+@ApiModel("The representation of a checksum.")
+public record VisionChecksum(@ApiModelProperty("MD5 checksum.") String checksum, @ApiModelProperty("File name.") String fileName) {
 }

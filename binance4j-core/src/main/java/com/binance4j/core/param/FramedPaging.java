@@ -5,8 +5,8 @@ package com.binance4j.core.param;
  * 
  * @param startTime Start time in ms.
  * @param endTime   End time in ms.
- * @param page      The result page.
- * @param limit     The results in the page.
+ * @param page      Result page.
+ * @param limit     Results in the page.
  */
 public record FramedPaging(Long startTime, Long endTime, Integer page, Integer limit) implements Params {
 	/**
@@ -22,7 +22,7 @@ public record FramedPaging(Long startTime, Long endTime, Integer page, Integer l
 	/**
 	 * Creates an instance of {@link FramedPaging}
 	 * 
-	 * @param page The result page.
+	 * @param page Result page.
 	 */
 	public FramedPaging(Integer page) {
 		this(null, null, page, null);
@@ -31,8 +31,8 @@ public record FramedPaging(Long startTime, Long endTime, Integer page, Integer l
 	/**
 	 * Creates an instance of {@link FramedPaging}
 	 * 
-	 * @param page  The result page.
-	 * @param limit The results in the page.
+	 * @param page  Result page.
+	 * @param limit Results in the page.
 	 */
 	public FramedPaging(Integer page, Integer limit) {
 		this(null, null, page, limit);

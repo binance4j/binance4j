@@ -46,9 +46,9 @@ public abstract class RestClient<T> {
 	protected OkHttpClient client;
 
 	/**
-	 * @param mapping The retrofit Service mapping interface.
-	 * @param key     The API public key.
-	 * @param secret  The API secret key.
+	 * @param mapping Retrofit Service mapping interface.
+	 * @param key     API public key.
+	 * @param secret  API secret key.
 	 */
 	protected RestClient(Class<T> mapping, String key, String secret) {
 		this.mapping = mapping;
@@ -58,9 +58,9 @@ public abstract class RestClient<T> {
 	}
 
 	/**
-	 * @param mapping    The retrofit Service mapping interface.
-	 * @param key        The API public key.
-	 * @param secret     The API secret key.
+	 * @param mapping    Retrofit Service mapping interface.
+	 * @param key        API public key.
+	 * @param secret     API secret key.
 	 * @param useTestnet use testnet.
 	 */
 	protected RestClient(Class<T> mapping, String key, String secret, boolean useTestnet) {
@@ -87,8 +87,8 @@ public abstract class RestClient<T> {
 	/**
 	 * Updates the API keys.
 	 * 
-	 * @param key    The new public key.
-	 * @param secret The new secret key.
+	 * @param key    New public key.
+	 * @param secret New secret key.
 	 */
 	public void updateKeys(String key, String secret) {
 		this.key = key;

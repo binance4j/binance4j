@@ -7,7 +7,7 @@ import com.binance4j.core.param.Params;
 /**
  * {@link BLVTClient#redeem} params.
  * 
- * @param tokenName The token name.
+ * @param tokenName Token name.
  * @param amount    Amount to redeem.
  */
 @Param

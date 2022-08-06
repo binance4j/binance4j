@@ -33,9 +33,9 @@ public class WithdrawParams implements Params {
 	String walletType;
 
 	/**
-	 * @param coin    The coin to withdraw.
-	 * @param address The destination address.
-	 * @param amount  The volume to withdraw.
+	 * @param coin    Coin to withdraw.
+	 * @param address Destination address.
+	 * @param amount  Volume to withdraw.
 	 */
 	public WithdrawParams(String amount, String coin, String address) {
 		this.coin = coin;
@@ -43,7 +43,7 @@ public class WithdrawParams implements Params {
 		this.amount = amount;
 	}
 
-	/** @param type The wallet type to withdraw to. */
+	/** @param type Wallet type to withdraw to. */
 	public void setWalletType(WalletType type) {
 		walletType = type.toString();
 	}
@@ -56,7 +56,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param coin the coin to set
+	 * @param coin Coin to set
 	 */
 	public void setCoin(String coin) {
 		this.coin = coin;
@@ -70,7 +70,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param withdrawOrderId the withdrawOrderId to set
+	 * @param withdrawOrderId WithdrawOrderId to set
 	 */
 	public void setWithdrawOrderId(String withdrawOrderId) {
 		this.withdrawOrderId = withdrawOrderId;
@@ -84,7 +84,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param network the network to set
+	 * @param network Network to set
 	 */
 	public void setNetwork(String network) {
 		this.network = network;
@@ -98,7 +98,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address Address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -112,7 +112,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param addressTag the addressTag to set
+	 * @param addressTag AddressTag to set
 	 */
 	public void setAddressTag(String addressTag) {
 		this.addressTag = addressTag;
@@ -126,7 +126,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param amount the amount to set
+	 * @param amount Amount to set
 	 */
 	public void setAmount(String amount) {
 		this.amount = amount;
@@ -140,7 +140,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param transactionFeeFlag the transactionFeeFlag to set
+	 * @param transactionFeeFlag TransactionFeeFlag to set
 	 */
 	public void setTransactionFeeFlag(Boolean transactionFeeFlag) {
 		this.transactionFeeFlag = transactionFeeFlag;
@@ -154,7 +154,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name Name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -168,7 +168,7 @@ public class WithdrawParams implements Params {
 	}
 
 	/**
-	 * @param walletType the walletType to set
+	 * @param walletType WalletType to set
 	 */
 	public void setWalletType(String walletType) {
 		this.walletType = walletType;

@@ -23,13 +23,13 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
-/** The {@link MiningClient} mapping. */
+/** {@link MiningClient} mapping. */
 public interface MiningMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/mining/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "pub/algoList")
@@ -37,7 +37,7 @@ public interface MiningMapping extends RestMapping {
 	Call<AlgorithmsResponse> getAlgorithms(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "pub/coinList")
@@ -45,7 +45,7 @@ public interface MiningMapping extends RestMapping {
 	Call<CoinsResponse> getCoins(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "worker/detail")
@@ -53,7 +53,7 @@ public interface MiningMapping extends RestMapping {
 	Call<MinerDetailsResponse> getMinersDetails(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "worker/list")
@@ -61,7 +61,7 @@ public interface MiningMapping extends RestMapping {
 	Call<WorkersResponse> getMiners(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "payment/list")
@@ -69,7 +69,7 @@ public interface MiningMapping extends RestMapping {
 	Call<ProfitResponse> getProfits(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "payment/other")
@@ -77,7 +77,7 @@ public interface MiningMapping extends RestMapping {
 	Call<OtherProfitsResponse> getOtherProfits(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "payment/uid")
@@ -85,7 +85,7 @@ public interface MiningMapping extends RestMapping {
 	Call<AccountProfitsResponse> getAccountProfits(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "hash-transfer/config/details/list")
@@ -93,7 +93,7 @@ public interface MiningMapping extends RestMapping {
 	Call<HashrateResaleListResponse> getHashrateResales(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "hash-transfer/profit/details")
@@ -101,7 +101,7 @@ public interface MiningMapping extends RestMapping {
 	Call<HashrateResaleDetailResponse> getHashrateResalesDetails(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "hash-transfer/config")
@@ -109,7 +109,7 @@ public interface MiningMapping extends RestMapping {
 	Call<HashrateResaleResponse> resellHashrate(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "hash-transfer/config/cancel")
@@ -117,7 +117,7 @@ public interface MiningMapping extends RestMapping {
 	Call<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "statistics/user/status")
@@ -125,7 +125,7 @@ public interface MiningMapping extends RestMapping {
 	Call<StatisticsResponse> getStatistics(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "statistics/user/list")

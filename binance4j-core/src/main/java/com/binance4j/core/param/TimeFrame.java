@@ -34,7 +34,7 @@ public record TimeFrame(Long startTime, Long endTime, Integer limit) implements 
 	/**
 	 * Creates an instance of {@link TimeFrame}.
 	 * 
-	 * @param limit The results limit.
+	 * @param limit Results limit.
 	 */
 	public TimeFrame(Integer limit) {
 		this(null, null, limit);

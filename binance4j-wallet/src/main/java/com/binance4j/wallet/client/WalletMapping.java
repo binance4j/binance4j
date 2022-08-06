@@ -55,7 +55,7 @@ public interface WalletMapping extends RestMapping {
 	Call<SystemStatus> getSystemStatus();
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -63,8 +63,8 @@ public interface WalletMapping extends RestMapping {
 	Call<List<CoinInformation>> getAllCoinsInfo(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param type The snapshot type.
-	 * @param map  The query map.
+	 * @param type Snapshot type.
+	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -72,8 +72,8 @@ public interface WalletMapping extends RestMapping {
 	Call<SpotAccountSnapshotResponse> getSpotAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
 
 	/**
-	 * @param type The snapshot type.
-	 * @param map  The query map.
+	 * @param type Snapshot type.
+	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -81,8 +81,8 @@ public interface WalletMapping extends RestMapping {
 	Call<MarginAccountSnapshotResponse> getMarginAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
 
 	/**
-	 * @param type The snapshot type.
-	 * @param map  The query map.
+	 * @param type Snapshot type.
+	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -90,7 +90,7 @@ public interface WalletMapping extends RestMapping {
 	Call<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -98,7 +98,7 @@ public interface WalletMapping extends RestMapping {
 	Call<Void> disableFastWithdrawSwitch(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -106,7 +106,7 @@ public interface WalletMapping extends RestMapping {
 	Call<Void> enableFastWithdrawSwitch(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -114,7 +114,7 @@ public interface WalletMapping extends RestMapping {
 	Call<WithdrawResult> withdraw(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -122,7 +122,7 @@ public interface WalletMapping extends RestMapping {
 	Call<List<DepositHistory>> getDepositHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -130,7 +130,7 @@ public interface WalletMapping extends RestMapping {
 	Call<List<WithdrawHistory>> getWithdrawHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -138,7 +138,7 @@ public interface WalletMapping extends RestMapping {
 	Call<DepositAddress> getDepositAddress(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -146,7 +146,7 @@ public interface WalletMapping extends RestMapping {
 	Call<AccountStatus> getAccountstatus(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -154,7 +154,7 @@ public interface WalletMapping extends RestMapping {
 	Call<ApiTradingStatus> getApiTradingStatus(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -162,7 +162,7 @@ public interface WalletMapping extends RestMapping {
 	Call<DustLog> getDustLog(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -170,7 +170,7 @@ public interface WalletMapping extends RestMapping {
 	Call<ConvertibleAssets> getConvertibleAssets(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -178,7 +178,7 @@ public interface WalletMapping extends RestMapping {
 	Call<DustTransferResponse> dustTransfert(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -186,7 +186,7 @@ public interface WalletMapping extends RestMapping {
 	Call<AssetDividendRecord> getAssetDividendRecord(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -194,7 +194,7 @@ public interface WalletMapping extends RestMapping {
 	Call<Map<String, AssetDetail>> getAssetDetail(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -202,7 +202,7 @@ public interface WalletMapping extends RestMapping {
 	Call<List<TradeFee>> getTradeFee(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -210,7 +210,7 @@ public interface WalletMapping extends RestMapping {
 	Call<WalletTransferResponse> transfer(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -218,7 +218,7 @@ public interface WalletMapping extends RestMapping {
 	Call<WalletTransferHistory> getTransferHistory(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)
@@ -226,7 +226,7 @@ public interface WalletMapping extends RestMapping {
 	Call<List<FundingAsset>> getFundingAsset(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@Headers(SIGNED_H)

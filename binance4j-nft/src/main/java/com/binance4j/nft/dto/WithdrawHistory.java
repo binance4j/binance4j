@@ -6,11 +6,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * A NFT withdraw history
+ * NFT withdraw history.
  * 
  * @param total Total records.
- * @param list  The transactions.
+ * @param list  Transactions.
  */
-@ApiModel("")
-public record WithdrawHistory(@ApiModelProperty("") long total, @ApiModelProperty("") List<Withdraw> list) {
+@ApiModel("NFT withdraw history.")
+public record WithdrawHistory(@ApiModelProperty("Total records.") long total, @ApiModelProperty("Transactions.") List<Withdraw> list) {
 }

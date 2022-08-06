@@ -8,8 +8,8 @@ import com.binance4j.savings.dto.ProductType;
 /**
  * {@link SavingsClient#getLeftDailyRedemptionQuota} params.
  * 
- * @param productId The product id.
- * @param type      The product type.
+ * @param productId Product id.
+ * @param type      Product type.
  */
 @Param
 public record RedemptionQuotaParams(String productId, ProductType type) implements Params {

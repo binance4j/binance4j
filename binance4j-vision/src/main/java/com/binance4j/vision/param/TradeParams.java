@@ -11,7 +11,7 @@ import retrofit2.Call;
 /** The trade request executor */
 public class TradeParams extends VisionParams<VisionTrade> {
 	/**
-	 * @param call The API call.
+	 * @param call API call.
 	 */
 	public TradeParams(Call<ResponseBody> call) {
 		super(call);

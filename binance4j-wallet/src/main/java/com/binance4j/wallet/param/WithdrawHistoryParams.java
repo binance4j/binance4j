@@ -8,9 +8,9 @@ import com.binance4j.wallet.dto.WithdrawStatus;
 /**
  * {@link WalletClient#getWithdrawHistory} params.
  * 
- * @param coin            The coin we want the history.
- * @param withdrawOrderId The withdraw order id to fetch.
- * @param status          The status to look for.
+ * @param coin            Coin we want the history.
+ * @param withdrawOrderId Withdraw order id to fetch.
+ * @param status          Status to look for.
  * @see <a href="https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data">Binance
  *      doc</a>
  */
@@ -19,9 +19,9 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
-	 * @param coin            The coin we want the history.
-	 * @param withdrawOrderId The withdraw order id to fetch.
-	 * @param status          The status to look for.
+	 * @param coin            Coin we want the history.
+	 * @param withdrawOrderId Withdraw order id to fetch.
+	 * @param status          Status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) {
 		this(coin, withdrawOrderId, status.toString());
@@ -30,7 +30,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
-	 * @param withdrawOrderId The withdraw order id to fetch.
+	 * @param withdrawOrderId Withdraw order id to fetch.
 	 */
 	public WithdrawHistoryParams(String withdrawOrderId) {
 		this(null, withdrawOrderId, "");
@@ -39,8 +39,8 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
-	 * @param coin   The coin we want the history.
-	 * @param status The status to look for.
+	 * @param coin   Coin we want the history.
+	 * @param status Status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, WithdrawStatus status) {
 		this(coin, null, status.toString());
@@ -49,7 +49,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	/**
 	 * Creates an instance of {@link WithdrawHistoryParams}.
 	 * 
-	 * @param status The status to look for.
+	 * @param status Status to look for.
 	 */
 	public WithdrawHistoryParams(WithdrawStatus status) {
 		this(null, null, status.toString());

@@ -6,25 +6,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Margin account snapshot user assets.
  * 
- * @param asset    The asset abbreviation
- * @param borrowed The borrowed amount
- * @param free     The fee amount
- * @param interest The interest amount
- * @param locked   The locked volume
- * @param netAsset Net asset
+ * @param asset    Asset abbreviation.
+ * @param borrowed Borrowed amount.
+ * @param free     Fee amount.
+ * @param interest Interest amount.
+ * @param locked   Locked volume.
+ * @param netAsset Net asset.
  */
-@ApiModel("")
-public record MarginAccountSnapshotUserAssets(@ApiModelProperty("")
-/** The asset abbreviation **/
-String asset, @ApiModelProperty("")
-/** The borrowed amount **/
-String borrowed, @ApiModelProperty("")
-/** The fee amount **/
-String free, @ApiModelProperty("")
-/** The interest amount **/
-String interest, @ApiModelProperty("")
-/** The locked volume **/
-String locked, @ApiModelProperty("")
-/** Net asset **/
-String netAsset) {
+@ApiModel("Margin account snapshot user assets.")
+public record MarginAccountSnapshotUserAssets(@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Borrowed amount.") String borrowed,
+		@ApiModelProperty("Fee amount.") String free, @ApiModelProperty("Interest amount.") String interest, @ApiModelProperty("Locked volume.") String locked,
+		@ApiModelProperty("Net asset.") String netAsset) {
 }

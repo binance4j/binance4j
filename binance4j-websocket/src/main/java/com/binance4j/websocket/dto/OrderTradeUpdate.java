@@ -5,15 +5,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Order or trade report update event.
  * <p>
  * This event is embedded as part of a user data update event.
  *
- * @param eventType               The event type.
- * @param eventTime               The timestamp.
- * @param symbol                  The trading pair.
+ * @param eventType               Event type.
+ * @param eventTime               Timestamp.
+ * @param symbol                  Trading pair.
  * @param newClientOrderId        Client order id.
  * @param side                    Buy/Sell order side.
  * @param type                    Type of order.
@@ -38,13 +39,25 @@ import io.swagger.annotations.ApiModel;
  * @see UserDataUpdate
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record OrderTradeUpdate(@JsonProperty("e") String eventType, @JsonProperty("E") Long eventTime, @JsonProperty("s") String symbol,
-		@JsonProperty("c") String newClientOrderId, @JsonProperty("S") String side, @JsonProperty("o") String type, @JsonProperty("f") TimeInForce timeInForce,
-		@JsonProperty("q") String originalQuantity, @JsonProperty("p") String price, @JsonProperty("x") String executionType,
-		@JsonProperty("X") String orderStatus, @JsonProperty("r") String orderRejectReason, @JsonProperty("i") Long orderId,
-		@JsonProperty("l") String quantityLastFilledTrade, @JsonProperty("z") String accumulatedQuantity, @JsonProperty("L") String priceOfLastFilledTrade,
-		@JsonProperty("n") String commission, @JsonProperty("N") String commissionAsset, @JsonProperty("T") Long orderTradeTime,
-		@JsonProperty("t") Long tradeId, @JsonProperty("O") Long orderCreationTime, @JsonProperty("Z") String cumulativeQuoteQuantity,
-		@JsonProperty("Y") String lastQuoteQuantity, @JsonProperty("Q") String quoteOrderQuantity) {
+@ApiModel("Order or trade report update event.")
+public record OrderTradeUpdate(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime, @ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Client order id.") @JsonProperty("c") String newClientOrderId,
+		@ApiModelProperty("Buy/Sell order side.") @JsonProperty("S") String side, @ApiModelProperty("Type of order.") @JsonProperty("o") String type,
+		@ApiModelProperty("Time in force to indicate how Long will the order remain active.") @JsonProperty("f") TimeInForce timeInForce,
+		@ApiModelProperty("Original quantity in the order.") @JsonProperty("q") String originalQuantity,
+		@ApiModelProperty("Price.") @JsonProperty("p") String price, @ApiModelProperty("Type of execution.") @JsonProperty("x") String executionType,
+		@ApiModelProperty("Status of the order.") @JsonProperty("X") String orderStatus,
+		@ApiModelProperty("Reason why the order was rejected.") @JsonProperty("r") String orderRejectReason,
+		@ApiModelProperty("Order id.") @JsonProperty("i") Long orderId,
+		@ApiModelProperty("Quantity of the last filled trade.") @JsonProperty("l") String quantityLastFilledTrade,
+		@ApiModelProperty("Accumulated quantity of filled trades on this order.") @JsonProperty("z") String accumulatedQuantity,
+		@ApiModelProperty("Price of last filled trade.") @JsonProperty("L") String priceOfLastFilledTrade,
+		@ApiModelProperty("Commission.") @JsonProperty("n") String commission,
+		@ApiModelProperty("Asset on which commission is taken.") @JsonProperty("N") String commissionAsset,
+		@ApiModelProperty("Order/trade time.") @JsonProperty("T") Long orderTradeTime, @ApiModelProperty("Trade id.") @JsonProperty("t") Long tradeId,
+		@ApiModelProperty("Order creation time.") @JsonProperty("O") Long orderCreationTime,
+		@ApiModelProperty("Cumulative quote asset transacted quantity.") @JsonProperty("Z") String cumulativeQuoteQuantity,
+		@ApiModelProperty("Last quote asset transacted quantity (i.e. lastPrice * lastQty).") @JsonProperty("Y") String lastQuoteQuantity,
+		@ApiModelProperty("Quote Order quantity.") @JsonProperty("Q") String quoteOrderQuantity) {
 }

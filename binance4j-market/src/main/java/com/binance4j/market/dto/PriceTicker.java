@@ -9,6 +9,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param symbol Ticker symbol.
  * @param price  Latest price.
  */
-@ApiModel("")
-public record PriceTicker(@ApiModelProperty("") String symbol, @ApiModelProperty("") String price) {
+@ApiModel("Wraps a symbol and its corresponding latest price.")
+public record PriceTicker(@ApiModelProperty("Ticker symbol.") String symbol, @ApiModelProperty("Latest price.") String price) {
 }

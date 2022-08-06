@@ -36,16 +36,16 @@ import com.binance4j.spot.param.TradesParams;
  */
 public class SpotClient extends RestClient<SpotMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public SpotClient(String key, String secret) {
 		super(SpotMapping.class, key, secret);
 	}
 
 	/**
-	 * @param key        The API public key.
-	 * @param secret     The API secret key.
+	 * @param key        API public key.
+	 * @param secret     API secret key.
 	 * @param useTestnet use testnet.
 	 */
 	protected SpotClient(String key, String secret, boolean useTestnet) {
@@ -55,7 +55,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Send in a new order.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
@@ -65,7 +65,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Creates and validates a new order but does not send it into the matching engine.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<Void> newOrderTest(NewOrderParams params) {
@@ -75,7 +75,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Cancel an active order.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
@@ -85,7 +85,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Cancels all active orders on a symbol. This includes OCO orders.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
@@ -100,7 +100,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * time.</li>
 	 * </ul>
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OrderInfo> getOrderStatus(OrderStatusParams params) {
@@ -110,7 +110,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Get all open orders on a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
@@ -130,7 +130,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Get all orders on a symbol.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
@@ -140,8 +140,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Get all orders on a symbol.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time frame.
+	 * @param params    Request params.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
@@ -151,7 +151,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Send in an OCO order.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OCOResponse> newOCO(NewOCOOrderParams params) {
@@ -161,7 +161,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Cancel an entire Order List. Canceling an individual leg will cancel the entire OCO
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OCOResponse> cancelOCO(CancelOCOParams params) {
@@ -171,7 +171,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves a specific OCO based on provided optional parameters.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<OCOInfo> getOCO(OCOInfoParams params) {
@@ -181,7 +181,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
@@ -200,8 +200,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time frame.
+	 * @param params    Request params.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame timeFrame) {
@@ -211,7 +211,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
 	 * 
-	 * @param timeFrame The time frame.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<OCOInfo>> getAllOCO(TimeFrame timeFrame) {
@@ -240,7 +240,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Get trades for a specific account and symbol. If fromId is set, it will get id &gt;= fromId. Otherwise most recent
 	 * trades are returned.
 	 * 
-	 * @param params The request params.
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradesParams params) {
@@ -251,8 +251,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * Get trades for a specific account and symbol. If fromId is set, it will get id &gt;= fromId. Otherwise most recent
 	 * trades are returned.
 	 * 
-	 * @param params    The request params.
-	 * @param timeFrame The time frame.
+	 * @param params    Request params.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<List<Trade>> getTrades(TradesParams params, TimeFrame timeFrame) {

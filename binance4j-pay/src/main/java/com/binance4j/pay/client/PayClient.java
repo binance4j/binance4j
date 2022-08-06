@@ -14,8 +14,8 @@ import com.binance4j.pay.param.TradeHistoryParams;
  */
 public class PayClient extends RestClient<PayMapping> {
 	/**
-	 * @param key    The API public key.
-	 * @param secret The API secret key.
+	 * @param key    API public key.
+	 * @param secret API secret key.
 	 */
 	public PayClient(String key, String secret) {
 		super(PayMapping.class, key, secret);
@@ -33,7 +33,7 @@ public class PayClient extends RestClient<PayMapping> {
 	/**
 	 * Get pay trades.
 	 * 
-	 * @param timeFrame The time frame.
+	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
 	public Request<TradeHistory> getTrades(TimeFrame timeFrame) {

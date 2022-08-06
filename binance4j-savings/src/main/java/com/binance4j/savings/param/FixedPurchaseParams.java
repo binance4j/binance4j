@@ -7,8 +7,8 @@ import com.binance4j.savings.client.SavingsClient;
 /**
  * {@link SavingsClient#purchaseFixed} params.
  * 
- * @param productId The product id.
- * @param lot       The amount.
+ * @param productId Product id.
+ * @param lot       Amount.
  */
 @Param
 public record FixedPurchaseParams(String productId, Long lot) implements Params {

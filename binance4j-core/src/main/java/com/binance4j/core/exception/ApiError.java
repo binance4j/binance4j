@@ -14,8 +14,8 @@ public class ApiError {
 	}
 
 	/**
-	 * @param code The error code.
-	 * @param msg  The error message.
+	 * @param code Error code.
+	 * @param msg  Error message.
 	 */
 	public ApiError(int code, String msg) {
 		this.msg = msg;
@@ -30,7 +30,7 @@ public class ApiError {
 	}
 
 	/**
-	 * @param msg the msg to set
+	 * @param msg Msg to set
 	 */
 	public void setMsg(String msg) {
 		this.msg = msg;
@@ -44,7 +44,7 @@ public class ApiError {
 	}
 
 	/**
-	 * @param code the code to set
+	 * @param code Code to set
 	 */
 	public void setCode(int code) {
 		this.code = code;

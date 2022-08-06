@@ -15,8 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param status      Status.
  * @param type        Type.
  */
-@ApiModel("")
-public record Redemption(@ApiModelProperty("") String amount, @ApiModelProperty("") String asset, @ApiModelProperty("") long createTime,
-		@ApiModelProperty("") String principal, @ApiModelProperty("") String projectId, @ApiModelProperty("") String projectName,
-		@ApiModelProperty("") String status, @ApiModelProperty("") String type) {
+@ApiModel("Redemption infos.")
+public record Redemption(@ApiModelProperty("Amount.") String amount, @ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Create time.") long createTime, @ApiModelProperty("Principal.") String principal, @ApiModelProperty("Project id.") String projectId,
+		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Status.") String status, @ApiModelProperty("Type.") String type) {
 }

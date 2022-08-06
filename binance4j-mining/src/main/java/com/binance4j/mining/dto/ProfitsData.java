@@ -8,10 +8,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Workers data.
  * 
- * @param accountProfits profits datas.
+ * @param accountProfits Profits datas.
  * @param totalNum       Total amount.
  * @param pageSize       Rows per page.
  */
-@ApiModel("")
-public record ProfitsData(@ApiModelProperty("") List<Profit> accountProfits, @ApiModelProperty("") long totalNum, @ApiModelProperty("") long pageSize) {
+@ApiModel("Workers data.")
+public record ProfitsData(@ApiModelProperty("Profits datas.") List<Profit> accountProfits, @ApiModelProperty("Total amount.") long totalNum,
+		@ApiModelProperty("Rows per page.") long pageSize) {
 }

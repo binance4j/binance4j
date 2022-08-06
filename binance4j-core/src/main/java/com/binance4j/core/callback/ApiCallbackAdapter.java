@@ -9,21 +9,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** A wrapper for the {@link ApiCallback} */
+/** A wrapper for {@link ApiCallback} */
 public class ApiCallbackAdapter<T> implements Callback<T> {
 	/** The wrapped callback. */
 	final ApiCallback<T> callback;
 
-	/** @param callback The wrapped callback */
+	/** @param callback Wrapped callback */
 	public ApiCallbackAdapter(ApiCallback<T> callback) {
 		this.callback = callback;
 	}
 
 	/**
-	 * Calls the {@link ApiCallback} corresponding method according to the response HTTP code
+	 * Calls {@link ApiCallback} corresponding method according to the response HTTP code
 	 * 
-	 * @param call     The retrofit call.
-	 * @param response The API response.
+	 * @param call     Retrofit call.
+	 * @param response API response.
 	 */
 	@Override
 	public void onResponse(Call<T> call, Response<T> response) {
@@ -46,8 +46,8 @@ public class ApiCallbackAdapter<T> implements Callback<T> {
 	/**
 	 * Generates a {@link ApiException} from the given Throwable and calls {@link ApiCallback#onFailure(ApiException)}
 	 * 
-	 * @param call      The retrofit call.
-	 * @param throwable The API error message.
+	 * @param call      Retrofit call.
+	 * @param throwable API error message.
 	 */
 	@Override
 	public void onFailure(Call<T> call, Throwable throwable) {

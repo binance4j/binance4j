@@ -11,13 +11,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
-/** The {@link FiatClient} mapping. */
+/** {@link FiatClient} mapping. */
 public interface FiatMapping extends RestMapping {
 	/** The base uri. */
 	String BASE = "/sapi/v1/fiat/";
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "orders")
@@ -25,7 +25,7 @@ public interface FiatMapping extends RestMapping {
 	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
-	 * @param map The query map.
+	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "payments")

@@ -11,12 +11,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Top bids and asks.
  * 
- * @param lastUpdateId The last update id.
+ * @param lastUpdateId Last update id.
  * @param bids         Bids.
  * @param asks         Asks.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel("")
-public record MiniDepth(@ApiModelProperty("") Long lastUpdateId, @ApiModelProperty("") List<OrderBookEntry> bids,
-		@ApiModelProperty("") List<OrderBookEntry> asks) {
+@ApiModel("Top bids and asks.")
+public record MiniDepth(@ApiModelProperty("Last update id.") Long lastUpdateId, @ApiModelProperty("Bids.") List<OrderBookEntry> bids,
+		@ApiModelProperty("Asks.") List<OrderBookEntry> asks) {
 }

@@ -27,7 +27,7 @@ public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) im
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol The isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to {@code true}
 	 */
 	public GetAllOCOParams(String symbol) {
 		this(symbol, null, true);
@@ -36,7 +36,7 @@ public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) im
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol The isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to {@code true}
 	 * @param fromId If supplied, don't provide {@link TimeFrame}
 	 */
 	public GetAllOCOParams(String symbol, Long fromId) {

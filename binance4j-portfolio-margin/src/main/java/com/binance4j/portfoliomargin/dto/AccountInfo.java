@@ -3,16 +3,18 @@ package com.binance4j.portfoliomargin.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/** Margin portfolio account infos */
-@ApiModel("")
-public record AccountInfo(@ApiModelProperty("") String uniMMR, @ApiModelProperty("") String accountEquity, @ApiModelProperty("") String accountMaintMargin,
-		@ApiModelProperty("")
-		/**
-		 * Portfolio margin account status.
-		 * <p>
-		 * Enum: NORMAL,@ApiModelProperty("") MARGIN_CALL,@ApiModelProperty("") SUPPLY_MARGIN,@ApiModelProperty("")
-		 * REDUCE_ONLY,@ApiModelProperty("") ACTIVE_LIQUIDATION,@ApiModelProperty("") FORCE_LIQUIDATION,@ApiModelProperty("")
-		 * BANKRUPTED
-		 */
-		String accountStatus) {
+/**
+ * Margin portfolio account infos.
+ * 
+ * @param uniMMR             Portfolio margin account maintenance margin rate
+ * @param accountEquity      Account equity, unit：USD
+ * @param accountMaintMargin Portfolio margin account maintenance margin, unit：USD
+ * @param accountStatus      Portfolio margin account. status: NORMAL, "MARGIN_CALL", "SUPPLY_MARGIN", "REDUCE_ONLY",
+ *                               "ACTIVE_LIQUIDATION", "FORCE_LIQUIDATION", "BANKRUPTED"
+ */
+@ApiModel("Margin portfolio account infos.")
+public record AccountInfo(@ApiModelProperty("Portfolio margin account maintenance margin rate") String uniMMR,
+		@ApiModelProperty("Account equity, unit：USD") String accountEquity,
+		@ApiModelProperty("Portfolio margin account maintenance margin, unit：USD") String accountMaintMargin,
+		@ApiModelProperty("Portfolio margin account. status: NORMAL, MARGIN_CALL, SUPPLY_MARGIN, REDUCE_ONLY, ACTIVE_LIQUIDATION, FORCE_LIQUIDATION, BANKRUPTED") String accountStatus) {
 }

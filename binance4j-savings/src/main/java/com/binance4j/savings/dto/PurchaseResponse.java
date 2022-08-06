@@ -8,6 +8,6 @@ import io.swagger.annotations.ApiModelProperty;
  * 
  * @param purchaseId Purchase id.
  */
-@ApiModel("")
-public record PurchaseResponse(@ApiModelProperty("") String purchaseId) {
+@ApiModel("Flexible purchase response.")
+public record PurchaseResponse(@ApiModelProperty("Purchase id.") String purchaseId) {
 }
