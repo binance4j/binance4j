@@ -59,11 +59,6 @@ const config = {
             label: 'Documentation'
           },
           {
-            to: 'changelog',
-            label: 'Changelog',
-            position: 'left',
-          },
-          {
             href: 'https://github.com/binance4j',
             label: 'GitHub',
             position: 'right',
