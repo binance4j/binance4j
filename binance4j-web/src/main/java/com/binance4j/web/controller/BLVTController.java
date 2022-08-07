@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.blvt.dto.LimitInfo;
 import com.binance4j.blvt.dto.Redemption;
 import com.binance4j.blvt.dto.RedemptionResponse;
@@ -20,7 +19,6 @@ import com.binance4j.blvt.param.RedemptionParams;
 import com.binance4j.blvt.param.SubscriptionParams;
 import com.binance4j.blvt.param.TokenInfoParams;
 import com.binance4j.blvt.param.TransactionRecordParams;
-import com.binance4j.connectors.Connectors;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 
@@ -31,14 +29,7 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @RequestMapping("api/v1/blvt")
 @Api(value = "BLVT Controller", tags = "BLVT Controller", produces = "application/json", description = "Binance Leverage Token endpoints")
-public class BLVTController {
-
-	BLVTClient client;
-
-	public BLVTController(Connectors connectors) {
-		this.client = connectors.blvt();
-	}
-
+public class BLVTController extends BaseController {
 	/**
 	 * @param tokenName Get BLVT Info.
 	 * @return BLVT Info.
@@ -48,7 +39,7 @@ public class BLVTController {
 	@ApiOperation(value = "Returns info about one or multiple BLVT tokens")
 	public List<Token> getTokenInfo(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
-		return client.getTokenInfo(new TokenInfoParams(tokenName)).sync();
+		return connectors.blvt().getTokenInfo(new TokenInfoParams(tokenName)).sync();
 	}
 
 	@GetMapping(path = "subscriptions", produces = "application/json")
@@ -58,7 +49,7 @@ public class BLVTController {
 			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
 			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
-		return client.getSubscriptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
+		return connectors.blvt().getSubscriptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
 	@GetMapping(path = "redemptions", produces = "application/json")
@@ -68,27 +59,27 @@ public class BLVTController {
 			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
 			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
-		return client.getRedemptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
+		return connectors.blvt().getRedemptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
 	@GetMapping(path = "limitInfo", produces = "application/json")
 	@ApiOperation(value = "Get user limit info.")
 	public List<LimitInfo> getLimitInfo(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
-		return client.getLimitInfo(new LimitInfoParams(tokenName)).sync();
+		return connectors.blvt().getLimitInfo(new LimitInfoParams(tokenName)).sync();
 	}
 
 	@PostMapping(path = "redeem", produces = "application/json")
 	@ApiOperation(value = "Redeem BLVT.")
-	public RedemptionResponse redeem(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
-			@RequestParam(required = false) @ApiParam(example = "1000", value = "The amount to redeem") String amount) throws ApiException {
-		return client.redeem(new RedemptionParams(tokenName, amount)).sync();
+	public RedemptionResponse redeem(@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
+			@RequestParam(required = true) @ApiParam(example = "1000", value = "The amount to redeem") String amount) throws ApiException {
+		return connectors.blvt().redeem(new RedemptionParams(tokenName, amount)).sync();
 	}
 
 	@PostMapping(path = "subscribe", produces = "application/json")
 	@ApiOperation(value = "Subscribe BLVT.")
-	public SubscriptionResponse subscribe(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
-			@RequestParam(required = false) @ApiParam(example = "1000", value = "The amount to acquire") String cost) throws ApiException {
-		return client.subscribe(new SubscriptionParams(tokenName, cost)).sync();
+	public SubscriptionResponse subscribe(@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
+			@RequestParam(required = true) @ApiParam(example = "1000", value = "The amount to acquire") String cost) throws ApiException {
+		return connectors.blvt().subscribe(new SubscriptionParams(tokenName, cost)).sync();
 	}
 }
