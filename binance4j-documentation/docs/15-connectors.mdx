@@ -31,9 +31,9 @@ The client is then cached and the same instance is returned every time.
 
 ```java
 // First call, the client is instantiated.
-connectors.marketClient().getServerTime().sync();
+connectors.market().getServerTime().sync();
 // Second call, the same instance is returned.
-connectors.marketClient().getBookTicker().sync();
+connectors.market().getBookTicker().sync();
 ```
 
 ## Updating the API keys
@@ -44,7 +44,7 @@ Every time you call a client, it will check if its keys are equal to the contain
 //Updating keys in the container
 connectors.updateKeys(key,secret);
 //keys have changed, they are updated in the client when it is called
-connectors.spotClient();
+connectors.spot();
 //keys haven't changed, nothing happens
-connectors.spotClient();
+connectors.spot();
 ```

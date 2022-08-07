@@ -5,7 +5,20 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.2] - 2022-08-07
+## [2.0.4] - 2022-08-07
+
+### Added
+
+- connectors
+  - Added binance4j-convert
+  - Added shortened client getters
+
+### Changed
+
+- convert
+  - Deprecated getters with `Client` suffix
+
+## [2.0.3] - 2022-08-07
 
 ### Added
 
