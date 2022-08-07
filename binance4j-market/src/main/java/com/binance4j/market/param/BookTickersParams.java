@@ -1,6 +1,6 @@
 package com.binance4j.market.param;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import com.binance4j.core.annotation.Param;
@@ -15,11 +15,20 @@ import com.binance4j.market.client.MarketClient;
 @Param(weight = 2, recvWindow = false, timestamp = false)
 public record BookTickersParams(String symbols) implements Params {
 	/**
-	 * Creates an instance of {@link BookTickersParams}.
+	 * Creates an instance of the class.
 	 * 
-	 * @param symbols Symbols. Converts to format '["symbol1","symbol2"]'.
+	 * @param symbols Trading pair list.
 	 */
-	public BookTickersParams(Collection<String> symbols) {
-		this("[" + String.join(",", symbols.stream().map(String::trim).map(s -> String.format("\"%s\"", s)).collect(Collectors.toList())) + "]");
+	public BookTickersParams(String symbols) {
+		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim())).collect(Collectors.joining(",")) + "]";
+	}
+
+	/**
+	 * Creates an instance of the class.
+	 * 
+	 * @param symbols Trading pair list.
+	 */
+	public BookTickersParams(List<String> symbols) {
+		this(symbols.stream().collect(Collectors.joining(",")));
 	}
 }

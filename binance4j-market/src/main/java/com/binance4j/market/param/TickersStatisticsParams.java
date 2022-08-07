@@ -1,6 +1,6 @@
 package com.binance4j.market.param;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import com.binance4j.core.annotation.Param;
@@ -14,12 +14,18 @@ import com.binance4j.market.client.MarketClient;
  */
 @Param(weight = 40, recvWindow = false, timestamp = false)
 public record TickersStatisticsParams(String symbols) implements Params {
+
 	/**
-	 * Creates an instance of {@link TickersStatisticsParams}.
-	 * 
-	 * @param symbols Symbols.
+	 * @param symbols Trading pair list.
 	 */
-	public TickersStatisticsParams(Collection<String> symbols) {
-		this("[" + String.join(",", symbols.stream().map(String::trim).map(s -> String.format("\"%s\"", s)).collect(Collectors.toList())) + "]");
+	public TickersStatisticsParams(String symbols) {
+		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim())).collect(Collectors.joining(",")) + "]";
+	}
+
+	/**
+	 * @param symbols Trading pair list.
+	 */
+	public TickersStatisticsParams(List<String> symbols) {
+		this(symbols.stream().collect(Collectors.joining(",")));
 	}
 }

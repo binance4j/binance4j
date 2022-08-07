@@ -17,6 +17,17 @@ public record AggTradeParams(String symbol, Long fromId) implements Params {
 	 * Creates an instances of {@link AggTradeParams}.
 	 * 
 	 * @param symbol Symbol.
+	 * @param fromId Id to get aggregate trades from (inclusive). Don't provide {@link TimeFrame} if set.
+	 */
+	public AggTradeParams(String symbol, Long fromId) {
+		this.symbol = symbol;
+		this.fromId = fromId;
+	}
+
+	/**
+	 * Creates an instances of {@link AggTradeParams}.
+	 * 
+	 * @param symbol Symbol.
 	 */
 	public AggTradeParams(String symbol) {
 		this(symbol, null);

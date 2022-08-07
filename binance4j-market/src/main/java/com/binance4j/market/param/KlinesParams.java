@@ -13,7 +13,21 @@ import com.binance4j.market.client.MarketClient;
  */
 @Param(recvWindow = false, timestamp = false)
 public record KlinesParams(String symbol, String interval) implements Params {
+
 	/**
+	 * Creates an instance of the class.
+	 * 
+	 * @param symbol   Trading pair we want the data.
+	 * @param interval Candlestick interval.
+	 */
+	public KlinesParams(String symbol, String interval) {
+		this.symbol = symbol;
+		this.interval = interval;
+	}
+
+	/**
+	 * Creates an instance of the class.
+	 * 
 	 * @param symbol   Trading pair we want the data.
 	 * @param interval Candlestick interval.
 	 */
