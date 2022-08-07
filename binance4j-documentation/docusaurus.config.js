@@ -53,15 +53,9 @@ const config = {
             position: 'left'
           },
           {
-            type: 'doc',
-            docId: 'Core',
-            position: 'left',
-            label: 'Documentation'
-          },
-          {
             href: 'https://github.com/binance4j',
             label: 'GitHub',
-            position: 'right',
+            position: 'left',
           },
         ],
       },
