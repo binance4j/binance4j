@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param time            Trade execution time.
  * @param symbol          Symbol of the trade.
  * @param orderId         Order id.
+ * @param orderListId     Order list id.
  * @param isBuyer         Is buyer trade.
  * @param isMaker         Is maker trade.
  * @param isBestMatch     Is best match?
@@ -24,6 +25,6 @@ public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("P
 		@ApiModelProperty("Quote quantity for the trade (price * qty).") String quoteQty, @ApiModelProperty("Commission.") String commission,
 		@ApiModelProperty("Asset on which commission is taken.") String commissionAsset, @ApiModelProperty("Trade execution time.") long time,
 		@ApiModelProperty("The symbol of the trade.") String symbol, @ApiModelProperty("The order id.") String orderId,
-		@ApiModelProperty("Is buyer trade.") boolean isBuyer, @ApiModelProperty("Is maker trade.") boolean isMaker,
-		@ApiModelProperty("Is best match?") boolean isBestMatch) {
+		@ApiModelProperty("The order list id.") String orderListId, @ApiModelProperty("Is buyer trade.") boolean isBuyer,
+		@ApiModelProperty("Is maker trade.") boolean isMaker, @ApiModelProperty("Is best match?") boolean isBestMatch) {
 }

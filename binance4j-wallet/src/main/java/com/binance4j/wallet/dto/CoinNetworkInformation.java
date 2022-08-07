@@ -28,6 +28,9 @@ import io.swagger.annotations.ApiModelProperty;
  * @param resetAddressStatus      Reset address status.
  * @param withdrawEnable          If withdraw is enabled.
  * @param sameAddress             If the coin needs to provide memo to withdraw.
+ * @param estimatedArrivalTime    Estimated arrival time in ms.
+ * @param busy                    Is network busy?
+ * @param country                 Country.
  */
 @ApiModel("The coin network informations.")
 public record CoinNetworkInformation(@ApiModelProperty("Address pattern.") String addressRegex, @ApiModelProperty("Address rule") String addressRule,
@@ -43,5 +46,7 @@ public record CoinNetworkInformation(@ApiModelProperty("Address pattern.") Strin
 		@ApiModelProperty("Confirmation number for balance unlock.") int unLockConfirm, @ApiModelProperty("If deposit is enabled.") boolean depositEnable,
 		@ApiModelProperty("if is the default network.") boolean isDefault, @ApiModelProperty("Reset address status.") boolean resetAddressStatus,
 		@ApiModelProperty("If withdraw is enabled.") boolean withdrawEnable,
-		@ApiModelProperty("If the coin needs to provide memo to withdraw.") boolean sameAddress) {
+		@ApiModelProperty("If the coin needs to provide memo to withdraw.") boolean sameAddress,
+		@ApiModelProperty("Estimated arrival time in ms.") long estimatedArrivalTime, @ApiModelProperty("Is network busy?") boolean busy,
+		@ApiModelProperty("Country.") String country) {
 }

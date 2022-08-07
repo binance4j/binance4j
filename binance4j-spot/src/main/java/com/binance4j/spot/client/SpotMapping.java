@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.binance4j.core.client.RestMapping;
-import com.binance4j.core.dto.CancelOrderResponse;
-import com.binance4j.core.dto.OrderInfo;
 import com.binance4j.core.dto.Trade;
 import com.binance4j.spot.dto.Account;
+import com.binance4j.spot.dto.CancelOrderResponse;
 import com.binance4j.spot.dto.NewOrderResponse;
 import com.binance4j.spot.dto.OCOInfo;
 import com.binance4j.spot.dto.OCOResponse;
 import com.binance4j.spot.dto.OrderCount;
+import com.binance4j.spot.dto.OrderInfo;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;

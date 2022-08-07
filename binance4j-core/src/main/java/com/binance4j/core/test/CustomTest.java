@@ -1,5 +1,6 @@
 package com.binance4j.core.test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.beans.IntrospectionException;
@@ -209,6 +210,22 @@ public abstract class CustomTest {
 	 */
 	public void testNoNulls(Request<?> request) throws ApiException {
 		testNoNulls(request.sync());
+	}
+
+	/**
+	 * Tests that the object has no null properties.
+	 * 
+	 * @param request Request to execute.
+	 * @throws ApiException thrown if execution failed.
+	 */
+	public void testNotThrow(Request<?> request) throws ApiException {
+		assertDoesNotThrow(() -> {
+			var res = request.sync();
+			if (res != null) {
+				Set<String> nulls = getNullProperties(res);
+				printNulls(nulls, res);
+			}
+		});
 	}
 
 	/**

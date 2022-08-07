@@ -23,8 +23,9 @@ public class StakingClientTest extends CustomTest {
 	protected String productId = "Cake*120";
 	protected StakingClient client = new StakingClient(key, secret);
 
-	public StakingClientTest() throws ApiException {
+	public StakingClientTest() {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
@@ -41,16 +42,20 @@ public class StakingClientTest extends CustomTest {
 
 	@Test
 	void testGetPosition() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		testPosition(client.getPosition(new PositionParams(ProductType.STAKING)).sync());
 		testPosition(client.getPosition(new PositionParams(ProductType.F_DEFI)).sync());
 		testPosition(client.getPosition(new PositionParams(ProductType.L_DEFI)).sync());
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetProducts() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		testHasNulls(client.getProducts(new ProductListParams(ProductType.STAKING)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
 		testHasNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
 		testHasNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	public void testHistory(Object bean) {

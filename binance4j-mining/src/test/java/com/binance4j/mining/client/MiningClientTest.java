@@ -34,88 +34,91 @@ public class MiningClientTest extends CustomTest {
 
 	public MiningClientTest() {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAccounts() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		testHasNulls(client.getAccounts(new AccountListParams(algo, userName)), List.of("list", "userName"), true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAlgorithms() throws ApiException {
-		testNoNulls(client.getAlgorithms());
+		testNotThrow(client.getAlgorithms());
 	}
 
 	@Test
 	void testGetCoins() throws ApiException {
-		testNoNulls(client.getCoins());
+		testNotThrow(client.getCoins());
 	}
 
 	@Test
 	void testGetStatistics() throws ApiException {
-		testNoNulls(client.getStatistics(new StatisticsParams(algo, userName)));
+		testNotThrow(client.getStatistics(new StatisticsParams(algo, userName)));
 	}
 
 	// NOT TESTED SINCE I DON'T MINE
 
 	// TODO @Test
 	void testResellHashrate() throws ApiException {
-		testNoNulls(client.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
+		testNotThrow(client.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
 	}
 
 	// TODO @Test
 	void testCancelHashrateResaleConfiguration() throws ApiException {
-		testNoNulls(client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
+		testNotThrow(client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
 	}
 
 	// TODO @Test
 	void testGetAccountProfits() throws ApiException {
-		testNoNulls(client.getAccountProfits(new AccountProfitsParams(algo, userName)));
+		testNotThrow(client.getAccountProfits(new AccountProfitsParams(algo, userName)));
 	}
 
 	// TODO @Test
 	void testGetAccountProfitsFramed() throws ApiException {
-		testNoNulls(client.getAccountProfits(new AccountProfitsParams(algo, userName), framedPaging));
+		testNotThrow(client.getAccountProfits(new AccountProfitsParams(algo, userName), framedPaging));
 	}
 
 	// TODO @Test
 	void testGetHashrateResales() throws ApiException {
-		testNoNulls(client.getHashrateResales());
+		testNotThrow(client.getHashrateResales());
 	}
 
 	// TODO @Test
 	void testGetHashrateResales2() throws ApiException {
-		testNoNulls(client.getHashrateResales(timeFrame));
+		testNotThrow(client.getHashrateResales(timeFrame));
 	}
 
 	// TODO @Test
 	void testGetHashrateResalesDetails() throws ApiException {
-		testNoNulls(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName)));
+		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName)));
 	}
 
 	// TODO @Test
 	void testGetHashrateResalesDetails2() throws ApiException {
-		testNoNulls(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), timeFrame));
+		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), timeFrame));
 	}
 
 	// TODO @Test
 	void testGetMiners() throws ApiException {
-		testNoNulls(client.getMiners(new MinersParams(algo, userName)));
+		testNotThrow(client.getMiners(new MinersParams(algo, userName)));
 	}
 
 	// TODO @Test
 	void testGetMinersDetails() throws ApiException {
-		testNoNulls(client.getMinersDetails(new MinerDetailsParams(algo, userName, workerName)));
+		testNotThrow(client.getMinersDetails(new MinerDetailsParams(algo, userName, workerName)));
 	}
 
 	// TODO @Test
 	void testGetOtherProfits() throws ApiException {
-		testNoNulls(client.getOtherProfits(new ProfitsParams(algo, userName), framedPaging));
+		testNotThrow(client.getOtherProfits(new ProfitsParams(algo, userName), framedPaging));
 	}
 
 	// TODO @Test
 	void testGetProfits() throws ApiException {
-		testNoNulls(client.getProfits(new ProfitsParams(algo, userName), framedPaging));
+		testNotThrow(client.getProfits(new ProfitsParams(algo, userName), framedPaging));
 	}
 
 }

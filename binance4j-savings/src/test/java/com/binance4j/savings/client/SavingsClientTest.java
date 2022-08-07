@@ -25,86 +25,95 @@ public class SavingsClientTest extends CustomTest {
 
 	public SavingsClientTest() {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAccount() throws ApiException {
-		testNoNulls(client.getAccount());
+		testNotThrow(client.getAccount());
 	}
 
 	@Test
 	void testGetFixedProjects() throws ApiException {
-		testNoNulls(client.getFixedProjects(new FixedProjectListParams(FixedProjectType.CUSTOMIZED_FIXED)));
-		testNoNulls(client.getFixedProjects(new FixedProjectListParams(FixedProjectType.ACTIVITY)));
+		testNotThrow(client.getFixedProjects(new FixedProjectListParams(FixedProjectType.CUSTOMIZED_FIXED)));
+		testNotThrow(client.getFixedProjects(new FixedProjectListParams(FixedProjectType.ACTIVITY)));
 	}
 
 	@Test
 	void testGetFlexibleProducts() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		testHasNulls(client.getFlexibleProducts(), List.of("tierAnnualInterestRate"), true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetInterests() throws ApiException {
-		testNoNulls(client.getInterests(new LendingParams(LendingType.DAILY)));
-		testNoNulls(client.getInterests(new LendingParams(LendingType.ACTIVITY)));
-		testNoNulls(client.getInterests(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
+		testNotThrow(client.getInterests(new LendingParams(LendingType.DAILY)));
+		testNotThrow(client.getInterests(new LendingParams(LendingType.ACTIVITY)));
+		testNotThrow(client.getInterests(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
 	}
 
 	@Test
 	void testGetPurchases() throws ApiException {
-		testNoNulls(client.getPurchases(new LendingParams(LendingType.DAILY)));
-		testNoNulls(client.getPurchases(new LendingParams(LendingType.ACTIVITY)));
-		testNoNulls(client.getPurchases(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(client.getPurchases(new LendingParams(LendingType.DAILY)));
+		testNotThrow(client.getPurchases(new LendingParams(LendingType.ACTIVITY)));
+		testNotThrow(client.getPurchases(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetRedemptions() throws ApiException {
-		testNoNulls(client.getRedemptions(new LendingParams(LendingType.DAILY)));
-		testNoNulls(client.getRedemptions(new LendingParams(LendingType.ACTIVITY)));
-		testNoNulls(client.getRedemptions(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
+		testNotThrow(client.getRedemptions(new LendingParams(LendingType.DAILY)));
+		testNotThrow(client.getRedemptions(new LendingParams(LendingType.ACTIVITY)));
+		testNotThrow(client.getRedemptions(new LendingParams(LendingType.CUSTOMIZED_FIXED)));
 	}
 
 	@Test
 	void testGetLeftDailyFlexiblePurchaseQuota() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		var productId = client.getFlexibleProducts().sync().get(0).productId();
-		testNoNulls(client.getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)));
+		testNotThrow(client.getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)));
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetLeftDailyRedemptionQuota() throws ApiException {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		var productId = client.getFlexibleProducts().sync().get(0).productId();
-		testNoNulls(client.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, ProductType.FAST)));
+		testNotThrow(client.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, ProductType.FAST)));
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	// NOT TESTED
 
 	// TODO @Test
 	void testFixedToDailyPosition() throws ApiException {
-		testNoNulls(client.fixedToDailyPosition(new ChangePositionParams("projectId")));
+		testNotThrow(client.fixedToDailyPosition(new ChangePositionParams("projectId")));
 	}
 
 	// TODO @Test
 	void testGetFixedProjectPosition() throws ApiException {
-		testNoNulls(client.getFixedProjectPosition(new FixedProjectPositionParams(null, null, null)));
+		testNotThrow(client.getFixedProjectPosition(new FixedProjectPositionParams(null, null, null)));
 	}
 
 	// TODO @Test
 	void testGetFlexibleProductPosition() throws ApiException {
-		testNoNulls(client.getFlexibleProductPosition());
+		testNotThrow(client.getFlexibleProductPosition());
 	}
 
 	// TODO @Test
 	void testPurchaseFixed() throws ApiException {
-		testNoNulls(client.purchaseFixed(new FixedPurchaseParams("productId", 1L)));
+		testNotThrow(client.purchaseFixed(new FixedPurchaseParams("productId", 1L)));
 	}
 
 	// TODO @Test
 	void testPurchaseFlexible() throws ApiException {
-		testNoNulls(client.purchaseFlexible(new FlexiblePurchaseParams("productId", "amount")));
+		testNotThrow(client.purchaseFlexible(new FlexiblePurchaseParams("productId", "amount")));
 	}
 
 	// TODO @Test
 	void testRedeemFlexible() throws ApiException {
-		testNoNulls(client.redeemFlexible(new RedemptionParams("productId", "amount", ProductType.FAST)));
+		testNotThrow(client.redeemFlexible(new RedemptionParams("productId", "amount", ProductType.FAST)));
 	}
 }

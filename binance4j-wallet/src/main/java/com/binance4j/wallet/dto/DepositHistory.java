@@ -17,14 +17,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param status        Withdraw status code.
  * @param insertTime    confirm times for insertion (?)
  * @param transferType  Transfer type. 1 for internal transfer, 0 for external transfer.
+ * @param walletType    Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.
  */
 @ApiModel("A deposit history.")
-public record DepositHistory(@ApiModelProperty("A deposit history.") String amount, @ApiModelProperty("A deposit history.") String coin,
-		@ApiModelProperty("A deposit history.") String network, @ApiModelProperty("A deposit history.") String address,
-		@ApiModelProperty("A deposit history.") String addressTag, @ApiModelProperty("A deposit history.") String txId,
-		@ApiModelProperty("A deposit history.") String unlockConfirm, @ApiModelProperty("A deposit history.") String confirmTimes,
-		@ApiModelProperty("A deposit history.") String status, @ApiModelProperty("A deposit history.") long insertTime,
-		@ApiModelProperty("A deposit history.") int transferType) {
+public record DepositHistory(@ApiModelProperty("Volume to deposit.") String amount, @ApiModelProperty("Coin abbreviation.") String coin,
+		@ApiModelProperty("Transfer network.") String network, @ApiModelProperty("Deposit address.") String address,
+		@ApiModelProperty("Deposit address tag.") String addressTag, @ApiModelProperty("Transaction id.") String txId,
+		@ApiModelProperty("confirm times for unlocking.") String unlockConfirm, @ApiModelProperty("Confirm times") String confirmTimes,
+		@ApiModelProperty("Withdraw status code.") String status, @ApiModelProperty("confirm times for insertion (?)") long insertTime,
+		@ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.") int transferType,
+		@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.") int walletType) {
 	/** @return The withdraw status. */
 	public DepositStatus getDepositStatus() {
 		return DepositStatus.valueOf(status);
