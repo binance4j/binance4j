@@ -11,5 +11,12 @@ import com.binance4j.core.param.Params;
  * @param tradeType Trade type.
  */
 @Param
-public record TradeHistoryParams(TradeType tradeType) implements Params {
+public record TradeHistoryParams(String tradeType) implements Params {
+
+	/**
+	 * @param tradeType Trade type.
+	 */
+	public TradeHistoryParams(TradeType tradeType) {
+		this(tradeType.toString());
+	}
 }

@@ -28,7 +28,7 @@ public class ConvertController {
 
 	@GetMapping(path = "conversions", produces = "application/json")
 	@ApiOperation(value = "Get conversions.")
-	public ConversionHistory getTrades(@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
+	public ConversionHistory getConversions(@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
 			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
 		return client.getConversions(new TimeFrame(startTime, endTime, limit)).sync();
