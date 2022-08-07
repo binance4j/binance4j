@@ -36,8 +36,8 @@ public class BLVTController extends BaseController {
 	 * @return BLVT Info.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "tokenInfo", produces = "application/json")
-	@ApiOperation(value = "Returns info about one or multiple BLVT tokens")
+	@GetMapping(path = "token-info", produces = "application/json")
+	@ApiOperation(value = "Get info about one or multiple BLVT tokens")
 	public List<Token> getTokenInfo(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
 		return connectors.blvt().getTokenInfo(new TokenInfoParams(tokenName)).sync();
@@ -86,7 +86,7 @@ public class BLVTController extends BaseController {
 	 * @return User limit info.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "limitInfo", produces = "application/json")
+	@GetMapping(path = "limit-info", produces = "application/json")
 	@ApiOperation(value = "Get user limit info.")
 	public List<LimitInfo> getLimitInfo(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
@@ -115,7 +115,7 @@ public class BLVTController extends BaseController {
 	 * @throws ApiException Something went wrong with the API.
 	 */
 	@PostMapping(path = "subscribe", produces = "application/json")
-	@ApiOperation(value = "Subscribe BLVT.")
+	@ApiOperation(value = "Subscribe to BLVT.")
 	public SubscriptionResponse subscribe(@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
 			@RequestParam(required = true) @ApiParam(example = "1000", value = "The amount to acquire") String cost) throws ApiException {
 		return connectors.blvt().subscribe(new SubscriptionParams(tokenName, cost)).sync();
