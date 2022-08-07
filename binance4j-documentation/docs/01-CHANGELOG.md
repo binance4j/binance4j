@@ -5,6 +5,13 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.5] - 2022-08-07
+
+### Added
+
+- all
+  - Fixed constructors with enums
+
 ## [2.0.4] - 2022-08-07
 
 ### Added
