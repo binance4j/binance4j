@@ -12,5 +12,11 @@ import com.binance4j.fiat.dto.PaymentType;
  * @param transactionType Payment type.
  */
 @Param(weight = 90000, type = RateLimitType.UID)
-public record PaymentParams(PaymentType transactionType) implements Params {
+public record PaymentParams(String transactionType) implements Params {
+	/**
+	 * @param transactionType Payment type.
+	 */
+	public PaymentParams(PaymentType transactionType) {
+		this(transactionType.toString());
+	}
 }
