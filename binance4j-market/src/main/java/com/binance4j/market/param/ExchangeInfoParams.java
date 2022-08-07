@@ -13,10 +13,17 @@ import com.binance4j.market.client.MarketClient;
  * @param symbol Symbol.
  */
 @Param(weight = 10, recvWindow = false, timestamp = false)
-public record ExchangeInfoParams(String symbol) implements Params {
+public record ExchangeInfoParams(String symbols) implements Params {
 	/** Creates an instance of {@link ExchangeInfoParams}. */
 	public ExchangeInfoParams() {
 		this((String) null);
+	}
+
+	/**
+	 * @param symbols Trading pair list.
+	 */
+	public ExchangeInfoParams(String symbols) {
+		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(",")) + "]";
 	}
 
 	/**
