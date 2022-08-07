@@ -4,11 +4,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The representation of a checksum.
+ * A file checksum.
  * 
  * @param checksum MD5 checksum.
  * @param fileName File name.
  */
-@ApiModel("The representation of a checksum.")
+@ApiModel("A file checksum.")
 public record VisionChecksum(@ApiModelProperty("MD5 checksum.") String checksum, @ApiModelProperty("File name.") String fileName) {
 }

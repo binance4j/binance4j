@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents the best price/quantity on the order book for a given symbol.
+ * The best price/quantity on the order book for a given symbol.
  * 
  * @param symbol   Ticker symbol.
  * @param bidPrice Bid price.
@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param askPrice Ask price.
  * @param askQty   Ask quantity.
  */
-@ApiModel("Represents the best price/quantity on the order book for a given symbol.")
+@ApiModel("The best price/quantity on the order book for a given symbol.")
 public record BookTicker(@ApiModelProperty("Ticker symbol.") String symbol, @ApiModelProperty("Bid price.") String bidPrice,
 		@ApiModelProperty("Bid quantity.") String bidQty, @ApiModelProperty("Ask price.") String askPrice, @ApiModelProperty("Ask quantity.") String askQty) {
 }

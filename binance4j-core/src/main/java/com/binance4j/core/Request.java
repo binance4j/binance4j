@@ -35,7 +35,6 @@ public class Request<T> {
 		try {
 			Response<T> response = call.execute();
 			if (response.isSuccessful()) {
-				System.out.println(response.body());
 				return response.body();
 			} else {
 				ApiError error = MAPPER.readValue(response.errorBody().string(), ApiError.class);
