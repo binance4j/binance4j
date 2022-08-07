@@ -63,7 +63,7 @@ const config = {
         style: 'dark',
         links: [
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Binance4J by Vivien Le Duc`,
+        copyright: `Copyright © ${new Date().getFullYear()} Binance4J - Vivien Le Duc`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/dracula'),
