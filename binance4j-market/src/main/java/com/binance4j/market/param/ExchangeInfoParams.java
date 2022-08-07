@@ -23,13 +23,13 @@ public record ExchangeInfoParams(String symbols) implements Params {
 	 * @param symbols Trading pair list.
 	 */
 	public ExchangeInfoParams(String symbols) {
-		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(",")) + "]";
+		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim())).collect(Collectors.joining(",")) + "]";
 	}
 
 	/**
 	 * @param symbols Trading pair list.
 	 */
 	public ExchangeInfoParams(List<String> symbols) {
-		this("[" + symbols.stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(",")) + "]");
+		this(symbols.stream().collect(Collectors.joining(",")));
 	}
 }
