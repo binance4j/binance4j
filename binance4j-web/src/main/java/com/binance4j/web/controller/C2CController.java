@@ -14,11 +14,17 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+/** Controller for C2C endpoints. */
 @RestController
 @RequestMapping("api/v1/c2c")
 @Api(value = "C2C Controller", tags = "C2C Controller", produces = "application/json", description = "Peer to Peer endpoints")
 public class C2CController extends BaseController {
 
+	/**
+	 * @param tradeType Trade type.
+	 * @return C2C trades.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "trades", produces = "application/json")
 	@ApiOperation(value = "Get trades.")
 	public TradeHistory getTrades(@RequestParam(required = true) @ApiParam(example = "BUY", value = "The trade type") TradeType tradeType) throws ApiException {

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for Wallet endpoints. */
 @RestController
 @RequestMapping("api/v1/wallet")
 @Api(value = "Wallet Controller", tags = "Wallet Controller", produces = "application/json", description = "Wallet endpoints")

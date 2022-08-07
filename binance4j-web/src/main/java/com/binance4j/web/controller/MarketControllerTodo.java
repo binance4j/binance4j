@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for Market endpoints. */
 @RestController
 @RequestMapping("api/v1/market")
 @Api(value = "Market Controller", tags = "Market Controller", produces = "application/json", description = "Market endpoints")

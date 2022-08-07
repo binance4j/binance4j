@@ -13,11 +13,19 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+/** Controller for Convert endpoints. */
 @RestController
 @RequestMapping("api/v1/convert")
 @Api(value = "Convert Controller", tags = "Convert Controller", produces = "application/json", description = "Convert endpoints")
 public class ConvertController extends BaseController {
 
+	/**
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 * @return Assets conversion history.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "conversions", produces = "application/json")
 	@ApiOperation(value = "Get conversions.")
 	public ConversionHistory getConversions(@RequestParam(required = true) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,

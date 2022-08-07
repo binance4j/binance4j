@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for Savings endpoints. */
 @RestController
 @RequestMapping("api/v1/savings")
 @Api(value = "Savings Controller", tags = "Savings Controller", produces = "application/json", description = "Savings endpoints")

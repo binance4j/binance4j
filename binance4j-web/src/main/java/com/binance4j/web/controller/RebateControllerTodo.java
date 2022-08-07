@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for Rebate endpoints. */
 @RestController
 @RequestMapping("api/v1/rebate")
 @Api(value = "Rebate Controller", tags = "Rebate Controller", produces = "application/json", description = "Rebate endpoints")

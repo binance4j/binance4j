@@ -18,11 +18,21 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+/** Controller for Fiat endpoints. */
 @RestController
 @RequestMapping("api/v1/fiat")
 @Api(value = "Fiat Controller", tags = "Fiat Controller", produces = "application/json", description = "Fiat endpoints")
 public class FiatController extends BaseController {
 
+	/**
+	 * @param transactionType Transaction type.
+	 * @param startTime       Start time in ms.
+	 * @param endTime         End time in ms.
+	 * @param page            Results page.
+	 * @param limit           Results limit.
+	 * @return Fiat payments.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "payments", produces = "application/json")
 	@ApiOperation(value = "Get payments.")
 	public PaymentHistory getPayments(@RequestParam(required = true) @ApiParam(example = "BUY", value = "Payment type.") PaymentType transactionType,
@@ -33,6 +43,15 @@ public class FiatController extends BaseController {
 		return connectors.fiat().getPayments(new PaymentParams(transactionType), new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
+	/**
+	 * @param transactionType Transaction type.
+	 * @param startTime       Start time in ms.
+	 * @param endTime         End time in ms.
+	 * @param page            Results page.
+	 * @param limit           Results limit.
+	 * @return Fiat transactions.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "transactions", produces = "application/json")
 	@ApiOperation(value = "Get transactions.")
 	public TransactionHistory getTransactions(

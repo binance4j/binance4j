@@ -26,6 +26,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+/** Controller for Binance Leverage Token endpoints. */
 @RestController
 @RequestMapping("api/v1/blvt")
 @Api(value = "BLVT Controller", tags = "BLVT Controller", produces = "application/json", description = "Binance Leverage Token endpoints")
@@ -42,6 +43,15 @@ public class BLVTController extends BaseController {
 		return connectors.blvt().getTokenInfo(new TokenInfoParams(tokenName)).sync();
 	}
 
+	/**
+	 * @param tokenName Token name.
+	 * @param id        Subscription id.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 * @return Subscription record.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "subscriptions", produces = "application/json")
 	@ApiOperation(value = "Get subscription record.")
 	public List<Subscription> getSubscriptions(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -52,6 +62,15 @@ public class BLVTController extends BaseController {
 		return connectors.blvt().getSubscriptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
+	/**
+	 * @param tokenName Token name.
+	 * @param id        Subscription id.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 * @return Redemption record.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "redemptions", produces = "application/json")
 	@ApiOperation(value = "Get redemption record.")
 	public List<Redemption> getRedemptions(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -62,6 +81,11 @@ public class BLVTController extends BaseController {
 		return connectors.blvt().getRedemptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
+	/**
+	 * @param tokenName Token name.
+	 * @return User limit info.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "limitInfo", produces = "application/json")
 	@ApiOperation(value = "Get user limit info.")
 	public List<LimitInfo> getLimitInfo(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
@@ -69,6 +93,14 @@ public class BLVTController extends BaseController {
 		return connectors.blvt().getLimitInfo(new LimitInfoParams(tokenName)).sync();
 	}
 
+	/**
+	 * Subscribe BLVT.
+	 * 
+	 * @param tokenName Token name.
+	 * @param amount    Amount to redeem.
+	 * @return BLVT redemption response.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@PostMapping(path = "redeem", produces = "application/json")
 	@ApiOperation(value = "Redeem BLVT.")
 	public RedemptionResponse redeem(@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -76,6 +108,12 @@ public class BLVTController extends BaseController {
 		return connectors.blvt().redeem(new RedemptionParams(tokenName, amount)).sync();
 	}
 
+	/**
+	 * @param tokenName Token name.
+	 * @param cost      Amount to acquire.
+	 * @return BVLT subscription response.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@PostMapping(path = "subscribe", produces = "application/json")
 	@ApiOperation(value = "Subscribe BLVT.")
 	public SubscriptionResponse subscribe(@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,

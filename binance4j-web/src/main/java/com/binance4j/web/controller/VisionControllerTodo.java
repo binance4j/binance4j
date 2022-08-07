@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for Vision endpoints. */
 @RestController
 @RequestMapping("api/v1/vision")
 @Api(value = "Vision Controller", tags = "Vision Controller", produces = "application/json", description = "Vision endpoints")

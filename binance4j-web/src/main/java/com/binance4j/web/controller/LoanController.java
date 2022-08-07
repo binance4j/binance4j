@@ -17,11 +17,21 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+/** Controller for Loan endpoints. */
 @RestController
 @RequestMapping("api/v1/loan")
 @Api(value = "Loan Controller", tags = "Loan Controller", produces = "application/json", description = "Loan endpoints")
 public class LoanController extends BaseController {
 
+	/**
+	 * @param asset     Asset we want the incomes.
+	 * @param type      Loan income type. All types will be returned by default.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 * @return Get crypto loans income history.
+	 * @throws ApiException Something went wrong with the API.
+	 */
 	@GetMapping(path = "income", produces = "application/json")
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(@RequestParam(required = true) @ApiParam(example = "BNB", value = "Asset.") String asset,

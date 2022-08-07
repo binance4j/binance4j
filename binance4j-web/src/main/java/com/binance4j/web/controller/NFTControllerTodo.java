@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 
+/** Controller for NFT endpoints. */
 @RestController
 @RequestMapping("api/v1/nft")
 @Api(value = "NFT Controller", tags = "NFT Controller", produces = "application/json", description = "NFT endpoints")
