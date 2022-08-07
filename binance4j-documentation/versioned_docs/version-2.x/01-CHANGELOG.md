@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 - all
   - Fixed constructors with enums
   - added missing properties in DTOs.
-  
+
 ## [2.0.4] - 2022-08-07
 
 ### Added

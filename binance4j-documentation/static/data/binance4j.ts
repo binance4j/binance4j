@@ -69,7 +69,7 @@ const connectors: Repo = {
     artifactId: "binance4j-connectors",
     title: "Connectors",
     javadoc: javadocBase + "binance4j-connectors/",
-    description: "All REST clients in one place",
+    description: "All REST and Websocket connectors in one place.",
     icon: imgBase + "connectors.svg",
 };
 
