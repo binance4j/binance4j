@@ -17,90 +17,90 @@ public class ConnectorsTest extends CustomTest {
 
 	@Test
 	void testGetBLVTClient() throws ApiException {
-		assertNotNull(connectors.blvtClient());
+		assertNotNull(connectors.blvt());
 	}
 
 	@Test
 	void testGetC2CClient() {
-		assertNotNull(connectors.c2cClient());
+		assertNotNull(connectors.c2c());
 	}
 
 	@Test
 	void testGetFiatClient() {
-		assertNotNull(connectors.fiatClient());
+		assertNotNull(connectors.fiat());
 	}
 
 	@Test
 	void testGetLoanClient() {
-		assertNotNull(connectors.loanClient());
+		assertNotNull(connectors.loan());
 	}
 
 	@Test
 	void testGetMarginClient() {
-		assertNotNull(connectors.marginClient());
+		assertNotNull(connectors.margin());
 	}
 
 	@Test
 	void testGetMarketClient() {
-		assertNotNull(connectors.marketClient().getBookTicker());
+		assertNotNull(connectors.market());
 	}
 
 	@Test
 	void testGetMiningClient() {
-		assertNotNull(connectors.miningClient());
+		assertNotNull(connectors.mining());
 	}
 
 	@Test
 	void testGetNFTClient() {
-		assertNotNull(connectors.nftClient());
+		assertNotNull(connectors.nft());
 	}
 
 	@Test
 	void testGetPayClient() {
-		assertNotNull(connectors.payClient());
+		assertNotNull(connectors.pay());
 	}
 
 	@Test
 	void testGetPortfolioMarginClient() {
-		assertNotNull(connectors.marginClient());
+		assertNotNull(connectors.margin());
 	}
 
 	@Test
 	void testGetRebateClient() {
-		assertNotNull(connectors.rebateClient());
+		assertNotNull(connectors.rebate());
 	}
 
 	@Test
 	void testGetSavingsClient() {
-		assertNotNull(connectors.savingsClient());
+		assertNotNull(connectors.savings());
 	}
 
 	@Test
 	void testGetSpotClient() {
-		assertNotNull(connectors.spotClient());
+		assertNotNull(connectors.spot());
 	}
 
 	@Test
 	void testGetStakingClient() {
-		assertNotNull(connectors.stakingClient());
+		assertNotNull(connectors.staking());
 	}
 
 	@Test
 	void testGetVisionSpotClient() {
-		assertNotNull(connectors.visionSpotClient());
+		assertNotNull(connectors.visionSpot());
 	}
 
 	@Test
 	void testGetWalletClient() {
-		assertNotNull(connectors.walletClient());
+		assertNotNull(connectors.wallet());
 	}
 
 	@Test
 	void testUpdateKeys() {
-		assertEquals(connectors.getKey(), connectors.blvtClient().getKey());
-		assertEquals(connectors.getSecret(), connectors.blvtClient().getSecret());
+		assertEquals(connectors.getKey(), connectors.blvt().getKey());
+		assertEquals(connectors.getSecret(), connectors.blvt().getSecret());
 		connectors.updateKeys("foo", "bar");
-		assertEquals(connectors.getKey(), connectors.blvtClient().getKey());
-		assertEquals(connectors.getSecret(), connectors.blvtClient().getSecret());
+		assertEquals(connectors.getKey(), connectors.blvt().getKey());
+		assertEquals(connectors.getSecret(), connectors.blvt().getSecret());
 	}
 }

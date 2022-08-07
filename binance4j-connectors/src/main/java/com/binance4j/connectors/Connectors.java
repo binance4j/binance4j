@@ -2,6 +2,7 @@ package com.binance4j.connectors;
 
 import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.c2c.client.C2CClient;
+import com.binance4j.convert.client.ConvertClient;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.loan.client.LoanClient;
@@ -29,6 +30,8 @@ public class Connectors {
 	protected BLVTClient blvtClient;
 	/** Inner {@link C2CClient}. */
 	protected C2CClient c2cClient;
+	/** Inner {@link ConvertClient}. */
+	protected ConvertClient convertClient;
 	/** Inner {@link FiatClient}. */
 	protected FiatClient fiatClient;
 	/** Inner {@link LoanClient}. */
@@ -81,9 +84,196 @@ public class Connectors {
 	/**
 	 * Lazy loads and returns a cached instance of {@link BLVTClient}.
 	 * 
+	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link BLVTClient}.
 	 */
+	@Deprecated
 	public BLVTClient blvtClient() {
+		return blvt();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link FiatClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link FiatClient}.
+	 */
+	@Deprecated
+	public C2CClient c2cClient() {
+		return c2c();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link convertClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link convertClient}.
+	 */
+	@Deprecated
+	public ConvertClient convertClient() {
+		return convert();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link FiatClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link FiatClient}.
+	 */
+	@Deprecated
+	public FiatClient fiatClient() {
+		return fiat();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link LoanClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link LoanClient}.
+	 */
+	@Deprecated
+	public LoanClient loanClient() {
+		return loan();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link MarginClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link MarginClient}.
+	 */
+	@Deprecated
+	public MarginClient marginClient() {
+		return margin();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link MarketClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link MarketClient}.
+	 */
+	@Deprecated
+	public MarketClient marketClient() {
+		return market();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link MiningClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link MiningClient}.
+	 */
+	@Deprecated
+	public MiningClient miningClient() {
+		return mining();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link NFTClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link NFTClient}.
+	 */
+	@Deprecated
+	public NFTClient nftClient() {
+		return nft();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link PayClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link PayClient}.
+	 */
+	@Deprecated
+	public PayClient payClient() {
+		return pay();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link PortfolioMarginClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link PortfolioMarginClient}.
+	 */
+	@Deprecated
+	public PortfolioMarginClient portfoliomarginClient() {
+		return portfoliomargin();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link RebateClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link RebateClient}.
+	 */
+	@Deprecated
+	public RebateClient rebateClient() {
+		return rebate();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link SavingsClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link SavingsClient}.
+	 */
+	@Deprecated
+	public SavingsClient savingsClient() {
+		return savings();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link SpotClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link SpotClient}.
+	 */
+	@Deprecated
+	public SpotClient spotClient() {
+		return spot();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link StakingClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link StakingClient}.
+	 */
+	@Deprecated
+	public StakingClient stakingClient() {
+		return staking();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link VisionSpotClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link VisionSpotClient}.
+	 */
+	@Deprecated
+	public VisionSpotClient visionSpotClient() {
+		return visionSpot();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link WalletClient}.
+	 * 
+	 * @deprecated Will be removed in a next version.
+	 * @return an instance of {@link WalletClient}.
+	 */
+	@Deprecated
+	public WalletClient walletClient() {
+		return wallet();
+	}
+
+	/**
+	 * Lazy loads and returns a cached instance of {@link BLVTClient}.
+	 * 
+	 * @return an instance of {@link BLVTClient}.
+	 */
+	public BLVTClient blvt() {
 		if (blvtClient == null) {
 			blvtClient = new BLVTClient(key, secret);
 		}
@@ -96,7 +286,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link FiatClient}.
 	 */
-	public C2CClient c2cClient() {
+	public C2CClient c2c() {
 		if (c2cClient == null) {
 			c2cClient = new C2CClient(key, secret);
 		}
@@ -105,11 +295,24 @@ public class Connectors {
 	}
 
 	/**
+	 * Lazy loads and returns a cached instance of {@link convertClient}.
+	 * 
+	 * @return an instance of {@link convertClient}.
+	 */
+	public ConvertClient convert() {
+		if (convertClient == null) {
+			convertClient = new ConvertClient(key, secret);
+		}
+		updateClientKeys(convertClient);
+		return convertClient;
+	}
+
+	/**
 	 * Lazy loads and returns a cached instance of {@link FiatClient}.
 	 * 
 	 * @return an instance of {@link FiatClient}.
 	 */
-	public FiatClient fiatClient() {
+	public FiatClient fiat() {
 		if (fiatClient == null) {
 			fiatClient = new FiatClient(key, secret);
 		}
@@ -122,7 +325,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link LoanClient}.
 	 */
-	public LoanClient loanClient() {
+	public LoanClient loan() {
 		if (loanClient == null) {
 			loanClient = new LoanClient(key, secret);
 		}
@@ -135,7 +338,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link MarginClient}.
 	 */
-	public MarginClient marginClient() {
+	public MarginClient margin() {
 		if (marginClient == null) {
 			marginClient = new MarginClient(key, secret);
 		}
@@ -148,7 +351,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link MarketClient}.
 	 */
-	public MarketClient marketClient() {
+	public MarketClient market() {
 		if (marketClient == null) {
 			marketClient = new MarketClient(key, secret);
 		}
@@ -161,7 +364,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link MiningClient}.
 	 */
-	public MiningClient miningClient() {
+	public MiningClient mining() {
 		if (miningClient == null) {
 			miningClient = new MiningClient(key, secret);
 		}
@@ -174,7 +377,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link NFTClient}.
 	 */
-	public NFTClient nftClient() {
+	public NFTClient nft() {
 		if (nftClient == null) {
 			nftClient = new NFTClient(key, secret);
 		}
@@ -187,7 +390,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link PayClient}.
 	 */
-	public PayClient payClient() {
+	public PayClient pay() {
 		if (payClient == null) {
 			payClient = new PayClient(key, secret);
 		}
@@ -200,7 +403,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link PortfolioMarginClient}.
 	 */
-	public PortfolioMarginClient portfoliomarginClient() {
+	public PortfolioMarginClient portfoliomargin() {
 		if (portfolioMarginClient == null) {
 			portfolioMarginClient = new PortfolioMarginClient(key, secret);
 		}
@@ -213,7 +416,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link RebateClient}.
 	 */
-	public RebateClient rebateClient() {
+	public RebateClient rebate() {
 		if (rebateClient == null) {
 			rebateClient = new RebateClient(key, secret);
 		}
@@ -226,7 +429,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link SavingsClient}.
 	 */
-	public SavingsClient savingsClient() {
+	public SavingsClient savings() {
 		if (savingsClient == null) {
 			savingsClient = new SavingsClient(key, secret);
 		}
@@ -239,7 +442,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link SpotClient}.
 	 */
-	public SpotClient spotClient() {
+	public SpotClient spot() {
 		if (spotClient == null) {
 			spotClient = new SpotClient(key, secret);
 		}
@@ -252,7 +455,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link StakingClient}.
 	 */
-	public StakingClient stakingClient() {
+	public StakingClient staking() {
 		if (stakingClient == null) {
 			stakingClient = new StakingClient(key, secret);
 		}
@@ -265,7 +468,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link VisionSpotClient}.
 	 */
-	public VisionSpotClient visionSpotClient() {
+	public VisionSpotClient visionSpot() {
 		if (visionSpotClient == null) {
 			visionSpotClient = new VisionSpotClient();
 		}
@@ -277,7 +480,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link WalletClient}.
 	 */
-	public WalletClient walletClient() {
+	public WalletClient wallet() {
 		if (walletClient == null) {
 			walletClient = new WalletClient(key, secret);
 		}
