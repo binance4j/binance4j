@@ -23,12 +23,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/binance4j',
+          editUrl: 'https://github.com/binance4j/binance4j',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/binance4j',
+            'https://github.com/binance4j/binance4j',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -53,7 +53,7 @@ const config = {
             position: 'left'
           },
           {
-            href: 'https://github.com/binance4j',
+            href: 'https://github.com/binance4j/binance4j',
             label: 'GitHub',
             position: 'left',
           },
@@ -64,7 +64,7 @@ const config = {
         links: [
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Binance4J - Vivien Le Duc`,
-        logo: "/img/logo/logo2.png"
+        logo: { src: "/img/logo/logo2.png", height: "48", href: "https://github.com/binance4j/binance4j" }
       },
       prism: {
         theme: require('prism-react-renderer/themes/dracula'),
