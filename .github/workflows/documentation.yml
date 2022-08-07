@@ -108,7 +108,7 @@ jobs:
         - name: Install binance4j-spot
           run: ${{ env.SPOT_INSTALLATION }}
 
-        - name: Install binance4j-spot
+        - name: Install binance4j-staking
           run: ${{ env.STAKING_INSTALLATION }}
 
         - name: Install binance4j-vision
