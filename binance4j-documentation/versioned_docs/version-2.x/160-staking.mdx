@@ -20,6 +20,23 @@ StakingClient client = new StakingClient(key, secret);
 
 ## Features
 
+### Get products
+
+<Examples
+    payload="List<Product>"
+    method="getProducts"
+    items={[
+        {
+            label: "By Product type ",
+            params: "new ProductListParams(ProductType.STAKING)",
+        },
+        {
+            label: "By Product type and asset",
+            params: "new ProductListParams(ProductType.STAKING, asset)",
+        },
+    ]}
+/>
+
 ### Get staking history
 
 <Examples
