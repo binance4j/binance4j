@@ -49,4 +49,13 @@ public enum CandlestickInterval {
 	public String toString() {
 		return value;
 	}
+
+	static public CandlestickInterval fromValue(String value) {
+		for (CandlestickInterval e : CandlestickInterval.values()) {
+			if (e.toString().equals(value)) {
+				return e;
+			}
+		}
+		return null;
+	}
 }
