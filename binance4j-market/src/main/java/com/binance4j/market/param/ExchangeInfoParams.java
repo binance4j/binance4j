@@ -10,7 +10,7 @@ import com.binance4j.market.client.MarketClient;
 /**
  * {@link MarketClient#getExchangeInfo} params.
  * 
- * @param symbol Symbol.
+ * @param symbols Symbols.
  */
 @Param(weight = 10, recvWindow = false, timestamp = false)
 public record ExchangeInfoParams(String symbols) implements Params {
