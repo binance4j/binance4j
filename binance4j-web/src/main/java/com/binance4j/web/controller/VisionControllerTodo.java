@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Vision endpoints. */
 @RestController
 @RequestMapping("api/v1/vision")
-@Api(value = "Vision Controller", tags = "Vision Controller", produces = "application/json", description = "Vision endpoints")
+@Api(value = "Vision", tags = "Vision", produces = "application/json", description = "Vision endpoints")
 public class VisionControllerTodo extends BaseController {
 
 }

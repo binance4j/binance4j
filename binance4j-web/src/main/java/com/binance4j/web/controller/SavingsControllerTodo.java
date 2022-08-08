@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Savings endpoints. */
 @RestController
 @RequestMapping("api/v1/savings")
-@Api(value = "Savings Controller", tags = "Savings Controller", produces = "application/json", description = "Savings endpoints")
+@Api(value = "Savings", tags = "Savings", produces = "application/json", description = "Savings endpoints")
 public class SavingsControllerTodo extends BaseController {
 
 }

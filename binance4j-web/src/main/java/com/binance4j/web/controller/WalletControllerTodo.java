@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Wallet endpoints. */
 @RestController
 @RequestMapping("api/v1/wallet")
-@Api(value = "Wallet Controller", tags = "Wallet Controller", produces = "application/json", description = "Wallet endpoints")
+@Api(value = "Wallet", tags = "Wallet", produces = "application/json", description = "Wallet endpoints")
 public class WalletControllerTodo extends BaseController {
 
 }

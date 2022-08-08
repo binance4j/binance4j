@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Spot endpoints. */
 @RestController
 @RequestMapping("api/v1/spot")
-@Api(value = "Spot Controller", tags = "Spot Controller", produces = "application/json", description = "Spot endpoints")
+@Api(value = "Spot", tags = "Spot", produces = "application/json", description = "Spot endpoints")
 public class SpotControllerTodo extends BaseController {
 
 }

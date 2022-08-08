@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiParam;
 /** Controller for Fiat endpoints. */
 @RestController
 @RequestMapping("api/v1/fiat")
-@Api(value = "Fiat Controller", tags = "Fiat Controller", produces = "application/json", description = "Fiat endpoints")
+@Api(value = "Fiat", tags = "Fiat", produces = "application/json", description = "Fiat endpoints")
 public class FiatController extends BaseController {
 
 	/**

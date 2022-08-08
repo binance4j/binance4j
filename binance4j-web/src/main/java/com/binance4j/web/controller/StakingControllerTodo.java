@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Staking endpoints. */
 @RestController
 @RequestMapping("api/v1/staking")
-@Api(value = "Staking Controller", tags = "Staking Controller", produces = "application/json", description = "Staking endpoints")
+@Api(value = "Staking", tags = "Staking", produces = "application/json", description = "Staking endpoints")
 public class StakingControllerTodo extends BaseController {
 
 }

@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for NFT endpoints. */
 @RestController
 @RequestMapping("api/v1/nft")
-@Api(value = "NFT Controller", tags = "NFT Controller", produces = "application/json", description = "NFT endpoints")
+@Api(value = "NFT", tags = "NFT", produces = "application/json", description = "NFT endpoints")
 public class NFTControllerTodo extends BaseController {
 
 }

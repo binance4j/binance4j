@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiParam;
 /** Controller for Binance Leverage Token endpoints. */
 @RestController
 @RequestMapping("api/v1/blvt")
-@Api(value = "BLVT Controller", tags = "BLVT Controller", produces = "application/json", description = "Binance Leverage Token endpoints")
+@Api(value = "BLVT", tags = "BLVT", produces = "application/json", description = "Binance Leverage Token endpoints")
 public class BLVTController extends BaseController {
 	/**
 	 * @param tokenName Get BLVT Info.

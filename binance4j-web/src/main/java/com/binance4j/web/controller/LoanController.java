@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiParam;
 /** Controller for Loan endpoints. */
 @RestController
 @RequestMapping("api/v1/loan")
-@Api(value = "Loan Controller", tags = "Loan Controller", produces = "application/json", description = "Loan endpoints")
+@Api(value = "Loan", tags = "Loan", produces = "application/json", description = "Loan endpoints")
 public class LoanController extends BaseController {
 
 	/**

@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Margin endpoints. */
 @RestController
 @RequestMapping("api/v1/margin")
-@Api(value = "Margin Controller", tags = "Margin Controller", produces = "application/json", description = "Margin endpoints")
+@Api(value = "Margin", tags = "Margin", produces = "application/json", description = "Margin endpoints")
 public class MarginControllerTodo extends BaseController {
 
 }

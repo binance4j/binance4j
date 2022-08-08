@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 /** Controller for Portfolio margin endpoints. */
 @RestController
 @RequestMapping("api/v1/portfolio-margin")
-@Api(value = "Portfolio margin Controller", tags = "Portfolio margin Controller", produces = "application/json", description = "Portfolio margin endpoints")
+@Api(value = "Portfolio margin", tags = "Portfolio margin", produces = "application/json", description = "Portfolio margin endpoints")
 public class PortfolioMarginControllerTodo extends BaseController {
 
 }

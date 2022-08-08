@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiParam;
 /** Controller for Market endpoints. */
 @RestController
 @RequestMapping("api/v1/market")
-@Api(value = "Market Controller", tags = "Market Controller", produces = "application/json", description = "Market endpoints")
+@Api(value = "Market", tags = "Market", produces = "application/json", description = "Market endpoints")
 public class MarketController extends BaseController {
 
 	/**
@@ -190,11 +190,11 @@ public class MarketController extends BaseController {
 
 	/**
 	 * @param symbols Symbols we want the statistics.
-	 * @return best price/quantity on the order book for the given symbols.
+	 * @return best price && quantity on the order book for the given symbols.
 	 * @throws ApiException Something went wrong with the API.
 	 */
 	@GetMapping(path = "order-book-ticker", produces = "application/json")
-	@ApiOperation(value = "Get best price/quantity on the order book for the given symbols.")
+	@ApiOperation(value = "Get best price && quantity on the order book for the given symbols.")
 	public List<BookTicker> getBookTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols) throws ApiException {
 		return connectors.market().getBookTicker(new BookTickersParams(symbols)).sync();

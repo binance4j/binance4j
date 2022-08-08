@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiParam;
 /** Controller for C2C endpoints. */
 @RestController
 @RequestMapping("api/v1/c2c")
-@Api(value = "C2C Controller", tags = "C2C Controller", produces = "application/json", description = "Peer to Peer endpoints")
+@Api(value = "C2C", tags = "C2C", produces = "application/json", description = "Peer to Peer endpoints")
 public class C2CController extends BaseController {
 
 	/**
