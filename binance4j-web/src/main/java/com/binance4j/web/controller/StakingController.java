@@ -3,6 +3,7 @@ package com.binance4j.web.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,12 +13,18 @@ import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
 import com.binance4j.staking.dto.LeftQuota;
 import com.binance4j.staking.dto.Product;
+import com.binance4j.staking.dto.ProductPosition;
 import com.binance4j.staking.dto.ProductType;
+import com.binance4j.staking.dto.PurchaseResponse;
+import com.binance4j.staking.dto.RedeemResponse;
 import com.binance4j.staking.dto.StakingRecord;
 import com.binance4j.staking.dto.TransactionType;
 import com.binance4j.staking.param.HistoryParams;
 import com.binance4j.staking.param.LeftQuotaParams;
+import com.binance4j.staking.param.PositionParams;
 import com.binance4j.staking.param.ProductListParams;
+import com.binance4j.staking.param.PurchaseParams;
+import com.binance4j.staking.param.RedeemParams;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +34,7 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @RequestMapping("api/v1/staking")
 @Api(value = "Staking", tags = "Staking", produces = "application/json", description = "Staking endpoints")
-public class StakingControllerTodo extends BaseController {
+public class StakingController extends BaseController {
 
 	/**
 	 * @param product Product type.
@@ -37,7 +44,7 @@ public class StakingControllerTodo extends BaseController {
 	 * @return Available Staking product list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "products", produces = "application/json", params = { "product", "txnType", "asset" })
+	@GetMapping(path = "products", produces = "application/json", params = { "product" })
 	@ApiOperation(value = "Get available Staking product list.")
 	public List<Product> getProducts(@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Product name.") String asset,
@@ -57,7 +64,7 @@ public class StakingControllerTodo extends BaseController {
 	 * @return Staking history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "trades", produces = "application/json", params = { "product", "txnType", "asset" })
+	@GetMapping(path = "trades", produces = "application/json", params = { "product", "txnType" })
 	@ApiOperation(value = "Get staking history.")
 	public List<StakingRecord> getTrades(@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = true) @ApiParam(example = "SUBSCRIPTION", value = "Transaction type.") TransactionType txnType,
@@ -78,7 +85,58 @@ public class StakingControllerTodo extends BaseController {
 	@GetMapping(path = "left-quota", produces = "application/json", params = { "product", "productId" })
 	@ApiOperation(value = "Get personal left quota of Staking product.")
 	public LeftQuota getLeftQuota(@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
-			@RequestParam(required = true) @ApiParam(example = "BNB", value = "Product name.") String productId) throws ApiException {
+			@RequestParam(required = true) @ApiParam(example = "Bnb*120", value = "Product id.") String productId) throws ApiException {
 		return connectors.staking().getLeftQuota(new LeftQuotaParams(product, productId)).sync();
+	}
+
+	/**
+	 * @param asset     Product name.
+	 * @param page      Results page.
+	 * @param limit     Results limit.
+	 * @param product   Product type.
+	 * @param productId Product id.
+	 * @return Staking product position.
+	 * @throws ApiException Something went wrong with the API.
+	 */
+	@GetMapping(path = "position", produces = "application/json", params = { "product" })
+	@ApiOperation(value = "Get Staking product position.")
+	public List<ProductPosition> getPosition(@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
+			@RequestParam(required = false) @ApiParam(example = "CAKE", value = "Product name.") String asset,
+			@RequestParam(required = false) @ApiParam(example = "Cake*120", value = "Product id.") String productId,
+			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+		return connectors.staking().getPosition(new PositionParams(product, productId, asset), new Paging(page, limit)).sync();
+	}
+
+	/**
+	 * Purchase Staking product.
+	 * 
+	 * @param product   Product type.
+	 * @param productId Product id.
+	 * @param amount    Amount to purchase.
+	 * @return A staking purchase response.
+	 * @throws ApiException Something went wrong with the API.
+	 */
+	@PostMapping(path = "purchase", produces = "application/json", params = { "product", "productId", "amount" })
+	@ApiOperation(value = "Purchase Staking product.")
+	public PurchaseResponse purchase(@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
+			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId,
+			@RequestParam @ApiParam(example = "CAKE", value = "Product name.") String amount) throws ApiException {
+		return connectors.staking().purchase(new PurchaseParams(product, productId, amount)).sync();
+	}
+
+	/**
+	 * Redeem Staking product.
+	 * 
+	 * @param product   Product type.
+	 * @param productId Product id.
+	 * @return A staking redeem response.
+	 * @throws ApiException Something went wrong with the API.
+	 */
+	@PostMapping(path = "redeem", produces = "application/json", params = { "product", "productId" })
+	@ApiOperation(value = "Redeem Staking product.")
+	public RedeemResponse redeem(@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
+			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId) throws ApiException {
+		return connectors.staking().redeem(new RedeemParams(product, productId)).sync();
 	}
 }
