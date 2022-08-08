@@ -150,7 +150,7 @@ public class VisionController extends BaseController {
 	 * @throws IOException
 	 */
 	@GetMapping(path = "aggtrades/{symbol}/{year}/{month}/{day}.checksum", produces = "application/json")
-	@ApiOperation(value = "Get symbol's aggregated trades fil checksum (daily).")
+	@ApiOperation(value = "Get symbol's aggregated trades file checksum (daily).")
 	public ChecksumParams getAggTradesDailyChecksum(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
@@ -168,7 +168,7 @@ public class VisionController extends BaseController {
 	 * @throws IOException
 	 */
 	@GetMapping(path = "aggtrades/{symbol}/{year}/{month}.checksum", produces = "application/json")
-	@ApiOperation(value = "Get symbol's aggregated trades fil checksum (monthly).")
+	@ApiOperation(value = "Get symbol's aggregated trades file checksum (monthly).")
 	public ChecksumParams getAggTradesMonthlyChecksum(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
@@ -294,7 +294,7 @@ public class VisionController extends BaseController {
 	 * @throws IOException
 	 */
 	@GetMapping(path = "trades/{symbol}/{year}/{month}/{day}.checksum", produces = "application/json")
-	@ApiOperation(value = "Get symbol's trades (daily).")
+	@ApiOperation(value = "Get symbol's trades file checksum (daily).")
 	public ChecksumParams getTradesDailyChecksum(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
@@ -313,7 +313,7 @@ public class VisionController extends BaseController {
 	 * @throws IOException
 	 */
 	@GetMapping(path = "trades/{symbol}/{year}/{month}.checksum", produces = "application/json")
-	@ApiOperation(value = "Get symbol's trades (monthly).")
+	@ApiOperation(value = "Get symbol's trades file checksum (monthly).")
 	public ChecksumParams getTradesMonthlyChecksum(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
@@ -426,12 +426,12 @@ public class VisionController extends BaseController {
 	 * @param year     Year.
 	 * @param month    Month.
 	 * @param interval The candlestick interval.
-	 * @return Get symbol's klines in a csv format (daily).
+	 * @return Get symbol's klines file checksum (daily).
 	 * @throws ApiException
 	 * @throws IOException
 	 */
 	@GetMapping(path = "klines/{symbol}/{interval}/{year}/{month}.csv", produces = "application/octet-stream")
-	@ApiOperation(value = "Get symbol's klines (monthly).")
+	@ApiOperation(value = "Get symbol's klines file checksum (monthly).")
 	public ResponseEntity<byte[]> getKlinesMonthlyCsv(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.") String interval,
@@ -446,12 +446,12 @@ public class VisionController extends BaseController {
 	 * @param month    Month.
 	 * @param day      Day.
 	 * @param interval The candlestick interval.
-	 * @return Get symbol's klines in a csv format (daily).
+	 * @return Get symbol's klines file checksum (daily).
 	 * @throws ApiException
 	 * @throws IOException
 	 */
 	@GetMapping(path = "klines/{symbol}/{interval}/{year}/{month}/{day}.checksum", produces = "application/json")
-	@ApiOperation(value = "Get symbol's klines (daily).")
+	@ApiOperation(value = "Get symbol's klines file checksum (daily).")
 	public ChecksumParams getKlinesDailyChecksum(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
