@@ -129,9 +129,9 @@ public class MarketController extends BaseController {
 	@ApiOperation(value = "Get compressed, aggregate trades.")
 	public List<AggTrade> getAggTrades(@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "123456", value = "Trade id to fetch from.") Long fromId,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.market().getAggTrades(new AggTradeParams(symbol, fromId), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -145,9 +145,9 @@ public class MarketController extends BaseController {
 	@ApiOperation(value = "Get kline/candles for a symbol.")
 	public List<Candle> getKlines(@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the data.") String symbol,
 			@RequestParam(required = true) @ApiParam(example = "5m", value = "Candlestick interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.market().getKlines(new KlinesParams(symbol, interval), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 

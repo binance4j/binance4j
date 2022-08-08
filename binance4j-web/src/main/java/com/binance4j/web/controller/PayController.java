@@ -28,9 +28,9 @@ public class PayController extends BaseController {
 	 */
 	@GetMapping(path = "trades", produces = "application/json")
 	@ApiOperation(value = "Get pay trades.")
-	public TradeHistory getTrades(@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+	public TradeHistory getTrades(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.pay().getTrades(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 }

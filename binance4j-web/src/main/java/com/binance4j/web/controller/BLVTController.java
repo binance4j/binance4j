@@ -56,9 +56,9 @@ public class BLVTController extends BaseController {
 	@ApiOperation(value = "Get subscription record.")
 	public List<Subscription> getSubscriptions(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
 			@RequestParam(required = false) @ApiParam(example = "1234", value = "The subscription id") Long id,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.blvt().getSubscriptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -75,9 +75,9 @@ public class BLVTController extends BaseController {
 	@ApiOperation(value = "Get redemption record.")
 	public List<Redemption> getRedemptions(@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
 			@RequestParam(required = false) @ApiParam(example = "1234", value = "The subscription id") Long id,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.blvt().getRedemptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 

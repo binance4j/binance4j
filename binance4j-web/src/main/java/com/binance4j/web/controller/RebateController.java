@@ -29,11 +29,10 @@ public class RebateController extends BaseController {
 	 */
 	@GetMapping(path = "tax-query", produces = "application/json")
 	@ApiOperation(value = "Get the spot rebate history records.")
-	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
+	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 }

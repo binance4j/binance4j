@@ -36,9 +36,9 @@ public class LoanController extends BaseController {
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(@RequestParam(required = true) @ApiParam(example = "BNB", value = "Asset.") String asset,
 			@RequestParam(required = false) @ApiParam(example = "borrowIn", value = "Income type.") LoanIncomeType type,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "Start time in ms") Long startTime,
-			@RequestParam(required = false) @ApiParam(example = "1659824617000", value = "End time in ms") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
 		return connectors.loan().getLoansIncome(new LoanIncomeHistoryParams(asset, type), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 }
