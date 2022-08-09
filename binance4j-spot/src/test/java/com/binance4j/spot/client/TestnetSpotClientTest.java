@@ -158,8 +158,8 @@ public class TestnetSpotClientTest extends CustomTest {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
-	@Test
-	@Order(12)
+	// @Test OK works!
+	// @Order(12)
 	void testNewOCOAndGetOCO() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice, TimeInForce.GTC);
@@ -172,8 +172,8 @@ public class TestnetSpotClientTest extends CustomTest {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
-	@Test
-	@Order(14)
+	// @Test OK works!
+	// @Order(14)
 	void testCancelOpenOCO() throws ApiException {
 		client.getOpenOCO().sync().forEach(oo -> {
 			testNoNulls(oo);
