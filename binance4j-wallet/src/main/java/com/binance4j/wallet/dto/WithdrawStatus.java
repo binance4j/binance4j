@@ -30,4 +30,13 @@ public enum WithdrawStatus {
 	public String toString() {
 		return value;
 	}
+
+	static public WithdrawStatus fromValue(String value) {
+		for (WithdrawStatus e : WithdrawStatus.values()) {
+			if (e.toString().equals(value)) {
+				return e;
+			}
+		}
+		return null;
+	}
 }

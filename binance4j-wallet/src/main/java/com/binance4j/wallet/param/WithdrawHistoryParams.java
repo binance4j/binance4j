@@ -24,7 +24,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	 * @param status          Status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, String withdrawOrderId, WithdrawStatus status) {
-		this(coin, withdrawOrderId, status.toString());
+		this(coin, withdrawOrderId, status == null ? null : status.toString());
 	}
 
 	/**
@@ -43,7 +43,7 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	 * @param status Status to look for.
 	 */
 	public WithdrawHistoryParams(String coin, WithdrawStatus status) {
-		this(coin, null, status.toString());
+		this(coin, null, status == null ? null : status.toString());
 	}
 
 	/**
@@ -52,6 +52,6 @@ public record WithdrawHistoryParams(String coin, String withdrawOrderId, String 
 	 * @param status Status to look for.
 	 */
 	public WithdrawHistoryParams(WithdrawStatus status) {
-		this(null, null, status.toString());
+		this(null, null, status == null ? null : status.toString());
 	}
 }
