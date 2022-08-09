@@ -14,4 +14,11 @@ import com.binance4j.wallet.client.WalletClient;
  */
 @Param(weight = 10, type = RateLimitType.UID)
 public record DustTransferParams(List<String> assets) implements Params {
+
+	/**
+	 * @param assets Assets separated by a coma
+	 */
+	public DustTransferParams(String assets) {
+		this(List.of(assets.replaceAll(" ", "").split(",")));
+	}
 }
