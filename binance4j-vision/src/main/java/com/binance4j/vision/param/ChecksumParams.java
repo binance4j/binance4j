@@ -3,7 +3,7 @@ package com.binance4j.vision.param;
 import java.util.Scanner;
 
 import com.binance4j.core.Request;
-import com.binance4j.core.callback.ApiCallback;
+import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
 import com.binance4j.vision.dto.VisionChecksum;
@@ -57,19 +57,10 @@ public class ChecksumParams extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously
 	 *
-	 * @param callback Callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response
+	 *                 error.
 	 */
-	public void getChecksum(ApiCallback<VisionChecksum> callback) {
-		async(new ApiCallback<ResponseBody>() {
-			@Override
-			public void onFailure(ApiException exception) {
-				callback.onFailure(exception);
-			}
-
-			@Override
-			public void onResponse(ResponseBody res) {
-				callback.onResponse(resToChecksum(res));
-			}
-		});
+	public void getChecksum(ApiAsyncCallback<VisionChecksum> callback) {
+		async((res, e) -> callback.onResponse(resToChecksum(res), e));
 	}
 }
