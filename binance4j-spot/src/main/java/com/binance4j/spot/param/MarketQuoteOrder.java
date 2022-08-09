@@ -24,8 +24,8 @@ public class MarketQuoteOrder extends BaseOrder {
 	/**
 	 * Creates an instance of {@link MarketQuoteOrder} in a BUY side.
 	 *
-	 * @param symbol   Asset pair.
-	 * @param quantity Quantity.
+	 * @param symbol        Asset pair.
+	 * @param quoteOrderQty Quote order quantity.
 	 * @return An instance of {@link MarketOrder}.
 	 */
 	public static MarketQuoteOrder buy(String symbol, String quoteOrderQty) {
@@ -35,8 +35,8 @@ public class MarketQuoteOrder extends BaseOrder {
 	/**
 	 * Creates an instance of {@link MarketQuoteOrder} in a SELL side.
 	 *
-	 * @param symbol   Asset pair.
-	 * @param quantity Quantity.
+	 * @param symbol        Asset pair.
+	 * @param quoteOrderQty Quote order quantity.
 	 * @return An instance of {@link MarketOrder}.
 	 */
 	public static MarketQuoteOrder sell(String symbol, String quoteOrderQty) {
