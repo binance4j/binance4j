@@ -269,7 +269,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<AccountStatus> getAccountstatus() {
+	public Request<AccountStatus> getAccountStatus() {
 		return new Request<>(service.getAccountstatus(new AccountStatusParams().toMap()));
 	}
 
