@@ -21,5 +21,4 @@ import io.swagger.annotations.ApiModelProperty;
 public record OCOInfo(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Contingency type.") String contingencyType,
 		@ApiModelProperty("List status type.") String listStatusType, @ApiModelProperty("List order status.") String listOrderStatus,
 		@ApiModelProperty("List client order id.") String listClientOrderId, @ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
-		@ApiModelProperty("Orders symbol.") String symbol, @ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders) {
-}
+		@ApiModelProperty("Orders symbol.") String symbol, @ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders) {}

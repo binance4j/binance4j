@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +45,9 @@ import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WalletTransferParams;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
 import com.binance4j.wallet.param.WithdrawParams;
+import com.binance4j.web.annotation.BaseApiResponses;
+import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.MyPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -60,18 +62,21 @@ public class WalletController extends BaseController {
 	 * @return The system status.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "system-status", produces = "application/json")
+	@MyGetMapping(path = "system-status")
 	@ApiOperation(value = "Get the system status.")
+	@BaseApiResponses
 	public SystemStatus getSystemStatus() throws ApiException {
 		return connectors.wallet().getSystemStatus().sync();
 	}
 
 	/**
-	 * @return The information of coins (available for deposit and withdraw) for user.
+	 * @return The information of coins (available for deposit and withdraw) for
+	 *         user.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "coins", produces = "application/json")
+	@MyGetMapping(path = "coins")
 	@ApiOperation(value = "Get the information of coins (available for deposit and withdraw) for user .")
+	@BaseApiResponses
 	public List<CoinInformation> getAllCoinsInfo() throws ApiException {
 		return connectors.wallet().getAllCoinsInfo().sync();
 	}
@@ -80,11 +85,14 @@ public class WalletController extends BaseController {
 	 * @return The daily SPOT account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "spot-snapshot", produces = "application/json")
+	@MyGetMapping(path = "spot-snapshot")
 	@ApiOperation(value = "Get the daily SPOT account snapshots.")
-	public SpotAccountSnapshotResponse getSpotAccountSnapshot(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+	@BaseApiResponses
+	public SpotAccountSnapshotResponse getSpotAccountSnapshot(
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.wallet().getSpotAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -92,11 +100,14 @@ public class WalletController extends BaseController {
 	 * @return The daily MARGIN account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "margin-snapshot", produces = "application/json")
+	@MyGetMapping(path = "margin-snapshot")
 	@ApiOperation(value = "Get the daily MARGIN account snapshots.")
-	public MarginAccountSnapshotResponse getMarginAccountSnapshot(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+	@BaseApiResponses
+	public MarginAccountSnapshotResponse getMarginAccountSnapshot(
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.wallet().getMarginAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -104,11 +115,14 @@ public class WalletController extends BaseController {
 	 * @return The daily FUTURES account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "futures-snapshot", produces = "application/json")
+	@MyGetMapping(path = "futures-snapshot")
 	@ApiOperation(value = "Get the daily FUTURES account snapshots.")
-	public FuturesAccountSnapshotResponse getFuturesAccountSnapshot(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+	@BaseApiResponses
+	public FuturesAccountSnapshotResponse getFuturesAccountSnapshot(
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.wallet().getFuturesAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -117,8 +131,9 @@ public class WalletController extends BaseController {
 	 * 
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "enable-fast-withdraw-switch", produces = "application/json")
+	@MyGetMapping(path = "enable-fast-withdraw-switch")
 	@ApiOperation(value = "Enables fast withdraw switch under your account.")
+	@BaseApiResponses
 	public Void enableFastWithdrawSwitch() throws ApiException {
 		return connectors.wallet().enableFastWithdrawSwitch().sync();
 	}
@@ -128,8 +143,9 @@ public class WalletController extends BaseController {
 	 * 
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "disable-fast-withdraw-switch", produces = "application/json")
+	@MyGetMapping(path = "disable-fast-withdraw-switch")
 	@ApiOperation(value = "Disables fast withdraw switch under your account.")
+	@BaseApiResponses
 	public Void disableFastWithdrawSwitch() throws ApiException {
 		return connectors.wallet().disableFastWithdrawSwitch().sync();
 	}
@@ -143,11 +159,14 @@ public class WalletController extends BaseController {
 	 * @return The result of a withdraw.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "withdraw", produces = "application/json")
+	@MyPostMapping(path = "withdraw")
 	@ApiOperation(value = "Submits a withdraw request.")
-	public WithdrawResult withdraw(@RequestParam(required = true) @ApiParam(value = "Volume to withdraw.") String amount,
+	@BaseApiResponses
+	public WithdrawResult withdraw(
+			@RequestParam(required = true) @ApiParam(value = "Volume to withdraw.") String amount,
 			@RequestParam(required = true) @ApiParam(value = "Coin to withdraw.") String coin,
-			@RequestParam(required = true) @ApiParam(value = "Destination address.") String address) throws ApiException {
+			@RequestParam(required = true) @ApiParam(value = "Destination address.") String address)
+			throws ApiException {
 		return connectors.wallet().withdraw(new WithdrawParams(amount, coin, address)).sync();
 	}
 
@@ -155,15 +174,19 @@ public class WalletController extends BaseController {
 	 * @return Deposit history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "deposits", produces = "application/json")
+	@MyGetMapping(path = "deposits")
 	@ApiOperation(value = "Get the deposit history of one or multiple coins.")
-	public List<DepositHistory> getDepositHistory(@RequestParam(required = false) @ApiParam(value = "Deposited coin.") String coin,
+	@BaseApiResponses
+	public List<DepositHistory> getDepositHistory(
+			@RequestParam(required = false) @ApiParam(value = "Deposited coin.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Deposit status.") DepositStatus status,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
-		return connectors.wallet().getDepositHistory(new DepositHistoryParams(status, coin), new FramedPaging(startTime, endTime, page, limit)).sync();
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
+		return connectors.wallet().getDepositHistory(new DepositHistoryParams(status, coin),
+				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
 	/**
@@ -177,17 +200,22 @@ public class WalletController extends BaseController {
 	 * @return Withdraw history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "withdraws", produces = "application/json")
+	@MyGetMapping(path = "withdraws")
 	@ApiOperation(value = "Get the last withdraw history of all coins.")
-	public List<WithdrawHistory> getWithdrawHistory(@RequestParam(required = false) @ApiParam(value = "Withdrawn coin.") String coin,
+	@BaseApiResponses
+	public List<WithdrawHistory> getWithdrawHistory(
+			@RequestParam(required = false) @ApiParam(value = "Withdrawn coin.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Withdraw status.") WithdrawStatus status,
 			@RequestParam(required = false) @ApiParam(value = "Withdraw order id.") String withdrawOrderId,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.wallet()
-				.getWithdrawHistory(new WithdrawHistoryParams(coin, withdrawOrderId, status), new FramedPaging(startTime, endTime, page, limit)).sync();
+				.getWithdrawHistory(new WithdrawHistoryParams(coin, withdrawOrderId, status),
+						new FramedPaging(startTime, endTime, page, limit))
+				.sync();
 	}
 
 	/**
@@ -196,9 +224,13 @@ public class WalletController extends BaseController {
 	 * @return Deposit address.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "deposit-address", produces = "application/json", params = { "coin" })
+	@GetMapping(path = "deposit-address", produces = "application/json", params = {
+			"coin"
+	})
 	@ApiOperation(value = "Get deposit address.")
-	public DepositAddress getDepositAddress(@RequestParam(required = true) @ApiParam(value = "Coin abbreviation.") String coin,
+	@BaseApiResponses
+	public DepositAddress getDepositAddress(
+			@RequestParam(required = true) @ApiParam(value = "Coin abbreviation.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Transfer network.") String network) throws ApiException {
 		return connectors.wallet().getDepositAddress(new DepositAddressParams(coin, network)).sync();
 	}
@@ -207,8 +239,9 @@ public class WalletController extends BaseController {
 	 * @return Account status.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "account-status", produces = "application/json")
+	@MyGetMapping(path = "account-status")
 	@ApiOperation(value = "Get account status.")
+	@BaseApiResponses
 	public AccountStatus getAccountStatus() throws ApiException {
 		return connectors.wallet().getAccountStatus().sync();
 	}
@@ -217,8 +250,9 @@ public class WalletController extends BaseController {
 	 * @return The account api trading status detail.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "trading-status", produces = "application/json")
+	@MyGetMapping(path = "trading-status")
 	@ApiOperation(value = "Get the account api trading status detail.")
+	@BaseApiResponses
 	public ApiTradingStatus getApiTradingStatus() throws ApiException {
 		return connectors.wallet().getApiTradingStatus().sync();
 	}
@@ -229,8 +263,9 @@ public class WalletController extends BaseController {
 	 * @return The the dust transfer logs.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "dust-log", produces = "application/json")
+	@MyGetMapping(path = "dust-log")
 	@ApiOperation(value = "Get the dust transfer logs.")
+	@BaseApiResponses
 	public DustLog getDustLog(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime) throws ApiException {
 		return connectors.wallet().getDustLog(new TimeFrame(startTime, endTime)).sync();
@@ -243,10 +278,12 @@ public class WalletController extends BaseController {
 	 * @return The dust transfer response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "dust-transfer", produces = "application/json")
+	@MyPostMapping(path = "dust-transfer")
 	@ApiOperation(value = "Convert dust assets to BNB.")
+	@BaseApiResponses
 	public DustTransferResponse dustTransfer(
-			@RequestParam(required = true) @ApiParam(example = "BTC, BNB, CAKE", value = "Symbols separated by a coma.") String symbols) throws ApiException {
+			@RequestParam(required = true) @ApiParam(example = "BTC, BNB, CAKE", value = "Symbols separated by a coma.") String symbols)
+			throws ApiException {
 		return connectors.wallet().dustTransfer(new DustTransferParams(symbols)).sync();
 	}
 
@@ -258,13 +295,18 @@ public class WalletController extends BaseController {
 	 * @return The dividend record of one or multiple assets.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "asset-dividends", produces = "application/json")
+	@MyGetMapping(path = "asset-dividends")
 	@ApiOperation(value = "Get the dividend record of one or multiple assets.")
-	public AssetDividendRecord getAssetDividendRecord(@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
+	@BaseApiResponses
+	public AssetDividendRecord getAssetDividendRecord(
+			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
-		return connectors.wallet().getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(startTime, endTime, limit)).sync();
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
+		return connectors.wallet()
+				.getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(startTime, endTime, limit))
+				.sync();
 	}
 
 	/**
@@ -272,9 +314,11 @@ public class WalletController extends BaseController {
 	 * @return The details of one or all assets supported on Binance.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "asset-details", produces = "application/json")
+	@MyGetMapping(path = "asset-details")
 	@ApiOperation(value = "Get the details of one or all assets supported on Binance.")
-	public Map<String, AssetDetail> getAssetDetail(@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset)
+	@BaseApiResponses
+	public Map<String, AssetDetail> getAssetDetail(
+			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset)
 			throws ApiException {
 		return connectors.wallet().getAssetDetail(new AssetDetailParams(asset)).sync();
 	}
@@ -284,9 +328,12 @@ public class WalletController extends BaseController {
 	 * @return Trade fees of one or all symbols
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "trade-fee", produces = "application/json")
+	@MyGetMapping(path = "trade-fee")
 	@ApiOperation(value = "Get trade fees of one or all symbols.")
-	public List<TradeFee> getTradeFee(@RequestParam(required = false) @ApiParam(example = "BTCUSDT", value = "Symbol.") String symbol) throws ApiException {
+	@BaseApiResponses
+	public List<TradeFee> getTradeFee(
+			@RequestParam(required = false) @ApiParam(example = "BTCUSDT", value = "Symbol.") String symbol)
+			throws ApiException {
 		return connectors.wallet().getTradeFee(new TradeFeeParams(symbol)).sync();
 	}
 
@@ -296,14 +343,18 @@ public class WalletController extends BaseController {
 	 * @param asset      Asset.
 	 * @param type       Transfer type.
 	 * @param amount     Volume.
-	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
-	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
 	 * @return The user universal transfer response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "universal-transfer", produces = "application/json")
+	@MyPostMapping(path = "universal-transfer")
 	@ApiOperation(value = "Make a universal transfer.")
-	public WalletTransferResponse transfer(@RequestParam(required = true) @ApiParam(example = "BTC", value = "Asset.") String asset,
+	@BaseApiResponses
+	public WalletTransferResponse transfer(
+			@RequestParam(required = true) @ApiParam(example = "BTC", value = "Asset.") String asset,
 			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
 			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount,
 			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
@@ -314,8 +365,10 @@ public class WalletController extends BaseController {
 
 	/**
 	 * @param type       Transfer type.
-	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
-	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
 	 * @param startTime  Start time in ms.
 	 * @param endTime    End time in ms.
 	 * @param page       Results page.
@@ -323,17 +376,22 @@ public class WalletController extends BaseController {
 	 * @return The user universal transfer history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "universal-transfers", produces = "application/json")
+	@MyGetMapping(path = "universal-transfers")
 	@ApiOperation(value = "Get the user universal transfer history.")
-	public WalletTransferHistory getTransferHistory(@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
+	@BaseApiResponses
+	public WalletTransferHistory getTransferHistory(
+			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
 			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
 			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String toSymbol,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.wallet()
-				.getTransferHistory(new WalletTransferHistoryParams(type, fromSymbol, toSymbol), new FramedPaging(startTime, endTime, page, limit)).sync();
+				.getTransferHistory(new WalletTransferHistoryParams(type, fromSymbol, toSymbol),
+						new FramedPaging(startTime, endTime, page, limit))
+				.sync();
 	}
 
 	/**
@@ -342,10 +400,13 @@ public class WalletController extends BaseController {
 	 * @return the funding wallet asset balance.
 	 * @throws ApiException
 	 */
-	@GetMapping(path = "funding-wallet", produces = "application/json")
+	@MyGetMapping(path = "funding-wallet")
 	@ApiOperation(value = "Get the funding wallet asset balance.")
-	public List<FundingAsset> getFundingWallet(@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(example = "true", value = "BTC value of the asset.") Boolean needBtcValuation) throws ApiException {
+	@BaseApiResponses
+	public List<FundingAsset> getFundingWallet(
+			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(example = "true", value = "BTC value of the asset.") Boolean needBtcValuation)
+			throws ApiException {
 		return connectors.wallet().getFundingWallet(new FundingWalletParams(asset, needBtcValuation)).sync();
 	}
 
@@ -353,8 +414,9 @@ public class WalletController extends BaseController {
 	 * @return the API Key Permission.
 	 * @throws ApiException
 	 */
-	@GetMapping(path = "api-permissions", produces = "application/json")
+	@MyGetMapping(path = "api-permissions")
 	@ApiOperation(value = "Get the API Key Permission.")
+	@BaseApiResponses
 	public ApiPermissions getApiPermissions() throws ApiException {
 		return connectors.wallet().getApiPermissions().sync();
 	}

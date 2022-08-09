@@ -14,6 +14,8 @@ import com.binance4j.nft.dto.OrderType;
 import com.binance4j.nft.dto.TransactionHistory;
 import com.binance4j.nft.dto.WithdrawHistory;
 import com.binance4j.nft.param.TransactionHistoryParams;
+import com.binance4j.web.annotation.BaseApiResponses;
+import com.binance4j.web.annotation.MyGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,14 +36,20 @@ public class NFTController extends BaseController {
 	 * @return NFT Transaction History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "transactions", produces = "application/json", params = { "orderType" })
+	@GetMapping(path = "transactions", produces = "application/json", params = {
+			"orderType"
+	})
 	@ApiOperation(value = "Get NFT Transaction History.")
-	public TransactionHistory getTransactions(@RequestParam(required = true) @ApiParam(example = "PURCHASE_ORDER", value = "Order type.") OrderType orderType,
+	@BaseApiResponses
+	public TransactionHistory getTransactions(
+			@RequestParam(required = true) @ApiParam(example = "PURCHASE_ORDER", value = "Order type.") OrderType orderType,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
-		return connectors.nft().getTransactions(new TransactionHistoryParams(orderType), new FramedPaging(startTime, endTime, page, limit)).sync();
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
+		return connectors.nft().getTransactions(new TransactionHistoryParams(orderType),
+				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
 	/**
@@ -52,12 +60,15 @@ public class NFTController extends BaseController {
 	 * @return NFT deposit History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "deposits", produces = "application/json")
+	@MyGetMapping(path = "deposits")
 	@ApiOperation(value = "Get NFT deposit History.")
-	public DepositHistory getDeposits(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+	@BaseApiResponses
+	public DepositHistory getDeposits(
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.nft().getDeposits(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -69,12 +80,15 @@ public class NFTController extends BaseController {
 	 * @return NFT withdraw History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "withdraws", produces = "application/json")
+	@MyGetMapping(path = "withdraws")
 	@ApiOperation(value = "Get NFT withdraw History.")
-	public WithdrawHistory getWithdraws(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
+	@BaseApiResponses
+	public WithdrawHistory getWithdraws(
+			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.nft().getWithdraws(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -84,10 +98,13 @@ public class NFTController extends BaseController {
 	 * @return NFT assets.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "assets", produces = "application/json")
+	@MyGetMapping(path = "assets")
 	@ApiOperation(value = "Get NFT assets.")
-	public AssetHistory getAssets(@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit) throws ApiException {
+	@BaseApiResponses
+	public AssetHistory getAssets(
+			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
+			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			throws ApiException {
 		return connectors.nft().getAssets(new Paging(page, limit)).sync();
 	}
 }
