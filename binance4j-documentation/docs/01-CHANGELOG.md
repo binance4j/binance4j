@@ -4,6 +4,12 @@ id: changelog
 ---
 
 All notable changes to this project will be documented in this file.
+## [2.1.1] - 2022-08-09
+
+### Fixed
+
+- binance4j-vision:
+  - corrected async calls as defined in 2.1.0
 
 ## [2.1.0] - 2022-08-09
 
