@@ -10,15 +10,14 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - binance4j-core:
- - Fixed `params.ToMap()` issue.
+  - Fixed `params.ToMap()` issue.
 
 ### Changed
 
 - binance4j-mining:
- - Changed TimeFrame for Paging in `getHashrateResales` && `getHashrateResalesDetails`
+  - Changed TimeFrame for Paging in `getHashrateResales` && `getHashrateResalesDetails`
 - binance4j-connectors:
- - `portfoliomarginClient()` becomes`portfolioMarginClient()`
-
+  - `portfoliomarginClient()` becomes`portfolioMarginClient()`
 
 ## [2.0.5] - 2022-08-07
 
