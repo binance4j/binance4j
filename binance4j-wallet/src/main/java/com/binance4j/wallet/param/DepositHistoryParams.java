@@ -20,7 +20,7 @@ public record DepositHistoryParams(String coin, String status) implements Params
 	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
 	 */
 	public DepositHistoryParams(DepositStatus status, String coin) {
-		this(coin, status.toString());
+		this(coin, status == null ? null : status.toString());
 	}
 
 	/**
@@ -45,6 +45,6 @@ public record DepositHistoryParams(String coin, String status) implements Params
 	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
 	 */
 	public DepositHistoryParams(DepositStatus status) {
-		this("", status.toString());
+		this("", status == null ? null : status.toString());
 	}
 }
