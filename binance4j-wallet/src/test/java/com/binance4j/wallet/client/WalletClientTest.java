@@ -51,7 +51,7 @@ public class WalletClientTest extends CustomTest {
 
 	@Test
 	void testGetAccountstatus() throws ApiException {
-		testNotThrow(client.getAccountstatus());
+		testNotThrow(client.getAccountStatus());
 	}
 
 	@Test
