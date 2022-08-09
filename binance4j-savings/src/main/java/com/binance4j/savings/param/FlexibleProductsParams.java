@@ -13,7 +13,24 @@ import com.binance4j.savings.dto.FlexibleProductStatus;
  * @param featured Featured.
  */
 @Param
-public record FlexibleProductsParams(FlexibleProductStatus status, Featured featured) implements Params {
+public record FlexibleProductsParams(String status, String featured) implements Params {
+
+	/**
+	 * Creates an instance of {@link FlexibleProductsParams}.
+	 */
+	public FlexibleProductsParams() {
+		this((String) null, (String) null);
+	}
+
+	/**
+	 * Creates an instance of {@link FlexibleProductsParams}.
+	 * 
+	 * @param status   Product status.
+	 * @param featured Featured.
+	 */
+	public FlexibleProductsParams(FlexibleProductStatus status, Featured featured) {
+		this(status == null ? null : status.toString(), featured == null ? null : featured.toString());
+	}
 
 	/**
 	 * Creates an instance of {@link FlexibleProductsParams}.
