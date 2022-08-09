@@ -36,61 +36,99 @@ public abstract class BaseOrder implements Params {
 	/**
 	 * @return the symbol
 	 */
-	public String symbol() {
+	public String getSymbol() {
 		return symbol;
-	}
-
-	/**
-	 * @return the side
-	 */
-	public OrderSide side() {
-		return side;
-	}
-
-	/**
-	 * @return the type
-	 */
-	public OrderType type() {
-		return type;
 	}
 
 	/**
 	 * @param symbol the symbol to set
 	 */
-	public BaseOrder symbol(String symbol) {
+	public void setSymbol(String symbol) {
 		this.symbol = symbol;
-		return this;
+	}
+
+	/**
+	 * @return the side
+	 */
+	public OrderSide getSide() {
+		return side;
 	}
 
 	/**
 	 * @param side the side to set
 	 */
-	public BaseOrder side(OrderSide side) {
+	public void setSide(OrderSide side) {
 		this.side = side;
-		return this;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public OrderType getType() {
+		return type;
 	}
 
 	/**
 	 * @param type the type to set
 	 */
-	public BaseOrder type(OrderType type) {
+	public void setType(OrderType type) {
 		this.type = type;
-		return this;
 	}
 
 	/**
 	 * @return the newClientOrderId
 	 */
-	public String newClientOrderId() {
+	public String getNewClientOrderId() {
 		return newClientOrderId;
 	}
 
 	/**
 	 * @param newClientOrderId the newClientOrderId to set
 	 */
-	public BaseOrder newClientOrderId(String newClientOrderId) {
+	public void setNewClientOrderId(String newClientOrderId) {
 		this.newClientOrderId = newClientOrderId;
-		return this;
+	}
+
+	/**
+	 * @return the strategyId
+	 */
+	public Integer getStrategyId() {
+		return strategyId;
+	}
+
+	/**
+	 * @param strategyId the strategyId to set
+	 */
+	public void setStrategyId(Integer strategyId) {
+		this.strategyId = strategyId;
+	}
+
+	/**
+	 * @return the strategyType
+	 */
+	public Integer getStrategyType() {
+		return strategyType;
+	}
+
+	/**
+	 * @param strategyType the strategyType to set
+	 */
+	public void setStrategyType(Integer strategyType) {
+		this.strategyType = strategyType;
+	}
+
+	/**
+	 * @return the newOrderResponseType
+	 */
+	public NewOrderResponseType getNewOrderResponseType() {
+		return NewOrderResponseType;
+	}
+
+	/**
+	 * @param newOrderResponseType the newOrderResponseType to set
+	 */
+	public void setNewOrderResponseType(NewOrderResponseType newOrderResponseType) {
+		NewOrderResponseType = newOrderResponseType;
 	}
 
 	@Override
