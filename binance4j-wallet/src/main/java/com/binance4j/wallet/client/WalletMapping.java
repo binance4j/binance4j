@@ -175,7 +175,7 @@ public interface WalletMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "dust")
-	Call<DustTransferResponse> dustTransfert(@QueryMap Map<String, Object> map);
+	Call<DustTransferResponse> dustTransfer(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.

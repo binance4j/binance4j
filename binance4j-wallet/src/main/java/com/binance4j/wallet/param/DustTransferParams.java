@@ -8,7 +8,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.wallet.client.WalletClient;
 
 /**
- * {@link WalletClient#dustTransfert} params.
+ * {@link WalletClient#dustTransfer} params.
  * 
  * @param assets List of assets to convert into BNB.
  */

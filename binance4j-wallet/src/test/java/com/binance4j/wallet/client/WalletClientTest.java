@@ -45,8 +45,8 @@ public class WalletClientTest extends CustomTest {
 	}
 
 	// TODO @Test
-	void testDustTransfert() throws ApiException {
-		testNotThrow(client.dustTransfert(new DustTransferParams(assets)));
+	void testdustTransfer() throws ApiException {
+		testNotThrow(client.dustTransfer(new DustTransferParams(assets)));
 	}
 
 	@Test

@@ -327,8 +327,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<DustTransferResponse> dustTransfert(DustTransferParams params) {
-		return new Request<>(service.dustTransfert(params.toMap()));
+	public Request<DustTransferResponse> dustTransfer(DustTransferParams params) {
+		return new Request<>(service.dustTransfer(params.toMap()));
 	}
 
 	/**
