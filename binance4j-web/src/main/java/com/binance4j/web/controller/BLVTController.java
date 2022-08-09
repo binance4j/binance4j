@@ -19,8 +19,8 @@ import com.binance4j.blvt.param.TokenInfoParams;
 import com.binance4j.blvt.param.TransactionRecordParams;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
-import com.binance4j.web.annotation.MyGetMapping;
-import com.binance4j.web.annotation.MyPostMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,7 +36,7 @@ public class BLVTController extends BaseController {
 	 * @return BLVT Info.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "token-info")
+	@JsonGetMapping(path = "token-info")
 	@ApiOperation(value = "Get info about one or multiple BLVT tokens")
 	public List<Token> getTokenInfo(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
@@ -53,7 +53,7 @@ public class BLVTController extends BaseController {
 	 * @return Subscription record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "subscriptions")
+	@JsonGetMapping(path = "subscriptions")
 	@ApiOperation(value = "Get subscription record.")
 	public List<Subscription> getSubscriptions(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -76,7 +76,7 @@ public class BLVTController extends BaseController {
 	 * @return Redemption record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "redemptions")
+	@JsonGetMapping(path = "redemptions")
 	@ApiOperation(value = "Get redemption record.")
 	public List<Redemption> getRedemptions(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -95,7 +95,7 @@ public class BLVTController extends BaseController {
 	 * @return User limit info.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "limit-info")
+	@JsonGetMapping(path = "limit-info")
 	@ApiOperation(value = "Get user limit info.")
 	public List<LimitInfo> getLimitInfo(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
@@ -111,7 +111,7 @@ public class BLVTController extends BaseController {
 	 * @return BLVT redemption response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "redeem")
+	@JsonPostMapping(path = "redeem")
 	@ApiOperation(value = "Redeem BLVT.")
 	public RedemptionResponse redeem(
 			@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
@@ -126,7 +126,7 @@ public class BLVTController extends BaseController {
 	 * @return BVLT subscription response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "subscribe")
+	@JsonPostMapping(path = "subscribe")
 	@ApiOperation(value = "Subscribe to BLVT.")
 	public SubscriptionResponse subscribe(
 			@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,

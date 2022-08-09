@@ -2,7 +2,6 @@ package com.binance4j.web.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +28,7 @@ import com.binance4j.market.param.OrderBookParams;
 import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,7 +44,7 @@ public class MarketController extends BaseController {
 	 * @return Test connectivity.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "ping")
+	@JsonGetMapping(path = "ping")
 	@ApiOperation(value = "Test connectivity.")
 	public Void ping() throws ApiException {
 		return connectors.market().ping().sync();
@@ -55,7 +54,7 @@ public class MarketController extends BaseController {
 	 * @return Server time.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "server-time")
+	@JsonGetMapping(path = "server-time")
 	@ApiOperation(value = "Get server time.")
 	public ServerTimeResponse getServerTime() throws ApiException {
 		return connectors.market().getServerTime().sync();
@@ -65,7 +64,7 @@ public class MarketController extends BaseController {
 	 * @return Current exchange trading rules and one or many symbols informations.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "exchange-info")
+	@JsonGetMapping(path = "exchange-info")
 	@ApiOperation(value = "Get current exchange trading rules and one or many symbols informations.")
 	public ExchangeInfo getExchangeInfo(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols separated by a coma.") String symbols)
@@ -79,7 +78,7 @@ public class MarketController extends BaseController {
 	 * @return The symbol order book.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "order-book", produces = "application/json", params = { "symbol" })
+	@JsonGetMapping(path = "order-book", params = { "symbol" })
 	@ApiOperation(value = "Get the symbol order book.")
 	public OrderBook getOrderBook(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the depth.") String symbol,
@@ -94,7 +93,7 @@ public class MarketController extends BaseController {
 	 * @return Recent trades.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "trades", produces = "application/json", params = { "symbol" })
+	@JsonGetMapping(path = "trades", params = { "symbol" })
 	@ApiOperation(value = "Get recent trades.")
 	public List<Trade> getTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
@@ -110,7 +109,7 @@ public class MarketController extends BaseController {
 	 * @return Old trades.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "historical-trades", produces = "application/json", params = { "symbol" })
+	@JsonGetMapping(path = "historical-trades", params = { "symbol" })
 	@ApiOperation(value = "Get old trades.")
 	public List<Trade> getHistoricalTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
@@ -129,7 +128,7 @@ public class MarketController extends BaseController {
 	 * @return Compressed, aggregate trades.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "aggtrades", produces = "application/json", params = { "symbol" })
+	@JsonGetMapping(path = "aggtrades", params = { "symbol" })
 	@ApiOperation(value = "Get compressed, aggregate trades.")
 	public List<AggTrade> getAggTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
@@ -148,7 +147,7 @@ public class MarketController extends BaseController {
 	 * @return Kline/candles for a symbol.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "klines", produces = "application/json", params = { "symbol", "interval" })
+	@JsonGetMapping(path = "klines", params = { "symbol", "interval" })
 	@ApiOperation(value = "Get kline/candles for a symbol.")
 	public List<Candle> getKlines(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the data.") String symbol,
@@ -166,7 +165,7 @@ public class MarketController extends BaseController {
 	 * @return Current average price for a symbol.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "average-price", produces = "application/json", params = { "symbol" })
+	@JsonGetMapping(path = "average-price", params = { "symbol" })
 	@ApiOperation(value = "Get current average price for a symbol.")
 	public AveragePrice getAveragePrice(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the price.") String symbol)
@@ -179,7 +178,7 @@ public class MarketController extends BaseController {
 	 * @return 24 hour rolling window price change statistics of all symbols.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "24hr-statistics")
+	@JsonGetMapping(path = "24hr-statistics")
 	@ApiOperation(value = "Get 24 hour rolling window price change statistics of all symbols.")
 	public List<TickerStatistics> get24hTickerStatistics(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols we want the statistics.") String symbols)
@@ -192,7 +191,7 @@ public class MarketController extends BaseController {
 	 * @return Latest price for a symbol or symbols.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "price-ticker")
+	@JsonGetMapping(path = "price-ticker")
 	@ApiOperation(value = "Get Latest price for a symbol or symbols.")
 	public List<PriceTicker> getTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)
@@ -205,7 +204,7 @@ public class MarketController extends BaseController {
 	 * @return best price && quantity on the order book for the given symbols.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "order-book-ticker")
+	@JsonGetMapping(path = "order-book-ticker")
 	@ApiOperation(value = "Get best price && quantity on the order book for the given symbols.")
 	public List<BookTicker> getBookTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)

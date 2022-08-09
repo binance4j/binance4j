@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.convert.dto.ConversionHistory;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class ConvertController extends BaseController {
 	 * @return Assets conversion history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "conversions")
+	@JsonGetMapping(path = "conversions")
 	@ApiOperation(value = "Get conversions.")
 	public ConversionHistory getConversions(
 			@RequestParam(required = true) @ApiParam(value = "Start time in ms.") Long startTime,

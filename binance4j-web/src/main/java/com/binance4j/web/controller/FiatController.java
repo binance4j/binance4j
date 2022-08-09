@@ -12,7 +12,7 @@ import com.binance4j.fiat.dto.TransactionHistory;
 import com.binance4j.fiat.dto.TransactionType;
 import com.binance4j.fiat.param.PaymentParams;
 import com.binance4j.fiat.param.TransactionParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +33,7 @@ public class FiatController extends BaseController {
 	 * @return Fiat payments.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "payments")
+	@JsonGetMapping(path = "payments")
 	@ApiOperation(value = "Get payments.")
 	public PaymentHistory getPayments(
 			@RequestParam(required = true) @ApiParam(example = "BUY", value = "Payment type.") PaymentType transactionType,
@@ -56,7 +56,7 @@ public class FiatController extends BaseController {
 	 * @return Fiat transactions.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "transactions")
+	@JsonGetMapping(path = "transactions")
 	@ApiOperation(value = "Get transactions.")
 	public TransactionHistory getTransactions(
 			@RequestParam(required = true) @ApiParam(example = "BUY", value = "Payment type.") TransactionType transactionType,

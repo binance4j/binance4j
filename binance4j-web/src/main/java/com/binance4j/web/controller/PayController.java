@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.pay.dto.TradeHistory;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +26,7 @@ public class PayController extends BaseController {
 	 * @return Pay trades.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "trades")
+	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get pay trades.")
 	public TradeHistory getTrades(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,

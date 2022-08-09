@@ -2,7 +2,6 @@ package com.binance4j.web.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +42,7 @@ import com.binance4j.savings.param.LendingParams;
 import com.binance4j.savings.param.PurchaseQuotaParams;
 import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -63,7 +62,7 @@ public class SavingsController extends BaseController {
 	 * @return Flexible product list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "flexible-products")
+	@JsonGetMapping(path = "flexible-products")
 	@ApiOperation(value = "Get flexible product list.")
 	public List<FlexibleProduct> getFlexibleProducts(
 			@RequestParam(required = false) @ApiParam(value = "Product status.") FlexibleProductStatus status,
@@ -81,7 +80,7 @@ public class SavingsController extends BaseController {
 	 * @return Left daily purchase quota of flexible product.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "left-purchase-quota", produces = "application/json", params = {
+	@JsonGetMapping(path = "left-purchase-quota", params = {
 			"productId"
 	})
 	@ApiOperation(value = "Get left daily purchase quota of flexible product.")
@@ -96,7 +95,7 @@ public class SavingsController extends BaseController {
 	 * @return Left daily redemption quota of flexible product.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "left-redemption-quota", produces = "application/json", params = {
+	@JsonGetMapping(path = "left-redemption-quota", params = {
 			"productId", "productType"
 	})
 	@ApiOperation(value = "Get left daily redemption quota of flexible product.")
@@ -149,7 +148,7 @@ public class SavingsController extends BaseController {
 	 * @return Flexible product position.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "flexible-position")
+	@JsonGetMapping(path = "flexible-position")
 	@ApiOperation(value = "Get flexible product position.")
 	public List<FlexibleProductPosition> getFlexibleProductPosition(
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset)
@@ -168,7 +167,7 @@ public class SavingsController extends BaseController {
 	 * @return Tixed and activity project list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "fixed-projects")
+	@JsonGetMapping(path = "fixed-projects")
 	@ApiOperation(value = "Get fixed and activity project list.")
 	public List<FixedProject> getFixedProjects(
 			@RequestParam(required = true) @ApiParam(value = "Project type.") FixedProjectType type,
@@ -210,7 +209,7 @@ public class SavingsController extends BaseController {
 	 * @return Flexible product position.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "fixed-position")
+	@JsonGetMapping(path = "fixed-position")
 	@ApiOperation(value = "Get fixed projet position.")
 	public List<FixedProjectPosition> getFixedProjectPosition(
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset,
@@ -225,7 +224,7 @@ public class SavingsController extends BaseController {
 	 * @return Lending account.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "account")
+	@JsonGetMapping(path = "account")
 	@ApiOperation(value = "Get lending account.")
 	public LendingAccount getAccount() throws ApiException {
 		return connectors.savings().getAccount().sync();
@@ -241,7 +240,7 @@ public class SavingsController extends BaseController {
 	 * @return Purchase record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "purchases", produces = "application/json", params = {
+	@JsonGetMapping(path = "purchases", params = {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get purchase record.")
@@ -268,7 +267,7 @@ public class SavingsController extends BaseController {
 	 * @return Redemption record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "redemptions", produces = "application/json", params = {
+	@JsonGetMapping(path = "redemptions", params = {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get redemption record.")
@@ -294,7 +293,7 @@ public class SavingsController extends BaseController {
 	 * @return Interest record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "interests", produces = "application/json", params = {
+	@JsonGetMapping(path = "interests", params = {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get interest record.")

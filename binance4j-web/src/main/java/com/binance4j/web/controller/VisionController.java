@@ -22,7 +22,7 @@ import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.vision.dto.VisionTrade;
 import com.binance4j.vision.param.ChecksumParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,7 +44,7 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's aggregated trades (daily).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "aggtrades/{symbol}/{year}/{month}/{day}.json")
+	@JsonGetMapping(path = "aggtrades/{symbol}/{year}/{month}/{day}.json")
 	@ApiOperation(value = "Get symbol's aggregated trades (daily).")
 
 	public List<AggTrade> getAggTradesDailyJson(
@@ -63,9 +63,8 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's aggregated trades (monthly).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "aggtrades/{symbol}/{year}/{month}.json")
+	@JsonGetMapping(path = "aggtrades/{symbol}/{year}/{month}.json")
 	@ApiOperation(value = "Get symbol's aggregated trades (monthly).")
-
 	public List<AggTrade> getAggTradesMonthlyJson(
 			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
@@ -163,7 +162,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "aggtrades/{symbol}/{year}/{month}/{day}.checksum")
+	@JsonGetMapping(path = "aggtrades/{symbol}/{year}/{month}/{day}.checksum")
 	@ApiOperation(value = "Get symbol's aggregated trades file checksum (daily).")
 
 	public ChecksumParams getAggTradesDailyChecksum(
@@ -183,7 +182,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "aggtrades/{symbol}/{year}/{month}.checksum")
+	@JsonGetMapping(path = "aggtrades/{symbol}/{year}/{month}.checksum")
 	@ApiOperation(value = "Get symbol's aggregated trades file checksum (monthly).")
 
 	public ChecksumParams getAggTradesMonthlyChecksum(
@@ -204,7 +203,7 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's trades (daily).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "trades/{symbol}/{year}/{month}/{day}.json")
+	@JsonGetMapping(path = "trades/{symbol}/{year}/{month}/{day}.json")
 
 	@ApiOperation(value = "Get symbol's trades (daily).")
 	public List<VisionTrade> getTradesDailyJson(
@@ -223,7 +222,7 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's trades (monthly).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "trades/{symbol}/{year}/{month}.json")
+	@JsonGetMapping(path = "trades/{symbol}/{year}/{month}.json")
 	@ApiOperation(value = "Get symbol's trades (monthly).")
 
 	public List<VisionTrade> getTradesMonthlyJson(
@@ -324,7 +323,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "trades/{symbol}/{year}/{month}/{day}.checksum")
+	@JsonGetMapping(path = "trades/{symbol}/{year}/{month}/{day}.checksum")
 	@ApiOperation(value = "Get symbol's trades file checksum (daily).")
 
 	public ChecksumParams getTradesDailyChecksum(
@@ -345,7 +344,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "trades/{symbol}/{year}/{month}.checksum")
+	@JsonGetMapping(path = "trades/{symbol}/{year}/{month}.checksum")
 	@ApiOperation(value = "Get symbol's trades file checksum (monthly).")
 
 	public ChecksumParams getTradesMonthlyChecksum(
@@ -367,7 +366,7 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's klines (daily).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}/{day}.json")
+	@JsonGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}/{day}.json")
 	@ApiOperation(value = "Get symbol's klines (daily).")
 
 	public List<Candle> getKlinesDailyJson(
@@ -389,7 +388,7 @@ public class VisionController extends BaseController {
 	 * @return Get symbol's klines (monthly).
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}.json")
+	@JsonGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}.json")
 	@ApiOperation(value = "Get symbol's klines (monthly).")
 
 	public List<Candle> getKlinesMonthlyJson(
@@ -504,7 +503,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}/{day}.checksum")
+	@JsonGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}/{day}.checksum")
 	@ApiOperation(value = "Get symbol's klines file checksum (daily).")
 
 	public ChecksumParams getKlinesDailyChecksum(
@@ -527,7 +526,7 @@ public class VisionController extends BaseController {
 	 * @throws ApiException
 	 * @throws IOException
 	 */
-	@MyGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}.checksum")
+	@JsonGetMapping(path = "klines/{symbol}/{interval}/{year}/{month}.checksum")
 	@ApiOperation(value = "Get symbol's klines (monthly).")
 
 	public ChecksumParams getKlinesMonthlyChecksum(

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ public class RebateController extends BaseController {
 	 * @return The spot rebate history records.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "tax-query")
+	@JsonGetMapping(path = "tax-query")
 	@ApiOperation(value = "Get the spot rebate history records.")
 	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,

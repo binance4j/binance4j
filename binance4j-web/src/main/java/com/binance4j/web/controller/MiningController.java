@@ -1,6 +1,5 @@
 package com.binance4j.web.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,8 +30,8 @@ import com.binance4j.mining.param.MinerDetailsParams;
 import com.binance4j.mining.param.MinersParams;
 import com.binance4j.mining.param.ProfitsParams;
 import com.binance4j.mining.param.StatisticsParams;
-import com.binance4j.web.annotation.MyGetMapping;
-import com.binance4j.web.annotation.MyPostMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,7 +49,7 @@ public class MiningController extends BaseController {
 	 * @return Account list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "accounts", produces = "application/json", params = {
+	@JsonGetMapping(path = "accounts", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get Account list.")
@@ -65,7 +64,7 @@ public class MiningController extends BaseController {
 	 * @return algorithms.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "algorithms")
+	@JsonGetMapping(path = "algorithms")
 	@ApiOperation(value = "Get algorithms.")
 	public AlgorithmsResponse getAlgorithms() throws ApiException {
 		return connectors.mining().getAlgorithms().sync();
@@ -75,7 +74,7 @@ public class MiningController extends BaseController {
 	 * @return Coins.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "coins")
+	@JsonGetMapping(path = "coins")
 	@ApiOperation(value = "Get coins.")
 	public CoinsResponse getCoins() throws ApiException {
 		return connectors.mining().getCoins().sync();
@@ -87,7 +86,7 @@ public class MiningController extends BaseController {
 	 * @return Statistic list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "statistics", produces = "application/json", params = {
+	@JsonGetMapping(path = "statistics", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get Statistic list.")
@@ -112,7 +111,7 @@ public class MiningController extends BaseController {
 	 * @return Hashrate Resale response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "resell")
+	@JsonPostMapping(path = "resell")
 	@ApiOperation(value = "Resell hashRate.")
 	public HashrateResaleResponse resellHashrate(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
@@ -157,7 +156,7 @@ public class MiningController extends BaseController {
 	 * @return Earnings list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "profits", produces = "application/json", params = {
+	@JsonGetMapping(path = "profits", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get earnings list.")
@@ -184,7 +183,7 @@ public class MiningController extends BaseController {
 	 * @return Extra bonus list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "other-profits", produces = "application/json", params = {
+	@JsonGetMapping(path = "other-profits", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get extra bonus list.")
@@ -211,7 +210,7 @@ public class MiningController extends BaseController {
 	 * @return Mining account earning.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "account-profits", produces = "application/json", params = {
+	@JsonGetMapping(path = "account-profits", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get mining account earning.")
@@ -231,7 +230,7 @@ public class MiningController extends BaseController {
 	 * @return hashrate resale list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "resales")
+	@JsonGetMapping(path = "resales")
 	@ApiOperation(value = "Get hashrate resale list.")
 	public HashrateResaleListResponse getHashrateResales(
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
@@ -248,7 +247,7 @@ public class MiningController extends BaseController {
 	 * @return Hashrate resale detail.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "resales-details", produces = "application/json", params = {
+	@JsonGetMapping(path = "resales-details", params = {
 			"configId", "userName"
 	})
 	@ApiOperation(value = "Get hashrate resale detail.")
@@ -269,7 +268,7 @@ public class MiningController extends BaseController {
 	 * @return Miner list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "miners", produces = "application/json", params = {
+	@JsonGetMapping(path = "miners", params = {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get miner list.")
@@ -287,7 +286,7 @@ public class MiningController extends BaseController {
 	 * @return Detailed miner list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "miner-details", produces = "application/json", params = {
+	@JsonGetMapping(path = "miner-details", params = {
 			"algo", "userName", "workerName"
 	})
 	@ApiOperation(value = "Get detailed miner list.")

@@ -8,7 +8,7 @@ import com.binance4j.c2c.dto.TradeHistory;
 import com.binance4j.c2c.dto.TradeType;
 import com.binance4j.c2c.param.TradeHistoryParams;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,7 +25,7 @@ public class C2CController extends BaseController {
 	 * @return C2C trades.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "trades")
+	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get trades.")
 	public TradeHistory getTrades(
 			@RequestParam(required = true) @ApiParam(example = "BUY", value = "The trade type") TradeType tradeType)

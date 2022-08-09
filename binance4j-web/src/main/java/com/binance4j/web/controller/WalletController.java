@@ -3,7 +3,6 @@ package com.binance4j.web.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,8 +44,8 @@ import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WalletTransferParams;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
 import com.binance4j.wallet.param.WithdrawParams;
-import com.binance4j.web.annotation.MyGetMapping;
-import com.binance4j.web.annotation.MyPostMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -61,7 +60,7 @@ public class WalletController extends BaseController {
 	 * @return The system status.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "system-status")
+	@JsonGetMapping(path = "system-status")
 	@ApiOperation(value = "Get the system status.")
 
 	public SystemStatus getSystemStatus() throws ApiException {
@@ -73,7 +72,7 @@ public class WalletController extends BaseController {
 	 *         user.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "coins")
+	@JsonGetMapping(path = "coins")
 	@ApiOperation(value = "Get the information of coins (available for deposit and withdraw) for user .")
 
 	public List<CoinInformation> getAllCoinsInfo() throws ApiException {
@@ -84,7 +83,7 @@ public class WalletController extends BaseController {
 	 * @return The daily SPOT account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "spot-snapshot")
+	@JsonGetMapping(path = "spot-snapshot")
 	@ApiOperation(value = "Get the daily SPOT account snapshots.")
 
 	public SpotAccountSnapshotResponse getSpotAccountSnapshot(
@@ -99,7 +98,7 @@ public class WalletController extends BaseController {
 	 * @return The daily MARGIN account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "margin-snapshot")
+	@JsonGetMapping(path = "margin-snapshot")
 	@ApiOperation(value = "Get the daily MARGIN account snapshots.")
 
 	public MarginAccountSnapshotResponse getMarginAccountSnapshot(
@@ -114,7 +113,7 @@ public class WalletController extends BaseController {
 	 * @return The daily FUTURES account snapshots.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "futures-snapshot")
+	@JsonGetMapping(path = "futures-snapshot")
 	@ApiOperation(value = "Get the daily FUTURES account snapshots.")
 
 	public FuturesAccountSnapshotResponse getFuturesAccountSnapshot(
@@ -130,7 +129,7 @@ public class WalletController extends BaseController {
 	 * 
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "enable-fast-withdraw-switch")
+	@JsonGetMapping(path = "enable-fast-withdraw-switch")
 	@ApiOperation(value = "Enables fast withdraw switch under your account.")
 
 	public Void enableFastWithdrawSwitch() throws ApiException {
@@ -142,7 +141,7 @@ public class WalletController extends BaseController {
 	 * 
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "disable-fast-withdraw-switch")
+	@JsonGetMapping(path = "disable-fast-withdraw-switch")
 	@ApiOperation(value = "Disables fast withdraw switch under your account.")
 
 	public Void disableFastWithdrawSwitch() throws ApiException {
@@ -158,7 +157,7 @@ public class WalletController extends BaseController {
 	 * @return The result of a withdraw.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "withdraw")
+	@JsonPostMapping(path = "withdraw")
 	@ApiOperation(value = "Submits a withdraw request.")
 
 	public WithdrawResult withdraw(
@@ -173,7 +172,7 @@ public class WalletController extends BaseController {
 	 * @return Deposit history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "deposits")
+	@JsonGetMapping(path = "deposits")
 	@ApiOperation(value = "Get the deposit history of one or multiple coins.")
 
 	public List<DepositHistory> getDepositHistory(
@@ -199,7 +198,7 @@ public class WalletController extends BaseController {
 	 * @return Withdraw history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "withdraws")
+	@JsonGetMapping(path = "withdraws")
 	@ApiOperation(value = "Get the last withdraw history of all coins.")
 
 	public List<WithdrawHistory> getWithdrawHistory(
@@ -223,7 +222,7 @@ public class WalletController extends BaseController {
 	 * @return Deposit address.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "deposit-address", produces = "application/json", params = {
+	@JsonGetMapping(path = "deposit-address", params = {
 			"coin"
 	})
 	@ApiOperation(value = "Get deposit address.")
@@ -238,7 +237,7 @@ public class WalletController extends BaseController {
 	 * @return Account status.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "account-status")
+	@JsonGetMapping(path = "account-status")
 	@ApiOperation(value = "Get account status.")
 
 	public AccountStatus getAccountStatus() throws ApiException {
@@ -249,7 +248,7 @@ public class WalletController extends BaseController {
 	 * @return The account api trading status detail.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "trading-status")
+	@JsonGetMapping(path = "trading-status")
 	@ApiOperation(value = "Get the account api trading status detail.")
 
 	public ApiTradingStatus getApiTradingStatus() throws ApiException {
@@ -262,7 +261,7 @@ public class WalletController extends BaseController {
 	 * @return The the dust transfer logs.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "dust-log")
+	@JsonGetMapping(path = "dust-log")
 	@ApiOperation(value = "Get the dust transfer logs.")
 
 	public DustLog getDustLog(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
@@ -277,7 +276,7 @@ public class WalletController extends BaseController {
 	 * @return The dust transfer response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "dust-transfer")
+	@JsonPostMapping(path = "dust-transfer")
 	@ApiOperation(value = "Convert dust assets to BNB.")
 
 	public DustTransferResponse dustTransfer(
@@ -294,7 +293,7 @@ public class WalletController extends BaseController {
 	 * @return The dividend record of one or multiple assets.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "asset-dividends")
+	@JsonGetMapping(path = "asset-dividends")
 	@ApiOperation(value = "Get the dividend record of one or multiple assets.")
 
 	public AssetDividendRecord getAssetDividendRecord(
@@ -313,7 +312,7 @@ public class WalletController extends BaseController {
 	 * @return The details of one or all assets supported on Binance.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "asset-details")
+	@JsonGetMapping(path = "asset-details")
 	@ApiOperation(value = "Get the details of one or all assets supported on Binance.")
 
 	public Map<String, AssetDetail> getAssetDetail(
@@ -327,7 +326,7 @@ public class WalletController extends BaseController {
 	 * @return Trade fees of one or all symbols
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "trade-fee")
+	@JsonGetMapping(path = "trade-fee")
 	@ApiOperation(value = "Get trade fees of one or all symbols.")
 
 	public List<TradeFee> getTradeFee(
@@ -349,7 +348,7 @@ public class WalletController extends BaseController {
 	 * @return The user universal transfer response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyPostMapping(path = "universal-transfer")
+	@JsonPostMapping(path = "universal-transfer")
 	@ApiOperation(value = "Make a universal transfer.")
 
 	public WalletTransferResponse transfer(
@@ -375,7 +374,7 @@ public class WalletController extends BaseController {
 	 * @return The user universal transfer history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "universal-transfers")
+	@JsonGetMapping(path = "universal-transfers")
 	@ApiOperation(value = "Get the user universal transfer history.")
 
 	public WalletTransferHistory getTransferHistory(
@@ -399,7 +398,7 @@ public class WalletController extends BaseController {
 	 * @return the funding wallet asset balance.
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "funding-wallet")
+	@JsonGetMapping(path = "funding-wallet")
 	@ApiOperation(value = "Get the funding wallet asset balance.")
 
 	public List<FundingAsset> getFundingWallet(
@@ -413,7 +412,7 @@ public class WalletController extends BaseController {
 	 * @return the API Key Permission.
 	 * @throws ApiException
 	 */
-	@MyGetMapping(path = "api-permissions")
+	@JsonGetMapping(path = "api-permissions")
 	@ApiOperation(value = "Get the API Key Permission.")
 
 	public ApiPermissions getApiPermissions() throws ApiException {

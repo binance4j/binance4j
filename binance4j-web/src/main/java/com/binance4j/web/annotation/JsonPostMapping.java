@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Documented
 @RequestMapping(method = RequestMethod.POST)
 @BaseApiResponses
-public @interface MyPostMapping {
+public @interface JsonPostMapping {
 
 	/**
 	 * Alias for {@link RequestMapping#name}.

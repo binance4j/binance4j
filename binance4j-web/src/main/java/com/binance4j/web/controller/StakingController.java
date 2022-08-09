@@ -2,7 +2,6 @@ package com.binance4j.web.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +24,7 @@ import com.binance4j.staking.param.PositionParams;
 import com.binance4j.staking.param.ProductListParams;
 import com.binance4j.staking.param.PurchaseParams;
 import com.binance4j.staking.param.RedeemParams;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,7 +44,7 @@ public class StakingController extends BaseController {
 	 * @return Available Staking product list.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "products", produces = "application/json", params = {
+	@JsonGetMapping(path = "products", params = {
 			"product"
 	})
 	@ApiOperation(value = "Get available Staking product list.")
@@ -68,7 +68,7 @@ public class StakingController extends BaseController {
 	 * @return Staking history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "trades", produces = "application/json", params = {
+	@JsonGetMapping(path = "trades", params = {
 			"product", "txnType"
 	})
 	@ApiOperation(value = "Get staking history.")
@@ -91,7 +91,7 @@ public class StakingController extends BaseController {
 	 * @return Personal left quota of Staking product.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "left-quota", produces = "application/json", params = {
+	@JsonGetMapping(path = "left-quota", params = {
 			"product", "productId"
 	})
 	@ApiOperation(value = "Get personal left quota of Staking product.")
@@ -111,7 +111,7 @@ public class StakingController extends BaseController {
 	 * @return Staking product position.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "position", produces = "application/json", params = {
+	@JsonGetMapping(path = "position", params = {
 			"product"
 	})
 	@ApiOperation(value = "Get Staking product position.")

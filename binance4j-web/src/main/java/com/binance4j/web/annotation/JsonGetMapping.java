@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Documented
 @RequestMapping(method = RequestMethod.GET)
 @BaseApiResponses
-public @interface MyGetMapping {
+public @interface JsonGetMapping {
 
 	/**
 	 * Alias for {@link RequestMapping#name}.

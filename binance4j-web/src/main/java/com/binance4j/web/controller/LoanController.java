@@ -11,7 +11,7 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.loan.dto.LoanIncome;
 import com.binance4j.loan.dto.LoanIncomeType;
 import com.binance4j.loan.param.LoanIncomeHistoryParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,7 +32,7 @@ public class LoanController extends BaseController {
 	 * @return Get crypto loans income history.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "income")
+	@JsonGetMapping(path = "income")
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(
 			@RequestParam(required = true) @ApiParam(example = "BNB", value = "Asset.") String asset,

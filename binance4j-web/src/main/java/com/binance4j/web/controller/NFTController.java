@@ -1,6 +1,5 @@
 package com.binance4j.web.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import com.binance4j.nft.dto.OrderType;
 import com.binance4j.nft.dto.TransactionHistory;
 import com.binance4j.nft.dto.WithdrawHistory;
 import com.binance4j.nft.param.TransactionHistoryParams;
-import com.binance4j.web.annotation.MyGetMapping;
+import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,7 +34,7 @@ public class NFTController extends BaseController {
 	 * @return NFT Transaction History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@GetMapping(path = "transactions", produces = "application/json", params = {
+	@JsonGetMapping(path = "transactions", params = {
 			"orderType"
 	})
 	@ApiOperation(value = "Get NFT Transaction History.")
@@ -58,7 +57,7 @@ public class NFTController extends BaseController {
 	 * @return NFT deposit History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "deposits")
+	@JsonGetMapping(path = "deposits")
 	@ApiOperation(value = "Get NFT deposit History.")
 
 	public DepositHistory getDeposits(
@@ -78,7 +77,7 @@ public class NFTController extends BaseController {
 	 * @return NFT withdraw History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "withdraws")
+	@JsonGetMapping(path = "withdraws")
 	@ApiOperation(value = "Get NFT withdraw History.")
 
 	public WithdrawHistory getWithdraws(
@@ -96,7 +95,7 @@ public class NFTController extends BaseController {
 	 * @return NFT assets.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@MyGetMapping(path = "assets")
+	@JsonGetMapping(path = "assets")
 	@ApiOperation(value = "Get NFT assets.")
 
 	public AssetHistory getAssets(
