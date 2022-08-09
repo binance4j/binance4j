@@ -179,91 +179,85 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public TakeProfitLimitOrder quantity(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-		return this;
 	}
 
 	/**
 	 * @return the stopPrice
 	 */
-	public String stopPrice() {
+	public String getStopPrice() {
 		return stopPrice;
 	}
 
 	/**
 	 * @param stopPrice the stopPrice to set
 	 */
-	public TakeProfitLimitOrder stopPrice(String stopPrice) {
+	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
-		return this;
 	}
 
 	/**
 	 * @return the trailingDelta
 	 */
-	public Long trailingDelta() {
+	public Long getTrailingDelta() {
 		return trailingDelta;
 	}
 
 	/**
 	 * @param trailingDelta the trailingDelta to set
 	 */
-	public TakeProfitLimitOrder trailingDelta(Long trailingDelta) {
+	public void setTrailingDelta(Long trailingDelta) {
 		this.trailingDelta = trailingDelta;
-		return this;
 	}
 
 	/**
 	 * @return the price
 	 */
-	public String price() {
+	public String getPrice() {
 		return price;
 	}
 
 	/**
 	 * @param price the price to set
 	 */
-	public TakeProfitLimitOrder price(String price) {
+	public void setPrice(String price) {
 		this.price = price;
-		return this;
 	}
 
 	/**
 	 * @return the timeInForce
 	 */
-	public TimeInForce timeInForce() {
+	public TimeInForce getTimeInForce() {
 		return timeInForce;
 	}
 
 	/**
 	 * @param timeInForce the timeInForce to set
 	 */
-	public TakeProfitLimitOrder timeInForce(TimeInForce timeInForce) {
+	public void setTimeInForce(TimeInForce timeInForce) {
 		this.timeInForce = timeInForce;
-		return this;
 	}
 
 	/**
 	 * @return the icebergQty
 	 */
-	public String icebergQty() {
+	public String getIcebergQty() {
 		return icebergQty;
 	}
 
 	/**
 	 * @param icebergQty the icebergQty to set
 	 */
-	public TakeProfitLimitOrder icebergQty(String icebergQty) {
+	public void setIcebergQty(String icebergQty) {
 		this.icebergQty = icebergQty;
-		return this;
 	}
 
 	@Override

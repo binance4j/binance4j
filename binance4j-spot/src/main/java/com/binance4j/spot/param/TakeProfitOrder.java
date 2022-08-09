@@ -94,46 +94,43 @@ public class TakeProfitOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
-	}
-
-	/**
-	 * @return the stopPrice
-	 */
-	public String stopPrice() {
-		return stopPrice;
-	}
-
-	/**
-	 * @return the trailingDelta
-	 */
-	public Long trailingDelta() {
-		return trailingDelta;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public TakeProfitOrder setQuantity(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-		return this;
+	}
+
+	/**
+	 * @return the stopPrice
+	 */
+	public String getStopPrice() {
+		return stopPrice;
 	}
 
 	/**
 	 * @param stopPrice the stopPrice to set
 	 */
-	public TakeProfitOrder setStopPrice(String stopPrice) {
+	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
-		return this;
+	}
+
+	/**
+	 * @return the trailingDelta
+	 */
+	public Long getTrailingDelta() {
+		return trailingDelta;
 	}
 
 	/**
 	 * @param trailingDelta the trailingDelta to set
 	 */
-	public TakeProfitOrder setTrailingDelta(Long trailingDelta) {
+	public void setTrailingDelta(Long trailingDelta) {
 		this.trailingDelta = trailingDelta;
-		return this;
 	}
 
 	@Override

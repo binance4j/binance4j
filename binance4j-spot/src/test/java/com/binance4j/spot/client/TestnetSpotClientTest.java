@@ -21,10 +21,15 @@ import com.binance4j.spot.param.AllOrdersParams;
 import com.binance4j.spot.param.CancelOCOParams;
 import com.binance4j.spot.param.CancelOpenOrdersParams;
 import com.binance4j.spot.param.CancelOrderParams;
+import com.binance4j.spot.param.LimitMakerOrder;
+import com.binance4j.spot.param.LimitOrder;
+import com.binance4j.spot.param.MarketOrder;
+import com.binance4j.spot.param.MarketQuoteOrder;
 import com.binance4j.spot.param.NewOCOOrderParams;
 import com.binance4j.spot.param.NewOrderParams;
 import com.binance4j.spot.param.OCOInfoParams;
 import com.binance4j.spot.param.OrderStatusParams;
+import com.binance4j.spot.param.TakeProfitLimitOrder;
 import com.binance4j.spot.param.TradesParams;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 
@@ -50,16 +55,33 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Test
 	@Order(0)
 	void testNewOrderTest() throws ApiException {
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.FOK)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.FOK)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.GTC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.GTC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.buy(symbol, "1", price, TimeInForce.IOC)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(NewOrderParams.sell(symbol, "1", price, TimeInForce.IOC)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(MarketOrder.buy(symbol, "1")).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(MarketOrder.sell(symbol, "1")).sync());
+
+		assertDoesNotThrow(() -> client.newOrderTest(MarketQuoteOrder.buy(symbol, "25000")).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(MarketQuoteOrder.sell(symbol, "25000")).sync());
+
+		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.buy(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.sell(symbol, "1", price)).sync());
+
+		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.buy(symbol, "1", price, TimeInForce.FOK)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.sell(symbol, "1", price, TimeInForce.FOK)).sync());
+
+		assertDoesNotThrow(() -> client.newOrderTest(LimitMakerOrder.buy(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(LimitMakerOrder.sell(symbol, "1", price)).sync());
+
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// client.newOrderTest(StopLossOrder.buy(symbol, "1", price)).sync());
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// client.newOrderTest(StopLossOrder.sell(symbol, "1", price)).sync());
+
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// client.newOrderTest(TakeProfitOrder.buy(symbol, "1", price)).sync());
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// client.newOrderTest(TakeProfitOrder.sell(symbol, "1", price)).sync());
+
+		assertDoesNotThrow(() -> client.newOrderTest(TakeProfitLimitOrder.buy(symbol, "1", price, price)).sync());
+		assertDoesNotThrow(() -> client.newOrderTest(TakeProfitLimitOrder.sell(symbol, "1", price, price)).sync());
 	}
 
 	@Test
@@ -162,7 +184,8 @@ public class TestnetSpotClientTest extends CustomTest {
 	// @Order(12)
 	void testNewOCOAndGetOCO() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice, TimeInForce.GTC);
+		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice,
+				TimeInForce.GTC);
 
 		var res = client.newOCO(oco).sync();
 		orderListId = res.orderListId();

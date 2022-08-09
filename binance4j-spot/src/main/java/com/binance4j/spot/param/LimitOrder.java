@@ -88,61 +88,57 @@ public class LimitOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
 
 	/**
 	 * @return the price
 	 */
-	public String price() {
+	public String getPrice() {
 		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
 	/**
 	 * @return the timeInForce
 	 */
-	public TimeInForce timeInForce() {
+	public TimeInForce getTimeInForce() {
 		return timeInForce;
+	}
+
+	/**
+	 * @param timeInForce the timeInForce to set
+	 */
+	public void setTimeInForce(TimeInForce timeInForce) {
+		this.timeInForce = timeInForce;
 	}
 
 	/**
 	 * @return the icebergQty
 	 */
-	public String icebergQty() {
+	public String getIcebergQty() {
 		return icebergQty;
 	}
 
 	/**
 	 * @param icebergQty the icebergQty to set
 	 */
-	public LimitOrder icebergQty(String icebergQty) {
+	public void setIcebergQty(String icebergQty) {
 		this.icebergQty = icebergQty;
-		return this;
-	}
-
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public LimitOrder quantity(String quantity) {
-		this.quantity = quantity;
-		return this;
-	}
-
-	/**
-	 * @param price the price to set
-	 */
-	public LimitOrder price(String price) {
-		this.price = price;
-		return this;
-	}
-
-	/**
-	 * @param timeInForce the timeInForce to set
-	 */
-	public LimitOrder timeInForce(TimeInForce timeInForce) {
-		this.timeInForce = timeInForce;
-		return this;
 	}
 
 	@Override

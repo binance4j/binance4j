@@ -45,21 +45,19 @@ public class MarketOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public MarketOrder quantity(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-		return this;
 	}
 
 	@Override
 	public String toString() {
 		return "MarketOrder [side=" + side + ", symbol=" + symbol + ", type=" + type + ", quantity=" + quantity + "]";
 	}
-
 }

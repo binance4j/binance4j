@@ -94,46 +94,43 @@ public class StopLossOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
-	}
-
-	/**
-	 * @return the stopPrice
-	 */
-	public String stopPrice() {
-		return stopPrice;
-	}
-
-	/**
-	 * @return the trailingDelta
-	 */
-	public Long trailingDelta() {
-		return trailingDelta;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public StopLossOrder quantity(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-		return this;
+	}
+
+	/**
+	 * @return the stopPrice
+	 */
+	public String getStopPrice() {
+		return stopPrice;
 	}
 
 	/**
 	 * @param stopPrice the stopPrice to set
 	 */
-	public StopLossOrder stopPrice(String stopPrice) {
+	public void setStopPrice(String stopPrice) {
 		this.stopPrice = stopPrice;
-		return this;
+	}
+
+	/**
+	 * @return the trailingDelta
+	 */
+	public Long getTrailingDelta() {
+		return trailingDelta;
 	}
 
 	/**
 	 * @param trailingDelta the trailingDelta to set
 	 */
-	public StopLossOrder trailingDelta(Long trailingDelta) {
+	public void setTrailingDelta(Long trailingDelta) {
 		this.trailingDelta = trailingDelta;
-		return this;
 	}
 
 	@Override

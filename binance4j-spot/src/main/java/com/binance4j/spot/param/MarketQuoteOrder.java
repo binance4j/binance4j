@@ -9,16 +9,16 @@ import com.binance4j.core.dto.RateLimitType;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class MarketQuoteOrder extends BaseOrder {
 	/** Quote asset quantity. */
-	String quoteAssetQty;
+	String quoteOrderQty;
 
 	/**
 	 * @param symbol        Order symbol.
 	 * @param side          Order side.
-	 * @param quoteAssetQty Quote order quantity.
+	 * @param quoteOrderQty Quote order quantity.
 	 */
-	private MarketQuoteOrder(String symbol, OrderSide side, String quoteAssetQty) {
+	private MarketQuoteOrder(String symbol, OrderSide side, String quoteOrderQty) {
 		super(symbol, side, OrderType.MARKET);
-		this.quoteAssetQty = quoteAssetQty;
+		this.quoteOrderQty = quoteOrderQty;
 	}
 
 	/**
@@ -28,8 +28,8 @@ public class MarketQuoteOrder extends BaseOrder {
 	 * @param quantity Quantity.
 	 * @return An instance of {@link MarketOrder}.
 	 */
-	public static MarketQuoteOrder buy(String symbol, String quoteAssetQty) {
-		return new MarketQuoteOrder(symbol, OrderSide.BUY, quoteAssetQty);
+	public static MarketQuoteOrder buy(String symbol, String quoteOrderQty) {
+		return new MarketQuoteOrder(symbol, OrderSide.BUY, quoteOrderQty);
 	}
 
 	/**
@@ -39,29 +39,27 @@ public class MarketQuoteOrder extends BaseOrder {
 	 * @param quantity Quantity.
 	 * @return An instance of {@link MarketOrder}.
 	 */
-	public static MarketQuoteOrder sell(String symbol, String quoteAssetQty) {
-		return new MarketQuoteOrder(symbol, OrderSide.SELL, quoteAssetQty);
+	public static MarketQuoteOrder sell(String symbol, String quoteOrderQty) {
+		return new MarketQuoteOrder(symbol, OrderSide.SELL, quoteOrderQty);
 	}
 
 	/**
-	 * @return the quoteAssetQty
+	 * @return the quoteOrderQty
 	 */
-	public String quoteAssetQty() {
-		return quoteAssetQty;
+	public String getquoteOrderQty() {
+		return quoteOrderQty;
 	}
 
 	/**
-	 * @param quoteAssetQty the quoteAssetQty to set
+	 * @param quoteOrderQty the quoteOrderQty to set
 	 */
-	public MarketQuoteOrder quoteAssetQty(String quoteAssetQty) {
-		this.quoteAssetQty = quoteAssetQty;
-		return this;
+	public void setquoteOrderQty(String quoteOrderQty) {
+		this.quoteOrderQty = quoteOrderQty;
 	}
 
 	@Override
 	public String toString() {
-		return "MarketOrder [side=" + side + ", symbol=" + symbol + ", type=" + type + ", quoteAssetQty="
-				+ quoteAssetQty + "]";
+		return "MarketOrder [side=" + side + ", symbol=" + symbol + ", type=" + type + ", quoteOrderQty="
+				+ quoteOrderQty + "]";
 	}
-
 }

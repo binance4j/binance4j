@@ -51,7 +51,8 @@ public interface Params {
 	 * @return The request rate limit type. linked to {@link Params#weight()}.
 	 */
 	default RateLimitType rateLimitType() {
-		return !getClass().isAnnotationPresent(Param.class) ? RateLimitType.IP : getClass().getAnnotation(Param.class).type();
+		return !getClass().isAnnotationPresent(Param.class) ? RateLimitType.IP
+				: getClass().getAnnotation(Param.class).type();
 	}
 
 	/**
@@ -74,6 +75,7 @@ public interface Params {
 			map.put("recvWindow", recvWindow());
 		// remove
 		removeFromMap(map);
+		System.out.println(map);
 		return map;
 	}
 
@@ -85,10 +87,12 @@ public interface Params {
 	}
 
 	/**
-	 * Converts the object into a map and replace the keys names of the generated map with the values of the given map.
+	 * Converts the object into a map and replace the keys names of the generated
+	 * map with the values of the given map.
 	 * 
-	 * @param replaceMap Map used to replace the keys of the generated map. The key in map2 is the key we want to change the
-	 *                       name in map1 with the value of map2.
+	 * @param replaceMap Map used to replace the keys of the generated map. The key
+	 *                   in map2 is the key we want to change the
+	 *                   name in map1 with the value of map2.
 	 * @return the merged maps.
 	 */
 	default Map<String, Object> toMap(Map<String, String> replaceMap) {

@@ -56,31 +56,29 @@ public class LimitMakerOrder extends BaseOrder {
 	/**
 	 * @return the quantity
 	 */
-	public String quantity() {
+	public String getQuantity() {
 		return quantity;
-	}
-
-	/**
-	 * @return the price
-	 */
-	public String price() {
-		return price;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public LimitMakerOrder quantity(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-		return this;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public String getPrice() {
+		return price;
 	}
 
 	/**
 	 * @param price the price to set
 	 */
-	public LimitMakerOrder price(String price) {
+	public void setPrice(String price) {
 		this.price = price;
-		return this;
 	}
 
 	@Override
