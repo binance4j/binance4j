@@ -90,7 +90,7 @@ public interface Params {
 		var map = toMap();
 		replaceMap.entrySet().forEach(es -> {
 			map.put(es.getValue(), map.get(es.getKey()));
-			map.remove(es.getValue());
+			map.remove(es.getKey());
 		});
 		return map;
 	}
