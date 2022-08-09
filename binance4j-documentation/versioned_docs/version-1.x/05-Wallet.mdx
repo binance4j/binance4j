@@ -426,8 +426,8 @@ If `network` is not sent, return with default network of the coin.
 ## Do a dust transfer
 
 <Badges
-    label="dustTransfert()"
-    javadoc="client/WalletClient.html#dustTransfert(com.binance4j.wallet.dust.DustTransferRequest)"
+    label="dustTransfer()"
+    javadoc="client/WalletClient.html#dustTransfer(com.binance4j.wallet.dust.DustTransferRequest)"
     weight="10 (IP)"
     signature="signed (HMAC SHA256)"
     path="POST /sapi/v1/asset/dust"
@@ -440,7 +440,7 @@ If `network` is not sent, return with default network of the coin.
 <Examples
     client="WalletClient"
     constructorParams={["key", "secret"]}
-    method="dustTransfert"
+    method="dustTransfer"
     responseType="DustTransferResponse"
     requestType="DustTransferRequest"
     requestParameters={['List.of("BTC","SHIB","DOGE")']}
