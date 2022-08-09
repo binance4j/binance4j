@@ -23,7 +23,7 @@ public record FixedProjectListParams(String type, String asset, String status) i
 	 * @param status Project status. default: {@code START_TIME}.
 	 */
 	public FixedProjectListParams(FixedProjectType type, String asset, FixedProjectStatus status) {
-		this(type.toString(), asset, status.toString());
+		this(type == null ? null : type.toString(), asset, status == null ? null : status.toString());
 	}
 
 	/**
@@ -32,7 +32,7 @@ public record FixedProjectListParams(String type, String asset, String status) i
 	 * @param type Project type.
 	 */
 	public FixedProjectListParams(FixedProjectType type) {
-		this(type.toString(), null, null);
+		this(type == null ? null : type.toString(), null, null);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public record FixedProjectListParams(String type, String asset, String status) i
 	 * @param asset Asset.
 	 */
 	public FixedProjectListParams(FixedProjectType type, String asset) {
-		this(type.toString(), asset, null);
+		this(type == null ? null : type.toString(), asset, null);
 	}
 
 	/**
@@ -52,6 +52,6 @@ public record FixedProjectListParams(String type, String asset, String status) i
 	 * @param status Project status.
 	 */
 	public FixedProjectListParams(FixedProjectType type, FixedProjectStatus status) {
-		this(type.toString(), null, status.toString());
+		this(type == null ? null : type.toString(), null, status == null ? null : status.toString());
 	}
 }
