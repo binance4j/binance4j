@@ -14,6 +14,20 @@ import com.binance4j.wallet.dto.WalletTransferType;
  */
 @Param
 public record WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol) implements Params {
+
+	/**
+	 * Creates an instance of {@link WalletTransferHistoryParams}.
+	 * 
+	 * @param type       User universal transfer type.
+	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param toSymbol   Mandatory when {@code MARGIN_ISOLATEDMARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 */
+	public WalletTransferHistoryParams(WalletTransferType type, String fromSymbol, String toSymbol) {
+		this.type = type;
+		this.fromSymbol = fromSymbol;
+		this.toSymbol = toSymbol;
+	}
+
 	/**
 	 * Creates an instance of {@link WalletTransferHistoryParams}.
 	 * 

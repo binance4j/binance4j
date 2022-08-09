@@ -43,7 +43,7 @@ import com.binance4j.wallet.param.DepositHistoryParams;
 import com.binance4j.wallet.param.DustLogParams;
 import com.binance4j.wallet.param.DustTransferParams;
 import com.binance4j.wallet.param.FastWithdrawSwitchParams;
-import com.binance4j.wallet.param.FundingAssetParams;
+import com.binance4j.wallet.param.FundingWalletParams;
 import com.binance4j.wallet.param.TradeFeeParams;
 import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WalletTransferParams;
@@ -451,8 +451,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<FundingAsset>> getFundingAsset(FundingAssetParams params) {
-		return new Request<>(service.getFundingAsset(params.toMap()));
+	public Request<List<FundingAsset>> getFundingWallet(FundingWalletParams params) {
+		return new Request<>(service.getFundingWallet(params.toMap()));
 	}
 
 	/**
@@ -460,8 +460,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<FundingAsset>> getFundingAsset() {
-		return getFundingAsset(new FundingAssetParams(null, null));
+	public Request<List<FundingAsset>> getFundingWallet() {
+		return getFundingWallet(new FundingWalletParams(null, null));
 	}
 
 	/**

@@ -223,7 +223,7 @@ public interface WalletMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@POST(BASE_ASSET + "get-funding-asset")
-	Call<List<FundingAsset>> getFundingAsset(@QueryMap Map<String, Object> map);
+	Call<List<FundingAsset>> getFundingWallet(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
