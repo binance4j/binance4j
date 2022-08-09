@@ -16,17 +16,6 @@ interface Props {
     payload?: string,
 }
 
-interface ExampleListProps {
-    items: ParamsItem[],
-    method: string,
-    payload?: string
-}
-
-interface ParamsItem {
-    label?: string,
-    params?: string
-}
-
 /**
  * Returns an example code block for a sync API call
  * @param props The components props
@@ -34,10 +23,26 @@ interface ParamsItem {
 export function SyncRequest(props: Props) {
     return (
         <CodeBlock language="java">
-            {`client.${props.method}.async((response, exception)->{
+            {`try{
+    ${props.payload} res = client.${props.method}.sync();
+}catch(ApiException e){ 
+//...
+}`}
+        </CodeBlock>
+    )
+}
+
+/**
+ * Returns an example code block for an async API call with lambda
+ * @param props The components props
+ */
+export function AsyncRequestLambda(props: Props) {
+    return (
+        <CodeBlock language="java">
+            {`client.${props.method}.async((response, exception)-> {
     if(exception == null){
         //...
-    }else{
+    } else{
         //...
     }
 });`}
@@ -46,35 +51,10 @@ export function SyncRequest(props: Props) {
 }
 
 /**
- * Returns an example code block for an async API call with ApiCallback
- * @param props The components props
- */
-export function Async(props: Props) {
-    const callback = props.payload ? `${props.payload} response` : "";
-
-    return (
-        <CodeBlock language="java">
-            {`client.${props.method}.async(new ApiCallback<${props.payload ? props.payload : "Void"}>() {
-    @Override
-    public void onResponse(${callback}) {
-        //...
-    }
-
-    @Override
-    public void onFailure(ApiException exception) {
-        //...
-    }
-});
-`}
-        </CodeBlock>
-    )
-}
-
-/**
  * Returns all the examples in a Tabs item
  * @param props The components props
  */
-export function Examples(props: Props) {
+export default function RequestExamples(props: Props) {
     return (
         <>
             <Tabs>
@@ -82,32 +62,19 @@ export function Examples(props: Props) {
                     <SyncRequest {...props} />
                 </TabItem>
                 <TabItem label="async" value="async">
-                    <Async {...props} />
+                    <AsyncRequestLambda {...props} />
                 </TabItem>
-
             </Tabs>
         </>
     )
 }
 
-/**
- * @param props Props
- * @returns A set of API call examples wrapped in <Tabs /> elements
- */
-export default function ApiExamples(props: ExampleListProps) {
+export function ExampleList(props: { children: JSX.Element[], labels: string[] }) {
     return (
         <>
-            {/** If items length == 1, no need to wrap example in a <Tabs /> element.*/}
-            {props.items.length == 1
-                ?
-                <Examples method={`${props.method}(${props.items[0].params ? props.items[0].params : ""})`} payload={props.payload} />
-                :
-                <Tabs>
-                    {props.items.map((pi, i) => <TabItem key={i} value={i.toString()} label={pi.label || "Default"}>
-                        <Examples method={`${props.method}(${pi.params ? pi.params : ""})`} payload={props.payload} />
-                    </TabItem>)}
-                </Tabs>
-            }
+            <Tabs>
+                {props.children.map((c, i) => <TabItem key={i} value={i.toString()} label={props.labels[i]} default>{c}</TabItem>)}
+            </Tabs>
         </>
     )
 }

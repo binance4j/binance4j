@@ -39,10 +39,11 @@ export function SyncRequest(props: Props) {
 export function AsyncRequestLambda(props: Props) {
     return (
         <CodeBlock language="java">
-            {`client.${props.method}.async((response, exception)->{
+            {`client.${props.method}.async((response, exception)-> {
     if(exception == null){
+
         //...
-    }else{
+    } else{
         //...
     }
 });`}
