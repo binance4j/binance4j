@@ -199,7 +199,7 @@ public class Connectors {
 	 */
 	@Deprecated
 	public PortfolioMarginClient portfoliomarginClient() {
-		return portfoliomargin();
+		return portfolioMargin();
 	}
 
 	/**
@@ -403,7 +403,7 @@ public class Connectors {
 	 * 
 	 * @return an instance of {@link PortfolioMarginClient}.
 	 */
-	public PortfolioMarginClient portfoliomargin() {
+	public PortfolioMarginClient portfolioMargin() {
 		if (portfolioMarginClient == null) {
 			portfolioMarginClient = new PortfolioMarginClient(key, secret);
 		}
