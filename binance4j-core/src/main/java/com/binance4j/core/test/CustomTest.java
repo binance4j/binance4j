@@ -264,6 +264,7 @@ public abstract class CustomTest {
 		String nullText = nulls.isEmpty() ? "no null property." : "null properties:" + nulls + "\n";
 		String seperator = "\n==========\n";
 		text = String.format("%s\n%s", text, nullText);
+		System.out.println(seperator + text + seperator);
 	}
 
 	/**
