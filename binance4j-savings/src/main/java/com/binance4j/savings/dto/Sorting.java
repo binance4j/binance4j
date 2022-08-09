@@ -23,7 +23,7 @@ public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiM
 	 * @param isSortAsc Sort ascending. Default: true.
 	 */
 	public Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) {
-		this(sortBy.toString(), null);
+		this(sortBy == null ? null : sortBy.toString(), null);
 	}
 
 	/**
@@ -32,7 +32,7 @@ public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiM
 	 * @param sortBy Project sorting.
 	 */
 	public Sorting(FixedProjectSorting sortBy) {
-		this(sortBy.toString(), null);
+		this(sortBy == null ? null : sortBy.toString(), null);
 	}
 
 	/**
