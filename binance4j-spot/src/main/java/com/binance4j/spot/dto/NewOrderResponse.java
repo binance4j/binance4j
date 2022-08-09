@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param orderListId         Order list id.
  * @param clientOrderId       Client order id.
  * @param transactTime        Order transaction timestamp.
- * @param stopPrice           Price of trade.
+ * @param price               Price of trade.
  * @param origQty             Original traded quantity.
  * @param executedQty         Current executed quantity.
  * @param cummulativeQuoteQty Opposite coin quantity.

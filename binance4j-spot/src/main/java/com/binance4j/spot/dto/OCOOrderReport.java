@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param orderListId         Order List Id.
  * @param clientOrderId       Client Order Id.
  * @param transactTime        Transact Time.
- * @param stopPrice           Price.
+ * @param price               Price.
  * @param origQty             Original Quantity.
  * @param executedQty         Executed Quantity.
  * @param cummulativeQuoteQty Cummulative Quote Quantity.

@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Trade order information.
  * 
  * @param side                Order side.
- * @param stopPrice           Price.
+ * @param price               Price.
  * @param origQty             Original quantity.
  * @param executedQty         Original quantity.
  * @param cummulativeQuoteQty Used to calculate the average price.

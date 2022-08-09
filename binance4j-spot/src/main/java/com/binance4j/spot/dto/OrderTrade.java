@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The partial trade of an order.
  * 
- * @param stopPrice       Price.
+ * @param price           Price.
  * @param qty             Quantity.
  * @param commission      Commission.
  * @param commissionAsset Commission asset.
