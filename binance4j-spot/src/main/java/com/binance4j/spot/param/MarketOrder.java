@@ -9,7 +9,7 @@ import com.binance4j.core.dto.RateLimitType;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class MarketOrder extends BaseOrder {
 	/** Order quantity */
-	final String quantity;
+	String quantity;
 
 	/**
 	 * @param symbol Symbol.
@@ -49,8 +49,17 @@ public class MarketOrder extends BaseOrder {
 		return quantity;
 	}
 
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public MarketOrder quantity(String quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
 	@Override
 	public String toString() {
 		return "MarketOrder [side=" + side + ", symbol=" + symbol + ", type=" + type + ", quantity=" + quantity + "]";
 	}
+
 }

@@ -10,11 +10,13 @@ import com.binance4j.core.dto.TimeInForce;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class LimitOrder extends BaseOrder {
 	/** Order quantity */
-	final String quantity;
+	String quantity;
 	/** Order price */
-	final String price;
+	String price;
 	/** Order time in force */
-	final TimeInForce timeInForce;
+	TimeInForce timeInForce;
+	/** Iceberg quantity. */
+	String icebergQty;
 
 	/**
 	 * 
@@ -102,6 +104,45 @@ public class LimitOrder extends BaseOrder {
 	 */
 	public TimeInForce timeInForce() {
 		return timeInForce;
+	}
+
+	/**
+	 * @return the icebergQty
+	 */
+	public String icebergQty() {
+		return icebergQty;
+	}
+
+	/**
+	 * @param icebergQty the icebergQty to set
+	 */
+	public LimitOrder icebergQty(String icebergQty) {
+		this.icebergQty = icebergQty;
+		return this;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public LimitOrder quantity(String quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public LimitOrder price(String price) {
+		this.price = price;
+		return this;
+	}
+
+	/**
+	 * @param timeInForce the timeInForce to set
+	 */
+	public LimitOrder timeInForce(TimeInForce timeInForce) {
+		this.timeInForce = timeInForce;
+		return this;
 	}
 
 	@Override

@@ -9,9 +9,9 @@ import com.binance4j.core.dto.RateLimitType;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class LimitMakerOrder extends BaseOrder {
 	/** Order quantity */
-	final String quantity;
+	String quantity;
 	/** Order price */
-	final String price;
+	String price;
 
 	/**
 	 * 
@@ -65,6 +65,22 @@ public class LimitMakerOrder extends BaseOrder {
 	 */
 	public String price() {
 		return price;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public LimitMakerOrder quantity(String quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public LimitMakerOrder price(String price) {
+		this.price = price;
+		return this;
 	}
 
 	@Override

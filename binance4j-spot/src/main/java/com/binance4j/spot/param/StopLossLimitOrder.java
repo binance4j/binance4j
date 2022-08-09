@@ -10,15 +10,17 @@ import com.binance4j.core.dto.TimeInForce;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class StopLossLimitOrder extends BaseOrder {
 	/** Order quantity. */
-	final String quantity;
+	String quantity;
 	/** Order stop price. */
-	final String stopPrice;
+	String stopPrice;
 	/** Trailing delta. */
-	final Long trailingDelta;
+	Long trailingDelta;
 	/** Order price. */
-	final String price;
+	String price;
 	/** Order time in force. */
-	final TimeInForce timeInForce;
+	TimeInForce timeInForce;
+	/** Iceberg quantity. */
+	String icebergQty;
 
 	/**
 	 * 
@@ -182,10 +184,26 @@ public class StopLossLimitOrder extends BaseOrder {
 	}
 
 	/**
+	 * @param quantity the quantity to set
+	 */
+	public StopLossLimitOrder quantity(String quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
+	/**
 	 * @return the stopPrice
 	 */
 	public String stopPrice() {
 		return stopPrice;
+	}
+
+	/**
+	 * @param stopPrice the stopPrice to set
+	 */
+	public StopLossLimitOrder stopPrice(String stopPrice) {
+		this.stopPrice = stopPrice;
+		return this;
 	}
 
 	/**
@@ -196,6 +214,14 @@ public class StopLossLimitOrder extends BaseOrder {
 	}
 
 	/**
+	 * @param trailingDelta the trailingDelta to set
+	 */
+	public StopLossLimitOrder trailingDelta(Long trailingDelta) {
+		this.trailingDelta = trailingDelta;
+		return this;
+	}
+
+	/**
 	 * @return the price
 	 */
 	public String price() {
@@ -203,10 +229,41 @@ public class StopLossLimitOrder extends BaseOrder {
 	}
 
 	/**
+	 * @param price the price to set
+	 */
+	public StopLossLimitOrder price(String price) {
+		this.price = price;
+		return this;
+	}
+
+	/**
 	 * @return the timeInForce
 	 */
 	public TimeInForce timeInForce() {
 		return timeInForce;
+	}
+
+	/**
+	 * @param timeInForce the timeInForce to set
+	 */
+	public StopLossLimitOrder timeInForce(TimeInForce timeInForce) {
+		this.timeInForce = timeInForce;
+		return this;
+	}
+
+	/**
+	 * @return the icebergQty
+	 */
+	public String icebergQty() {
+		return icebergQty;
+	}
+
+	/**
+	 * @param icebergQty the icebergQty to set
+	 */
+	public StopLossLimitOrder icebergQty(String icebergQty) {
+		this.icebergQty = icebergQty;
+		return this;
 	}
 
 	@Override

@@ -9,11 +9,11 @@ import com.binance4j.core.dto.RateLimitType;
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
 public class TakeProfitOrder extends BaseOrder {
 	/** Order quantity. */
-	final String quantity;
+	String quantity;
 	/** Order stop price. */
-	final String stopPrice;
+	String stopPrice;
 	/** Trailing delta. */
-	final Long trailingDelta;
+	Long trailingDelta;
 
 	/**
 	 * 
@@ -110,6 +110,30 @@ public class TakeProfitOrder extends BaseOrder {
 	 */
 	public Long trailingDelta() {
 		return trailingDelta;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public TakeProfitOrder setQuantity(String quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
+	/**
+	 * @param stopPrice the stopPrice to set
+	 */
+	public TakeProfitOrder setStopPrice(String stopPrice) {
+		this.stopPrice = stopPrice;
+		return this;
+	}
+
+	/**
+	 * @param trailingDelta the trailingDelta to set
+	 */
+	public TakeProfitOrder setTrailingDelta(Long trailingDelta) {
+		this.trailingDelta = trailingDelta;
+		return this;
 	}
 
 	@Override
