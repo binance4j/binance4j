@@ -19,7 +19,7 @@ import com.binance4j.wallet.param.AssetDividendRecordParams;
 import com.binance4j.wallet.param.DepositAddressParams;
 import com.binance4j.wallet.param.DepositHistoryParams;
 import com.binance4j.wallet.param.DustTransferParams;
-import com.binance4j.wallet.param.FundingAssetParams;
+import com.binance4j.wallet.param.FundingWalletParams;
 import com.binance4j.wallet.param.TradeFeeParams;
 import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
@@ -144,18 +144,18 @@ public class WalletClientTest extends CustomTest {
 	}
 
 	@Test
-	void testGetFundingAsset() throws ApiException {
-		testNotThrow(client.getFundingAsset());
+	void testgetFundingWallet() throws ApiException {
+		testNotThrow(client.getFundingWallet());
 	}
 
 	@Test
-	void testGetFundingAsset2() throws ApiException {
-		testNotThrow(client.getFundingAsset(new FundingAssetParams(asset)));
+	void testgetFundingWallet2() throws ApiException {
+		testNotThrow(client.getFundingWallet(new FundingWalletParams(asset)));
 	}
 
 	@Test
-	void testGetFundingAsset3() throws ApiException {
-		testNotThrow(client.getFundingAsset(new FundingAssetParams(asset, true)));
+	void testgetFundingWallet3() throws ApiException {
+		testNotThrow(client.getFundingWallet(new FundingWalletParams(asset, true)));
 	}
 
 	@Test
