@@ -143,7 +143,7 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale list.
 	 *
-	 * @param timeFrame Timeframe.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleListResponse> getHashrateResales(Paging paging) {
@@ -164,8 +164,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	/**
 	 * Get hashrate resale detail.
 	 *
-	 * @param params    Request params.
-	 * @param timeFrame Timeframe.
+	 * @param params Request params.
+	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
 	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, Paging paging) {
