@@ -12,7 +12,13 @@ All notable changes to this project will be documented in this file.
 - binance4j-spot:
   - Deprecated NewOrderParams in `newOrder` and `newOrderTest`.
 
+- binance4j-core:
+  - Deprecated `async(ApiCallback)`.
+
 ### Added
+
+- binance4j-core:
+  - Added `async(ApiAsyncCallback)`. Potential ApiException is passed as second parameter of lambda, making it easier to write than with functional interface.
 
 - binance4j-spot:
   - Added specific Order Params to `newOrder` and `newOrderTest`:
