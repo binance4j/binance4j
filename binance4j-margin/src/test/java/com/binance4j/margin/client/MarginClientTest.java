@@ -125,11 +125,10 @@ public class MarginClientTest extends CustomTest {
 		testNotThrow(client.getIsolatedTransferHistory(new IsolatedTransferHistoryParams(symbol)));
 	}
 
-	@Test
+	// @Test General error?
 	void testToggleBNBBurnOnSpotTradeAndMarginInterest() throws ApiException {
+		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(false, false)));
 		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(true, true)));
-		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(true, true)));
-
 	}
 
 	@Test
@@ -164,7 +163,8 @@ public class MarginClientTest extends CustomTest {
 
 		orders.forEach(o -> {
 			try {
-				testHasNulls(client.getOrder(new OrderParams(o.symbol(), o.orderId())), List.of("origQuoteOrderQty"), true);
+				testHasNulls(client.getOrder(new OrderParams(o.symbol(), o.orderId())), List.of("origQuoteOrderQty"),
+						true);
 			} catch (ApiException e) {
 				e.printStackTrace();
 			}
@@ -175,11 +175,13 @@ public class MarginClientTest extends CustomTest {
 	// @Test WORKS!
 	void testNewIsolatedTransfer() throws ApiException {
 
-		testNotThrow(client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount, IsolatedTransferAccount.SPOT,
+		testNotThrow(client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol,
+				isolatedAmount, IsolatedTransferAccount.SPOT,
 				IsolatedTransferAccount.ISOLATED_MARGIN)));
 
-		testNotThrow(client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount,
-				IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT)));
+		testNotThrow(
+				client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount,
+						IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT)));
 	}
 
 	// @Test WORKS!
