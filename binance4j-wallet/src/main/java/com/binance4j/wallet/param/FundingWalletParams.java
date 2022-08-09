@@ -16,6 +16,17 @@ public record FundingWalletParams(String asset, Boolean needBtcValuation) implem
 	/**
 	 * Creates an instance of {@link FundingWalletParams}.
 	 * 
+	 * @param asset            Asset we want the balance.
+	 * @param needBtcValuation Get the BTC value of the asset.
+	 */
+	public FundingWalletParams(String asset, Boolean needBtcValuation) {
+		this.asset = asset;
+		this.needBtcValuation = needBtcValuation;
+	}
+
+	/**
+	 * Creates an instance of {@link FundingWalletParams}.
+	 * 
 	 * @param asset Asset we want the balance.
 	 */
 	public FundingWalletParams(String asset) {
