@@ -160,8 +160,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	/**
 	 * Submits a withdraw request.
 	 * <p>
-	 * If network not send, return You can get {@code network} and {@code isDefault} in networkList of a coin in the
-	 * response of {@link #getAllCoinsInfo()}
+	 * If network not send, you can get {@code network} and {@code isDefault} in networkList of a coin in the response of
+	 * {@link #getAllCoinsInfo()}
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
