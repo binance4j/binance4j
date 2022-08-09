@@ -15,11 +15,10 @@ public class LimitMakerOrder extends BaseOrder {
 
 	/**
 	 * 
-	 * @param symbol      Symbol.
-	 * @param side        Side.
-	 * @param quantity    Order quantity.
-	 * @param price       Order price.
-	 * @param timeInForce Order time in force.
+	 * @param symbol   Symbol.
+	 * @param side     Side.
+	 * @param quantity Order quantity.
+	 * @param price    Order price.
 	 */
 	private LimitMakerOrder(String symbol, OrderSide side, String quantity, String price) {
 		super(symbol, side, OrderType.LIMIT_MAKER);
@@ -30,10 +29,9 @@ public class LimitMakerOrder extends BaseOrder {
 	/**
 	 * Creates an instance of {@link LimitMakerOrder} in the BUY side.
 	 * 
-	 * @param symbol      Symbol.
-	 * @param quantity    Order quantity.
-	 * @param price       Order price.
-	 * @param timeInForce Order time in force.
+	 * @param symbol   Symbol.
+	 * @param quantity Order quantity.
+	 * @param price    Order price.
 	 * @return An instance of {@link LimitMakerOrder}.
 	 */
 	public static LimitMakerOrder buy(String symbol, String quantity, String price) {
@@ -43,10 +41,9 @@ public class LimitMakerOrder extends BaseOrder {
 	/**
 	 * Creates an instance of {@link LimitMakerOrder} in the SELL side.
 	 * 
-	 * @param symbol      Symbol.
-	 * @param quantity    Order quantity.
-	 * @param price       Order price.
-	 * @param timeInForce Order time in force.
+	 * @param symbol   Symbol.
+	 * @param quantity Order quantity.
+	 * @param price    Order price.
 	 * @return An instance of {@link LimitMakerOrder}.
 	 */
 	public static LimitMakerOrder sell(String symbol, String quantity, String price) {
