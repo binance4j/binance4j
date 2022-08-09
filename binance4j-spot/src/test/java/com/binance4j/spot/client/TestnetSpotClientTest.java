@@ -165,7 +165,6 @@ public class TestnetSpotClientTest extends CustomTest {
 		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice, TimeInForce.GTC);
 
 		var res = client.newOCO(oco).sync();
-		System.out.println(res);
 		orderListId = res.orderListId();
 		testHasNulls(res, List.of("orderReports[1].stopPrice"), false);
 		testNotThrow(client.getOCO(new OCOInfoParams(res.orderListId())));

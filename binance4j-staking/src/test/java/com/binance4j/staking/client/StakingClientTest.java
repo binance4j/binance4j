@@ -67,7 +67,6 @@ public class StakingClientTest extends CustomTest {
 	}
 
 	public void testPosition(Object bean) {
-		System.out.println(bean);
 		var nulls = getNullProperties(bean);
 		assertTrue(nulls.contains("partialAmtDeliverDate") || !nulls.contains("partialAmtDeliverDate"));
 		assertTrue(nulls.contains("extraRewardAsset") || !nulls.contains("extraRewardAsset"));

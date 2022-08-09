@@ -339,7 +339,6 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
 			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
 			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day) throws ApiException {
-		System.out.println(interval);
 		return connectors.visionSpot().getKlines(symbol, CandlestickInterval.fromValue(interval), year, month, day).getData();
 	}
 

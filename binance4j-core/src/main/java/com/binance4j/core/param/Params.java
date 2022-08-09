@@ -94,7 +94,6 @@ public interface Params {
 	default Map<String, Object> toMap(Map<String, String> replaceMap) {
 		var map = toMap();
 		replaceMap.entrySet().forEach(es -> {
-			System.out.println(es.getKey() + " : " + map.get(es.getKey()));
 			map.put(es.getValue(), map.get(es.getKey()));
 			map.remove(es.getKey());
 		});
