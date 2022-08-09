@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
+import com.binance4j.core.param.Paging;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.mining.param.AccountListParams;
@@ -31,6 +32,7 @@ public class MiningClientTest extends CustomTest {
 	Long startDate = System.currentTimeMillis() - 365 * 24 * 60 * 60 * 1000;
 	Long hashRate = 0L;
 	MiningClient client = new MiningClient(key, secret);
+	Paging paging = new Paging(1, limit);
 
 	public MiningClientTest() {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
@@ -88,7 +90,7 @@ public class MiningClientTest extends CustomTest {
 
 	// TODO @Test
 	void testGetHashrateResales2() throws ApiException {
-		testNotThrow(client.getHashrateResales(timeFrame));
+		testNotThrow(client.getHashrateResales(paging));
 	}
 
 	// TODO @Test
@@ -98,7 +100,7 @@ public class MiningClientTest extends CustomTest {
 
 	// TODO @Test
 	void testGetHashrateResalesDetails2() throws ApiException {
-		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), timeFrame));
+		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), paging));
 	}
 
 	// TODO @Test

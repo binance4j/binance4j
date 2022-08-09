@@ -5,8 +5,8 @@ import java.util.Map;
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
+import com.binance4j.core.param.Paging;
 import com.binance4j.core.param.Params;
-import com.binance4j.core.param.TimeFrame;
 import com.binance4j.mining.dto.AccountListResponse;
 import com.binance4j.mining.dto.AccountProfitsResponse;
 import com.binance4j.mining.dto.AlgorithmsResponse;
@@ -146,9 +146,9 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param timeFrame Timeframe.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleListResponse> getHashrateResales(TimeFrame timeFrame) {
+	public Request<HashrateResaleListResponse> getHashrateResales(Paging paging) {
 		var replace = Map.of("page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getHashrateResales(Params.merge(new HashrateResaleListParams().toMap(), timeFrame.toMap(replace))));
+		return new Request<>(service.getHashrateResales(Params.merge(new HashrateResaleListParams().toMap(), paging.toMap(replace))));
 	}
 
 	/**
@@ -168,9 +168,9 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param timeFrame Timeframe.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, TimeFrame timeFrame) {
+	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, Paging paging) {
 		var replace = Map.of("page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getHashrateResalesDetails(Params.merge(params.toMap(), timeFrame.toMap(replace))));
+		return new Request<>(service.getHashrateResalesDetails(Params.merge(params.toMap(), paging.toMap(replace))));
 	}
 
 	/**
