@@ -89,7 +89,7 @@ public class SavingsClientTest extends CustomTest {
 
 	// TODO @Test
 	void testFixedToDailyPosition() throws ApiException {
-		testNotThrow(client.fixedToDailyPosition(new ChangePositionParams("projectId")));
+		testNotThrow(client.fixedToDailyPosition(new ChangePositionParams("projectId", 0L)));
 	}
 
 	// TODO @Test
