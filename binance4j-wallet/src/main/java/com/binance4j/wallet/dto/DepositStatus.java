@@ -23,4 +23,13 @@ public enum DepositStatus {
 	public String toString() {
 		return value;
 	}
+
+	static public DepositStatus fromValue(String value) {
+		for (DepositStatus e : DepositStatus.values()) {
+			if (e.toString().equals(value)) {
+				return e;
+			}
+		}
+		return null;
+	}
 }
