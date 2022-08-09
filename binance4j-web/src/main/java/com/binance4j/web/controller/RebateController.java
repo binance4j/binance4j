@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 
 import io.swagger.annotations.Api;
@@ -30,7 +29,6 @@ public class RebateController extends BaseController {
 	 */
 	@MyGetMapping(path = "tax-query")
 	@ApiOperation(value = "Get the spot rebate history records.")
-	@BaseApiResponses
 	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,

@@ -31,7 +31,6 @@ import com.binance4j.mining.param.MinerDetailsParams;
 import com.binance4j.mining.param.MinersParams;
 import com.binance4j.mining.param.ProfitsParams;
 import com.binance4j.mining.param.StatisticsParams;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 import com.binance4j.web.annotation.MyPostMapping;
 
@@ -55,7 +54,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get Account list.")
-	@BaseApiResponses
 	public AccountListResponse getAccounts(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
@@ -69,7 +67,6 @@ public class MiningController extends BaseController {
 	 */
 	@MyGetMapping(path = "algorithms")
 	@ApiOperation(value = "Get algorithms.")
-	@BaseApiResponses
 	public AlgorithmsResponse getAlgorithms() throws ApiException {
 		return connectors.mining().getAlgorithms().sync();
 	}
@@ -80,7 +77,6 @@ public class MiningController extends BaseController {
 	 */
 	@MyGetMapping(path = "coins")
 	@ApiOperation(value = "Get coins.")
-	@BaseApiResponses
 	public CoinsResponse getCoins() throws ApiException {
 		return connectors.mining().getCoins().sync();
 	}
@@ -95,7 +91,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get Statistic list.")
-	@BaseApiResponses
 	public StatisticsResponse getStatistics(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
@@ -119,7 +114,6 @@ public class MiningController extends BaseController {
 	 */
 	@MyPostMapping(path = "resell")
 	@ApiOperation(value = "Resell hashRate.")
-	@BaseApiResponses
 	public HashrateResaleResponse resellHashrate(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
@@ -145,7 +139,6 @@ public class MiningController extends BaseController {
 			"configId", "userName"
 	})
 	@ApiOperation(value = "Cancel hashrate resale configuration.")
-	@BaseApiResponses
 	public HashrateResaleCancellationResponse cancelHashrateResaleConfiguration(
 			@RequestParam(required = true) @ApiParam(example = "12345", value = "configId.") Integer configId,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
@@ -168,7 +161,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get earnings list.")
-	@BaseApiResponses
 	public ProfitResponse getProfits(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
@@ -196,7 +188,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get extra bonus list.")
-	@BaseApiResponses
 	public OtherProfitsResponse getOtherProfits(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
@@ -224,7 +215,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get mining account earning.")
-	@BaseApiResponses
 	public AccountProfitsResponse getAccountProfits(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
@@ -243,7 +233,6 @@ public class MiningController extends BaseController {
 	 */
 	@MyGetMapping(path = "resales")
 	@ApiOperation(value = "Get hashrate resale list.")
-	@BaseApiResponses
 	public HashrateResaleListResponse getHashrateResales(
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
@@ -263,7 +252,6 @@ public class MiningController extends BaseController {
 			"configId", "userName"
 	})
 	@ApiOperation(value = "Get hashrate resale detail.")
-	@BaseApiResponses
 	public HashrateResaleDetailResponse getHashrateResalesDetails(
 			@RequestParam(required = true) @ApiParam(example = "12345", value = "configId.") Integer configId,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
@@ -285,7 +273,6 @@ public class MiningController extends BaseController {
 			"algo", "userName"
 	})
 	@ApiOperation(value = "Get miner list.")
-	@BaseApiResponses
 	public WorkersResponse getMiners(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
@@ -304,7 +291,6 @@ public class MiningController extends BaseController {
 			"algo", "userName", "workerName"
 	})
 	@ApiOperation(value = "Get detailed miner list.")
-	@BaseApiResponses
 	public MinerDetailsResponse getMinersDetails(
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,

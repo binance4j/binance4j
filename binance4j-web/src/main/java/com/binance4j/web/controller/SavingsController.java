@@ -43,7 +43,6 @@ import com.binance4j.savings.param.LendingParams;
 import com.binance4j.savings.param.PurchaseQuotaParams;
 import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 
 import io.swagger.annotations.Api;
@@ -66,7 +65,6 @@ public class SavingsController extends BaseController {
 	 */
 	@MyGetMapping(path = "flexible-products")
 	@ApiOperation(value = "Get flexible product list.")
-	@BaseApiResponses
 	public List<FlexibleProduct> getFlexibleProducts(
 			@RequestParam(required = false) @ApiParam(value = "Product status.") FlexibleProductStatus status,
 			@RequestParam(required = false) @ApiParam(value = "Freatured.") Featured featured,
@@ -87,7 +85,6 @@ public class SavingsController extends BaseController {
 			"productId"
 	})
 	@ApiOperation(value = "Get left daily purchase quota of flexible product.")
-	@BaseApiResponses
 	public PurchaseQuota getLeftDailyFlexiblePurchaseQuota(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId) throws ApiException {
 		return connectors.savings().getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)).sync();
@@ -103,7 +100,6 @@ public class SavingsController extends BaseController {
 			"productId", "productType"
 	})
 	@ApiOperation(value = "Get left daily redemption quota of flexible product.")
-	@BaseApiResponses
 	public RedemptionQuota getLeftDailyRedemptionQuota(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType productType)
@@ -124,7 +120,6 @@ public class SavingsController extends BaseController {
 			"productId", "amount"
 	})
 	@ApiOperation(value = "Purchase Flexible Product.")
-	@BaseApiResponses
 	public PurchaseResponse purchaseFlexible(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount) throws ApiException {
@@ -143,7 +138,6 @@ public class SavingsController extends BaseController {
 			"productId", "amount", "type"
 	})
 	@ApiOperation(value = "Redeem Flexible Product.")
-	@BaseApiResponses
 	public Void redeemFlexible(@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount,
 			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType type) throws ApiException {
@@ -157,7 +151,6 @@ public class SavingsController extends BaseController {
 	 */
 	@MyGetMapping(path = "flexible-position")
 	@ApiOperation(value = "Get flexible product position.")
-	@BaseApiResponses
 	public List<FlexibleProductPosition> getFlexibleProductPosition(
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset)
 			throws ApiException {
@@ -177,7 +170,6 @@ public class SavingsController extends BaseController {
 	 */
 	@MyGetMapping(path = "fixed-projects")
 	@ApiOperation(value = "Get fixed and activity project list.")
-	@BaseApiResponses
 	public List<FixedProject> getFixedProjects(
 			@RequestParam(required = true) @ApiParam(value = "Project type.") FixedProjectType type,
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset,
@@ -205,7 +197,6 @@ public class SavingsController extends BaseController {
 			"productId", "lot"
 	})
 	@ApiOperation(value = "Purchase fixed projet.")
-	@BaseApiResponses
 	public PurchaseResponse purchaseFixed(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot) throws ApiException {
@@ -221,7 +212,6 @@ public class SavingsController extends BaseController {
 	 */
 	@MyGetMapping(path = "fixed-position")
 	@ApiOperation(value = "Get fixed projet position.")
-	@BaseApiResponses
 	public List<FixedProjectPosition> getFixedProjectPosition(
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset,
 			@RequestParam(required = false) @ApiParam(value = "Project id.") String projectId,
@@ -237,7 +227,6 @@ public class SavingsController extends BaseController {
 	 */
 	@MyGetMapping(path = "account")
 	@ApiOperation(value = "Get lending account.")
-	@BaseApiResponses
 	public LendingAccount getAccount() throws ApiException {
 		return connectors.savings().getAccount().sync();
 	}
@@ -256,7 +245,6 @@ public class SavingsController extends BaseController {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get purchase record.")
-	@BaseApiResponses
 	public List<Purchase> getPurchases(
 			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
@@ -284,7 +272,6 @@ public class SavingsController extends BaseController {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get redemption record.")
-	@BaseApiResponses
 	public List<Redemption> getRedemptions(
 			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
@@ -311,7 +298,6 @@ public class SavingsController extends BaseController {
 			"lendingType"
 	})
 	@ApiOperation(value = "Get interest record.")
-	@BaseApiResponses
 	public List<Interest> getInterests(
 			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
@@ -338,7 +324,6 @@ public class SavingsController extends BaseController {
 			"projectId", "lot"
 	})
 	@ApiOperation(value = "Change fixed/activity position to daily position.")
-	@BaseApiResponses
 	public PositionChangedResponse fixedToDailyPosition(
 			@RequestParam(required = true) @ApiParam(value = "Lending type.") String projectId,
 			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot,

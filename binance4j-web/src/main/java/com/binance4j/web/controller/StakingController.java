@@ -25,7 +25,6 @@ import com.binance4j.staking.param.PositionParams;
 import com.binance4j.staking.param.ProductListParams;
 import com.binance4j.staking.param.PurchaseParams;
 import com.binance4j.staking.param.RedeemParams;
-import com.binance4j.web.annotation.BaseApiResponses;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -49,7 +48,6 @@ public class StakingController extends BaseController {
 			"product"
 	})
 	@ApiOperation(value = "Get available Staking product list.")
-	@BaseApiResponses
 	public List<Product> getProducts(
 			@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Product name.") String asset,
@@ -74,7 +72,6 @@ public class StakingController extends BaseController {
 			"product", "txnType"
 	})
 	@ApiOperation(value = "Get staking history.")
-	@BaseApiResponses
 	public List<StakingRecord> getTrades(
 			@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = true) @ApiParam(example = "SUBSCRIPTION", value = "Transaction type.") TransactionType txnType,
@@ -98,7 +95,6 @@ public class StakingController extends BaseController {
 			"product", "productId"
 	})
 	@ApiOperation(value = "Get personal left quota of Staking product.")
-	@BaseApiResponses
 	public LeftQuota getLeftQuota(
 			@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = true) @ApiParam(example = "Bnb*120", value = "Product id.") String productId)
@@ -119,7 +115,6 @@ public class StakingController extends BaseController {
 			"product"
 	})
 	@ApiOperation(value = "Get Staking product position.")
-	@BaseApiResponses
 	public List<ProductPosition> getPosition(
 			@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = false) @ApiParam(example = "CAKE", value = "Product name.") String asset,
@@ -144,7 +139,6 @@ public class StakingController extends BaseController {
 			"product", "productId", "amount"
 	})
 	@ApiOperation(value = "Purchase Staking product.")
-	@BaseApiResponses
 	public PurchaseResponse purchase(
 			@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId,
@@ -164,7 +158,6 @@ public class StakingController extends BaseController {
 			"product", "productId"
 	})
 	@ApiOperation(value = "Redeem Staking product.")
-	@BaseApiResponses
 	public RedeemResponse redeem(
 			@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId) throws ApiException {

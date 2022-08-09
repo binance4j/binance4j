@@ -29,7 +29,6 @@ import com.binance4j.market.param.OrderBookParams;
 import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 
 import io.swagger.annotations.Api;
@@ -48,7 +47,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "ping")
 	@ApiOperation(value = "Test connectivity.")
-	@BaseApiResponses
 	public Void ping() throws ApiException {
 		return connectors.market().ping().sync();
 	}
@@ -59,7 +57,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "server-time")
 	@ApiOperation(value = "Get server time.")
-	@BaseApiResponses
 	public ServerTimeResponse getServerTime() throws ApiException {
 		return connectors.market().getServerTime().sync();
 	}
@@ -70,7 +67,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "exchange-info")
 	@ApiOperation(value = "Get current exchange trading rules and one or many symbols informations.")
-	@BaseApiResponses
 	public ExchangeInfo getExchangeInfo(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols separated by a coma.") String symbols)
 			throws ApiException {
@@ -85,7 +81,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "order-book", produces = "application/json", params = { "symbol" })
 	@ApiOperation(value = "Get the symbol order book.")
-	@BaseApiResponses
 	public OrderBook getOrderBook(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the depth.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "5", value = "Market depth size.", allowableValues = "5,10,20,50,100,500,1000,5000") String limit)
@@ -101,7 +96,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "trades", produces = "application/json", params = { "symbol" })
 	@ApiOperation(value = "Get recent trades.")
-	@BaseApiResponses
 	public List<Trade> getTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "50", value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit)
@@ -118,7 +112,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "historical-trades", produces = "application/json", params = { "symbol" })
 	@ApiOperation(value = "Get old trades.")
-	@BaseApiResponses
 	public List<Trade> getHistoricalTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "50", value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit,
@@ -138,7 +131,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "aggtrades", produces = "application/json", params = { "symbol" })
 	@ApiOperation(value = "Get compressed, aggregate trades.")
-	@BaseApiResponses
 	public List<AggTrade> getAggTrades(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "123456", value = "Trade id to fetch from.") Long fromId,
@@ -158,7 +150,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "klines", produces = "application/json", params = { "symbol", "interval" })
 	@ApiOperation(value = "Get kline/candles for a symbol.")
-	@BaseApiResponses
 	public List<Candle> getKlines(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the data.") String symbol,
 			@RequestParam(required = true) @ApiParam(example = "5m", value = "Candlestick interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
@@ -177,7 +168,6 @@ public class MarketController extends BaseController {
 	 */
 	@GetMapping(path = "average-price", produces = "application/json", params = { "symbol" })
 	@ApiOperation(value = "Get current average price for a symbol.")
-	@BaseApiResponses
 	public AveragePrice getAveragePrice(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the price.") String symbol)
 			throws ApiException {
@@ -191,7 +181,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "24hr-statistics")
 	@ApiOperation(value = "Get 24 hour rolling window price change statistics of all symbols.")
-	@BaseApiResponses
 	public List<TickerStatistics> get24hTickerStatistics(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols we want the statistics.") String symbols)
 			throws ApiException {
@@ -205,7 +194,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "price-ticker")
 	@ApiOperation(value = "Get Latest price for a symbol or symbols.")
-	@BaseApiResponses
 	public List<PriceTicker> getTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)
 			throws ApiException {
@@ -219,7 +207,6 @@ public class MarketController extends BaseController {
 	 */
 	@MyGetMapping(path = "order-book-ticker")
 	@ApiOperation(value = "Get best price && quantity on the order book for the given symbols.")
-	@BaseApiResponses
 	public List<BookTicker> getBookTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)
 			throws ApiException {

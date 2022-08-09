@@ -45,7 +45,6 @@ import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WalletTransferParams;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
 import com.binance4j.wallet.param.WithdrawParams;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 import com.binance4j.web.annotation.MyPostMapping;
 
@@ -64,7 +63,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "system-status")
 	@ApiOperation(value = "Get the system status.")
-	@BaseApiResponses
+
 	public SystemStatus getSystemStatus() throws ApiException {
 		return connectors.wallet().getSystemStatus().sync();
 	}
@@ -76,7 +75,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "coins")
 	@ApiOperation(value = "Get the information of coins (available for deposit and withdraw) for user .")
-	@BaseApiResponses
+
 	public List<CoinInformation> getAllCoinsInfo() throws ApiException {
 		return connectors.wallet().getAllCoinsInfo().sync();
 	}
@@ -87,7 +86,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "spot-snapshot")
 	@ApiOperation(value = "Get the daily SPOT account snapshots.")
-	@BaseApiResponses
+
 	public SpotAccountSnapshotResponse getSpotAccountSnapshot(
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
@@ -102,7 +101,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "margin-snapshot")
 	@ApiOperation(value = "Get the daily MARGIN account snapshots.")
-	@BaseApiResponses
+
 	public MarginAccountSnapshotResponse getMarginAccountSnapshot(
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
@@ -117,7 +116,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "futures-snapshot")
 	@ApiOperation(value = "Get the daily FUTURES account snapshots.")
-	@BaseApiResponses
+
 	public FuturesAccountSnapshotResponse getFuturesAccountSnapshot(
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
@@ -133,7 +132,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "enable-fast-withdraw-switch")
 	@ApiOperation(value = "Enables fast withdraw switch under your account.")
-	@BaseApiResponses
+
 	public Void enableFastWithdrawSwitch() throws ApiException {
 		return connectors.wallet().enableFastWithdrawSwitch().sync();
 	}
@@ -145,7 +144,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "disable-fast-withdraw-switch")
 	@ApiOperation(value = "Disables fast withdraw switch under your account.")
-	@BaseApiResponses
+
 	public Void disableFastWithdrawSwitch() throws ApiException {
 		return connectors.wallet().disableFastWithdrawSwitch().sync();
 	}
@@ -161,7 +160,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyPostMapping(path = "withdraw")
 	@ApiOperation(value = "Submits a withdraw request.")
-	@BaseApiResponses
+
 	public WithdrawResult withdraw(
 			@RequestParam(required = true) @ApiParam(value = "Volume to withdraw.") String amount,
 			@RequestParam(required = true) @ApiParam(value = "Coin to withdraw.") String coin,
@@ -176,7 +175,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "deposits")
 	@ApiOperation(value = "Get the deposit history of one or multiple coins.")
-	@BaseApiResponses
+
 	public List<DepositHistory> getDepositHistory(
 			@RequestParam(required = false) @ApiParam(value = "Deposited coin.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Deposit status.") DepositStatus status,
@@ -202,7 +201,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "withdraws")
 	@ApiOperation(value = "Get the last withdraw history of all coins.")
-	@BaseApiResponses
+
 	public List<WithdrawHistory> getWithdrawHistory(
 			@RequestParam(required = false) @ApiParam(value = "Withdrawn coin.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Withdraw status.") WithdrawStatus status,
@@ -228,7 +227,7 @@ public class WalletController extends BaseController {
 			"coin"
 	})
 	@ApiOperation(value = "Get deposit address.")
-	@BaseApiResponses
+
 	public DepositAddress getDepositAddress(
 			@RequestParam(required = true) @ApiParam(value = "Coin abbreviation.") String coin,
 			@RequestParam(required = false) @ApiParam(value = "Transfer network.") String network) throws ApiException {
@@ -241,7 +240,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "account-status")
 	@ApiOperation(value = "Get account status.")
-	@BaseApiResponses
+
 	public AccountStatus getAccountStatus() throws ApiException {
 		return connectors.wallet().getAccountStatus().sync();
 	}
@@ -252,7 +251,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "trading-status")
 	@ApiOperation(value = "Get the account api trading status detail.")
-	@BaseApiResponses
+
 	public ApiTradingStatus getApiTradingStatus() throws ApiException {
 		return connectors.wallet().getApiTradingStatus().sync();
 	}
@@ -265,7 +264,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "dust-log")
 	@ApiOperation(value = "Get the dust transfer logs.")
-	@BaseApiResponses
+
 	public DustLog getDustLog(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime) throws ApiException {
 		return connectors.wallet().getDustLog(new TimeFrame(startTime, endTime)).sync();
@@ -280,7 +279,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyPostMapping(path = "dust-transfer")
 	@ApiOperation(value = "Convert dust assets to BNB.")
-	@BaseApiResponses
+
 	public DustTransferResponse dustTransfer(
 			@RequestParam(required = true) @ApiParam(example = "BTC, BNB, CAKE", value = "Symbols separated by a coma.") String symbols)
 			throws ApiException {
@@ -297,7 +296,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "asset-dividends")
 	@ApiOperation(value = "Get the dividend record of one or multiple assets.")
-	@BaseApiResponses
+
 	public AssetDividendRecord getAssetDividendRecord(
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
 			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
@@ -316,7 +315,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "asset-details")
 	@ApiOperation(value = "Get the details of one or all assets supported on Binance.")
-	@BaseApiResponses
+
 	public Map<String, AssetDetail> getAssetDetail(
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset)
 			throws ApiException {
@@ -330,7 +329,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "trade-fee")
 	@ApiOperation(value = "Get trade fees of one or all symbols.")
-	@BaseApiResponses
+
 	public List<TradeFee> getTradeFee(
 			@RequestParam(required = false) @ApiParam(example = "BTCUSDT", value = "Symbol.") String symbol)
 			throws ApiException {
@@ -352,7 +351,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyPostMapping(path = "universal-transfer")
 	@ApiOperation(value = "Make a universal transfer.")
-	@BaseApiResponses
+
 	public WalletTransferResponse transfer(
 			@RequestParam(required = true) @ApiParam(example = "BTC", value = "Asset.") String asset,
 			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
@@ -378,7 +377,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "universal-transfers")
 	@ApiOperation(value = "Get the user universal transfer history.")
-	@BaseApiResponses
+
 	public WalletTransferHistory getTransferHistory(
 			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
 			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
@@ -402,7 +401,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "funding-wallet")
 	@ApiOperation(value = "Get the funding wallet asset balance.")
-	@BaseApiResponses
+
 	public List<FundingAsset> getFundingWallet(
 			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
 			@RequestParam(required = false) @ApiParam(example = "true", value = "BTC value of the asset.") Boolean needBtcValuation)
@@ -416,7 +415,7 @@ public class WalletController extends BaseController {
 	 */
 	@MyGetMapping(path = "api-permissions")
 	@ApiOperation(value = "Get the API Key Permission.")
-	@BaseApiResponses
+
 	public ApiPermissions getApiPermissions() throws ApiException {
 		return connectors.wallet().getApiPermissions().sync();
 	}

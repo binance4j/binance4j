@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.portfoliomargin.dto.AccountInfo;
 import com.binance4j.portfoliomargin.dto.CollaterateRateInfo;
-import com.binance4j.web.annotation.BaseApiResponses;
 import com.binance4j.web.annotation.MyGetMapping;
 
 import io.swagger.annotations.Api;
@@ -26,7 +25,6 @@ public class PortfolioMarginController extends BaseController {
 	 */
 	@MyGetMapping(path = "account")
 	@ApiOperation(value = "Get Margin Account Details.")
-	@BaseApiResponses
 	public AccountInfo getAccount() throws ApiException {
 		return connectors.portfolioMargin().getAccountInfo().sync();
 	}
@@ -37,7 +35,6 @@ public class PortfolioMarginController extends BaseController {
 	 */
 	@MyGetMapping(path = "collaterate-rate")
 	@ApiOperation(value = "Get collateral rate.")
-	@BaseApiResponses
 	public List<CollaterateRateInfo> getCollateralRate() throws ApiException {
 		return connectors.portfolioMargin().getCollateralRate().sync();
 	}
