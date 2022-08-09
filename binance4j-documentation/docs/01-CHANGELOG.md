@@ -5,6 +5,26 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2022-08-09
+
+### Changed
+
+- binance4j-spot:
+  - Deprecated NewOrderParams in `newOrder` and `newOrderTest`.
+
+### Added
+
+- binance4j-spot:
+  - Added specific Order Params to `newOrder` and `newOrderTest`:
+    - LimitOrder
+    - MarketOrder
+    - MarketQuoteOrder
+    - StopLossOrder
+    - StopLossLimitOrder
+    - TakeProfitOrder
+    - TakeProfitLimitOrder
+    - LimitMakerOrder
+
 ## [2.0.6] - 2022-08-09
 
 ### Fixed

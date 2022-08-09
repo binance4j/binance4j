@@ -24,49 +24,194 @@ SpotClient client = new SpotClient(key, secret);
 TestnetSpotClient client = new TestnetSpotClient(testnetKey, testnetSecret);
 ```
 
-##Examples
+## Features
 
-### Validate a new order without sending it into the matching engine
-
-<Examples
-    payload="Void"
-    method="newOrderTest"
-    items={[
-        {
-            params: "NewOrderParams.buy(symbol, amount)",
-        },
-    ]}
-/>
-
-### Send in a new order
+### Send a Market order.
 
 <Examples
     payload="NewOrderResponse"
     method="newOrder"
     items={[
         {
-            label: "Market purchase",
-            params: "NewOrderParams.buy(symbol, amount)",
+            label: "BUY",
+            params: "MarketOrder.buy(symbol, quantity)",
         },
         {
-            label: "Market sale",
-            params: "NewOrderParams.sell(symbol, amount)",
+            label: "SELL",
+            params: "MarketOrder.sell(symbol, quantity)",
+        },
+    ]}
+/>
+
+### Send a Market Quote order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY",
+            params: "MarketQuoteOrder.buy(symbol, quoteAssetQty)",
         },
         {
-            label: "Limit purchase",
-            params: "NewOrderParams.buy(symbol, amount, price)",
+            label: "SELL",
+            params: "MarketQuoteOrder.sell(symbol, quoteAssetQty)",
+        },
+    ]}
+/>
+
+### Send a Limit order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY",
+            params: "LimitOrder.buy(symbol, quantity, price, timeInForce)",
         },
         {
-            label: "Limit sale",
-            params: "NewOrderParams.sell(symbol, amount, price)",
+            label: "SELL",
+            params: "LimitOrder.sell(symbol, quantity, price, timeInForce)",
         },
         {
-            label: "Market purchase with quote asset",
-            params: "NewOrderParams.buyQuote(symbol, amount)",
+            label: "BUY (TimeInForce.GTC)",
+            params: "LimitOrder.buy(symbol, quantity, price)",
         },
         {
-            label: "Market sale with quote asset",
-            params: "NewOrderParams.sellQuote(symbol, amount)",
+            label: "SELL (TimeInForce.GTC)",
+            params: "LimitOrder.sell(symbol, quantity, price)",
+        },
+    ]}
+/>
+
+### Send a Limit Maker order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY (TimeInForce.GTC)",
+            params: "LimitMakerOrder.buy(symbol, quantity, price)",
+        },
+        {
+            label: "SELL (TimeInForce.GTC)",
+            params: "LimitMakerOrder.sell(symbol, quantity, price)",
+        },
+    ]}
+/>
+
+### Send a Stop Loss order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY (Stop price)",
+            params: "StopLossOrder.buy(symbol, quantity, stopPrice)",
+        },
+        {
+            label: "SELL (Stop price)",
+            params: "StopLossOrder.sell(symbol, quantity, stopPrice)",
+        },
+        {
+            label: "BUY (Trailing delta)",
+            params: "StopLossOrder.buy(symbol, quantity, trailingDelta)",
+        },
+        {
+            label: "SELL (Trailing delta)",
+            params: "StopLossOrder.sell(symbol, quantity, trailingDelta)",
+        },
+    ]}
+/>
+
+### Send a Stop Loss Limit order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY ",
+            params: "StopLossOrder.buy(symbol, quantity, price, stopPrice, timeInForce)",
+        },
+        {
+            label: "SELL ",
+            params: "StopLossOrder.sell(symbol, quantity, price, stopPrice, timeInForce)",
+        },
+        {
+            label: "BUY (TimeInForce.GTC)",
+            params: "StopLossOrder.buy(symbol, quantity, price, stopPrice)",
+        },
+        {
+            label: "SELL (TimeInForce.GTC)",
+            params: "StopLossOrder.sell(symbol, quantity, price, stopPrice)",
+        },
+    ]}
+/>
+
+### Send a Take Profit order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY (Stop price)",
+            params: "TakeProfitOrder.buy(symbol, quantity, stopPrice)",
+        },
+        {
+            label: "SELL (Stop price)",
+            params: "TakeProfitOrder.sell(symbol, quantity, stopPrice)",
+        },
+        {
+            label: "BUY (Trailing delta)",
+            params: "TakeProfitOrder.buy(symbol, quantity, trailingDelta)",
+        },
+        {
+            label: "SELL (Trailing delta)",
+            params: "TakeProfitOrder.sell(symbol, quantity, trailingDelta)",
+        },
+    ]}
+/>
+
+### Send a Take Profit Limit order.
+
+<Examples
+    payload="NewOrderResponse"
+    method="newOrder"
+    items={[
+        {
+            label: "BUY ",
+            params: "TakeProfitLimitOrder.buy(symbol, quantity, price, stopPrice, timeInForce)",
+        },
+        {
+            label: "SELL ",
+            params: "TakeProfitLimitOrder.sell(symbol, quantity, price, stopPrice, timeInForce)",
+        },
+        {
+            label: "BUY (TimeInForce.GTC)",
+            params: "TakeProfitLimitOrder.buy(symbol, quantity, price, stopPrice)",
+        },
+        {
+            label: "SELL (TimeInForce.GTC)",
+            params: "TakeProfitLimitOrder.sell(symbol, quantity, price, stopPrice)",
+        },
+    ]}
+/>
+
+### Test an order
+
+`newOrderTest` works like `newOrder`.
+
+<Examples
+    payload="Void"
+    method="newOrderTest"
+    items={[
+        {
+            params: "MarketOrder.buy(symbol, quantity)",
         },
     ]}
 />
