@@ -8,6 +8,7 @@ import com.binance4j.savings.client.SavingsClient;
  * {@link SavingsClient#fixedToDailyPosition} params.
  * 
  * @param projectId  Project id.
+ * @param lot        Lot size.
  * @param positionId Position id for fixed position.
  */
 @Param
@@ -16,8 +17,9 @@ public record ChangePositionParams(String projectId, Long lot, Long positionId) 
 	 * Creates an instance of {@link ChangePositionParams}
 	 * 
 	 * @param projectId Project id.
+	 * @param lot       Lot size.
 	 */
-	public ChangePositionParams(String projectId) {
-		this(projectId, null, null);
+	public ChangePositionParams(String projectId, Long lot) {
+		this(projectId, lot, null);
 	}
 }
