@@ -612,8 +612,8 @@ Get the details of all assets supported by Binance
 ## Get funding asset
 
 <Badges
-    label="getFundingAsset()"
-    javadoc="client/WalletClient.html#getFundingAsset()"
+    label="getFundingWallet()"
+    javadoc="client/WalletClient.html#getFundingWallet()"
     weight="1 (IP)"
     signature="signed (HMAC SHA256)"
     path="POST /sapi/v1/asset/get-funding-asset"
@@ -632,7 +632,7 @@ Currently supports querying the following business assets：Binance Pay, Binance
         <Examples
             client="WalletClient"
             constructorParams={["key", "secret"]}
-            method="getFundingAsset"
+            method="getFundingWallet"
             responseType="List<FundingAsset>"
         />
     </TabItem>
@@ -640,7 +640,7 @@ Currently supports querying the following business assets：Binance Pay, Binance
         <Examples
             client="WalletClient"
             constructorParams={["key", "secret"]}
-            method="getFundingAsset"
+            method="getFundingWallet"
             responseType="List<FundingAsset>"
             requestType="FundingAssetRequest"
             requestParameters={['"BNB"']}
@@ -650,7 +650,7 @@ Currently supports querying the following business assets：Binance Pay, Binance
         <Examples
             client="WalletClient"
             constructorParams={["key", "secret"]}
-            method="getFundingAsset"
+            method="getFundingWallet"
             responseType="List<FundingAsset>"
             requestType="FundingAssetRequest"
             requestParameters={['"BNB"', true]}
