@@ -57,7 +57,8 @@ public class WalletClientTest extends CustomTest {
 	@Test
 	void testGetAllCoinsInfo() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getAllCoinsInfo(), List.of("country", "specialTips", "specialWithdrawTips", "depositDust"), true);
+		testHasNulls(client.getAllCoinsInfo(), List.of("country", "specialTips", "specialWithdrawTips", "depositDust"),
+				true);
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
@@ -210,13 +211,14 @@ public class WalletClientTest extends CustomTest {
 
 	@Test
 	void testGetTransferHistory2() throws ApiException {
-		testNotThrow(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)));
+		testNotThrow(client
+				.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset)));
 	}
 
 	@Test
 	void testGetWithdrawHistory() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getWithdrawHistory(), List.of("withdrawOrderId"), true);
+		testNotThrow(client.getWithdrawHistory());
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
@@ -224,7 +226,7 @@ public class WalletClientTest extends CustomTest {
 	void testGetWithdrawHistory2() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		testHasNulls(client.getWithdrawHistory(new WithdrawHistoryParams("FTM", status)), List.of("withdrawOrderId"), true);
+		testNotThrow(client.getWithdrawHistory(new WithdrawHistoryParams("FTM", status)));
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 
 	}

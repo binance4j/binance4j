@@ -24,13 +24,12 @@ public class TakeProfitLimitOrder extends BaseOrder {
 
 	/**
 	 * 
-	 * @param symbol        Symbol.
-	 * @param side          Side.
-	 * @param quantity      Order quantity.
-	 * @param price         Order price.
-	 * @param stopPrice     Order price.
-	 * @param timeInForce   Order time in force.
-	 * @param trailingDelta Trailing delta.
+	 * @param symbol      Symbol.
+	 * @param side        Side.
+	 * @param quantity    Order quantity.
+	 * @param price       Order price.
+	 * @param stopPrice   Order price.
+	 * @param timeInForce Order time in force.
 	 */
 	private TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
 			TimeInForce timeInForce) {
@@ -48,7 +47,6 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param side          Side.
 	 * @param quantity      Order quantity.
 	 * @param price         Order price.
-	 * @param stopPrice     Order price.
 	 * @param timeInForce   Order time in force.
 	 * @param trailingDelta Trailing delta.
 	 */
@@ -124,7 +122,6 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
-	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
@@ -138,7 +135,6 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
-	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
@@ -152,7 +148,6 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
-	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
@@ -167,7 +162,6 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
-	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
