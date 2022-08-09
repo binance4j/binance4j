@@ -16,7 +16,7 @@ import com.binance4j.market.client.MarketClient;
 public record ExchangeInfoParams(String symbols) implements Params {
 	/** Creates an instance of {@link ExchangeInfoParams}. */
 	public ExchangeInfoParams() {
-		this((String) null);
+		this("");
 	}
 
 	/**
