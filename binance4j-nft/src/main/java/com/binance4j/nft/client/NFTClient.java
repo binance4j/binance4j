@@ -1,7 +1,5 @@
 package com.binance4j.nft.client;
 
-import java.util.Map;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
@@ -95,8 +93,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<AssetHistory> getAssets(Paging paging) {
-		Map<String, String> replaceMap = Map.of("rows", "limit");
-		return new Request<>(service.getAssets(Params.merge(new AssetParams().toMap(), paging.toMap(replaceMap))));
+		return new Request<>(service.getAssets(Params.merge(new AssetParams().toMap(), paging.toMap())));
 	}
 
 	/**
