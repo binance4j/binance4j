@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.zip.ZipInputStream;
 
 import com.binance4j.core.Request;
-import com.binance4j.core.callback.ApiCallback;
+import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.exception.NotFoundException;
 
@@ -41,24 +41,16 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	/**
 	 * Downloads the zip file asynchronously
 	 *
-	 * @param callback Callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response
+	 *                 error.
 	 */
-	public void getZip(ApiCallback<ZipInputStream> callback) {
-		async(new ApiCallback<ResponseBody>() {
-			@Override
-			public void onFailure(ApiException exception) {
-				callback.onFailure(exception);
-			}
-
-			@Override
-			public void onResponse(ResponseBody res) {
-				callback.onResponse(responseToZip(res));
-			}
-		});
+	public void getZip(ApiAsyncCallback<ZipInputStream> callback) {
+		async((res, exc) -> callback.onResponse(responseToZip(res), exc));
 	}
 
 	/**
-	 * Downloads the zip file synchronously and returns the data in a csv style (2d list)
+	 * Downloads the zip file synchronously and returns the data in a csv style (2d
+	 * list)
 	 *
 	 * @return The deserialized data.
 	 * @throws ApiException Thrown if data fetching failed
@@ -68,30 +60,28 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	}
 
 	/**
-	 * Downloads the zip file asynchronously and returns the data in a csv style (2d list)
+	 * Downloads the zip file asynchronously and returns the data in a csv style (2d
+	 * list)
 	 *
-	 * @param callback Callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response
+	 *                 error.
 	 */
-	public void getCSV(ApiCallback<List<List<String>>> callback) {
-		async(new ApiCallback<ResponseBody>() {
+	public void getCSV(ApiAsyncCallback<List<List<String>>> callback) {
+		async(new ApiAsyncCallback<ResponseBody>() {
 			@Override
-			public void onResponse(ResponseBody res) {
+			public void onResponse(ResponseBody res, ApiException e) {
 				try {
-					callback.onResponse(extractCSV(responseToZip(res)));
-				} catch (ApiException e) {
-					onFailure(e);
+					callback.onResponse(extractCSV(responseToZip(res)), null);
+				} catch (ApiException ex) {
+					callback.onResponse(null, ex);
 				}
-			}
-
-			@Override
-			public void onFailure(ApiException exception) {
-				callback.onFailure(exception);
 			}
 		});
 	}
 
 	/**
-	 * Downloads the zip file synchronously and returns the data in the csv as a list of objects
+	 * Downloads the zip file synchronously and returns the data in the csv as a
+	 * list of objects
 	 *
 	 * @return The deserialized data.
 	 * @throws ApiException Thrown if data fetching failed
@@ -101,24 +91,21 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	}
 
 	/**
-	 * Downloads the zip file asynchronously and returns the data in the csv as a list of objects
+	 * Downloads the zip file asynchronously and returns the data in the csv as a
+	 * list of objects
 	 *
-	 * @param callback Callback handling the deserialized data and the API response error.
+	 * @param callback Callback handling the deserialized data and the API response
+	 *                 error.
 	 */
-	public void getData(ApiCallback<List<T>> callback) {
-		async(new ApiCallback<ResponseBody>() {
+	public void getData(ApiAsyncCallback<List<T>> callback) {
+		async(new ApiAsyncCallback<ResponseBody>() {
 			@Override
-			public void onResponse(ResponseBody res) {
+			public void onResponse(ResponseBody res, ApiException e) {
 				try {
-					callback.onResponse(csvToObject(extractCSV(responseToZip(res))));
-				} catch (ApiException e) {
-					onFailure(e);
+					callback.onResponse(csvToObject(extractCSV(responseToZip(res))), null);
+				} catch (ApiException ex) {
+					callback.onResponse(null, ex);
 				}
-			}
-
-			@Override
-			public void onFailure(ApiException exception) {
-				callback.onFailure(exception);
 			}
 		});
 	}
@@ -177,7 +164,8 @@ public abstract class VisionParams<T> extends Request<ResponseBody> {
 	}
 
 	/**
-	 * The child class method to convert the csv list into a list of the generic type
+	 * The child class method to convert the csv list into a list of the generic
+	 * type
 	 *
 	 * @param input Csv input.
 	 * @return A list of.
