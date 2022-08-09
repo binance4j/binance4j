@@ -2,6 +2,8 @@ package com.binance4j.core;
 
 import java.io.IOException;
 
+import com.binance4j.core.callback.ApiAsyncCallback;
+import com.binance4j.core.callback.ApiAsyncCallbackAdapter;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.callback.ApiCallbackAdapter;
 import com.binance4j.core.exception.ApiError;
@@ -49,8 +51,19 @@ public class Request<T> {
 	 * Executes the request asynchronously
 	 * 
 	 * @param callback Request callback managing a success or error response.
+	 * @deprecated Use {@code Request.async(ApiAsyncCallback<T> callback)}
 	 */
+	@Deprecated
 	public void async(ApiCallback<T> callback) {
 		call.enqueue(new ApiCallbackAdapter<>(callback));
+	}
+
+	/**
+	 * Executes the request asynchronously
+	 * 
+	 * @param callback Request callback managing a success or error response.
+	 */
+	public void async(ApiAsyncCallback<T> callback) {
+		call.enqueue(new ApiAsyncCallbackAdapter<>(callback));
 	}
 }

@@ -39,34 +39,13 @@ export function SyncRequest(props: Props) {
 export function AsyncRequestLambda(props: Props) {
     return (
         <CodeBlock language="java">
-            {`client.${props.method}.async(response->{
-//...
+            {`client.${props.method}.async((response, exception)->{
+    if(exception == null){
+        //...
+    }else{
+        //...
+    }
 });`}
-        </CodeBlock>
-    )
-}
-
-/**
- * Returns an example code block for an async API call with ApiCallback
- * @param props The components props
- */
-export function AsyncRequestApiCallback(props: Props) {
-    const callback = props.payload ? `${props.payload} response` : "";
-
-    return (
-        <CodeBlock language="java">
-            {`client.${props.method}.async(new ApiCallback<${props.payload ? props.payload : "Void"}>() {
-    @Override
-    public void onResponse(${callback}) {
-        //...
-    }
-
-    @Override
-    public void onFailure(ApiException exception) {
-        //...
-    }
-});
-`}
         </CodeBlock>
     )
 }
@@ -79,14 +58,11 @@ export default function RequestExamples(props: Props) {
     return (
         <>
             <Tabs>
-                <TabItem label="Sync" value="sync" default>
+                <TabItem label="sync" value="sync" default>
                     <SyncRequest {...props} />
                 </TabItem>
-                <TabItem label="Async (lambda)" value="async-lambda">
+                <TabItem label="async" value="async">
                     <AsyncRequestLambda {...props} />
-                </TabItem>
-                <TabItem label="Async (ApiCallback)" value="async-api-callback">
-                    <AsyncRequestApiCallback {...props} />
                 </TabItem>
             </Tabs>
         </>

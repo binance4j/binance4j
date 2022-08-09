@@ -10,7 +10,8 @@ import com.binance4j.pay.param.TradeHistoryParams;
 /**
  * Api client for the pay endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints">Documentation</a>
  */
 public class PayClient extends RestClient<PayMapping> {
 	/**

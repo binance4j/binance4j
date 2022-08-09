@@ -34,24 +34,12 @@ interface ParamsItem {
 export function SyncRequest(props: Props) {
     return (
         <CodeBlock language="java">
-            {`try{
-    ${props.payload != "Void" ? props.payload + " res = " : ""} client.${props.method}.sync();
-}catch(ApiException e){ 
-//...
-}`}
-        </CodeBlock>
-    )
-}
-
-/**
- * Returns an example code block for an async API call with lambda
- * @param props The components props
- */
-export function AsyncRequestLambda(props: Props) {
-    return (
-        <CodeBlock language="java">
-            {`client.${props.method}.async(response->{
-//...
+            {`client.${props.method}.async((response, exception)->{
+    if(exception == null){
+        //...
+    }else{
+        //...
+    }
 });`}
         </CodeBlock>
     )
@@ -61,7 +49,7 @@ export function AsyncRequestLambda(props: Props) {
  * Returns an example code block for an async API call with ApiCallback
  * @param props The components props
  */
-export function AsyncRequestApiCallback(props: Props) {
+export function Async(props: Props) {
     const callback = props.payload ? `${props.payload} response` : "";
 
     return (
@@ -90,15 +78,13 @@ export function Examples(props: Props) {
     return (
         <>
             <Tabs>
-                <TabItem label="Sync" value="sync" default>
+                <TabItem label="sync" value="sync" default>
                     <SyncRequest {...props} />
                 </TabItem>
-                <TabItem label="Async (lambda)" value="async-lambda">
-                    <AsyncRequestLambda {...props} />
+                <TabItem label="async" value="async">
+                    <Async {...props} />
                 </TabItem>
-                <TabItem label="Async (ApiCallback)" value="async-api-callback">
-                    <AsyncRequestApiCallback {...props} />
-                </TabItem>
+
             </Tabs>
         </>
     )

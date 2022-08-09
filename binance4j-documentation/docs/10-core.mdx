@@ -41,7 +41,7 @@ The code above won't call the API. It returns an instance of a `Request` that ca
 
 ## Handling exceptions
 
-As you can see in the example above, all exceptions are handled with `ApiException`. Synchronous calls will throw an `ApiException` and asynchronous calls will pass the exception to the `onFailure` method of the `ApiCallback`. Using a lambda in an async callback doesn't permir to handle such exception.
+As you can see in the example above, all exceptions are handled with `ApiException`. Synchronous calls will throw an `ApiException` and asynchronous calls will pass the exception as the second parameter.
 
 ## Params and Payload types
 
