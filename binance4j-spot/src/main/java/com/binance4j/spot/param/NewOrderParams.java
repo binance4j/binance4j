@@ -19,6 +19,8 @@ public class NewOrderParams implements Params {
 	String symbol;
 	/** The order side */
 	OrderSide side;
+	/** The order type */
+	OrderType type;
 	/** The order quantity */
 	String quantity;
 	/** The order price */
@@ -27,9 +29,7 @@ public class NewOrderParams implements Params {
 	String stopPrice;
 	/** The order response type Default: RESULT. */
 	NewOrderResponseType newOrderRespType;
-	/** The order type */
-	OrderType type;
-	/** Le order lifetime */
+	/** The order lifetime */
 	TimeInForce timeInForce;
 	/** The quote order quantity */
 	@JsonProperty("quoteOrderQty")
@@ -69,7 +69,8 @@ public class NewOrderParams implements Params {
 	 * @param price       Order price.
 	 * @param timeInForce Lifetime of the order.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price,
+			TimeInForce timeInForce) {
 		this.type = type;
 		this.symbol = symbol;
 		this.side = side;
@@ -111,6 +112,8 @@ public class NewOrderParams implements Params {
 	}
 	// STATIQUE //
 
+	// MARKET
+
 	/**
 	 * Produces a MARKET buy order
 	 *
@@ -132,6 +135,36 @@ public class NewOrderParams implements Params {
 	public static NewOrderParams sell(String symbol, String quantity) {
 		return new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, quantity);
 	}
+
+	// MARKET QUOTE
+
+	/**
+	 * Produces a MARKET buy order with quote quantity and default timeInForce
+	 *
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
+	 * @return The order to execute.
+	 */
+	public static NewOrderParams buyQuote(String symbol, String quantity) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null);
+		order.setQuoteOrderQuantity(quantity);
+		return order;
+	}
+
+	/**
+	 * Produces a MARKET order with quote quantity and default timeInForce
+	 *
+	 * @param symbol   Asset pair.
+	 * @param quantity Quantity.
+	 * @return The order to execute.
+	 */
+	public static NewOrderParams sellQuote(String symbol, String quantity) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null);
+		order.setQuoteOrderQuantity(quantity);
+		return order;
+	}
+
+	// LIMIT
 
 	/**
 	 * Produces a LIMIT buy order
@@ -182,7 +215,6 @@ public class NewOrderParams implements Params {
 	public static NewOrderParams sell(String symbol, String quantity, String price) {
 		return new NewOrderParams(symbol, OrderType.LIMIT, OrderSide.SELL, quantity, price, TimeInForce.GTC);
 	}
-	// QUOTE ORDERS
 
 	/**
 	 * Produces a MARKET buy order with quote quantity
@@ -198,43 +230,67 @@ public class NewOrderParams implements Params {
 		return order;
 	}
 
+	// STOP LOSS
+
 	/**
-	 * Produces a MARKET buy order with quote quantity and default timeInForce
+	 * Produces a sell LIMIT order
 	 *
-	 * @param symbol   Asset pair.
-	 * @param quantity Quantity.
+	 * @param symbol    Asset pair.
+	 * @param quantity  Quantity.
+	 * @param stopPrice Stop price
 	 * @return The order to execute.
 	 */
-	public static NewOrderParams buyQuote(String symbol, String quantity) {
-		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.BUY, null, TimeInForce.GTC);
-		order.setQuoteOrderQuantity(quantity);
+	public static NewOrderParams sellStopLoss(String symbol, String quantity, String stopPrice) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.STOP_LOSS, OrderSide.SELL, quantity,
+				TimeInForce.GTC);
+		order.setStopPrice(stopPrice);
 		return order;
 	}
 
 	/**
-	 * Produces a MARKET order with quote quantity
+	 * Produces a sell LIMIT order
 	 *
 	 * @param symbol      Asset pair.
 	 * @param quantity    Quantity.
-	 * @param timeInForce Lifetime of the order.
+	 * @param stopPrice   Stop price
+	 * @param timeInForce time in force
 	 * @return The order to execute.
 	 */
-	public static NewOrderParams sellQuote(String symbol, String quantity, TimeInForce timeInForce) {
-		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null, timeInForce);
-		order.setQuoteOrderQuantity(quantity);
+	public static NewOrderParams sellStopLoss(String symbol, String quantity, String stopPrice,
+			TimeInForce timeInForce) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.STOP_LOSS, OrderSide.SELL, quantity, timeInForce);
+		order.setStopPrice(stopPrice);
 		return order;
 	}
 
 	/**
-	 * Produces a MARKET order with quote quantity and default timeInForce
+	 * Produces a sell LIMIT order
 	 *
-	 * @param symbol   Asset pair.
-	 * @param quantity Quantity.
+	 * @param symbol    Asset pair.
+	 * @param quantity  Quantity.
+	 * @param stopPrice Stop price
 	 * @return The order to execute.
 	 */
-	public static NewOrderParams sellQuote(String symbol, String quantity) {
-		NewOrderParams order = new NewOrderParams(symbol, OrderType.MARKET, OrderSide.SELL, null, TimeInForce.GTC);
-		order.setQuoteOrderQuantity(quantity);
+	public static NewOrderParams buyStopLoss(String symbol, String quantity, String stopPrice) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.STOP_LOSS, OrderSide.BUY, quantity,
+				TimeInForce.GTC);
+		order.setStopPrice(stopPrice);
+		return order;
+	}
+
+	/**
+	 * Produces a sell LIMIT order
+	 *
+	 * @param symbol      Asset pair.
+	 * @param quantity    Quantity.
+	 * @param stopPrice   Stop price
+	 * @param timeInForce time in force
+	 * @return The order to execute.
+	 */
+	public static NewOrderParams buyStopLoss(String symbol, String quantity, String stopPrice,
+			TimeInForce timeInForce) {
+		NewOrderParams order = new NewOrderParams(symbol, OrderType.STOP_LOSS, OrderSide.BUY, quantity, timeInForce);
+		order.setStopPrice(stopPrice);
 		return order;
 	}
 
@@ -405,4 +461,14 @@ public class NewOrderParams implements Params {
 	public void setNewClientOrderId(String newClientOrderId) {
 		this.newClientOrderId = newClientOrderId;
 	}
+
+	@Override
+	public String toString() {
+		return "NewOrderParams [icebergQuantity=" + icebergQuantity + ", newClientOrderId=" + newClientOrderId
+				+ ", newOrderRespType=" + newOrderRespType + ", price=" + price + ", quantity=" + quantity
+				+ ", quoteOrderQuantity=" + quoteOrderQuantity + ", side=" + side + ", stopLimitPrice=" + stopLimitPrice
+				+ ", stopPrice=" + stopPrice + ", symbol=" + symbol + ", timeInForce=" + timeInForce + ", type=" + type
+				+ "]";
+	}
+
 }
