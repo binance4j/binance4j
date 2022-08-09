@@ -77,7 +77,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<FlexibleProduct>> getFlexibleProducts() {
-		return new Request<>(service.getFlexibleProducts(new FlexibleProductsParams(null, null).toMap()));
+		return new Request<>(service.getFlexibleProducts(new FlexibleProductsParams().toMap()));
 	}
 
 	/**
