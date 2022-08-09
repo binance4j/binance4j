@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param txId          Transaction id.
  * @param unlockConfirm confirm times for unlocking.
  * @param confirmTimes  Confirm times
- * @param status        Withdraw status code.
+ * @param status        Deposit status code.
  * @param insertTime    confirm times for insertion (?)
  * @param transferType  Transfer type. 1 for internal transfer, 0 for external transfer.
  * @param walletType    Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.
@@ -24,11 +24,11 @@ public record DepositHistory(@ApiModelProperty("Volume to deposit.") String amou
 		@ApiModelProperty("Transfer network.") String network, @ApiModelProperty("Deposit address.") String address,
 		@ApiModelProperty("Deposit address tag.") String addressTag, @ApiModelProperty("Transaction id.") String txId,
 		@ApiModelProperty("confirm times for unlocking.") String unlockConfirm, @ApiModelProperty("Confirm times") String confirmTimes,
-		@ApiModelProperty("Withdraw status code.") String status, @ApiModelProperty("confirm times for insertion (?)") long insertTime,
+		@ApiModelProperty("Deposit status code.") String status, @ApiModelProperty("confirm times for insertion (?)") long insertTime,
 		@ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.") int transferType,
 		@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.") int walletType) {
-	/** @return The withdraw status. */
+	/** @return String value of status. */
 	public DepositStatus getDepositStatus() {
-		return DepositStatus.valueOf(status);
+		return DepositStatus.fromValue(status);
 	}
 }
