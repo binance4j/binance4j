@@ -1,7 +1,7 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.Request;
-import com.binance4j.core.pojo.ServerTime;
+import com.binance4j.request.GetServerTimeRequest;
+import com.binance4j.request.VoidRequest;
 
 /** API client for market endpoints */
 public class TestClient extends RestClient<TestMapping> {
@@ -13,21 +13,21 @@ public class TestClient extends RestClient<TestMapping> {
 	/**
 	 * Test connectivity to the Rest API.
 	 */
-	public Request<Void> ping() {
-		return new Request<>(service.ping());
+	public VoidRequest ping() {
+		return new VoidRequest(service.ping());
 	}
 
 	/**
 	 * Get server Time.
 	 */
-	public Request<ServerTime> time() {
-		return new Request<>(service.time());
+	public GetServerTimeRequest time() {
+		return new GetServerTimeRequest(service.time());
 	}
 
 	/**
 	 * bad uri
 	 */
-	public Request<Void> notFound() {
-		return new Request<>(service.notFound());
+	public VoidRequest notFound() {
+		return new VoidRequest(service.notFound());
 	}
 }
