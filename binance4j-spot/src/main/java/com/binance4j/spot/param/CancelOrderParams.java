@@ -13,7 +13,8 @@ import com.binance4j.spot.client.SpotClient;
  * @param newClientOrderId  New client order id.
  */
 @Param(weight = 10)
-public record CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId) implements Params {
+public record CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId)
+		implements Params {
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 

@@ -14,7 +14,8 @@ import com.binance4j.fiat.param.TransactionParams;
 /**
  * Api client for the fiat endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#fiat-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#fiat-endpoints">Documentation</a>
  */
 public class FiatClient extends RestClient<FiatMapping> {
 	/**
@@ -33,7 +34,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<TransactionHistory> getTransactions(TransactionParams params, FramedPaging framedPaging) {
-		return new Request<>(service.getTransactions(Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
+		return new Request<>(service.getTransactions(
+				Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
 	/**
@@ -54,7 +56,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<PaymentHistory> getPayments(PaymentParams params, FramedPaging framedPaging) {
-		return new Request<>(service.getPayments(Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
+		return new Request<>(service.getPayments(
+				Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
 	/**

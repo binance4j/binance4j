@@ -6,6 +6,7 @@ import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.callback.ApiAsyncCallbackAdapter;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.callback.ApiCallbackAdapter;
+import com.binance4j.core.dto.HttpMethod;
 import com.binance4j.core.exception.ApiError;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,8 +18,12 @@ import retrofit2.Response;
 public class Request<T> {
 	/** The Jackson Object mapper for deserializing the Api error response. */
 	static final ObjectMapper MAPPER = new ObjectMapper();
-	/** The current API call */
+	/** The current API call. */
 	final Call<T> call;
+	/** The request method. */
+	protected HttpMethod method = HttpMethod.GET;
+
+	protected boolean isOrder;
 
 	/**
 	 * @param call Retrofit call.

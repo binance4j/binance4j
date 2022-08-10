@@ -16,5 +16,6 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonFormat(shape = Shape.ARRAY)
 @JsonPropertyOrder()
 @ApiModel("An order book entry consisting of price and quantity.")
-public record OrderBookEntry(@ApiModelProperty("The price.") String price, @ApiModelProperty("The quantity.") String qt) {
+public record OrderBookEntry(@ApiModelProperty("The price.") String price,
+		@ApiModelProperty("The quantity.") String qt) {
 }

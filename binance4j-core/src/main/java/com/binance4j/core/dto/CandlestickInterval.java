@@ -1,7 +1,8 @@
 package com.binance4j.core.dto;
 
 /**
- * Kline/Candlestick intervals. m : minutes; h : hours; d : days; w : weeks; M : months
+ * Kline/Candlestick intervals. m : minutes; h : hours; d : days; w : weeks; M :
+ * months
  */
 public enum CandlestickInterval {
 	/** 1 minute interval. */

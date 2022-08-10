@@ -22,10 +22,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Pair trade data.")
-public record Trade(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType, @ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
-		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol, @ApiModelProperty("Trade id.") @JsonProperty("t") String tradeId,
-		@ApiModelProperty("Price.") @JsonProperty("p") String price, @ApiModelProperty("Price.") @JsonProperty("q") String quantity,
-		@ApiModelProperty("Buyer order id.") @JsonProperty("b") Long buyerOrderId, @ApiModelProperty("Seller order id.") @JsonProperty("a") Long sellerOrderId,
+public record Trade(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Trade id.") @JsonProperty("t") String tradeId,
+		@ApiModelProperty("Price.") @JsonProperty("p") String price,
+		@ApiModelProperty("Price.") @JsonProperty("q") String quantity,
+		@ApiModelProperty("Buyer order id.") @JsonProperty("b") Long buyerOrderId,
+		@ApiModelProperty("Seller order id.") @JsonProperty("a") Long sellerOrderId,
 		@ApiModelProperty("Timestamp.") @JsonProperty("T") Long tradeTime,
 		@ApiModelProperty("Is the buyer the market maker?") @JsonProperty("m") Boolean buyerIsMarketMaker) {
 }

@@ -16,8 +16,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @param project          project.
  */
 @ApiModel("Staking product detail.")
-public record ProductDetail(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Reward Asset.") String rewardAsset,
-		@ApiModelProperty("Duration in ms.") int duration, @ApiModelProperty("Renewable.") boolean renewable, @ApiModelProperty("Apy.") String apy,
-		@ApiModelProperty("Extra reward asset.") String extraRewardAsset, @ApiModelProperty("Extra reward APY.") String extraRewardsAPY,
+public record ProductDetail(@ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Reward Asset.") String rewardAsset,
+		@ApiModelProperty("Duration in ms.") int duration, @ApiModelProperty("Renewable.") boolean renewable,
+		@ApiModelProperty("Apy.") String apy,
+		@ApiModelProperty("Extra reward asset.") String extraRewardAsset,
+		@ApiModelProperty("Extra reward APY.") String extraRewardsAPY,
 		@ApiModelProperty("project.") String project) {
 }

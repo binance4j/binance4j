@@ -16,10 +16,12 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	 * @param interval Candlestick interval.
 	 * @param callback Events handler.
 	 */
-	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval, WebsocketCallback<Candle> callback) {
+	public WebsocketCandlestickClient(String symbols, CandlestickInterval interval,
+			WebsocketCallback<Candle> callback) {
 		super(symbols, String.format("kline_%s", interval.toString()), Candle.class, callback);
 		// We define the read timeout the same as the interval + a margin
-		getConfiguration().setNoResponseTimeout(DurationService.convert(interval).plus(getConfiguration().getNoResponseTimeoutMarginError()));
+		getConfiguration().setNoResponseTimeout(
+				DurationService.convert(interval).plus(getConfiguration().getNoResponseTimeoutMarginError()));
 	}
 
 	/**
@@ -27,7 +29,8 @@ public class WebsocketCandlestickClient extends BaseWebsocketClient<Candle> {
 	 * @param interval Candlestick interval.
 	 * @param callback Events handler.
 	 */
-	public WebsocketCandlestickClient(Iterable<? extends CharSequence> symbols, CandlestickInterval interval, WebsocketCallback<Candle> callback) {
+	public WebsocketCandlestickClient(Iterable<? extends CharSequence> symbols, CandlestickInterval interval,
+			WebsocketCallback<Candle> callback) {
 		this(String.join(",", symbols), interval, callback);
 	}
 

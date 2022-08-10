@@ -79,7 +79,8 @@ import com.binance4j.margin.param.TransferParams;
 /**
  * REST client for the margin endpoints.
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#margin-account-trade">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-trade">Documentation</a>
  */
 public class MarginClient extends RestClient<MarginMapping> {
 	/**
@@ -198,7 +199,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Cancel all active orders on a symbol for margin account. This includes OCO orders.
+	 * Cancel all active orders on a symbol for margin account. This includes OCO
+	 * orders.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -234,7 +236,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<TransferRecords> getTransferHistory(TransactionHistoryParams params, FramedPaging paging) {
-		return new Request<>(service.getTransferHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service.getTransferHistory(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -255,7 +258,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<LoanRecord> getLoanRecord(TransactionHistoryParams params, FramedPaging paging) {
-		return new Request<>(service.getLoanRecord(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service
+				.getLoanRecord(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -276,7 +280,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<RepayRecords> getRepayRecord(TransactionHistoryParams params, FramedPaging paging) {
-		return new Request<>(service.getRepayRecord(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service.getRepayRecord(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -297,7 +302,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<InterestHistory> getInterestHistory(TransactionHistoryParams params, FramedPaging paging) {
-		return new Request<>(service.getInterestHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service.getInterestHistory(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -317,8 +323,10 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params, FramedPaging paging) {
-		return new Request<>(service.getForceLiquidationRecord(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params,
+			FramedPaging paging) {
+		return new Request<>(service.getForceLiquidationRecord(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -411,7 +419,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Retrieves all OCO for a specific margin account based on provided optional parameters.
+	 * Retrieves all OCO for a specific margin account based on provided optional
+	 * parameters.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -421,7 +430,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Retrieves all OCO for a specific margin account based on provided optional parameters.
+	 * Retrieves all OCO for a specific margin account based on provided optional
+	 * parameters.
 	 * 
 	 * @param params    Request params.
 	 * @param timeFrame Time interval seach.
@@ -518,8 +528,10 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paginated result.
 	 * @return The request to execute.
 	 */
-	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params, FramedPaging paging) {
-		return new Request<>(service.getIsolatedTransferHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params,
+			FramedPaging paging) {
+		return new Request<>(service.getIsolatedTransferHistory(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -542,7 +554,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Disable isolated margin account for a specific symbol. Each trading pair can only be deactivated once every 24 hours.
+	 * Disable isolated margin account for a specific symbol. Each trading pair can
+	 * only be deactivated once every 24 hours.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -552,7 +565,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Enable isolated margin account for a specific symbol(Only supports activation of previously disabled accounts).
+	 * Enable isolated margin account for a specific symbol(Only supports activation
+	 * of previously disabled accounts).
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -619,7 +633,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get cross margin fee data collection with any vip level or user's current specific data defined
+	 * Get cross margin fee data collection with any vip level or user's current
+	 * specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
 	 * @param params Request params.
@@ -630,7 +645,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get cross margin fee data collection with any vip level or user's current specific data defined
+	 * Get cross margin fee data collection with any vip level or user's current
+	 * specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
 	 * @return The request to execute.
@@ -640,7 +656,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get isolated margin fee data collection with any vip level or user's current specific data defined
+	 * Get isolated margin fee data collection with any vip level or user's current
+	 * specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
 	 * @param params Request params.
@@ -651,7 +668,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get isolated margin fee data collection with any vip level or user's current specific data defined
+	 * Get isolated margin fee data collection with any vip level or user's current
+	 * specific data defined
 	 * <a href="https://www.binance.com/en/margin-fee">here</a>.
 	 * 
 	 * @return The request to execute.
@@ -691,7 +709,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Query the historical information of user's margin account small-value asset conversion BNB.
+	 * Query the historical information of user's margin account small-value asset
+	 * conversion BNB.
 	 * 
 	 * @return The request to execute.
 	 */
@@ -700,7 +719,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Query the historical information of user's margin account small-value asset conversion BNB.
+	 * Query the historical information of user's margin account small-value asset
+	 * conversion BNB.
 	 * 
 	 * @param timeFrame Result time frame.
 	 * @return The request to execute.

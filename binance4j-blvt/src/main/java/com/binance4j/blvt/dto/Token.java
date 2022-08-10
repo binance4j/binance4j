@@ -25,11 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param timestamp          Timestamp.
  */
 @ApiModel("Binance leverage token.")
-public record Token(@ApiModelProperty("Token name.") String tokenName, @ApiModelProperty("Description.") String description,
-		@ApiModelProperty("Underlying.") String underlying, @ApiModelProperty("Token issued.") String tokenIssued, @ApiModelProperty("Basket.") String basket,
+public record Token(@ApiModelProperty("Token name.") String tokenName,
+		@ApiModelProperty("Description.") String description,
+		@ApiModelProperty("Underlying.") String underlying, @ApiModelProperty("Token issued.") String tokenIssued,
+		@ApiModelProperty("Basket.") String basket,
 		@ApiModelProperty("Current baskets.") List<Basket> currentBaskets, @ApiModelProperty("Nav.") String nav,
 		@ApiModelProperty("Real leverage.") String realLeverage, @ApiModelProperty("Funding rate.") String fundingRate,
-		@ApiModelProperty("Daily management fee.") String dailyManagementFee, @ApiModelProperty("Purchase Fee Pct.") String purchaseFeePct,
-		@ApiModelProperty("Daily Purchase Limit.") String dailyPurchaseLimit, @ApiModelProperty("Redeem Fee Pct.") String redeemFeePct,
-		@ApiModelProperty("Daily Redeem Limit.") String dailyRedeemLimit, @ApiModelProperty("Timestamp.") long timestamp) {
+		@ApiModelProperty("Daily management fee.") String dailyManagementFee,
+		@ApiModelProperty("Purchase Fee Pct.") String purchaseFeePct,
+		@ApiModelProperty("Daily Purchase Limit.") String dailyPurchaseLimit,
+		@ApiModelProperty("Redeem Fee Pct.") String redeemFeePct,
+		@ApiModelProperty("Daily Redeem Limit.") String dailyRedeemLimit,
+		@ApiModelProperty("Timestamp.") long timestamp) {
 }

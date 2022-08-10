@@ -17,8 +17,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @param updateTime      Update time in ms.
  */
 @ApiModel("A fiat transaction.")
-public record Transaction(@ApiModelProperty("Order No.") String orderNo, @ApiModelProperty("Fiat currency.") String fiatCurrency,
+public record Transaction(@ApiModelProperty("Order No.") String orderNo,
+		@ApiModelProperty("Fiat currency.") String fiatCurrency,
 		@ApiModelProperty("Indicated amount.") String indicatedAmount, @ApiModelProperty("Amount.") String amount,
-		@ApiModelProperty("Total fee.") String totalFee, @ApiModelProperty("Method.") String method, @ApiModelProperty("Status.") String status,
-		@ApiModelProperty("Create time in ms.") long createTime, @ApiModelProperty("Update time in ms.") long updateTime) {
+		@ApiModelProperty("Total fee.") String totalFee, @ApiModelProperty("Method.") String method,
+		@ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Create time in ms.") long createTime,
+		@ApiModelProperty("Update time in ms.") long updateTime) {
 }

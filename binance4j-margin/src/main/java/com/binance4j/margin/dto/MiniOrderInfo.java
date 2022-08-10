@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param clientOrderId Client order id.
  */
 @ApiModel("Trade order information.")
-public record MiniOrderInfo(@ApiModelProperty("Order symbol.") String symbol, @ApiModelProperty("Order id.") long orderId,
+public record MiniOrderInfo(@ApiModelProperty("Order symbol.") String symbol,
+		@ApiModelProperty("Order id.") long orderId,
 		@ApiModelProperty("Client order id.") String clientOrderId) {
 }

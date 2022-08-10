@@ -28,7 +28,8 @@ public class VisionSpotClient {
 
 	/** Constructor */
 	public VisionSpotClient() {
-		service = new Retrofit.Builder().baseUrl("https://data.binance.vision/data/").build().create(VisionSpotMapping.class);
+		service = new Retrofit.Builder().baseUrl("https://data.binance.vision/data/").build()
+				.create(VisionSpotMapping.class);
 	}
 
 	/**
@@ -41,11 +42,13 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
+	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year,
+			String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new CandlestickParams(service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
+		return new CandlestickParams(
+				service.getMonthlyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
 	}
 
 	/**
@@ -58,11 +61,13 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month) throws ApiException {
+	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year,
+			String month) throws ApiException {
 		if (!isValidDate(year, month))
 			throw new InvalidDateException();
 
-		return new ChecksumParams(service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
+		return new ChecksumParams(
+				service.getMonthlyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month));
 	}
 
 	/**
@@ -76,11 +81,13 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
+	public VisionParams<Candle> getKlines(String symbol, CandlestickInterval candlestickInterval, String year,
+			String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new CandlestickParams(service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
+		return new CandlestickParams(
+				service.getDailyKlines(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
 	}
 
 	/**
@@ -94,11 +101,13 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws InvalidDateException Given date is invalid.
 	 */
-	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year, String month, String day) throws ApiException {
+	public ChecksumParams getKlinesChecksum(String symbol, CandlestickInterval candlestickInterval, String year,
+			String month, String day) throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
-		return new ChecksumParams(service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
+		return new ChecksumParams(
+				service.getDailyKlinesChecksum(symbol.toUpperCase(), candlestickInterval.toString(), year, month, day));
 	}
 
 	// Trades
@@ -145,7 +154,8 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionParams<VisionTrade> getTrades(String symbol, String year, String month, String day) throws ApiException {
+	public VisionParams<VisionTrade> getTrades(String symbol, String year, String month, String day)
+			throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
@@ -213,7 +223,8 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public VisionParams<AggTrade> getAggTrades(String symbol, String year, String month, String day) throws ApiException {
+	public VisionParams<AggTrade> getAggTrades(String symbol, String year, String month, String day)
+			throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 
@@ -230,7 +241,8 @@ public class VisionSpotClient {
 	 * @return The zip file containing the data.
 	 * @throws ApiException Thrown when the fetching failed
 	 */
-	public ChecksumParams getAggTradesChecksum(String symbol, String year, String month, String day) throws ApiException {
+	public ChecksumParams getAggTradesChecksum(String symbol, String year, String month, String day)
+			throws ApiException {
 		if (!isValidDate(year, month, day))
 			throw new InvalidDateException();
 

@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data Response data.
  */
 @ApiModel("Other profits wrapper.")
-public record OtherProfitsResponse(@ApiModelProperty("Response code.") int code, @ApiModelProperty("Response message.") String msg,
+public record OtherProfitsResponse(@ApiModelProperty("Response code.") int code,
+		@ApiModelProperty("Response message.") String msg,
 		@ApiModelProperty("Response data.") OtherProfitsData data) {
 }

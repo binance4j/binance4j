@@ -10,7 +10,8 @@ import com.binance4j.core.param.Params;
 /**
  * Api client for the c2c endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints">Documentation</a>
  */
 public class C2CClient extends RestClient<C2CMapping> {
 	/**

@@ -16,5 +16,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Transaction history.")
 public record PaymentHistory(@ApiModelProperty("Code.") String code, @ApiModelProperty("Message.") String message,
-		@ApiModelProperty("Transactions.") List<Payment> data, @ApiModelProperty("Total.") int total, @ApiModelProperty("Success.") boolean success) {
+		@ApiModelProperty("Transactions.") List<Payment> data, @ApiModelProperty("Total.") int total,
+		@ApiModelProperty("Success.") boolean success) {
 }

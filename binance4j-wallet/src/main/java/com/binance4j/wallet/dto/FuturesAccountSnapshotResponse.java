@@ -13,6 +13,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param snapshotVos Snapshot.
  */
 @ApiModel("Response of a FUTURES account snapshot request.")
-public record FuturesAccountSnapshotResponse(@ApiModelProperty("Code.") int code, @ApiModelProperty("Message.") String msg,
-		@ApiModelProperty("Snapshot.") List<FuturesAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<FuturesAccountSnapshot> {
+public record FuturesAccountSnapshotResponse(@ApiModelProperty("Code.") int code,
+		@ApiModelProperty("Message.") String msg,
+		@ApiModelProperty("Snapshot.") List<FuturesAccountSnapshot> snapshotVos)
+		implements AccountSnapshotResponse<FuturesAccountSnapshot> {
 }

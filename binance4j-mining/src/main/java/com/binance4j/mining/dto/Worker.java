@@ -15,8 +15,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @param lastShareTime Last submission time.
  */
 @ApiModel("A miner/worker data.")
-public record Worker(@ApiModelProperty("Miner id.") String workerId, @ApiModelProperty("Miner's name'.") String workerName,
-		@ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.") long status, @ApiModelProperty("Real-time rate.") long hashRate,
-		@ApiModelProperty("24H Hashrate.") long dayHashRate, @ApiModelProperty("Real-time Rejection Rate.") long rejectRate,
+public record Worker(@ApiModelProperty("Miner id.") String workerId,
+		@ApiModelProperty("Miner's name'.") String workerName,
+		@ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.") long status,
+		@ApiModelProperty("Real-time rate.") long hashRate,
+		@ApiModelProperty("24H Hashrate.") long dayHashRate,
+		@ApiModelProperty("Real-time Rejection Rate.") long rejectRate,
 		@ApiModelProperty("Last submission time.") long lastShareTime) {
 }

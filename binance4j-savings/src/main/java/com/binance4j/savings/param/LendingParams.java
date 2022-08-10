@@ -6,7 +6,9 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.LendingType;
 
 /**
- * {@link SavingsClient#getInterests}, {@link SavingsClient#getPurchases},{@link SavingsClient#getRedemptions} params.
+ * {@link SavingsClient#getInterests},
+ * {@link SavingsClient#getPurchases},{@link SavingsClient#getRedemptions}
+ * params.
  * 
  * @param lendingType Lending type.
  * @param asset       Asset name.

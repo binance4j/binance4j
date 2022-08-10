@@ -69,7 +69,8 @@ public interface WalletMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
-	Call<SpotAccountSnapshotResponse> getSpotAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
+	Call<SpotAccountSnapshotResponse> getSpotAccountSnapshot(@Query("type") AccountSnapshotType type,
+			@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param type Snapshot type.
@@ -78,7 +79,8 @@ public interface WalletMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
-	Call<MarginAccountSnapshotResponse> getMarginAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
+	Call<MarginAccountSnapshotResponse> getMarginAccountSnapshot(@Query("type") AccountSnapshotType type,
+			@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param type Snapshot type.
@@ -87,7 +89,8 @@ public interface WalletMapping extends RestMapping {
 	 */
 	@Headers(SIGNED_H)
 	@GET(BASE + "accountSnapshot")
-	Call<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(@Query("type") AccountSnapshotType type, @QueryMap Map<String, Object> map);
+	Call<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(@Query("type") AccountSnapshotType type,
+			@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.

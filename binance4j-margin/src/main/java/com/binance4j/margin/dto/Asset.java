@@ -14,7 +14,10 @@ import io.swagger.annotations.ApiModelProperty;
  * @param isMortgageable Is it mortgageable?
  */
 @ApiModel("An asset on the platform.")
-public record Asset(@ApiModelProperty("Asset full name.") String assetFullName, @ApiModelProperty("Asset name.") String assetName,
-		@ApiModelProperty("User minimum borrow.") String userMinBorrow, @ApiModelProperty("User minimum repay.") String userMinRepay,
-		@ApiModelProperty("Is it borrowable?") boolean isBorrowable, @ApiModelProperty("Is it mortgageable?") boolean isMortgageable) {
+public record Asset(@ApiModelProperty("Asset full name.") String assetFullName,
+		@ApiModelProperty("Asset name.") String assetName,
+		@ApiModelProperty("User minimum borrow.") String userMinBorrow,
+		@ApiModelProperty("User minimum repay.") String userMinRepay,
+		@ApiModelProperty("Is it borrowable?") boolean isBorrowable,
+		@ApiModelProperty("Is it mortgageable?") boolean isMortgageable) {
 }

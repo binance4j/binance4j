@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data       Data.
  */
 @ApiModel("A daily MARGIN account snapshot.")
-public record MarginAccountSnapshot(@ApiModelProperty("Type.") String type, @ApiModelProperty("Update time in ms.") long updateTime,
+public record MarginAccountSnapshot(@ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Update time in ms.") long updateTime,
 		@ApiModelProperty("Data.") MarginAccountSnapshotData data) implements Snapshot {
 }

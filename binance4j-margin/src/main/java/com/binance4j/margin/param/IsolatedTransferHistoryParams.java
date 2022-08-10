@@ -15,7 +15,8 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
  * @param archived  Set to true for archived data from 6 months ago.
  */
 @Param
-public record IsolatedTransferHistoryParams(String symbol, String asset, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo, Boolean archived)
+public record IsolatedTransferHistoryParams(String symbol, String asset, IsolatedTransferAccount transFrom,
+		IsolatedTransferAccount transTo, Boolean archived)
 		implements Params {
 	/**
 	 * Creates an instance of {@link IsolatedTransferHistoryParams}.
@@ -44,7 +45,8 @@ public record IsolatedTransferHistoryParams(String symbol, String asset, Isolate
 	 * @param transFrom Transfer origin.
 	 * @param transTo   Transfer destination.
 	 */
-	public IsolatedTransferHistoryParams(String symbol, String asset, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo) {
+	public IsolatedTransferHistoryParams(String symbol, String asset, IsolatedTransferAccount transFrom,
+			IsolatedTransferAccount transTo) {
 		this(symbol, asset, transFrom, transTo, null);
 	}
 
@@ -56,7 +58,8 @@ public record IsolatedTransferHistoryParams(String symbol, String asset, Isolate
 	 * @param transTo   Transfer destination.
 	 * @param archived  Set to true for archived data from 6 months ago.
 	 */
-	public IsolatedTransferHistoryParams(String symbol, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo, Boolean archived) {
+	public IsolatedTransferHistoryParams(String symbol, IsolatedTransferAccount transFrom,
+			IsolatedTransferAccount transTo, Boolean archived) {
 		this(symbol, null, transFrom, transTo, archived);
 	}
 
@@ -67,7 +70,8 @@ public record IsolatedTransferHistoryParams(String symbol, String asset, Isolate
 	 * @param transFrom Transfer origin.
 	 * @param transTo   Transfer destination.
 	 */
-	public IsolatedTransferHistoryParams(String symbol, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo) {
+	public IsolatedTransferHistoryParams(String symbol, IsolatedTransferAccount transFrom,
+			IsolatedTransferAccount transTo) {
 		this(symbol, null, transFrom, transTo, null);
 	}
 }

@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param total Total records.
  */
 @ApiModel("Isolated margin transfer records.")
-public record IsolatedTransferRecords(@ApiModelProperty("Transfers.") List<IsolatedTransferRecord> rows, @ApiModelProperty("Total records.") int total) {
+public record IsolatedTransferRecords(@ApiModelProperty("Transfers.") List<IsolatedTransferRecord> rows,
+		@ApiModelProperty("Total records.") int total) {
 }

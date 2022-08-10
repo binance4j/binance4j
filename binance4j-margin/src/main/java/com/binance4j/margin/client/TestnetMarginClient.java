@@ -3,7 +3,8 @@ package com.binance4j.margin.client;
 /**
  * REST client for the testnet margin endpoints.
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#margin-account-trade">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#margin-account-trade">Documentation</a>
  */
 public class TestnetMarginClient extends MarginClient {
 	/**

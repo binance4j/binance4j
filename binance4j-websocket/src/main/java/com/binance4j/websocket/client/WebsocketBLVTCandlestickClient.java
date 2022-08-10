@@ -15,7 +15,8 @@ public class WebsocketBLVTCandlestickClient extends WebsocketBLVTClient<BLVTCand
 	 * @param interval Candlestick interval.
 	 * @param callback Events handler.
 	 */
-	public WebsocketBLVTCandlestickClient(String symbol, CandlestickInterval interval, WebsocketCallback<BLVTCandleEvent> callback) {
+	public WebsocketBLVTCandlestickClient(String symbol, CandlestickInterval interval,
+			WebsocketCallback<BLVTCandleEvent> callback) {
 		super(symbol, String.format("nav_kline_%s", interval), BLVTCandleEvent.class, callback);
 	}
 }

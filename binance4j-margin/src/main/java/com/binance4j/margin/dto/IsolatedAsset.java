@@ -18,10 +18,12 @@ import io.swagger.annotations.ApiModelProperty;
  * @param totalAsset    Can the account repay this asset?
  */
 @ApiModel("Isolated asset in isolated pair.")
-public record IsolatedAsset(@ApiModelProperty("Asset name.") String asset, @ApiModelProperty("Borrowed quantity.") String borrowed,
+public record IsolatedAsset(@ApiModelProperty("Asset name.") String asset,
+		@ApiModelProperty("Borrowed quantity.") String borrowed,
 		@ApiModelProperty("Free quantity.") String free, @ApiModelProperty("Loan interest.") String interest,
 		@ApiModelProperty("Locked quantity.") String locked, @ApiModelProperty("Net asset quantity.") String netAsset,
-		@ApiModelProperty("Net asset of Bitcoin.") String netAssetOfBtc, @ApiModelProperty("Asset total quantity.") String totalAsset,
+		@ApiModelProperty("Net asset of Bitcoin.") String netAssetOfBtc,
+		@ApiModelProperty("Asset total quantity.") String totalAsset,
 		@ApiModelProperty("Can the account borrow this asset?") boolean borrowEnabled,
 		@ApiModelProperty("Can the account repay this asset?") boolean repayEnabled) {
 }

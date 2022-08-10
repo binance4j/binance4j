@@ -10,5 +10,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param fileName File name.
  */
 @ApiModel("A file checksum.")
-public record VisionChecksum(@ApiModelProperty("MD5 checksum.") String checksum, @ApiModelProperty("File name.") String fileName) {
+public record VisionChecksum(@ApiModelProperty("MD5 checksum.") String checksum,
+		@ApiModelProperty("File name.") String fileName) {
 }

@@ -19,8 +19,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @param algo               Algorithm.
  */
 @ApiModel("Statistics.")
-public record Statistics(@ApiModelProperty("15 mins hashrate.") String fifteenMinHashRate, @ApiModelProperty("24H Hashrate.") String dayHashRate,
+public record Statistics(@ApiModelProperty("15 mins hashrate.") String fifteenMinHashRate,
+		@ApiModelProperty("24H Hashrate.") String dayHashRate,
 		@ApiModelProperty("Effective quantity.") int validNum, @ApiModelProperty("Invalid quantity.") int invalidNum,
-		@ApiModelProperty("Today's estimate.") Map<String, String> profitToday, @ApiModelProperty("Yesterday's earnings.") Map<String, String> profitYesterday,
-		@ApiModelProperty("Mining account.") String userName, @ApiModelProperty("Hashrate unit.") String unit, @ApiModelProperty("Algorithm.") String algo) {
+		@ApiModelProperty("Today's estimate.") Map<String, String> profitToday,
+		@ApiModelProperty("Yesterday's earnings.") Map<String, String> profitYesterday,
+		@ApiModelProperty("Mining account.") String userName, @ApiModelProperty("Hashrate unit.") String unit,
+		@ApiModelProperty("Algorithm.") String algo) {
 }

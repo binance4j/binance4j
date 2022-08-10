@@ -15,7 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Details about an asset dust trasnfer (convertion into BNB).")
 public record DustTransferResult(@ApiModelProperty("Amount of volume converted.") String amount,
-		@ApiModelProperty("Converted asset abbreviation.") String fromAsset, @ApiModelProperty("Operation timestamp.") long operateTime,
+		@ApiModelProperty("Converted asset abbreviation.") String fromAsset,
+		@ApiModelProperty("Operation timestamp.") long operateTime,
 		@ApiModelProperty("Fees.") String serviceChargeAmount, @ApiModelProperty("Transaction id.") long tranId,
 		@ApiModelProperty("Transfered amount after fees.") String transferedAmount) {
 }

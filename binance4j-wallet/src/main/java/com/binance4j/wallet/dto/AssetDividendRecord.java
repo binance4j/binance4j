@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param total Number of record.
  */
 @ApiModel("An asset divident record.")
-public record AssetDividendRecord(@ApiModelProperty("Records.") List<AssetDividend> rows, @ApiModelProperty("Number of record.") long total) {
+public record AssetDividendRecord(@ApiModelProperty("Records.") List<AssetDividend> rows,
+		@ApiModelProperty("Number of record.") long total) {
 }

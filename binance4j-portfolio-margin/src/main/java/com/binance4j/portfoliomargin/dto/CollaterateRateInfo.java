@@ -10,5 +10,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param collateralRate Collateral rate.
  */
 @ApiModel("Collaterate rate info.")
-public record CollaterateRateInfo(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Collateral rate.") String collateralRate) {
+public record CollaterateRateInfo(@ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Collateral rate.") String collateralRate) {
 }

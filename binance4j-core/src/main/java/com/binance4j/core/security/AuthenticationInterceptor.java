@@ -18,7 +18,8 @@ import okhttp3.Response;
 import okio.Buffer;
 
 /**
- * The parameters interceptor that injects the API Key Header into requests, and signs messages, whenever required.
+ * The parameters interceptor that injects the API Key Header into requests, and
+ * signs messages, whenever required.
  */
 public class AuthenticationInterceptor implements Interceptor {
 	/** The API key http header. */
@@ -56,7 +57,8 @@ public class AuthenticationInterceptor implements Interceptor {
 		Request.Builder newRequestBuilder = original.newBuilder();
 		boolean isApiKeyRequired = original.header(ENDPOINT_SECURITY_TYPE_APIKEY) != null;
 		boolean isSignatureRequired = original.header(ENDPOINT_SECURITY_TYPE_SIGNED) != null;
-		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED); // Endpoint requires sending a valid API-KEY
+		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED);
+		// Endpoint requires sending a valid API-KEY
 		if (isApiKeyRequired || isSignatureRequired) {
 			newRequestBuilder.addHeader(API_KEY_HEADER, key);
 		} // Endpoint requires signing the payload

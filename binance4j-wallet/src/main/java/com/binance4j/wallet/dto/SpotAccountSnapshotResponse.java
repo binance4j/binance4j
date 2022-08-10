@@ -14,5 +14,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Response of a SPOT account snapshot request.")
 public record SpotAccountSnapshotResponse(@ApiModelProperty("Code.") int code, @ApiModelProperty("Message.") String msg,
-		@ApiModelProperty("Snapshot.") List<SpotAccountSnapshot> snapshotVos) implements AccountSnapshotResponse<SpotAccountSnapshot> {
+		@ApiModelProperty("Snapshot.") List<SpotAccountSnapshot> snapshotVos)
+		implements AccountSnapshotResponse<SpotAccountSnapshot> {
 }

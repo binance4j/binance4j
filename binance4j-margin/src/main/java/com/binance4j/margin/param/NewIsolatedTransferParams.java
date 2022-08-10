@@ -16,6 +16,7 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
  * @param transTo   Transfer destination..
  */
 @Param(weight = 600, type = RateLimitType.UID)
-public record NewIsolatedTransferParams(String asset, String symbol, String amount, IsolatedTransferAccount transFrom, IsolatedTransferAccount transTo)
+public record NewIsolatedTransferParams(String asset, String symbol, String amount, IsolatedTransferAccount transFrom,
+		IsolatedTransferAccount transTo)
 		implements Params {
 }

@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param rows  Interest records.
  */
 @ApiModel("Interest History containing InterestRecord InterestRecords.")
-public record InterestHistory(@ApiModelProperty("Total number of records.") int total, @ApiModelProperty("Interest records.") List<InterestRecord> rows) {
+public record InterestHistory(@ApiModelProperty("Total number of records.") int total,
+		@ApiModelProperty("Interest records.") List<InterestRecord> rows) {
 }

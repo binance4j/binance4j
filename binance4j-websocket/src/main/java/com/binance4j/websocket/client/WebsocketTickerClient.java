@@ -4,7 +4,8 @@ import com.binance4j.websocket.callback.WebsocketCallback;
 import com.binance4j.websocket.dto.Ticker;
 
 /**
- * Handles 24hr rolling window ticker statistics for a single symbol. These are NOT the statistics of the UTC day, but a
+ * Handles 24hr rolling window ticker statistics for a single symbol. These are
+ * NOT the statistics of the UTC day, but a
  * 24hr rolling window for the previous 24hrs.
  */
 public class WebsocketTickerClient extends BaseWebsocketClient<Ticker> {

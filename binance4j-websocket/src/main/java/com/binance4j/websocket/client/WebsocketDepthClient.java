@@ -20,7 +20,8 @@ public class WebsocketDepthClient extends BaseWebsocketClient<Depth> {
 	 * @param speed    Update speed.
 	 * @param callback Events handler.
 	 */
-	public WebsocketDepthClient(Iterable<? extends CharSequence> symbols, DepthUpdateSpeed speed, WebsocketCallback<Depth> callback) {
+	public WebsocketDepthClient(Iterable<? extends CharSequence> symbols, DepthUpdateSpeed speed,
+			WebsocketCallback<Depth> callback) {
 		this(String.join(",", symbols), speed, callback);
 	}
 }

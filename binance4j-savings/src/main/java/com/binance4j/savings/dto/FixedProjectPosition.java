@@ -25,11 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param type            Type.
  */
 @ApiModel("A fixed project position.")
-public record FixedProjectPosition(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Can transfer.") boolean canTransfer,
-		@ApiModelProperty("Create timestamp.") long createTimestamp, @ApiModelProperty("Duration.") long duration, @ApiModelProperty("Endtime.") long endTime,
-		@ApiModelProperty("Interest.") String interest, @ApiModelProperty("Interest rate.") String interestRate, @ApiModelProperty("Lot.") long lot,
-		@ApiModelProperty("Position id.") long positionId, @ApiModelProperty("Principal.") String principal, @ApiModelProperty("Project id.") String projectId,
+public record FixedProjectPosition(@ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Can transfer.") boolean canTransfer,
+		@ApiModelProperty("Create timestamp.") long createTimestamp, @ApiModelProperty("Duration.") long duration,
+		@ApiModelProperty("Endtime.") long endTime,
+		@ApiModelProperty("Interest.") String interest, @ApiModelProperty("Interest rate.") String interestRate,
+		@ApiModelProperty("Lot.") long lot,
+		@ApiModelProperty("Position id.") long positionId, @ApiModelProperty("Principal.") String principal,
+		@ApiModelProperty("Project id.") String projectId,
 		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Purchase time.") long purchaseTime,
-		@ApiModelProperty("Redeem date.") String redeemDate, @ApiModelProperty("Start time.") long startTime, @ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Redeem date.") String redeemDate, @ApiModelProperty("Start time.") long startTime,
+		@ApiModelProperty("Status.") String status,
 		@ApiModelProperty("Type.") String type) {
 }

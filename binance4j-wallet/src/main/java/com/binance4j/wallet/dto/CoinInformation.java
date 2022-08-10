@@ -24,11 +24,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param networkList       Coin network information.
  */
 @ApiModel("The coin infos for the authenticated account.")
-public record CoinInformation(@ApiModelProperty("Coin abbreviation.") String coin, @ApiModelProperty("Coin name.") String name,
-		@ApiModelProperty("Deposit permission.") boolean depositAllEnable, @ApiModelProperty("Is the coin a legal money?") boolean isLegalMoney,
-		@ApiModelProperty("Can the coin be traded?") boolean trading, @ApiModelProperty("Withdraw permission.") boolean withdrawAllEnable,
+public record CoinInformation(@ApiModelProperty("Coin abbreviation.") String coin,
+		@ApiModelProperty("Coin name.") String name,
+		@ApiModelProperty("Deposit permission.") boolean depositAllEnable,
+		@ApiModelProperty("Is the coin a legal money?") boolean isLegalMoney,
+		@ApiModelProperty("Can the coin be traded?") boolean trading,
+		@ApiModelProperty("Withdraw permission.") boolean withdrawAllEnable,
 		@ApiModelProperty("Free balance.") String free, @ApiModelProperty("Freezed balance.") String freeze,
-		@ApiModelProperty("Initial Public Offering balance (?)") String ipoable, @ApiModelProperty("Initial Public Offering freezed balance (?)") String ipoing,
+		@ApiModelProperty("Initial Public Offering balance (?)") String ipoable,
+		@ApiModelProperty("Initial Public Offering freezed balance (?)") String ipoing,
 		@ApiModelProperty("Locked balance.") String locked, @ApiModelProperty("Storage") String storage,
-		@ApiModelProperty("Withdrawing balance.") String withdrawing, @ApiModelProperty("Coin network information.") List<CoinNetworkInformation> networkList) {
+		@ApiModelProperty("Withdrawing balance.") String withdrawing,
+		@ApiModelProperty("Coin network information.") List<CoinNetworkInformation> networkList) {
 }

@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param unit      Unit.
  */
 @ApiModel("A mining algorithm.")
-public record Algorithm(@ApiModelProperty("Algorithm name.") String algoName, @ApiModelProperty("Algorithm id.") long algoId,
+public record Algorithm(@ApiModelProperty("Algorithm name.") String algoName,
+		@ApiModelProperty("Algorithm id.") long algoId,
 		@ApiModelProperty("Sequence.") long poolIndex, @ApiModelProperty("Unit.") String unit) {
 }

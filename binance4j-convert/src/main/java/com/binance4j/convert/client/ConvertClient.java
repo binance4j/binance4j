@@ -10,7 +10,8 @@ import com.binance4j.core.param.TimeFrame;
 /**
  * Api client for the convert endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints">Documentation</a>
  */
 public class ConvertClient extends RestClient<ConvertMapping> {
 	/**

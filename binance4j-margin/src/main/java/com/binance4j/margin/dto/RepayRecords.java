@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param rows  Repays.
  */
 @ApiModel("A repay record.")
-public record RepayRecords(@ApiModelProperty("Total of repays.") int total, @ApiModelProperty("Repays.") List<RepayRecord> rows) {
+public record RepayRecords(@ApiModelProperty("Total of repays.") int total,
+		@ApiModelProperty("Repays.") List<RepayRecord> rows) {
 }

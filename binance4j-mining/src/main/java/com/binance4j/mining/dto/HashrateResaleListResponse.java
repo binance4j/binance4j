@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data Response data.
  */
 @ApiModel("Hashrate resale list wrapper")
-public record HashrateResaleListResponse(@ApiModelProperty("Response code.") int code, @ApiModelProperty("Response message.") String msg,
+public record HashrateResaleListResponse(@ApiModelProperty("Response code.") int code,
+		@ApiModelProperty("Response message.") String msg,
 		@ApiModelProperty("Response data.") HashrateResaleListDetailData data) {
 }

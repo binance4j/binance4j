@@ -19,9 +19,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @param orders            Two orders.
  */
 @ApiModel("An OCO order record.")
-public record OCOOrderRecord(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
-		@ApiModelProperty("Related symbol.") String symbol, @ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status type.") String listStatusType, @ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId, @ApiModelProperty("Is the order isolated?") boolean isIsoslated,
+public record OCOOrderRecord(@ApiModelProperty("Order list id.") long orderListId,
+		@ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
+		@ApiModelProperty("Related symbol.") String symbol,
+		@ApiModelProperty("Contingency type.") String contingencyType,
+		@ApiModelProperty("List status type.") String listStatusType,
+		@ApiModelProperty("List order status.") String listOrderStatus,
+		@ApiModelProperty("List client order id.") String listClientOrderId,
+		@ApiModelProperty("Is the order isolated?") boolean isIsoslated,
 		@ApiModelProperty("The two orders.") List<OrderInfo> orders) {
 }

@@ -25,11 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonDeserialize(using = CandleDeserializer.class)
 @ApiModel("An ohlc candle for a symbol.")
-public record Candle(@ApiModelProperty("The candlestick open timestamp in milliseconds.") long openTime, @ApiModelProperty("The Open value.") String open,
-		@ApiModelProperty("The High value.") String high, @ApiModelProperty("The Low value.") String low, @ApiModelProperty("The Close value.") String close,
+public record Candle(@ApiModelProperty("The candlestick open timestamp in milliseconds.") long openTime,
+		@ApiModelProperty("The Open value.") String open,
+		@ApiModelProperty("The High value.") String high, @ApiModelProperty("The Low value.") String low,
+		@ApiModelProperty("The Close value.") String close,
 		@ApiModelProperty("The traded volume in the interval.") String volume,
 		@ApiModelProperty("The candlestick close timestamp in milliseconds.") long closeTime,
-		@ApiModelProperty("The quote asset traded volume.") String quoteAssetVolume, @ApiModelProperty("The number of trades.") long numberOfTrades,
+		@ApiModelProperty("The quote asset traded volume.") String quoteAssetVolume,
+		@ApiModelProperty("The number of trades.") long numberOfTrades,
 		@ApiModelProperty("Taker buy base asset volume.") String takerBuyBaseAssetVolume,
 		@ApiModelProperty("Taker buy quote asset volume.") String takerBuyQuoteAssetVolume) {
 	/**
@@ -38,7 +41,8 @@ public record Candle(@ApiModelProperty("The candlestick open timestamp in millis
 	 * @param input String input.
 	 */
 	public Candle(List<String> input) {
-		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), input.get(3), input.get(4), input.get(5), Long.parseLong(input.get(6)), input.get(7),
+		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), input.get(3), input.get(4), input.get(5),
+				Long.parseLong(input.get(6)), input.get(7),
 				Long.parseLong(input.get(8)), input.get(9), input.get(10));
 	}
 }

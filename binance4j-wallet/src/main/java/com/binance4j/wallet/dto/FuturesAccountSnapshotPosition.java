@@ -13,7 +13,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param unRealizedProfit Unrealized profit.
  */
 @ApiModel("Futures account snapshot position.")
-public record FuturesAccountSnapshotPosition(@ApiModelProperty("Symbol.") String symbol, @ApiModelProperty("Entry price.") String entryPrice,
+public record FuturesAccountSnapshotPosition(@ApiModelProperty("Symbol.") String symbol,
+		@ApiModelProperty("Entry price.") String entryPrice,
 		@ApiModelProperty("Mark price.") String markPrice, @ApiModelProperty("Position amount.") String positionAmt,
 		@ApiModelProperty("Unrealized profit.") String unRealizedProfit) {
 }

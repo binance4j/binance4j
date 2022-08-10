@@ -10,5 +10,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param price Average price of the asset.
  */
 @ApiModel("Current average price for a symbol.")
-public record AveragePrice(@ApiModelProperty("Mins.") int mins, @ApiModelProperty("Average price of the asset.") String price) {
+public record AveragePrice(@ApiModelProperty("Mins.") int mins,
+		@ApiModelProperty("Average price of the asset.") String price) {
 }

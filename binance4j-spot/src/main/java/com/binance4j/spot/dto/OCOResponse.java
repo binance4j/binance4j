@@ -22,9 +22,13 @@ import io.swagger.annotations.ApiModelProperty;
  * @param orderReports      Order reports.
  */
 @ApiModel("Response of an OCO order.")
-public record OCOResponse(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status.") String listStatusType, @ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId, @ApiModelProperty("Order timestamp.") long transactionTime,
+public record OCOResponse(@ApiModelProperty("Order list id.") long orderListId,
+		@ApiModelProperty("Contingency type.") String contingencyType,
+		@ApiModelProperty("List status.") String listStatusType,
+		@ApiModelProperty("List order status.") String listOrderStatus,
+		@ApiModelProperty("List client order id.") String listClientOrderId,
+		@ApiModelProperty("Order timestamp.") long transactionTime,
 		@ApiModelProperty("Order symbol.") String symbol, @ApiModelProperty("The 2 orders.") List<MiniOrderInfo> orders,
-		@ApiModelProperty("is it an isolated trade?") boolean isIsolated, @ApiModelProperty("Order reports.") List<OCOOrderReport> orderReports) {
+		@ApiModelProperty("is it an isolated trade?") boolean isIsolated,
+		@ApiModelProperty("Order reports.") List<OCOOrderReport> orderReports) {
 }

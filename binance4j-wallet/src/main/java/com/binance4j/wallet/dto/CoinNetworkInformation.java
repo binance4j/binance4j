@@ -33,20 +33,26 @@ import io.swagger.annotations.ApiModelProperty;
  * @param country                 Country.
  */
 @ApiModel("The coin network informations.")
-public record CoinNetworkInformation(@ApiModelProperty("Address pattern.") String addressRegex, @ApiModelProperty("Address rule") String addressRule,
-		@ApiModelProperty("Coin abbreviation.") String coin, @ApiModelProperty("Deposit description.") String depositDesc,
+public record CoinNetworkInformation(@ApiModelProperty("Address pattern.") String addressRegex,
+		@ApiModelProperty("Address rule") String addressRule,
+		@ApiModelProperty("Coin abbreviation.") String coin,
+		@ApiModelProperty("Deposit description.") String depositDesc,
 		@ApiModelProperty("Withdra description.") String withdrawDesc, @ApiModelProperty("Network name.") String name,
 		@ApiModelProperty("Memo pattern.") String memoRegex, @ApiModelProperty("Network") String network,
-		@ApiModelProperty("Tips about the network.") String specialTips, @ApiModelProperty("Tips about the withdraw.") String specialWithdrawTips,
+		@ApiModelProperty("Tips about the network.") String specialTips,
+		@ApiModelProperty("Tips about the withdraw.") String specialWithdrawTips,
 		@ApiModelProperty("Deposit dust.") String depositDust, @ApiModelProperty("Withdraw fee.") String withdrawFee,
 		@ApiModelProperty("Withdraw integer multiple") String withdrawIntegerMultiple,
 		@ApiModelProperty("Maximal amount authorized to be withdrawn.") String withdrawMax,
 		@ApiModelProperty("Minimal amount authorized to be withdrawn.") String withdrawMin,
 		@ApiModelProperty("Min number for balance confirmation.") int minConfirm,
-		@ApiModelProperty("Confirmation number for balance unlock.") int unLockConfirm, @ApiModelProperty("If deposit is enabled.") boolean depositEnable,
-		@ApiModelProperty("if is the default network.") boolean isDefault, @ApiModelProperty("Reset address status.") boolean resetAddressStatus,
+		@ApiModelProperty("Confirmation number for balance unlock.") int unLockConfirm,
+		@ApiModelProperty("If deposit is enabled.") boolean depositEnable,
+		@ApiModelProperty("if is the default network.") boolean isDefault,
+		@ApiModelProperty("Reset address status.") boolean resetAddressStatus,
 		@ApiModelProperty("If withdraw is enabled.") boolean withdrawEnable,
 		@ApiModelProperty("If the coin needs to provide memo to withdraw.") boolean sameAddress,
-		@ApiModelProperty("Estimated arrival time in ms.") long estimatedArrivalTime, @ApiModelProperty("Is network busy?") boolean busy,
+		@ApiModelProperty("Estimated arrival time in ms.") long estimatedArrivalTime,
+		@ApiModelProperty("Is network busy?") boolean busy,
 		@ApiModelProperty("Country.") String country) {
 }

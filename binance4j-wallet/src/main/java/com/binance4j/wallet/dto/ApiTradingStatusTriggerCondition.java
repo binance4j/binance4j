@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param UFR  Number of FOK/IOC orders.
  */
 @ApiModel("Trading status trigger condition.")
-public record ApiTradingStatusTriggerCondition(@ApiModelProperty("Number of GTC orders.") long GCR, @ApiModelProperty("Number of FOK/IOC orders.") long IFER,
+public record ApiTradingStatusTriggerCondition(@ApiModelProperty("Number of GTC orders.") long GCR,
+		@ApiModelProperty("Number of FOK/IOC orders.") long IFER,
 		@ApiModelProperty("Number of FOK/IOC orders.") long UFR) {
 }

@@ -58,12 +58,13 @@ public abstract class CustomTest {
 						}
 					});
 				} else {
-					Arrays.asList(Introspector.getBeanInfo(bean.getClass(), Object.class).getPropertyDescriptors()).stream().forEach(pd -> {
-						try {
-							map.put(pd.getName(), pd.getReadMethod().invoke(bean));
-						} catch (Exception e) {
-						}
-					});
+					Arrays.asList(Introspector.getBeanInfo(bean.getClass(), Object.class).getPropertyDescriptors())
+							.stream().forEach(pd -> {
+								try {
+									map.put(pd.getName(), pd.getReadMethod().invoke(bean));
+								} catch (Exception e) {
+								}
+							});
 				}
 			}
 			return map;
@@ -132,8 +133,10 @@ public abstract class CustomTest {
 		}
 		// Handling maps
 		else if (bean instanceof Map) {
-			list = ((Map<?, ?>) bean).entrySet().stream().map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName()).stream()
-					.map(np -> es.getKey() + "." + np).collect(Collectors.toSet())).flatMap(Collection::stream).collect(Collectors.toList());
+			list = ((Map<?, ?>) bean).entrySet().stream()
+					.map(es -> getNullProperties(es.getValue(), bean.getClass().getSimpleName()).stream()
+							.map(np -> es.getKey() + "." + np).collect(Collectors.toSet()))
+					.flatMap(Collection::stream).collect(Collectors.toList());
 		}
 		// Handling custom objects
 		else if (!isJavaBean(bean)) {
@@ -141,7 +144,8 @@ public abstract class CustomTest {
 				if (o.getValue() instanceof Collection || o.getValue() instanceof Map) {
 					return getNullProperties(o.getValue(), o.getKey());
 				} else if (o.getValue() == null) {
-					return new HashSet<>(Arrays.asList(Character.isUpperCase(parentBean.charAt(0)) ? o.getKey() : parentBean + "." + o.getKey()));
+					return new HashSet<>(Arrays.asList(
+							Character.isUpperCase(parentBean.charAt(0)) ? o.getKey() : parentBean + "." + o.getKey()));
 				} else {
 					return getNullProperties(o.getValue(), o.getKey());
 				}
@@ -249,7 +253,8 @@ public abstract class CustomTest {
 	 * @param flatten       Flatten the properties.
 	 * @throws ApiException thrown if execution failed.
 	 */
-	public void testHasNulls(Request<?> request, Collection<String> expectedNulls, boolean flatten) throws ApiException {
+	public void testHasNulls(Request<?> request, Collection<String> expectedNulls, boolean flatten)
+			throws ApiException {
 		testHasNulls(request.sync(), expectedNulls, flatten);
 	}
 

@@ -22,9 +22,12 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Minimal infos Ticker.")
 public record MiniTicker(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
-		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime, @ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
-		@ApiModelProperty("Close price.") @JsonProperty("c") String closePrice, @ApiModelProperty("Open price.") @JsonProperty("o") String openPrice,
-		@ApiModelProperty("Highest price.") @JsonProperty("h") String highPrice, @ApiModelProperty("Lowest price.") @JsonProperty("l") String lowPrice,
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Close price.") @JsonProperty("c") String closePrice,
+		@ApiModelProperty("Open price.") @JsonProperty("o") String openPrice,
+		@ApiModelProperty("Highest price.") @JsonProperty("h") String highPrice,
+		@ApiModelProperty("Lowest price.") @JsonProperty("l") String lowPrice,
 		@ApiModelProperty("Total traded base asset volume.") @JsonProperty("v") String totalTradedBaseAssetVolume,
 		@ApiModelProperty("Total traded quote asset volume.") @JsonProperty("q") String totalTradedQuoteAssetVolume) {
 }

@@ -26,7 +26,8 @@ import com.binance4j.staking.param.RedeemParams;
 /**
  * Api client for the staking endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#staking-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#staking-endpoints">Documentation</a>
  */
 public class StakingClient extends RestClient<StakingMapping> {
 	/**

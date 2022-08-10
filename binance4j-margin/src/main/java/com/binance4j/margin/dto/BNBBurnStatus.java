@@ -6,7 +6,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * BNB burn status after {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest}
+ * BNB burn status after
+ * {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest}
  * 
  * @param spotBNBBurn     Is spot BNB burn allowed.
  * @param interestBNBBurn Is interest BNB burn allowed.

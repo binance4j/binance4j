@@ -5,7 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.wallet.client.WalletClient;
 
 /**
- * {@link WalletClient#disableFastWithdrawSwitch},{@link WalletClient#enableFastWithdrawSwitch} params.
+ * {@link WalletClient#disableFastWithdrawSwitch},{@link WalletClient#enableFastWithdrawSwitch}
+ * params.
  */
 @Param
 public record FastWithdrawSwitchParams() implements Params {

@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data Response data.
  */
 @ApiModel("Algorithms wrapper")
-public record AlgorithmsResponse(@ApiModelProperty("Response code.") int code, @ApiModelProperty("Response message.") String msg,
+public record AlgorithmsResponse(@ApiModelProperty("Response code.") int code,
+		@ApiModelProperty("Response message.") String msg,
 		@ApiModelProperty("Response data.") List<Algorithm> data) {
 }

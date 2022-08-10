@@ -14,7 +14,9 @@ import io.swagger.annotations.ApiModelProperty;
  * @param tranId  Transaction id.
  */
 @ApiModel("An asset divident.")
-public record AssetDividend(@ApiModelProperty("Divident amount.") String amount, @ApiModelProperty("Info about the asset.") String enInfo,
-		@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Id.") long id, @ApiModelProperty("Dividend time in ms.") long divTime,
+public record AssetDividend(@ApiModelProperty("Divident amount.") String amount,
+		@ApiModelProperty("Info about the asset.") String enInfo,
+		@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Id.") long id,
+		@ApiModelProperty("Dividend time in ms.") long divTime,
 		@ApiModelProperty("Transaction id.") long tranId) {
 }

@@ -15,8 +15,10 @@ import io.swagger.annotations.ApiModelProperty;
  * @param exchange         Commission fees.
  */
 @ApiModel("Asset that can be converted into BNB.")
-public record ConvertibleAsset(@ApiModelProperty("Asset name.") String asset, @ApiModelProperty("Asset full name.") String assetFullName,
+public record ConvertibleAsset(@ApiModelProperty("Asset name.") String asset,
+		@ApiModelProperty("Asset full name.") String assetFullName,
 		@ApiModelProperty("Free balance.") String amountFree, @ApiModelProperty("BTC valuation.") String toBTC,
-		@ApiModelProperty("BNB valuation.") String toBNB, @ApiModelProperty("BNB valuation commissions fees deducted.") String toBNBOffExchange,
+		@ApiModelProperty("BNB valuation.") String toBNB,
+		@ApiModelProperty("BNB valuation commissions fees deducted.") String toBNBOffExchange,
 		@ApiModelProperty("Commission fees.") String exchange) {
 }

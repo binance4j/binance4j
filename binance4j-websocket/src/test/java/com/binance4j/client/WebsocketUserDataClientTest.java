@@ -11,7 +11,8 @@ class WebsocketUserDataClientTest {
 	TestCallback<UserDataUpdate> callback = new TestCallback<>(); // @Test
 
 	void test1() throws ApiException, InterruptedException, ExecutionException {
-		WebsocketUserDataClient client = new WebsocketUserDataClient(new UserDataClient(callback.getKey(), callback.getSecret()), callback);
+		WebsocketUserDataClient client = new WebsocketUserDataClient(
+				new UserDataClient(callback.getKey(), callback.getSecret()), callback);
 		callback.setWebsocketClient(client);
 		client.open();
 		callback.future.get();

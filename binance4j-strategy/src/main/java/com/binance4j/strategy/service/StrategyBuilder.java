@@ -12,7 +12,8 @@ public class StrategyBuilder {
 	}
 
 	/**
-	 * Builds a trading strategy from a {@link TradingStrategy} and a {@link BarSeries}
+	 * Builds a trading strategy from a {@link TradingStrategy} and a
+	 * {@link BarSeries}
 	 *
 	 * @param strategy {@link TradingStrategy}.
 	 * @param series   {@link BarSeries}.

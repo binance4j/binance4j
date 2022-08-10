@@ -16,8 +16,12 @@ import io.swagger.annotations.ApiModelProperty;
  * @param status         Status：0 Processing，1：Cancelled，2：Terminated.
  */
 @ApiModel("Hashrate resale list detail.")
-public record HashrateResaleListDetail(@ApiModelProperty("Mining ID.") int configId, @ApiModelProperty("Transfer out of subaccount.") String poolUsername,
-		@ApiModelProperty("Transfer into subaccount.") String toPoolUsername, @ApiModelProperty("Transfer algorithm.") String algoName,
-		@ApiModelProperty("Transferred Hashrate quantity.") long hashRate, @ApiModelProperty("Start date.") long startDay,
-		@ApiModelProperty("End date.") long endDay, @ApiModelProperty("Status：0 Processing，1：Cancelled，2：Terminated.") int status) {
+public record HashrateResaleListDetail(@ApiModelProperty("Mining ID.") int configId,
+		@ApiModelProperty("Transfer out of subaccount.") String poolUsername,
+		@ApiModelProperty("Transfer into subaccount.") String toPoolUsername,
+		@ApiModelProperty("Transfer algorithm.") String algoName,
+		@ApiModelProperty("Transferred Hashrate quantity.") long hashRate,
+		@ApiModelProperty("Start date.") long startDay,
+		@ApiModelProperty("End date.") long endDay,
+		@ApiModelProperty("Status：0 Processing，1：Cancelled，2：Terminated.") int status) {
 }

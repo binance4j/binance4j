@@ -48,7 +48,8 @@ public class NFTClientTest extends CustomTest {
 
 	@Test
 	void testGetTransactions2() throws ApiException {
-		testNotThrow(client.getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER), new FramedPaging(page)));
+		testNotThrow(
+				client.getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER), new FramedPaging(page)));
 	}
 
 	@Test

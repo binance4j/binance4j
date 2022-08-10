@@ -21,13 +21,17 @@ import io.swagger.annotations.ApiModelProperty;
  * @param trailingDelta       {@link TrailingDeltaFilter}.
  */
 @ApiModel("The trading rules of a symbol.")
-public record SymbolFilters(@ApiModelProperty("IcebergParts filter") IcebergPartsFilter icebergParts, @ApiModelProperty("LotSize filter") LotSizeFilter lotSize,
+public record SymbolFilters(@ApiModelProperty("IcebergParts filter") IcebergPartsFilter icebergParts,
+		@ApiModelProperty("LotSize filter") LotSizeFilter lotSize,
 		@ApiModelProperty("MarketLotSize filter") MarketLotSizeFilter marketLotSize,
 		@ApiModelProperty("MaxNumAlgoOrders filter") MaxNumAlgoOrdersFilter maxNumAlgoOrders,
 		@ApiModelProperty("MaxNumIcebergOrders filter") MaxNumIcebergOrdersFilter maxNumIcebergOrders,
-		@ApiModelProperty("MaxNumOrders filter") MaxNumOrdersFilter maxNumOrders, @ApiModelProperty("MaxPosition filter") MaxPositionFilter maxPosition,
-		@ApiModelProperty("MinNotional filter") MinNotionalFilter minNotional, @ApiModelProperty("Notional filter") NotionalFilter notional,
+		@ApiModelProperty("MaxNumOrders filter") MaxNumOrdersFilter maxNumOrders,
+		@ApiModelProperty("MaxPosition filter") MaxPositionFilter maxPosition,
+		@ApiModelProperty("MinNotional filter") MinNotionalFilter minNotional,
+		@ApiModelProperty("Notional filter") NotionalFilter notional,
 		@ApiModelProperty("PercentPriceBySide filter") PercentPriceBySideFilter percentPriceBySide,
-		@ApiModelProperty("PercentPrice filter") PercentPriceFilter percentPrice, @ApiModelProperty("Price filter") PriceFilter price,
+		@ApiModelProperty("PercentPrice filter") PercentPriceFilter percentPrice,
+		@ApiModelProperty("Price filter") PriceFilter price,
 		@ApiModelProperty("TrailingDelta filter") TrailingDeltaFilter trailingDelta) {
 }

@@ -30,19 +30,27 @@ import io.swagger.annotations.ApiModelProperty;
  * @param allowTrailingStop          Is spot trading allowed?
  * @param isSpotTradingAllowed       Is trailing stop allowed?
  * @param isMarginTradingAllowed     Is margin trading allowed?
- * @see <a href="https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol status explanation</a>
+ * @see <a href=
+ *      "https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol
+ *      status explanation</a>
  */
 @ApiModel("Symbol information (base/quote).")
 public record SymbolInfo(@ApiModelProperty("Symbol status.") List<String> orderTypes,
 		@ApiModelProperty("Allowed orders on the symbol*.") @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
-		@ApiModelProperty("Symbol filters.") List<String> permissions, @ApiModelProperty("Symbol permission.") String symbol,
+		@ApiModelProperty("Symbol filters.") List<String> permissions,
+		@ApiModelProperty("Symbol permission.") String symbol,
 		@ApiModelProperty("Symbol name.") String quoteAsset, @ApiModelProperty("Quote asset.") String baseAsset,
-		@ApiModelProperty("Base asset.") int baseAssetPrecision, @ApiModelProperty("Base asset precision.") int baseCommissionPrecision,
+		@ApiModelProperty("Base asset.") int baseAssetPrecision,
+		@ApiModelProperty("Base asset precision.") int baseCommissionPrecision,
 		@ApiModelProperty("Quote asset commission precision.") int quoteAssetPrecision,
-		@ApiModelProperty("Quote asset commission precision.") int quotePrecision, @ApiModelProperty("Quote asset precision.") int quoteCommissionPrecision,
-		@ApiModelProperty("Quote asset commission precision.") boolean icebergAllowed, @ApiModelProperty("Are iceberg orders allowed?") boolean ocoAllowed,
+		@ApiModelProperty("Quote asset commission precision.") int quotePrecision,
+		@ApiModelProperty("Quote asset precision.") int quoteCommissionPrecision,
+		@ApiModelProperty("Quote asset commission precision.") boolean icebergAllowed,
+		@ApiModelProperty("Are iceberg orders allowed?") boolean ocoAllowed,
 		@ApiModelProperty("Are OCO orders allowed?") boolean quoteOrderQtyMarketAllowed,
 		@ApiModelProperty("Are orders by quote quantity allowed?") boolean isSpotTradingAllowed,
-		@ApiModelProperty("Cancel replace allowed?") boolean cancelReplaceAllowed, @ApiModelProperty("Is trailing stop allowed?") boolean allowTrailingStop,
-		@ApiModelProperty("Is spot trading allowed?") boolean isMarginTradingAllowed, @ApiModelProperty("Is margin trading allowed?") String status) {
+		@ApiModelProperty("Cancel replace allowed?") boolean cancelReplaceAllowed,
+		@ApiModelProperty("Is trailing stop allowed?") boolean allowTrailingStop,
+		@ApiModelProperty("Is spot trading allowed?") boolean isMarginTradingAllowed,
+		@ApiModelProperty("Is margin trading allowed?") String status) {
 }

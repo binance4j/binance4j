@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param rows  Records.
  */
 @ApiModel("A list of transfer history records.")
-public record TransferRecords(@ApiModelProperty("Total of records.") int total, @ApiModelProperty("The records.") List<TransferRecord> rows) {
+public record TransferRecords(@ApiModelProperty("Total of records.") int total,
+		@ApiModelProperty("The records.") List<TransferRecord> rows) {
 }

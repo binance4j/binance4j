@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data Response data.
  */
 @ApiModel("Coins wrapper")
-public record CoinsResponse(@ApiModelProperty("Response code.") String code, @ApiModelProperty("Response message.") String msg,
+public record CoinsResponse(@ApiModelProperty("Response code.") String code,
+		@ApiModelProperty("Response message.") String msg,
 		@ApiModelProperty("Response data.") List<Coin> data) {
 }

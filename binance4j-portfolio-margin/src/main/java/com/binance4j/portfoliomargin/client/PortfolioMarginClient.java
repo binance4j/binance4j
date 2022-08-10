@@ -12,7 +12,8 @@ import com.binance4j.portfoliomargin.param.CollaterateRateInfoParams;
 /**
  * Api client for the margin portfolio endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#portfolio-margin-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#portfolio-margin-endpoints">Documentation</a>
  */
 public class PortfolioMarginClient extends RestClient<PortfolioMarginMapping> {
 	/**

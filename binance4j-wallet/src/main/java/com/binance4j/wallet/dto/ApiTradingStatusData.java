@@ -7,7 +7,8 @@ import io.swagger.annotations.ApiModelProperty;
  * The API trading status detail.
  * 
  * @param isLocked           API trading function is locked or not.
- * @param plannedRecoverTime If API trading function is locked, this is the planned recover time.
+ * @param plannedRecoverTime If API trading function is locked, this is the
+ *                           planned recover time.
  * @param updateTime         Details update timestamps.
  * @param triggerCondition   Trigger condition.
  */

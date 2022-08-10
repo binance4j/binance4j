@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param vipLevel          Account VIP level.
  */
 @ApiModel("A loan interest rate.")
-public record InterestRate(@ApiModelProperty("Related coin.") String asset, @ApiModelProperty("Daily interest rate.") String dailyInterestRate,
-		@ApiModelProperty("Timestamp of the applied interest rate in ms.") long timestamp, @ApiModelProperty("Account VIP level.") int vipLevel) {
+public record InterestRate(@ApiModelProperty("Related coin.") String asset,
+		@ApiModelProperty("Daily interest rate.") String dailyInterestRate,
+		@ApiModelProperty("Timestamp of the applied interest rate in ms.") long timestamp,
+		@ApiModelProperty("Account VIP level.") int vipLevel) {
 }

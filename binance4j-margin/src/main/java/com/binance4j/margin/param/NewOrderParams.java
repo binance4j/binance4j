@@ -37,7 +37,10 @@ public class NewOrderParams implements Params {
 	String icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
 	String newClientOrderId;
-	/** Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default: NO_SIDE_EFFECT. */
+	/**
+	 * Set The margin order side-effect. NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY;
+	 * default: NO_SIDE_EFFECT.
+	 */
 	SideEffectType sideEffectType;
 
 	/**
@@ -67,7 +70,8 @@ public class NewOrderParams implements Params {
 	 * @param price       Order price.
 	 * @param timeInForce Lifetime of the order.
 	 */
-	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
+	public NewOrderParams(String symbol, OrderType type, OrderSide side, String quantity, String price,
+			TimeInForce timeInForce) {
 		this(symbol, type, side, quantity, timeInForce);
 		this.price = price;
 	}

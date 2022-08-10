@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data   Data.
  */
 @ApiModel("Rebate history record")
-public record SpotRebateHistoryResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Type.") String type,
+public record SpotRebateHistoryResponse(@ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Type.") String type,
 		@ApiModelProperty("Code.") String code, @ApiModelProperty("Data.") RebateData data) {
 }

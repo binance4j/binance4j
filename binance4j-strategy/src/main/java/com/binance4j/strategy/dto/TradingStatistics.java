@@ -161,7 +161,8 @@ public class TradingStatistics {
 	 * Calculates the linear transaction cost
 	 *
 	 * @param initialAmount Initially traded amount.
-	 * @param a             A coefficient (e.g. 0.005 for 0.5% per {@link Trade trade}).
+	 * @param a             A coefficient (e.g. 0.005 for 0.5% per {@link Trade
+	 *                      trade}).
 	 * @return The linear transaction cost.
 	 */
 	public String getLinearTransactionCost(double initialAmount, double a) {
@@ -187,7 +188,8 @@ public class TradingStatistics {
 	private final String getCriterionResult(Class<? extends AbstractAnalysisCriterion> criterion) {
 		try {
 			return criterion.getConstructor().newInstance().calculate(series, tradingRecord).toString();
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException
 				| SecurityException e) {
 			e.printStackTrace();
 			return null;
@@ -371,19 +373,28 @@ public class TradingStatistics {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 
 	@Override
 	public String toString() {
-		return "TradingStatistics [averageLoss=" + averageLoss + ", averageProfit=" + averageProfit + ", averageReturnPerBar=" + averageReturnPerBar
-				+ ", buyAndHoldReturn=" + buyAndHoldReturn + ", expectancy=" + expectancy + ", grossLoss=" + grossLoss + ", grossProfit=" + grossProfit
-				+ ", grossReturn=" + grossReturn + ", losingPositionsRatio=" + losingPositionsRatio + ", maximumDrawdown=" + maximumDrawdown + ", netLoss="
-				+ netLoss + ", netProfit=" + netProfit + ", numberOfBars=" + numberOfBars + ", numberOfBreakEvenPositions=" + numberOfBreakEvenPositions
-				+ ", numberOfConsecutiveWinningPositions=" + numberOfConsecutiveWinningPositions + ", numberOfLosingPositions=" + numberOfLosingPositions
-				+ ", numberOfPositions=" + numberOfPositions + ", numberOfWinningPositions=" + numberOfWinningPositions + ", profitLoss=" + profitLoss
-				+ ", profitLossPercentage=" + profitLossPercentage + ", profitLossRatio=" + profitLossRatio + ", returnOverMaxDrawdown=" + returnOverMaxDrawdown
-				+ ", series=" + series + ", tradingRecord=" + tradingRecord + ", winningPositionsRatio=" + winningPositionsRatio + "]";
+		return "TradingStatistics [averageLoss=" + averageLoss + ", averageProfit=" + averageProfit
+				+ ", averageReturnPerBar=" + averageReturnPerBar
+				+ ", buyAndHoldReturn=" + buyAndHoldReturn + ", expectancy=" + expectancy + ", grossLoss=" + grossLoss
+				+ ", grossProfit=" + grossProfit
+				+ ", grossReturn=" + grossReturn + ", losingPositionsRatio=" + losingPositionsRatio
+				+ ", maximumDrawdown=" + maximumDrawdown + ", netLoss="
+				+ netLoss + ", netProfit=" + netProfit + ", numberOfBars=" + numberOfBars
+				+ ", numberOfBreakEvenPositions=" + numberOfBreakEvenPositions
+				+ ", numberOfConsecutiveWinningPositions=" + numberOfConsecutiveWinningPositions
+				+ ", numberOfLosingPositions=" + numberOfLosingPositions
+				+ ", numberOfPositions=" + numberOfPositions + ", numberOfWinningPositions=" + numberOfWinningPositions
+				+ ", profitLoss=" + profitLoss
+				+ ", profitLossPercentage=" + profitLossPercentage + ", profitLossRatio=" + profitLossRatio
+				+ ", returnOverMaxDrawdown=" + returnOverMaxDrawdown
+				+ ", series=" + series + ", tradingRecord=" + tradingRecord + ", winningPositionsRatio="
+				+ winningPositionsRatio + "]";
 	}
 
 }

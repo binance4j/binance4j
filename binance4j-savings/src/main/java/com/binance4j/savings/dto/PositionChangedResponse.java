@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param timestamp       Time.
  */
 @ApiModel("Response for changing fixed product to flexible.")
-public record PositionChangedResponse(@ApiModelProperty("Daily purchase id.") long dailyPurchaseId, @ApiModelProperty("Success.") boolean success,
+public record PositionChangedResponse(@ApiModelProperty("Daily purchase id.") long dailyPurchaseId,
+		@ApiModelProperty("Success.") boolean success,
 		@ApiModelProperty("Time.") long timestamp) {
 }

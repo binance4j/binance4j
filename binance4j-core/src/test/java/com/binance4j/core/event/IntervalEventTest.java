@@ -2,11 +2,13 @@ package com.binance4j.core.event;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,18 +24,21 @@ class IntervalEventTest {
 	}
 
 	@Test
-	void testFixedExecution() throws InterruptedException, ExecutionException { // completes after the event is supposed to be called
+	void testFixedExecution() throws InterruptedException, ExecutionException { // completes after the event is supposed
+																				// to be called
 		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis());
-		event = new IntervalEvent(Duration.ofSeconds(1), maxTicks, () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
+		event = new IntervalEvent(Duration.ofSeconds(1), maxTicks,
+				() -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks()));
 		assertEquals(maxTicks, future.get());
 	}
 
 	@Test
 	void testIndefinitelyExecution() throws InterruptedException, ExecutionException {
-		event = new IntervalEvent(Duration.ofSeconds(1), () -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks())); // completes after
-																																				// the event is
-																																				// supposed to
-																																				// be called
+		event = new IntervalEvent(Duration.ofSeconds(1),
+				() -> System.out.printf("TimeoutEvent's task called %s times%n", event.getTicks())); // completes after
+																										// the event is
+																										// supposed to
+																										// be called
 		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(6).toMillis());
 		assertNotNull(future.get());
 	}

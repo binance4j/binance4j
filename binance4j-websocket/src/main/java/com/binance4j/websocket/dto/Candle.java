@@ -38,13 +38,19 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonDeserialize(using = CandlestickEventDeserializer.class)
 @JsonSerialize(using = CandlestickEventSerializer.class)
 @ApiModel("Kline/candle for a symbol.")
-public record Candle(@ApiModelProperty("Candlestick open timestamp in milliseconds") Long openTime, @ApiModelProperty("Open value") String open,
-		@ApiModelProperty("High value") String high, @ApiModelProperty("Low value") String low, @ApiModelProperty("Close value") String close,
-		@ApiModelProperty("Traded volume in the interval") String volume, @ApiModelProperty("Candlestick close timestamp in milliseconds") Long closeTime,
-		@ApiModelProperty("Quote asset traded volume") String quoteAssetVolume, @ApiModelProperty("Number of trades") Long numberOfTrades,
+public record Candle(@ApiModelProperty("Candlestick open timestamp in milliseconds") Long openTime,
+		@ApiModelProperty("Open value") String open,
+		@ApiModelProperty("High value") String high, @ApiModelProperty("Low value") String low,
+		@ApiModelProperty("Close value") String close,
+		@ApiModelProperty("Traded volume in the interval") String volume,
+		@ApiModelProperty("Candlestick close timestamp in milliseconds") Long closeTime,
+		@ApiModelProperty("Quote asset traded volume") String quoteAssetVolume,
+		@ApiModelProperty("Number of trades") Long numberOfTrades,
 		@ApiModelProperty("Taker buy base asset volume") String takerBuyBaseAssetVolume,
-		@ApiModelProperty("Taker buy quote asset volume") String takerBuyQuoteAssetVolume, @ApiModelProperty("Event type.") String eventType,
+		@ApiModelProperty("Taker buy quote asset volume") String takerBuyQuoteAssetVolume,
+		@ApiModelProperty("Event type.") String eventType,
 		@ApiModelProperty("Timestamp in ms.") Long eventTime, @ApiModelProperty("Trading pair.") String symbol,
 		@ApiModelProperty("Interval id.") String intervalId, @ApiModelProperty("First trade id.") Long firstTradeId,
-		@ApiModelProperty("Last trade id.") Long lastTradeId, @ApiModelProperty("Is it the last bar of the interval?") Boolean isBarFinal) {
+		@ApiModelProperty("Last trade id.") Long lastTradeId,
+		@ApiModelProperty("Is it the last bar of the interval?") Boolean isBarFinal) {
 }

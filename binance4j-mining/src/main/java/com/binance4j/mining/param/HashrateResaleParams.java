@@ -11,8 +11,10 @@ import com.binance4j.mining.client.MiningClient;
  * @param endDate    Resale End Time in ms.
  * @param startDate  Resale Start Time in ms.
  * @param toPoolUser Mining Account.
- * @param hashRate   Resale hashrate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than
- *                       500000).
+ * @param hashRate   Resale hashrate h/s must be transferred (BTC is greater
+ *                   than 500000000000 ETH is greater than
+ *                   500000).
  */
-public record HashrateResaleParams(String userName, String algo, Long startDate, Long endDate, String toPoolUser, Long hashRate) implements Params {
+public record HashrateResaleParams(String userName, String algo, Long startDate, Long endDate, String toPoolUser,
+		Long hashRate) implements Params {
 }

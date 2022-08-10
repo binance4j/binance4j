@@ -24,12 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * @param withAreaLimitation With area limitation.
  */
 @ApiModel("Fixed or activity project.")
-public record FixedProject(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Display priority.") long displayPriority,
+public record FixedProject(@ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Display priority.") long displayPriority,
 		@ApiModelProperty("Duration.") long duration, @ApiModelProperty("Interest per lot.") String interestPerLot,
 		@ApiModelProperty("Interest rate.") String interestRate, @ApiModelProperty("Lot size.") String lotSize,
 		@ApiModelProperty("Lots low limit.") long lotsLowLimit, @ApiModelProperty("Lots purchased.") long lotsPurchased,
-		@ApiModelProperty("Lots up limit.") long lotsUpLimit, @ApiModelProperty("Max lots per user.") long maxLotsPerUser,
+		@ApiModelProperty("Lots up limit.") long lotsUpLimit,
+		@ApiModelProperty("Max lots per user.") long maxLotsPerUser,
 		@ApiModelProperty("Need kyc.") boolean needKyc, @ApiModelProperty("Project id.") String projectId,
-		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Status.") String status, @ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Status.") String status,
+		@ApiModelProperty("Type.") String type,
 		@ApiModelProperty("With area limitation.") boolean withAreaLimitation) {
 }

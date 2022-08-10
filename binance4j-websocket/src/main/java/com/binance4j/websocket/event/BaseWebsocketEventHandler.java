@@ -36,7 +36,8 @@ public abstract class BaseWebsocketEventHandler implements WebsocketEventHandler
 	 * @param timeoutMessage      Timeout message
 	 * @param disconnectedMessage Disconnection message
 	 */
-	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback, String timeoutMessage,
+	protected BaseWebsocketEventHandler(WebsocketClient websocketClient, WebsocketInterceptorCallback<?> callback,
+			String timeoutMessage,
 			String disconnectedMessage) {
 		this.websocketClient = websocketClient;
 		timeoutException = new ApiException(-1007, timeoutMessage);

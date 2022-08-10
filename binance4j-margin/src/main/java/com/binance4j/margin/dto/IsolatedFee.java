@@ -14,6 +14,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data     Isolated fee data.
  */
 @ApiModel("Isolated margin fee.")
-public record IsolatedFee(@ApiModelProperty("VIP level.") int vipLevel, @ApiModelProperty("Related symbol.") String symbol,
-		@ApiModelProperty("Leverage.") String leverage, @ApiModelProperty("Isolated fee data.") List<IsolatedFeeData> data) {
+public record IsolatedFee(@ApiModelProperty("VIP level.") int vipLevel,
+		@ApiModelProperty("Related symbol.") String symbol,
+		@ApiModelProperty("Leverage.") String leverage,
+		@ApiModelProperty("Isolated fee data.") List<IsolatedFeeData> data) {
 }

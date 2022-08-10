@@ -15,18 +15,22 @@ import io.swagger.annotations.ApiModelProperty;
  * @param userAssetDribblets Transfers.
  */
 @ApiModel("A record of asset conversions to BNB.")
-public record DustLogRecord(@ApiModelProperty("Result count.") int total, @ApiModelProperty("Transfers.") List<UserAssetDribblet> userAssetDribblets) {
+public record DustLogRecord(@ApiModelProperty("Result count.") int total,
+		@ApiModelProperty("Transfers.") List<UserAssetDribblet> userAssetDribblets) {
 	/**
 	 * @param operateTime              Operate time.
-	 * @param totalTransferedAmount    Total transfered BNB amount for this exchange.
-	 * @param totalServiceChargeAmount Total service charge amount for this exchange.
+	 * @param totalTransferedAmount    Total transfered BNB amount for this
+	 *                                 exchange.
+	 * @param totalServiceChargeAmount Total service charge amount for this
+	 *                                 exchange.
 	 * @param transId                  Transaction id.
 	 * @param userAssetDribbletDetails Transfer details.
 	 */
 	record UserAssetDribblet(@ApiModelProperty("Operate time.") long operateTime,
 			@ApiModelProperty("Total transfered BNB amount for this exchange.") String totalTransferedAmount,
 			@ApiModelProperty("Total service charge amount for this exchange.") String totalServiceChargeAmount,
-			@ApiModelProperty("Transaction id.") long transId, @ApiModelProperty("Transfer details.") List<UserAssetDribbletDetail> userAssetDribbletDetails) {
+			@ApiModelProperty("Transaction id.") long transId,
+			@ApiModelProperty("Transfer details.") List<UserAssetDribbletDetail> userAssetDribbletDetails) {
 		/**
 		 * @param transId             Transaction id.
 		 * @param serviceChargeAmount Fees.
@@ -35,9 +39,12 @@ public record DustLogRecord(@ApiModelProperty("Result count.") int total, @ApiMo
 		 * @param transferedAmount    Asset amount.
 		 * @param fromAsset           Asset transfered.
 		 */
-		record UserAssetDribbletDetail(@ApiModelProperty("Transaction id.") long transId, @ApiModelProperty("Fees.") String serviceChargeAmount,
-				@ApiModelProperty("Converted BNB amount.") String amount, @ApiModelProperty("Operate time in ms.") long operateTime,
-				@ApiModelProperty("Asset amount.") String transferedAmount, @ApiModelProperty("Asset transfered.") String fromAsset) {
+		record UserAssetDribbletDetail(@ApiModelProperty("Transaction id.") long transId,
+				@ApiModelProperty("Fees.") String serviceChargeAmount,
+				@ApiModelProperty("Converted BNB amount.") String amount,
+				@ApiModelProperty("Operate time in ms.") long operateTime,
+				@ApiModelProperty("Asset amount.") String transferedAmount,
+				@ApiModelProperty("Asset transfered.") String fromAsset) {
 		}
 	}
 }

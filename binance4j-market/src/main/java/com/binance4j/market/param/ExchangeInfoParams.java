@@ -26,7 +26,8 @@ public record ExchangeInfoParams(String symbols) implements Params {
 		if (symbols.equals("")) {
 			this.symbols = "";
 		} else {
-			this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim())).collect(Collectors.joining(",")) + "]";
+			this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim()))
+					.collect(Collectors.joining(",")) + "]";
 		}
 	}
 

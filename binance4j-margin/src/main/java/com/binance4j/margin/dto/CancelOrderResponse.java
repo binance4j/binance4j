@@ -22,11 +22,14 @@ import io.swagger.annotations.ApiModelProperty;
  * @param isIsolated          Is isolated.
  */
 @ApiModel("The CancelOrder request result.")
-public record CancelOrderResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Side.") String side, @ApiModelProperty("Type.") String type,
+public record CancelOrderResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Side.") String side,
+		@ApiModelProperty("Type.") String type,
 		@ApiModelProperty("Time in force.") String timeInForce, @ApiModelProperty("Order id.") long orderId,
 		@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Symbol.") String symbol,
-		@ApiModelProperty("Orig client order id.") String origClientOrderId, @ApiModelProperty("Client order id.") String clientOrderId,
+		@ApiModelProperty("Orig client order id.") String origClientOrderId,
+		@ApiModelProperty("Client order id.") String clientOrderId,
 		@ApiModelProperty("Executed quantity.") String executedQty, @ApiModelProperty("Price.") String price,
-		@ApiModelProperty("Original quantity.") String origQty, @ApiModelProperty("Cummulative quote quantity.") String cummulativeQuoteQty,
+		@ApiModelProperty("Original quantity.") String origQty,
+		@ApiModelProperty("Cummulative quote quantity.") String cummulativeQuoteQty,
 		@ApiModelProperty("Is isolated.") boolean isIsolated) {
 }

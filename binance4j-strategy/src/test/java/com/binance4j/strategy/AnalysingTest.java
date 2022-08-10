@@ -19,7 +19,8 @@ class AnalysingTest extends CustomTest {
 	@Test
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022", "01");
+		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.FIVE_MINUTES, "2022",
+				"01");
 		List<Position> positions = result.tradingRecord().getPositions();
 		positions.forEach(p -> {
 			assertTrue(PositionService.shouldEnter(strategy, result.series(), p.getEntry().getIndex()));

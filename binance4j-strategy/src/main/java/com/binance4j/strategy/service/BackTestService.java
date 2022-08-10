@@ -53,7 +53,8 @@ public class BackTestService {
 	 * @return The backtest result.
 	 * @throws ApiException Thrown if data fetching failed
 	 */
-	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval, String year, String month)
+	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval,
+			String year, String month)
 			throws ApiException {
 		List<Candle> bars = new VisionSpotClient().getKlines(symbol, interval, year, month).getData();
 		return backTest(strategy, bars, interval);
@@ -71,7 +72,8 @@ public class BackTestService {
 	 * @return The backtest result.
 	 * @throws ApiException Thrown if data fetching failed
 	 */
-	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval, String year, String month, String day)
+	public static BackTestResult backTest(TradingStrategy strategy, String symbol, CandlestickInterval interval,
+			String year, String month, String day)
 			throws ApiException {
 		List<Candle> bars = new VisionSpotClient().getKlines(symbol, interval, year, month, day).getData();
 		return backTest(strategy, bars, interval);

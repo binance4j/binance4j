@@ -7,7 +7,8 @@ import org.ta4j.core.Rule;
 import com.binance4j.core.dto.Candle;
 
 /**
- * A trading strategy with an entry and an exit {@link Rule Rules} based on technical {@link Indicator indicators}, able
+ * A trading strategy with an entry and an exit {@link Rule Rules} based on
+ * technical {@link Indicator indicators}, able
  * to analyse, backtest or live test a {@link BarSeries} / {@link Candle}
  */
 public interface TradingStrategy {

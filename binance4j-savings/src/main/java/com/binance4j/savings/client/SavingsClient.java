@@ -38,7 +38,8 @@ import com.binance4j.savings.param.RedemptionQuotaParams;
 /**
  * Api client for the savings endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#savings-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#savings-endpoints">Documentation</a>
  */
 public class SavingsClient extends RestClient<SavingsMapping> {
 	/**
@@ -157,7 +158,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging) {
-		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service.getFixedProjects(
+				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**
@@ -169,7 +171,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging, Sorting sorting) {
-		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap(),
+				paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
 	/**

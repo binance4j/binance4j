@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param limit         Limit for the given interval.
  */
 @ApiModel("Requests and orders rate limit.")
-public record RateLimit(@ApiModelProperty("The rate limit type.") String rateLimitType, @ApiModelProperty("The limit interval type.") String interval,
-		@ApiModelProperty("The limit interval number.") int intervalNum, @ApiModelProperty("The limit for the given interval.") int limit) {
+public record RateLimit(@ApiModelProperty("The rate limit type.") String rateLimitType,
+		@ApiModelProperty("The limit interval type.") String interval,
+		@ApiModelProperty("The limit interval number.") int intervalNum,
+		@ApiModelProperty("The limit for the given interval.") int limit) {
 }

@@ -52,9 +52,12 @@ public class StakingClientTest extends CustomTest {
 	@Test
 	void testGetProducts() throws ApiException {
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getProducts(new ProductListParams(ProductType.STAKING)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
-		testHasNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
-		testHasNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)), List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.STAKING)),
+				List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)),
+				List.of("extraRewardAsset", "extraRewardsAPY"), true);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)),
+				List.of("extraRewardAsset", "extraRewardsAPY"), true);
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 

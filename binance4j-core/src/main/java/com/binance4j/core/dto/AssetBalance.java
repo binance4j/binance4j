@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param locked Balance locked by open orders.
  */
 @ApiModel("An asset balance in a wallet.")
-public record AssetBalance(@ApiModelProperty("The Asset symbol.") String asset, @ApiModelProperty("The available balance.") String free,
+public record AssetBalance(@ApiModelProperty("The Asset symbol.") String asset,
+		@ApiModelProperty("The available balance.") String free,
 		@ApiModelProperty("The balance locked by open orders.") String locked) {
 }

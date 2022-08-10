@@ -21,7 +21,8 @@ import com.binance4j.core.param.TimeFrame;
 /**
  * Api client for the BLVT endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints">Documentation</a>
  */
 public class BLVTClient extends RestClient<BLVTMapping> {
 	/**

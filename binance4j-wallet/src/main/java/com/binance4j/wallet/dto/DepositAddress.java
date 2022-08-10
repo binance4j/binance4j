@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param coin    Coin abbreviation.
  */
 @ApiModel("A deposit address for a given asset.")
-public record DepositAddress(@ApiModelProperty("Deposit url.") String url, @ApiModelProperty("Deposit address.") String address,
+public record DepositAddress(@ApiModelProperty("Deposit url.") String url,
+		@ApiModelProperty("Deposit address.") String address,
 		@ApiModelProperty("Deposit tag.") String tag, @ApiModelProperty("Coin abbreviation.") String coin) {
 }

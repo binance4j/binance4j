@@ -3,7 +3,8 @@ package com.binance4j.core.event;
 import java.time.Duration;
 
 /**
- * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} at the given interval
+ * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} at
+ * the given interval
  */
 public class IntervalEvent extends BaseScheduledEvent {
 	/**

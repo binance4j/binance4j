@@ -20,7 +20,8 @@ public record BookTickersParams(String symbols) implements Params {
 	 * @param symbols Trading pair list.
 	 */
 	public BookTickersParams(String symbols) {
-		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim())).collect(Collectors.joining(",")) + "]";
+		this.symbols = "[" + List.of(symbols.split(",")).stream().map(s -> String.format("\"%s\"", s.trim()))
+				.collect(Collectors.joining(",")) + "]";
 	}
 
 	/**

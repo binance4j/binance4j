@@ -13,7 +13,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 /**
  * A base client for the Binance API
  *
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type">security</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type">security</a>
  */
 public abstract class RestClient<T> {
 	/** URL base domain. */
@@ -81,7 +82,8 @@ public abstract class RestClient<T> {
 		apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
 		interceptor = new AuthenticationInterceptor(key, secret);
 		client = httpClient.newBuilder().addInterceptor(interceptor).build();
-		service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
+		service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
+				.create(mapping);
 	}
 
 	/**

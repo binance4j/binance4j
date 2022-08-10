@@ -20,7 +20,8 @@ public class ConvertClientTest extends CustomTest {
 
 	@Test
 	void testGetConversions() throws ApiException {
-		var req = client.getConversions(new TimeFrame(System.currentTimeMillis() - Duration.ofDays(29).toMillis(), System.currentTimeMillis()));
+		var req = client.getConversions(
+				new TimeFrame(System.currentTimeMillis() - Duration.ofDays(29).toMillis(), System.currentTimeMillis()));
 		testNoNulls(req);
 	}
 }

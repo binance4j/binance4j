@@ -21,9 +21,12 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A trade being part of a NewOrderRecord.")
 public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("Related order id.") long orderId,
-		@ApiModelProperty("Traded symbol.") String symbol, @ApiModelProperty("Commission asset .") String commissionAsset,
+		@ApiModelProperty("Traded symbol.") String symbol,
+		@ApiModelProperty("Commission asset .") String commissionAsset,
 		@ApiModelProperty("Commission amount.") String commission, @ApiModelProperty("Trade price.") String price,
 		@ApiModelProperty("Traded quantity.") String qty, @ApiModelProperty("Transaction time.") long time,
-		@ApiModelProperty("Is it the best match?") boolean isBestMatch, @ApiModelProperty("Is it a buyer trade?") boolean isBuyer,
-		@ApiModelProperty("Is it a maker trade?") boolean isMaker, @ApiModelProperty("Is it an isolated trade?") boolean isIsolated) {
+		@ApiModelProperty("Is it the best match?") boolean isBestMatch,
+		@ApiModelProperty("Is it a buyer trade?") boolean isBuyer,
+		@ApiModelProperty("Is it a maker trade?") boolean isMaker,
+		@ApiModelProperty("Is it an isolated trade?") boolean isIsolated) {
 }

@@ -12,5 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param total Result size.
  */
 @ApiModel("The transfers wrapper.")
-public record WalletTransferHistory(@ApiModelProperty("List of transfers.") List<WalletTransfer> rows, @ApiModelProperty("Result size.") long total) {
+public record WalletTransferHistory(@ApiModelProperty("List of transfers.") List<WalletTransfer> rows,
+		@ApiModelProperty("Result size.") long total) {
 }

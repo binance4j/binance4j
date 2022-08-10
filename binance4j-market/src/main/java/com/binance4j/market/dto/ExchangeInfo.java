@@ -18,7 +18,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param symbols         Available symbols on the exchange.
  */
 @ApiModel("The current exchange trading rules and symbol information.")
-public record ExchangeInfo(@ApiModelProperty("Server timezone.") String timezone, @ApiModelProperty("Server time.") long serverTime,
+public record ExchangeInfo(@ApiModelProperty("Server timezone.") String timezone,
+		@ApiModelProperty("Server time.") long serverTime,
 		@ApiModelProperty("Request limits (weight, orders, raw...).") List<RateLimit> rateLimits,
 		@ApiModelProperty("Trading rules of the exchange.") List<ExchangeFilter> exchangeFilters,
 		@ApiModelProperty("Available symbols on the exchange.") List<SymbolInfo> symbols) {
@@ -28,6 +29,7 @@ public record ExchangeInfo(@ApiModelProperty("Server timezone.") String timezone
 	 * @throws NotFoundException Thrown if the symbol was not found
 	 */
 	public SymbolInfo getSymbolInfo(String symbol) throws NotFoundException {
-		return symbols.stream().filter(symbolInfo -> symbolInfo.symbol().equals(symbol)).findFirst().orElseThrow(() -> new NotFoundException());
+		return symbols.stream().filter(symbolInfo -> symbolInfo.symbol().equals(symbol)).findFirst()
+				.orElseThrow(() -> new NotFoundException());
 	}
 }

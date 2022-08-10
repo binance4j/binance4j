@@ -24,10 +24,16 @@ import io.swagger.annotations.ApiModelProperty;
  * @param brokered         Brokered account?
  */
 @ApiModel("The SPOT account information.")
-public record Account(@ApiModelProperty("Maker commission.") String makerCommission, @ApiModelProperty("Taker commission.") String takerCommission,
-		@ApiModelProperty("Buyer commission.") String buyerCommission, @ApiModelProperty("Seller commission.") String sellerCommission,
-		@ApiModelProperty("Trade permission.") boolean canTrade, @ApiModelProperty("Withdrawal permission.") boolean canWithdraw,
-		@ApiModelProperty("Deposit permission.") boolean canDeposit, @ApiModelProperty("Timestamp of the last data update.") long updateTime,
-		@ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances, @ApiModelProperty("Account Type .") String accountType,
-		@ApiModelProperty("Permissions list.") List<String> permissions, @ApiModelProperty("Brokered account?") boolean brokered) {
+public record Account(@ApiModelProperty("Maker commission.") String makerCommission,
+		@ApiModelProperty("Taker commission.") String takerCommission,
+		@ApiModelProperty("Buyer commission.") String buyerCommission,
+		@ApiModelProperty("Seller commission.") String sellerCommission,
+		@ApiModelProperty("Trade permission.") boolean canTrade,
+		@ApiModelProperty("Withdrawal permission.") boolean canWithdraw,
+		@ApiModelProperty("Deposit permission.") boolean canDeposit,
+		@ApiModelProperty("Timestamp of the last data update.") long updateTime,
+		@ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances,
+		@ApiModelProperty("Account Type .") String accountType,
+		@ApiModelProperty("Permissions list.") List<String> permissions,
+		@ApiModelProperty("Brokered account?") boolean brokered) {
 }

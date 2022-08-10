@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data       Data.
  */
 @ApiModel("A daily SPOT account snapshot.")
-public record SpotAccountSnapshot(@ApiModelProperty("Type.") String type, @ApiModelProperty("Update time in ms.") long updateTime,
+public record SpotAccountSnapshot(@ApiModelProperty("Type.") String type,
+		@ApiModelProperty("Update time in ms.") long updateTime,
 		@ApiModelProperty("Data.") SpotAccountSnapshotData data) implements Snapshot {
 }

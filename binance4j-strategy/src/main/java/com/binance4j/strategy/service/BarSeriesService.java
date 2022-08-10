@@ -41,7 +41,8 @@ public class BarSeriesService {
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default
+	 * system {@link ZoneId}
 	 *
 	 * @param bars       Candles.
 	 * @param timePeriod Interval between two candles.
@@ -65,7 +66,8 @@ public class BarSeriesService {
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name and system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name
+	 * and system {@link ZoneId}
 	 *
 	 * @param bars       Candles.
 	 * @param timePeriod Interval between two candles.
@@ -91,7 +93,8 @@ public class BarSeriesService {
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default
+	 * system {@link ZoneId}
 	 *
 	 * @param bars     Candles.
 	 * @param interval Interval between two candles.
@@ -115,7 +118,8 @@ public class BarSeriesService {
 	}
 
 	/**
-	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name and system {@link ZoneId}
+	 * Converts a list of {@link Candle}s into a {@link BarSeries} with default name
+	 * and system {@link ZoneId}
 	 *
 	 * @param bars     Candles.
 	 * @param interval Interval between two candles.

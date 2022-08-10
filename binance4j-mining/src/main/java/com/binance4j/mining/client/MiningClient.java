@@ -36,7 +36,8 @@ import com.binance4j.mining.param.StatisticsParams;
 /**
  * Api client for the NFT endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#mining-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#mining-endpoints">Documentation</a>
  */
 public class MiningClient extends RestClient<MiningMapping> {
 	/**
@@ -148,7 +149,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 */
 	public Request<HashrateResaleListResponse> getHashrateResales(Paging paging) {
 		var replace = Map.of("page", "pageIndex", "limit", "pageSize");
-		return new Request<>(service.getHashrateResales(Params.merge(new HashrateResaleListParams().toMap(), paging.toMap(replace))));
+		return new Request<>(service
+				.getHashrateResales(Params.merge(new HashrateResaleListParams().toMap(), paging.toMap(replace))));
 	}
 
 	/**
@@ -168,7 +170,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params, Paging paging) {
+	public Request<HashrateResaleDetailResponse> getHashrateResalesDetails(HashrateResaleDetailParam params,
+			Paging paging) {
 		var replace = Map.of("page", "pageIndex", "limit", "pageSize");
 		return new Request<>(service.getHashrateResalesDetails(Params.merge(params.toMap(), paging.toMap(replace))));
 	}
@@ -189,7 +192,8 @@ public class MiningClient extends RestClient<MiningMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(HashrateResaleCancellationParams params) {
+	public Request<HashrateResaleCancellationResponse> cancelHashrateResaleConfiguration(
+			HashrateResaleCancellationParams params) {
 		return new Request<>(service.cancelHashrateResaleConfiguration(params.toMap()));
 	}
 

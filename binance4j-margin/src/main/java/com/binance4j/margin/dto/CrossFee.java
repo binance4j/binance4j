@@ -6,7 +6,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Cross margin fee data collection with any vip level or user's current specific data as
+ * Cross margin fee data collection with any vip level or user's current
+ * specific data as
  * <a href="https://www.binance.com/en/margin-fee">here</a>
  * 
  * @param vipLevel        User's VIP level.
@@ -20,7 +21,10 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Cross margin fee data collection")
 public record CrossFee(@ApiModelProperty("User's VIP level.") int vipLevel, @ApiModelProperty("Coin name.") String coin,
-		@ApiModelProperty("Borrow limit.") String borrowLimit, @ApiModelProperty("Daily interest.") String dailyInterest,
-		@ApiModelProperty("Yearly interest.") String yearlyInterest, @ApiModelProperty("Is it borrowable?") boolean borrowable,
-		@ApiModelProperty("Is internal transfer allowed?") boolean transferIn, @ApiModelProperty("Bound pairs.") List<String> marginablePairs) {
+		@ApiModelProperty("Borrow limit.") String borrowLimit,
+		@ApiModelProperty("Daily interest.") String dailyInterest,
+		@ApiModelProperty("Yearly interest.") String yearlyInterest,
+		@ApiModelProperty("Is it borrowable?") boolean borrowable,
+		@ApiModelProperty("Is internal transfer allowed?") boolean transferIn,
+		@ApiModelProperty("Bound pairs.") List<String> marginablePairs) {
 }

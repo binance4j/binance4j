@@ -16,8 +16,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @see IsolatedTransferAccount
  */
 @ApiModel("An asset transfer record between two accounts.")
-public record IsolatedTransferRecord(@ApiModelProperty("Transfered amount.") String amount, @ApiModelProperty("Transfered asset.") String asset,
-		@ApiModelProperty("Transfer status.") String status, @ApiModelProperty("Transfer timestamp in ms.") long timestamp,
-		@ApiModelProperty("Transaction id.") long txId, @ApiModelProperty("Account the asset is transfered from.") String transFrom,
+public record IsolatedTransferRecord(@ApiModelProperty("Transfered amount.") String amount,
+		@ApiModelProperty("Transfered asset.") String asset,
+		@ApiModelProperty("Transfer status.") String status,
+		@ApiModelProperty("Transfer timestamp in ms.") long timestamp,
+		@ApiModelProperty("Transaction id.") long txId,
+		@ApiModelProperty("Account the asset is transfered from.") String transFrom,
 		@ApiModelProperty("Account the asset is transfered to.") String transTo) {
 }

@@ -15,7 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param feeAsset        Fee asset.
  */
 @ApiModel("NFT Withdraw.")
-public record Withdraw(@ApiModelProperty("NFT Network.") String network, @ApiModelProperty("NFT Contract Address.") String contractAddress,
+public record Withdraw(@ApiModelProperty("NFT Network.") String network,
+		@ApiModelProperty("NFT Contract Address.") String contractAddress,
 		@ApiModelProperty("NFT Token ID.") String tokenId, @ApiModelProperty("Transaction ID.") String txID,
 		@ApiModelProperty("Deposit time in ms.") long timestamp, @ApiModelProperty("Withdraw fee.") String fee,
 		@ApiModelProperty("Fee asset.") String feeAsset) {

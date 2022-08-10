@@ -21,10 +21,15 @@ import io.swagger.annotations.ApiModelProperty;
  * @see LevelStatus
  */
 @ApiModel("Isolated asset pair in an isolated account.")
-public record IsolatedPair(@ApiModelProperty("Base asset.") IsolatedAsset baseAsset, @ApiModelProperty("Quote asset.") IsolatedAsset quoteAsset,
-		@ApiModelProperty("Asset symbol.") String symbol, @ApiModelProperty("is isolated asset created.") boolean isolatedCreated,
-		@ApiModelProperty("Is trading enabled?") boolean tradeEnabled, @ApiModelProperty("Is the pair enabled for the account?") boolean enabled,
-		@ApiModelProperty("Margin level status.") String marginLevelStatus, @ApiModelProperty("Margin level.") String marginLevel,
+public record IsolatedPair(@ApiModelProperty("Base asset.") IsolatedAsset baseAsset,
+		@ApiModelProperty("Quote asset.") IsolatedAsset quoteAsset,
+		@ApiModelProperty("Asset symbol.") String symbol,
+		@ApiModelProperty("is isolated asset created.") boolean isolatedCreated,
+		@ApiModelProperty("Is trading enabled?") boolean tradeEnabled,
+		@ApiModelProperty("Is the pair enabled for the account?") boolean enabled,
+		@ApiModelProperty("Margin level status.") String marginLevelStatus,
+		@ApiModelProperty("Margin level.") String marginLevel,
 		@ApiModelProperty("Margin ratio.") String marginRatio, @ApiModelProperty("Index price.") String indexPrice,
-		@ApiModelProperty("Liquidate price.") String liquidatePrice, @ApiModelProperty("Liquidate rate.") String liquidateRate) {
+		@ApiModelProperty("Liquidate price.") String liquidatePrice,
+		@ApiModelProperty("Liquidate rate.") String liquidateRate) {
 }

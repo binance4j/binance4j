@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Top bids and asks.")
-public record MiniDepth(@ApiModelProperty("Last update id.") Long lastUpdateId, @ApiModelProperty("Bids.") List<OrderBookEntry> bids,
+public record MiniDepth(@ApiModelProperty("Last update id.") Long lastUpdateId,
+		@ApiModelProperty("Bids.") List<OrderBookEntry> bids,
 		@ApiModelProperty("Asks.") List<OrderBookEntry> asks) {
 }

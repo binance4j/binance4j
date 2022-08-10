@@ -6,7 +6,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#enableIsolatedAccount},{@link MarginClient#disableIsolatedAccount} params.
+ * {@link MarginClient#enableIsolatedAccount},{@link MarginClient#disableIsolatedAccount}
+ * params.
  * 
  * @param symbol Max 5 symbols can be sent; separated by ",".
  */

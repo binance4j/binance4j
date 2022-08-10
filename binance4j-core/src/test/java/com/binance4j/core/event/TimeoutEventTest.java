@@ -1,11 +1,13 @@
 package com.binance4j.core.event;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,8 +30,10 @@ class TimeoutEventTest {
 	@Test
 	void TestCancel() throws InterruptedException, ExecutionException {
 		// cancels the event before it is triggered
-		new Timer().schedule(new CancelTask(), Duration.ofSeconds(1).toMillis()); // completes after the event is supposed to be called
-		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis()); // we program the event between the two schedules
+		new Timer().schedule(new CancelTask(), Duration.ofSeconds(1).toMillis()); // completes after the event is
+																					// supposed to be called
+		new Timer().schedule(new CompleteTask(), Duration.ofSeconds(3).toMillis()); // we program the event between the
+																					// two schedules
 		event = new TimeoutEvent(Duration.ofSeconds(2), () -> future.complete(false));
 		assertTrue(future.get());
 	}

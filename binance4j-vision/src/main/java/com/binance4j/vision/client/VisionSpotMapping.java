@@ -32,7 +32,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_KLINES_URL)
-	Call<ResponseBody> getMonthlyKlines(@Path("symbol") String symbol, @Path("candlestick_interval") String candlestickInterval, @Path("year") String year,
+	Call<ResponseBody> getMonthlyKlines(@Path("symbol") String symbol,
+			@Path("candlestick_interval") String candlestickInterval, @Path("year") String year,
 			@Path("month") String month);
 
 	/**
@@ -45,7 +46,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_KLINES_URL + ".CHECKSUM")
-	Call<ResponseBody> getMonthlyKlinesChecksum(@Path("symbol") String symbol, @Path("candlestick_interval") String candlestickInterval,
+	Call<ResponseBody> getMonthlyKlinesChecksum(@Path("symbol") String symbol,
+			@Path("candlestick_interval") String candlestickInterval,
 			@Path("year") String year, @Path("month") String month);
 
 	/**
@@ -59,7 +61,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_KLINES_URL)
-	Call<ResponseBody> getDailyKlines(@Path("symbol") String symbol, @Path("candlestick_interval") String candlestickInterval, @Path("year") String year,
+	Call<ResponseBody> getDailyKlines(@Path("symbol") String symbol,
+			@Path("candlestick_interval") String candlestickInterval, @Path("year") String year,
 			@Path("month") String month, @Path("day") String day);
 
 	/**
@@ -73,7 +76,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_KLINES_URL + ".CHECKSUM")
-	Call<ResponseBody> getDailyKlinesChecksum(@Path("symbol") String symbol, @Path("candlestick_interval") String candlestickInterval,
+	Call<ResponseBody> getDailyKlinesChecksum(@Path("symbol") String symbol,
+			@Path("candlestick_interval") String candlestickInterval,
 			@Path("year") String year, @Path("month") String month, @Path("day") String day);
 
 	// Trades
@@ -87,7 +91,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_TRADES_URL)
-	Call<ResponseBody> getMonthlyTrades(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month);
+	Call<ResponseBody> getMonthlyTrades(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month);
 
 	/**
 	 * Mapping of the monthly trades cheksum call
@@ -98,7 +103,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_TRADES_URL + ".CHECKSUM")
-	Call<ResponseBody> getMonthlyTradesChecksum(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month);
+	Call<ResponseBody> getMonthlyTradesChecksum(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month);
 
 	/**
 	 * Mapping of the daily trades call
@@ -110,7 +116,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_TRADES_URL)
-	Call<ResponseBody> getDailyTrades(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month, @Path("day") String day);
+	Call<ResponseBody> getDailyTrades(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month, @Path("day") String day);
 
 	/**
 	 * Mapping of the daily trades checksum call
@@ -122,7 +129,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_TRADES_URL + ".CHECKSUM")
-	Call<ResponseBody> getDailyTradesChecksum(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month, @Path("day") String day);
+	Call<ResponseBody> getDailyTradesChecksum(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month, @Path("day") String day);
 
 	// AggTrades
 
@@ -135,7 +143,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_AGGTRADES_URL)
-	Call<ResponseBody> getMonthlyAggTrades(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month);
+	Call<ResponseBody> getMonthlyAggTrades(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month);
 
 	/**
 	 * Mapping of the monthly aggTrades cheksum call
@@ -146,7 +155,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(MONTHLY_AGGTRADES_URL + ".CHECKSUM")
-	Call<ResponseBody> getMonthlyAggTradesChecksum(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month);
+	Call<ResponseBody> getMonthlyAggTradesChecksum(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month);
 
 	/**
 	 * Mapping of the daily aggTrades call
@@ -158,7 +168,8 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_AGGTRADES_URL)
-	Call<ResponseBody> getDailyAggTrades(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month, @Path("day") String day);
+	Call<ResponseBody> getDailyAggTrades(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month, @Path("day") String day);
 
 	/**
 	 * Mapping of the daily aggTrades checksum call
@@ -170,6 +181,7 @@ public interface VisionSpotMapping extends RestMapping {
 	 * @return The retrofit call.
 	 */
 	@GET(DAILY_AGGTRADES_URL + ".CHECKSUM")
-	Call<ResponseBody> getDailyAggTradesChecksum(@Path("symbol") String symbol, @Path("year") String year, @Path("month") String month,
+	Call<ResponseBody> getDailyAggTradesChecksum(@Path("symbol") String symbol, @Path("year") String year,
+			@Path("month") String month,
 			@Path("day") String day);
 }

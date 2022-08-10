@@ -15,8 +15,10 @@ import io.swagger.annotations.ApiModelProperty;
  * @param isBestMatch  Was the trade the best price match?
  */
 @ApiModel("An executed trade history item.")
-public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("Trad price.") String price, @ApiModelProperty("Trade volume.") String qty,
-		@ApiModelProperty("Trade opposite volume.") String quoteQty, @ApiModelProperty("Trade execution in ms.") long time,
+public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("Trad price.") String price,
+		@ApiModelProperty("Trade volume.") String qty,
+		@ApiModelProperty("Trade opposite volume.") String quoteQty,
+		@ApiModelProperty("Trade execution in ms.") long time,
 		@ApiModelProperty("Is the trade a buyer maker trade.") boolean isBuyerMaker,
 		@ApiModelProperty("Was the trade the best price match?") boolean isBestMatch) {
 }

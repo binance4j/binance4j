@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param pageSize       Rows per page.
  */
 @ApiModel("Workers data.")
-public record ProfitsData(@ApiModelProperty("Profits datas.") List<Profit> accountProfits, @ApiModelProperty("Total amount.") long totalNum,
+public record ProfitsData(@ApiModelProperty("Profits datas.") List<Profit> accountProfits,
+		@ApiModelProperty("Total amount.") long totalNum,
 		@ApiModelProperty("Rows per page.") long pageSize) {
 }

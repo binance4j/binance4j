@@ -15,7 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
  * @param userAssets          User Assetss.
  */
 @ApiModel("Margin account snapshot data.")
-public record MarginAccountSnapshotData(@ApiModelProperty("Margin level.") String marginLevel, @ApiModelProperty("Total Asset Of Btc.") String totalAssetOfBtc,
-		@ApiModelProperty("Total Liability Of Btc.") String totalLiabilityOfBtc, @ApiModelProperty("Total Net Asset Of Btc.") String totalNetAssetOfBtc,
+public record MarginAccountSnapshotData(@ApiModelProperty("Margin level.") String marginLevel,
+		@ApiModelProperty("Total Asset Of Btc.") String totalAssetOfBtc,
+		@ApiModelProperty("Total Liability Of Btc.") String totalLiabilityOfBtc,
+		@ApiModelProperty("Total Net Asset Of Btc.") String totalNetAssetOfBtc,
 		@ApiModelProperty("User Assetss.") List<MarginAccountSnapshotUserAssets> userAssets) {
 }

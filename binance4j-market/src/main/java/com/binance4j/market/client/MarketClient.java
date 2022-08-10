@@ -33,7 +33,8 @@ import com.binance4j.market.param.TradesParams;
 /**
  * API client for the market endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints">Documentation</a>
  */
 public class MarketClient extends RestClient<MarketMapping> {
 	/**
@@ -65,7 +66,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	/**
 	 * Get current exchange trading rules and one or many symbols informations.
 	 * <p>
-	 * If any symbol provided in either {@code symbol} or {@code symbols} do not exist, the endpoint will throw an error.
+	 * If any symbol provided in either {@code symbol} or {@code symbols} do not
+	 * exist, the endpoint will throw an error.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -114,12 +116,15 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same price will have
+	 * Get compressed, aggregate trades. Trades that fill at the time, from the same
+	 * order, with the same price will have
 	 * the quantity aggregated.
 	 * <p>
-	 * If {@code startTime}, and {@code endTime} are sent, time between startTime and endTime must be less than 1 hour.
+	 * If {@code startTime}, and {@code endTime} are sent, time between startTime
+	 * and endTime must be less than 1 hour.
 	 * <p>
-	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
+	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the
+	 * most recent aggregate trades will be
 	 * returned.
 	 * 
 	 * @param params Request params.
@@ -130,12 +135,15 @@ public class MarketClient extends RestClient<MarketMapping> {
 	}
 
 	/**
-	 * Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same price will have
+	 * Get compressed, aggregate trades. Trades that fill at the time, from the same
+	 * order, with the same price will have
 	 * the quantity aggregated.
 	 * <p>
-	 * If {@code startTime}, and {@code endTime} are sent, time between startTime and endTime must be less than 1 hour.
+	 * If {@code startTime}, and {@code endTime} are sent, time between startTime
+	 * and endTime must be less than 1 hour.
 	 * <p>
-	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the most recent aggregate trades will be
+	 * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the
+	 * most recent aggregate trades will be
 	 * returned.
 	 * 
 	 * @param params    Request params.
@@ -151,7 +159,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * Klines are uniquely identified by their open time.
 	 * <p>
-	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
+	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent
+	 * klines are returned.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -165,7 +174,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * <p>
 	 * Klines are uniquely identified by their open time.
 	 * <p>
-	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent klines are returned.
+	 * If {@code startTime</code> and <code>endTime} are not sent, the most recent
+	 * klines are returned.
 	 * 
 	 * @param params    Request params.
 	 * @param timeFrame Time interval search.

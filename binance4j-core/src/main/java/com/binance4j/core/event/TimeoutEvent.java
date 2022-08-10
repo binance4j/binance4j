@@ -3,7 +3,8 @@ package com.binance4j.core.event;
 import java.time.Duration;
 
 /**
- * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask} after the given {@link Duration timeout}
+ * A {@link ScheduledEvent} that will execute the given {@link ScheduledTask}
+ * after the given {@link Duration timeout}
  */
 public class TimeoutEvent extends BaseScheduledEvent {
 	/**

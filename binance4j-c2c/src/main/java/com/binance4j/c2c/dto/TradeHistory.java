@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param success Success.
  */
 @ApiModel("C2C trades history.")
-public record TradeHistory(@ApiModelProperty("Code.") String code, @ApiModelProperty("Message.") String message, @ApiModelProperty("Trades.") List<Trade> data,
+public record TradeHistory(@ApiModelProperty("Code.") String code, @ApiModelProperty("Message.") String message,
+		@ApiModelProperty("Trades.") List<Trade> data,
 		@ApiModelProperty("Total.") int total, @ApiModelProperty("Success.") boolean success) {
 }

@@ -10,7 +10,8 @@ import com.binance4j.staking.dto.ProductType;
  * 
  * @param product    Product type.
  * @param productId  Product id.
- * @param positionId Position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}.
+ * @param positionId Position id. Mandatory if product is {@code STAKING} or
+ *                   {@code L_DEFI}.
  * @param amount     Amount to purchase. Mandatory if product is {@code F_DEFI}.
  */
 @Param
@@ -30,7 +31,8 @@ public record RedeemParams(ProductType product, String productId, String positio
 	 * 
 	 * @param product    Product type.
 	 * @param productId  Product id.
-	 * @param positionId Position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}.
+	 * @param positionId Position id. Mandatory if product is {@code STAKING} or
+	 *                   {@code L_DEFI}.
 	 */
 	public RedeemParams(ProductType product, String productId, String positionId) {
 		this(product, productId, positionId, null);

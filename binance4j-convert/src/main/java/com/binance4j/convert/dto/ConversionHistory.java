@@ -15,7 +15,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param moreData  Is there more data?
  */
 @ApiModel("Conversions history.")
-public record ConversionHistory(@ApiModelProperty("The conversions.") List<Conversion> list, @ApiModelProperty("Start time in ms.") long startTime,
+public record ConversionHistory(@ApiModelProperty("The conversions.") List<Conversion> list,
+		@ApiModelProperty("Start time in ms.") long startTime,
 		@ApiModelProperty("End time in ms.") long endTime, @ApiModelProperty("Results limit.") int limit,
 		@ApiModelProperty("Is there more data?") boolean moreData) {
 }

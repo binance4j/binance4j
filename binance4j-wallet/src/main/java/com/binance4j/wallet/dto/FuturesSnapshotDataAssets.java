@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param walletBalance Wallet balance.
  */
 @ApiModel("The snapshot assets balances.")
-public record FuturesSnapshotDataAssets(@ApiModelProperty("Asset abbreviation.") String asset, @ApiModelProperty("Margin balance.") String marginBalance,
+public record FuturesSnapshotDataAssets(@ApiModelProperty("Asset abbreviation.") String asset,
+		@ApiModelProperty("Margin balance.") String marginBalance,
 		@ApiModelProperty("Wallet balance.") String walletBalance) {
 }

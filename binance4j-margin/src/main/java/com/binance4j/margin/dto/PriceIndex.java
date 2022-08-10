@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param symbol   Asset pair.
  */
 @ApiModel("A symbol price index.")
-public record PriceIndex(@ApiModelProperty("Last price calculation timestamp in ms.") long calcTime, @ApiModelProperty("Price.") String price,
+public record PriceIndex(@ApiModelProperty("Last price calculation timestamp in ms.") long calcTime,
+		@ApiModelProperty("Price.") String price,
 		@ApiModelProperty("Asset pair.") String symbol) {
 }

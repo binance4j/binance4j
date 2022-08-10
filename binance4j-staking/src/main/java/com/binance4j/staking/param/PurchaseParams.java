@@ -11,7 +11,8 @@ import com.binance4j.staking.dto.ProductType;
  * @param product   Product type.
  * @param productId Product id.
  * @param amount    Amount to purchase.
- * @param renewable Renew purchase? Active if product is {@code STAKING} or {@code L_DEFI}.
+ * @param renewable Renew purchase? Active if product is {@code STAKING} or
+ *                  {@code L_DEFI}.
  */
 @Param
 public record PurchaseParams(String product, String productId, String amount, Boolean renewable) implements Params {
@@ -22,7 +23,8 @@ public record PurchaseParams(String product, String productId, String amount, Bo
 	 * @param product   Product type.
 	 * @param productId Product id.
 	 * @param amount    Amount to purchase.
-	 * @param renewable Renew purchase? Active if product is {@code STAKING} or {@code L_DEFI}.
+	 * @param renewable Renew purchase? Active if product is {@code STAKING} or
+	 *                  {@code L_DEFI}.
 	 */
 	public PurchaseParams(ProductType product, String productId, String amount, Boolean renewable) {
 		this(product.toString(), productId, amount, renewable);

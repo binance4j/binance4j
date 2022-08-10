@@ -40,7 +40,8 @@ class UserDataClientTest {
 		String isolatedSymbol = "BTCUSDT";
 		IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(isolatedSymbol);
 		ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).sync();
-		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(isolatedSymbol,
+		KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(
+				isolatedSymbol,
 				listenKey.listenKey());
 		assertTrue(listenKey.listenKey().length() > 0);
 		assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));

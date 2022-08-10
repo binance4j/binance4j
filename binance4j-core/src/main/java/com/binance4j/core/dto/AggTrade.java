@@ -50,7 +50,8 @@ public class AggTrade {
 	 * @param isBuyerMaker Was it a buyer maker
 	 * @param isBestMatch  Was it the best price match?
 	 */
-	public AggTrade(@JsonProperty("a") long tradeId, @JsonProperty("p") String price, @JsonProperty("q") String quantity, @JsonProperty("f") long firstTradeId,
+	public AggTrade(@JsonProperty("a") long tradeId, @JsonProperty("p") String price,
+			@JsonProperty("q") String quantity, @JsonProperty("f") long firstTradeId,
 			@JsonProperty("l") long lastTradeId, @JsonProperty("T") long time, @JsonProperty("m") Boolean isBuyerMaker,
 			@JsonProperty("M") Boolean isBestMatch) {
 		this.tradeId = tradeId;
@@ -67,7 +68,8 @@ public class AggTrade {
 	 * @param input CSV line.
 	 */
 	public AggTrade(List<String> input) {
-		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), Long.parseLong(input.get(3)), Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),
+		this(Long.parseLong(input.get(0)), input.get(1), input.get(2), Long.parseLong(input.get(3)),
+				Long.parseLong(input.get(4)), Long.parseLong(input.get(5)),
 				Boolean.parseBoolean(input.get(6)), Boolean.parseBoolean(input.get(7)));
 	}
 
@@ -137,6 +139,7 @@ public class AggTrade {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 
@@ -157,6 +160,7 @@ public class AggTrade {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 
@@ -196,12 +200,14 @@ public class AggTrade {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 
 	@Override
 	public String toString() {
-		return "AggTrade [firstTradeId=" + firstTradeId + ", isBestMatch=" + bestMatch + ", isBuyerMaker=" + buyerMaker + ", lastTradeId=" + lastTradeId
+		return "AggTrade [firstTradeId=" + firstTradeId + ", isBestMatch=" + bestMatch + ", isBuyerMaker=" + buyerMaker
+				+ ", lastTradeId=" + lastTradeId
 				+ ", price=" + price + ", quantity=" + quantity + ", time=" + time + ", tradeId=" + tradeId + "]";
 	}
 

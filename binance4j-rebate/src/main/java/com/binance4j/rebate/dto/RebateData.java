@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param data         Rebates.
  */
 @ApiModel("Rebate data.")
-public record RebateData(@ApiModelProperty("Current page.") int page, @ApiModelProperty("Total records.") int totalRecords,
+public record RebateData(@ApiModelProperty("Current page.") int page,
+		@ApiModelProperty("Total records.") int totalRecords,
 		@ApiModelProperty("Total pages.") int totalPageNum, @ApiModelProperty("Rebates.") List<Rebate> data) {
 }

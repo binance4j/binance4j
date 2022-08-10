@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param borrowLimit   Borrow limit.
  */
 @ApiModel("Isolated fee data.")
-public record IsolatedFeeData(@ApiModelProperty("Related coin.") String coin, @ApiModelProperty("Daily interest.") String dailyInterest,
+public record IsolatedFeeData(@ApiModelProperty("Related coin.") String coin,
+		@ApiModelProperty("Daily interest.") String dailyInterest,
 		@ApiModelProperty("Borrow limit.") String borrowLimit) {
 }

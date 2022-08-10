@@ -23,9 +23,12 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A C2C Trade.")
 public record Trade(@ApiModelProperty("Order number.") String orderNumber, @ApiModelProperty("Adv No.") long advNo,
-		@ApiModelProperty("Trade type.") String tradeType, @ApiModelProperty("Asset.") String asset, @ApiModelProperty("Fiat.") String fiat,
-		@ApiModelProperty("Fiat symbol.") String fiatSymbol, @ApiModelProperty("Amount.") String amount, @ApiModelProperty("Total price.") String totalPrice,
+		@ApiModelProperty("Trade type.") String tradeType, @ApiModelProperty("Asset.") String asset,
+		@ApiModelProperty("Fiat.") String fiat,
+		@ApiModelProperty("Fiat symbol.") String fiatSymbol, @ApiModelProperty("Amount.") String amount,
+		@ApiModelProperty("Total price.") String totalPrice,
 		@ApiModelProperty("Unit price.") String unitPrice, @ApiModelProperty("Order status.") String orderStatus,
 		@ApiModelProperty("Create time.") long createTime, @ApiModelProperty("Commission.") String commission,
-		@ApiModelProperty("Counter part nickname.") String counterPartNickName, @ApiModelProperty("Advertisement role.") String advertisementRole) {
+		@ApiModelProperty("Counter part nickname.") String counterPartNickName,
+		@ApiModelProperty("Advertisement role.") String advertisementRole) {
 }

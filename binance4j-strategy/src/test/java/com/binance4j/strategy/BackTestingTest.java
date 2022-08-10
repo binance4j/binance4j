@@ -20,7 +20,8 @@ class BackTestingTest extends CustomTest {
 	@Test
 	void testBacktestWithInputBars() throws ApiException {
 		// Let's get some public data
-		List<Candle> bars = new VisionSpotClient().getKlines("BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01").getData();
+		List<Candle> bars = new VisionSpotClient()
+				.getKlines("BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01").getData();
 		BarSeries series = BarSeriesService.convert(bars, Duration.ofMinutes(1));
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
 		BackTestResult result = BackTestService.backTest(strategy, series);
@@ -30,7 +31,8 @@ class BackTestingTest extends CustomTest {
 	@Test
 	void testBacktestWithVision() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
-		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022", "01", "01");
+		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022",
+				"01", "01");
 		testHasNulls(result, List.of("amount", "entry", "exit", "name"), true);
 	}
 }

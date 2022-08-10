@@ -18,7 +18,8 @@ import com.binance4j.mining.dto.WorkerStatus;
  * @param workerStatus Miner status.
  */
 @Param(weight = 5)
-public record MinersParams(String algo, String userName, Integer pageIndex, String sort, String sortColumn, String workerStatus) implements Params {
+public record MinersParams(String algo, String userName, Integer pageIndex, String sort, String sortColumn,
+		String workerStatus) implements Params {
 
 	/**
 	 * @param algo         Algorithm.
@@ -28,7 +29,8 @@ public record MinersParams(String algo, String userName, Integer pageIndex, Stri
 	 * @param sortColumn   Miner sort.
 	 * @param workerStatus Miner status.
 	 */
-	public MinersParams(String algo, String userName, Integer pageIndex, SortSequence sort, MinerSorting sortColumn, WorkerStatus workerStatus) {
+	public MinersParams(String algo, String userName, Integer pageIndex, SortSequence sort, MinerSorting sortColumn,
+			WorkerStatus workerStatus) {
 		this(algo, userName, pageIndex, sort.toString(), sortColumn.toString(), workerStatus.toString());
 	}
 

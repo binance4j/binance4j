@@ -65,12 +65,14 @@ public class MiningClientTest extends CustomTest {
 
 	// TODO @Test
 	void testResellHashrate() throws ApiException {
-		testNotThrow(client.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
+		testNotThrow(client
+				.resellHashrate(new HashrateResaleParams(userName, algo, endDate, startDate, toPoolUser, hashRate)));
 	}
 
 	// TODO @Test
 	void testCancelHashrateResaleConfiguration() throws ApiException {
-		testNotThrow(client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
+		testNotThrow(
+				client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
 	}
 
 	// TODO @Test

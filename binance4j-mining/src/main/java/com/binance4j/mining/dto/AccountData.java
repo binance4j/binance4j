@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @param list     List.
  */
 @ApiModel("Account data.")
-public record AccountData(@ApiModelProperty("Type of daily hashrate.") String type, @ApiModelProperty("Mining account.") String userName,
+public record AccountData(@ApiModelProperty("Type of daily hashrate.") String type,
+		@ApiModelProperty("Mining account.") String userName,
 		@ApiModelProperty("List.") List<AccountList> list) {
 }

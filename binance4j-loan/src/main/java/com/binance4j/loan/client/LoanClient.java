@@ -12,7 +12,8 @@ import com.binance4j.loan.param.LoanIncomeHistoryParams;
 /**
  * Api client for the loan endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints">Documentation</a>
  */
 public class LoanClient extends RestClient<LoanMapping> {
 	/**

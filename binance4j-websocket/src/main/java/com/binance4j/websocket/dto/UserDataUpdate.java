@@ -10,7 +10,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * User data update event:
  * <ul>
- * <li>{@code outboundAccountPosition}: the change in account balances caused by an event.</li>
+ * <li>{@code outboundAccountPosition}: the change in account balances caused by
+ * an event.</li>
  * <li>{@code executionReport}: whenever there is a trade or an order.</li>
  * <li>{@code balanceUpdate}: the change in account balance (delta).</li>
  * </ul>
@@ -24,7 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
 @ApiModel("User data update event")
-public record UserDataUpdate(@ApiModelProperty("Event type.") UserDataUpdateType eventType, @ApiModelProperty("Timestamp.") Long eventTime,
+public record UserDataUpdate(@ApiModelProperty("Event type.") UserDataUpdateType eventType,
+		@ApiModelProperty("Timestamp.") Long eventTime,
 		@ApiModelProperty("Account update.") AccountUpdate outboundAccountPositionUpdateEvent,
 		@ApiModelProperty("Balance update.") BalanceUpdate balanceUpdateEvent,
 		@ApiModelProperty("Order trade update.") OrderTradeUpdate orderTradeUpdateEvent) {

@@ -15,7 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
  * @see WalletTransferType
  */
 @ApiModel("A wallet to wallet transfer.")
-public record WalletTransfer(@ApiModelProperty("Transfered asset.") String asset, @ApiModelProperty("Transfered amount.") String amount,
-		@ApiModelProperty("Transfer type (origin wallet to destination wallet).") String type, @ApiModelProperty("Transfer status.") String status,
+public record WalletTransfer(@ApiModelProperty("Transfered asset.") String asset,
+		@ApiModelProperty("Transfered amount.") String amount,
+		@ApiModelProperty("Transfer type (origin wallet to destination wallet).") String type,
+		@ApiModelProperty("Transfer status.") String status,
 		@ApiModelProperty("Transaction id.") long tranId, @ApiModelProperty("Transfer timestamp.") long timestamp) {
 }

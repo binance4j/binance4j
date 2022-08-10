@@ -10,7 +10,8 @@ import com.binance4j.rebate.param.SpotRebateHistoryParams;
 /**
  * The API client for the SPOT endpoints
  * 
- * @see <a href= "https://binance-docs.github.io/apidocs/spot/en/#rebate-endpoints">Documentation</a>
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#rebate-endpoints">Documentation</a>
  */
 public class RebateClient extends RestClient<RebateMapping> {
 	/**
@@ -37,6 +38,7 @@ public class RebateClient extends RestClient<RebateMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(FramedPaging interval) {
-		return new Request<>(service.getSpotRebateHistoryRecords(Params.merge(new SpotRebateHistoryParams(), interval)));
+		return new Request<>(
+				service.getSpotRebateHistoryRecords(Params.merge(new SpotRebateHistoryParams(), interval)));
 	}
 }

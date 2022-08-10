@@ -22,7 +22,8 @@ public class BarServiceTest extends CustomTest {
 		String low = "1";
 		String close = "2";
 		String volume = "10";
-		candle = new Candle(System.currentTimeMillis(), open, high, low, close, volume, System.currentTimeMillis(), "1", 0L, "1", "1");
+		candle = new Candle(System.currentTimeMillis(), open, high, low, close, volume, System.currentTimeMillis(), "1",
+				0L, "1", "1");
 	}
 
 	@Test

@@ -12,7 +12,8 @@ import okhttp3.Response;
 import okhttp3.WebSocket;
 
 /**
- * Interceptor callback for {@link WebsocketClient} main callback to handle event failures
+ * Interceptor callback for {@link WebsocketClient} main callback to handle
+ * event failures
  */
 public class WebsocketInterceptorCallback<T> implements WebsocketCallback<T> {
 	/** The main ws client. */

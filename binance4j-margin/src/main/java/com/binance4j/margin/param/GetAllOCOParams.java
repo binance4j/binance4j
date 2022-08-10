@@ -8,7 +8,8 @@ import com.binance4j.margin.client.MarginClient;
 /**
  * {@link MarginClient#getAllOCO} params.
  * 
- * @param symbol     Mandatory for isolated margin, not supported for cross margin.
+ * @param symbol     Mandatory for isolated margin, not supported for cross
+ *                   margin.
  * @param fromId     If supplied, don't provide {@link TimeFrame}
  * @param isIsolated Is the order isolated?
  */
@@ -27,7 +28,8 @@ public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) im
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to
+	 *               {@code true}
 	 */
 	public GetAllOCOParams(String symbol) {
 		this(symbol, null, true);
@@ -36,7 +38,8 @@ public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) im
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to {@code true}
+	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to
+	 *               {@code true}
 	 * @param fromId If supplied, don't provide {@link TimeFrame}
 	 */
 	public GetAllOCOParams(String symbol, Long fromId) {

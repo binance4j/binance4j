@@ -71,7 +71,8 @@ public class NewOCOOrderParams implements Params {
 	 * @param stopLimitPrice       Stop limit price.
 	 * @param stopLimitTimeInForce Valid values are GTC/FOK/IOC.
 	 */
-	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice, String stopLimitPrice,
+	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice,
+			String stopLimitPrice,
 			TimeInForce stopLimitTimeInForce) {
 		this.symbol = symbol;
 		this.side = side;

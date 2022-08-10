@@ -22,7 +22,8 @@ public class SymbolBar extends BaseBar {
 	 * @param symbol     Bar symbol name.
 	 */
 	public SymbolBar(Bar bar, boolean isBarFinal, String symbol) {
-		super(bar.getTimePeriod(), bar.getEndTime(), bar.getOpenPrice().doubleValue(), bar.getHighPrice().doubleValue(), bar.getLowPrice().doubleValue(),
+		super(bar.getTimePeriod(), bar.getEndTime(), bar.getOpenPrice().doubleValue(), bar.getHighPrice().doubleValue(),
+				bar.getLowPrice().doubleValue(),
 				bar.getClosePrice().doubleValue(), bar.getVolume().doubleValue());
 		this.symbol = symbol;
 		this.isBarFinal = isBarFinal;

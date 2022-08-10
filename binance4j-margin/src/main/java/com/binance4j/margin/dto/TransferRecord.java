@@ -17,8 +17,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @see TransferRecordType
  */
 @ApiModel("A transfer history record.")
-public record TransferRecord(@ApiModelProperty("Transaction id.") long txId, @ApiModelProperty("Transfered amount.") String amount,
+public record TransferRecord(@ApiModelProperty("Transaction id.") long txId,
+		@ApiModelProperty("Transfered amount.") String amount,
 		@ApiModelProperty("Transfered asset.") String asset, @ApiModelProperty("Transfer status.") String status,
-		@ApiModelProperty("Transaction time in ms.") long timestamp, @ApiModelProperty("Transfer history type.") String type,
-		@ApiModelProperty("Transfer counterparty.") String transferCounterparty, @ApiModelProperty("Client tag.") String clientTag) {
+		@ApiModelProperty("Transaction time in ms.") long timestamp,
+		@ApiModelProperty("Transfer history type.") String type,
+		@ApiModelProperty("Transfer counterparty.") String transferCounterparty,
+		@ApiModelProperty("Client tag.") String clientTag) {
 }

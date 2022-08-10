@@ -16,7 +16,8 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Hashrate resale detail.")
 public record HashrateResaleDetail(@ApiModelProperty("Transfer out of sub-account.") String poolUsername,
-		@ApiModelProperty("Transfer into subaccount.") String toPoolUsername, @ApiModelProperty("Transfer algorithm.") String algoName,
+		@ApiModelProperty("Transfer into subaccount.") String toPoolUsername,
+		@ApiModelProperty("Transfer algorithm.") String algoName,
 		@ApiModelProperty("Transferred Hashrate quantity.") long hashRate, @ApiModelProperty("Transfer date.") long day,
 		@ApiModelProperty("Transferred income.") String amount, @ApiModelProperty("Coin Name.") String coinName) {
 }

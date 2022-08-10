@@ -14,7 +14,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @param totalNetAssetOfBtc  Total net asset of Bitcoin.
  */
 @ApiModel("Isolated margin account info.")
-public record IsolatedAccount(@ApiModelProperty("Owned assets.") List<IsolatedPair> assets, @ApiModelProperty("Total asset of Bitcoin.") String totalAssetOfBtc,
+public record IsolatedAccount(@ApiModelProperty("Owned assets.") List<IsolatedPair> assets,
+		@ApiModelProperty("Total asset of Bitcoin.") String totalAssetOfBtc,
 		@ApiModelProperty("Total liability of Bitcoin.") String totalLiabilityOfBtc,
 		@ApiModelProperty("Total net asset of Bitcoin.") String totalNetAssetOfBtc) {
 }

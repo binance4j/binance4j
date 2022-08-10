@@ -61,7 +61,8 @@ public class WatchService {
 	}
 
 	/**
-	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
+	 * Listens to the Klines websocket endpoint and runs the strategy over the
+	 * received {@link BarSeries}
 	 *
 	 * @param symbols  Symbols to listen to.
 	 * @param interval Candlestick interval.
@@ -70,7 +71,8 @@ public class WatchService {
 	 */
 	public WebsocketCandlestickClient watch(String symbols, CandlestickInterval interval, ZoneId zoneId) {
 		barSeries = new HashMap<>();
-		// let's initialize a BarSeries for each symbol with the symbol as name of the series and a limit size
+		// let's initialize a BarSeries for each symbol with the symbol as name of the
+		// series and a limit size
 		Arrays.stream(symbols.split(",")).map(String::trim).forEach(symbol -> {
 			BarSeries bar = new BaseBarSeries(symbol);
 			bar.setMaximumBarCount(maximumBarCount);
@@ -124,7 +126,8 @@ public class WatchService {
 	}
 
 	/**
-	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries}
+	 * Listens to the Klines websocket endpoint and runs the strategy over the
+	 * received {@link BarSeries}
 	 *
 	 * @param symbols  Symbols to listen to.
 	 * @param interval Candlestick interval.
@@ -136,7 +139,8 @@ public class WatchService {
 	}
 
 	/**
-	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
+	 * Listens to the Klines websocket endpoint and runs the strategy over the
+	 * received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
 	 * @param symbols  Symbols to listen to.
@@ -148,7 +152,8 @@ public class WatchService {
 	}
 
 	/**
-	 * Listens to the Klines websocket endpoint and runs the strategy over the received {@link BarSeries} with
+	 * Listens to the Klines websocket endpoint and runs the strategy over the
+	 * received {@link BarSeries} with
 	 * {@link ZoneId#systemDefault()}
 	 *
 	 * @param symbols  Symbols to listen to.
