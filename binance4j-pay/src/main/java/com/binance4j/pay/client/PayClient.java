@@ -1,11 +1,10 @@
 package com.binance4j.pay.client;
 
-import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
-import com.binance4j.pay.dto.TradeHistory;
 import com.binance4j.pay.param.TradeHistoryParams;
+import com.binance4j.pay.request.GetTradesRequest;
 
 /**
  * Api client for the pay endpoints
@@ -27,8 +26,8 @@ public class PayClient extends RestClient<PayMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades() {
-		return new Request<>(service.getTrades(new TradeHistoryParams().toMap()));
+	public GetTradesRequest getTrades() {
+		return new GetTradesRequest(service.getTrades(new TradeHistoryParams().toMap()));
 	}
 
 	/**
@@ -37,7 +36,7 @@ public class PayClient extends RestClient<PayMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public Request<TradeHistory> getTrades(TimeFrame timeFrame) {
-		return new Request<>(service.getTrades(Params.merge(new TradeHistoryParams(), timeFrame)));
+	public GetTradesRequest getTrades(TimeFrame timeFrame) {
+		return new GetTradesRequest(service.getTrades(Params.merge(new TradeHistoryParams(), timeFrame)));
 	}
 }
