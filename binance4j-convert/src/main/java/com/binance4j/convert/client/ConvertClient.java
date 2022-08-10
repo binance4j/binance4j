@@ -1,8 +1,7 @@
 package com.binance4j.convert.client;
 
-import com.binance4j.convert.dto.ConversionHistory;
 import com.binance4j.convert.param.ConversionParams;
-import com.binance4j.core.Request;
+import com.binance4j.convert.request.GetConversionsRequest;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
@@ -28,7 +27,7 @@ public class ConvertClient extends RestClient<ConvertMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<ConversionHistory> getConversions(TimeFrame params) {
-		return new Request<>(service.getConversions(Params.merge(new ConversionParams(), params)));
+	public GetConversionsRequest getConversions(TimeFrame params) {
+		return new GetConversionsRequest(service.getConversions(Params.merge(new ConversionParams(), params)));
 	}
 }

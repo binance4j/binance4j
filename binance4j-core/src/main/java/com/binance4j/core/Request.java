@@ -135,4 +135,17 @@ public abstract class Request<T> {
 			return RateLimitType.IP;
 		}
 	}
+
+	/**
+	 * @return the request path
+	 */
+	public String getPath() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (String) ApiRequest.class.getDeclaredMethod("path").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).path();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return "";
+		}
+	}
 }

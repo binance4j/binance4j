@@ -2,14 +2,13 @@ package com.binance4j.fiat.client;
 
 import java.util.Map;
 
-import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
-import com.binance4j.fiat.dto.PaymentHistory;
-import com.binance4j.fiat.dto.TransactionHistory;
 import com.binance4j.fiat.param.PaymentParams;
 import com.binance4j.fiat.param.TransactionParams;
+import com.binance4j.fiat.request.GetPaymentsRequest;
+import com.binance4j.fiat.request.GetTransactionsRequest;
 
 /**
  * Api client for the fiat endpoints
@@ -33,8 +32,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionParams params, FramedPaging framedPaging) {
-		return new Request<>(service.getTransactions(
+	public GetTransactionsRequest getTransactions(TransactionParams params, FramedPaging framedPaging) {
+		return new GetTransactionsRequest(service.getTransactions(
 				Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
@@ -44,8 +43,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionParams params) {
-		return new Request<>(service.getTransactions(params.toMap()));
+	public GetTransactionsRequest getTransactions(TransactionParams params) {
+		return new GetTransactionsRequest(service.getTransactions(params.toMap()));
 	}
 
 	/**
@@ -55,8 +54,8 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<PaymentHistory> getPayments(PaymentParams params, FramedPaging framedPaging) {
-		return new Request<>(service.getPayments(
+	public GetPaymentsRequest getPayments(PaymentParams params, FramedPaging framedPaging) {
+		return new GetPaymentsRequest(service.getPayments(
 				Params.merge(params.toMap(), framedPaging.toMap(Map.of("startTime", "beginTime", "limit", "rows")))));
 	}
 
@@ -66,7 +65,7 @@ public class FiatClient extends RestClient<FiatMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<PaymentHistory> getPayments(PaymentParams params) {
-		return new Request<>(service.getPayments(params.toMap()));
+	public GetPaymentsRequest getPayments(PaymentParams params) {
+		return new GetPaymentsRequest(service.getPayments(params.toMap()));
 	}
 }

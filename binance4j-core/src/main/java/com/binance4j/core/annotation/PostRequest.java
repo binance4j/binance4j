@@ -13,9 +13,8 @@ import com.binance4j.core.dto.Signature;
 /** {@link Request} metadata. */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ApiRequest {
-	/** The request method. */
-	HttpMethod method() default HttpMethod.GET;
+@ApiRequest(method = HttpMethod.POST)
+public @interface PostRequest {
 
 	/** The request signature. */
 	Signature signature() default Signature.NONE;
