@@ -1,17 +1,16 @@
 package com.binance4j.nft.client;
 
-import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
 import com.binance4j.core.param.Params;
-import com.binance4j.nft.dto.AssetHistory;
-import com.binance4j.nft.dto.DepositHistory;
-import com.binance4j.nft.dto.TransactionHistory;
-import com.binance4j.nft.dto.WithdrawHistory;
 import com.binance4j.nft.param.AssetParams;
 import com.binance4j.nft.param.OperationParams;
 import com.binance4j.nft.param.TransactionHistoryParams;
+import com.binance4j.nft.request.GetAssetsRequest;
+import com.binance4j.nft.request.GetDepositsRequest;
+import com.binance4j.nft.request.GetTransactionsRequest;
+import com.binance4j.nft.request.GetWithdrawsRequest;
 
 /**
  * Api client for the NFT endpoints
@@ -34,8 +33,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params) {
-		return new Request<>(service.getTransactions(params.toMap()));
+	public GetTransactionsRequest getTransactions(TransactionHistoryParams params) {
+		return new GetTransactionsRequest(service.getTransactions(params.toMap()));
 	}
 
 	/**
@@ -45,8 +44,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<TransactionHistory> getTransactions(TransactionHistoryParams params, FramedPaging framedPaging) {
-		return new Request<>(service.getTransactions(Params.merge(params, framedPaging)));
+	public GetTransactionsRequest getTransactions(TransactionHistoryParams params, FramedPaging framedPaging) {
+		return new GetTransactionsRequest(service.getTransactions(Params.merge(params, framedPaging)));
 	}
 
 	/**
@@ -55,8 +54,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<DepositHistory> getDeposits(FramedPaging interval) {
-		return new Request<>(service.getDeposits(Params.merge(new OperationParams(), interval)));
+	public GetDepositsRequest getDeposits(FramedPaging interval) {
+		return new GetDepositsRequest(service.getDeposits(Params.merge(new OperationParams(), interval)));
 	}
 
 	/**
@@ -64,8 +63,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<DepositHistory> getDeposits() {
-		return new Request<>(service.getDeposits(new OperationParams().toMap()));
+	public GetDepositsRequest getDeposits() {
+		return new GetDepositsRequest(service.getDeposits(new OperationParams().toMap()));
 	}
 
 	/**
@@ -74,8 +73,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param interval Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<WithdrawHistory> getWithdraws(FramedPaging interval) {
-		return new Request<>(service.getWithdraws(Params.merge(new OperationParams(), interval)));
+	public GetWithdrawsRequest getWithdraws(FramedPaging interval) {
+		return new GetWithdrawsRequest(service.getWithdraws(Params.merge(new OperationParams(), interval)));
 	}
 
 	/**
@@ -83,8 +82,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<WithdrawHistory> getWithdraws() {
-		return new Request<>(service.getWithdraws(new OperationParams().toMap()));
+	public GetWithdrawsRequest getWithdraws() {
+		return new GetWithdrawsRequest(service.getWithdraws(new OperationParams().toMap()));
 	}
 
 	/**
@@ -93,8 +92,8 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public Request<AssetHistory> getAssets(Paging paging) {
-		return new Request<>(service.getAssets(Params.merge(new AssetParams().toMap(), paging.toMap())));
+	public GetAssetsRequest getAssets(Paging paging) {
+		return new GetAssetsRequest(service.getAssets(Params.merge(new AssetParams().toMap(), paging.toMap())));
 	}
 
 	/**
@@ -102,7 +101,7 @@ public class NFTClient extends RestClient<NFTMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<AssetHistory> getAssets() {
-		return new Request<>(service.getAssets(new AssetParams().toMap()));
+	public GetAssetsRequest getAssets() {
+		return new GetAssetsRequest(service.getAssets(new AssetParams().toMap()));
 	}
 }
