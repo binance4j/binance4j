@@ -2,11 +2,14 @@ package com.binance4j.core;
 
 import java.io.IOException;
 
+import com.binance4j.core.annotation.ApiRequest;
 import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.callback.ApiAsyncCallbackAdapter;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.callback.ApiCallbackAdapter;
 import com.binance4j.core.dto.HttpMethod;
+import com.binance4j.core.dto.RateLimitType;
+import com.binance4j.core.dto.Signature;
 import com.binance4j.core.exception.ApiError;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,15 +18,11 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 /** A class that receives and executes sync and async retrofit calls. */
-public class Request<T> {
+public abstract class Request<T> {
 	/** The Jackson Object mapper for deserializing the Api error response. */
 	static final ObjectMapper MAPPER = new ObjectMapper();
 	/** The current API call. */
 	final Call<T> call;
-	/** The request method. */
-	protected HttpMethod method = HttpMethod.GET;
-
-	protected boolean isOrder;
 
 	/**
 	 * @param call Retrofit call.
@@ -70,5 +69,70 @@ public class Request<T> {
 	 */
 	public void async(ApiAsyncCallback<T> callback) {
 		call.enqueue(new ApiAsyncCallbackAdapter<>(callback));
+	}
+
+	/**
+	 * @return the request method
+	 */
+	public HttpMethod getMethod() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (HttpMethod) ApiRequest.class.getDeclaredMethod("method").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).method();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return HttpMethod.GET;
+		}
+	}
+
+	/**
+	 * @return the request signature
+	 */
+	public Signature getSignature() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (Signature) ApiRequest.class.getDeclaredMethod("signature").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).signature();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return Signature.NONE;
+		}
+	}
+
+	/**
+	 * @return if the request is an order request.
+	 */
+	public boolean isOrder() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (boolean) ApiRequest.class.getDeclaredMethod("isOrder").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).isOrder();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @return the request weight
+	 */
+	public int getWeight() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (int) ApiRequest.class.getDeclaredMethod("weight").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).weight();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return 1;
+		}
+	}
+
+	/**
+	 * @return the request rateLimit
+	 */
+	public RateLimitType getRateLimit() {
+		try {
+			return !getClass().isAnnotationPresent(ApiRequest.class)
+					? (RateLimitType) ApiRequest.class.getDeclaredMethod("rateLimit").getDefaultValue()
+					: getClass().getAnnotation(ApiRequest.class).rateLimit();
+		} catch (NoSuchMethodException | SecurityException e) {
+			return RateLimitType.IP;
+		}
 	}
 }
