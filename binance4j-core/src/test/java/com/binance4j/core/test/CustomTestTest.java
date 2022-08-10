@@ -77,7 +77,7 @@ public class CustomTestTest extends CustomTest {
 		List<String> list = new ArrayList<>();
 		list.add("hello");
 		list.add(null);
-		var nulls = getNullProperties(new TestObject(null, 0L, 0, null,
+		getNullProperties(new TestObject(null, 0L, 0, null,
 				new TestObject("world", null, 0, list, new TestObject("world", 0L, null, list, null))));
 	}
 

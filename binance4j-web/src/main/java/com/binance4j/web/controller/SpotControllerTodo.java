@@ -10,7 +10,7 @@ import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.spot.param.NewOrderParams;
+import com.binance4j.spot.param.StopLossLimitOrder;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParams;
@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiParam;
 public class SpotControllerTodo extends BaseController {
 
 	/**
+	 * TODO
 	 * Tests an order.
 	 * 
 	 * @param order Order to submit.
@@ -47,16 +48,7 @@ public class SpotControllerTodo extends BaseController {
 			@RequestParam(required = false) @ApiParam(required = false, value = "The order unique id. Else is produced automatically.") String newClientOrderId,
 			@RequestParam(required = false) @ApiParam(required = false, value = "Stop Limit price.") String stopLimitPrice)
 			throws ApiException {
-		NewOrderParams order = new NewOrderParams(symbol, type, side, quantity, price, timeInForce);
-		order.setStopPrice(stopPrice);
-		order.setNewOrderRespType(newOrderRespType);
-		order.setQuoteOrderQuantity(quoteOrderQuantity);
-		order.setIcebergQuantity(icebergQuantity);
-		order.setNewClientOrderId(newClientOrderId);
-		order.setStopLimitPrice(stopLimitPrice);
-
-		System.out.println(order);
-		return connectors.spot().newOrderTest(order).sync();
+		return connectors.spot().newOrderTest(StopLossLimitOrder.buy(symbol, quantity, price, stopPrice)).sync();
 	}
 
 	/**

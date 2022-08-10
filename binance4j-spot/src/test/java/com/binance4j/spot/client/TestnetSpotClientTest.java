@@ -26,7 +26,6 @@ import com.binance4j.spot.param.LimitOrder;
 import com.binance4j.spot.param.MarketOrder;
 import com.binance4j.spot.param.MarketQuoteOrder;
 import com.binance4j.spot.param.NewOCOOrderParams;
-import com.binance4j.spot.param.NewOrderParams;
 import com.binance4j.spot.param.OCOInfoParams;
 import com.binance4j.spot.param.OrderStatusParams;
 import com.binance4j.spot.param.TakeProfitLimitOrder;
@@ -88,16 +87,16 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Order(1)
 	void testNewOrderMarket() throws ApiException {
 		// buy market
-		testNotThrow(client.newOrder(NewOrderParams.buy(symbol, quantity)));
+		testNotThrow(client.newOrder(MarketOrder.buy(symbol, quantity)));
 		// Sell market
-		testNotThrow(client.newOrder(NewOrderParams.sell(symbol, quantity)));
+		testNotThrow(client.newOrder(MarketOrder.sell(symbol, quantity)));
 	}
 
 	@Test
 	@Order(2)
 	void testNewOrderBuyLimit() throws ApiException {
 		// buy limit
-		testNotThrow(client.newOrder(NewOrderParams.buy(symbol, quantity, "0.011160")));
+		testNotThrow(client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
 	}
 
 	@Test
@@ -123,22 +122,22 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Order(5)
 	void testGetOrderStatus() throws ApiException {
 		// buy
-		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity)).sync();
+		var buyOrder = client.newOrder(MarketOrder.buy(symbol, quantity)).sync();
 		// get order status
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		testNotThrow(client.getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())));
 		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 		// Sell
-		client.newOrder(NewOrderParams.sell(symbol, buyOrder.executedQty())).sync();
+		client.newOrder(MarketOrder.sell(symbol, buyOrder.executedQty())).sync();
 	}
 
 	@Test
 	@Order(6)
 	void testCancelOrder() throws ApiException {
 		// buy limit
-		var buyOrder = client.newOrder(NewOrderParams.buy(symbol, quantity, "0.011160")).sync();
+		var buyOrder = client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")).sync();
 		assertTrue(buyOrder.side().equals("BUY"));
-		testNoNulls(client.newOrder(NewOrderParams.buy(symbol, quantity, "0.011160")));
+		testNoNulls(client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
 		var cancellation = client.cancelOrder(new CancelOrderParams(symbol, buyOrder.orderId()));
 		testNotThrow(cancellation);
 		orderId = buyOrder.orderId();
