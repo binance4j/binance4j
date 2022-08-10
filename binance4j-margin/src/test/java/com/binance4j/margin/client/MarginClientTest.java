@@ -281,7 +281,7 @@ public class MarginClientTest extends CustomTest {
 
 	@Test
 	void testGetRateLimit() throws ApiException {
-		testNotThrow(client.getOrderRateLimit());
+		testNotThrow(client.getRateLimit());
 	}
 
 	@Test
