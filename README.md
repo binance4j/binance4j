@@ -1,7 +1,7 @@
 <!-- logo -->
 
 <p align="center">
-	<img src="./static/img/logo/logo-256_x_256.png" width="256" height="256" />
+	<img src="./static/img/logo/logo-256_x_256.png" width="128" height="128" />
 </p>
 
 <h1 align="center">Binance4j</h1>
