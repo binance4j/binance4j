@@ -9,7 +9,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link ConvertClient#getConversions} request. */
-@GetRequest(path = "/sapi/v1/convert/tradeFlow", isOrder = false, signature = Signature.USER_DATA, weight = 3000)
+@GetRequest(path = "/sapi/v1/convert/tradeFlow", signature = Signature.USER_DATA, weight = 3000)
 public class GetConversionsRequest extends Request<ConversionHistory> {
 	/**
 	 * @param call the retrofit call

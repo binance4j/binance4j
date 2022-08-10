@@ -9,7 +9,7 @@ import com.binance4j.margin.dto.ForceLiquidationRecords;
 import retrofit2.Call;
 
 /** {@link MarginClient#getForceLiquidationRecord} request. */
-@GetRequest(path = "/sapi/v1/margin/forceLiquidationRec", signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/margin/forceLiquidationRec", signature = Signature.USER_DATA)
 public class GetForceLiquidationRecordRequest extends Request<ForceLiquidationRecords> {
 	/**
 	 * @param call the retrofit call

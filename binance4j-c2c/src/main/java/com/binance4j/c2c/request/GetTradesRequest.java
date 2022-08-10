@@ -9,7 +9,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link C2CClient#getTrades} request. */
-@GetRequest(path = "/sapi/v1/c2c/orderMatch/listUserOrderHistory", isOrder = false, signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/c2c/orderMatch/listUserOrderHistory", signature = Signature.USER_DATA)
 public class GetTradesRequest extends Request<TradeHistory> {
 	/**
 	 * @param call the retrofit call

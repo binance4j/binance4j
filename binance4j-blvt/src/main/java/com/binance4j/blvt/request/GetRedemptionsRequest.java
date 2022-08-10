@@ -11,7 +11,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link BLVTClient#getRedemptions} request. */
-@GetRequest(path = "/sapi/v1/blvt/redeem/record", isOrder = false, signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/blvt/redeem/record", signature = Signature.USER_DATA)
 public class GetRedemptionsRequest extends Request<List<Redemption>> {
 	/**
 	 * @param call the retrofit call

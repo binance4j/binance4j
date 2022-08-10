@@ -9,7 +9,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link BLVTClient#subscribe} request. */
-@PostRequest(path = "/sapi/v1/blvt/subscribe", isOrder = false, signature = Signature.USER_DATA, weight = 1)
+@PostRequest(path = "/sapi/v1/blvt/subscribe", signature = Signature.USER_DATA)
 public class SubscribeRequest extends Request<SubscriptionResponse> {
 	/**
 	 * @param call the retrofit call

@@ -11,7 +11,7 @@ import com.binance4j.margin.dto.IsolatedTierData;
 import retrofit2.Call;
 
 /** {@link MarginClient#getIsolatedMarginTierData} request. */
-@GetRequest(path = "/sapi/v1/margin/isolatedMarginTier", signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/margin/isolatedMarginTier", signature = Signature.USER_DATA, weight = 10)
 public class GetIsolatedMarginTierDataRequest extends Request<List<IsolatedTierData>> {
 	/**
 	 * @param call the retrofit call

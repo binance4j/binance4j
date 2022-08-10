@@ -1,21 +1,10 @@
 package com.binance4j.market.client;
 
-import java.util.List;
-
 import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.core.dto.AggTrade;
-import com.binance4j.core.dto.Candle;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
-import com.binance4j.market.dto.AveragePrice;
-import com.binance4j.market.dto.BookTicker;
 import com.binance4j.market.dto.ExchangeInfo;
-import com.binance4j.market.dto.OrderBook;
-import com.binance4j.market.dto.PriceTicker;
-import com.binance4j.market.dto.ServerTimeResponse;
-import com.binance4j.market.dto.TickerStatistics;
-import com.binance4j.market.dto.Trade;
 import com.binance4j.market.param.AggTradeParams;
 import com.binance4j.market.param.AveragePriceParams;
 import com.binance4j.market.param.BookTickerParams;
@@ -29,6 +18,21 @@ import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickerStatisticsParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
+import com.binance4j.market.request.Get24hTickerStatisticsRequest;
+import com.binance4j.market.request.Get24hTickersStatisticsRequest;
+import com.binance4j.market.request.GetAggTradesRequest;
+import com.binance4j.market.request.GetAveragePriceRequest;
+import com.binance4j.market.request.GetBookTickerRequest;
+import com.binance4j.market.request.GetBookTickersRequest;
+import com.binance4j.market.request.GetExchangeInfoRequest;
+import com.binance4j.market.request.GetHistoricalTradesRequest;
+import com.binance4j.market.request.GetKlinesRequest;
+import com.binance4j.market.request.GetOrderBookRequest;
+import com.binance4j.market.request.GetServerTimeRequest;
+import com.binance4j.market.request.GetTickerRequest;
+import com.binance4j.market.request.GetTickersRequest;
+import com.binance4j.market.request.GetTradesRequest;
+import com.binance4j.market.request.PingRequest;
 
 /**
  * API client for the market endpoints
@@ -50,8 +54,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<Void> ping() {
-		return new Request<>(service.ping());
+	public PingRequest ping() {
+		return new PingRequest(service.ping());
 	}
 
 	/**
@@ -59,8 +63,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<ServerTimeResponse> getServerTime() {
-		return new Request<>(service.getServerTime());
+	public GetServerTimeRequest getServerTime() {
+		return new GetServerTimeRequest(service.getServerTime());
 	}
 
 	/**
@@ -72,8 +76,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<ExchangeInfo> getExchangeInfo(ExchangeInfoParams params) {
-		return new Request<>(service.getExchangeInfo(params.toMap()));
+	public GetExchangeInfoRequest getExchangeInfo(ExchangeInfoParams params) {
+		return new GetExchangeInfoRequest(service.getExchangeInfo(params.toMap()));
 	}
 
 	/**
@@ -91,8 +95,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<OrderBook> getOrderBook(OrderBookParams params) {
-		return new Request<>(service.getOrderBook(params.toMap()));
+	public GetOrderBookRequest getOrderBook(OrderBookParams params) {
+		return new GetOrderBookRequest(service.getOrderBook(params.toMap()));
 	}
 
 	/**
@@ -101,8 +105,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getTrades(TradesParams params) {
-		return new Request<>(service.getTrades(params.toMap()));
+	public GetTradesRequest getTrades(TradesParams params) {
+		return new GetTradesRequest(service.getTrades(params.toMap()));
 	}
 
 	/**
@@ -111,8 +115,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Trade>> getHistoricalTrades(HistoricalTradesParams params) {
-		return new Request<>(service.getHistoricalTrades(params.toMap()));
+	public GetHistoricalTradesRequest getHistoricalTrades(HistoricalTradesParams params) {
+		return new GetHistoricalTradesRequest(service.getHistoricalTrades(params.toMap()));
 	}
 
 	/**
@@ -130,8 +134,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<AggTrade>> getAggTrades(AggTradeParams params) {
-		return new Request<>(service.getAggTrades(params.toMap()));
+	public GetAggTradesRequest getAggTrades(AggTradeParams params) {
+		return new GetAggTradesRequest(service.getAggTrades(params.toMap()));
 	}
 
 	/**
@@ -150,8 +154,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame timeFrame) {
-		return new Request<>(service.getAggTrades(Params.merge(params, timeFrame)));
+	public GetAggTradesRequest getAggTrades(AggTradeParams params, TimeFrame timeFrame) {
+		return new GetAggTradesRequest(service.getAggTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -165,8 +169,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<Candle>> getKlines(KlinesParams params) {
-		return new Request<>(service.getKlines(params.toMap()));
+	public GetKlinesRequest getKlines(KlinesParams params) {
+		return new GetKlinesRequest(service.getKlines(params.toMap()));
 	}
 
 	/**
@@ -181,8 +185,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
-	public Request<List<Candle>> getKlines(KlinesParams params, TimeFrame timeFrame) {
-		return new Request<>(service.getKlines(Params.merge(params, timeFrame)));
+	public GetKlinesRequest getKlines(KlinesParams params, TimeFrame timeFrame) {
+		return new GetKlinesRequest(service.getKlines(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -191,8 +195,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<AveragePrice> getAveragePrice(AveragePriceParams params) {
-		return new Request<>(service.getAveragePrice(params.toMap()));
+	public GetAveragePriceRequest getAveragePrice(AveragePriceParams params) {
+		return new GetAveragePriceRequest(service.getAveragePrice(params.toMap()));
 	}
 
 	/**
@@ -201,8 +205,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<TickerStatistics> get24hTickerStatistics(TickerStatisticsParams params) {
-		return new Request<>(service.get24hTickerStatistics(params.toMap()));
+	public Get24hTickerStatisticsRequest get24hTickerStatistics(TickerStatisticsParams params) {
+		return new Get24hTickerStatisticsRequest(service.get24hTickerStatistics(params.toMap()));
 	}
 
 	/**
@@ -210,8 +214,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<TickerStatistics>> get24hTickerStatistics() {
-		return new Request<>(service.get24hTickerStatistics());
+	public Get24hTickersStatisticsRequest get24hTickerStatistics() {
+		return new Get24hTickersStatisticsRequest(service.get24hTickerStatistics());
 	}
 
 	/**
@@ -220,8 +224,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<TickerStatistics>> get24hTickerStatistics(TickersStatisticsParams params) {
-		return new Request<>(service.get24hTickersStatistics(params.toMap()));
+	public Get24hTickersStatisticsRequest get24hTickerStatistics(TickersStatisticsParams params) {
+		return new Get24hTickersStatisticsRequest(service.get24hTickersStatistics(params.toMap()));
 	}
 
 	/**
@@ -229,8 +233,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<PriceTicker>> getTicker() {
-		return new Request<>(service.getTicker());
+	public GetTickersRequest getTicker() {
+		return new GetTickersRequest(service.getTicker());
 	}
 
 	/**
@@ -239,8 +243,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<PriceTicker> getTicker(PriceTickerParams params) {
-		return new Request<>(service.getTicker(params.toMap()));
+	public GetTickerRequest getTicker(PriceTickerParams params) {
+		return new GetTickerRequest(service.getTicker(params.toMap()));
 	}
 
 	/**
@@ -249,8 +253,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<PriceTicker>> getTicker(PriceTickersParams params) {
-		return new Request<>(service.getTickers(params.toMap()));
+	public GetTickersRequest getTicker(PriceTickersParams params) {
+		return new GetTickersRequest(service.getTickers(params.toMap()));
 	}
 
 	/**
@@ -259,8 +263,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<BookTicker> getBookTicker(BookTickerParams params) {
-		return new Request<>(service.getBookTicker(params.toMap()));
+	public GetBookTickerRequest getBookTicker(BookTickerParams params) {
+		return new GetBookTickerRequest(service.getBookTicker(params.toMap()));
 	}
 
 	/**
@@ -268,8 +272,8 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<List<BookTicker>> getBookTicker() {
-		return new Request<>(service.getBookTicker());
+	public GetBookTickersRequest getBookTicker() {
+		return new GetBookTickersRequest(service.getBookTicker());
 	}
 
 	/**
@@ -278,7 +282,7 @@ public class MarketClient extends RestClient<MarketMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public Request<List<BookTicker>> getBookTicker(BookTickersParams params) {
-		return new Request<>(service.getBookTickers(params.toMap()));
+	public GetBookTickersRequest getBookTicker(BookTickersParams params) {
+		return new GetBookTickersRequest(service.getBookTickers(params.toMap()));
 	}
 }

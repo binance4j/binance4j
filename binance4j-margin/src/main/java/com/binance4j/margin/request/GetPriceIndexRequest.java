@@ -8,8 +8,11 @@ import com.binance4j.margin.dto.PriceIndex;
 
 import retrofit2.Call;
 
-/** {@link MarginClient#getPriceIndex} request. */
-@GetRequest(path = "/sapi/v1/margin/priceIndex", signature = Signature.MARKET_DATA, weight = 1)
+/**
+ * {@link MarginClient#getPriceIndex(com.binance4j.margin.param.PriceIndexParams)}
+ * request.
+ */
+@GetRequest(path = "/sapi/v1/margin/priceIndex", signature = Signature.MARKET_DATA)
 public class GetPriceIndexRequest extends Request<PriceIndex> {
 	/**
 	 * @param call the retrofit call

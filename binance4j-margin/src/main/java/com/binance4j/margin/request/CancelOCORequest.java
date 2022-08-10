@@ -11,7 +11,7 @@ import com.binance4j.margin.dto.NewOCOOrderRecord;
 import retrofit2.Call;
 
 /** {@link MarginClient#cancelOpenOrders} request. */
-@ApiRequest(method = HttpMethod.DELETE, path = "/sapi/v1/margin/orderList", rateLimit = RateLimitType.UID, signature = Signature.TRADE, weight = 1)
+@ApiRequest(method = HttpMethod.DELETE, path = "/sapi/v1/margin/orderList", rateLimit = RateLimitType.UID, signature = Signature.TRADE)
 public class CancelOCORequest extends Request<NewOCOOrderRecord> {
 	/**
 	 * @param call the retrofit call

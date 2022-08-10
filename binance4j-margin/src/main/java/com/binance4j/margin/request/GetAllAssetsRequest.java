@@ -11,7 +11,7 @@ import com.binance4j.margin.dto.Asset;
 import retrofit2.Call;
 
 /** {@link MarginClient#getAllAssets} request. */
-@GetRequest(path = "/sapi/v1/margin/allAssets", signature = Signature.MARKET_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/margin/allAssets", signature = Signature.MARKET_DATA)
 public class GetAllAssetsRequest extends Request<List<Asset>> {
 	/**
 	 * @param call the retrofit call

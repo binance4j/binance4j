@@ -9,7 +9,7 @@ import com.binance4j.margin.dto.IsolatedAccountLimit;
 import retrofit2.Call;
 
 /** {@link MarginClient#getEnabledIsolatedAccountLimit} request. */
-@GetRequest(path = "/sapi/v1/margin/isolated/accountLimit", signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/margin/isolated/accountLimit", signature = Signature.USER_DATA)
 public class GetEnabledIsolatedAccountLimitRequest extends Request<IsolatedAccountLimit> {
 	/**
 	 * @param call the retrofit call

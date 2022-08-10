@@ -10,7 +10,7 @@ import com.binance4j.margin.dto.BNBBurnStatus;
 import retrofit2.Call;
 
 /** {@link MarginClient#borrow} request. */
-@PostRequest(path = "/sapi/v1/bnbBurn", rateLimit = RateLimitType.IP, signature = Signature.USER_DATA, weight = 1)
+@PostRequest(path = "/sapi/v1/bnbBurn", rateLimit = RateLimitType.IP, signature = Signature.USER_DATA)
 public class ToggleBNBRequest extends Request<BNBBurnStatus> {
 	/**
 	 * @param call the retrofit call

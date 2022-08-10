@@ -11,7 +11,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link BLVTClient#getLimitInfo()} request. */
-@GetRequest(path = "/sapi/v1/blvt/userLimit", isOrder = false, signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/blvt/userLimit", signature = Signature.USER_DATA)
 public class GetLimitInfoRequest extends Request<List<LimitInfo>> {
 	/**
 	 * @param call the retrofit call

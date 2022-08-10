@@ -9,7 +9,7 @@ import com.binance4j.margin.dto.IsolatedTransferRecords;
 import retrofit2.Call;
 
 /** {@link MarginClient#getAccount} request. */
-@GetRequest(path = "/sapi/v1/margin/isolated/transfer", signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/margin/isolated/transfer", signature = Signature.USER_DATA)
 public class GetIsolatedTransferHistoryRequest extends Request<IsolatedTransferRecords> {
 	/**
 	 * @param call the retrofit call

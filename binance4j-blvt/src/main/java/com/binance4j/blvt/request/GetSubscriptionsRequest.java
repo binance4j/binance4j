@@ -11,7 +11,7 @@ import com.binance4j.core.dto.Signature;
 import retrofit2.Call;
 
 /** {@link BLVTClient#getSubscriptions} request. */
-@GetRequest(path = "/sapi/v1/blvt/subscribe/record", isOrder = false, signature = Signature.USER_DATA, weight = 1)
+@GetRequest(path = "/sapi/v1/blvt/subscribe/record", signature = Signature.USER_DATA)
 public class GetSubscriptionsRequest extends Request<List<Subscription>> {
 	/**
 	 * @param call the retrofit call

@@ -6,12 +6,11 @@ import com.binance4j.blvt.client.BLVTClient;
 import com.binance4j.blvt.dto.Token;
 import com.binance4j.core.Request;
 import com.binance4j.core.annotation.GetRequest;
-import com.binance4j.core.dto.Signature;
 
 import retrofit2.Call;
 
 /** {@link BLVTClient#getTokenInfo} request. */
-@GetRequest(path = "/sapi/v1/blvt/tokenInfo", isOrder = false, signature = Signature.NONE, weight = 1)
+@GetRequest(path = "/sapi/v1/blvt/tokenInfo")
 public class GetTokenInfoRequest extends Request<List<Token>> {
 	/**
 	 * @param call the retrofit call
