@@ -100,10 +100,12 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 * @param listener      Websocket listener.
 	 * @return The websocket to communicate with the API.
 	 */
-	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel, ApiWebSocketListener<?> listener) {
+	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel,
+			ApiWebSocketListener<?> listener) {
 		String streamingUrl = String.format("%s/%s", configuration.getBaseUrl(), channel);
 		Request request = new Request.Builder().url(streamingUrl).build();
-		return new OkHttpClient.Builder().dispatcher(new Dispatcher()).pingInterval(configuration.getPingInterval()).build().newWebSocket(request, listener);
+		return new OkHttpClient.Builder().dispatcher(new Dispatcher()).pingInterval(configuration.getPingInterval())
+				.build().newWebSocket(request, listener);
 	}
 
 	/**
@@ -116,7 +118,8 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 			channel = stream;
 		} else {
 			symbols = symbolToLowerCase ? symbols.toLowerCase() : symbols.toUpperCase();
-			channel = Arrays.stream(symbols.split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream)).collect(Collectors.joining("/"));
+			channel = Arrays.stream(symbols.split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream))
+					.collect(Collectors.joining("/"));
 		}
 	}
 

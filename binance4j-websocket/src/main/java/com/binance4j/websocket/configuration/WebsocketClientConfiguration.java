@@ -15,11 +15,13 @@ public class WebsocketClientConfiguration {
 	/** The number of time the client tries to reconnect. Default: 5. */
 	int maxReconnections = 5;
 	/**
-	 * The time the client waits for a server response before triggering a timeout. Default: 3min.
+	 * The time the client waits for a server response before triggering a timeout.
+	 * Default: 3min.
 	 */
 	Duration noResponseTimeout = Duration.ofMinutes(3);
 	/**
-	 * Value added to {@link WebsocketClientConfiguration#noResponseTimeout} as time margin error. Default: 5s
+	 * Value added to {@link WebsocketClientConfiguration#noResponseTimeout} as time
+	 * margin error. Default: 5s
 	 */
 	Duration noResponseTimeoutMarginError = Duration.ofSeconds(5);
 	/** Time after which the client disconnects if stuck in closing state. */
@@ -157,9 +159,12 @@ public class WebsocketClientConfiguration {
 
 	@Override
 	public String toString() {
-		return "WebsocketClientConfiguration [baseUrl=" + baseUrl + ", closeAfter=" + closeAfter + ", disconnectionTimeout=" + disconnectionTimeout
-				+ ", keepAlive=" + keepAlive + ", maxReconnections=" + maxReconnections + ", noResponseTimeout=" + noResponseTimeout
-				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval + ", reconnectionInterval="
+		return "WebsocketClientConfiguration [baseUrl=" + baseUrl + ", closeAfter=" + closeAfter
+				+ ", disconnectionTimeout=" + disconnectionTimeout
+				+ ", keepAlive=" + keepAlive + ", maxReconnections=" + maxReconnections + ", noResponseTimeout="
+				+ noResponseTimeout
+				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval
+				+ ", reconnectionInterval="
 				+ reconnectionInterval + "]";
 	}
 }

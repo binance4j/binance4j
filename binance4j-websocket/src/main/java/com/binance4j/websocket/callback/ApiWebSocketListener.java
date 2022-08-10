@@ -18,7 +18,8 @@ public class ApiWebSocketListener<T> extends WebSocketListener {
 	/** Changes a string into an object. */
 	final ObjectReader objectReader;
 	/**
-	 * Makes it able to make the difference between a closing event and a failure event
+	 * Makes it able to make the difference between a closing event and a failure
+	 * event
 	 */
 	boolean closing = false;
 

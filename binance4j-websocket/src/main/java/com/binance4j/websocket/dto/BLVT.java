@@ -23,9 +23,13 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Net asset value.")
-public record BLVT(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType, @ApiModelProperty("Event time.") @JsonProperty("E") long eventTime,
-		@ApiModelProperty("Name.") @JsonProperty("s") String name, @ApiModelProperty("Tokens issued.") @JsonProperty("m") String tokensIssued,
-		@ApiModelProperty("BVLT basket.") @JsonProperty("b") List<BLVTBasket> baskets, @ApiModelProperty("Nav.") @JsonProperty("n") String nav,
-		@ApiModelProperty("Real leverage.") @JsonProperty("l") String realLeverage, @ApiModelProperty("Leverage.") @JsonProperty("t") int leverage,
+public record BLVT(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
+		@ApiModelProperty("Event time.") @JsonProperty("E") long eventTime,
+		@ApiModelProperty("Name.") @JsonProperty("s") String name,
+		@ApiModelProperty("Tokens issued.") @JsonProperty("m") String tokensIssued,
+		@ApiModelProperty("BVLT basket.") @JsonProperty("b") List<BLVTBasket> baskets,
+		@ApiModelProperty("Nav.") @JsonProperty("n") String nav,
+		@ApiModelProperty("Real leverage.") @JsonProperty("l") String realLeverage,
+		@ApiModelProperty("Leverage.") @JsonProperty("t") int leverage,
 		@ApiModelProperty("Funding ratio.") @JsonProperty("f") String fundingRatio) {
 }

@@ -23,7 +23,8 @@ public class WithdrawParams implements Params {
 	/** Secondary address identifier for coins like XRP,XMR etc. */
 	String addressTag;
 	/**
-	 * When making internal transfer, true for returning the fee to the destination account; false for returning the fee
+	 * When making internal transfer, true for returning the fee to the destination
+	 * account; false for returning the fee
 	 * back to the departure account. Default false.
 	 */
 	Boolean transactionFeeFlag;

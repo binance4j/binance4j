@@ -11,7 +11,8 @@ import com.binance4j.wallet.dto.WithdrawStatus;
  * @param coin            Coin we want the history.
  * @param withdrawOrderId Withdraw order id to fetch.
  * @param status          Status to look for.
- * @see <a href="https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data">Binance
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data">Binance
  *      doc</a>
  */
 @Param

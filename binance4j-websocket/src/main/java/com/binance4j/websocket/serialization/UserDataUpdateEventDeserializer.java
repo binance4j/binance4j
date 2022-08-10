@@ -24,10 +24,13 @@ public class UserDataUpdateEventDeserializer extends JsonDeserializer<UserDataUp
 		final Long eventTime = node.get("E").asLong();
 		UserDataUpdateType userDataUpdateEventType = UserDataUpdateType.getValue(eventTypeId);
 		return switch (userDataUpdateEventType) {
-		case ACCOUNT_POSITION_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, mapper.readValue(json, AccountUpdate.class), null, null);
-		case BALANCE_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, null, mapper.readValue(json, BalanceUpdate.class), null);
-		case ORDER_TRADE_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, null, null, mapper.readValue(json, OrderTradeUpdate.class));
-		default -> throw new IllegalArgumentException();
+			case ACCOUNT_POSITION_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime,
+					mapper.readValue(json, AccountUpdate.class), null, null);
+			case BALANCE_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, null,
+					mapper.readValue(json, BalanceUpdate.class), null);
+			case ORDER_TRADE_UPDATE -> new UserDataUpdate(userDataUpdateEventType, eventTime, null, null,
+					mapper.readValue(json, OrderTradeUpdate.class));
+			default -> throw new IllegalArgumentException();
 		};
 	}
 }

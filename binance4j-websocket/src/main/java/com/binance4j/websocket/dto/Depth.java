@@ -22,8 +22,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("The symbol order book.")
-public record Depth(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType, @ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
-		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol, @ApiModelProperty("First update id.") @JsonProperty("U") Long firstUpdateId,
-		@ApiModelProperty("Last update id.") @JsonProperty("u") Long finalUpdateId, @ApiModelProperty("Offers.") @JsonProperty("b") List<OrderBookEntry> bids,
+public record Depth(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("First update id.") @JsonProperty("U") Long firstUpdateId,
+		@ApiModelProperty("Last update id.") @JsonProperty("u") Long finalUpdateId,
+		@ApiModelProperty("Offers.") @JsonProperty("b") List<OrderBookEntry> bids,
 		@ApiModelProperty("Demands.") @JsonProperty("a") List<OrderBookEntry> asks) {
 }

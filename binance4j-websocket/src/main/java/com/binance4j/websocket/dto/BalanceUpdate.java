@@ -7,7 +7,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Account update event which will reflect the balance changes of the account. This event is embedded as part of a user
+ * Account update event which will reflect the balance changes of the account.
+ * This event is embedded as part of a user
  * data update event.
  *
  * @param eventType    Event type.
@@ -20,6 +21,8 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Account update event which will reflect the balance changes of the account. This event is embedded as part of a user data update event.")
 public record BalanceUpdate(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
-		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime, @ApiModelProperty("Asset.") @JsonProperty("a") String asset,
-		@ApiModelProperty("Balance delta.") @JsonProperty("d") String balanceDelta, @ApiModelProperty("Clear time in ms.") @JsonProperty("T") Long clearTime) {
+		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
+		@ApiModelProperty("Asset.") @JsonProperty("a") String asset,
+		@ApiModelProperty("Balance delta.") @JsonProperty("d") String balanceDelta,
+		@ApiModelProperty("Clear time in ms.") @JsonProperty("T") Long clearTime) {
 }

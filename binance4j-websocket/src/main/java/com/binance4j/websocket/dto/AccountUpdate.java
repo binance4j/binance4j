@@ -12,7 +12,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Account update event which will reflect the current position/balances of the account.
+ * Account update event which will reflect the current position/balances of the
+ * account.
  * <p>
  * This event is embedded as part of a user data update event.
  *

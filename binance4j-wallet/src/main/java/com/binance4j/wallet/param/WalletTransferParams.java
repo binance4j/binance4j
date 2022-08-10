@@ -11,21 +11,27 @@ import com.binance4j.wallet.dto.WalletTransferType;
  * @param asset      Asset.
  * @param type       Transfer type.
  * @param amount     Volume.
- * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
- * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+ * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+ *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+ * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+ *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
  */
 @Param
-public record WalletTransferParams(String asset, WalletTransferType type, String amount, String fromSymbol, String toSymbol) implements Params {
+public record WalletTransferParams(String asset, WalletTransferType type, String amount, String fromSymbol,
+		String toSymbol) implements Params {
 	/**
 	 * Creates an instance of {@link WalletTransferParams}.
 	 * 
 	 * @param asset      Asset.
 	 * @param type       Transfer type.
 	 * @param amount     Volume.
-	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
-	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
+	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
 	 */
-	public WalletTransferParams(String asset, WalletTransferType type, String amount, String fromSymbol, String toSymbol) {
+	public WalletTransferParams(String asset, WalletTransferType type, String amount, String fromSymbol,
+			String toSymbol) {
 		this.asset = asset;
 		this.type = type;
 		this.amount = amount;

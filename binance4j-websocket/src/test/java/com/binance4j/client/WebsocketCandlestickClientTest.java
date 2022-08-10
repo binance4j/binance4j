@@ -14,7 +14,8 @@ class WebsocketCandlestickClientTest {
 
 	@Test
 	void test1() throws ApiException, InterruptedException, ExecutionException {
-		WebsocketCandlestickClient client = new WebsocketCandlestickClient(callback.getSymbol(), CandlestickInterval.ONE_MINUTE, callback);
+		WebsocketCandlestickClient client = new WebsocketCandlestickClient(callback.getSymbol(),
+				CandlestickInterval.ONE_MINUTE, callback);
 		callback.setWebsocketClient(client);
 		client.open();
 		callback.future.get();

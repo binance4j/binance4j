@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Net asset value event.")
 public record BLVTCandleEvent(@ApiModelProperty("Event name.") @JsonProperty("e") String eventName,
-		@ApiModelProperty("Event time.") @JsonProperty("E") long eventTime, @ApiModelProperty("BLVT name.") @JsonProperty("s") String name,
+		@ApiModelProperty("Event time.") @JsonProperty("E") long eventTime,
+		@ApiModelProperty("BLVT name.") @JsonProperty("s") String name,
 		@ApiModelProperty("BLVT candle.") @JsonProperty("k") BLVTCandle candle) {
 }

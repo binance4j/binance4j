@@ -61,7 +61,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * The stream will close after 60 minutes unless a keepalive is sent.
 	 * <p>
-	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60
+	 * If the account has an active listenKey, that listenKey will be returned and
+	 * its validity will be extended for 60
 	 * minutes.
 	 * 
 	 * @return The request to execute.
@@ -101,7 +102,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * <p>
 	 * The stream will close after 60 minutes unless a keepalive is sent.
 	 * <p>
-	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60
+	 * If the account has an active listenKey, that listenKey will be returned and
+	 * its validity will be extended for 60
 	 * minutes.
 	 * 
 	 * @param params Query params

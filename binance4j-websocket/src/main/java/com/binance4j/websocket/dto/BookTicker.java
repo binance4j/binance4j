@@ -7,7 +7,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * BookTickerEvent event for a symbol. Pushes any update to the best bid or ask price or quantity in real-time for a
+ * BookTickerEvent event for a symbol. Pushes any update to the best bid or ask
+ * price or quantity in real-time for a
  * specified symbol.
  * 
  * @param updateId    Update id.
@@ -19,7 +20,10 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("BookTickerEvent event for a symbol. Pushes any update to the best bid or ask price or quantity in real-time for a specified symbol.")
-public record BookTicker(@ApiModelProperty("Update id.") @JsonProperty("u") Long updateId, @ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
-		@ApiModelProperty("Bid price.") @JsonProperty("b") String bidPrice, @ApiModelProperty("Bid quantity.") @JsonProperty("B") String bidQuantity,
-		@ApiModelProperty("Ask price.") @JsonProperty("a") String askPrice, @ApiModelProperty("Ask quantity.") @JsonProperty("A") String askQuantity) {
+public record BookTicker(@ApiModelProperty("Update id.") @JsonProperty("u") Long updateId,
+		@ApiModelProperty("Trading pair.") @JsonProperty("s") String symbol,
+		@ApiModelProperty("Bid price.") @JsonProperty("b") String bidPrice,
+		@ApiModelProperty("Bid quantity.") @JsonProperty("B") String bidQuantity,
+		@ApiModelProperty("Ask price.") @JsonProperty("a") String askPrice,
+		@ApiModelProperty("Ask quantity.") @JsonProperty("A") String askQuantity) {
 }

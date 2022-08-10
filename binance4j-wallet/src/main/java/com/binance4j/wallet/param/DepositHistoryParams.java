@@ -9,7 +9,8 @@ import com.binance4j.wallet.dto.DepositStatus;
  * {@link WalletClient#getDepositHistory} params.
  * 
  * @param coin   Deposited coin.
- * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
+ * @param status Deposit status. 0:pending, 1:success,6: credited but cannot
+ *               withdraw.
  */
 @Param
 public record DepositHistoryParams(String coin, String status) implements Params {
@@ -17,7 +18,8 @@ public record DepositHistoryParams(String coin, String status) implements Params
 	 * Creates an instance of {@link DepositHistoryParams}.
 	 * 
 	 * @param coin   Deposited coin.
-	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
+	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot
+	 *               withdraw.
 	 */
 	public DepositHistoryParams(DepositStatus status, String coin) {
 		this(coin, status == null ? null : status.toString());
@@ -42,7 +44,8 @@ public record DepositHistoryParams(String coin, String status) implements Params
 	/**
 	 * Creates an instance of {@link DepositHistoryParams}.
 	 * 
-	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
+	 * @param status Deposit status. 0:pending, 1:success,6: credited but cannot
+	 *               withdraw.
 	 */
 	public DepositHistoryParams(DepositStatus status) {
 		this("", status == null ? null : status.toString());
