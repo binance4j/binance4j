@@ -1,10 +1,17 @@
 package com.binance4j.websocket.client;
 
-import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
-import com.binance4j.websocket.dto.ListenKey;
 import com.binance4j.websocket.param.IsolatedUserDataStreamParams;
 import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams;
+import com.binance4j.websocket.request.CloseIsolatedUserDataStreamRequest;
+import com.binance4j.websocket.request.CloseMarginUserDataStreamRequest;
+import com.binance4j.websocket.request.CloseUserDataStreamRequest;
+import com.binance4j.websocket.request.KeepALiveUserDataStreamRequest;
+import com.binance4j.websocket.request.KeepAliveIsolatedUserDataStreamRequest;
+import com.binance4j.websocket.request.KeepAliveMarginUserDataStreamRequest;
+import com.binance4j.websocket.request.StartIsolatedUserDataStreamRequest;
+import com.binance4j.websocket.request.StartMarginUserDataStreamRequest;
+import com.binance4j.websocket.request.StartUserDataStreamRequest;
 
 /** The API client for the user data endpoints */
 public class UserDataClient extends RestClient<UserDataMapping> {
@@ -28,8 +35,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<ListenKey> startUserDataStream() {
-		return new Request<>(service.startUserDataStream());
+	public StartUserDataStreamRequest startUserDataStream() {
+		return new StartUserDataStreamRequest(service.startUserDataStream());
 	}
 
 	/**
@@ -42,8 +49,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param listenKey Listen key.
 	 * @return The request to execute.
 	 */
-	public Request<Void> keepAliveUserDataStream(String listenKey) {
-		return new Request<>(service.keepAliveUserDataStream(listenKey));
+	public KeepALiveUserDataStreamRequest keepAliveUserDataStream(String listenKey) {
+		return new KeepALiveUserDataStreamRequest(service.keepAliveUserDataStream(listenKey));
 	}
 
 	/**
@@ -52,8 +59,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param listenKey Listen key.
 	 * @return The request to execute.
 	 */
-	public Request<Void> closeUserDataStream(String listenKey) {
-		return new Request<>(service.closeUserDataStream(listenKey));
+	public CloseUserDataStreamRequest closeUserDataStream(String listenKey) {
+		return new CloseUserDataStreamRequest(service.closeUserDataStream(listenKey));
 	}
 
 	/**
@@ -67,8 +74,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public Request<ListenKey> startMarginUserDataStream() {
-		return new Request<>(service.startMarginUserDataStream());
+	public StartMarginUserDataStreamRequest startMarginUserDataStream() {
+		return new StartMarginUserDataStreamRequest(service.startMarginUserDataStream());
 	}
 
 	// MARGIN
@@ -83,8 +90,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param listenKey Listen key.
 	 * @return The request to execute.
 	 */
-	public Request<Void> keepAliveMarginUserDataStream(String listenKey) {
-		return new Request<>(service.keepAliveMarginUserDataStream(listenKey));
+	public KeepAliveMarginUserDataStreamRequest keepAliveMarginUserDataStream(String listenKey) {
+		return new KeepAliveMarginUserDataStreamRequest(service.keepAliveMarginUserDataStream(listenKey));
 	}
 
 	/**
@@ -93,8 +100,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param listenKey Listen key.
 	 * @return The request to execute.
 	 */
-	public Request<Void> closeMarginUserDataStream(String listenKey) {
-		return new Request<>(service.closeMarginUserDataStream(listenKey));
+	public CloseMarginUserDataStreamRequest closeMarginUserDataStream(String listenKey) {
+		return new CloseMarginUserDataStreamRequest(service.closeMarginUserDataStream(listenKey));
 	}
 
 	/**
@@ -109,8 +116,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param params Query params
 	 * @return The request to execute.
 	 */
-	public Request<ListenKey> startIsolatedUserDataStream(IsolatedUserDataStreamParams params) {
-		return new Request<>(service.startIsolatedUserDataStream(params.toMap()));
+	public StartIsolatedUserDataStreamRequest startIsolatedUserDataStream(IsolatedUserDataStreamParams params) {
+		return new StartIsolatedUserDataStreamRequest(service.startIsolatedUserDataStream(params.toMap()));
 	}
 
 	/**
@@ -123,8 +130,9 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param params Query params
 	 * @return The request to execute.
 	 */
-	public Request<Void> keepAliveIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
-		return new Request<>(service.keepAliveIsolatedUserDataStream(params.toMap()));
+	public KeepAliveIsolatedUserDataStreamRequest keepAliveIsolatedUserDataStream(
+			KeepAliveIsolatedUserDataStreamParams params) {
+		return new KeepAliveIsolatedUserDataStreamRequest(service.keepAliveIsolatedUserDataStream(params.toMap()));
 	}
 
 	/**
@@ -133,7 +141,8 @@ public class UserDataClient extends RestClient<UserDataMapping> {
 	 * @param params Query params
 	 * @return The request to execute.
 	 */
-	public Request<Void> closeIsolatedUserDataStream(KeepAliveIsolatedUserDataStreamParams params) {
-		return new Request<>(service.closeIsolatedUserDataStream(params.toMap()));
+	public CloseIsolatedUserDataStreamRequest closeIsolatedUserDataStream(
+			KeepAliveIsolatedUserDataStreamParams params) {
+		return new CloseIsolatedUserDataStreamRequest(service.closeIsolatedUserDataStream(params.toMap()));
 	}
 }
