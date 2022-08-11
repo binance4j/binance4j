@@ -19,8 +19,7 @@ public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdate>
 
 	/**
 	 * @param client   {@link UserDataClient} that will fetch the listen key to open
-	 *                 the stream and keep it alive at a.
-	 *                 periodical interval.
+	 *                 the stream and keep it alive at a periodical interval.
 	 * @param callback Callback.
 	 * @throws ApiException Will be thrown if the client is unable to fetch the
 	 *                      listen key
@@ -66,5 +65,12 @@ public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdate>
 	 */
 	public Duration getKeepAliveInterval() {
 		return keepAliveInterval;
+	}
+
+	/**
+	 * @return The listen key the client is watching.
+	 */
+	public String getListenKey() {
+		return stream;
 	}
 }

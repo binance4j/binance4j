@@ -52,7 +52,7 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 * @param callback     Events handler.
 	 */
 	protected BaseWebsocketClient(String symbols, String stream, Class<T> payloadClass, WebsocketCallback<T> callback) {
-		this.symbols = symbols;
+		this.symbols = symbols == null ? null : symbols.replaceAll(" ", "");
 		this.stream = stream;
 		this.payloadClass = payloadClass;
 		this.callback = callback;
@@ -135,5 +135,12 @@ public abstract class BaseWebsocketClient<T> implements WebsocketClient {
 	 */
 	public void setConfiguration(WebsocketClientConfiguration configuration) {
 		this.configuration = configuration;
+	}
+
+	/**
+	 * @return the symbols
+	 */
+	public String getSymbols() {
+		return symbols;
 	}
 }
