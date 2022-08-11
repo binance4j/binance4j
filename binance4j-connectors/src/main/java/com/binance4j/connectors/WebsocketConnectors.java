@@ -132,7 +132,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketAggTradeClient> aggTrade(String symbols) {
@@ -155,7 +155,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketBookTickerClient> bookTicker(String symbols) {
@@ -180,7 +180,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketCandlestickClient> candlestick(String symbols, CandlestickInterval interval) {
@@ -204,7 +204,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketDepthClient> depth(String symbols, DepthUpdateSpeed speed) {
@@ -230,7 +230,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketMiniDepthClient> miniDepth(String symbols, DepthLevel level, DepthUpdateSpeed speed) {
@@ -254,7 +254,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketMiniTickerClient> miniTicker(String symbols) {
@@ -277,7 +277,7 @@ public class WebsocketConnectors {
 	};
 
 	/**
-	 * @param symbol The symbols the client is connected to.
+	 * @param symbols The symbols the client is connected to.
 	 * @return The cached client.
 	 */
 	public Optional<WebsocketTradeClient> trade(String symbols) {
@@ -289,9 +289,10 @@ public class WebsocketConnectors {
 	/**
 	 * Creates an instance of {@link WebsocketTradeClient} and caches it.
 	 * 
-	 * @param client   UserDataClient that will fetch the listen key to open the
-	 *                 stream and keep it alive at a periodical interval.
-	 * @param callback Events handler.
+	 * @param userDataClient UserDataClient that will fetch the listen key to open
+	 *                       the
+	 *                       stream and keep it alive at a periodical interval.
+	 * @param callback       Events handler.
 	 * @return The generated client.
 	 */
 	public WebsocketUserDataClient user(UserDataClient userDataClient, WebsocketCallback<UserDataUpdate> callback)
