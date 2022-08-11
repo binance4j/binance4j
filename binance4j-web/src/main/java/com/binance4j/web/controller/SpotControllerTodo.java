@@ -48,7 +48,7 @@ public class SpotControllerTodo extends BaseController {
 			@RequestParam(required = false) @ApiParam(required = false, value = "The order unique id. Else is produced automatically.") String newClientOrderId,
 			@RequestParam(required = false) @ApiParam(required = false, value = "Stop Limit price.") String stopLimitPrice)
 			throws ApiException {
-		return connectors.spot().newOrderTest(StopLossLimitOrder.buy(symbol, quantity, price, stopPrice)).sync();
+		return connectors.rest().spot().newOrderTest(StopLossLimitOrder.buy(symbol, quantity, price, stopPrice)).sync();
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class SpotControllerTodo extends BaseController {
 	@PostMapping(path = "foo")
 	@ApiOperation(value = "Tests an order.")
 	public void foo() throws ApiException {
-		System.out.println(connectors.getKey());
-		System.out.println(connectors.getSecret());
+		System.out.println(connectors.rest().getKey());
+		System.out.println(connectors.rest().getSecret());
 	}
 }

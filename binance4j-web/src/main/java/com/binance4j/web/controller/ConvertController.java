@@ -33,6 +33,6 @@ public class ConvertController extends BaseController {
 			@RequestParam(required = true) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.convert().getConversions(new TimeFrame(startTime, endTime, limit)).sync();
+		return connectors.rest().convert().getConversions(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 }

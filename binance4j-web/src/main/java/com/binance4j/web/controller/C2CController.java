@@ -30,6 +30,6 @@ public class C2CController extends BaseController {
 	public TradeHistory getTrades(
 			@RequestParam(required = true) @ApiParam(example = "BUY", value = "The trade type") TradeType tradeType)
 			throws ApiException {
-		return connectors.c2c().getTrades(new TradeHistoryParams(tradeType)).sync();
+		return connectors.rest().c2c().getTrades(new TradeHistoryParams(tradeType)).sync();
 	}
 }

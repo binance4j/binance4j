@@ -70,7 +70,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.savings()
+		return connectors.rest().savings()
 				.getFlexibleProducts(new FlexibleProductsParams(status, featured), new Paging(page, limit)).sync();
 	}
 
@@ -86,7 +86,7 @@ public class SavingsController extends BaseController {
 	@ApiOperation(value = "Get left daily purchase quota of flexible product.")
 	public PurchaseQuota getLeftDailyFlexiblePurchaseQuota(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId) throws ApiException {
-		return connectors.savings().getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)).sync();
+		return connectors.rest().savings().getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)).sync();
 	}
 
 	/**
@@ -103,7 +103,8 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType productType)
 			throws ApiException {
-		return connectors.savings().getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, productType))
+		return connectors.rest().savings()
+				.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, productType))
 				.sync();
 	}
 
@@ -122,7 +123,7 @@ public class SavingsController extends BaseController {
 	public PurchaseResponse purchaseFlexible(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount) throws ApiException {
-		return connectors.savings().purchaseFlexible(new FlexiblePurchaseParams(productId, amount)).sync();
+		return connectors.rest().savings().purchaseFlexible(new FlexiblePurchaseParams(productId, amount)).sync();
 	}
 
 	/**
@@ -140,7 +141,7 @@ public class SavingsController extends BaseController {
 	public Void redeemFlexible(@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount,
 			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType type) throws ApiException {
-		return connectors.savings().redeemFlexible(new RedemptionParams(productId, amount, type)).sync();
+		return connectors.rest().savings().redeemFlexible(new RedemptionParams(productId, amount, type)).sync();
 	}
 
 	/**
@@ -153,7 +154,7 @@ public class SavingsController extends BaseController {
 	public List<FlexibleProductPosition> getFlexibleProductPosition(
 			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset)
 			throws ApiException {
-		return connectors.savings().getFlexibleProductPosition(new FlexibleProductPositionParams(asset)).sync();
+		return connectors.rest().savings().getFlexibleProductPosition(new FlexibleProductPositionParams(asset)).sync();
 	}
 
 	/**
@@ -178,7 +179,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "Project sorting.") FixedProjectSorting sortBy,
 			@RequestParam(required = false) @ApiParam(value = "Sort ascending. Default: true.") Boolean isSortAsc)
 			throws ApiException {
-		return connectors.savings()
+		return connectors.rest().savings()
 				.getFixedProjects(new FixedProjectListParams(type, asset, status), new Paging(page, limit),
 						new Sorting(sortBy, isSortAsc))
 				.sync();
@@ -199,7 +200,7 @@ public class SavingsController extends BaseController {
 	public PurchaseResponse purchaseFixed(
 			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
 			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot) throws ApiException {
-		return connectors.savings().purchaseFixed(new FixedPurchaseParams(productId, lot)).sync();
+		return connectors.rest().savings().purchaseFixed(new FixedPurchaseParams(productId, lot)).sync();
 	}
 
 	/**
@@ -216,7 +217,8 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "Project id.") String projectId,
 			@RequestParam(required = false) @ApiParam(value = "Project status.") FixedProjectPositionStatus status)
 			throws ApiException {
-		return connectors.savings().getFixedProjectPosition(new FixedProjectPositionParams(asset, projectId, status))
+		return connectors.rest().savings()
+				.getFixedProjectPosition(new FixedProjectPositionParams(asset, projectId, status))
 				.sync();
 	}
 
@@ -227,7 +229,7 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "account")
 	@ApiOperation(value = "Get lending account.")
 	public LendingAccount getAccount() throws ApiException {
-		return connectors.savings().getAccount().sync();
+		return connectors.rest().savings().getAccount().sync();
 	}
 
 	/**
@@ -252,7 +254,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.savings()
+		return connectors.rest().savings()
 				.getPurchases(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -279,7 +281,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.savings().getRedemptions(new LendingParams(lendingType, asset),
+		return connectors.rest().savings().getRedemptions(new LendingParams(lendingType, asset),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -305,7 +307,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.savings()
+		return connectors.rest().savings()
 				.getInterests(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -327,6 +329,7 @@ public class SavingsController extends BaseController {
 			@RequestParam(required = true) @ApiParam(value = "Lending type.") String projectId,
 			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot,
 			@RequestParam(required = false) @ApiParam(value = "Position id.") Long positionId) throws ApiException {
-		return connectors.savings().fixedToDailyPosition(new ChangePositionParams(projectId, lot, positionId)).sync();
+		return connectors.rest().savings().fixedToDailyPosition(new ChangePositionParams(projectId, lot, positionId))
+				.sync();
 	}
 }

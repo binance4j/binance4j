@@ -26,7 +26,7 @@ public class PortfolioMarginController extends BaseController {
 	@JsonGetMapping(path = "account")
 	@ApiOperation(value = "Get Margin Account Details.")
 	public AccountInfo getAccount() throws ApiException {
-		return connectors.portfolioMargin().getAccountInfo().sync();
+		return connectors.rest().portfolioMargin().getAccountInfo().sync();
 	}
 
 	/**
@@ -36,6 +36,6 @@ public class PortfolioMarginController extends BaseController {
 	@JsonGetMapping(path = "collaterate-rate")
 	@ApiOperation(value = "Get collateral rate.")
 	public List<CollaterateRateInfo> getCollateralRate() throws ApiException {
-		return connectors.portfolioMargin().getCollateralRate().sync();
+		return connectors.rest().portfolioMargin().getCollateralRate().sync();
 	}
 }

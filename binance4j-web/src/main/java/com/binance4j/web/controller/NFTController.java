@@ -45,7 +45,7 @@ public class NFTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.nft().getTransactions(new TransactionHistoryParams(orderType),
+		return connectors.rest().nft().getTransactions(new TransactionHistoryParams(orderType),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -66,7 +66,7 @@ public class NFTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.nft().getDeposits(new FramedPaging(startTime, endTime, page, limit)).sync();
+		return connectors.rest().nft().getDeposits(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class NFTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.nft().getWithdraws(new FramedPaging(startTime, endTime, page, limit)).sync();
+		return connectors.rest().nft().getWithdraws(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
 	/**
@@ -102,6 +102,6 @@ public class NFTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.nft().getAssets(new Paging(page, limit)).sync();
+		return connectors.rest().nft().getAssets(new Paging(page, limit)).sync();
 	}
 }

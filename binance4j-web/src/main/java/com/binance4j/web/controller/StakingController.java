@@ -54,7 +54,8 @@ public class StakingController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.staking().getProducts(new ProductListParams(product, asset), new Paging(page, limit)).sync();
+		return connectors.rest().staking().getProducts(new ProductListParams(product, asset), new Paging(page, limit))
+				.sync();
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class StakingController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.staking().getHistory(new HistoryParams(product, txnType, asset),
+		return connectors.rest().staking().getHistory(new HistoryParams(product, txnType, asset),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -99,7 +100,7 @@ public class StakingController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam(required = true) @ApiParam(example = "Bnb*120", value = "Product id.") String productId)
 			throws ApiException {
-		return connectors.staking().getLeftQuota(new LeftQuotaParams(product, productId)).sync();
+		return connectors.rest().staking().getLeftQuota(new LeftQuotaParams(product, productId)).sync();
 	}
 
 	/**
@@ -122,7 +123,8 @@ public class StakingController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.staking().getPosition(new PositionParams(product, productId, asset), new Paging(page, limit))
+		return connectors.rest().staking()
+				.getPosition(new PositionParams(product, productId, asset), new Paging(page, limit))
 				.sync();
 	}
 
@@ -143,7 +145,7 @@ public class StakingController extends BaseController {
 			@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId,
 			@RequestParam @ApiParam(example = "CAKE", value = "Product name.") String amount) throws ApiException {
-		return connectors.staking().purchase(new PurchaseParams(product, productId, amount)).sync();
+		return connectors.rest().staking().purchase(new PurchaseParams(product, productId, amount)).sync();
 	}
 
 	/**
@@ -161,6 +163,6 @@ public class StakingController extends BaseController {
 	public RedeemResponse redeem(
 			@RequestParam @ApiParam(example = "STAKING", value = "Product type.") ProductType product,
 			@RequestParam @ApiParam(example = "Cake*120", value = "Product id.") String productId) throws ApiException {
-		return connectors.staking().redeem(new RedeemParams(product, productId)).sync();
+		return connectors.rest().staking().redeem(new RedeemParams(product, productId)).sync();
 	}
 }

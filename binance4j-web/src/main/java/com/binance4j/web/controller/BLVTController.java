@@ -41,7 +41,7 @@ public class BLVTController extends BaseController {
 	public List<Token> getTokenInfo(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
-		return connectors.blvt().getTokenInfo(new TokenInfoParams(tokenName)).sync();
+		return connectors.rest().blvt().getTokenInfo(new TokenInfoParams(tokenName)).sync();
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class BLVTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.blvt()
+		return connectors.rest().blvt()
 				.getSubscriptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
@@ -85,7 +85,7 @@ public class BLVTController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.blvt()
+		return connectors.rest().blvt()
 				.getRedemptions(new TransactionRecordParams(tokenName, id), new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
@@ -100,7 +100,7 @@ public class BLVTController extends BaseController {
 	public List<LimitInfo> getLimitInfo(
 			@RequestParam(required = false) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName)
 			throws ApiException {
-		return connectors.blvt().getLimitInfo(new LimitInfoParams(tokenName)).sync();
+		return connectors.rest().blvt().getLimitInfo(new LimitInfoParams(tokenName)).sync();
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class BLVTController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
 			@RequestParam(required = true) @ApiParam(example = "1000", value = "The amount to redeem") String amount)
 			throws ApiException {
-		return connectors.blvt().redeem(new RedemptionParams(tokenName, amount)).sync();
+		return connectors.rest().blvt().redeem(new RedemptionParams(tokenName, amount)).sync();
 	}
 
 	/**
@@ -132,6 +132,6 @@ public class BLVTController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "1INCHUP", value = "The token name") String tokenName,
 			@RequestParam(required = true) @ApiParam(example = "1000", value = "The amount to acquire") String cost)
 			throws ApiException {
-		return connectors.blvt().subscribe(new SubscriptionParams(tokenName, cost)).sync();
+		return connectors.rest().blvt().subscribe(new SubscriptionParams(tokenName, cost)).sync();
 	}
 }

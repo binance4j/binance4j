@@ -35,7 +35,7 @@ public class RebateController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit))
+		return connectors.rest().rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
 }

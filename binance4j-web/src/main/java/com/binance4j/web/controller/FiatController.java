@@ -42,7 +42,7 @@ public class FiatController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.fiat()
+		return connectors.rest().fiat()
 				.getPayments(new PaymentParams(transactionType), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -65,6 +65,6 @@ public class FiatController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.fiat().getTransactions(new TransactionParams(transactionType)).sync();
+		return connectors.rest().fiat().getTransactions(new TransactionParams(transactionType)).sync();
 	}
 }

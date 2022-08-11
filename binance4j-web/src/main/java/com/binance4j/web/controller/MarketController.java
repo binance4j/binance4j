@@ -47,7 +47,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "ping")
 	@ApiOperation(value = "Test connectivity.")
 	public Void ping() throws ApiException {
-		return connectors.market().ping().sync();
+		return connectors.rest().market().ping().sync();
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "server-time")
 	@ApiOperation(value = "Get server time.")
 	public ServerTimeResponse getServerTime() throws ApiException {
-		return connectors.market().getServerTime().sync();
+		return connectors.rest().market().getServerTime().sync();
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class MarketController extends BaseController {
 	public ExchangeInfo getExchangeInfo(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols separated by a coma.") String symbols)
 			throws ApiException {
-		return connectors.market().getExchangeInfo(new ExchangeInfoParams(symbols)).sync();
+		return connectors.rest().market().getExchangeInfo(new ExchangeInfoParams(symbols)).sync();
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class MarketController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the depth.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "5", value = "Market depth size.", allowableValues = "5,10,20,50,100,500,1000,5000") String limit)
 			throws ApiException {
-		return connectors.market().getOrderBook(new OrderBookParams(symbol, limit)).sync();
+		return connectors.rest().market().getOrderBook(new OrderBookParams(symbol, limit)).sync();
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class MarketController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the trades.") String symbol,
 			@RequestParam(required = false) @ApiParam(example = "50", value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit)
 			throws ApiException {
-		return connectors.market().getTrades(new TradesParams(symbol, limit)).sync();
+		return connectors.rest().market().getTrades(new TradesParams(symbol, limit)).sync();
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class MarketController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "50", value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit,
 			@RequestParam(required = false) @ApiParam(example = "123456", value = "Trade id to fetch from.") Long fromId)
 			throws ApiException {
-		return connectors.market().getHistoricalTrades(new HistoricalTradesParams(symbol, limit, fromId)).sync();
+		return connectors.rest().market().getHistoricalTrades(new HistoricalTradesParams(symbol, limit, fromId)).sync();
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class MarketController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.market()
+		return connectors.rest().market()
 				.getAggTrades(new AggTradeParams(symbol, fromId), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -156,7 +156,7 @@ public class MarketController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.market()
+		return connectors.rest().market()
 				.getKlines(new KlinesParams(symbol, interval), new TimeFrame(startTime, endTime, limit)).sync();
 	}
 
@@ -170,7 +170,7 @@ public class MarketController extends BaseController {
 	public AveragePrice getAveragePrice(
 			@RequestParam(required = true) @ApiParam(example = "BNBBTC", value = "Trading pair we want the price.") String symbol)
 			throws ApiException {
-		return connectors.market().getAveragePrice(new AveragePriceParams(symbol)).sync();
+		return connectors.rest().market().getAveragePrice(new AveragePriceParams(symbol)).sync();
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class MarketController extends BaseController {
 	public List<TickerStatistics> get24hTickerStatistics(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT, BNBEUR", value = "Symbols we want the statistics.") String symbols)
 			throws ApiException {
-		return connectors.market().get24hTickerStatistics(new TickersStatisticsParams(symbols)).sync();
+		return connectors.rest().market().get24hTickerStatistics(new TickersStatisticsParams(symbols)).sync();
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class MarketController extends BaseController {
 	public List<PriceTicker> getTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)
 			throws ApiException {
-		return connectors.market().getTicker(new PriceTickersParams(symbols)).sync();
+		return connectors.rest().market().getTicker(new PriceTickersParams(symbols)).sync();
 	}
 
 	/**
@@ -209,6 +209,6 @@ public class MarketController extends BaseController {
 	public List<BookTicker> getBookTicker(
 			@RequestParam(required = false) @ApiParam(example = "BNBBTC, BNBUSDT", value = "Symbols we want the ticker.") String symbols)
 			throws ApiException {
-		return connectors.market().getBookTicker(new BookTickersParams(symbols)).sync();
+		return connectors.rest().market().getBookTicker(new BookTickersParams(symbols)).sync();
 	}
 }

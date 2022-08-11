@@ -57,7 +57,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
 			throws ApiException {
-		return connectors.mining().getAccounts(new AccountListParams(algo, userName)).sync();
+		return connectors.rest().mining().getAccounts(new AccountListParams(algo, userName)).sync();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class MiningController extends BaseController {
 	@JsonGetMapping(path = "algorithms")
 	@ApiOperation(value = "Get algorithms.")
 	public AlgorithmsResponse getAlgorithms() throws ApiException {
-		return connectors.mining().getAlgorithms().sync();
+		return connectors.rest().mining().getAlgorithms().sync();
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class MiningController extends BaseController {
 	@JsonGetMapping(path = "coins")
 	@ApiOperation(value = "Get coins.")
 	public CoinsResponse getCoins() throws ApiException {
-		return connectors.mining().getCoins().sync();
+		return connectors.rest().mining().getCoins().sync();
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
 			throws ApiException {
-		return connectors.mining().getStatistics(new StatisticsParams(algo, userName)).sync();
+		return connectors.rest().mining().getStatistics(new StatisticsParams(algo, userName)).sync();
 	}
 
 	/**
@@ -121,7 +121,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Mining Account.") String toPoolUser,
 			@RequestParam(required = true) @ApiParam(example = "500000", value = "Resale hashrate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than 500000).") Long hashRate)
 			throws ApiException {
-		return connectors.mining()
+		return connectors.rest().mining()
 				.resellHashrate(new HashrateResaleParams(userName, algo, startDate, endDate, toPoolUser, hashRate))
 				.sync();
 	}
@@ -142,7 +142,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "12345", value = "configId.") Integer configId,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
 			throws ApiException {
-		return connectors.mining()
+		return connectors.rest().mining()
 				.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)).sync();
 	}
 
@@ -168,7 +168,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.mining()
+		return connectors.rest().mining()
 				.getProfits(new ProfitsParams(algo, userName), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -195,7 +195,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.mining()
+		return connectors.rest().mining()
 				.getOtherProfits(new ProfitsParams(algo, userName), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -222,7 +222,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.mining().getAccountProfits(new AccountProfitsParams(algo, userName),
+		return connectors.rest().mining().getAccountProfits(new AccountProfitsParams(algo, userName),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -236,7 +236,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.mining().getHashrateResales(new Paging(page, limit)).sync();
+		return connectors.rest().mining().getHashrateResales(new Paging(page, limit)).sync();
 	}
 
 	/**
@@ -257,7 +257,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.mining()
+		return connectors.rest().mining()
 				.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), new Paging(page, limit))
 				.sync();
 	}
@@ -276,7 +276,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "sha256", value = "Algorithm.") String algo,
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName)
 			throws ApiException {
-		return connectors.mining().getMiners(new MinersParams(algo, userName)).sync();
+		return connectors.rest().mining().getMiners(new MinersParams(algo, userName)).sync();
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class MiningController extends BaseController {
 			@RequestParam(required = true) @ApiParam(example = "userName", value = "Username.") String userName,
 			@RequestParam(required = true) @ApiParam(example = "workerName", value = "Worker name.") String workerName)
 			throws ApiException {
-		return connectors.mining().getMinersDetails(new MinerDetailsParams(algo, userName, workerName)).sync();
+		return connectors.rest().mining().getMinersDetails(new MinerDetailsParams(algo, userName, workerName)).sync();
 	}
 
 }

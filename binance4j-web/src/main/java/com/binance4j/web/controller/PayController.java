@@ -32,6 +32,6 @@ public class PayController extends BaseController {
 			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
 			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
 			throws ApiException {
-		return connectors.pay().getTrades(new TimeFrame(startTime, endTime, limit)).sync();
+		return connectors.rest().pay().getTrades(new TimeFrame(startTime, endTime, limit)).sync();
 	}
 }
