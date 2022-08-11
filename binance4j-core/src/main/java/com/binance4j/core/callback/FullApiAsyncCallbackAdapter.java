@@ -2,8 +2,11 @@ package com.binance4j.core.callback;
 
 import java.io.IOException;
 
+import com.binance4j.core.exception.ApiBanException;
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.core.exception.FirewallViolationException;
 import com.binance4j.core.exception.NotFoundException;
+import com.binance4j.core.exception.RateLimitExcessException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,22 +31,19 @@ public class FullApiAsyncCallbackAdapter<T> implements Callback<T> {
 	 */
 	@Override
 	public void onResponse(Call<T> call, Response<T> response) {
+		var headers = response.headers();
 		switch (response.code()) {
-			case 200 -> callback.onResponse(response.body(), response.headers(), null);
-			case 403 ->
-				callback.onResponse(null, response.headers(),
-						new ApiException(403, "The Web Application Firewall has been violated"));
-			case 404 -> callback.onResponse(null, response.headers(), new NotFoundException());
-			case 418 -> callback.onResponse(null, response.headers(), new ApiException(418,
-					"IP has been auto-banned for continuing to send requests after receiving 429 codes"));
-			case 429 ->
-				callback.onResponse(null, response.headers(), new ApiException(429, "Request rate limit exceeded"));
+			case 200 -> callback.onResponse(response.body(), headers, null);
+			case 403 -> callback.onResponse(null, headers, new FirewallViolationException());
+			case 404 -> callback.onResponse(null, headers, new NotFoundException());
+			case 418 -> callback.onResponse(null, headers, new ApiBanException());
+			case 429 -> callback.onResponse(null, headers, new RateLimitExcessException());
 			default -> {
 				try {
-					callback.onResponse(null, response.headers(),
+					callback.onResponse(null, headers,
 							new ApiException(response.code(), response.errorBody().string()));
 				} catch (IOException e) {
-					callback.onResponse(null, response.headers(), new ApiException(-400, e.getMessage()));
+					callback.onResponse(null, headers, new ApiException(-400, e.getMessage()));
 				}
 			}
 		}
