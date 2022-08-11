@@ -51,7 +51,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'connectors',
+            docId: 'connectors/connectors',
             position: 'left',
             label: 'Documentation'
           },
