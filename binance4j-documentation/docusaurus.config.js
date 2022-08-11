@@ -24,7 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/binance4j/binance4j',
-          lastVersion: 'current',
+          lastVersion: '2.x',
         },
         blog: {
           showReadingTime: true,
@@ -51,7 +51,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'core/index',
+            docId: 'connectors',
             position: 'left',
             label: 'Documentation'
           },
