@@ -209,8 +209,6 @@ const savings: Repo = {
 };
 
 export interface ProjectManager {
-    img: string;
-    href: string;
     text: string;
     language: string;
     fileName: string;
@@ -220,9 +218,7 @@ export interface ProjectManager {
 export type ProjectManagerList = { [key: string]: ProjectManager };
 
 const maven: ProjectManager = {
-    img: "https://search.maven.org/assets/images/mvn.png",
-    href: "https://maven.apache.org/",
-    text: "Apache Maven",
+    text: "Maven",
     language: "xml",
     fileName: "pom.xml",
     instruction:
@@ -230,9 +226,7 @@ const maven: ProjectManager = {
 };
 
 const gradle: ProjectManager = {
-    img: "https://search.maven.org/assets/images/gradle.png",
-    href: "https://gradle.org/",
-    text: "Gradle Groovy DSL",
+    text: "Gradle",
     language: "bash",
     fileName: "build.gradle",
     instruction: "implementation '{{groupId}}:{{artifactId}}:{{version}}'",

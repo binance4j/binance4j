@@ -25,8 +25,6 @@ const InstallationInstruction: React.FunctionComponent<InstallationInstructionPr
 
     return (
         <>
-            <InstallationTitle src={props.manager.img} href={props.manager.href}>{props.manager.text}</InstallationTitle>
-
             <CodeBlock language={props.manager.language} title={props.manager.fileName}>
                 {instruction}
             </CodeBlock>

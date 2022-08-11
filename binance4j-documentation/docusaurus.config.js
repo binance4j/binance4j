@@ -24,6 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/binance4j/binance4j',
+          lastVersion: 'current',
         },
         blog: {
           showReadingTime: true,
@@ -48,6 +49,12 @@ const config = {
           src: '/img/logo/logo2.png',
         },
         items: [
+          {
+            type: 'doc',
+            docId: 'core/index',
+            position: 'left',
+            label: 'Documentation'
+          },
           {
             type: 'docsVersionDropdown',
             position: 'left'

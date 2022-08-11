@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import data from "../../static/data/binance4j";
 import InstallationInstruction from "./InstallationInstruction";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 export interface InstallationInstructionsProps {
     repo: string;
@@ -13,9 +15,13 @@ const InstallationInstructions: React.FunctionComponent<InstallationInstructions
     useEffect(() => setRep(repo), [repo]);
 
     return (
-        <>
-            {Object.values(data.managersList).map(manager => <InstallationInstruction data={data} repo={rep} manager={manager} version={version} />)}
-        </>
+        <Tabs>
+            {Object.values(data.managersList).map(manager => (
+                <TabItem value={manager.text}>
+                    <InstallationInstruction data={data} repo={rep} manager={manager} version={version} />
+                </TabItem>
+            ))}
+        </Tabs>
     )
 }
 

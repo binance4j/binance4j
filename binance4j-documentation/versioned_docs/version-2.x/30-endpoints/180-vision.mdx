@@ -1,0 +1,298 @@
+---
+title: Public data
+---
+
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import ArtifactInstall from "../partials/_ArtifactInstall.mdx";
+import RepoBadges from "../partials/_RepoBadges.mdx";
+import LinkBadge from "@site/src/components/badge/LinkBadge";
+import JavadocBadge from "@site/src/components/badge/JavadocBadge";
+import Examples from "@site/src/components/v2/VisionRequestExamples.tsx";
+
+<RepoBadges artifact="vision" />
+
+## Installation
+
+<ArtifactInstall repo="vision" />
+
+## SPOT endpoints
+
+### Get klines
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a 2d list format">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="List<CandlestickBar>"
+                    format="getData"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlines"
+                    responseType="List<CandlestickBar>"
+                    format="getData"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlinesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getKlinesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "CandlestickInterval", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
+### Get trades
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a 2d list format">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="List<Trade>"
+                    format="getData"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTrades"
+                    responseType="List<Trade>"
+                    format="getData"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
+### Get aggregate trades
+
+<Tabs>
+    <TabItem value="zip" label="Zipped">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="ZipInputStream"
+                    format="getZip"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="csv" label="In a 2d list format">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="List<List<String>>"
+                    format="getCSV"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="deserialized" label="Deserialized">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="List<AggTrade>"
+                    format="getData"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTrades"
+                    responseType="List<AggTrade>"
+                    format="getData"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="checksum" label="Get Checksum">
+        <Tabs>
+            <TabItem value="monthly" label="Monthly">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "year", "month"]}
+                />
+            </TabItem>
+            <TabItem value="daily" label="Daily">
+                <Examples
+                    client="VisionSpotClient"
+                    method="getAggTradesChecksum"
+                    responseType="Checksum"
+                    format="getChecksum"
+                    requestParameters={["symbol", "year", "month", "day"]}
+                />
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>

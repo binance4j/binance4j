@@ -4,6 +4,24 @@ id: changelog
 ---
 
 All notable changes to this project will be documented in this file.
+
+## [2.2.0] - 2022-08-11
+
+### Added
+
+- all:
+  - Every API call returns its own Specific `Request` containing method, weight and signature info.
+- core:
+  - Added `FullApiAsyncCallback` containing Headers in response.
+- connectors:
+  - Added Websocket connectors to `Connectors`
+
+### Changed
+
+- connectors:
+  - Seperated REST and Websocket connectors in two seperated classes: `RestConnectors` and `WebsocketConnectors`.
+  - Deprecated direct access to REST clients in `Connectors` class.
+
 ## [2.1.1] - 2022-08-09
 
 ### Fixed
