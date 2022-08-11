@@ -1,3 +1,4 @@
 com.binance4j.pay.client
 com.binance4j.pay.dto
 com.binance4j.pay.param
+com.binance4j.pay.request

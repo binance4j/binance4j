@@ -1,3 +1,4 @@
 com.binance4j.wallet.client
 com.binance4j.wallet.dto
 com.binance4j.wallet.param
+com.binance4j.wallet.request

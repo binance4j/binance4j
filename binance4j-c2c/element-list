@@ -1,3 +1,4 @@
 com.binance4j.c2c.client
 com.binance4j.c2c.dto
 com.binance4j.c2c.param
+com.binance4j.c2c.request

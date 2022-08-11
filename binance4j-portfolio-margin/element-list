@@ -1,3 +1,4 @@
 com.binance4j.portfoliomargin.client
 com.binance4j.portfoliomargin.dto
 com.binance4j.portfoliomargin.param
+com.binance4j.portfoliomargin.request

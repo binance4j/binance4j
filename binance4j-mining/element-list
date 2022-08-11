@@ -1,3 +1,4 @@
 com.binance4j.mining.client
 com.binance4j.mining.dto
 com.binance4j.mining.param
+com.binance4j.mining.request

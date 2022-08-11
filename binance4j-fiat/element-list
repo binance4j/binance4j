@@ -1,3 +1,4 @@
 com.binance4j.fiat.client
 com.binance4j.fiat.dto
 com.binance4j.fiat.param
+com.binance4j.fiat.request

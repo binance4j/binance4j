@@ -4,5 +4,6 @@ com.binance4j.websocket.configuration
 com.binance4j.websocket.dto
 com.binance4j.websocket.event
 com.binance4j.websocket.param
+com.binance4j.websocket.request
 com.binance4j.websocket.serialization
 com.binance4j.websocket.service

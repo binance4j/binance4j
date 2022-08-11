@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.binance4j.fiat.client"},{"l":"com.binance4j.fiat.dto"},{"l":"com.binance4j.fiat.param"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.binance4j.fiat.client"},{"l":"com.binance4j.fiat.dto"},{"l":"com.binance4j.fiat.param"},{"l":"com.binance4j.fiat.request"}];updateSearchResults();

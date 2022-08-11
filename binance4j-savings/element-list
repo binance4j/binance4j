@@ -1,3 +1,4 @@
 com.binance4j.savings.client
 com.binance4j.savings.dto
 com.binance4j.savings.param
+com.binance4j.savings.request

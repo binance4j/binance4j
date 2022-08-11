@@ -1,3 +1,4 @@
 com.binance4j.spot.client
 com.binance4j.spot.dto
 com.binance4j.spot.param
+com.binance4j.spot.request
