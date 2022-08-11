@@ -25,10 +25,12 @@ public class ClientTest {
 		TestClient client = new TestClient();
 		CompletableFuture<Void> future = new CompletableFuture<>();
 
-		client.time().async((response, exception) -> {
+		client.time().async((response, headers, exception) -> {
+			System.out.println(headers);
 			System.out.println(response);
 			System.out.println(exception);
 			assertNotNull(response);
+			assertNotNull(headers);
 			assertNull(exception);
 			future.complete(null);
 		});
@@ -41,10 +43,12 @@ public class ClientTest {
 		TestClient client = new TestClient();
 		CompletableFuture<Void> future = new CompletableFuture<>();
 
-		client.notFound().async((response, exception) -> {
+		client.notFound().async((response, headers, exception) -> {
+			System.out.println(headers);
 			System.out.println(response);
 			System.out.println(exception);
 			assertNotNull(exception);
+			assertNotNull(headers);
 			assertNull(response);
 			future.complete(null);
 		});

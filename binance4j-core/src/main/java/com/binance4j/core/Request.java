@@ -7,6 +7,8 @@ import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.callback.ApiAsyncCallbackAdapter;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.callback.ApiCallbackAdapter;
+import com.binance4j.core.callback.FullApiAsyncCallback;
+import com.binance4j.core.callback.FullApiAsyncCallbackAdapter;
 import com.binance4j.core.dto.HttpMethod;
 import com.binance4j.core.dto.RateLimitType;
 import com.binance4j.core.dto.Signature;
@@ -69,6 +71,15 @@ public abstract class Request<T> {
 	 */
 	public void async(ApiAsyncCallback<T> callback) {
 		call.enqueue(new ApiAsyncCallbackAdapter<>(callback));
+	}
+
+	/**
+	 * Executes the request asynchronously
+	 * 
+	 * @param callback Request callback managing a success or error response.
+	 */
+	public void async(FullApiAsyncCallback<T> callback) {
+		call.enqueue(new FullApiAsyncCallbackAdapter<>(callback));
 	}
 
 	/**
