@@ -13,6 +13,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.pojo.TestObject;
 import com.binance4j.core.pojo.TestObject2;
 
@@ -97,5 +98,11 @@ public class CustomTestTest extends CustomTest {
 		assertTrue(isJavaBean(new ArrayList<>()));
 		assertTrue(isJavaBean(new HashMap<>()));
 		assertFalse(isJavaBean(obj1));
+	}
+
+	@Override
+	protected RestClient<?> getClient() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

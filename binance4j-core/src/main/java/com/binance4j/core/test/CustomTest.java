@@ -18,7 +18,9 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import com.binance4j.core.Request;
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exception.ApiException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 
 /** Base class for Unit test. */
 // @Execution(ExecutionMode.CONCURRENT)
@@ -41,6 +43,17 @@ public abstract class CustomTest {
 	protected List<String> assets = Arrays.asList(asset, "BUSD", "BTC");
 	/** The String. */
 	protected List<String> symbols = Arrays.asList(symbol, "BNBBUSD", "BTCBUSD");
+
+	/** Abstract method to force children to implement client */
+	protected abstract RestClient<?> getClient();
+
+	/**
+	 * Constructor.
+	 */
+	public CustomTest() {
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	}
 
 	/**
 	 * @return the properties of the given bean
