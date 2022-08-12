@@ -14,21 +14,21 @@ import com.binance4j.core.dto.Signature;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface ApiRequest {
-	/** The request method. */
+	/** @return The request method. */
 	HttpMethod method() default HttpMethod.GET;
 
-	/** The request signature. */
+	/** @return The request signature. */
 	Signature signature() default Signature.NONE;
 
-	/** Is the request an order? */
+	/** @return Is the request an order? */
 	boolean isOrder() default false;
 
-	/** The request weight. */
+	/** @return The request weight. */
 	int weight() default 1;
 
-	/** The request rate limit. */
+	/** @return The request rate limit. */
 	RateLimitType rateLimit() default RateLimitType.IP;
 
-	/** The request path. */
+	/** @return The request path. */
 	String path() default "";
 }

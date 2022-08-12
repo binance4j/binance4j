@@ -51,6 +51,10 @@ public enum CandlestickInterval {
 		return value;
 	}
 
+	/**
+	 * @param value The interval String value.
+	 * @return The enum equivalent of the input value.
+	 */
 	static public CandlestickInterval fromValue(String value) {
 		for (CandlestickInterval e : CandlestickInterval.values()) {
 			if (e.toString().equals(value)) {

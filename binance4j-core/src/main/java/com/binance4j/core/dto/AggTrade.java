@@ -37,6 +37,7 @@ public class AggTrade {
 	@ApiModelProperty("Was it the best price match?")
 	boolean bestMatch;
 
+	/** Constructor. */
 	protected AggTrade() {
 	}
 

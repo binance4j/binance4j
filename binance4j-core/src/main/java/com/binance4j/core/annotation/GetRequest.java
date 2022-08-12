@@ -16,18 +16,18 @@ import com.binance4j.core.dto.Signature;
 @ApiRequest(method = HttpMethod.GET)
 public @interface GetRequest {
 
-	/** The request signature. */
+	/** @return The request signature. */
 	Signature signature() default Signature.NONE;
 
-	/** Is the request an order? */
+	/** @return Is the request an order? */
 	boolean isOrder() default false;
 
-	/** The request weight. */
+	/** @return The request weight. */
 	int weight() default 1;
 
-	/** The request rate limit. */
+	/** @return The request rate limit. */
 	RateLimitType rateLimit() default RateLimitType.IP;
 
-	/** The request path. */
+	/** @return The request path. */
 	String path() default "";
 }
