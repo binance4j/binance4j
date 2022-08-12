@@ -20,16 +20,6 @@ export interface Repo {
     icon: string;
 }
 
-const core: Repo = {
-    name: "core",
-    artifactId: "binance4j-core",
-    title: "Core",
-    link: "endpoints/Core",
-    javadoc: javadocBase + "binance4j-core/",
-    description: "The core of every connector",
-    icon: imgBase + "gear.svg",
-};
-
 const blvt: Repo = {
     name: "blvt",
     artifactId: "binance4j-blvt",
@@ -74,7 +64,7 @@ const connectors: Repo = {
     name: "connectors",
     artifactId: "binance4j-connectors",
     title: "Connectors",
-    link: "endpoints/Connectors",
+    link: "Connectors",
     javadoc: javadocBase + "binance4j-connectors/",
     description: "All REST and Websocket connectors in one place.",
     icon: imgBase + "connectors.svg",
@@ -283,7 +273,6 @@ const binance4j: Binance4JData = {
         vision,
         savings,
         connectors,
-        core,
         //strategies,
     },
     managersList,
