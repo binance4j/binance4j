@@ -77,7 +77,7 @@ public abstract class BaseScheduledEvent implements ScheduledEvent {
 				scheduledEvent.cancel();
 			} else {
 				ticks++;
-				lastCall = new Date().getTime();
+				lastCall = System.currentTimeMillis();
 				innerTask.call();
 			}
 		}
