@@ -78,6 +78,11 @@ public interface Params {
 		return map;
 	}
 
+	/**
+	 * Removes values from a map.
+	 * 
+	 * @param map The map to remove data from.
+	 */
 	default void removeFromMap(Map<String, Object> map) {
 		// remove
 		map.remove("order");
