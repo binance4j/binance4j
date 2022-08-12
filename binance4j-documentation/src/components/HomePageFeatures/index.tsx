@@ -8,7 +8,7 @@ import binance4j from '/data/binance4j.ts';
 
 function FeatureCard({ repo }) {
     return (
-        <Link to={`/docs/${repo.title.toLowerCase()}`} className={styles.link}>
+        <Link to={`/docs/${repo.link.toLowerCase()}`} className={styles.link}>
             <Card sx={{ minWidth: 275 }} className={styles.card}>
                 <div style={{ backgroundImage: `url(${useBaseUrl(repo.icon)})` }} className={styles.imgContainer} />
                 <h2 color="text.primary" className={styles.title}>
