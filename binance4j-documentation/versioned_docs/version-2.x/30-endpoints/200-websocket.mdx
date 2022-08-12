@@ -261,29 +261,32 @@ Order book price and quantity depth updates used to locally manage an order book
 <Tabs>
     <TabItem label="One symbol" value="one-symbol" default>
         <CodeBlock language="java">
-            WebsocketDepthClient client = new WebsocketDepthClient("BNBBTC", callback);
+            WebsocketDepthClient client = new WebsocketDepthClient("BNBBTC", DepthUpdateSpeed.MS_1000, callback);
         </CodeBlock>
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketDepthClient client = new WebsocketDepthClient(List.of("BNBBTC", "BNBBUSD"), callback);
+            WebsocketDepthClient client = new WebsocketDepthClient(List.of("BNBBTC", "BNBBUSD"),
+            DepthUpdateSpeed.MS_1000, callback);
         </CodeBlock>
     </TabItem>
 </Tabs>
 
 ### Partial Book Depth Streams
 
-Top bids and asks, Valid are 5, 10, or 20.
+Top bids and asks.
 
 <Tabs>
     <TabItem label="One symbol" value="one-symbol" default>
         <CodeBlock language="java">
-            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient("BNBBTC", callback);
+            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient("BNBBTC", DepthLevel.LEVEL_5,
+            DepthUpdateSpeed.MS_1000, callback);
         </CodeBlock>
     </TabItem>
     <TabItem label="Multiple symbols (List)" value="multiple-symbols-list">
         <CodeBlock language="java">
-            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient(List.of("BNBBTC", "BNBBUSD"), callback);
+            WebsocketMiniDepthClient client = new WebsocketMiniDepthClient(List.of("BNBBTC", "BNBBUSD"),
+            DepthLevel.LEVEL_5, DepthUpdateSpeed.MS_1000, callback);
         </CodeBlock>
     </TabItem>
 </Tabs>
