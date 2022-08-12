@@ -58,6 +58,16 @@ jobs:
             node-version: 16.x
             cache: yarn
             cache-dependency-path: "./binance4j-documentation/yarn.lock"
+            
+      - name: Install Docusaurus dependencies
+          run: cd binance4j-documentation && yarn install --frozen-lockfile
+
+        - name: Build Docusaurus documentation
+          run: cd binance4j-documentation && yarn build
+
+        # COPY doc IN DIR
+        - name: Create doc dir
+          run: "mkdir doc"
 
         - name: Copy docusaurus documentation
           run: "cp -R binance4j-documentation/build doc/binance4j-documentation"
