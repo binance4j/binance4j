@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Position;
 
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
@@ -16,6 +17,7 @@ import com.binance4j.strategy.service.PositionService;
 import com.binance4j.strategy.strategies.TwoPeriodRSIStrategy;
 
 class AnalysingTest extends CustomTest {
+
 	@Test
 	void testBacktestWithInputBars() throws ApiException {
 		TwoPeriodRSIStrategy strategy = new TwoPeriodRSIStrategy();
@@ -26,5 +28,10 @@ class AnalysingTest extends CustomTest {
 			assertTrue(PositionService.shouldEnter(strategy, result.series(), p.getEntry().getIndex()));
 			assertTrue(PositionService.shouldExit(strategy, result.series(), p.getExit().getIndex()));
 		});
+	}
+
+	@Override
+	protected RestClient<?> getClient() {
+		return null;
 	}
 }

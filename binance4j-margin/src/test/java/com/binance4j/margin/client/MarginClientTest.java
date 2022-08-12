@@ -45,125 +45,126 @@ public class MarginClientTest extends CustomTest {
 	String isolatedAsset = "BTC";
 	String isolatedAmount = "0.00044";
 
-	public MarginClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected MarginClient getClient() {
+		return client;
 	}
 
 	@Test
 	void testGetAccount() throws ApiException {
-		testNotThrow(client.getAccount());
+		testNotThrow(getClient().getAccount());
 	}
 
 	@Test
 	void testGetIsolatedAccount() throws ApiException {
-		testNotThrow(client.getIsolatedAccount());
+		testNotThrow(getClient().getIsolatedAccount());
 	}
 
 	@Test
 	void testGetMarginFeeData() throws ApiException {
-		testNotThrow(client.getMarginFeeData());
+		testNotThrow(getClient().getMarginFeeData());
 	}
 
 	// @Test OK WORKS! but system might be short of asset
 	void testGetMaxBorrowable() throws ApiException {
-		testNotThrow(client.getMaxBorrowable(new MaxBorrowableParams(asset)));
+		testNotThrow(getClient().getMaxBorrowable(new MaxBorrowableParams(asset)));
 	}
 
 	@Test
 	void testGetMaxTransferable() throws ApiException {
-		testNotThrow(client.getMaxTransferable(new MaxTransferableParams(asset)));
+		testNotThrow(getClient().getMaxTransferable(new MaxTransferableParams(asset)));
 	}
 
 	@Test
 	void testGetAsset() throws ApiException {
-		testNotThrow(client.getAsset(new AssetParams(asset)));
+		testNotThrow(getClient().getAsset(new AssetParams(asset)));
 	}
 
 	@Test
 	void testGetBNBBurnStatus() throws ApiException {
-		testNotThrow(client.getBNBBurnStatus());
+		testNotThrow(getClient().getBNBBurnStatus());
 	}
 
 	@Test
 	void testEnableIsolatedAccount() throws ApiException {
-		testNotThrow(client.enableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
+		testNotThrow(getClient().enableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
 	}
 
 	@Test
 	void testGetAllAssets() throws ApiException {
-		testNotThrow(client.getAllAssets());
+		testNotThrow(getClient().getAllAssets());
 	}
 
 	@Test
 	void testGetAllCrossMarginPairs() throws ApiException {
-		testNotThrow(client.getAllCrossMarginPairs());
+		testNotThrow(getClient().getAllCrossMarginPairs());
 	}
 
 	@Test
 	void testGetAllIsolatedSymbols() throws ApiException {
-		testNotThrow(client.getAllIsolatedSymbols());
+		testNotThrow(getClient().getAllIsolatedSymbols());
 	}
 
 	@Test
 	void testGetIsolatedFeeData() throws ApiException {
-		testNotThrow(client.getIsolatedFeeData());
+		testNotThrow(getClient().getIsolatedFeeData());
 	}
 
 	@Test
 	void testGetIsolatedMarginTierData() throws ApiException {
-		testNotThrow(client.getIsolatedMarginTierData(new IsolatedTierDataParams(isolatedSymbol)));
+		testNotThrow(getClient().getIsolatedMarginTierData(new IsolatedTierDataParams(isolatedSymbol)));
 	}
 
 	@Test
 	void testGetIsolatedSymbol() throws ApiException {
-		testNotThrow(client.getIsolatedSymbol(new PairParams(isolatedSymbol)));
+		testNotThrow(getClient().getIsolatedSymbol(new PairParams(isolatedSymbol)));
 	}
 
 	@Test
 	void testGetIsolatedTransferHistory() throws ApiException {
-		testNotThrow(client.getIsolatedTransferHistory(new IsolatedTransferHistoryParams(symbol)));
+		testNotThrow(getClient().getIsolatedTransferHistory(new IsolatedTransferHistoryParams(symbol)));
 	}
 
 	// @Test General error?
 	void testToggleBNBBurnOnSpotTradeAndMarginInterest() throws ApiException {
-		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(false, false)));
-		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(true, true)));
+		testNotThrow(getClient().toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(false, false)));
+		testNotThrow(getClient().toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(true, true)));
 	}
 
 	@Test
 	void testGetInterestRateHistory() throws ApiException {
-		testNotThrow(client.getInterestRateHistory(new InterestRateHistoryParams(asset)));
+		testNotThrow(getClient().getInterestRateHistory(new InterestRateHistoryParams(asset)));
 	}
 
 	@Test
 	void testGetCrossMarginPair() throws ApiException {
-		testNotThrow(client.getCrossMarginPair(new PairParams(symbol)));
+		testNotThrow(getClient().getCrossMarginPair(new PairParams(symbol)));
 	}
 
 	@Test
 	void testGetEnabledIsolatedAccountLimit() throws ApiException {
-		testNotThrow(client.getEnabledIsolatedAccountLimit());
+		testNotThrow(getClient().getEnabledIsolatedAccountLimit());
 	}
 
 	@Test
 	void testGetPriceIndex() throws ApiException {
-		testNotThrow(client.getPriceIndex(new PriceIndexParams(symbol)));
+		testNotThrow(getClient().getPriceIndex(new PriceIndexParams(symbol)));
 	}
 
 	@Test
 	void testGetTransferHistory() throws ApiException {
-		testNotThrow(client.getTransferHistory());
+		testNotThrow(getClient().getTransferHistory());
 	}
 
 	// @Test WORKS!
 	void testGetOpenOrdersAndGetOrder() throws ApiException {
-		List<OrderInfo> orders = client.getOpenOrders().sync();
+		List<OrderInfo> orders = getClient().getOpenOrders().sync();
 		testHasNulls(orders, List.of("origQuoteOrderQty"), true);
 
 		orders.forEach(o -> {
 			try {
-				testHasNulls(client.getOrder(new OrderParams(o.symbol(), o.orderId())), List.of("origQuoteOrderQty"),
+				testHasNulls(getClient().getOrder(new OrderParams(o.symbol(), o.orderId())),
+						List.of("origQuoteOrderQty"),
 						true);
 			} catch (ApiException e) {
 				e.printStackTrace();
@@ -175,35 +176,38 @@ public class MarginClientTest extends CustomTest {
 	// @Test WORKS!
 	void testNewIsolatedTransfer() throws ApiException {
 
-		testNotThrow(client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol,
+		testNotThrow(getClient().newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol,
 				isolatedAmount, IsolatedTransferAccount.SPOT,
 				IsolatedTransferAccount.ISOLATED_MARGIN)));
 
 		testNotThrow(
-				client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount,
-						IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT)));
+				getClient().newIsolatedTransfer(
+						new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount,
+								IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT)));
 	}
 
 	// @Test WORKS!
 	void testDisableIsolatedAccount() throws ApiException {
-		testNotThrow(client.disableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
+		testNotThrow(getClient().disableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
 	}
 
 	// @Test WORKS!
 	void testTransfer() throws ApiException {
-		testNotThrow(client.transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MAIN_TO_MARGIN)));
-		testNotThrow(client.transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MARGIN_TO_MAIN)));
+		testNotThrow(
+				getClient().transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MAIN_TO_MARGIN)));
+		testNotThrow(
+				getClient().transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MARGIN_TO_MAIN)));
 	}
 
 	// @Test WORKS!
 	void testGetAllOrders() throws ApiException {
 		AllOrdersParams params = new AllOrdersParams("BTCBUSD");
-		testHasNulls(client.getAllOrders(params), List.of("accountId", "origQuoteOrderQty"), true);
+		testHasNulls(getClient().getAllOrders(params), List.of("accountId", "origQuoteOrderQty"), true);
 	}
 
 	// @Test WORKS!
 	void testNewOrder() throws ApiException {
-		testHasNulls(client.newOrder(NewOrderParams.buy("BTCBUSD", "0.0004", "25000")),
+		testHasNulls(getClient().newOrder(NewOrderParams.buy("BTCBUSD", "0.0004", "25000")),
 				List.of("orderId", "quoteQty", "symbol", "marginBuyBorrowAmount", "marginBuyBorrowAsset"), true);
 	}
 
@@ -211,88 +215,88 @@ public class MarginClientTest extends CustomTest {
 
 	// TODO @Test
 	void testBorrow() throws ApiException {
-		client.borrow(new BorrowParams(asset, "1"));
+		getClient().borrow(new BorrowParams(asset, "1"));
 	}
 
 	// TODO @Test
 	void testCancelOCO() throws ApiException {
-		testNotThrow(client.cancelOCO(new CancelOCOParams(symbol)));
+		testNotThrow(getClient().cancelOCO(new CancelOCOParams(symbol)));
 	}
 
 	// TODO @Test
 	void testCancelOpenOrders() throws ApiException {
-		testNotThrow(client.cancelOpenOrders(new CancelOpenOrdersParams(symbol)));
+		testNotThrow(getClient().cancelOpenOrders(new CancelOpenOrdersParams(symbol)));
 	}
 
 	// TODO @Test
 	void testCancelOrder() throws ApiException {
-		testNotThrow(client.cancelOrder(new CancelOrderParams(symbol)));
+		testNotThrow(getClient().cancelOrder(new CancelOrderParams(symbol)));
 	}
 
 	// TODO @Test
 	void testGetAllOCO() throws ApiException {
-		testNotThrow(client.getAllOCO(new GetAllOCOParams(null, null)));
+		testNotThrow(getClient().getAllOCO(new GetAllOCOParams(null, null)));
 	}
 
 	@Test
 	void testGetForceLiquidationRecord() throws ApiException {
-		testNotThrow(client.getForceLiquidationRecord(new ForceLiquidationRecordParams(null)));
+		testNotThrow(getClient().getForceLiquidationRecord(new ForceLiquidationRecordParams(null)));
 	}
 
 	// TODO @Test
 	void testGetInterestHistory() throws ApiException {
-		testNotThrow(client.getInterestHistory(new TransactionHistoryParams(asset)));
+		testNotThrow(getClient().getInterestHistory(new TransactionHistoryParams(asset)));
 	}
 
 	// TODO @Test
 	void testGetLoanRecord() throws ApiException {
-		testNotThrow(client.getLoanRecord(new TransactionHistoryParams(asset)));
+		testNotThrow(getClient().getLoanRecord(new TransactionHistoryParams(asset)));
 	}
 
 	// TODO @Test
 	void testGetTrades() throws ApiException {
-		testNotThrow(client.getTrades(new TradeParams(isolatedSymbol)));
+		testNotThrow(getClient().getTrades(new TradeParams(isolatedSymbol)));
 	}
 
 	// TODO @Test
 	void testGetOCO() throws ApiException {
-		testNotThrow(client.getOCO(new GetOCOParams(false)));
+		testNotThrow(getClient().getOCO(new GetOCOParams(false)));
 	}
 
 	// TODO @Test
 	void testGetOpenOCO() throws ApiException {
-		testNotThrow(client.getOpenOCO());
+		testNotThrow(getClient().getOpenOCO());
 	}
 
 	// TODO @Test
 	void testGetRepayRecord() throws ApiException {
-		testNotThrow(client.getRepayRecord(new TransactionHistoryParams(asset)));
+		testNotThrow(getClient().getRepayRecord(new TransactionHistoryParams(asset)));
 	}
 
 	// TODO @Test
 	void testNewOCO() throws ApiException {
-		testNotThrow(client.newOCO(new NewOCOOrderParams(symbol, OrderSide.BUY, "1", "1", "1")));
+		testNotThrow(getClient().newOCO(new NewOCOOrderParams(symbol, OrderSide.BUY, "1", "1", "1")));
 	}
 
 	// TODO @Test
 	void testRepay() throws ApiException {
-		testNotThrow(client.repay(new RepayParams(asset, "amount")));
+		testNotThrow(getClient().repay(new RepayParams(asset, "amount")));
 	}
 
 	@Test
 	void testGetRateLimit() throws ApiException {
-		testNotThrow(client.getRateLimit());
+		testNotThrow(getClient().getRateLimit());
 	}
 
 	@Test
 	void testGetRateLimit2() throws ApiException {
-		testNotThrow(client.getRateLimit(new RateLimitParams("BTC")));
+		testNotThrow(getClient().getRateLimit(new RateLimitParams("BTC")));
 	}
 
 	@Test
 	void testGetDustLog() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getDustLog());
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getDustLog());
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 }

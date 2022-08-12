@@ -29,184 +29,185 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 public class WalletClientTest extends CustomTest {
 	protected WalletClient client = new WalletClient(key, secret);
 
-	public WalletClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected WalletClient getClient() {
+		return client;
 	}
 
 	@Test
 	void testDisableFastWithdrawSwitch() throws ApiException {
-		assertDoesNotThrow(() -> client.disableFastWithdrawSwitch().sync());
+		assertDoesNotThrow(() -> getClient().disableFastWithdrawSwitch().sync());
 	}
 
 	@Test
 	void testEnableFastWithdrawSwitch() throws ApiException {
-		assertDoesNotThrow(() -> client.enableFastWithdrawSwitch().sync());
+		assertDoesNotThrow(() -> getClient().enableFastWithdrawSwitch().sync());
 	}
 
 	// TODO @Test
 	void testdustTransfer() throws ApiException {
-		testNotThrow(client.dustTransfer(new DustTransferParams(assets)));
+		testNotThrow(getClient().dustTransfer(new DustTransferParams(assets)));
 	}
 
 	@Test
 	void testGetAccountstatus() throws ApiException {
-		testNotThrow(client.getAccountStatus());
+		testNotThrow(getClient().getAccountStatus());
 	}
 
 	@Test
 	void testGetAllCoinsInfo() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getAllCoinsInfo(), List.of("country", "specialTips", "specialWithdrawTips", "depositDust"),
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testHasNulls(getClient().getAllCoinsInfo(),
+				List.of("country", "specialTips", "specialWithdrawTips", "depositDust"),
 				true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetApiPermissions() throws ApiException {
-		testNotThrow(client.getApiPermissions());
+		testNotThrow(getClient().getApiPermissions());
 	}
 
 	@Test
 	void testGetApiTradingStatus() throws ApiException {
-		testNotThrow(client.getApiTradingStatus());
+		testNotThrow(getClient().getApiTradingStatus());
 	}
 
 	@Test
 	void testGetAssetDetail() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getAssetDetail());
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getAssetDetail());
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAssetDetail2() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getAssetDetail(new AssetDetailParams(asset)));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getAssetDetail(new AssetDetailParams(asset)));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAssetDividendRecord() throws ApiException {
-		testNotThrow(client.getAssetDividendRecord());
+		testNotThrow(getClient().getAssetDividendRecord());
 	}
 
 	@Test
 	void testGetAssetDividendRecord2() throws ApiException {
-		testNotThrow(client.getAssetDividendRecord(new AssetDividendRecordParams(asset)));
+		testNotThrow(getClient().getAssetDividendRecord(new AssetDividendRecordParams(asset)));
 	}
 
 	@Test
 	void testGetAssetDividendRecord3() throws ApiException {
-		testNotThrow(client.getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(limit)));
+		testNotThrow(getClient().getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(limit)));
 	}
 
 	@Test
 	void testGetConvertibleAssets() throws ApiException {
-		testNotThrow(client.getConvertibleAssets());
+		testNotThrow(getClient().getConvertibleAssets());
 
 	}
 
 	@Test
 	void testGetDepositAddress() throws ApiException {
-		testNotThrow(client.getDepositAddress(new DepositAddressParams("BNB")));
+		testNotThrow(getClient().getDepositAddress(new DepositAddressParams("BNB")));
 	}
 
 	@Test
 	void testGetDepositHistory() throws ApiException {
-		testNotThrow(client.getDepositHistory());
+		testNotThrow(getClient().getDepositHistory());
 	}
 
 	@Test
 	void testGetDepositHistory2() throws ApiException {
-		testNotThrow(client.getDepositHistory(new DepositHistoryParams(asset)));
+		testNotThrow(getClient().getDepositHistory(new DepositHistoryParams(asset)));
 	}
 
 	@Test
 	void testGetDepositHistory3() throws ApiException {
-		testNotThrow(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS)));
+		testNotThrow(getClient().getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS)));
 	}
 
 	@Test
 	void testGetDepositHistory4() throws ApiException {
-		testNotThrow(client.getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS, asset)));
+		testNotThrow(getClient().getDepositHistory(new DepositHistoryParams(DepositStatus.SUCCESS, asset)));
 	}
 
 	@Test
 	void testGetDustLog() throws ApiException {
-		testNotThrow(client.getDustLog());
+		testNotThrow(getClient().getDustLog());
 
 	}
 
 	@Test
 	void testGetDustLog2() throws ApiException {
-		testNotThrow(client.getDustLog(new TimeFrame(10)));
+		testNotThrow(getClient().getDustLog(new TimeFrame(10)));
 
 	}
 
 	@Test
 	void testgetFundingWallet() throws ApiException {
-		testNotThrow(client.getFundingWallet());
+		testNotThrow(getClient().getFundingWallet());
 	}
 
 	@Test
 	void testgetFundingWallet2() throws ApiException {
-		testNotThrow(client.getFundingWallet(new FundingWalletParams(asset)));
+		testNotThrow(getClient().getFundingWallet(new FundingWalletParams(asset)));
 	}
 
 	@Test
 	void testgetFundingWallet3() throws ApiException {
-		testNotThrow(client.getFundingWallet(new FundingWalletParams(asset, true)));
+		testNotThrow(getClient().getFundingWallet(new FundingWalletParams(asset, true)));
 	}
 
 	@Test
 	void testGetFuturesAccountSnapshot() throws ApiException {
-		testNotThrow(client.getFuturesAccountSnapshot());
+		testNotThrow(getClient().getFuturesAccountSnapshot());
 	}
 
 	@Test
 	void testGetFuturesAccountSnapshot2() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getFuturesAccountSnapshot(new TimeFrame(limit)));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getFuturesAccountSnapshot(new TimeFrame(limit)));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetMarginAccountSnapshot() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		MarginAccountSnapshotResponse res = client.getMarginAccountSnapshot(new TimeFrame(limit)).sync();
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		MarginAccountSnapshotResponse res = getClient().getMarginAccountSnapshot(new TimeFrame(limit)).sync();
 		assertDoesNotThrow(() -> assertTrue(getNullProperties(res, true).contains("marginLevel")));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetSpotAccountSnapshot() throws ApiException {
-		testNotThrow(client.getSpotAccountSnapshot());
+		testNotThrow(getClient().getSpotAccountSnapshot());
 	}
 
 	@Test
 	void testGetSpotAccountSnapshot2() throws ApiException {
-		testNotThrow(client.getSpotAccountSnapshot(new TimeFrame(limit)));
+		testNotThrow(getClient().getSpotAccountSnapshot(new TimeFrame(limit)));
 	}
 
 	@Test
 	void testGetSystemStatus() throws ApiException {
-		testNotThrow(client.getSystemStatus());
+		testNotThrow(getClient().getSystemStatus());
 	}
 
 	@Test
 	void testGetTradeFee() throws ApiException {
-		testNotThrow(client.getTradeFee());
+		testNotThrow(getClient().getTradeFee());
 	}
 
 	@Test
 	void testGetTradeFee2() throws ApiException {
-		testNotThrow(client.getTradeFee(new TradeFeeParams("BNBBTC")));
+		testNotThrow(getClient().getTradeFee(new TradeFeeParams("BNBBTC")));
 	}
 
 	@Test
 	void testGetTransferHistory() throws ApiException {
-		testNotThrow(client.getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
+		testNotThrow(getClient().getTransferHistory(new WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)));
 	}
 
 	@Test
@@ -217,17 +218,17 @@ public class WalletClientTest extends CustomTest {
 
 	@Test
 	void testGetWithdrawHistory() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getWithdrawHistory());
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getWithdrawHistory());
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetWithdrawHistory2() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		WithdrawStatus status = WithdrawStatus.COMPLETED;
-		testNotThrow(client.getWithdrawHistory(new WithdrawHistoryParams("FTM", status)));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		testNotThrow(getClient().getWithdrawHistory(new WithdrawHistoryParams("FTM", status)));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 
 	}
 
@@ -238,6 +239,6 @@ public class WalletClientTest extends CustomTest {
 
 	// @Test
 	void testWithdraw() throws ApiException {
-		testNotThrow(client.withdraw(new WithdrawParams("amount", "coin", "address")));
+		testNotThrow(getClient().withdraw(new WithdrawParams("amount", "coin", "address")));
 	}
 }

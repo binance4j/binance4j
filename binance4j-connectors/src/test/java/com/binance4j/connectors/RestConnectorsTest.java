@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
 
@@ -102,5 +103,11 @@ public class RestConnectorsTest extends CustomTest {
 		connectors.rest().updateKeys("foo", "bar");
 		assertEquals(connectors.rest().getKey(), connectors.rest().blvt().getKey());
 		assertEquals(connectors.rest().getSecret(), connectors.rest().blvt().getSecret());
+	}
+
+	@Override
+	protected RestClient<?> getClient() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

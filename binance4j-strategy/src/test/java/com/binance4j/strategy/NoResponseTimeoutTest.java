@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.LiveTradingCallback;
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
@@ -22,5 +23,10 @@ class NoResponseTimeoutTest extends CustomTest {
 		callback.setService(service);
 		service.watch("BNBBTC", CandlestickInterval.ONE_MINUTE);
 		future.get();
+	}
+
+	@Override
+	protected RestClient<?> getClient() {
+		return null;
 	}
 }

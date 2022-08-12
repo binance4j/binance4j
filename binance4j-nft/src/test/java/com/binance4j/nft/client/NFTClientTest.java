@@ -8,57 +8,57 @@ import com.binance4j.core.param.Paging;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.nft.dto.OrderType;
 import com.binance4j.nft.param.TransactionHistoryParams;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 
 public class NFTClientTest extends CustomTest {
 	int page = 1;
 	NFTClient client = new NFTClient(key, secret);
 
-	public NFTClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected NFTClient getClient() {
+		return client;
 	}
 
 	@Test
 	void testGetAssets() throws ApiException {
-		testNotThrow(client.getAssets());
+		testNotThrow(getClient().getAssets());
 	}
 
 	@Test
 	void testGetAssets2() throws ApiException {
-		testNotThrow(client.getAssets(new Paging(1)));
+		testNotThrow(getClient().getAssets(new Paging(1)));
 	}
 
 	@Test
 	void testGetDeposits() throws ApiException {
-		testNotThrow(client.getDeposits());
+		testNotThrow(getClient().getDeposits());
 	}
 
 	@Test
 	void testGetDeposits2() throws ApiException {
-		testNotThrow(client.getDeposits(new FramedPaging(page)));
+		testNotThrow(getClient().getDeposits(new FramedPaging(page)));
 	}
 
 	@Test
 	void testGetTransactions() throws ApiException {
 		for (var o : OrderType.values()) {
-			testNotThrow(client.getTransactions(new TransactionHistoryParams(o)));
+			testNotThrow(getClient().getTransactions(new TransactionHistoryParams(o)));
 		}
 	}
 
 	@Test
 	void testGetTransactions2() throws ApiException {
 		testNotThrow(
-				client.getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER), new FramedPaging(page)));
+				getClient().getTransactions(new TransactionHistoryParams(OrderType.SELL_ORDER),
+						new FramedPaging(page)));
 	}
 
 	@Test
 	void testGetWithdraws() throws ApiException {
-		testNotThrow(client.getWithdraws());
+		testNotThrow(getClient().getWithdraws());
 	}
 
 	@Test
 	void testGetWithdraws2() throws ApiException {
-		testNotThrow(client.getWithdraws(new FramedPaging(1)));
+		testNotThrow(getClient().getWithdraws(new FramedPaging(1)));
 	}
 }

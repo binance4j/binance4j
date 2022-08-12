@@ -34,31 +34,31 @@ public class MiningClientTest extends CustomTest {
 	MiningClient client = new MiningClient(key, secret);
 	Paging paging = new Paging(1, limit);
 
-	public MiningClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected MiningClient getClient() {
+		return client;
 	}
 
 	@Test
 	void testGetAccounts() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getAccounts(new AccountListParams(algo, userName)), List.of("list", "userName"), true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testHasNulls(getClient().getAccounts(new AccountListParams(algo, userName)), List.of("list", "userName"), true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetAlgorithms() throws ApiException {
-		testNotThrow(client.getAlgorithms());
+		testNotThrow(getClient().getAlgorithms());
 	}
 
 	@Test
 	void testGetCoins() throws ApiException {
-		testNotThrow(client.getCoins());
+		testNotThrow(getClient().getCoins());
 	}
 
 	@Test
 	void testGetStatistics() throws ApiException {
-		testNotThrow(client.getStatistics(new StatisticsParams(algo, userName)));
+		testNotThrow(getClient().getStatistics(new StatisticsParams(algo, userName)));
 	}
 
 	// NOT TESTED SINCE I DON'T MINE
@@ -72,57 +72,58 @@ public class MiningClientTest extends CustomTest {
 	// TODO @Test
 	void testCancelHashrateResaleConfiguration() throws ApiException {
 		testNotThrow(
-				client.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
+				getClient()
+						.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)));
 	}
 
 	// TODO @Test
 	void testGetAccountProfits() throws ApiException {
-		testNotThrow(client.getAccountProfits(new AccountProfitsParams(algo, userName)));
+		testNotThrow(getClient().getAccountProfits(new AccountProfitsParams(algo, userName)));
 	}
 
 	// TODO @Test
 	void testGetAccountProfitsFramed() throws ApiException {
-		testNotThrow(client.getAccountProfits(new AccountProfitsParams(algo, userName), framedPaging));
+		testNotThrow(getClient().getAccountProfits(new AccountProfitsParams(algo, userName), framedPaging));
 	}
 
 	// TODO @Test
 	void testGetHashrateResales() throws ApiException {
-		testNotThrow(client.getHashrateResales());
+		testNotThrow(getClient().getHashrateResales());
 	}
 
 	// TODO @Test
 	void testGetHashrateResales2() throws ApiException {
-		testNotThrow(client.getHashrateResales(paging));
+		testNotThrow(getClient().getHashrateResales(paging));
 	}
 
 	// TODO @Test
 	void testGetHashrateResalesDetails() throws ApiException {
-		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName)));
+		testNotThrow(getClient().getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName)));
 	}
 
 	// TODO @Test
 	void testGetHashrateResalesDetails2() throws ApiException {
-		testNotThrow(client.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), paging));
+		testNotThrow(getClient().getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), paging));
 	}
 
 	// TODO @Test
 	void testGetMiners() throws ApiException {
-		testNotThrow(client.getMiners(new MinersParams(algo, userName)));
+		testNotThrow(getClient().getMiners(new MinersParams(algo, userName)));
 	}
 
 	// TODO @Test
 	void testGetMinersDetails() throws ApiException {
-		testNotThrow(client.getMinersDetails(new MinerDetailsParams(algo, userName, workerName)));
+		testNotThrow(getClient().getMinersDetails(new MinerDetailsParams(algo, userName, workerName)));
 	}
 
 	// TODO @Test
 	void testGetOtherProfits() throws ApiException {
-		testNotThrow(client.getOtherProfits(new ProfitsParams(algo, userName), framedPaging));
+		testNotThrow(getClient().getOtherProfits(new ProfitsParams(algo, userName), framedPaging));
 	}
 
 	// TODO @Test
 	void testGetProfits() throws ApiException {
-		testNotThrow(client.getProfits(new ProfitsParams(algo, userName), framedPaging));
+		testNotThrow(getClient().getProfits(new ProfitsParams(algo, userName), framedPaging));
 	}
 
 }

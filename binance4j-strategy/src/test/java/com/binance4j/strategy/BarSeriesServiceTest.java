@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
 
+import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -67,5 +68,10 @@ public class BarSeriesServiceTest extends CustomTest {
 			assertEquals(bar1.getVolume().toString(), bar2.volume());
 			testNoNulls(bar2);
 		}
+	}
+
+	@Override
+	protected RestClient<?> getClient() {
+		return null;
 	}
 }

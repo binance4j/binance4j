@@ -23,99 +23,99 @@ import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickerStatisticsParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 
 public class MarketClientTest extends CustomTest {
-	protected MarketClient client = new MarketClient(key, secret);
+	MarketClient client = new MarketClient(key, secret);
 
-	public MarketClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected MarketClient getClient() {
+		return client;
 	}
 
 	@Test
 	void testGet24hTickerStatistics() throws ApiException {
-		testNotThrow(client.get24hTickerStatistics());
+		testNotThrow(getClient().get24hTickerStatistics());
 	}
 
 	@Test
 	void testGet24hTickerStatistics2() throws ApiException {
-		testNotThrow(client.get24hTickerStatistics(new TickerStatisticsParams(symbol)));
+		testNotThrow(getClient().get24hTickerStatistics(new TickerStatisticsParams(symbol)));
 	}
 
 	@Test
 	void testGet24hTickerStatistics3() throws ApiException {
-		testNotThrow(client.get24hTickerStatistics(new TickersStatisticsParams(symbols)));
+		testNotThrow(getClient().get24hTickerStatistics(new TickersStatisticsParams(symbols)));
 	}
 
 	@Test
 	void testGetAggTrades() throws ApiException {
-		testNotThrow(client.getAggTrades(new AggTradeParams(symbol)));
+		testNotThrow(getClient().getAggTrades(new AggTradeParams(symbol)));
 	}
 
 	@Test
 	void testGetAggTrades2() throws ApiException {
-		testNotThrow(client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(limit)));
+		testNotThrow(getClient().getAggTrades(new AggTradeParams(symbol), new TimeFrame(limit)));
 	}
 
 	@Test
 	void testGetAggTrades3() throws ApiException {
-		testNotThrow(client.getAggTrades(new AggTradeParams(symbol), new TimeFrame(1640991600000L, 1640994900000L)));
+		testNotThrow(
+				getClient().getAggTrades(new AggTradeParams(symbol), new TimeFrame(1640991600000L, 1640994900000L)));
 	}
 
 	@Test
 	void testGetAggTrades4() throws ApiException {
-		testNotThrow(client.getAggTrades(new AggTradeParams(symbol, 244397449L)));
+		testNotThrow(getClient().getAggTrades(new AggTradeParams(symbol, 244397449L)));
 	}
 
 	@Test
 	void testGetAveragePrice() throws ApiException {
-		testNotThrow(client.getAveragePrice(new AveragePriceParams(symbol)));
+		testNotThrow(getClient().getAveragePrice(new AveragePriceParams(symbol)));
 	}
 
 	@Test
 	void testGetBookTicker() throws ApiException {
-		testNotThrow(client.getBookTicker());
+		testNotThrow(getClient().getBookTicker());
 	}
 
 	@Test
 	void testGetBookTicker2() throws ApiException {
-		testNotThrow(client.getBookTicker(new BookTickerParams(symbol)));
+		testNotThrow(getClient().getBookTicker(new BookTickerParams(symbol)));
 	}
 
 	@Test
 	void testGetBookTicker3() throws ApiException {
-		testNotThrow(client.getBookTicker(new BookTickersParams(symbols)));
+		testNotThrow(getClient().getBookTicker(new BookTickersParams(symbols)));
 	}
 
 	@Test
 	void testGetExchangeInfo() throws ApiException {
-		testNotThrow(client.getExchangeInfo());
+		testNotThrow(getClient().getExchangeInfo());
 	}
 
 	@Test
 	void testGetExchangeInfo2() throws ApiException {
-		testNotThrow(client.getExchangeInfo(new ExchangeInfoParams(symbol)));
+		testNotThrow(getClient().getExchangeInfo(new ExchangeInfoParams(symbol)));
 	}
 
 	@Test
 	void testGetHistoricalTrades() throws ApiException {
-		testNotThrow(client.getHistoricalTrades(new HistoricalTradesParams(symbol)));
+		testNotThrow(getClient().getHistoricalTrades(new HistoricalTradesParams(symbol)));
 	}
 
 	@Test
 	void testGetHistoricalTrades2() throws ApiException {
-		testNotThrow(client.getHistoricalTrades(new HistoricalTradesParams(symbol, limit)));
+		testNotThrow(getClient().getHistoricalTrades(new HistoricalTradesParams(symbol, limit)));
 	}
 
 	@Test
 	void testGetHistoricalTrades3() throws ApiException {
-		testNotThrow(client.getHistoricalTrades(new HistoricalTradesParams(symbol, 186647289L)));
+		testNotThrow(getClient().getHistoricalTrades(new HistoricalTradesParams(symbol, 186647289L)));
 	}
 
 	@Test
 	void testGetHistoricalTrades4() throws ApiException {
-		testNotThrow(client.getHistoricalTrades(new HistoricalTradesParams(symbol, limit, 186647289L)));
+		testNotThrow(getClient().getHistoricalTrades(new HistoricalTradesParams(symbol, limit, 186647289L)));
 	}
 
 	@Test
@@ -124,57 +124,57 @@ public class MarketClientTest extends CustomTest {
 		intervals.remove(CandlestickInterval.MONTHLY_VISION);
 		for (CandlestickInterval interval : intervals) {
 			KlinesParams params = new KlinesParams(symbol, interval);
-			testNotThrow(client.getKlines(params));
+			testNotThrow(getClient().getKlines(params));
 		}
 	}
 
 	@Test
 	void testGetKlines2() throws ApiException {
-		testNotThrow(client.getKlines(new KlinesParams(symbol, CandlestickInterval.HOURLY), new TimeFrame(limit)));
+		testNotThrow(getClient().getKlines(new KlinesParams(symbol, CandlestickInterval.HOURLY), new TimeFrame(limit)));
 	}
 
 	@Test
 	void testGetOrderBook() throws ApiException {
-		testNotThrow(client.getOrderBook(new OrderBookParams(symbol)));
+		testNotThrow(getClient().getOrderBook(new OrderBookParams(symbol)));
 	}
 
 	@Test
 	void testGetOrderBook2() throws ApiException {
-		testNotThrow(client.getOrderBook(new OrderBookParams(symbol, OrderBookLimit.LIMIT_10)));
+		testNotThrow(getClient().getOrderBook(new OrderBookParams(symbol, OrderBookLimit.LIMIT_10)));
 	}
 
 	@Test
 	void testGetServerTime() throws ApiException {
-		testNotThrow(client.getServerTime());
+		testNotThrow(getClient().getServerTime());
 	}
 
 	@Test
 	void testGetTicker() throws ApiException {
-		testNotThrow(client.getTicker());
+		testNotThrow(getClient().getTicker());
 	}
 
 	@Test
 	void testGetTicker2() throws ApiException {
-		testNotThrow(client.getTicker(new PriceTickerParams(symbol)));
+		testNotThrow(getClient().getTicker(new PriceTickerParams(symbol)));
 	}
 
 	@Test
 	void testGetTicker3() throws ApiException {
-		testNotThrow(client.getTicker(new PriceTickersParams(symbols)));
+		testNotThrow(getClient().getTicker(new PriceTickersParams(symbols)));
 	}
 
 	@Test
 	void testGetTrades() throws ApiException {
-		testNotThrow(client.getTrades(new TradesParams(symbol)));
+		testNotThrow(getClient().getTrades(new TradesParams(symbol)));
 	}
 
 	@Test
 	void testGetTrades2() throws ApiException {
-		testNotThrow(client.getTrades(new TradesParams(symbol, limit)));
+		testNotThrow(getClient().getTrades(new TradesParams(symbol, limit)));
 	}
 
 	@Test
 	void testPing() throws ApiException {
-		testNotThrow(client.ping());
+		testNotThrow(getClient().ping());
 	}
 }

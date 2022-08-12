@@ -46,99 +46,99 @@ public class TestnetSpotClientTest extends CustomTest {
 	String ocoSymbol = "BTCUSDT";
 	long orderListId;
 
-	public TestnetSpotClientTest() {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Override
+	protected SpotClient getClient() {
+		return client;
 	}
 
 	@Test
 	@Order(0)
 	void testNewOrderTest() throws ApiException {
-		assertDoesNotThrow(() -> client.newOrderTest(MarketOrder.buy(symbol, "1")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(MarketOrder.sell(symbol, "1")).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(MarketOrder.buy(symbol, "1")).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(MarketOrder.sell(symbol, "1")).sync());
 
-		assertDoesNotThrow(() -> client.newOrderTest(MarketQuoteOrder.buy(symbol, "25000")).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(MarketQuoteOrder.sell(symbol, "25000")).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(MarketQuoteOrder.buy(symbol, "25000")).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(MarketQuoteOrder.sell(symbol, "25000")).sync());
 
-		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.buy(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.sell(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitOrder.buy(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitOrder.sell(symbol, "1", price)).sync());
 
-		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.buy(symbol, "1", price, TimeInForce.FOK)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(LimitOrder.sell(symbol, "1", price, TimeInForce.FOK)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitOrder.buy(symbol, "1", price, TimeInForce.FOK)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitOrder.sell(symbol, "1", price, TimeInForce.FOK)).sync());
 
-		assertDoesNotThrow(() -> client.newOrderTest(LimitMakerOrder.buy(symbol, "1", price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(LimitMakerOrder.sell(symbol, "1", price)).sync());
-
-		// NOT SUPPORTED assertDoesNotThrow(() ->
-		// client.newOrderTest(StopLossOrder.buy(symbol, "1", price)).sync());
-		// NOT SUPPORTED assertDoesNotThrow(() ->
-		// client.newOrderTest(StopLossOrder.sell(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitMakerOrder.buy(symbol, "1", price)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(LimitMakerOrder.sell(symbol, "1", price)).sync());
 
 		// NOT SUPPORTED assertDoesNotThrow(() ->
-		// client.newOrderTest(TakeProfitOrder.buy(symbol, "1", price)).sync());
+		// getClient().newOrderTest(StopLossOrder.buy(symbol, "1", price)).sync());
 		// NOT SUPPORTED assertDoesNotThrow(() ->
-		// client.newOrderTest(TakeProfitOrder.sell(symbol, "1", price)).sync());
+		// getClient().newOrderTest(StopLossOrder.sell(symbol, "1", price)).sync());
 
-		assertDoesNotThrow(() -> client.newOrderTest(TakeProfitLimitOrder.buy(symbol, "1", price, price)).sync());
-		assertDoesNotThrow(() -> client.newOrderTest(TakeProfitLimitOrder.sell(symbol, "1", price, price)).sync());
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// getClient().newOrderTest(TakeProfitOrder.buy(symbol, "1", price)).sync());
+		// NOT SUPPORTED assertDoesNotThrow(() ->
+		// getClient().newOrderTest(TakeProfitOrder.sell(symbol, "1", price)).sync());
+
+		assertDoesNotThrow(() -> getClient().newOrderTest(TakeProfitLimitOrder.buy(symbol, "1", price, price)).sync());
+		assertDoesNotThrow(() -> getClient().newOrderTest(TakeProfitLimitOrder.sell(symbol, "1", price, price)).sync());
 	}
 
 	@Test
 	@Order(1)
 	void testNewOrderMarket() throws ApiException {
 		// buy market
-		testNotThrow(client.newOrder(MarketOrder.buy(symbol, quantity)));
+		testNotThrow(getClient().newOrder(MarketOrder.buy(symbol, quantity)));
 		// Sell market
-		testNotThrow(client.newOrder(MarketOrder.sell(symbol, quantity)));
+		testNotThrow(getClient().newOrder(MarketOrder.sell(symbol, quantity)));
 	}
 
 	@Test
 	@Order(2)
 	void testNewOrderBuyLimit() throws ApiException {
 		// buy limit
-		testNotThrow(client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
+		testNotThrow(getClient().newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
 	}
 
 	@Test
 	@Order(3)
 	void testCancelOpenOrders() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		// cancel orders
-		testNotThrow(client.cancelOpenOrders(new CancelOpenOrdersParams(symbol)));
-		var orders = client.getOpenOrders().sync();
+		testNotThrow(getClient().cancelOpenOrders(new CancelOpenOrdersParams(symbol)));
+		var orders = getClient().getOpenOrders().sync();
 		assertEquals(orders.size(), 0);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	@Order(4)
 	void testGetOpenOrders() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getOpenOrders());
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getOpenOrders());
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	@Order(5)
 	void testGetOrderStatus() throws ApiException {
 		// buy
-		var buyOrder = client.newOrder(MarketOrder.buy(symbol, quantity)).sync();
+		var buyOrder = getClient().newOrder(MarketOrder.buy(symbol, quantity)).sync();
 		// get order status
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getOrderStatus(new OrderStatusParams(symbol, buyOrder.orderId())));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 		// Sell
-		client.newOrder(MarketOrder.sell(symbol, buyOrder.executedQty())).sync();
+		getClient().newOrder(MarketOrder.sell(symbol, buyOrder.executedQty())).sync();
 	}
 
 	@Test
 	@Order(6)
 	void testCancelOrder() throws ApiException {
 		// buy limit
-		var buyOrder = client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")).sync();
+		var buyOrder = getClient().newOrder(LimitOrder.buy(symbol, quantity, "0.011160")).sync();
 		assertTrue(buyOrder.side().equals("BUY"));
-		testNoNulls(client.newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
-		var cancellation = client.cancelOrder(new CancelOrderParams(symbol, buyOrder.orderId()));
+		testNoNulls(getClient().newOrder(LimitOrder.buy(symbol, quantity, "0.011160")));
+		var cancellation = getClient().cancelOrder(new CancelOrderParams(symbol, buyOrder.orderId()));
 		testNotThrow(cancellation);
 		orderId = buyOrder.orderId();
 	}
@@ -146,63 +146,63 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Test
 	@Order(7)
 	void testGetOrderCount() throws ApiException {
-		testNotThrow(client.getOrderCount());
+		testNotThrow(getClient().getOrderCount());
 	}
 
 	@Test
 	@Order(8)
 	void testGetAccount() throws ApiException {
-		testNotThrow(client.getAccount());
+		testNotThrow(getClient().getAccount());
 	}
 
 	@Test
 	@Order(9)
 	void testGetAllOrders() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getAllOrders(new AllOrdersParams(symbol)), List.of("accountId"), true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testHasNulls(getClient().getAllOrders(new AllOrdersParams(symbol)), List.of("accountId"), true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	@Order(10)
 	void testGetAllOrders2() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(client.getAllOrders(new AllOrdersParams(symbol, orderId)), List.of("accountId"), true);
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testHasNulls(getClient().getAllOrders(new AllOrdersParams(symbol, orderId)), List.of("accountId"), true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	@Order(11)
 	void testGetTrades() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getTrades(new TradesParams(orderId, symbol)));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(getClient().getTrades(new TradesParams(orderId, symbol)));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	// @Test OK works!
 	// @Order(12)
 	void testNewOCOAndGetOCO() throws ApiException {
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 		var oco = new NewOCOOrderParams(ocoSymbol, OrderSide.BUY, ocoQuantity, ocoPrice, ocoStopPrice, ocoStopPrice,
 				TimeInForce.GTC);
 
-		var res = client.newOCO(oco).sync();
+		var res = getClient().newOCO(oco).sync();
 		orderListId = res.orderListId();
 		testHasNulls(res, List.of("orderReports[1].stopPrice"), false);
-		testNotThrow(client.getOCO(new OCOInfoParams(res.orderListId())));
-		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		testNotThrow(getClient().getOCO(new OCOInfoParams(res.orderListId())));
+		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	// @Test OK works!
 	// @Order(14)
 	void testCancelOpenOCO() throws ApiException {
-		client.getOpenOCO().sync().forEach(oo -> {
+		getClient().getOpenOCO().sync().forEach(oo -> {
 			testNoNulls(oo);
 			try {
-				var resp = client.cancelOCO(new CancelOCOParams(oo.symbol(), oo.orderListId())).sync();
-				client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+				var resp = getClient().cancelOCO(new CancelOCOParams(oo.symbol(), oo.orderListId())).sync();
+				getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
 				testHasNulls(resp, List.of("orderReports[1].stopPrice"), false);
-				client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+				getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 			} catch (ApiException e) {
 				e.printStackTrace();
 			}
@@ -212,24 +212,24 @@ public class TestnetSpotClientTest extends CustomTest {
 	@Test
 	@Order(15)
 	void testGetAllOCO() throws ApiException {
-		testNotThrow(client.getAllOCO());
+		testNotThrow(getClient().getAllOCO());
 	}
 
 	@Test
 	@Order(16)
 	void testGetAllOCO2() throws ApiException {
-		testNotThrow(client.getAllOCO(new AllOCOInfoParams(orderId)));
+		testNotThrow(getClient().getAllOCO(new AllOCOInfoParams(orderId)));
 	}
 
 	@Test
 	@Order(17)
 	void testGetAllOCO3() throws ApiException {
-		testNotThrow(client.getAllOCO(new AllOCOInfoParams(orderId), new TimeFrame(limit)));
+		testNotThrow(getClient().getAllOCO(new AllOCOInfoParams(orderId), new TimeFrame(limit)));
 	}
 
 	@Test
 	@Order(18)
 	void testGetAllOCO4() throws ApiException {
-		testNotThrow(client.getAllOCO(new TimeFrame(limit)));
+		testNotThrow(getClient().getAllOCO(new TimeFrame(limit)));
 	}
 }
