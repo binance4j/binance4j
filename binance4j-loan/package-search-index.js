@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.binance4j.loan.client"},{"l":"com.binance4j.loan.dto"},{"l":"com.binance4j.loan.param"},{"l":"com.binance4j.loan.request"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.binance4j.loan.client"},{"l":"com.binance4j.loan.dto"},{"l":"com.binance4j.loan.param"}];updateSearchResults();

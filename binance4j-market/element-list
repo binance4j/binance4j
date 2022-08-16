@@ -1,5 +1,4 @@
 com.binance4j.market.client
 com.binance4j.market.dto
 com.binance4j.market.param
-com.binance4j.market.request
 com.binance4j.market.serialization
