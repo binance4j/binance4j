@@ -5,6 +5,13 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2022-08-16
+
+### Added
+
+- all :
+  - API calls are now rate limited by default.
+
 ## [2.2.0] - 2022-08-11
 
 ### Added
