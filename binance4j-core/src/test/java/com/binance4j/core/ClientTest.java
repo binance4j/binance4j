@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.client.TestClient;
+import com.binance4j.core.exception.ApiException;
 
 public class ClientTest {
 	@Test
@@ -55,4 +56,28 @@ public class ClientTest {
 
 		future.get();
 	}
+
+	@Test
+	void testHeaders() {
+		TestClient client = new TestClient();
+		var req = client.ping();
+
+		assertNotNull(req.getMethod());
+		assertNotNull(req.getPath());
+		assertNotNull(req.getRateLimit());
+		assertNotNull(req.getWeight());
+		assertNotNull(req.isOrder());
+		assertNull(req.getSignature());
+	}
+
+	@Test
+	void testRateLimiting() throws InterruptedException, ExecutionException, ApiException {
+		TestClient client = new TestClient();
+
+		for (int i = 0; i <= 10; i++) {
+			client.ping().sync();
+		}
+
+	}
+
 }

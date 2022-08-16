@@ -17,7 +17,7 @@ public class ExchangeInfoClientTest extends CustomTest {
 
 	@Test
 	void testGetExchangeInfo() throws ApiException {
-		var data = client.getExchangeInfo().sync();
+		var data = client.getRateLimits().sync();
 		System.out.println(data);
 	}
 }

@@ -1,0 +1,113 @@
+---
+title: BLVT
+---
+
+import ArtifactInstall from "../partials/_ArtifactInstall.mdx";
+import RepoBadges from "../partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="blvt" />
+
+## Installation
+
+<ArtifactInstall repo="blvt" />
+
+## Client instantiation
+
+```java
+BLVTClient client = new BLVTClient(key, secret);
+```
+
+## Features
+
+### Get token info
+
+<Examples
+    payload="List<Token>"
+    method="getTokenInfo"
+    items={[
+        {
+            label: "All tokens",
+        },
+        {
+            label: "One token",
+            params: "new TokenInfoParams(tokenName)",
+        },
+    ]}
+/>
+
+### Get subscriptions
+
+<Examples
+    payload="SubscriptionResponse"
+    method="getSubscriptions"
+    items={[
+        { label: "All tokens" },
+        {
+            label: "Specific token",
+            params: "new TransactionRecordParams(tokenName)",
+        },
+        {
+            label: "Framed results",
+            params: "new TransactionRecordParams(tokenName), new TimeFrame(startTime,endTime,limit)",
+        },
+    ]}
+/>
+
+### Get redemptions
+
+<Examples
+    payload="List<Redemption>"
+    method="getRedemptions"
+    items={[
+        { label: "All tokens" },
+        {
+            label: "Specific token",
+            params: "new TransactionRecordParams(tokenName, subscriptionId)",
+        },
+        {
+            label: "Framed results",
+            params: "new TransactionRecordParams(tokenName, subscriptionId,new TimeFrame(startTime, endTime, limit))",
+        },
+    ]}
+/>
+
+### Get user limit info
+
+<Examples
+    payload="List<LimitInfo>"
+    method="getLimitInfo"
+    items={[
+        { label: "All tokens" },
+        {
+            label: "One token",
+            params: "new LimitInfoParams(tokenName)",
+        },
+    ]}
+/>
+
+### Redeem
+
+<Examples
+    payload="RedemptionResponse"
+    method="redeem"
+    items={[
+        {
+            label: "Default",
+            params: "new RedemptionParams(tokenName, amount)",
+        },
+    ]}
+/>
+
+### Subscribe
+
+<Examples
+    payload="SubscriptionResponse"
+    method="subscribe"
+    items={[
+        {
+            label: "Default",
+            params: "new SubscriptionParams(tokenName, cost)",
+        },
+    ]}
+/>

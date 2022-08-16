@@ -1,0 +1,106 @@
+---
+title: Connectors
+id: connectors
+---
+
+import ArtifactInstall from "../partials/_ArtifactInstall.mdx";
+import RepoBadges from "../partials/_RepoBadges.mdx";
+import Link from "@docusaurus/Link";
+
+<RepoBadges artifact="connectors" />
+
+## Description
+
+All REST and Websocket connectors in one place.
+
+## Installation
+
+<ArtifactInstall repo="connectors" />
+
+## Instantiation
+
+The `Conectors` class is the entry point of every client. It receives the API keys at instantiation.
+
+```java
+Connectors connectors = new Connectors(key, secret);
+```
+
+## REST connectors
+
+### Calling a client
+
+Clients are singletons and are lazy loaded, meaning it will be instantiated on demand and will then always return the same instance of the client.
+
+```java
+// First call, the client is instantiated.
+connectors.rest().market().getServerTime().sync();
+// Second call, the same instance is returned.
+connectors.rest().market().getBookTicker().sync();
+```
+
+### Updating the API keys
+
+Every time you call a client, it will check if its keys are equal to the container keys and update them if not. This feature is useful if you manage multiple API keys.
+
+```java
+//Updating keys in the container
+connectors.rest().updateKeys(key,secret);
+
+//keys have changed, they are updated in the client when it is called
+connectors.rest().spot();
+
+//keys haven't changed, nothing happens
+connectors.rest().spot();
+```
+
+## Websocket connectors
+
+Like REST clients, Websoket clients are Singletons.
+
+### Clients watching specific symbols
+
+Every instance will be attached to it's symbol(s).
+
+```java
+// First call, the client is instantiated.
+connectors.ws().bookTicker("BNBBTC,BTCBUSD,CAKEBUSD", callback).open();
+
+// To get the client, call it by its symbol. Every client is wrapped by an Optional object.
+Optional<WebsocketBookTickerClient> client = connectors.ws().bookTicker("BNBBTC,BTCBUSD,CAKEBUSD");
+
+//Check if client is not null and close it
+if(client.isPresent()){
+    client.get().close();
+}
+```
+
+:::note
+Read more about Websocket client <Link to="/docs/endpoints/websocket#event-callback">Callbacks</Link>
+:::
+
+:::caution
+Defining a new client on the same symbols will overwrite the previous one.
+:::
+
+### Clients watching all symbols
+
+Clients watching all symbols are called without argument:
+
+```java
+connectors.ws().allBookTickers(callback).open();
+
+connectors.ws().allBookTickers().get();
+```
+
+### User data client
+
+User data client is linked by its ListenKey:
+
+```java
+WebsocketUserDataClient client = connectors.ws().user(callback);
+String key = client.getListenKey();
+
+client.open();
+
+connectors.ws().user(key).get();
+```

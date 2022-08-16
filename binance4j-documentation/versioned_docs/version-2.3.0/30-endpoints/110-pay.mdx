@@ -1,0 +1,37 @@
+---
+title: Pay
+---
+
+import ArtifactInstall from "../partials/_ArtifactInstall.mdx";
+import RepoBadges from "../partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="pay" />
+
+## Installation
+
+<ArtifactInstall repo="pay" />
+
+## Client instantiation
+
+```java
+PayClient client = new PayClient(key, secret);
+```
+
+## Features
+
+### Get pay trades
+
+<Examples
+    payload="TradeHistory"
+    method="getTrades"
+    items={[
+        {
+            label: "Default",
+        },
+        {
+            label: "Framed",
+            params: "new TimeFrame(startTime, endTime, 10)",
+        },
+    ]}
+/>

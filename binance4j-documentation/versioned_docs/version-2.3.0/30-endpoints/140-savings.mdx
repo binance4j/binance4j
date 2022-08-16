@@ -1,0 +1,224 @@
+---
+title: Savings
+---
+
+import ArtifactInstall from "../partials/_ArtifactInstall.mdx";
+import RepoBadges from "../partials/_RepoBadges.mdx";
+import Examples from "@site/src/components/v2/ApiExamples";
+
+<RepoBadges artifact="savings" />
+
+## Installation
+
+<ArtifactInstall repo="savings" />
+
+## Client instantiation
+
+```java
+SavingsClient client = new SavingsClient(key, secret);
+```
+
+## Features
+
+### Get flexible product list.
+
+<Examples
+    payload="FlexibleProduct"
+    method="getFlexibleProducts"
+    items={[
+        {},
+        {
+            label: "With status",
+            params: "new FlexibleProductsParams(FlexibleProductStatus.SUBSCRIBABLE)",
+        },
+        {
+            label: "Featured",
+            params: "new FlexibleProductsParams(FlexibleProductStatus.SUBSCRIBABLE,Featured.TRUE)",
+        },
+        {
+            label: "Paginated",
+            params: "new Paging(page, limit)",
+        },
+    ]}
+/>
+
+### Get left daily purchase quota of flexible product
+
+<Examples
+    payload="PurchaseQuota"
+    method="getLeftDailyFlexiblePurchaseQuota"
+    items={[
+        {
+            label: "Default",
+            params: "new PurchaseQuotaParams(productId)",
+        },
+    ]}
+/>
+
+### Get Left Daily Redemption Quota of Flexible Product
+
+<Examples
+    payload="RedemptionQuota"
+    method="getLeftDailyRedemptionQuota"
+    items={[
+        {
+            label: "Default",
+            params: "new RedemptionQuotaParams(productId, ProductType.FAST)",
+        },
+    ]}
+/>
+
+### Purchase Flexible Product
+
+<Examples
+    payload="PurchaseResponse"
+    method="purchaseFlexible"
+    items={[
+        {
+            label: "Default",
+            params: "new FlexiblePurchaseParams(productId, amount)",
+        },
+    ]}
+/>
+
+### Redeem Flexible Product
+
+<Examples
+    payload="Void"
+    method="redeemFlexible"
+    items={[
+        {
+            label: "Default",
+            params: "new RedemptionParams(productId, amount, type)",
+        },
+    ]}
+/>
+
+### Get flexible product position
+
+<Examples
+    payload="List<FlexibleProductPosition>"
+    method="getFlexibleProductPosition"
+    items={[
+        {},
+        {
+            label: "Specific asset",
+            params: "new FlexibleProductPositionParams(asset)",
+        },
+    ]}
+/>
+
+### Get fixed and activity project list
+
+<Examples
+    payload="List<FixedProject>"
+    method="getFixedProjects"
+    items={[
+        {
+            label: "Default",
+            params: "new FixedProjectListParams(type, asset, status)",
+        },
+        {
+            label: "Paginated",
+            params: "new FixedProjectListParams(type, asset, status), new Paging(page, limit)",
+        },
+        {
+            label: "Sorted",
+            params: "new FixedProjectListParams(type, asset, status), new Sorting(FixedProjectSorting.LOT_SIZE, isSortAsc)",
+        },
+    ]}
+/>
+
+### Purchase fixed project
+
+<Examples
+    payload="PurchaseResponse"
+    method="purchaseFixed"
+    items={[
+        {
+            label: "Default",
+            params: "new FixedPurchaseParams(productId, lot)",
+        },
+    ]}
+/>
+
+### Get fixed/activity project position
+
+<Examples
+    payload="List<FixedProjectPosition>"
+    method="getFixedProjectPosition"
+    items={[
+        {
+            label: "Default",
+            params: "new FixedProjectPositionParams(asset, projectId, status)",
+        },
+    ]}
+/>
+
+### Get lending account
+
+<Examples payload="LendingAccount" method="getAccount" items={[{}]} />
+
+### Get purchase record
+
+<Examples
+    payload="List<Purchase>"
+    method="getPurchases"
+    items={[
+        {
+            label: "Default",
+            params: "new LendingParams(LendingType.DAILY, asset)",
+        },
+        {
+            label: "Framed",
+            params: "new LendingParams(LendingType.DAILY, asset), new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get redemption record
+
+<Examples
+    payload="List<Redemption>"
+    method="getRedemptions"
+    items={[
+        {
+            label: "Default",
+            params: "new LendingParams(LendingType.DAILY, asset)",
+        },
+        {
+            label: "Framed",
+            params: "new LendingParams(LendingType.DAILY, asset), new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Get interest record
+
+<Examples
+    payload="List<Interest>"
+    method="getInterests"
+    items={[
+        {
+            label: "Default",
+            params: "new LendingParams(LendingType.DAILY, asset)",
+        },
+        {
+            label: "Framed",
+            params: "new LendingParams(LendingType.DAILY, asset), new FramedPaging(startTime, endTime, page, limit)",
+        },
+    ]}
+/>
+
+### Change fixed/activity position to daily position
+
+<Examples
+    payload="PositionChangedResponse"
+    method="fixedToDailyPosition"
+    items={[
+        {
+            label: "Default",
+            params: "new ChangePositionParams(projectId, lot, positionId)",
+        },
+    ]}
+/>

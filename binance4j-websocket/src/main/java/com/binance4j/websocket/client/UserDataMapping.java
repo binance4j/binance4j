@@ -23,7 +23,7 @@ public interface UserDataMapping extends RestMapping {
 	// SPOT
 
 	/** @return The generated Retrofit Call */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@POST("/api/v3/userDataStream")
 	Call<ListenKey> startUserDataStream();
 
@@ -31,7 +31,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@PUT("/api/v3/userDataStream")
 	Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
 
@@ -39,7 +39,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@DELETE("/api/v3/userDataStream")
 	Call<Void> closeUserDataStream(@Query("listenKey") String listenKey);
 
@@ -48,7 +48,7 @@ public interface UserDataMapping extends RestMapping {
 	/**
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@POST("/sapi/v1/userDataStream")
 	Call<ListenKey> startMarginUserDataStream();
 
@@ -56,7 +56,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@PUT("/sapi/v1/userDataStream")
 	Call<Void> keepAliveMarginUserDataStream(@Query("listenKey") String listenKey);
 
@@ -64,7 +64,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param listenKey Authenticated account user listen key.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@DELETE("/sapi/v1/userDataStream")
 	Call<Void> closeMarginUserDataStream(@Query("listenKey") String listenKey);
 
@@ -73,7 +73,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@POST("/sapi/v1/userDataStream/isolated")
 	Call<ListenKey> startIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 
@@ -81,7 +81,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@PUT("/sapi/v1/userDataStream/isolated")
 	Call<Void> keepAliveIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 
@@ -89,7 +89,7 @@ public interface UserDataMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit Call
 	 */
-	@Headers(API_H)
+	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
 	@DELETE("/sapi/v1/userDataStream/isolated")
 	Call<Void> closeIsolatedUserDataStream(@QueryMap Map<String, Object> map);
 }
