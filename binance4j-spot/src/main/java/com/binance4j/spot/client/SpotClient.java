@@ -1,8 +1,19 @@
 package com.binance4j.spot.client;
 
+import java.util.List;
+
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
+import com.binance4j.core.dto.Trade;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
+import com.binance4j.spot.dto.Account;
+import com.binance4j.spot.dto.CancelOrderResponse;
+import com.binance4j.spot.dto.NewOrderResponse;
+import com.binance4j.spot.dto.OCOInfo;
+import com.binance4j.spot.dto.OCOResponse;
+import com.binance4j.spot.dto.OrderCount;
+import com.binance4j.spot.dto.OrderInfo;
 import com.binance4j.spot.param.AccountParams;
 import com.binance4j.spot.param.AllOCOInfoParams;
 import com.binance4j.spot.param.AllOrdersParams;
@@ -25,21 +36,6 @@ import com.binance4j.spot.param.StopLossOrder;
 import com.binance4j.spot.param.TakeProfitLimitOrder;
 import com.binance4j.spot.param.TakeProfitOrder;
 import com.binance4j.spot.param.TradesParams;
-import com.binance4j.spot.request.CancelOCORequest;
-import com.binance4j.spot.request.CancelOpenOrderRequest;
-import com.binance4j.spot.request.CancelOrderRequest;
-import com.binance4j.spot.request.GetAccountRequest;
-import com.binance4j.spot.request.GetAllOCORequest;
-import com.binance4j.spot.request.GetAllOrdersRequest;
-import com.binance4j.spot.request.GetOCORequest;
-import com.binance4j.spot.request.GetOpenOCORequest;
-import com.binance4j.spot.request.GetOpenOrdersRequest;
-import com.binance4j.spot.request.GetOrderCountRequest;
-import com.binance4j.spot.request.GetOrderStatusRequest;
-import com.binance4j.spot.request.GetTradesRequest;
-import com.binance4j.spot.request.NewOCORequest;
-import com.binance4j.spot.request.NewOrderRequest;
-import com.binance4j.spot.request.NewOrderTestRequest;
 
 /**
  * API client for the SPOT endpoints
@@ -73,8 +69,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @deprecated Use specific Order.
 	 */
 	@Deprecated
-	public NewOrderRequest newOrder(NewOrderParams params) {
-		return new NewOrderRequest(service.newOrder(params.toMap()));
+	public Request<NewOrderResponse> newOrder(NewOrderParams params) {
+		return new Request<>(service.newOrder(params.toMap()));
 	}
 
 	// ORDERS
@@ -85,8 +81,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link MarketOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(MarketOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(MarketOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -95,8 +91,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link MarketQuoteOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(MarketQuoteOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(MarketQuoteOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -105,8 +101,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link LimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(LimitOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(LimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -115,8 +111,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link LimitMakerOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(LimitMakerOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(LimitMakerOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -125,8 +121,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link StopLossLimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(StopLossLimitOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(StopLossLimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -135,8 +131,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link StopLossOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(StopLossOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(StopLossOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -145,8 +141,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link TakeProfitLimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(TakeProfitLimitOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(TakeProfitLimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	/**
@@ -155,8 +151,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link TakeProfitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(TakeProfitOrder order) {
-		return new NewOrderRequest(service.newOrder(order.toMap()));
+	public Request<NewOrderResponse> newOrder(TakeProfitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
 	}
 
 	// END ORDERS
@@ -172,8 +168,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @deprecated Use specific Order.
 	 */
 	@Deprecated
-	public NewOrderTestRequest newOrderTest(NewOrderParams params) {
-		return new NewOrderTestRequest(service.newOrderTest(params.toMap()));
+	public Request<Void> newOrderTest(NewOrderParams params) {
+		return new Request<>(service.newOrderTest(params.toMap()));
 	}
 
 	/**
@@ -182,8 +178,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link MarketOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(MarketOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(MarketOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -192,8 +188,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link MarketQuoteOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(MarketQuoteOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(MarketQuoteOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -202,8 +198,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link LimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(LimitOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(LimitOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -212,8 +208,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link LimitMakerOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(LimitMakerOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(LimitMakerOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -222,8 +218,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link StopLossLimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(StopLossLimitOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(StopLossLimitOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -232,8 +228,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link StopLossOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(StopLossOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(StopLossOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -242,8 +238,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link TakeProfitLimitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(TakeProfitLimitOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(TakeProfitLimitOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	/**
@@ -252,8 +248,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param order the {@link TakeProfitOrder}.
 	 * @return The request to execute.
 	 */
-	public NewOrderTestRequest newOrderTest(TakeProfitOrder order) {
-		return new NewOrderTestRequest(service.newOrderTest(order.toMap()));
+	public Request<Void> newOrderTest(TakeProfitOrder order) {
+		return new Request<>(service.newOrderTest(order.toMap()));
 	}
 
 	// END TEST ORDERS
@@ -264,8 +260,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOrderRequest cancelOrder(CancelOrderParams params) {
-		return new CancelOrderRequest(service.cancelOrder(params.toMap()));
+	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
+		return new Request<>(service.cancelOrder(params.toMap()));
 	}
 
 	/**
@@ -274,8 +270,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOpenOrderRequest cancelOpenOrders(CancelOpenOrdersParams params) {
-		return new CancelOpenOrderRequest(service.cancelOpenOrders(params.toMap()));
+	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
+		return new Request<>(service.cancelOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -290,8 +286,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOrderStatusRequest getOrderStatus(OrderStatusParams params) {
-		return new GetOrderStatusRequest(service.getOrderStatus(params.toMap()));
+	public Request<OrderInfo> getOrderStatus(OrderStatusParams params) {
+		return new Request<>(service.getOrderStatus(params.toMap()));
 	}
 
 	/**
@@ -300,8 +296,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getOpenOrders(OpenOrdersStatusParams params) {
-		return new GetOpenOrdersRequest(service.getOpenOrders(params.toMap()));
+	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersStatusParams params) {
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -309,9 +305,9 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getOpenOrders() {
+	public Request<List<OrderInfo>> getOpenOrders() {
 		OpenOrdersStatusParams params = new OpenOrdersStatusParams(null);
-		return new GetOpenOrdersRequest(service.getOpenOrders(params.toMap()));
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -320,8 +316,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAllOrdersRequest getAllOrders(AllOrdersParams params) {
-		return new GetAllOrdersRequest(service.getAllOrders(params.toMap()));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
+		return new Request<>(service.getAllOrders(params.toMap()));
 	}
 
 	/**
@@ -331,8 +327,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public GetAllOrdersRequest getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
-		return new GetAllOrdersRequest(service.getAllOrders(Params.merge(params, timeFrame)));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOrders(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -341,8 +337,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public NewOCORequest newOCO(NewOCOOrderParams params) {
-		return new NewOCORequest(service.newOCO(params.toMap()));
+	public Request<OCOResponse> newOCO(NewOCOOrderParams params) {
+		return new Request<>(service.newOCO(params.toMap()));
 	}
 
 	/**
@@ -352,8 +348,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOCORequest cancelOCO(CancelOCOParams params) {
-		return new CancelOCORequest(service.cancelOCO(params.toMap()));
+	public Request<OCOResponse> cancelOCO(CancelOCOParams params) {
+		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
 	/**
@@ -362,8 +358,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOCORequest getOCO(OCOInfoParams params) {
-		return new GetOCORequest(service.queryOCO(params.toMap()));
+	public Request<OCOInfo> getOCO(OCOInfoParams params) {
+		return new Request<>(service.queryOCO(params.toMap()));
 	}
 
 	/**
@@ -372,8 +368,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO(AllOCOInfoParams params) {
-		return new GetAllOCORequest(service.getAllOCO(params.toMap()));
+	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params) {
+		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
 	/**
@@ -381,8 +377,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO() {
-		return new GetAllOCORequest(service.getAllOCO(new AllOCOInfoParams(null).toMap()));
+	public Request<List<OCOInfo>> getAllOCO() {
+		return new Request<>(service.getAllOCO(new AllOCOInfoParams(null).toMap()));
 	}
 
 	/**
@@ -392,8 +388,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO(AllOCOInfoParams params, TimeFrame timeFrame) {
-		return new GetAllOCORequest(service.getAllOCO(Params.merge(params, timeFrame)));
+	public Request<List<OCOInfo>> getAllOCO(AllOCOInfoParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -402,8 +398,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO(TimeFrame timeFrame) {
-		return new GetAllOCORequest(service.getAllOCO(Params.merge(new AllOCOInfoParams(null), timeFrame)));
+	public Request<List<OCOInfo>> getAllOCO(TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(new AllOCOInfoParams(null), timeFrame)));
 	}
 
 	/**
@@ -411,8 +407,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetOpenOCORequest getOpenOCO() {
-		return new GetOpenOCORequest(service.getOpenOCO(new OpenOCOParams().toMap()));
+	public Request<List<OCOInfo>> getOpenOCO() {
+		return new Request<>(service.getOpenOCO(new OpenOCOParams().toMap()));
 	}
 
 	/**
@@ -420,8 +416,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAccountRequest getAccount() {
-		return new GetAccountRequest(service.getAccount(new AccountParams().toMap()));
+	public Request<Account> getAccount() {
+		return new Request<>(service.getAccount(new AccountParams().toMap()));
 	}
 
 	/**
@@ -432,8 +428,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTradesRequest getTrades(TradesParams params) {
-		return new GetTradesRequest(service.getTrades(params.toMap()));
+	public Request<List<Trade>> getTrades(TradesParams params) {
+		return new Request<>(service.getTrades(params.toMap()));
 	}
 
 	/**
@@ -445,8 +441,8 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public GetTradesRequest getTrades(TradesParams params, TimeFrame timeFrame) {
-		return new GetTradesRequest(service.getTrades(Params.merge(params, timeFrame)));
+	public Request<List<Trade>> getTrades(TradesParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -455,7 +451,7 @@ public class SpotClient extends RestClient<SpotMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetOrderCountRequest getOrderCount() {
-		return new GetOrderCountRequest(service.getOrderCount(new OrderCountParams().toMap()));
+	public Request<List<OrderCount>> getOrderCount() {
+		return new Request<>(service.getOrderCount(new OrderCountParams().toMap()));
 	}
 }

@@ -23,7 +23,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/transactions")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -31,7 +31,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/deposit")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	Call<DepositHistory> getDeposits(@QueryMap Map<String, Object> map);
 
 	/**
@@ -39,7 +39,7 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "history/withdraw")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	Call<WithdrawHistory> getWithdraws(@QueryMap Map<String, Object> map);
 
 	/**
@@ -47,6 +47,6 @@ public interface NFTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "user/getAsset")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	Call<AssetHistory> getAssets(@QueryMap Map<String, Object> map);
 }

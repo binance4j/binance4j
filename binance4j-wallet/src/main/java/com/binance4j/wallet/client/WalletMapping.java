@@ -51,6 +51,7 @@ public interface WalletMapping extends RestMapping {
 	/**
 	 * @return The generated Retrofit call.
 	 */
+	@Headers({ IP_H, WEIGHT_ONE_H })
 	@GET(BASE + "system/status")
 	Call<SystemStatus> getSystemStatus();
 
@@ -58,7 +59,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
 	@GET(BASE_CAPITAL + "config/getall")
 	Call<List<CoinInformation>> getAllCoinsInfo(@QueryMap Map<String, Object> map);
 
@@ -67,7 +68,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 2400" })
 	@GET(BASE + "accountSnapshot")
 	Call<SpotAccountSnapshotResponse> getSpotAccountSnapshot(@Query("type") AccountSnapshotType type,
 			@QueryMap Map<String, Object> map);
@@ -77,7 +78,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 2400" })
 	@GET(BASE + "accountSnapshot")
 	Call<MarginAccountSnapshotResponse> getMarginAccountSnapshot(@Query("type") AccountSnapshotType type,
 			@QueryMap Map<String, Object> map);
@@ -87,7 +88,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map  Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 2400" })
 	@GET(BASE + "accountSnapshot")
 	Call<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(@Query("type") AccountSnapshotType type,
 			@QueryMap Map<String, Object> map);
@@ -96,7 +97,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_ACCOUNT + "disableFastWithdrawSwitch")
 	Call<Void> disableFastWithdrawSwitch(@QueryMap Map<String, Object> map);
 
@@ -104,7 +105,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_ACCOUNT + "enableFastWithdrawSwitch")
 	Call<Void> enableFastWithdrawSwitch(@QueryMap Map<String, Object> map);
 
@@ -112,7 +113,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_CAPITAL + "withdraw/apply")
 	Call<WithdrawResult> withdraw(@QueryMap Map<String, Object> map);
 
@@ -120,7 +121,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_CAPITAL + "deposit/hisrec")
 	Call<List<DepositHistory>> getDepositHistory(@QueryMap Map<String, Object> map);
 
@@ -128,7 +129,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_CAPITAL + "withdraw/history")
 	Call<List<WithdrawHistory>> getWithdrawHistory(@QueryMap Map<String, Object> map);
 
@@ -136,7 +137,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
 	@GET(BASE_CAPITAL + "deposit/address")
 	Call<DepositAddress> getDepositAddress(@QueryMap Map<String, Object> map);
 
@@ -144,7 +145,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ACCOUNT + "status")
 	Call<AccountStatus> getAccountstatus(@QueryMap Map<String, Object> map);
 
@@ -152,7 +153,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ACCOUNT + "apiTradingStatus")
 	Call<ApiTradingStatus> getApiTradingStatus(@QueryMap Map<String, Object> map);
 
@@ -160,7 +161,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ASSET + "dribblet")
 	Call<DustLog> getDustLog(@QueryMap Map<String, Object> map);
 
@@ -168,7 +169,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_ASSET + "dust-btc")
 	Call<ConvertibleAssets> getConvertibleAssets(@QueryMap Map<String, Object> map);
 
@@ -176,7 +177,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 10" })
 	@POST(BASE_ASSET + "dust")
 	Call<DustTransferResponse> dustTransfer(@QueryMap Map<String, Object> map);
 
@@ -184,7 +185,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
 	@GET(BASE_ASSET + "assetDividend")
 	Call<AssetDividendRecord> getAssetDividendRecord(@QueryMap Map<String, Object> map);
 
@@ -192,7 +193,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ASSET + "assetDetail")
 	Call<Map<String, AssetDetail>> getAssetDetail(@QueryMap Map<String, Object> map);
 
@@ -200,7 +201,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ASSET + "tradeFee")
 	Call<List<TradeFee>> getTradeFee(@QueryMap Map<String, Object> map);
 
@@ -208,7 +209,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_ASSET + "transfer")
 	Call<WalletTransferResponse> transfer(@QueryMap Map<String, Object> map);
 
@@ -216,7 +217,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ASSET + "transfer")
 	Call<WalletTransferHistory> getTransferHistory(@QueryMap Map<String, Object> map);
 
@@ -224,7 +225,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@POST(BASE_ASSET + "get-funding-asset")
 	Call<List<FundingAsset>> getFundingWallet(@QueryMap Map<String, Object> map);
 
@@ -232,7 +233,7 @@ public interface WalletMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	@GET(BASE_ACCOUNT + "apiRestrictions")
 	Call<ApiPermissions> getApiPermissions(@QueryMap Map<String, Object> map);
 }

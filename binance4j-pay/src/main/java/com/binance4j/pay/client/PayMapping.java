@@ -20,6 +20,6 @@ public interface PayMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "transactions")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
 }

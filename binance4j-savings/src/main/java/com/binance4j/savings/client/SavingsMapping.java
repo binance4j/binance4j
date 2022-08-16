@@ -35,7 +35,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/product/list")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<FlexibleProduct>> getFlexibleProducts(@QueryMap Map<String, Object> map);
 
 	/**
@@ -43,7 +43,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/userLeftQuota")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<PurchaseQuota> getLeftDailyFlexiblePurchaseQuota(@QueryMap Map<String, Object> map);
 
 	/**
@@ -51,7 +51,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "daily/purchase")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<PurchaseResponse> purchaseFlexible(@QueryMap Map<String, Object> map);
 
 	/**
@@ -59,7 +59,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/userRedemptionQuota")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<RedemptionQuota> getLeftDailyRedemptionQuota(@QueryMap Map<String, Object> map);
 
 	/**
@@ -67,7 +67,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "daily/redeem")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<Void> redeemFlexible(@QueryMap Map<String, Object> map);
 
 	/**
@@ -75,7 +75,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "daily/token/position")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<FlexibleProductPosition>> getFlexibleProductPosition(@QueryMap Map<String, Object> map);
 
 	// FIXED //
@@ -85,7 +85,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "project/list")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<FixedProject>> getFixedProjects(@QueryMap Map<String, Object> map);
 
 	/**
@@ -93,7 +93,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "customizedFixed/purchase")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<PurchaseResponse> purchaseFixed(@QueryMap Map<String, Object> map);
 
 	/**
@@ -101,7 +101,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "project/position/list")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<FixedProjectPosition>> getFixedProjectPosition(@QueryMap Map<String, Object> map);
 
 	/**
@@ -109,7 +109,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/account")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<LendingAccount> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
@@ -117,7 +117,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/purchaseRecord")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<Purchase>> getPurchases(@QueryMap Map<String, Object> map);
 
 	/**
@@ -125,7 +125,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/redemptionRecord")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<Redemption>> getRedemptions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -133,7 +133,7 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "union/interestHistory")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<Interest>> getInterests(@QueryMap Map<String, Object> map);
 
 	/**
@@ -141,6 +141,6 @@ public interface SavingsMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "positionChanged")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<PositionChangedResponse> fixedToDailyPosition(@QueryMap Map<String, Object> map);
 }

@@ -19,7 +19,7 @@ public interface RebateMapping extends RestMapping {
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
 	@GET(BASE + "taxQuery")
 	Call<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(@QueryMap Map<String, Object> map);
 }

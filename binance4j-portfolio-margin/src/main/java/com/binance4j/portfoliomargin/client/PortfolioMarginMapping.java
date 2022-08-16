@@ -22,7 +22,7 @@ public interface PortfolioMarginMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "account")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<AccountInfo> getAccountInfo(@QueryMap Map<String, Object> map);
 
 	/**
@@ -30,6 +30,6 @@ public interface PortfolioMarginMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "collateralRate")
-	@Headers({ API_H })
+	@Headers({ API_H, IP_H, "X-WEIGHT: 50" })
 	Call<List<CollaterateRateInfo>> getCollateralRate(@QueryMap Map<String, Object> map);
 }

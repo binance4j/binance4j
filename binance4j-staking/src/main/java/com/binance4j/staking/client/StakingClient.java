@@ -1,11 +1,20 @@
 package com.binance4j.staking.client;
 
+import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
 import com.binance4j.core.param.Params;
+import com.binance4j.staking.dto.AutoStakingResponse;
+import com.binance4j.staking.dto.LeftQuota;
+import com.binance4j.staking.dto.Product;
+import com.binance4j.staking.dto.ProductPosition;
+import com.binance4j.staking.dto.PurchaseResponse;
+import com.binance4j.staking.dto.RedeemResponse;
+import com.binance4j.staking.dto.StakingRecord;
 import com.binance4j.staking.param.AutoStakingParams;
 import com.binance4j.staking.param.HistoryParams;
 import com.binance4j.staking.param.LeftQuotaParams;
@@ -13,13 +22,6 @@ import com.binance4j.staking.param.PositionParams;
 import com.binance4j.staking.param.ProductListParams;
 import com.binance4j.staking.param.PurchaseParams;
 import com.binance4j.staking.param.RedeemParams;
-import com.binance4j.staking.request.GetHistoryRequest;
-import com.binance4j.staking.request.GetLeftQuotaRequest;
-import com.binance4j.staking.request.GetPositionRequest;
-import com.binance4j.staking.request.GetProductsRequest;
-import com.binance4j.staking.request.PurchaseRequest;
-import com.binance4j.staking.request.RedeemRequest;
-import com.binance4j.staking.request.SetAutoStakingRequest;
 
 /**
  * Api client for the staking endpoints
@@ -42,8 +44,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetProductsRequest getProducts(ProductListParams params) {
-		return new GetProductsRequest(service.getProductList(params.toMap()));
+	public Request<List<Product>> getProducts(ProductListParams params) {
+		return new Request<>(service.getProductList(params.toMap()));
 	}
 
 	/**
@@ -53,10 +55,9 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param pagination Search pagination.
 	 * @return The request to execute.
 	 */
-	public GetProductsRequest getProducts(ProductListParams params, Paging pagination) {
+	public Request<List<Product>> getProducts(ProductListParams params, Paging pagination) {
 		var replaceMap = Map.of("page", "current", "limit", "size");
-		return new GetProductsRequest(
-				service.getProductList(Params.merge(params.toMap(), pagination.toMap(replaceMap))));
+		return new Request<>(service.getProductList(Params.merge(params.toMap(), pagination.toMap(replaceMap))));
 	}
 
 	/**
@@ -65,8 +66,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public PurchaseRequest purchase(PurchaseParams params) {
-		return new PurchaseRequest(service.purchase(params.toMap()));
+	public Request<PurchaseResponse> purchase(PurchaseParams params) {
+		return new Request<>(service.purchase(params.toMap()));
 	}
 
 	/**
@@ -75,8 +76,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public RedeemRequest redeem(RedeemParams params) {
-		return new RedeemRequest(service.redeem(params.toMap()));
+	public Request<RedeemResponse> redeem(RedeemParams params) {
+		return new Request<>(service.redeem(params.toMap()));
 	}
 
 	/**
@@ -85,8 +86,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetPositionRequest getPosition(PositionParams params) {
-		return new GetPositionRequest(service.getPosition(params.toMap()));
+	public Request<List<ProductPosition>> getPosition(PositionParams params) {
+		return new Request<>(service.getPosition(params.toMap()));
 	}
 
 	/**
@@ -96,9 +97,9 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetPositionRequest getPosition(PositionParams params, Paging paging) {
+	public Request<List<ProductPosition>> getPosition(PositionParams params, Paging paging) {
 		var replaceMap = Map.of("page", "current", "limit", "size");
-		return new GetPositionRequest(service.getPosition(Params.merge(params.toMap(), paging.toMap(replaceMap))));
+		return new Request<>(service.getPosition(Params.merge(params.toMap(), paging.toMap(replaceMap))));
 	}
 
 	/**
@@ -107,8 +108,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetHistoryRequest getHistory(HistoryParams params) {
-		return new GetHistoryRequest(service.getHistory(params.toMap()));
+	public Request<List<StakingRecord>> getHistory(HistoryParams params) {
+		return new Request<>(service.getHistory(params.toMap()));
 	}
 
 	/**
@@ -118,9 +119,9 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param interval Search interval.
 	 * @return The request to execute.
 	 */
-	public GetHistoryRequest getHistory(HistoryParams params, FramedPaging interval) {
+	public Request<List<StakingRecord>> getHistory(HistoryParams params, FramedPaging interval) {
 		var replaceMap = Map.of("page", "current", "limit", "size");
-		return new GetHistoryRequest(service.getHistory(Params.merge(params.toMap(), interval.toMap(replaceMap))));
+		return new Request<>(service.getHistory(Params.merge(params.toMap(), interval.toMap(replaceMap))));
 	}
 
 	/**
@@ -129,8 +130,8 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public SetAutoStakingRequest setAutoStaking(AutoStakingParams params) {
-		return new SetAutoStakingRequest(service.setAutoStaking(params.toMap()));
+	public Request<AutoStakingResponse> setAutoStaking(AutoStakingParams params) {
+		return new Request<>(service.setAutoStaking(params.toMap()));
 	}
 
 	/**
@@ -139,7 +140,7 @@ public class StakingClient extends RestClient<StakingMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetLeftQuotaRequest getLeftQuota(LeftQuotaParams params) {
-		return new GetLeftQuotaRequest(service.getLeftQuota(params.toMap()));
+	public Request<LeftQuota> getLeftQuota(LeftQuotaParams params) {
+		return new Request<>(service.getLeftQuota(params.toMap()));
 	}
 }

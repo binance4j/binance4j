@@ -1,10 +1,11 @@
 package com.binance4j.rebate.client;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
+import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
 import com.binance4j.rebate.param.SpotRebateHistoryParams;
-import com.binance4j.rebate.request.GetSpotRebateHistoryRecordsRequest;
 
 /**
  * The API client for the SPOT endpoints
@@ -26,9 +27,8 @@ public class RebateClient extends RestClient<RebateMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetSpotRebateHistoryRecordsRequest getSpotRebateHistoryRecords() {
-		return new GetSpotRebateHistoryRecordsRequest(
-				service.getSpotRebateHistoryRecords(new SpotRebateHistoryParams().toMap()));
+	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords() {
+		return new Request<>(service.getSpotRebateHistoryRecords(new SpotRebateHistoryParams().toMap()));
 	}
 
 	/**
@@ -37,8 +37,8 @@ public class RebateClient extends RestClient<RebateMapping> {
 	 * @param interval Interval search.
 	 * @return The request to execute.
 	 */
-	public GetSpotRebateHistoryRecordsRequest getSpotRebateHistoryRecords(FramedPaging interval) {
-		return new GetSpotRebateHistoryRecordsRequest(
+	public Request<SpotRebateHistoryResponse> getSpotRebateHistoryRecords(FramedPaging interval) {
+		return new Request<>(
 				service.getSpotRebateHistoryRecords(Params.merge(new SpotRebateHistoryParams(), interval)));
 	}
 }

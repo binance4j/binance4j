@@ -21,7 +21,7 @@ public interface FiatMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "orders")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<TransactionHistory> getTransactions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -29,6 +29,6 @@ public interface FiatMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "payments")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<PaymentHistory> getPayments(@QueryMap Map<String, Object> map);
 }

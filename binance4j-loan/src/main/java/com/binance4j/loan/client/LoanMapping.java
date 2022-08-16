@@ -21,6 +21,6 @@ public interface LoanMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "income")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, "X-WEIGHT: 6000", UID_H })
 	Call<List<LoanIncome>> getLoansIncome(@QueryMap Map<String, Object> map);
 }

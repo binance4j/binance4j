@@ -1,16 +1,19 @@
 package com.binance4j.blvt.client;
 
+import java.util.List;
+
+import com.binance4j.blvt.dto.LimitInfo;
+import com.binance4j.blvt.dto.Redemption;
+import com.binance4j.blvt.dto.RedemptionResponse;
+import com.binance4j.blvt.dto.Subscription;
+import com.binance4j.blvt.dto.SubscriptionResponse;
+import com.binance4j.blvt.dto.Token;
 import com.binance4j.blvt.param.LimitInfoParams;
 import com.binance4j.blvt.param.RedemptionParams;
 import com.binance4j.blvt.param.SubscriptionParams;
 import com.binance4j.blvt.param.TokenInfoParams;
 import com.binance4j.blvt.param.TransactionRecordParams;
-import com.binance4j.blvt.request.GetLimitInfoRequest;
-import com.binance4j.blvt.request.GetRedemptionsRequest;
-import com.binance4j.blvt.request.GetSubscriptionsRequest;
-import com.binance4j.blvt.request.GetTokenInfoRequest;
-import com.binance4j.blvt.request.RedeemRequest;
-import com.binance4j.blvt.request.SubscribeRequest;
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
@@ -36,8 +39,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTokenInfoRequest getTokenInfo(TokenInfoParams params) {
-		return new GetTokenInfoRequest(service.getTokenInfo(params.toMap()));
+	public Request<List<Token>> getTokenInfo(TokenInfoParams params) {
+		return new Request<>(service.getTokenInfo(params.toMap()));
 	}
 
 	/**
@@ -45,8 +48,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 *
 	 * @return The request to execute.
 	 */
-	public GetTokenInfoRequest getTokenInfo() {
-		return new GetTokenInfoRequest(service.getTokenInfo(new TokenInfoParams(null).toMap()));
+	public Request<List<Token>> getTokenInfo() {
+		return new Request<>(service.getTokenInfo(new TokenInfoParams(null).toMap()));
 	}
 
 	/**
@@ -55,8 +58,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public SubscribeRequest subscribe(SubscriptionParams params) {
-		return new SubscribeRequest(service.subscribe(params.toMap()));
+	public Request<SubscriptionResponse> subscribe(SubscriptionParams params) {
+		return new Request<>(service.subscribe(params.toMap()));
 	}
 
 	/**
@@ -66,8 +69,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
-	public GetSubscriptionsRequest getSubscriptions(TransactionRecordParams params, TimeFrame timeFrame) {
-		return new GetSubscriptionsRequest(service.getSubscriptions(Params.merge(params, timeFrame)));
+	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getSubscriptions(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -76,8 +79,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetSubscriptionsRequest getSubscriptions(TransactionRecordParams params) {
-		return new GetSubscriptionsRequest(service.getSubscriptions(params.toMap()));
+	public Request<List<Subscription>> getSubscriptions(TransactionRecordParams params) {
+		return new Request<>(service.getSubscriptions(params.toMap()));
 	}
 
 	/**
@@ -85,8 +88,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetSubscriptionsRequest getSubscriptions() {
-		return new GetSubscriptionsRequest(service.getSubscriptions(new TransactionRecordParams(null, null).toMap()));
+	public Request<List<Subscription>> getSubscriptions() {
+		return new Request<>(service.getSubscriptions(new TransactionRecordParams(null, null).toMap()));
 	}
 
 	/**
@@ -95,8 +98,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public RedeemRequest redeem(RedemptionParams params) {
-		return new RedeemRequest(service.redeem(params.toMap()));
+	public Request<RedemptionResponse> redeem(RedemptionParams params) {
+		return new Request<>(service.redeem(params.toMap()));
 	}
 
 	/**
@@ -106,8 +109,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
-	public GetRedemptionsRequest getRedemptions(TransactionRecordParams params, TimeFrame timeFrame) {
-		return new GetRedemptionsRequest(service.getRedemptions(Params.merge(params, timeFrame)));
+	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getRedemptions(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -116,8 +119,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetRedemptionsRequest getRedemptions(TransactionRecordParams params) {
-		return new GetRedemptionsRequest(service.getRedemptions(params.toMap()));
+	public Request<List<Redemption>> getRedemptions(TransactionRecordParams params) {
+		return new Request<>(service.getRedemptions(params.toMap()));
 	}
 
 	/**
@@ -125,8 +128,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetRedemptionsRequest getRedemptions() {
-		return new GetRedemptionsRequest(service.getRedemptions(new TransactionRecordParams(null, null).toMap()));
+	public Request<List<Redemption>> getRedemptions() {
+		return new Request<>(service.getRedemptions(new TransactionRecordParams(null, null).toMap()));
 	}
 
 	/**
@@ -135,8 +138,8 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * @param params Request params.
 	 * @return The request to LimitInfo
 	 */
-	public GetLimitInfoRequest getLimitInfo(LimitInfoParams params) {
-		return new GetLimitInfoRequest(service.getLimitInfo(params.toMap()));
+	public Request<List<LimitInfo>> getLimitInfo(LimitInfoParams params) {
+		return new Request<>(service.getLimitInfo(params.toMap()));
 	}
 
 	/**
@@ -144,7 +147,7 @@ public class BLVTClient extends RestClient<BLVTMapping> {
 	 * 
 	 * @return The request to LimitInfo
 	 */
-	public GetLimitInfoRequest getLimitInfo() {
-		return new GetLimitInfoRequest(service.getLimitInfo(new LimitInfoParams(null).toMap()));
+	public Request<List<LimitInfo>> getLimitInfo() {
+		return new Request<>(service.getLimitInfo(new LimitInfoParams(null).toMap()));
 	}
 }

@@ -10,6 +10,17 @@ import com.binance4j.core.param.Paging;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.savings.dto.FixedProject;
+import com.binance4j.savings.dto.FixedProjectPosition;
+import com.binance4j.savings.dto.FlexibleProduct;
+import com.binance4j.savings.dto.FlexibleProductPosition;
+import com.binance4j.savings.dto.Interest;
+import com.binance4j.savings.dto.LendingAccount;
+import com.binance4j.savings.dto.PositionChangedResponse;
+import com.binance4j.savings.dto.Purchase;
+import com.binance4j.savings.dto.PurchaseQuota;
+import com.binance4j.savings.dto.PurchaseResponse;
+import com.binance4j.savings.dto.Redemption;
+import com.binance4j.savings.dto.RedemptionQuota;
 import com.binance4j.savings.dto.Sorting;
 import com.binance4j.savings.param.ChangePositionParams;
 import com.binance4j.savings.param.FixedProjectListParams;
@@ -23,19 +34,6 @@ import com.binance4j.savings.param.LendingParams;
 import com.binance4j.savings.param.PurchaseQuotaParams;
 import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
-import com.binance4j.savings.request.GetAccountRequest;
-import com.binance4j.savings.request.GetFixedProjectPositionRequest;
-import com.binance4j.savings.request.GetFixedProjectsRequest;
-import com.binance4j.savings.request.GetFlexibleProductPositionRequest;
-import com.binance4j.savings.request.GetFlexibleProductsRequest;
-import com.binance4j.savings.request.GetInterestsRequest;
-import com.binance4j.savings.request.GetLeftDailyFlexiblePurchaseQuotaRequest;
-import com.binance4j.savings.request.GetLeftDailyRedemptionQuotaRequest;
-import com.binance4j.savings.request.GetPurchasesRequest;
-import com.binance4j.savings.request.GetRedemptionsRequest;
-import com.binance4j.savings.request.PositionChangedRequest;
-import com.binance4j.savings.request.PurchaseFlexibleRequest;
-import com.binance4j.savings.request.RedeemFlexibleRequest;
 
 /**
  * Api client for the savings endpoints
@@ -58,8 +56,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetFlexibleProductsRequest getFlexibleProducts(FlexibleProductsParams params) {
-		return new GetFlexibleProductsRequest(service.getFlexibleProducts(params.toMap()));
+	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params) {
+		return new Request<>(service.getFlexibleProducts(params.toMap()));
 	}
 
 	/**
@@ -69,10 +67,9 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param paging Pagign.
 	 * @return The request to execute.
 	 */
-	public GetFlexibleProductsRequest getFlexibleProducts(FlexibleProductsParams params, Paging paging) {
+	public Request<List<FlexibleProduct>> getFlexibleProducts(FlexibleProductsParams params, Paging paging) {
 		var replaceMap = Map.of("page", "current", "limit", "size");
-		return new GetFlexibleProductsRequest(
-				service.getFlexibleProducts(Params.merge(params.toMap(), paging.toMap(replaceMap))));
+		return new Request<>(service.getFlexibleProducts(Params.merge(params.toMap(), paging.toMap(replaceMap))));
 	}
 
 	/**
@@ -80,8 +77,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 *
 	 * @return The request to execute.
 	 */
-	public GetFlexibleProductsRequest getFlexibleProducts() {
-		return new GetFlexibleProductsRequest(service.getFlexibleProducts(new FlexibleProductsParams().toMap()));
+	public Request<List<FlexibleProduct>> getFlexibleProducts() {
+		return new Request<>(service.getFlexibleProducts(new FlexibleProductsParams().toMap()));
 	}
 
 	/**
@@ -90,8 +87,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetLeftDailyFlexiblePurchaseQuotaRequest getLeftDailyFlexiblePurchaseQuota(PurchaseQuotaParams params) {
-		return new GetLeftDailyFlexiblePurchaseQuotaRequest(service.getLeftDailyFlexiblePurchaseQuota(params.toMap()));
+	public Request<PurchaseQuota> getLeftDailyFlexiblePurchaseQuota(PurchaseQuotaParams params) {
+		return new Request<>(service.getLeftDailyFlexiblePurchaseQuota(params.toMap()));
 	}
 
 	/**
@@ -100,8 +97,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public PurchaseFlexibleRequest purchaseFlexible(FlexiblePurchaseParams params) {
-		return new PurchaseFlexibleRequest(service.purchaseFlexible(params.toMap()));
+	public Request<PurchaseResponse> purchaseFlexible(FlexiblePurchaseParams params) {
+		return new Request<>(service.purchaseFlexible(params.toMap()));
 	}
 
 	/**
@@ -110,8 +107,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetLeftDailyRedemptionQuotaRequest getLeftDailyRedemptionQuota(RedemptionQuotaParams params) {
-		return new GetLeftDailyRedemptionQuotaRequest(service.getLeftDailyRedemptionQuota(params.toMap()));
+	public Request<RedemptionQuota> getLeftDailyRedemptionQuota(RedemptionQuotaParams params) {
+		return new Request<>(service.getLeftDailyRedemptionQuota(params.toMap()));
 	}
 
 	/**
@@ -120,8 +117,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public RedeemFlexibleRequest redeemFlexible(RedemptionParams params) {
-		return new RedeemFlexibleRequest(service.redeemFlexible(params.toMap()));
+	public Request<Void> redeemFlexible(RedemptionParams params) {
+		return new Request<>(service.redeemFlexible(params.toMap()));
 	}
 
 	/**
@@ -130,8 +127,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetFlexibleProductPositionRequest getFlexibleProductPosition(FlexibleProductPositionParams params) {
-		return new GetFlexibleProductPositionRequest(service.getFlexibleProductPosition(params.toMap()));
+	public Request<List<FlexibleProductPosition>> getFlexibleProductPosition(FlexibleProductPositionParams params) {
+		return new Request<>(service.getFlexibleProductPosition(params.toMap()));
 	}
 
 	/**
@@ -139,9 +136,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 *
 	 * @return The request to execute.
 	 */
-	public GetFlexibleProductPositionRequest getFlexibleProductPosition() {
-		return new GetFlexibleProductPositionRequest(
-				service.getFlexibleProductPosition(new FlexibleProductPositionParams(null).toMap()));
+	public Request<List<FlexibleProductPosition>> getFlexibleProductPosition() {
+		return new Request<>(service.getFlexibleProductPosition(new FlexibleProductPositionParams(null).toMap()));
 	}
 
 	/**
@@ -151,7 +147,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @return The request to execute.
 	 */
 	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params) {
-		return new GetFixedProjectsRequest(service.getFixedProjects(params.toMap()));
+		return new Request<>(service.getFixedProjects(params.toMap()));
 	}
 
 	/**
@@ -161,8 +157,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetFixedProjectsRequest getFixedProjects(FixedProjectListParams params, Paging paging) {
-		return new GetFixedProjectsRequest(service.getFixedProjects(
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging) {
+		return new Request<>(service.getFixedProjects(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -174,8 +170,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param sorting Sorting.
 	 * @return The request to execute.
 	 */
-	public GetFixedProjectsRequest getFixedProjects(FixedProjectListParams params, Paging paging, Sorting sorting) {
-		return new GetFixedProjectsRequest(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap(),
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Paging paging, Sorting sorting) {
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap(),
 				paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -186,8 +182,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param sorting Sorting.
 	 * @return The request to execute.
 	 */
-	public GetFixedProjectsRequest getFixedProjects(FixedProjectListParams params, Sorting sorting) {
-		return new GetFixedProjectsRequest(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap())));
+	public Request<List<FixedProject>> getFixedProjects(FixedProjectListParams params, Sorting sorting) {
+		return new Request<>(service.getFixedProjects(Params.merge(params.toMap(), sorting.toMap())));
 	}
 
 	/**
@@ -196,8 +192,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public PurchaseFlexibleRequest purchaseFixed(FixedPurchaseParams params) {
-		return new PurchaseFlexibleRequest(service.purchaseFixed(params.toMap()));
+	public Request<PurchaseResponse> purchaseFixed(FixedPurchaseParams params) {
+		return new Request<>(service.purchaseFixed(params.toMap()));
 	}
 
 	/**
@@ -206,8 +202,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetFixedProjectPositionRequest getFixedProjectPosition(FixedProjectPositionParams params) {
-		return new GetFixedProjectPositionRequest(service.getFixedProjectPosition(params.toMap()));
+	public Request<List<FixedProjectPosition>> getFixedProjectPosition(FixedProjectPositionParams params) {
+		return new Request<>(service.getFixedProjectPosition(params.toMap()));
 	}
 
 	/**
@@ -216,8 +212,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAccountRequest getAccount(LendingAccountParams params) {
-		return new GetAccountRequest(service.getAccount(params.toMap()));
+	public Request<LendingAccount> getAccount(LendingAccountParams params) {
+		return new Request<>(service.getAccount(params.toMap()));
 	}
 
 	/**
@@ -225,8 +221,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 *
 	 * @return The request to execute.
 	 */
-	public GetAccountRequest getAccount() {
-		return new GetAccountRequest(service.getAccount(new LendingAccountParams().toMap()));
+	public Request<LendingAccount> getAccount() {
+		return new Request<>(service.getAccount(new LendingAccountParams().toMap()));
 	}
 
 	/**
@@ -235,8 +231,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetPurchasesRequest getPurchases(LendingParams params) {
-		return new GetPurchasesRequest(service.getPurchases(params.toMap()));
+	public Request<List<Purchase>> getPurchases(LendingParams params) {
+		return new Request<>(service.getPurchases(params.toMap()));
 	}
 
 	/**
@@ -246,10 +242,9 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetPurchasesRequest getPurchases(LendingParams params, FramedPaging paging) {
+	public Request<List<Purchase>> getPurchases(LendingParams params, FramedPaging paging) {
 		var paginationReplace = Map.of("page", "current", "limit", "size");
-		return new GetPurchasesRequest(
-				service.getPurchases(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
+		return new Request<>(service.getPurchases(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
 	}
 
 	/**
@@ -258,8 +253,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetRedemptionsRequest getRedemptions(LendingParams params) {
-		return new GetRedemptionsRequest(service.getRedemptions(params.toMap()));
+	public Request<List<Redemption>> getRedemptions(LendingParams params) {
+		return new Request<>(service.getRedemptions(params.toMap()));
 	}
 
 	/**
@@ -269,10 +264,9 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetRedemptionsRequest getRedemptions(LendingParams params, FramedPaging paging) {
+	public Request<List<Redemption>> getRedemptions(LendingParams params, FramedPaging paging) {
 		var paginationReplace = Map.of("page", "current", "limit", "size");
-		return new GetRedemptionsRequest(
-				service.getRedemptions(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
+		return new Request<>(service.getRedemptions(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
 	}
 
 	/**
@@ -281,8 +275,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetInterestsRequest getInterests(LendingParams params) {
-		return new GetInterestsRequest(service.getInterests(params.toMap()));
+	public Request<List<Interest>> getInterests(LendingParams params) {
+		return new Request<>(service.getInterests(params.toMap()));
 	}
 
 	/**
@@ -292,8 +286,8 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param timeFrame Time frame.
 	 * @return The request to execute.
 	 */
-	public GetInterestsRequest getInterests(LendingParams params, TimeFrame timeFrame) {
-		return new GetInterestsRequest(service.getInterests(Params.merge(params, timeFrame)));
+	public Request<List<Interest>> getInterests(LendingParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getInterests(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -303,10 +297,9 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetInterestsRequest getInterests(LendingParams params, FramedPaging paging) {
+	public Request<List<Interest>> getInterests(LendingParams params, FramedPaging paging) {
 		var paginationReplace = Map.of("page", "current", "limit", "size");
-		return new GetInterestsRequest(
-				service.getInterests(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
+		return new Request<>(service.getInterests(Params.merge(params.toMap(), paging.toMap(paginationReplace))));
 	}
 
 	/**
@@ -315,7 +308,7 @@ public class SavingsClient extends RestClient<SavingsMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public PositionChangedRequest fixedToDailyPosition(ChangePositionParams params) {
-		return new PositionChangedRequest(service.fixedToDailyPosition(params.toMap()));
+	public Request<PositionChangedResponse> fixedToDailyPosition(ChangePositionParams params) {
+		return new Request<>(service.fixedToDailyPosition(params.toMap()));
 	}
 }

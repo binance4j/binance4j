@@ -2,16 +2,13 @@ package com.binance4j.core;
 
 import java.io.IOException;
 
-import com.binance4j.core.annotation.ApiRequest;
 import com.binance4j.core.callback.ApiAsyncCallback;
 import com.binance4j.core.callback.ApiAsyncCallbackAdapter;
 import com.binance4j.core.callback.ApiCallback;
 import com.binance4j.core.callback.ApiCallbackAdapter;
 import com.binance4j.core.callback.FullApiAsyncCallback;
 import com.binance4j.core.callback.FullApiAsyncCallbackAdapter;
-import com.binance4j.core.dto.HttpMethod;
-import com.binance4j.core.dto.RateLimitType;
-import com.binance4j.core.dto.Signature;
+import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.exception.ApiError;
 import com.binance4j.core.exception.ApiException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 /** A class that receives and executes sync and async retrofit calls. */
-public abstract class Request<T> {
+public class Request<T> {
 	/** The Jackson Object mapper for deserializing the Api error response. */
 	static final ObjectMapper MAPPER = new ObjectMapper();
 	// static final RateLimiter
@@ -86,78 +83,45 @@ public abstract class Request<T> {
 	/**
 	 * @return the request method
 	 */
-	public HttpMethod getMethod() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (HttpMethod) ApiRequest.class.getDeclaredMethod("method").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).method();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return HttpMethod.GET;
-		}
+	public String getMethod() {
+		return call.request().method();
 	}
 
 	/**
 	 * @return the request signature
 	 */
-	public Signature getSignature() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (Signature) ApiRequest.class.getDeclaredMethod("signature").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).signature();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return Signature.NONE;
-		}
+	public String getSignature() {
+		String signedHeader = call.request().header(RestMapping.SIGNED_H);
+		String apiHeader = call.request().header(RestMapping.API_H);
+
+		return signedHeader != null ? signedHeader : apiHeader;
 	}
 
 	/**
 	 * @return if the request is an order request.
 	 */
 	public boolean isOrder() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (boolean) ApiRequest.class.getDeclaredMethod("isOrder").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).isOrder();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return false;
-		}
+		return call.request().header(RestMapping.ORDER_H) != null;
 	}
 
 	/**
 	 * @return the request weight
 	 */
 	public int getWeight() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (int) ApiRequest.class.getDeclaredMethod("weight").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).weight();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return 1;
-		}
+		return Integer.valueOf(call.request().header(RestMapping.WEIGHT_H));
 	}
 
 	/**
 	 * @return the request rateLimit
 	 */
-	public RateLimitType getRateLimit() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (RateLimitType) ApiRequest.class.getDeclaredMethod("rateLimit").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).rateLimit();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return RateLimitType.IP;
-		}
+	public String getRateLimit() {
+		return call.request().header(RestMapping.RATE_LIMIT_H);
 	}
 
 	/**
 	 * @return the request path
 	 */
 	public String getPath() {
-		try {
-			return !getClass().isAnnotationPresent(ApiRequest.class)
-					? (String) ApiRequest.class.getDeclaredMethod("path").getDefaultValue()
-					: getClass().getAnnotation(ApiRequest.class).path();
-		} catch (NoSuchMethodException | SecurityException e) {
-			return "";
-		}
+		return call.request().url().uri().getPath();
 	}
 }

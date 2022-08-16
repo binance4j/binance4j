@@ -20,6 +20,6 @@ public interface C2CMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "orderMatch/listUserOrderHistory")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<TradeHistory> getTrades(@QueryMap Map<String, Object> map);
 }

@@ -1,12 +1,35 @@
 package com.binance4j.wallet.client;
 
+import java.util.List;
 import java.util.Map;
 
+import com.binance4j.core.Request;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.wallet.dto.AccountSnapshotType;
+import com.binance4j.wallet.dto.AccountStatus;
+import com.binance4j.wallet.dto.ApiPermissions;
+import com.binance4j.wallet.dto.ApiTradingStatus;
+import com.binance4j.wallet.dto.AssetDetail;
+import com.binance4j.wallet.dto.AssetDividendRecord;
+import com.binance4j.wallet.dto.CoinInformation;
+import com.binance4j.wallet.dto.ConvertibleAssets;
+import com.binance4j.wallet.dto.DepositAddress;
+import com.binance4j.wallet.dto.DepositHistory;
+import com.binance4j.wallet.dto.DustLog;
+import com.binance4j.wallet.dto.DustTransferResponse;
+import com.binance4j.wallet.dto.FundingAsset;
+import com.binance4j.wallet.dto.FuturesAccountSnapshotResponse;
+import com.binance4j.wallet.dto.MarginAccountSnapshotResponse;
+import com.binance4j.wallet.dto.SpotAccountSnapshotResponse;
+import com.binance4j.wallet.dto.SystemStatus;
+import com.binance4j.wallet.dto.TradeFee;
+import com.binance4j.wallet.dto.WalletTransferHistory;
+import com.binance4j.wallet.dto.WalletTransferResponse;
+import com.binance4j.wallet.dto.WithdrawHistory;
+import com.binance4j.wallet.dto.WithdrawResult;
 import com.binance4j.wallet.param.AccountSnapshotParams;
 import com.binance4j.wallet.param.AccountStatusParams;
 import com.binance4j.wallet.param.ApiPermissionsParams;
@@ -26,29 +49,6 @@ import com.binance4j.wallet.param.WalletTransferHistoryParams;
 import com.binance4j.wallet.param.WalletTransferParams;
 import com.binance4j.wallet.param.WithdrawHistoryParams;
 import com.binance4j.wallet.param.WithdrawParams;
-import com.binance4j.wallet.request.DisableFastWithdrawSwitchRequest;
-import com.binance4j.wallet.request.DustTransferRequest;
-import com.binance4j.wallet.request.EnableFastWithdrawSwitchRequest;
-import com.binance4j.wallet.request.GetAccountStatus;
-import com.binance4j.wallet.request.GetAllCoinsInfoRequest;
-import com.binance4j.wallet.request.GetApiPermissionsRequest;
-import com.binance4j.wallet.request.GetApiTradingStatusRequest;
-import com.binance4j.wallet.request.GetAssetDetailRequest;
-import com.binance4j.wallet.request.GetAssetDividendRecordRequest;
-import com.binance4j.wallet.request.GetConvertibleAssetsRequest;
-import com.binance4j.wallet.request.GetDepositAddressRequest;
-import com.binance4j.wallet.request.GetDepositHistoryRequest;
-import com.binance4j.wallet.request.GetDustLogRequest;
-import com.binance4j.wallet.request.GetFundingWalletRequest;
-import com.binance4j.wallet.request.GetFuturesAccountSnapshotRequest;
-import com.binance4j.wallet.request.GetMarginAccountSnapshotRequest;
-import com.binance4j.wallet.request.GetSpotAccountSnapshotRequest;
-import com.binance4j.wallet.request.GetSystemStatusRequest;
-import com.binance4j.wallet.request.GetTradeFeeRequest;
-import com.binance4j.wallet.request.GetTransferHistoryRequest;
-import com.binance4j.wallet.request.GetWithdrawHistoryRequest;
-import com.binance4j.wallet.request.WalletTransferRequest;
-import com.binance4j.wallet.request.WithdrawRequest;
 
 /**
  * The API client for the wallet endpoints
@@ -70,8 +70,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetSystemStatusRequest getSystemStatus() {
-		return new GetSystemStatusRequest(service.getSystemStatus());
+	public Request<SystemStatus> getSystemStatus() {
+		return new Request<>(service.getSystemStatus());
 	}
 
 	/**
@@ -79,8 +79,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAllCoinsInfoRequest getAllCoinsInfo() {
-		return new GetAllCoinsInfoRequest(service.getAllCoinsInfo(new CoinInformationParams().toMap()));
+	public Request<List<CoinInformation>> getAllCoinsInfo() {
+		return new Request<>(service.getAllCoinsInfo(new CoinInformationParams().toMap()));
 	}
 
 	/**
@@ -89,8 +89,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
-	public GetSpotAccountSnapshotRequest getSpotAccountSnapshot(TimeFrame timeinterval) {
-		return new GetSpotAccountSnapshotRequest(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT,
+	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getSpotAccountSnapshot(AccountSnapshotType.SPOT,
 				Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
@@ -99,8 +99,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetSpotAccountSnapshotRequest getSpotAccountSnapshot() {
-		return new GetSpotAccountSnapshotRequest(
+	public Request<SpotAccountSnapshotResponse> getSpotAccountSnapshot() {
+		return new Request<>(
 				service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, new AccountSnapshotParams().toMap()));
 	}
 
@@ -110,8 +110,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
-	public GetMarginAccountSnapshotRequest getMarginAccountSnapshot(TimeFrame timeinterval) {
-		return new GetMarginAccountSnapshotRequest(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN,
+	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN,
 				Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
@@ -120,8 +120,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetMarginAccountSnapshotRequest getMarginAccountSnapshot() {
-		return new GetMarginAccountSnapshotRequest(
+	public Request<MarginAccountSnapshotResponse> getMarginAccountSnapshot() {
+		return new Request<>(
 				service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, new AccountSnapshotParams().toMap()));
 	}
 
@@ -131,8 +131,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeinterval Search interval.
 	 * @return The request to execute.
 	 */
-	public GetFuturesAccountSnapshotRequest getFuturesAccountSnapshot(TimeFrame timeinterval) {
-		return new GetFuturesAccountSnapshotRequest(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES,
+	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot(TimeFrame timeinterval) {
+		return new Request<>(service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES,
 				Params.merge(new AccountSnapshotParams(), timeinterval)));
 	}
 
@@ -141,8 +141,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetFuturesAccountSnapshotRequest getFuturesAccountSnapshot() {
-		return new GetFuturesAccountSnapshotRequest(
+	public Request<FuturesAccountSnapshotResponse> getFuturesAccountSnapshot() {
+		return new Request<>(
 				service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, new AccountSnapshotParams().toMap()));
 	}
 
@@ -151,9 +151,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public DisableFastWithdrawSwitchRequest disableFastWithdrawSwitch() {
-		return new DisableFastWithdrawSwitchRequest(
-				service.disableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
+	public Request<Void> disableFastWithdrawSwitch() {
+		return new Request<>(service.disableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
 	}
 
 	/**
@@ -161,9 +160,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public EnableFastWithdrawSwitchRequest enableFastWithdrawSwitch() {
-		return new EnableFastWithdrawSwitchRequest(
-				service.enableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
+	public Request<Void> enableFastWithdrawSwitch() {
+		return new Request<>(service.enableFastWithdrawSwitch(new FastWithdrawSwitchParams().toMap()));
 	}
 
 	/**
@@ -176,8 +174,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public WithdrawRequest withdraw(WithdrawParams params) {
-		return new WithdrawRequest(service.withdraw(params.toMap()));
+	public Request<WithdrawResult> withdraw(WithdrawParams params) {
+		return new Request<>(service.withdraw(params.toMap()));
 	}
 
 	/**
@@ -193,8 +191,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetDepositHistoryRequest getDepositHistory(DepositHistoryParams params) {
-		return new GetDepositHistoryRequest(service.getDepositHistory(params.toMap()));
+	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params) {
+		return new Request<>(service.getDepositHistory(params.toMap()));
 	}
 
 	/**
@@ -202,7 +200,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetDepositHistoryRequest getDepositHistory() {
+	public Request<List<DepositHistory>> getDepositHistory() {
 		return getDepositHistory(new DepositHistoryParams());
 	}
 
@@ -220,8 +218,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetDepositHistoryRequest getDepositHistory(DepositHistoryParams params, FramedPaging paging) {
-		return new GetDepositHistoryRequest(
+	public Request<List<DepositHistory>> getDepositHistory(DepositHistoryParams params, FramedPaging paging) {
+		return new Request<>(
 				service.getDepositHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
@@ -231,8 +229,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetDepositHistoryRequest getDepositHistory(FramedPaging paging) {
-		return new GetDepositHistoryRequest(service.getDepositHistory(
+	public Request<List<DepositHistory>> getDepositHistory(FramedPaging paging) {
+		return new Request<>(service.getDepositHistory(
 				Params.merge(new DepositHistoryParams().toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
@@ -242,8 +240,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetWithdrawHistoryRequest getWithdrawHistory(WithdrawHistoryParams params) {
-		return new GetWithdrawHistoryRequest(service.getWithdrawHistory(params.toMap()));
+	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params) {
+		return new Request<>(service.getWithdrawHistory(params.toMap()));
 	}
 
 	/**
@@ -253,8 +251,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetWithdrawHistoryRequest getWithdrawHistory(WithdrawHistoryParams params, FramedPaging paging) {
-		return new GetWithdrawHistoryRequest(
+	public Request<List<WithdrawHistory>> getWithdrawHistory(WithdrawHistoryParams params, FramedPaging paging) {
+		return new Request<>(
 				service.getWithdrawHistory(Params.merge(params.toMap(), paging.toMap(Map.of("page", "offset")))));
 	}
 
@@ -263,7 +261,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetWithdrawHistoryRequest getWithdrawHistory() {
+	public Request<List<WithdrawHistory>> getWithdrawHistory() {
 		return getWithdrawHistory(new WithdrawHistoryParams((String) null));
 	}
 
@@ -278,8 +276,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetDepositAddressRequest getDepositAddress(DepositAddressParams params) {
-		return new GetDepositAddressRequest(service.getDepositAddress(params.toMap()));
+	public Request<DepositAddress> getDepositAddress(DepositAddressParams params) {
+		return new Request<>(service.getDepositAddress(params.toMap()));
 	}
 
 	/**
@@ -287,8 +285,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAccountStatus getAccountStatus() {
-		return new GetAccountStatus(service.getAccountstatus(new AccountStatusParams().toMap()));
+	public Request<AccountStatus> getAccountStatus() {
+		return new Request<>(service.getAccountstatus(new AccountStatusParams().toMap()));
 	}
 
 	/**
@@ -296,8 +294,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetApiTradingStatusRequest getApiTradingStatus() {
-		return new GetApiTradingStatusRequest(service.getApiTradingStatus(new ApiTradingStatusParams().toMap()));
+	public Request<ApiTradingStatus> getApiTradingStatus() {
+		return new Request<>(service.getApiTradingStatus(new ApiTradingStatusParams().toMap()));
 	}
 
 	/**
@@ -305,8 +303,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetDustLogRequest getDustLog() {
-		return new GetDustLogRequest(service.getDustLog(new DustLogParams().toMap()));
+	public Request<DustLog> getDustLog() {
+		return new Request<>(service.getDustLog(new DustLogParams().toMap()));
 	}
 
 	/**
@@ -315,8 +313,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
-	public GetDustLogRequest getDustLog(TimeFrame timeFrame) {
-		return new GetDustLogRequest(service.getDustLog(Params.merge(new DustLogParams(), timeFrame)));
+	public Request<DustLog> getDustLog(TimeFrame timeFrame) {
+		return new Request<>(service.getDustLog(Params.merge(new DustLogParams(), timeFrame)));
 	}
 
 	/**
@@ -324,9 +322,9 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetConvertibleAssetsRequest getConvertibleAssets() {
+	public Request<ConvertibleAssets> getConvertibleAssets() {
 		ConvertibleAssetParams params = new ConvertibleAssetParams();
-		return new GetConvertibleAssetsRequest(service.getConvertibleAssets(params.toMap()));
+		return new Request<>(service.getConvertibleAssets(params.toMap()));
 	}
 
 	/**
@@ -335,8 +333,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetConvertibleAssetsRequest getConvertibleAssets(ConvertibleAssetParams params) {
-		return new GetConvertibleAssetsRequest(service.getConvertibleAssets(params.toMap()));
+	public Request<ConvertibleAssets> getConvertibleAssets(ConvertibleAssetParams params) {
+		return new Request<>(service.getConvertibleAssets(params.toMap()));
 	}
 
 	/**
@@ -345,8 +343,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public DustTransferRequest dustTransfer(DustTransferParams params) {
-		return new DustTransferRequest(service.dustTransfer(params.toMap()));
+	public Request<DustTransferResponse> dustTransfer(DustTransferParams params) {
+		return new Request<>(service.dustTransfer(params.toMap()));
 	}
 
 	/**
@@ -355,8 +353,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAssetDividendRecordRequest getAssetDividendRecord(AssetDividendRecordParams params) {
-		return new GetAssetDividendRecordRequest(service.getAssetDividendRecord(params.toMap()));
+	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params) {
+		return new Request<>(service.getAssetDividendRecord(params.toMap()));
 	}
 
 	/**
@@ -364,7 +362,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAssetDividendRecordRequest getAssetDividendRecord() {
+	public Request<AssetDividendRecord> getAssetDividendRecord() {
 		return getAssetDividendRecord(new AssetDividendRecordParams(null));
 	}
 
@@ -375,8 +373,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
-	public GetAssetDividendRecordRequest getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame timeFrame) {
-		return new GetAssetDividendRecordRequest(service.getAssetDividendRecord(Params.merge(params, timeFrame)));
+	public Request<AssetDividendRecord> getAssetDividendRecord(AssetDividendRecordParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAssetDividendRecord(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -385,8 +383,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param timeFrame Search interval.
 	 * @return The request to execute.
 	 */
-	public GetAssetDividendRecordRequest getAssetDividendRecord(TimeFrame timeFrame) {
-		return new GetAssetDividendRecordRequest(
+	public Request<AssetDividendRecord> getAssetDividendRecord(TimeFrame timeFrame) {
+		return new Request<>(
 				service.getAssetDividendRecord(Params.merge(new AssetDividendRecordParams(null), timeFrame)));
 	}
 
@@ -398,8 +396,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAssetDetailRequest getAssetDetail(AssetDetailParams params) {
-		return new GetAssetDetailRequest(service.getAssetDetail(params.toMap()));
+	public Request<Map<String, AssetDetail>> getAssetDetail(AssetDetailParams params) {
+		return new Request<>(service.getAssetDetail(params.toMap()));
 	}
 
 	/**
@@ -407,7 +405,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAssetDetailRequest getAssetDetail() {
+	public Request<Map<String, AssetDetail>> getAssetDetail() {
 		return getAssetDetail(new AssetDetailParams(null));
 	}
 
@@ -417,8 +415,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTradeFeeRequest getTradeFee(TradeFeeParams params) {
-		return new GetTradeFeeRequest(service.getTradeFee(params.toMap()));
+	public Request<List<TradeFee>> getTradeFee(TradeFeeParams params) {
+		return new Request<>(service.getTradeFee(params.toMap()));
 	}
 
 	/**
@@ -426,7 +424,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetTradeFeeRequest getTradeFee() {
+	public Request<List<TradeFee>> getTradeFee() {
 		return getTradeFee(new TradeFeeParams(null));
 	}
 
@@ -439,8 +437,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public WalletTransferRequest transfer(WalletTransferParams params) {
-		return new WalletTransferRequest(service.transfer(params.toMap()));
+	public Request<WalletTransferResponse> transfer(WalletTransferParams params) {
+		return new Request<>(service.transfer(params.toMap()));
 	}
 
 	/**
@@ -449,8 +447,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTransferHistoryRequest getTransferHistory(WalletTransferHistoryParams params) {
-		return new GetTransferHistoryRequest(service.getTransferHistory(params.toMap()));
+	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params) {
+		return new Request<>(service.getTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -460,8 +458,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetTransferHistoryRequest getTransferHistory(WalletTransferHistoryParams params, FramedPaging paging) {
-		return new GetTransferHistoryRequest(service.getTransferHistory(
+	public Request<WalletTransferHistory> getTransferHistory(WalletTransferHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getTransferHistory(
 				Params.merge(params.toMap(), paging.toMap(Map.of("limit", "size", "page", "current")))));
 	}
 
@@ -474,8 +472,8 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetFundingWalletRequest getFundingWallet(FundingWalletParams params) {
-		return new GetFundingWalletRequest(service.getFundingWallet(params.toMap()));
+	public Request<List<FundingAsset>> getFundingWallet(FundingWalletParams params) {
+		return new Request<>(service.getFundingWallet(params.toMap()));
 	}
 
 	/**
@@ -483,7 +481,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetFundingWalletRequest getFundingWallet() {
+	public Request<List<FundingAsset>> getFundingWallet() {
 		return getFundingWallet(new FundingWalletParams(null, null));
 	}
 
@@ -492,7 +490,7 @@ public class WalletClient extends RestClient<WalletMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetApiPermissionsRequest getApiPermissions() {
-		return new GetApiPermissionsRequest(service.getApiPermissions(new ApiPermissionsParams().toMap()));
+	public Request<ApiPermissions> getApiPermissions() {
+		return new Request<>(service.getApiPermissions(new ApiPermissionsParams().toMap()));
 	}
 }

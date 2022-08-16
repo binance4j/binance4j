@@ -22,126 +22,124 @@ import retrofit2.http.QueryMap;
 
 /** {@link SpotClient} mapping. */
 public interface SpotMapping extends RestMapping {
-	/** The API base url. */
-	String BASE = "/api/v3/";
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@POST(BASE + "order")
+	@Headers({ SIGNED_H, IP_UID_H, WEIGHT_ONE_H, IS_ORDER_H })
+	@POST("/api/v3/order")
 	Call<NewOrderResponse> newOrder(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@POST(BASE + "order/test")
+	@Headers({ SIGNED_H, IP_UID_H, WEIGHT_ONE_H })
+	@POST("/api/v3/order/test")
 	Call<Void> newOrderTest(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@DELETE(BASE + "order")
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@DELETE("/api/v3/order")
 	Call<CancelOrderResponse> cancelOrder(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@DELETE(BASE + "openOrders")
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@DELETE("/api/v3/openOrders")
 	Call<List<CancelOrderResponse>> cancelOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "order")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 2" })
+	@GET("/api/v3/order")
 	Call<OrderInfo> getOrderStatus(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "openOrders")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 40" })
+	@GET("/api/v3/openOrders")
 	Call<List<OrderInfo>> getOpenOrders(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "allOrders")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@GET("/api/v3/allOrders")
 	Call<List<OrderInfo>> getAllOrders(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@POST(BASE + "order/oco")
+	@Headers({ SIGNED_H, IP_UID_H, "X-WEIGHT: 2" })
+	@POST("/api/v3/order/oco")
 	Call<OCOResponse> newOCO(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@DELETE(BASE + "orderList")
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@DELETE("/api/v3/orderList")
 	Call<OCOResponse> cancelOCO(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "orderList")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 2" })
+	@GET("/api/v3/orderList")
 	Call<OCOInfo> queryOCO(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "allOrderList")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@GET("/api/v3/allOrderList")
 	Call<List<OCOInfo>> getAllOCO(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "openOrderList")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 3" })
+	@GET("/api/v3/openOrderList")
 	Call<List<OCOInfo>> getOpenOCO(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "account")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@GET("/api/v3/account")
 	Call<Account> getAccount(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "myTrades")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@GET("/api/v3/myTrades")
 	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
 
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers(SIGNED_H)
-	@GET(BASE + "rateLimit/order")
+	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 20" })
+	@GET("/api/v3/rateLimit/order")
 	Call<List<OrderCount>> getOrderCount(@QueryMap Map<String, Object> map);
 }

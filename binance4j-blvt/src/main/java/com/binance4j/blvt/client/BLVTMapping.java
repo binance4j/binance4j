@@ -27,7 +27,7 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "tokenInfo")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H })
 	Call<List<Token>> getTokenInfo(@QueryMap Map<String, Object> map);
 
 	/**
@@ -35,7 +35,7 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "subscribe")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<SubscriptionResponse> subscribe(@QueryMap Map<String, Object> map);
 
 	/**
@@ -43,7 +43,7 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "subscribe/record")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<List<Subscription>> getSubscriptions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -51,7 +51,7 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "redeem")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<RedemptionResponse> redeem(@QueryMap Map<String, Object> map);
 
 	/**
@@ -59,7 +59,7 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "redeem/record")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<List<Redemption>> getRedemptions(@QueryMap Map<String, Object> map);
 
 	/**
@@ -67,6 +67,6 @@ public interface BLVTMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "userLimit")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, WEIGHT_ONE_H, IP_H })
 	Call<List<LimitInfo>> getLimitInfo(@QueryMap Map<String, Object> map);
 }

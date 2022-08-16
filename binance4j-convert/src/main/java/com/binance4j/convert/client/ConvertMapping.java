@@ -20,6 +20,6 @@ public interface ConvertMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "tradeFlow")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_H + ": 3000" })
 	Call<ConversionHistory> getConversions(@QueryMap Map<String, Object> map);
 }

@@ -28,7 +28,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "productList")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<Product>> getProductList(@QueryMap Map<String, Object> map);
 
 	/**
@@ -36,7 +36,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "purchase")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<PurchaseResponse> purchase(@QueryMap Map<String, Object> map);
 
 	/**
@@ -44,7 +44,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@POST(BASE + "redeem")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<RedeemResponse> redeem(@QueryMap Map<String, Object> map);
 
 	/**
@@ -52,7 +52,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "position")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<ProductPosition>> getPosition(@QueryMap Map<String, Object> map);
 
 	/**
@@ -60,7 +60,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "stakingRecord")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<List<StakingRecord>> getHistory(@QueryMap Map<String, Object> map);
 
 	/**
@@ -68,7 +68,7 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "setAutoStaking")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<AutoStakingResponse> setAutoStaking(@QueryMap Map<String, Object> map);
 
 	/**
@@ -76,6 +76,6 @@ public interface StakingMapping extends RestMapping {
 	 * @return The generated Retrofit call.
 	 */
 	@GET(BASE + "personalLeftQuota")
-	@Headers(SIGNED_H)
+	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
 	Call<LeftQuota> getLeftQuota(@QueryMap Map<String, Object> map);
 }

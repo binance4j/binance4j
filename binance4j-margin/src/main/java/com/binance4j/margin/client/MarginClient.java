@@ -1,5 +1,6 @@
 package com.binance4j.margin.client;
 
+import java.util.List;
 import java.util.Map;
 
 import com.binance4j.core.Request;
@@ -7,6 +8,35 @@ import com.binance4j.core.client.RestClient;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Params;
 import com.binance4j.core.param.TimeFrame;
+import com.binance4j.margin.dto.Account;
+import com.binance4j.margin.dto.Asset;
+import com.binance4j.margin.dto.BNBBurnStatus;
+import com.binance4j.margin.dto.CancelOrderResponse;
+import com.binance4j.margin.dto.CrossFee;
+import com.binance4j.margin.dto.CrossSymbol;
+import com.binance4j.margin.dto.DustLogRecord;
+import com.binance4j.margin.dto.ForceLiquidationRecords;
+import com.binance4j.margin.dto.InterestHistory;
+import com.binance4j.margin.dto.InterestRate;
+import com.binance4j.margin.dto.IsolatedAccount;
+import com.binance4j.margin.dto.IsolatedAccountLimit;
+import com.binance4j.margin.dto.IsolatedFee;
+import com.binance4j.margin.dto.IsolatedSymbol;
+import com.binance4j.margin.dto.IsolatedTierData;
+import com.binance4j.margin.dto.IsolatedTransferRecords;
+import com.binance4j.margin.dto.LoanRecord;
+import com.binance4j.margin.dto.MaxBorrowable;
+import com.binance4j.margin.dto.MaxTransferable;
+import com.binance4j.margin.dto.NewOCOOrderRecord;
+import com.binance4j.margin.dto.NewOrderRecord;
+import com.binance4j.margin.dto.OCOOrderRecord;
+import com.binance4j.margin.dto.OrderInfo;
+import com.binance4j.margin.dto.OrderRateLimit;
+import com.binance4j.margin.dto.PriceIndex;
+import com.binance4j.margin.dto.RepayRecords;
+import com.binance4j.margin.dto.ToogleAccountResponse;
+import com.binance4j.margin.dto.Trade;
+import com.binance4j.margin.dto.Transaction;
 import com.binance4j.margin.dto.TransferRecords;
 import com.binance4j.margin.param.AllMarginPairsParams;
 import com.binance4j.margin.param.AllOrdersParams;
@@ -45,49 +75,6 @@ import com.binance4j.margin.param.ToogleAccountParams;
 import com.binance4j.margin.param.TradeParams;
 import com.binance4j.margin.param.TransactionHistoryParams;
 import com.binance4j.margin.param.TransferParams;
-import com.binance4j.margin.request.BorrowRequest;
-import com.binance4j.margin.request.CancelOCORequest;
-import com.binance4j.margin.request.CancelOpenOrdersRequest;
-import com.binance4j.margin.request.CancelOrderRequest;
-import com.binance4j.margin.request.DisableIsolatedAccountRequest;
-import com.binance4j.margin.request.EnableIsolatedAccountRequest;
-import com.binance4j.margin.request.GetAccountRequest;
-import com.binance4j.margin.request.GetAllAssetsRequest;
-import com.binance4j.margin.request.GetAllCrossMarginPairRequest;
-import com.binance4j.margin.request.GetAllIsolatedSymbolRequest;
-import com.binance4j.margin.request.GetAllOCORequest;
-import com.binance4j.margin.request.GetAssetRequest;
-import com.binance4j.margin.request.GetBNBBurnStatusRequest;
-import com.binance4j.margin.request.GetCrossMarginPairRequest;
-import com.binance4j.margin.request.GetDustLogRequest;
-import com.binance4j.margin.request.GetEnabledIsolatedAccountLimitRequest;
-import com.binance4j.margin.request.GetForceLiquidationRecordRequest;
-import com.binance4j.margin.request.GetInterestHistoryRequest;
-import com.binance4j.margin.request.GetInterestRateHistoryRequest;
-import com.binance4j.margin.request.GetIsolatedAccountRequest;
-import com.binance4j.margin.request.GetIsolatedFeeDataRequest;
-import com.binance4j.margin.request.GetIsolatedMarginTierDataRequest;
-import com.binance4j.margin.request.GetIsolatedSymbolRequest;
-import com.binance4j.margin.request.GetIsolatedTransferHistoryRequest;
-import com.binance4j.margin.request.GetLoanRecordRequest;
-import com.binance4j.margin.request.GetMarginFeeDataRequest;
-import com.binance4j.margin.request.GetMaxBorrowableRequest;
-import com.binance4j.margin.request.GetMaxTransferableRequest;
-import com.binance4j.margin.request.GetOCORequest;
-import com.binance4j.margin.request.GetOpenOCORequest;
-import com.binance4j.margin.request.GetOpenOrdersRequest;
-import com.binance4j.margin.request.GetOrderRequest;
-import com.binance4j.margin.request.GetPriceIndexRequest;
-import com.binance4j.margin.request.GetRateLimitRequest;
-import com.binance4j.margin.request.GetRepayRecordRequest;
-import com.binance4j.margin.request.GetTradesRequest;
-import com.binance4j.margin.request.GetTransferHistoryRequest;
-import com.binance4j.margin.request.NewIsolatedTransferRequest;
-import com.binance4j.margin.request.NewOCORequest;
-import com.binance4j.margin.request.NewOrderRequest;
-import com.binance4j.margin.request.RepayRequest;
-import com.binance4j.margin.request.ToggleBNBRequest;
-import com.binance4j.margin.request.TransferRequest;
 
 /**
  * REST client for the margin endpoints.
@@ -119,8 +106,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public TransferRequest transfer(TransferParams params) {
-		return new TransferRequest(service.transfer(params.toMap()));
+	public Request<Transaction> transfer(TransferParams params) {
+		return new Request<>(service.transfer(params.toMap()));
 	}
 
 	/**
@@ -129,8 +116,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public BorrowRequest borrow(BorrowParams params) {
-		return new BorrowRequest(service.borrow(params.toMap()));
+	public Request<Transaction> borrow(BorrowParams params) {
+		return new Request<>(service.borrow(params.toMap()));
 	}
 
 	/**
@@ -139,8 +126,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public RepayRequest repay(RepayParams params) {
-		return new RepayRequest(service.repay(params.toMap()));
+	public Request<Transaction> repay(RepayParams params) {
+		return new Request<>(service.repay(params.toMap()));
 	}
 
 	/**
@@ -149,8 +136,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAssetRequest getAsset(AssetParams params) {
-		return new GetAssetRequest(service.getAsset(params.toMap()));
+	public Request<Asset> getAsset(AssetParams params) {
+		return new Request<>(service.getAsset(params.toMap()));
 	}
 
 	/**
@@ -158,8 +145,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAllAssetsRequest getAllAssets() {
-		return new GetAllAssetsRequest(service.getAllAssets());
+	public Request<List<Asset>> getAllAssets() {
+		return new Request<>(service.getAllAssets());
 	}
 
 	/**
@@ -168,8 +155,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetCrossMarginPairRequest getCrossMarginPair(PairParams params) {
-		return new GetCrossMarginPairRequest(service.getCrossMarginPair(params.toMap()));
+	public Request<CrossSymbol> getCrossMarginPair(PairParams params) {
+		return new Request<>(service.getCrossMarginPair(params.toMap()));
 	}
 
 	/**
@@ -177,8 +164,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAllCrossMarginPairRequest getAllCrossMarginPairs() {
-		return new GetAllCrossMarginPairRequest(service.getAllCrossMarginPairs(new AllMarginPairsParams().toMap()));
+	public Request<List<CrossSymbol>> getAllCrossMarginPairs() {
+		return new Request<>(service.getAllCrossMarginPairs(new AllMarginPairsParams().toMap()));
 	}
 
 	/**
@@ -187,8 +174,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetPriceIndexRequest getPriceIndex(PriceIndexParams params) {
-		return new GetPriceIndexRequest(service.getPriceIndex(params.toMap()));
+	public Request<PriceIndex> getPriceIndex(PriceIndexParams params) {
+		return new Request<>(service.getPriceIndex(params.toMap()));
 	}
 
 	/**
@@ -197,8 +184,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public NewOrderRequest newOrder(NewOrderParams params) {
-		return new NewOrderRequest(service.newOrder(params.toMap()));
+	public Request<NewOrderRecord> newOrder(NewOrderParams params) {
+		return new Request<>(service.newOrder(params.toMap()));
 	}
 
 	/**
@@ -207,8 +194,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOrderRequest cancelOrder(CancelOrderParams params) {
-		return new CancelOrderRequest(service.cancelOrder(params.toMap()));
+	public Request<CancelOrderResponse> cancelOrder(CancelOrderParams params) {
+		return new Request<>(service.cancelOrder(params.toMap()));
 	}
 
 	/**
@@ -218,8 +205,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOpenOrdersRequest cancelOpenOrders(CancelOpenOrdersParams params) {
-		return new CancelOpenOrdersRequest(service.cancelOpenOrders(params.toMap()));
+	public Request<List<CancelOrderResponse>> cancelOpenOrders(CancelOpenOrdersParams params) {
+		return new Request<>(service.cancelOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -237,8 +224,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTransferHistoryRequest getTransferHistory(TransactionHistoryParams params) {
-		return new GetTransferHistoryRequest(service.getTransferHistory(params.toMap()));
+	public Request<TransferRecords> getTransferHistory(TransactionHistoryParams params) {
+		return new Request<>(service.getTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -248,8 +235,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetTransferHistoryRequest getTransferHistory(TransactionHistoryParams params, FramedPaging paging) {
-		return new GetTransferHistoryRequest(service.getTransferHistory(
+	public Request<TransferRecords> getTransferHistory(TransactionHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getTransferHistory(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -259,8 +246,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetLoanRecordRequest getLoanRecord(TransactionHistoryParams params) {
-		return new GetLoanRecordRequest(service.getLoanRecord(params.toMap()));
+	public Request<LoanRecord> getLoanRecord(TransactionHistoryParams params) {
+		return new Request<>(service.getLoanRecord(params.toMap()));
 	}
 
 	/**
@@ -270,8 +257,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetLoanRecordRequest getLoanRecord(TransactionHistoryParams params, FramedPaging paging) {
-		return new GetLoanRecordRequest(service
+	public Request<LoanRecord> getLoanRecord(TransactionHistoryParams params, FramedPaging paging) {
+		return new Request<>(service
 				.getLoanRecord(Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -281,8 +268,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetRepayRecordRequest getRepayRecord(TransactionHistoryParams params) {
-		return new GetRepayRecordRequest(service.getRepayRecord(params.toMap()));
+	public Request<RepayRecords> getRepayRecord(TransactionHistoryParams params) {
+		return new Request<>(service.getRepayRecord(params.toMap()));
 	}
 
 	/**
@@ -292,8 +279,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetRepayRecordRequest getRepayRecord(TransactionHistoryParams params, FramedPaging paging) {
-		return new GetRepayRecordRequest(service.getRepayRecord(
+	public Request<RepayRecords> getRepayRecord(TransactionHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getRepayRecord(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -303,8 +290,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetInterestHistoryRequest getInterestHistory(TransactionHistoryParams params) {
-		return new GetInterestHistoryRequest(service.getInterestHistory(params.toMap()));
+	public Request<InterestHistory> getInterestHistory(TransactionHistoryParams params) {
+		return new Request<>(service.getInterestHistory(params.toMap()));
 	}
 
 	/**
@@ -314,8 +301,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetInterestHistoryRequest getInterestHistory(TransactionHistoryParams params, FramedPaging paging) {
-		return new GetInterestHistoryRequest(service.getInterestHistory(
+	public Request<InterestHistory> getInterestHistory(TransactionHistoryParams params, FramedPaging paging) {
+		return new Request<>(service.getInterestHistory(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -325,8 +312,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetForceLiquidationRecordRequest getForceLiquidationRecord(ForceLiquidationRecordParams params) {
-		return new GetForceLiquidationRecordRequest(service.getForceLiquidationRecord(params.toMap()));
+	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params) {
+		return new Request<>(service.getForceLiquidationRecord(params.toMap()));
 	}
 
 	/**
@@ -336,9 +323,9 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paging.
 	 * @return The request to execute.
 	 */
-	public GetForceLiquidationRecordRequest getForceLiquidationRecord(ForceLiquidationRecordParams params,
+	public Request<ForceLiquidationRecords> getForceLiquidationRecord(ForceLiquidationRecordParams params,
 			FramedPaging paging) {
-		return new GetForceLiquidationRecordRequest(service.getForceLiquidationRecord(
+		return new Request<>(service.getForceLiquidationRecord(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -347,8 +334,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAccountRequest getAccount() {
-		return new GetAccountRequest(service.getAccount(new GetAccountParams().toMap()));
+	public Request<Account> getAccount() {
+		return new Request<>(service.getAccount(new GetAccountParams().toMap()));
 	}
 
 	/**
@@ -357,8 +344,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOrderRequest getOrder(OrderParams params) {
-		return new GetOrderRequest(service.getOrder(params.toMap()));
+	public Request<OrderInfo> getOrder(OrderParams params) {
+		return new Request<>(service.getOrder(params.toMap()));
 	}
 
 	/**
@@ -367,8 +354,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getOpenOrders(OpenOrdersParams params) {
-		return new GetOpenOrdersRequest(service.getOpenOrders(params.toMap()));
+	public Request<List<OrderInfo>> getOpenOrders(OpenOrdersParams params) {
+		return new Request<>(service.getOpenOrders(params.toMap()));
 	}
 
 	/**
@@ -376,7 +363,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getOpenOrders() {
+	public Request<List<OrderInfo>> getOpenOrders() {
 		return getOpenOrders(new OpenOrdersParams(null, null));
 	}
 
@@ -386,8 +373,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getAllOrders(AllOrdersParams params) {
-		return new GetOpenOrdersRequest(service.getAllOrders(params.toMap()));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params) {
+		return new Request<>(service.getAllOrders(params.toMap()));
 	}
 
 	/**
@@ -397,8 +384,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param timeFrame Time interval search.
 	 * @return The request to execute.
 	 */
-	public GetOpenOrdersRequest getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
-		return new GetOpenOrdersRequest(service.getAllOrders(Params.merge(params, timeFrame)));
+	public Request<List<OrderInfo>> getAllOrders(AllOrdersParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOrders(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -407,8 +394,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public NewOCORequest newOCO(NewOCOOrderParams params) {
-		return new NewOCORequest(service.newOCO(params.toMap()));
+	public Request<NewOCOOrderRecord> newOCO(NewOCOOrderParams params) {
+		return new Request<>(service.newOCO(params.toMap()));
 	}
 
 	/**
@@ -417,8 +404,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public CancelOCORequest cancelOCO(CancelOCOParams params) {
-		return new CancelOCORequest(service.cancelOCO(params.toMap()));
+	public Request<NewOCOOrderRecord> cancelOCO(CancelOCOParams params) {
+		return new Request<>(service.cancelOCO(params.toMap()));
 	}
 
 	/**
@@ -427,8 +414,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOCORequest getOCO(GetOCOParams params) {
-		return new GetOCORequest(service.getOCO(params.toMap()));
+	public Request<OCOOrderRecord> getOCO(GetOCOParams params) {
+		return new Request<>(service.getOCO(params.toMap()));
 	}
 
 	/**
@@ -438,8 +425,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO(GetAllOCOParams params) {
-		return new GetAllOCORequest(service.getAllOCO(params.toMap()));
+	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params) {
+		return new Request<>(service.getAllOCO(params.toMap()));
 	}
 
 	/**
@@ -450,8 +437,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param timeFrame Time interval seach.
 	 * @return The request to execute.
 	 */
-	public GetAllOCORequest getAllOCO(GetAllOCOParams params, TimeFrame timeFrame) {
-		return new GetAllOCORequest(service.getAllOCO(Params.merge(params, timeFrame)));
+	public Request<List<OCOOrderRecord>> getAllOCO(GetAllOCOParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getAllOCO(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -460,8 +447,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetOpenOCORequest getOpenOCO(GetOpenOCOParams params) {
-		return new GetOpenOCORequest(service.getOpenOCO(params.toMap()));
+	public Request<List<OCOOrderRecord>> getOpenOCO(GetOpenOCOParams params) {
+		return new Request<>(service.getOpenOCO(params.toMap()));
 	}
 
 	/**
@@ -469,7 +456,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetOpenOCORequest getOpenOCO() {
+	public Request<List<OCOOrderRecord>> getOpenOCO() {
 		return getOpenOCO(new GetOpenOCOParams(null, null));
 	}
 
@@ -479,8 +466,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetTradesRequest getTrades(TradeParams params) {
-		return new GetTradesRequest(service.getTrades(params.toMap()));
+	public Request<List<Trade>> getTrades(TradeParams params) {
+		return new Request<>(service.getTrades(params.toMap()));
 	}
 
 	/**
@@ -490,8 +477,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param timeFrame Time interval seach.
 	 * @return The request to execute.
 	 */
-	public GetTradesRequest getTrades(TradeParams params, TimeFrame timeFrame) {
-		return new GetTradesRequest(service.getTrades(Params.merge(params, timeFrame)));
+	public Request<List<Trade>> getTrades(TradeParams params, TimeFrame timeFrame) {
+		return new Request<>(service.getTrades(Params.merge(params, timeFrame)));
 	}
 
 	/**
@@ -500,8 +487,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetMaxBorrowableRequest getMaxBorrowable(MaxBorrowableParams params) {
-		return new GetMaxBorrowableRequest(service.getMaxBorrowable(params.toMap()));
+	public Request<MaxBorrowable> getMaxBorrowable(MaxBorrowableParams params) {
+		return new Request<>(service.getMaxBorrowable(params.toMap()));
 	}
 
 	/**
@@ -510,8 +497,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetMaxTransferableRequest getMaxTransferable(MaxTransferableParams params) {
-		return new GetMaxTransferableRequest(service.getMaxTransferable(params.toMap()));
+	public Request<MaxTransferable> getMaxTransferable(MaxTransferableParams params) {
+		return new Request<>(service.getMaxTransferable(params.toMap()));
 	}
 
 	/**
@@ -520,8 +507,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public NewIsolatedTransferRequest newIsolatedTransfer(NewIsolatedTransferParams params) {
-		return new NewIsolatedTransferRequest(service.isolatedTransfer(params.toMap()));
+	public Request<Transaction> newIsolatedTransfer(NewIsolatedTransferParams params) {
+		return new Request<>(service.isolatedTransfer(params.toMap()));
 	}
 
 	/**
@@ -530,8 +517,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedTransferHistoryRequest getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
-		return new GetIsolatedTransferHistoryRequest(service.getIsolatedTransferHistory(params.toMap()));
+	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params) {
+		return new Request<>(service.getIsolatedTransferHistory(params.toMap()));
 	}
 
 	/**
@@ -541,9 +528,9 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param paging Paginated result.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedTransferHistoryRequest getIsolatedTransferHistory(IsolatedTransferHistoryParams params,
+	public Request<IsolatedTransferRecords> getIsolatedTransferHistory(IsolatedTransferHistoryParams params,
 			FramedPaging paging) {
-		return new GetIsolatedTransferHistoryRequest(service.getIsolatedTransferHistory(
+		return new Request<>(service.getIsolatedTransferHistory(
 				Params.merge(params.toMap(), paging.toMap(Map.of("page", "current", "limit", "size")))));
 	}
 
@@ -553,8 +540,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedAccountRequest getIsolatedAccount(IsolatedAccountParams params) {
-		return new GetIsolatedAccountRequest(service.getIsolatedAccount(params.toMap()));
+	public Request<IsolatedAccount> getIsolatedAccount(IsolatedAccountParams params) {
+		return new Request<>(service.getIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -562,7 +549,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetIsolatedAccountRequest getIsolatedAccount() {
+	public Request<IsolatedAccount> getIsolatedAccount() {
 		return getIsolatedAccount(new IsolatedAccountParams(null));
 	}
 
@@ -573,8 +560,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public DisableIsolatedAccountRequest disableIsolatedAccount(ToogleAccountParams params) {
-		return new DisableIsolatedAccountRequest(service.disableIsolatedAccount(params.toMap()));
+	public Request<ToogleAccountResponse> disableIsolatedAccount(ToogleAccountParams params) {
+		return new Request<>(service.disableIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -584,8 +571,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public EnableIsolatedAccountRequest enableIsolatedAccount(ToogleAccountParams params) {
-		return new EnableIsolatedAccountRequest(service.enableIsolatedAccount(params.toMap()));
+	public Request<ToogleAccountResponse> enableIsolatedAccount(ToogleAccountParams params) {
+		return new Request<>(service.enableIsolatedAccount(params.toMap()));
 	}
 
 	/**
@@ -593,9 +580,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetEnabledIsolatedAccountLimitRequest getEnabledIsolatedAccountLimit() {
-		return new GetEnabledIsolatedAccountLimitRequest(
-				service.getEnabledIsolatedAccountLimit(new IsolatedAccountLimitParams().toMap()));
+	public Request<IsolatedAccountLimit> getEnabledIsolatedAccountLimit() {
+		return new Request<>(service.getEnabledIsolatedAccountLimit(new IsolatedAccountLimitParams().toMap()));
 	}
 
 	/**
@@ -604,8 +590,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedSymbolRequest getIsolatedSymbol(PairParams params) {
-		return new GetIsolatedSymbolRequest(service.getIsolatedSymbol(params.toMap()));
+	public Request<IsolatedSymbol> getIsolatedSymbol(PairParams params) {
+		return new Request<>(service.getIsolatedSymbol(params.toMap()));
 	}
 
 	/**
@@ -613,8 +599,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetAllIsolatedSymbolRequest getAllIsolatedSymbols() {
-		return new GetAllIsolatedSymbolRequest(service.getAllIsolatedSymbols(new AllMarginPairsParams().toMap()));
+	public Request<List<IsolatedSymbol>> getAllIsolatedSymbols() {
+		return new Request<>(service.getAllIsolatedSymbols(new AllMarginPairsParams().toMap()));
 	}
 
 	/**
@@ -623,8 +609,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public ToggleBNBRequest toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams params) {
-		return new ToggleBNBRequest(service.toggleBNBBurnOnSpotTradeAndMarginInterest(params.toMap()));
+	public Request<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams params) {
+		return new Request<>(service.toggleBNBBurnOnSpotTradeAndMarginInterest(params.toMap()));
 	}
 
 	/**
@@ -632,8 +618,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetBNBBurnStatusRequest getBNBBurnStatus() {
-		return new GetBNBBurnStatusRequest(service.getBNBBurnStatus(new BurnStatusParams().toMap()));
+	public Request<BNBBurnStatus> getBNBBurnStatus() {
+		return new Request<>(service.getBNBBurnStatus(new BurnStatusParams().toMap()));
 	}
 
 	/**
@@ -642,8 +628,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetInterestRateHistoryRequest getInterestRateHistory(InterestRateHistoryParams params) {
-		return new GetInterestRateHistoryRequest(service.getInterestRateHistory(params.toMap()));
+	public Request<List<InterestRate>> getInterestRateHistory(InterestRateHistoryParams params) {
+		return new Request<>(service.getInterestRateHistory(params.toMap()));
 	}
 
 	/**
@@ -654,8 +640,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetMarginFeeDataRequest getMarginFeeData(CrossFeeParams params) {
-		return new GetMarginFeeDataRequest(service.getMarginFeeData(params.toMap()));
+	public Request<List<CrossFee>> getMarginFeeData(CrossFeeParams params) {
+		return new Request<>(service.getMarginFeeData(params.toMap()));
 	}
 
 	/**
@@ -665,7 +651,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetMarginFeeDataRequest getMarginFeeData() {
+	public Request<List<CrossFee>> getMarginFeeData() {
 		return getMarginFeeData(new CrossFeeParams(null, null));
 	}
 
@@ -677,8 +663,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedFeeDataRequest getIsolatedFeeData(IsolatedFeeParams params) {
-		return new GetIsolatedFeeDataRequest(service.getIsolatedFeeData(params.toMap()));
+	public Request<List<IsolatedFee>> getIsolatedFeeData(IsolatedFeeParams params) {
+		return new Request<>(service.getIsolatedFeeData(params.toMap()));
 	}
 
 	/**
@@ -688,7 +674,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetIsolatedFeeDataRequest getIsolatedFeeData() {
+	public Request<List<IsolatedFee>> getIsolatedFeeData() {
 		return getIsolatedFeeData(new IsolatedFeeParams(null, null));
 	}
 
@@ -699,8 +685,17 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetIsolatedMarginTierDataRequest getIsolatedMarginTierData(IsolatedTierDataParams params) {
-		return new GetIsolatedMarginTierDataRequest(service.getIsolatedMarginTierData(params.toMap()));
+	public Request<List<IsolatedTierData>> getIsolatedMarginTierData(IsolatedTierDataParams params) {
+		return new Request<>(service.getIsolatedMarginTierData(params.toMap()));
+	}
+
+	/**
+	 * Displays the user's current margin order count usage for all intervals.
+	 * 
+	 * @return The request to execute.
+	 */
+	public Request<List<OrderRateLimit>> getRateLimit() {
+		return new Request<>(service.getRateLimit(new RateLimitParams(null).toMap()));
 	}
 
 	/**
@@ -709,8 +704,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	public GetRateLimitRequest getRateLimit(RateLimitParams params) {
-		return new GetRateLimitRequest(service.getRateLimit(params.toMap()));
+	public Request<List<OrderRateLimit>> getRateLimit(RateLimitParams params) {
+		return new Request<>(service.getRateLimit(params.toMap()));
 	}
 
 	/**
@@ -718,8 +713,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetRateLimitRequest getRateLimit() {
-		return new GetRateLimitRequest(service.getRateLimit(new RateLimitParams(null, null).toMap()));
+	public Request<List<OrderRateLimit>> getOrderRateLimit() {
+		return new Request<>(service.getRateLimit(new RateLimitParams(null, null).toMap()));
 	}
 
 	/**
@@ -728,8 +723,8 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @return The request to execute.
 	 */
-	public GetDustLogRequest getDustLog() {
-		return new GetDustLogRequest(service.getDustLog(new DustLogParams().toMap()));
+	public Request<DustLogRecord> getDustLog() {
+		return new Request<>(service.getDustLog(new DustLogParams().toMap()));
 	}
 
 	/**
@@ -739,7 +734,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * @param timeFrame Result time frame.
 	 * @return The request to execute.
 	 */
-	public GetDustLogRequest getDustLog(TimeFrame timeFrame) {
-		return new GetDustLogRequest(service.getDustLog(Params.merge(new DustLogParams(), timeFrame)));
+	public Request<DustLogRecord> getDustLog(TimeFrame timeFrame) {
+		return new Request<>(service.getDustLog(Params.merge(new DustLogParams(), timeFrame)));
 	}
 }
