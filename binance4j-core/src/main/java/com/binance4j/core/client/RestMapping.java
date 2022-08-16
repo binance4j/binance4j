@@ -1,6 +1,6 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.security.AuthenticationInterceptor;
+import com.binance4j.core.interceptor.AuthenticationInterceptor;
 
 /** Base interface for API Mapping. */
 public interface RestMapping {

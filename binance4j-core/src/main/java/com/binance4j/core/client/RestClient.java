@@ -1,6 +1,7 @@
 package com.binance4j.core.client;
 
-import com.binance4j.core.security.AuthenticationInterceptor;
+import com.binance4j.core.interceptor.AuthenticationInterceptor;
+import com.binance4j.core.interceptor.RateLimitInterceptor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -80,8 +81,8 @@ public abstract class RestClient<T> {
 		dispatcher = new Dispatcher();
 		httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
 		apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
-		interceptor = new AuthenticationInterceptor(key, secret);
-		client = httpClient.newBuilder().addInterceptor(interceptor).build();
+		client = httpClient.newBuilder().addInterceptor(new AuthenticationInterceptor(key, secret))
+				.addInterceptor(new RateLimitInterceptor()).build();
 		service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
 				.create(mapping);
 	}

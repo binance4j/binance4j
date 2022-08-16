@@ -16,33 +16,33 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 public class FiatClientTest extends CustomTest {
 	protected FiatClient client = new FiatClient(key, secret);
 
-	@Override
-	protected FiatClient getClient() {
-		return client;
+	public FiatClientTest() {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetPayments() throws ApiException, InterruptedException {
-		testNotThrow(getClient().getPayments(new PaymentParams(PaymentType.SELL)));
+		testNotThrow(client.getPayments(new PaymentParams(PaymentType.SELL)));
 	}
 
 	@Test
 	void testGetPayments2() throws ApiException, InterruptedException {
 		TimeUnit.SECONDS.sleep(10);
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(getClient().getPayments(new PaymentParams(PaymentType.BUY), new FramedPaging(1)));
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testNotThrow(client.getPayments(new PaymentParams(PaymentType.BUY), new FramedPaging(1)));
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetTransactions() throws ApiException, InterruptedException {
 		TimeUnit.SECONDS.sleep(20);
-		testNotThrow(getClient().getTransactions(new TransactionParams(TransactionType.WITHDRAW)));
+		testNotThrow(client.getTransactions(new TransactionParams(TransactionType.WITHDRAW)));
 	}
 
 	@Test
 	void testGetTransactions2() throws ApiException, InterruptedException {
 		TimeUnit.SECONDS.sleep(30);
-		testNotThrow(getClient().getTransactions(new TransactionParams(TransactionType.DEPOSIT), new FramedPaging(1)));
+		testNotThrow(client.getTransactions(new TransactionParams(TransactionType.DEPOSIT), new FramedPaging(1)));
 	}
 }

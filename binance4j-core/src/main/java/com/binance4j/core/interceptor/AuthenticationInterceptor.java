@@ -1,4 +1,4 @@
-package com.binance4j.core.security;
+package com.binance4j.core.interceptor;
 
 import java.io.IOException;
 

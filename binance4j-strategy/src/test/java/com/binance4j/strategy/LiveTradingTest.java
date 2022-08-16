@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import com.binance4j.LiveTradingCallback;
 import com.binance4j.MultipleSymbolTradingCallback;
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.strategy.service.WatchService;
@@ -59,8 +58,4 @@ class LiveTradingTest extends CustomTest {
 		future.get();
 	}
 
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
-	}
 }

@@ -23,9 +23,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 public class SavingsClientTest extends CustomTest {
 	SavingsClient client = new SavingsClient(key, secret);
 
-	@Override
-	protected SavingsClient getClient() {
-		return client;
+	public SavingsClientTest() {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test

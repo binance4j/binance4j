@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Position;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
@@ -30,8 +29,4 @@ class AnalysingTest extends CustomTest {
 		});
 	}
 
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
-	}
 }

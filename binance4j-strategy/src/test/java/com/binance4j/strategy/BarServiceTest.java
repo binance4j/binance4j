@@ -7,7 +7,6 @@ import java.time.Duration;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.Bar;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
@@ -54,8 +53,4 @@ public class BarServiceTest extends CustomTest {
 		assertEquals(bar.getEndTime().toInstant().toEpochMilli(), candle.closeTime());
 	}
 
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
-	}
 }

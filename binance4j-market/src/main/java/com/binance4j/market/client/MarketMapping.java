@@ -6,7 +6,7 @@ import java.util.Map;
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
-import com.binance4j.core.security.AuthenticationInterceptor;
+import com.binance4j.core.interceptor.AuthenticationInterceptor;
 import com.binance4j.market.dto.AveragePrice;
 import com.binance4j.market.dto.BookTicker;
 import com.binance4j.market.dto.ExchangeInfo;

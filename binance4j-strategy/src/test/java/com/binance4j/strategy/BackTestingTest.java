@@ -6,7 +6,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.ta4j.core.BarSeries;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
@@ -35,10 +34,5 @@ class BackTestingTest extends CustomTest {
 		BackTestResult result = BackTestService.backTest(strategy, "BTCBUSD", CandlestickInterval.ONE_MINUTE, "2022",
 				"01", "01");
 		testHasNulls(result, List.of("amount", "entry", "exit", "name"), true);
-	}
-
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
 	}
 }

@@ -23,42 +23,42 @@ public class StakingClientTest extends CustomTest {
 	protected String productId = "Cake*120";
 	protected StakingClient client = new StakingClient(key, secret);
 
-	@Override
-	protected StakingClient getClient() {
-		return client;
+	public StakingClientTest() {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetHistory() throws ApiException {
-		testHistory(getClient().getHistory(new HistoryParams(ProductType.STAKING, TransactionType.INTEREST)));
-		testHistory(getClient().getHistory(new HistoryParams(ProductType.STAKING, TransactionType.REDEMPTION)));
-		testHistory(getClient().getHistory(new HistoryParams(ProductType.STAKING, TransactionType.SUBSCRIPTION)));
+		testHistory(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.INTEREST)));
+		testHistory(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.REDEMPTION)));
+		testHistory(client.getHistory(new HistoryParams(ProductType.STAKING, TransactionType.SUBSCRIPTION)));
 	}
 
 	@Test
 	void testGetLeftQuota() throws ApiException {
-		testNoNulls(getClient().getLeftQuota(new LeftQuotaParams(ProductType.STAKING, productId)));
+		testNoNulls(client.getLeftQuota(new LeftQuotaParams(ProductType.STAKING, productId)));
 	}
 
 	@Test
 	void testGetPosition() throws ApiException {
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testPosition(getClient().getPosition(new PositionParams(ProductType.STAKING)).sync());
-		testPosition(getClient().getPosition(new PositionParams(ProductType.F_DEFI)).sync());
-		testPosition(getClient().getPosition(new PositionParams(ProductType.L_DEFI)).sync());
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testPosition(client.getPosition(new PositionParams(ProductType.STAKING)).sync());
+		testPosition(client.getPosition(new PositionParams(ProductType.F_DEFI)).sync());
+		testPosition(client.getPosition(new PositionParams(ProductType.L_DEFI)).sync());
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	@Test
 	void testGetProducts() throws ApiException {
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testHasNulls(getClient().getProducts(new ProductListParams(ProductType.STAKING)),
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.STAKING)),
 				List.of("extraRewardAsset", "extraRewardsAPY"), true);
-		testHasNulls(getClient().getProducts(new ProductListParams(ProductType.F_DEFI)),
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.F_DEFI)),
 				List.of("extraRewardAsset", "extraRewardsAPY"), true);
-		testHasNulls(getClient().getProducts(new ProductListParams(ProductType.L_DEFI)),
+		testHasNulls(client.getProducts(new ProductListParams(ProductType.L_DEFI)),
 				List.of("extraRewardAsset", "extraRewardsAPY"), true);
-		getClient().getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	public void testHistory(Object bean) {
@@ -83,16 +83,16 @@ public class StakingClientTest extends CustomTest {
 
 	// TODO @Test
 	void testPurchase() throws ApiException {
-		testNoNulls(getClient().purchase(new PurchaseParams(ProductType.STAKING, "productId", "amount")));
+		testNoNulls(client.purchase(new PurchaseParams(ProductType.STAKING, "productId", "amount")));
 	}
 
 	// TODO @Test
 	void testRedeem() throws ApiException {
-		testNoNulls(getClient().redeem(new RedeemParams(ProductType.STAKING, "productId")));
+		testNoNulls(client.redeem(new RedeemParams(ProductType.STAKING, "productId")));
 	}
 
 	// TODO @Test
 	void testSetAutoStaking() throws ApiException {
-		testNoNulls(getClient().setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
+		testNoNulls(client.setAutoStaking(new AutoStakingParams(ProductType.STAKING, "", true)));
 	}
 }

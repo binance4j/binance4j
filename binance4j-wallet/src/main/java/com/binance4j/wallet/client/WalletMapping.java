@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.binance4j.core.client.RestMapping;
-import com.binance4j.core.security.AuthenticationInterceptor;
+import com.binance4j.core.interceptor.AuthenticationInterceptor;
 import com.binance4j.wallet.dto.AccountSnapshotType;
 import com.binance4j.wallet.dto.AccountStatus;
 import com.binance4j.wallet.dto.ApiPermissions;

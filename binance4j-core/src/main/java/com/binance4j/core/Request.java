@@ -23,6 +23,7 @@ import retrofit2.Response;
 public abstract class Request<T> {
 	/** The Jackson Object mapper for deserializing the Api error response. */
 	static final ObjectMapper MAPPER = new ObjectMapper();
+	// static final RateLimiter
 	/** The current API call. */
 	final Call<T> call;
 

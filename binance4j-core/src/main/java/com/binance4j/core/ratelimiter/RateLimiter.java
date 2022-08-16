@@ -21,10 +21,6 @@ public class RateLimiter {
 		remaining = limitPerSecond;
 	}
 
-	public void run() {
-		periodStart = System.currentTimeMillis();
-	}
-
 	/**
 	 * Acquires the given number of points from this RateLimiter, blocking until
 	 * the request can be granted.
@@ -33,7 +29,12 @@ public class RateLimiter {
 	 * @return time spent sleeping to enforce rate, in ms; 0 if not rate-limited.
 	 */
 	public long acquire(int points) {
+		if (periodStart == 0) {
+			periodStart = System.currentTimeMillis();
+		}
+
 		remaining = Math.max(0, remaining - points);
+
 		if (remaining <= 0) {
 			try {
 				// calculating time to wait according to last call

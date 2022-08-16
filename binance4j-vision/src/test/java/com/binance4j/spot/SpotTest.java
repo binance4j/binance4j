@@ -1,6 +1,5 @@
 package com.binance4j.spot;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.vision.client.VisionSpotClient;
@@ -40,8 +39,4 @@ public class SpotTest extends CustomTest {
 		return interval;
 	}
 
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
-	}
 }

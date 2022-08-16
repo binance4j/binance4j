@@ -6,7 +6,6 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.jupiter.api.Test;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.event.TimeoutEvent;
 import com.binance4j.core.exception.ApiException;
@@ -209,9 +208,4 @@ public class WebsocketConnectorsTest extends CustomTest {
 
 	}
 
-	@Override
-	protected RestClient<?> getClient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

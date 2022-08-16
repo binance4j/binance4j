@@ -10,13 +10,14 @@ import com.binance4j.blvt.param.TransactionRecordParams;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.core.test.CustomTest;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 
 public class BLVTClientTest extends CustomTest {
 	BLVTClient client = new BLVTClient(key, secret);
 
-	@Override
-	protected BLVTClient getClient() {
-		return client;
+	public BLVTClientTest() {
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
 	}
 
 	TimeFrame timeFrame = new TimeFrame(limit);
@@ -25,58 +26,58 @@ public class BLVTClientTest extends CustomTest {
 
 	@Test
 	void testGetLimitInfo() throws ApiException {
-		testNotThrow(getClient().getLimitInfo());
+		testNotThrow(client.getLimitInfo());
 	}
 
 	@Test
 	void testGetLimitInfo2() throws ApiException {
-		testNotThrow(getClient().getLimitInfo(new LimitInfoParams(tokenName)));
+		testNotThrow(client.getLimitInfo(new LimitInfoParams(tokenName)));
 	}
 
 	@Test
 	void testGetRedemptions() throws ApiException {
-		testNotThrow(getClient().getRedemptions());
+		testNotThrow(client.getRedemptions());
 	}
 
 	@Test
 	void testGetRedemptionsWithTimeFrame() throws ApiException {
-		testNotThrow(getClient().getRedemptions(new TransactionRecordParams(tokenName, 0L), timeFrame));
+		testNotThrow(client.getRedemptions(new TransactionRecordParams(tokenName, 0L), timeFrame));
 	}
 
 	@Test
 	void testGetSubscriptions() throws ApiException {
-		testNotThrow(getClient().getSubscriptions());
+		testNotThrow(client.getSubscriptions());
 	}
 
 	@Test
 	void testGetSubscriptionsWithTimeFrame() throws ApiException {
-		testNotThrow(getClient().getSubscriptions(new TransactionRecordParams(tokenName), timeFrame));
+		testNotThrow(client.getSubscriptions(new TransactionRecordParams(tokenName), timeFrame));
 	}
 
 	@Test
 	void testGetTokenInfo() throws ApiException {
-		testNotThrow(getClient().getTokenInfo());
+		testNotThrow(client.getTokenInfo());
 	}
 
 	@Test
 	void testGetTokenInfoWithParams() throws ApiException {
-		testNotThrow(getClient().getTokenInfo(new TokenInfoParams(tokenName)));
+		testNotThrow(client.getTokenInfo(new TokenInfoParams(tokenName)));
 	}
 
 	// NOT TEST DUE TO NEW FRENCH LAWS
 
 	// TODO @Test
 	void testRedeem() throws ApiException {
-		testNotThrow(getClient().redeem(new RedemptionParams(tokenName, amount)));
+		testNotThrow(client.redeem(new RedemptionParams(tokenName, amount)));
 	}
 
 	// TODO @Test
 	void testSubscribe() throws ApiException {
-		testNotThrow(getClient().subscribe(new SubscriptionParams(tokenName, amount)));
+		testNotThrow(client.subscribe(new SubscriptionParams(tokenName, amount)));
 	}
 
 	// TODO @Test
 	void testGetRedemptionsWithParams() throws ApiException {
-		testNotThrow(getClient().getRedemptions(new TransactionRecordParams(tokenName, 0L)));
+		testNotThrow(client.getRedemptions(new TransactionRecordParams(tokenName, 0L)));
 	}
 }

@@ -2,7 +2,6 @@ package com.binance4j.client;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.binance4j.core.client.RestClient;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.websocket.callback.WebsocketCallback;
@@ -76,10 +75,5 @@ public class TestCallback<T> extends CustomTest implements WebsocketCallback<T> 
 	 */
 	public void setWebsocketClient(BaseWebsocketClient<T> websocketClient) {
 		this.websocketClient = websocketClient;
-	}
-
-	@Override
-	protected RestClient<?> getClient() {
-		return null;
 	}
 }
