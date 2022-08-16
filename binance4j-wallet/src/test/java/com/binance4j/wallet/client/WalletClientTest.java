@@ -108,7 +108,7 @@ public class WalletClientTest extends CustomTest {
 
 	}
 
-	@Test
+	// @Test OK but restricted on Github Actions (USA?)
 	void testGetDepositAddress() throws ApiException {
 		testNotThrow(client.getDepositAddress(new DepositAddressParams("BNB")));
 	}
