@@ -15,6 +15,7 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /** Controller for Loan endpoints. */
 @RestController
@@ -34,11 +35,11 @@ public class LoanController extends BaseController {
 	@JsonGetMapping(path = "income")
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(
-			@RequestParam(name = "Asset.") String asset,
-			@RequestParam(required = false, name = "Income type.") LoanIncomeType type,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = "Income type.") LoanIncomeType type,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().loan()
 				.getLoansIncome(new LoanIncomeHistoryParams(asset, type), new TimeFrame(startTime, endTime, limit))

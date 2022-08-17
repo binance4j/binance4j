@@ -11,6 +11,7 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /** Controller for Rebate endpoints. */
 @RestController
@@ -29,10 +30,10 @@ public class RebateController extends BaseController {
 	@JsonGetMapping(path = "tax-query")
 	@ApiOperation(value = "Get the spot rebate history records.")
 	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit))
 				.sync();

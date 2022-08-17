@@ -11,6 +11,7 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /** Controller for Convert endpoints. */
 @RestController
@@ -28,9 +29,9 @@ public class ConvertController extends BaseController {
 	@JsonGetMapping(path = "conversions")
 	@ApiOperation(value = "Get conversions.")
 	public ConversionHistory getConversions(
-			@RequestParam(name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().convert().getConversions(new TimeFrame(startTime, endTime, limit)).sync();
 	}

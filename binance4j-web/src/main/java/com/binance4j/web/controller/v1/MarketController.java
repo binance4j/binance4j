@@ -67,7 +67,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "exchange-info")
 	@ApiOperation(value = "Get current exchange trading rules and one or many symbols informations.")
 	public ExchangeInfo getExchangeInfo(
-			@RequestParam(required = false, name = SYMBOLS_DESCRIPTION) String symbols)
+			@RequestParam(required = false) @ApiParam(value = SYMBOLS_DESCRIPTION) String symbols)
 			throws ApiException {
 		return connectors.rest().market().getExchangeInfo(new ExchangeInfoParams(symbols)).sync();
 	}
@@ -81,8 +81,8 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "order-book")
 	@ApiOperation(value = "Get the symbol order book.")
 	public OrderBook getOrderBook(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "Market depth size.") @ApiParam(allowableValues = "5,10,20,50,100,500,1000,5000") String limit)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "Market depth size.", allowableValues = "5,10,20,50,100,500,1000,5000") String limit)
 			throws ApiException {
 		return connectors.rest().market().getOrderBook(new OrderBookParams(symbol, limit)).sync();
 	}
@@ -96,8 +96,8 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get recent trades.")
 	public List<Trade> getTrades(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "Trades size.") @ApiParam(allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit)
 			throws ApiException {
 		return connectors.rest().market().getTrades(new TradesParams(symbol, limit)).sync();
 	}
@@ -112,9 +112,9 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "historical-trades")
 	@ApiOperation(value = "Get old trades.")
 	public List<Trade> getHistoricalTrades(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "Trades size.") @ApiParam(allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit,
-			@RequestParam(required = false, name = "Trade id to fetch from.") Long fromId)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "Trades size.", allowableValues = "range[1, 1000]", defaultValue = "500") Integer limit,
+			@RequestParam(required = false) @ApiParam(value = "Trade id to fetch from.") Long fromId)
 			throws ApiException {
 		return connectors.rest().market().getHistoricalTrades(new HistoricalTradesParams(symbol, limit, fromId)).sync();
 	}
@@ -131,11 +131,11 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "aggtrades")
 	@ApiOperation(value = "Get compressed, aggregate trades.")
 	public List<AggTrade> getAggTrades(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "Trade id to fetch from.") Long fromId,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "Trade id to fetch from.") Long fromId,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().market()
 				.getAggTrades(new AggTradeParams(symbol, fromId), new TimeFrame(startTime, endTime, limit)).sync();
@@ -150,11 +150,11 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "klines")
 	@ApiOperation(value = "Get kline/candles for a symbol.")
 	public List<Candle> getKlines(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = "Candlestick interval.") @ApiParam(allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = "Candlestick interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().market()
 				.getKlines(new KlinesParams(symbol, interval), new TimeFrame(startTime, endTime, limit)).sync();
@@ -168,7 +168,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "average-price")
 	@ApiOperation(value = "Get current average price for a symbol.")
 	public AveragePrice getAveragePrice(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol)
 			throws ApiException {
 		return connectors.rest().market().getAveragePrice(new AveragePriceParams(symbol)).sync();
 	}
@@ -181,7 +181,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "24hr-statistics")
 	@ApiOperation(value = "Get 24 hour rolling window price change statistics of all symbols.")
 	public List<TickerStatistics> get24hTickerStatistics(
-			@RequestParam(required = false, name = SYMBOLS_DESCRIPTION) String symbols)
+			@RequestParam(required = false) @ApiParam(value = SYMBOLS_DESCRIPTION) String symbols)
 			throws ApiException {
 		return connectors.rest().market().get24hTickerStatistics(new TickersStatisticsParams(symbols)).sync();
 	}
@@ -194,7 +194,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "price-ticker")
 	@ApiOperation(value = "Get Latest price for a symbol or symbols.")
 	public List<PriceTicker> getTicker(
-			@RequestParam(required = false, name = SYMBOLS_DESCRIPTION) String symbols)
+			@RequestParam(required = false) @ApiParam(value = SYMBOLS_DESCRIPTION) String symbols)
 			throws ApiException {
 		return connectors.rest().market().getTicker(new PriceTickersParams(symbols)).sync();
 	}
@@ -207,7 +207,7 @@ public class MarketController extends BaseController {
 	@JsonGetMapping(path = "order-book-ticker")
 	@ApiOperation(value = "Get best price && quantity on the order book for the given symbols.")
 	public List<BookTicker> getBookTicker(
-			@RequestParam(required = false, name = SYMBOLS_DESCRIPTION) String symbols)
+			@RequestParam(required = false) @ApiParam(value = SYMBOLS_DESCRIPTION) String symbols)
 			throws ApiException {
 		return connectors.rest().market().getBookTicker(new BookTickersParams(symbols)).sync();
 	}

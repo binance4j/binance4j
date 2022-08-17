@@ -46,6 +46,7 @@ import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /** Controller for Savings endpoints. */
 @RestController
@@ -64,10 +65,10 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "flexible-products")
 	@ApiOperation(value = "Get flexible product list.")
 	public List<FlexibleProduct> getFlexibleProducts(
-			@RequestParam(required = false, name = "Product status.") FlexibleProductStatus status,
-			@RequestParam(required = false, name = "Freatured.") Featured featured,
-			@RequestParam(required = false, name = "Results page.") Integer page,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam(required = false) @ApiParam(value = "Product status.") FlexibleProductStatus status,
+			@RequestParam(required = false) @ApiParam(value = "Freatured.") Featured featured,
+			@RequestParam(required = false) @ApiParam(value = "Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFlexibleProducts(new FlexibleProductsParams(status, featured), new Paging(page, limit)).sync();
@@ -82,7 +83,7 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "left-purchase-quota")
 	@ApiOperation(value = "Get left daily purchase quota of flexible product.")
 	public PurchaseQuota getLeftDailyFlexiblePurchaseQuota(
-			@RequestParam(name = "Product id.") String productId) throws ApiException {
+			@RequestParam @ApiParam(value = "Product id.") String productId) throws ApiException {
 		return connectors.rest().savings().getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)).sync();
 	}
 
@@ -95,8 +96,8 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "left-redemption-quota")
 	@ApiOperation(value = "Get left daily redemption quota of flexible product.")
 	public RedemptionQuota getLeftDailyRedemptionQuota(
-			@RequestParam(name = "Product id.") String productId,
-			@RequestParam(name = "Product type.") ProductType productType)
+			@RequestParam @ApiParam(value = "Product id.") String productId,
+			@RequestParam @ApiParam(value = "Product type.") ProductType productType)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, productType))
@@ -114,8 +115,8 @@ public class SavingsController extends BaseController {
 	@JsonPostMapping(path = "purchase-flexible")
 	@ApiOperation(value = "Purchase Flexible Product.")
 	public PurchaseResponse purchaseFlexible(
-			@RequestParam(name = "Product id.") String productId,
-			@RequestParam(name = "Amount.") String amount) throws ApiException {
+			@RequestParam @ApiParam(value = "Product id.") String productId,
+			@RequestParam @ApiParam(value = "Amount.") String amount) throws ApiException {
 		return connectors.rest().savings().purchaseFlexible(new FlexiblePurchaseParams(productId, amount)).sync();
 	}
 
@@ -129,9 +130,9 @@ public class SavingsController extends BaseController {
 	 */
 	@JsonPostMapping(path = "redeem-flexible")
 	@ApiOperation(value = "Redeem Flexible Product.")
-	public Void redeemFlexible(@RequestParam(name = "Product id.") String productId,
-			@RequestParam(name = "Amount.") String amount,
-			@RequestParam(name = "Product type.") ProductType type) throws ApiException {
+	public Void redeemFlexible(@RequestParam @ApiParam(value = "Product id.") String productId,
+			@RequestParam @ApiParam(value = "Amount.") String amount,
+			@RequestParam @ApiParam(value = "Product type.") ProductType type) throws ApiException {
 		return connectors.rest().savings().redeemFlexible(new RedemptionParams(productId, amount, type)).sync();
 	}
 
@@ -143,7 +144,7 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "flexible-position")
 	@ApiOperation(value = "Get flexible product position.")
 	public List<FlexibleProductPosition> getFlexibleProductPosition(
-			@RequestParam(required = false, name = "Asset.") String asset)
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset)
 			throws ApiException {
 		return connectors.rest().savings().getFlexibleProductPosition(new FlexibleProductPositionParams(asset)).sync();
 	}
@@ -162,13 +163,13 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "fixed-projects")
 	@ApiOperation(value = "Get fixed and activity project list.")
 	public List<FixedProject> getFixedProjects(
-			@RequestParam(name = "Project type.") FixedProjectType type,
-			@RequestParam(required = false, name = "Asset.") String asset,
-			@RequestParam(required = false, name = "Project status.") FixedProjectStatus status,
-			@RequestParam(required = false, name = "Results page.") Integer page,
-			@RequestParam(required = false, name = "Results limit.") Integer limit,
-			@RequestParam(required = false, name = "Project sorting.") FixedProjectSorting sortBy,
-			@RequestParam(required = false, name = "Sort ascending. Default: true.") Boolean isSortAsc)
+			@RequestParam @ApiParam(value = "Project type.") FixedProjectType type,
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = "Project status.") FixedProjectStatus status,
+			@RequestParam(required = false) @ApiParam(value = "Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(value = "Results limit.") Integer limit,
+			@RequestParam(required = false) @ApiParam(value = "Project sorting.") FixedProjectSorting sortBy,
+			@RequestParam(required = false) @ApiParam(value = "Sort ascending. Default: true.") Boolean isSortAsc)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFixedProjects(new FixedProjectListParams(type, asset, status), new Paging(page, limit),
@@ -187,8 +188,8 @@ public class SavingsController extends BaseController {
 	@JsonPostMapping(path = "purchase-fixed")
 	@ApiOperation(value = "Purchase fixed projet.")
 	public PurchaseResponse purchaseFixed(
-			@RequestParam(name = "Product id.") String productId,
-			@RequestParam(name = "Lot size.") Long lot) throws ApiException {
+			@RequestParam @ApiParam(value = "Product id.") String productId,
+			@RequestParam @ApiParam(value = "Lot size.") Long lot) throws ApiException {
 		return connectors.rest().savings().purchaseFixed(new FixedPurchaseParams(productId, lot)).sync();
 	}
 
@@ -202,9 +203,9 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "fixed-position")
 	@ApiOperation(value = "Get fixed projet position.")
 	public List<FixedProjectPosition> getFixedProjectPosition(
-			@RequestParam(required = false, name = "Asset.") String asset,
-			@RequestParam(required = false, name = "Project id.") String projectId,
-			@RequestParam(required = false, name = "Project status.") FixedProjectPositionStatus status)
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = "Project id.") String projectId,
+			@RequestParam(required = false) @ApiParam(value = "Project status.") FixedProjectPositionStatus status)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFixedProjectPosition(new FixedProjectPositionParams(asset, projectId, status))
@@ -234,12 +235,12 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "purchases")
 	@ApiOperation(value = "Get purchase record.")
 	public List<Purchase> getPurchases(
-			@RequestParam(name = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false, name = "Asset.") String asset,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getPurchases(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
@@ -259,12 +260,12 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "redemptions")
 	@ApiOperation(value = "Get redemption record.")
 	public List<Redemption> getRedemptions(
-			@RequestParam(name = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false, name = "Asset.") String asset,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings().getRedemptions(new LendingParams(lendingType, asset),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
@@ -283,12 +284,12 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "interests")
 	@ApiOperation(value = "Get interest record.")
 	public List<Interest> getInterests(
-			@RequestParam(name = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false, name = "Asset.") String asset,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false) @ApiParam(value = "Asset.") String asset,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getInterests(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
@@ -307,9 +308,9 @@ public class SavingsController extends BaseController {
 	@JsonPostMapping(path = "change-position")
 	@ApiOperation(value = "Change fixed/activity position to daily position.")
 	public PositionChangedResponse fixedToDailyPosition(
-			@RequestParam(name = "Lending type.") String projectId,
-			@RequestParam(name = "Lot size.") Long lot,
-			@RequestParam(required = false, name = "Position id.") Long positionId) throws ApiException {
+			@RequestParam @ApiParam(value = "Lending type.") String projectId,
+			@RequestParam @ApiParam(value = "Lot size.") Long lot,
+			@RequestParam(required = false) @ApiParam(value = "Position id.") Long positionId) throws ApiException {
 		return connectors.rest().savings().fixedToDailyPosition(new ChangePositionParams(projectId, lot, positionId))
 				.sync();
 	}

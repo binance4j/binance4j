@@ -35,6 +35,7 @@ import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /** Controller for Spot endpoints. */
 @RestController
@@ -55,10 +56,10 @@ public class SpotControllerTodo extends BaseController {
 	@DeleteMapping(path = "cancel-order")
 	@ApiOperation(value = "Cancel an open order.")
 	public CancelOrderResponse cancelOrder(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = "The order id") Long orderId,
-			@RequestParam(required = false, name = "The origClientOrderId") String origClientOrderId,
-			@RequestParam(required = false, name = "The newClientOrderId") String newClientOrderId)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = "The order id") Long orderId,
+			@RequestParam(required = false) @ApiParam(value = "The origClientOrderId") String origClientOrderId,
+			@RequestParam(required = false) @ApiParam(value = "The newClientOrderId") String newClientOrderId)
 			throws ApiException {
 		return connectors.rest().spot()
 				.cancelOrder(new CancelOrderParams(symbol, orderId, origClientOrderId, newClientOrderId)).sync();
@@ -73,7 +74,7 @@ public class SpotControllerTodo extends BaseController {
 	 */
 	@DeleteMapping(path = "cancel-orders")
 	@ApiOperation(value = "Cancel open orders.")
-	public List<CancelOrderResponse> cancelOpenOrders(@RequestParam(name = SYMBOL_DESCRIPTION) String symbol)
+	public List<CancelOrderResponse> cancelOpenOrders(@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol)
 			throws ApiException {
 		return connectors.rest().spot().cancelOpenOrders(new CancelOpenOrdersParams(symbol)).sync();
 	}
@@ -91,9 +92,9 @@ public class SpotControllerTodo extends BaseController {
 	@JsonGetMapping(path = "order-status")
 	@ApiOperation(value = "Check an order's status.")
 	public OrderInfo getOrderStatus(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "The order id") Long orderId,
-			@RequestParam(required = false, name = "The origClientOrderId") String origClientOrderId)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "The order id") Long orderId,
+			@RequestParam(required = false) @ApiParam(value = "The origClientOrderId") String origClientOrderId)
 			throws ApiException {
 		return connectors.rest().spot().getOrderStatus(new OrderStatusParams(symbol, origClientOrderId, orderId))
 				.sync();
@@ -112,7 +113,7 @@ public class SpotControllerTodo extends BaseController {
 	@JsonGetMapping(path = "open-orders")
 	@ApiOperation(value = "Get all open orders on a symbol.")
 	public List<OrderInfo> getOpenOrders(
-			@RequestParam(required = false, name = SYMBOL_DESCRIPTION) String symbol)
+			@RequestParam(required = false) @ApiParam(value = SYMBOL_DESCRIPTION) String symbol)
 			throws ApiException {
 		return connectors.rest().spot().getOpenOrders(new OpenOrdersStatusParams(symbol))
 				.sync();
@@ -133,11 +134,11 @@ public class SpotControllerTodo extends BaseController {
 	@JsonGetMapping(path = "all-orders")
 	@ApiOperation(value = "Get all orders on a symbol.")
 	public List<OrderInfo> getAllOrders(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false, name = "The order id") Long orderId,
-			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam(required = false) @ApiParam(value = "The order id") Long orderId,
+			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().spot()
 				.getAllOrders(new AllOrdersParams(symbol, orderId), new TimeFrame(startTime, endTime, limit)).sync();
@@ -157,19 +158,19 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/oco")
 	@ApiOperation(value = "Send in an OCO order.")
 	public OCOResponse oco(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = "The order side") OrderSide side,
-			@RequestParam(name = "The order quantity") String quantity,
-			@RequestParam(name = "The order price") String price,
-			@RequestParam(name = "The stop price") String stopPrice,
-			@RequestParam(name = "The order response type.", defaultValue = "RESULT") NewOrderResponseType newOrderRespType,
-			@RequestParam(name = "A unique Id for the entire orderList") String listClientOrderId,
-			@RequestParam(name = "A unique Id for the limit order") String limitClientOrderId,
-			@RequestParam(name = "Used to make the LIMIT_MAKER leg an iceberg order.") String limitIcebergQuantity,
-			@RequestParam(name = "A unique Id for the stop loss/stop loss limit leg") String stopClientOrderId,
-			@RequestParam(name = "If provided, stopLimitTimeInForce is required.") String stopLimitPrice,
-			@RequestParam(name = "Used with STOP_LOSS_LIMIT leg to make an iceberg order.") String stopIcebergQuantity,
-			@RequestParam(name = TIF_DESCRIPTION) TimeInForce stopLimitTimeInForce)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = "The order side") OrderSide side,
+			@RequestParam @ApiParam(value = "The order quantity") String quantity,
+			@RequestParam @ApiParam(value = "The order price") String price,
+			@RequestParam @ApiParam(value = "The stop price") String stopPrice,
+			@RequestParam @ApiParam(value = "The order response type.", defaultValue = "RESULT") NewOrderResponseType newOrderRespType,
+			@RequestParam @ApiParam(value = "A unique Id for the entire orderList") String listClientOrderId,
+			@RequestParam @ApiParam(value = "A unique Id for the limit order") String limitClientOrderId,
+			@RequestParam @ApiParam(value = "Used to make the LIMIT_MAKER leg an iceberg order.") String limitIcebergQuantity,
+			@RequestParam @ApiParam(value = "A unique Id for the stop loss/stop loss limit leg") String stopClientOrderId,
+			@RequestParam @ApiParam(value = "If provided, stopLimitTimeInForce is required.") String stopLimitPrice,
+			@RequestParam @ApiParam(value = "Used with STOP_LOSS_LIMIT leg to make an iceberg order.") String stopIcebergQuantity,
+			@RequestParam @ApiParam(value = TIF_DESCRIPTION) TimeInForce stopLimitTimeInForce)
 			throws ApiException {
 		return connectors.rest().spot().newOCO(
 				new NewOCOOrderParams(symbol, side, quantity, price, stopPrice, stopLimitPrice, stopLimitTimeInForce))
@@ -191,9 +192,9 @@ public class SpotControllerTodo extends BaseController {
 
 	@ApiOperation(value = "Tests a market order.")
 	public Void marketTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrderTest(new MarketOrder(symbol, side, quantity)).sync();
 	}
@@ -210,9 +211,9 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/market")
 	@ApiOperation(value = "Submits a market order.")
 	public NewOrderResponse market(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrder(new MarketOrder(symbol, side, quantity)).sync();
 	}
@@ -231,9 +232,9 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/quote")
 	@ApiOperation(value = "Tests a market order with the wuote asset quantity.")
 	public Void quoteTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrderTest(new MarketQuoteOrder(symbol, side, quantity)).sync();
 	}
@@ -250,9 +251,9 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/quote")
 	@ApiOperation(value = "Submits a market order with the wuote asset quantity.")
 	public NewOrderResponse quote(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrder(new MarketQuoteOrder(symbol, side, quantity)).sync();
 	}
@@ -274,12 +275,13 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/limit")
 	@ApiOperation(value = "Tests a limit order.")
 	public Void limitTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(required = false, name = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce,
-			@RequestParam(required = false, name = ICEBERG_DESCRIPTION) String icebergQty) throws ApiException {
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam(required = false) @ApiParam(value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce,
+			@RequestParam(required = false) @ApiParam(value = ICEBERG_DESCRIPTION) String icebergQty)
+			throws ApiException {
 		return connectors.rest().spot().newOrderTest(new LimitOrder(symbol, side, quantity, price, icebergQty,
 				handleNullTimeInForce(timeInForce))).sync();
 	}
@@ -299,12 +301,13 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/limit")
 	@ApiOperation(value = "Submits a limit order.")
 	public NewOrderResponse limit(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(required = false, name = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce,
-			@RequestParam(required = false, name = ICEBERG_DESCRIPTION) String icebergQty) throws ApiException {
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam(required = false) @ApiParam(value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce,
+			@RequestParam(required = false) @ApiParam(value = ICEBERG_DESCRIPTION) String icebergQty)
+			throws ApiException {
 		return connectors.rest().spot().newOrder(new LimitOrder(symbol, side, quantity, price, icebergQty,
 				handleNullTimeInForce(timeInForce))).sync();
 	}
@@ -324,10 +327,10 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/limit-maker")
 	@ApiOperation(value = "Tests a limit maker order.")
 	public Void limitMakerTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrderTest(new LimitMakerOrder(symbol, side, quantity, price)).sync();
 	}
@@ -345,10 +348,10 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/limit-maker")
 	@ApiOperation(value = "Submits a limit maker order.")
 	public NewOrderResponse limitMaker(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity)
 			throws ApiException {
 		return connectors.rest().spot().newOrder(new LimitMakerOrder(symbol, side, quantity, price)).sync();
 	}
@@ -371,12 +374,12 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/stop-loss-limit")
 	@ApiOperation(value = "Tests a stop loss limit order.", notes = "trailingDelta or stopPrice must be sent.")
 	public Void stopLossLimitTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(required = false, name = DELTA_DESCRIPTION) Long trailingDelta,
-			@RequestParam(required = false, name = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam(required = false) @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta,
+			@RequestParam(required = false) @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
 			@RequestParam(required = false, value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
 			throws ApiException {
 		StopLossLimitOrder order = createStopLossLimitOrder(symbol, side, quantity, price, trailingDelta, stopPrice,
@@ -399,12 +402,12 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/stop-loss-limit")
 	@ApiOperation(value = "Submits a stop loss limit order.")
 	public NewOrderResponse stopLossLimit(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(required = false, name = DELTA_DESCRIPTION) Long trailingDelta,
-			@RequestParam(required = false, name = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam(required = false) @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta,
+			@RequestParam(required = false) @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
 			@RequestParam(required = false, value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
 			throws ApiException {
 		StopLossLimitOrder order = createStopLossLimitOrder(symbol, side, quantity, price, trailingDelta, stopPrice,
@@ -456,11 +459,11 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/stop-loss")
 	@ApiOperation(value = "Tests a stop loss limit order.", notes = "trailingDelta or stopPrice must be sent.")
 	public Void stopLossTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta)
 			throws ApiException {
 		StopLossOrder order = createStopLossOrder(symbol, side, quantity, stopPrice, trailingDelta);
 		return connectors.rest().spot().newOrderTest(order).sync();
@@ -480,11 +483,11 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/stop-loss")
 	@ApiOperation(value = "Submits a stop loss limit order.")
 	public NewOrderResponse stopLoss(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta)
 			throws ApiException {
 		StopLossOrder order = createStopLossOrder(symbol, side, quantity, stopPrice, trailingDelta);
 		return connectors.rest().spot().newOrder(order).sync();
@@ -533,14 +536,14 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/take-profit-limit")
 	@ApiOperation(value = "Tests a take profit limit order.", notes = "trailingDelta or stopPrice must be sent.")
 	public Void takeProfitLimitTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta,
-			@RequestParam(required = false, name = ICEBERG_DESCRIPTION) String icebergQty,
-			@RequestParam(required = false, name = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta,
+			@RequestParam(required = false) @ApiParam(value = ICEBERG_DESCRIPTION) String icebergQty,
+			@RequestParam(required = false) @ApiParam(value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
 			throws ApiException {
 		TakeProfitLimitOrder order = createTakeProfitLimitOrder(symbol, side, quantity, price, trailingDelta, stopPrice,
 				timeInForce, icebergQty);
@@ -565,14 +568,14 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/take-profit-limit")
 	@ApiOperation(value = "Submits a take profit limit order.")
 	public NewOrderResponse takeProfitLimit(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = PRICE_DESCRIPTION) String price,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta,
-			@RequestParam(required = false, name = ICEBERG_DESCRIPTION) String icebergQty,
-			@RequestParam(required = false, name = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = PRICE_DESCRIPTION) String price,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta,
+			@RequestParam(required = false) @ApiParam(value = ICEBERG_DESCRIPTION) String icebergQty,
+			@RequestParam(required = false) @ApiParam(value = TIF_DESCRIPTION, defaultValue = DEFAULT_TIF) TimeInForce timeInForce)
 			throws ApiException {
 		TakeProfitLimitOrder order = createTakeProfitLimitOrder(symbol, side, quantity, price, trailingDelta, stopPrice,
 				timeInForce, icebergQty);
@@ -624,11 +627,11 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order-test/take-profit")
 	@ApiOperation(value = "Tests a take profit order.")
 	public Void takeProfitTest(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta)
 			throws ApiException {
 		TakeProfitOrder order = createTakeProfitOrder(symbol, side, quantity, trailingDelta, stopPrice);
 		return connectors.rest().spot().newOrderTest(order).sync();
@@ -648,11 +651,11 @@ public class SpotControllerTodo extends BaseController {
 	@JsonPostMapping(path = "order/take-profit")
 	@ApiOperation(value = "Submits a take profit order.")
 	public NewOrderResponse takeProfit(
-			@RequestParam(name = SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(name = SIDE_DESCRIPTION) OrderSide side,
-			@RequestParam(name = QUANTITY_DESCRIPTION) String quantity,
-			@RequestParam(name = DELTA_DESCRIPTION) Long trailingDelta,
-			@RequestParam(name = STOP_PRICE_DESCRIPTION) String stopPrice)
+			@RequestParam @ApiParam(value = SYMBOL_DESCRIPTION) String symbol,
+			@RequestParam @ApiParam(value = SIDE_DESCRIPTION) OrderSide side,
+			@RequestParam @ApiParam(value = QUANTITY_DESCRIPTION) String quantity,
+			@RequestParam @ApiParam(value = DELTA_DESCRIPTION) Long trailingDelta,
+			@RequestParam @ApiParam(value = STOP_PRICE_DESCRIPTION) String stopPrice)
 			throws ApiException {
 		TakeProfitOrder order = createTakeProfitOrder(symbol, side, quantity, trailingDelta, stopPrice);
 		return connectors.rest().spot().newOrder(order).sync();
