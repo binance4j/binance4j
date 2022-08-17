@@ -12,7 +12,7 @@ public abstract class BaseController {
 	final static protected String SYMBOL_DESCRIPTION = "The traiding pair.";
 	final static protected String SYMBOLS_DESCRIPTION = "The traiding pairs.";
 	final static protected String SIDE_DESCRIPTION = "The order side.";
-	final static protected String QUANTITY_DESCRIPTION = "The order quantity.";
+	final static protected String QUANTITY_DESCRIPTION = "The quantity.";
 	final static protected String PRICE_DESCRIPTION = "The order price.";
 	final static protected String TIF_DESCRIPTION = "The order Time in Force.";
 	final static protected String ICEBERG_DESCRIPTION = "The order iceberg quantity.";

@@ -24,14 +24,14 @@ public class ConvertController extends BaseController {
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
 	 * @return Assets conversion history.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "conversions")
 	@ApiOperation(value = "Get conversions.")
 	public ConversionHistory getConversions(
-			@RequestParam @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().convert().getConversions(new TimeFrame(startTime, endTime, limit)).sync();
 	}

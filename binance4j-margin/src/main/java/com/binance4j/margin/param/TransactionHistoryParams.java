@@ -19,6 +19,21 @@ public record TransactionHistoryParams(String asset, String isolatedSymbol, Long
 	/**
 	 * Creates an instance of {@link TransactionHistoryParams}.
 	 * 
+	 * @param asset          Related asset.
+	 * @param isolatedSymbol Isolated symbol.
+	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
+	 * @param archived       Set to true for archived data from 6 months ago.
+	 */
+	public TransactionHistoryParams(String asset, String isolatedSymbol, Long txId, Boolean archived) {
+		this.asset = asset;
+		this.isolatedSymbol = isolatedSymbol;
+		this.txId = txId;
+		this.archived = archived;
+	}
+
+	/**
+	 * Creates an instance of {@link TransactionHistoryParams}.
+	 * 
 	 * @param asset Related asset.
 	 */
 	public TransactionHistoryParams(String asset) {

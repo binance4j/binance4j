@@ -18,6 +18,21 @@ public record BorrowParams(String asset, String amount, String symbol, Boolean i
 	/**
 	 * Creates an instance of {@link BorrowParams}.
 	 * 
+	 * @param asset      Asset to borrow.
+	 * @param amount     Amount to borrow.
+	 * @param symbol     Isolated symbol.
+	 * @param isIsolated For isolated margin or not. Default: false.
+	 */
+	public BorrowParams(String asset, String amount, String symbol, Boolean isIsolated) {
+		this.asset = asset;
+		this.amount = amount;
+		this.symbol = symbol;
+		this.isIsolated = isIsolated;
+	}
+
+	/**
+	 * Creates an instance of {@link BorrowParams}.
+	 * 
 	 * @param asset  Asset to borrow.
 	 * @param amount Amount to borrow.
 	 */

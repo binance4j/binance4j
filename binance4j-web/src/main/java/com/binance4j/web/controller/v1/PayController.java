@@ -24,14 +24,14 @@ public class PayController extends BaseController {
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
 	 * @return Pay trades.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get pay trades.")
 	public TradeHistory getTrades(
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().pay().getTrades(new TimeFrame(startTime, endTime, limit)).sync();
 	}

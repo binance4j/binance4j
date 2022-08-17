@@ -25,15 +25,15 @@ public class RebateController extends BaseController {
 	 * @param page      Results page.
 	 * @param limit     Results limit.
 	 * @return The spot rebate history records.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "tax-query")
 	@ApiOperation(value = "Get the spot rebate history records.")
 	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
 			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit))
 				.sync();

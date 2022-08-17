@@ -20,6 +20,7 @@ import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
 import com.binance4j.core.exception.ApiException;
+import com.binance4j.vision.client.VisionSpotClient;
 import com.binance4j.vision.dto.VisionTrade;
 import com.binance4j.vision.param.ChecksumParams;
 import com.binance4j.web.annotation.JsonGetMapping;
@@ -32,6 +33,12 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("api/v1/vision")
 @Api(value = "Vision", tags = "Vision", produces = "application/json", description = "Vision endpoints")
 public class VisionController extends BaseController {
+	/**
+	 * @return Vision spot client.
+	 */
+	private VisionSpotClient client() {
+		return connectors.rest().visionSpot();
+	}
 
 	// AggTrade
 
@@ -52,7 +59,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
-		return connectors.rest().visionSpot().getAggTrades(symbol, year, month, day).getData();
+		return client().getAggTrades(symbol, year, month, day).getData();
 	}
 
 	/**
@@ -69,7 +76,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
-		return connectors.rest().visionSpot().getAggTrades(symbol, year, month).getData();
+		return client().getAggTrades(symbol, year, month).getData();
 	}
 
 	/**
@@ -169,7 +176,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getAggTradesChecksum(symbol, year, month, day);
+		return client().getAggTradesChecksum(symbol, year, month, day);
 	}
 
 	/**
@@ -188,7 +195,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getAggTradesChecksum(symbol, year, month);
+		return client().getAggTradesChecksum(symbol, year, month);
 	}
 
 	// Trade
@@ -210,7 +217,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
-		return connectors.rest().visionSpot().getTrades(symbol, year, month, day).getData();
+		return client().getTrades(symbol, year, month, day).getData();
 	}
 
 	/**
@@ -228,7 +235,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
-		return connectors.rest().visionSpot().getTrades(symbol, year, month).getData();
+		return client().getTrades(symbol, year, month).getData();
 	}
 
 	/**
@@ -330,7 +337,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getTradesChecksum(symbol, year, month, day);
+		return client().getTradesChecksum(symbol, year, month, day);
 	}
 
 	/**
@@ -350,7 +357,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getTradesChecksum(symbol, year, month);
+		return client().getTradesChecksum(symbol, year, month);
 	}
 
 	// Klines
@@ -374,7 +381,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
-		return connectors.rest().visionSpot()
+		return client()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month, day)
 				.getData();
 	}
@@ -396,7 +403,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
-		return connectors.rest().visionSpot().getKlines(symbol, CandlestickInterval.fromValue(interval), year, month)
+		return client().getKlines(symbol, CandlestickInterval.fromValue(interval), year, month)
 				.getData();
 	}
 
@@ -512,7 +519,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "month", required = true) String month,
 			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
+		return client().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
 				month,
 				day);
 	}
@@ -535,7 +542,7 @@ public class VisionController extends BaseController {
 			@PathVariable(value = "year", required = true) String year,
 			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
-		return connectors.rest().visionSpot().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
+		return client().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
 				month);
 	}
 

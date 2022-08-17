@@ -21,6 +21,17 @@ public record TransferParams(String asset, String amount, String type) implement
 	 * @param amount Amount to be transferred.
 	 * @param type   Transfer type.
 	 */
+	public TransferParams(String asset, String amount, String type) {
+		this.asset = asset;
+		this.amount = amount;
+		this.type = type;
+	}
+
+	/**
+	 * @param asset  Asset being transferred.
+	 * @param amount Amount to be transferred.
+	 * @param type   Transfer type.
+	 */
 	public TransferParams(String asset, String amount, TransferType type) {
 		this(asset, amount, type.toString());
 	}

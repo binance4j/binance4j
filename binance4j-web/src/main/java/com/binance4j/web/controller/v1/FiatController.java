@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
+import com.binance4j.fiat.client.FiatClient;
 import com.binance4j.fiat.dto.PaymentHistory;
 import com.binance4j.fiat.dto.PaymentType;
 import com.binance4j.fiat.dto.TransactionHistory;
@@ -23,6 +24,12 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping("api/v1/fiat")
 @Api(value = "Fiat", tags = "Fiat", produces = "application/json", description = "Fiat endpoints")
 public class FiatController extends BaseController {
+	/**
+	 * @return FIat client.
+	 */
+	private FiatClient client() {
+		return connectors.rest().fiat();
+	}
 
 	/**
 	 * @param transactionType Transaction type.
@@ -31,18 +38,18 @@ public class FiatController extends BaseController {
 	 * @param page            Results page.
 	 * @param limit           Results limit.
 	 * @return Fiat payments.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "payments")
 	@ApiOperation(value = "Get payments.")
 	public PaymentHistory getPayments(
-			@RequestParam @ApiParam(value = "Payment type.") PaymentType transactionType,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Payment type.") PaymentType transactionType,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().fiat()
+		return client()
 				.getPayments(new PaymentParams(transactionType), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -54,17 +61,17 @@ public class FiatController extends BaseController {
 	 * @param page            Results page.
 	 * @param limit           Results limit.
 	 * @return Fiat transactions.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "transactions")
 	@ApiOperation(value = "Get transactions.")
 	public TransactionHistory getTransactions(
-			@RequestParam @ApiParam(value = "Payment type.") TransactionType transactionType,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Payment type.") TransactionType transactionType,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().fiat().getTransactions(new TransactionParams(transactionType)).sync();
+		return client().getTransactions(new TransactionParams(transactionType)).sync();
 	}
 }

@@ -21,7 +21,7 @@ public class PortfolioMarginController extends BaseController {
 
 	/**
 	 * @return Margin Account Details.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "account")
 	@ApiOperation(value = "Get Margin Account Details.")
@@ -31,7 +31,7 @@ public class PortfolioMarginController extends BaseController {
 
 	/**
 	 * @return Collateral rate.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "collaterate-rate")
 	@ApiOperation(value = "Get collateral rate.")

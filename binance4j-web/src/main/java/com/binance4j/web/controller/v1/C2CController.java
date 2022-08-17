@@ -23,12 +23,12 @@ public class C2CController extends BaseController {
 	/**
 	 * @param tradeType Trade type.
 	 * @return C2C trades.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get trades.")
 	public TradeHistory getTrades(
-			@RequestParam @ApiParam(value = "The trade type") TradeType tradeType)
+			@RequestParam @ApiParam("The trade type") TradeType tradeType)
 			throws ApiException {
 		return connectors.rest().c2c().getTrades(new TradeHistoryParams(tradeType)).sync();
 	}

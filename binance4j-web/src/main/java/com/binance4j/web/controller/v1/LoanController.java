@@ -30,16 +30,16 @@ public class LoanController extends BaseController {
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
 	 * @return Get crypto loans income history.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "income")
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(
-			@RequestParam @ApiParam(value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Income type.") LoanIncomeType type,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Asset.") String asset,
+			@RequestParam(required = false) @ApiParam("Income type.") LoanIncomeType type,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().loan()
 				.getLoansIncome(new LoanIncomeHistoryParams(asset, type), new TimeFrame(startTime, endTime, limit))

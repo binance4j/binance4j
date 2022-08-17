@@ -307,7 +307,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get Force Liquidation Record. Response in descending order.
+	 * Get Force Liquidation Record.
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
@@ -317,7 +317,7 @@ public class MarginClient extends RestClient<MarginMapping> {
 	}
 
 	/**
-	 * Get Force Liquidation Record. Response in descending order.
+	 * Get Force Liquidation Record.
 	 * 
 	 * @param params Request params.
 	 * @param paging Paging.

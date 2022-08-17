@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
+import com.binance4j.mining.client.MiningClient;
 import com.binance4j.mining.dto.AccountListResponse;
 import com.binance4j.mining.dto.AccountProfitsResponse;
 import com.binance4j.mining.dto.AlgorithmsResponse;
@@ -43,53 +44,60 @@ import io.swagger.annotations.ApiParam;
 public class MiningController extends BaseController {
 
 	/**
+	 * @return Mining client.
+	 */
+	private MiningClient client() {
+		return connectors.rest().mining();
+	}
+
+	/**
 	 * @param algo     Algorithm.
 	 * @param userName Username.
 	 * @return Account list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "accounts")
 	@ApiOperation(value = "Get Account list.")
 	public AccountListResponse getAccounts(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName)
 			throws ApiException {
-		return connectors.rest().mining().getAccounts(new AccountListParams(algo, userName)).sync();
+		return client().getAccounts(new AccountListParams(algo, userName)).sync();
 	}
 
 	/**
 	 * @return algorithms.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "algorithms")
 	@ApiOperation(value = "Get algorithms.")
 	public AlgorithmsResponse getAlgorithms() throws ApiException {
-		return connectors.rest().mining().getAlgorithms().sync();
+		return client().getAlgorithms().sync();
 	}
 
 	/**
 	 * @return Coins.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "coins")
 	@ApiOperation(value = "Get coins.")
 	public CoinsResponse getCoins() throws ApiException {
-		return connectors.rest().mining().getCoins().sync();
+		return client().getCoins().sync();
 	}
 
 	/**
 	 * @param algo     Algorithm.
 	 * @param userName Username.
 	 * @return Statistic list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "statistics")
 	@ApiOperation(value = "Get Statistic list.")
 	public StatisticsResponse getStatistics(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName)
 			throws ApiException {
-		return connectors.rest().mining().getStatistics(new StatisticsParams(algo, userName)).sync();
+		return client().getStatistics(new StatisticsParams(algo, userName)).sync();
 	}
 
 	/**
@@ -104,19 +112,19 @@ public class MiningController extends BaseController {
 	 *                   than 500000000000 ETH is greater than
 	 *                   500000).
 	 * @return Hashrate Resale response.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "resell")
 	@ApiOperation(value = "Resell hashRate.")
 	public HashrateResaleResponse resellHashrate(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam @ApiParam(value = START_TIME_DESCRIPTION) Long startDate,
-			@RequestParam @ApiParam(value = END_TIME_DESCRIPTION) Long endDate,
-			@RequestParam @ApiParam(value = "Mining Account.") String toPoolUser,
-			@RequestParam @ApiParam(value = "Resale hashrate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than 500000).") Long hashRate)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam @ApiParam(START_TIME_DESCRIPTION) Long startDate,
+			@RequestParam @ApiParam(END_TIME_DESCRIPTION) Long endDate,
+			@RequestParam @ApiParam("Mining Account.") String toPoolUser,
+			@RequestParam @ApiParam("Resale hashrate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than 500000).") Long hashRate)
 			throws ApiException {
-		return connectors.rest().mining()
+		return client()
 				.resellHashrate(new HashrateResaleParams(userName, algo, startDate, endDate, toPoolUser, hashRate))
 				.sync();
 	}
@@ -127,15 +135,15 @@ public class MiningController extends BaseController {
 	 * @param configId Config id.
 	 * @param userName User name.
 	 * @return Hahsrate cancellation response.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "cancel-resale-config")
 	@ApiOperation(value = "Cancel hashrate resale configuration.")
 	public HashrateResaleCancellationResponse cancelHashrateResaleConfiguration(
-			@RequestParam @ApiParam(value = CONFIG_ID_DESCRIPTION) Integer configId,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName)
+			@RequestParam @ApiParam(CONFIG_ID_DESCRIPTION) Integer configId,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName)
 			throws ApiException {
-		return connectors.rest().mining()
+		return client()
 				.cancelHashrateResaleConfiguration(new HashrateResaleCancellationParams(configId, userName)).sync();
 	}
 
@@ -147,19 +155,19 @@ public class MiningController extends BaseController {
 	 * @param page      Results page.
 	 * @param limit     Results limit.
 	 * @return Earnings list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "profits")
 	@ApiOperation(value = "Get earnings list.")
 	public ProfitResponse getProfits(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().mining()
+		return client()
 				.getProfits(new ProfitsParams(algo, userName), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -172,19 +180,19 @@ public class MiningController extends BaseController {
 	 * @param page      Results page.
 	 * @param limit     Results limit.
 	 * @return Extra bonus list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "other-profits")
 	@ApiOperation(value = "Get extra bonus list.")
 	public OtherProfitsResponse getOtherProfits(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().mining()
+		return client()
 				.getOtherProfits(new ProfitsParams(algo, userName), new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
@@ -197,33 +205,33 @@ public class MiningController extends BaseController {
 	 * @param page      Results page.
 	 * @param limit     Results limit.
 	 * @return Mining account earning.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "account-profits")
 	@ApiOperation(value = "Get mining account earning.")
 	public AccountProfitsResponse getAccountProfits(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().mining().getAccountProfits(new AccountProfitsParams(algo, userName),
+		return client().getAccountProfits(new AccountProfitsParams(algo, userName),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
 	/**
 	 * @return hashrate resale list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "resales")
 	@ApiOperation(value = "Get hashrate resale list.")
 	public HashrateResaleListResponse getHashrateResales(
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().mining().getHashrateResales(new Paging(page, limit)).sync();
+		return client().getHashrateResales(new Paging(page, limit)).sync();
 	}
 
 	/**
@@ -232,17 +240,17 @@ public class MiningController extends BaseController {
 	 * @param page     Results page.
 	 * @param limit    Results limit.
 	 * @return Hashrate resale detail.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "resales-details")
 	@ApiOperation(value = "Get hashrate resale detail.")
 	public HashrateResaleDetailResponse getHashrateResalesDetails(
-			@RequestParam @ApiParam(value = CONFIG_ID_DESCRIPTION) Integer configId,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam(required = false) @ApiParam(value = PAGE_DESCRIPTION) Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam(CONFIG_ID_DESCRIPTION) Integer configId,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam(required = false) @ApiParam(PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().mining()
+		return client()
 				.getHashrateResalesDetails(new HashrateResaleDetailParam(configId, userName), new Paging(page, limit))
 				.sync();
 	}
@@ -251,15 +259,15 @@ public class MiningController extends BaseController {
 	 * @param algo     Algorithm.
 	 * @param userName Username.
 	 * @return Miner list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "miners")
 	@ApiOperation(value = "Get miner list.")
 	public WorkersResponse getMiners(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName)
 			throws ApiException {
-		return connectors.rest().mining().getMiners(new MinersParams(algo, userName)).sync();
+		return client().getMiners(new MinersParams(algo, userName)).sync();
 	}
 
 	/**
@@ -267,16 +275,16 @@ public class MiningController extends BaseController {
 	 * @param userName   Username.
 	 * @param workerName worker name.
 	 * @return Detailed miner list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "miner-details")
 	@ApiOperation(value = "Get detailed miner list.")
 	public MinerDetailsResponse getMinersDetails(
-			@RequestParam @ApiParam(value = ALGO_DESCRIPTION) String algo,
-			@RequestParam @ApiParam(value = USERNAME_DESCRIPTION) String userName,
-			@RequestParam @ApiParam(value = WORKER_DESCRIPTION) String workerName)
+			@RequestParam @ApiParam(ALGO_DESCRIPTION) String algo,
+			@RequestParam @ApiParam(USERNAME_DESCRIPTION) String userName,
+			@RequestParam @ApiParam(WORKER_DESCRIPTION) String workerName)
 			throws ApiException {
-		return connectors.rest().mining().getMinersDetails(new MinerDetailsParams(algo, userName, workerName)).sync();
+		return client().getMinersDetails(new MinerDetailsParams(algo, userName, workerName)).sync();
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
+import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.LeftQuota;
 import com.binance4j.staking.dto.Product;
 import com.binance4j.staking.dto.ProductPosition;
@@ -37,22 +38,29 @@ import io.swagger.annotations.ApiParam;
 public class StakingController extends BaseController {
 
 	/**
+	 * @return Staking client.
+	 */
+	private StakingClient client() {
+		return connectors.rest().staking();
+	}
+
+	/**
 	 * @param product Product type.
 	 * @param asset   Product name.
 	 * @param page    Results page.
 	 * @param limit   Results limit.
 	 * @return Available Staking product list.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "products")
 	@ApiOperation(value = "Get available Staking product list.")
 	public List<Product> getProducts(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam(required = false) @ApiParam(value = "Product name.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Results page.") Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam(required = false) @ApiParam("Product name.") String asset,
+			@RequestParam(required = false) @ApiParam("Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().staking().getProducts(new ProductListParams(product, asset), new Paging(page, limit))
+		return client().getProducts(new ProductListParams(product, asset), new Paging(page, limit))
 				.sync();
 	}
 
@@ -65,20 +73,20 @@ public class StakingController extends BaseController {
 	 * @param page      Results page.
 	 * @param limit     Results limit.
 	 * @return Staking history.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get staking history.")
 	public List<StakingRecord> getTrades(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam @ApiParam(value = "Transaction type.") TransactionType txnType,
-			@RequestParam @ApiParam(value = "Product name.") String asset,
-			@RequestParam(required = false) @ApiParam(value = START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(value = END_TIME_DESCRIPTION) Long endTime,
-			@RequestParam(required = false) @ApiParam(value = "Results page.") Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam @ApiParam("Transaction type.") TransactionType txnType,
+			@RequestParam @ApiParam("Product name.") String asset,
+			@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false) @ApiParam("Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().staking().getHistory(new HistoryParams(product, txnType, asset),
+		return client().getHistory(new HistoryParams(product, txnType, asset),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
 
@@ -86,15 +94,15 @@ public class StakingController extends BaseController {
 	 * @param product   Product type.
 	 * @param productId Product id.
 	 * @return Personal left quota of Staking product.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "left-quota")
 	@ApiOperation(value = "Get personal left quota of Staking product.")
 	public LeftQuota getLeftQuota(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam @ApiParam(value = "Product id.") String productId)
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam @ApiParam("Product id.") String productId)
 			throws ApiException {
-		return connectors.rest().staking().getLeftQuota(new LeftQuotaParams(product, productId)).sync();
+		return client().getLeftQuota(new LeftQuotaParams(product, productId)).sync();
 	}
 
 	/**
@@ -104,18 +112,18 @@ public class StakingController extends BaseController {
 	 * @param product   Product type.
 	 * @param productId Product id.
 	 * @return Staking product position.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "position")
 	@ApiOperation(value = "Get Staking product position.")
 	public List<ProductPosition> getPosition(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam(required = false) @ApiParam(value = "Product name.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Product id.") String productId,
-			@RequestParam(required = false) @ApiParam(value = "Results page.") Integer page,
-			@RequestParam(required = false) @ApiParam(value = LIMIT_DESCRIPTION) Integer limit)
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam(required = false) @ApiParam("Product name.") String asset,
+			@RequestParam(required = false) @ApiParam("Product id.") String productId,
+			@RequestParam(required = false) @ApiParam("Results page.") Integer page,
+			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
-		return connectors.rest().staking()
+		return client()
 				.getPosition(new PositionParams(product, productId, asset), new Paging(page, limit))
 				.sync();
 	}
@@ -127,15 +135,15 @@ public class StakingController extends BaseController {
 	 * @param productId Product id.
 	 * @param amount    Amount to purchase.
 	 * @return A staking purchase response.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "purchase")
 	@ApiOperation(value = "Purchase Staking product.")
 	public PurchaseResponse purchase(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam @ApiParam(value = "Product id.") String productId,
-			@RequestParam @ApiParam(value = "Product name.") String amount) throws ApiException {
-		return connectors.rest().staking().purchase(new PurchaseParams(product, productId, amount)).sync();
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam @ApiParam("Product id.") String productId,
+			@RequestParam @ApiParam("Product name.") String amount) throws ApiException {
+		return client().purchase(new PurchaseParams(product, productId, amount)).sync();
 	}
 
 	/**
@@ -144,13 +152,13 @@ public class StakingController extends BaseController {
 	 * @param product   Product type.
 	 * @param productId Product id.
 	 * @return A staking redeem response.
-	 * @throws ApiException Something went wrong with the API.
+	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "redeem")
 	@ApiOperation(value = "Redeem Staking product.")
 	public RedeemResponse redeem(
-			@RequestParam @ApiParam(value = "Product type.") ProductType product,
-			@RequestParam @ApiParam(value = "Product id.") String productId) throws ApiException {
-		return connectors.rest().staking().redeem(new RedeemParams(product, productId)).sync();
+			@RequestParam @ApiParam("Product type.") ProductType product,
+			@RequestParam @ApiParam("Product id.") String productId) throws ApiException {
+		return client().redeem(new RedeemParams(product, productId)).sync();
 	}
 }
