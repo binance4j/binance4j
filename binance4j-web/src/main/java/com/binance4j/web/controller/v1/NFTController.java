@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +17,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for NFT endpoints. */
 @RestController
@@ -34,16 +33,14 @@ public class NFTController extends BaseController {
 	 * @return NFT Transaction History.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "transactions", params = {
-			"orderType"
-	})
+	@JsonGetMapping(path = "transactions")
 	@ApiOperation(value = "Get NFT Transaction History.")
 	public TransactionHistory getTransactions(
-			@RequestParam(required = true) @ApiParam(example = "PURCHASE_ORDER", value = "Order type.") OrderType orderType,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Order type.") OrderType orderType,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().nft().getTransactions(new TransactionHistoryParams(orderType),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
@@ -61,10 +58,10 @@ public class NFTController extends BaseController {
 	@ApiOperation(value = "Get NFT deposit History.")
 
 	public DepositHistory getDeposits(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().nft().getDeposits(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
@@ -81,10 +78,10 @@ public class NFTController extends BaseController {
 	@ApiOperation(value = "Get NFT withdraw History.")
 
 	public WithdrawHistory getWithdraws(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().nft().getWithdraws(new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
@@ -99,8 +96,8 @@ public class NFTController extends BaseController {
 	@ApiOperation(value = "Get NFT assets.")
 
 	public AssetHistory getAssets(
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().nft().getAssets(new Paging(page, limit)).sync();
 	}

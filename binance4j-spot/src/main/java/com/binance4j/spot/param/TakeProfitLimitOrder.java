@@ -43,6 +43,27 @@ public class TakeProfitLimitOrder extends BaseOrder {
 
 	/**
 	 * 
+	 * @param symbol      Symbol.
+	 * @param side        Side.
+	 * @param quantity    Order quantity.
+	 * @param price       Order price.
+	 * @param stopPrice   Order price.
+	 * @param timeInForce Order time in force.
+	 * @param icebergQty  Iceberg quantity.
+	 */
+	public TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
+			String icebergQty, TimeInForce timeInForce) {
+		super(symbol, side, OrderType.TAKE_PROFIT_LIMIT);
+		this.quantity = quantity;
+		this.price = price;
+		this.stopPrice = stopPrice;
+		this.timeInForce = timeInForce;
+		this.trailingDelta = null;
+		this.icebergQty = icebergQty;
+	}
+
+	/**
+	 * 
 	 * @param symbol        Symbol.
 	 * @param side          Side.
 	 * @param quantity      Order quantity.
@@ -58,6 +79,27 @@ public class TakeProfitLimitOrder extends BaseOrder {
 		this.timeInForce = timeInForce;
 		this.stopPrice = null;
 		this.trailingDelta = trailingDelta;
+	}
+
+	/**
+	 * 
+	 * @param symbol        Symbol.
+	 * @param side          Side.
+	 * @param quantity      Order quantity.
+	 * @param price         Order price.
+	 * @param timeInForce   Order time in force.
+	 * @param trailingDelta Trailing delta.
+	 * @param icebergQty    Iceberg quantity.
+	 */
+	public TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, Long trailingDelta,
+			String icebergQty, TimeInForce timeInForce) {
+		super(symbol, side, OrderType.TAKE_PROFIT_LIMIT);
+		this.quantity = quantity;
+		this.price = price;
+		this.timeInForce = timeInForce;
+		this.stopPrice = null;
+		this.trailingDelta = trailingDelta;
+		this.icebergQty = icebergQty;
 	}
 
 	/**

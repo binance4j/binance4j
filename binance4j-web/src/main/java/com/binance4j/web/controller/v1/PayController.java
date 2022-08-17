@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +11,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Pay endpoints. */
 @RestController
@@ -28,9 +27,9 @@ public class PayController extends BaseController {
 	 */
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get pay trades.")
-	public TradeHistory getTrades(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+	public TradeHistory getTrades(@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().pay().getTrades(new TimeFrame(startTime, endTime, limit)).sync();
 	}

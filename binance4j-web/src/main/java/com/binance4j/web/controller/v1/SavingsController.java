@@ -1,8 +1,7 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,10 +42,10 @@ import com.binance4j.savings.param.PurchaseQuotaParams;
 import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
 import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Savings endpoints. */
 @RestController
@@ -65,10 +64,10 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "flexible-products")
 	@ApiOperation(value = "Get flexible product list.")
 	public List<FlexibleProduct> getFlexibleProducts(
-			@RequestParam(required = false) @ApiParam(value = "Product status.") FlexibleProductStatus status,
-			@RequestParam(required = false) @ApiParam(value = "Freatured.") Featured featured,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = "Product status.") FlexibleProductStatus status,
+			@RequestParam(required = false, name = "Freatured.") Featured featured,
+			@RequestParam(required = false, name = "Results page.") Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFlexibleProducts(new FlexibleProductsParams(status, featured), new Paging(page, limit)).sync();
@@ -80,12 +79,10 @@ public class SavingsController extends BaseController {
 	 * @return Left daily purchase quota of flexible product.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "left-purchase-quota", params = {
-			"productId"
-	})
+	@JsonGetMapping(path = "left-purchase-quota")
 	@ApiOperation(value = "Get left daily purchase quota of flexible product.")
 	public PurchaseQuota getLeftDailyFlexiblePurchaseQuota(
-			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId) throws ApiException {
+			@RequestParam(name = "Product id.") String productId) throws ApiException {
 		return connectors.rest().savings().getLeftDailyFlexiblePurchaseQuota(new PurchaseQuotaParams(productId)).sync();
 	}
 
@@ -95,13 +92,11 @@ public class SavingsController extends BaseController {
 	 * @return Left daily redemption quota of flexible product.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "left-redemption-quota", params = {
-			"productId", "productType"
-	})
+	@JsonGetMapping(path = "left-redemption-quota")
 	@ApiOperation(value = "Get left daily redemption quota of flexible product.")
 	public RedemptionQuota getLeftDailyRedemptionQuota(
-			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
-			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType productType)
+			@RequestParam(name = "Product id.") String productId,
+			@RequestParam(name = "Product type.") ProductType productType)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getLeftDailyRedemptionQuota(new RedemptionQuotaParams(productId, productType))
@@ -116,13 +111,11 @@ public class SavingsController extends BaseController {
 	 * @return Flexible purchase response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "purchase-flexible", produces = "application/json", params = {
-			"productId", "amount"
-	})
+	@JsonPostMapping(path = "purchase-flexible")
 	@ApiOperation(value = "Purchase Flexible Product.")
 	public PurchaseResponse purchaseFlexible(
-			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
-			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount) throws ApiException {
+			@RequestParam(name = "Product id.") String productId,
+			@RequestParam(name = "Amount.") String amount) throws ApiException {
 		return connectors.rest().savings().purchaseFlexible(new FlexiblePurchaseParams(productId, amount)).sync();
 	}
 
@@ -134,13 +127,11 @@ public class SavingsController extends BaseController {
 	 * @return Flexible redemption response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "redeem-flexible", produces = "application/json", params = {
-			"productId", "amount", "type"
-	})
+	@JsonPostMapping(path = "redeem-flexible")
 	@ApiOperation(value = "Redeem Flexible Product.")
-	public Void redeemFlexible(@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
-			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount,
-			@RequestParam(required = true) @ApiParam(value = "Product type.") ProductType type) throws ApiException {
+	public Void redeemFlexible(@RequestParam(name = "Product id.") String productId,
+			@RequestParam(name = "Amount.") String amount,
+			@RequestParam(name = "Product type.") ProductType type) throws ApiException {
 		return connectors.rest().savings().redeemFlexible(new RedemptionParams(productId, amount, type)).sync();
 	}
 
@@ -152,7 +143,7 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "flexible-position")
 	@ApiOperation(value = "Get flexible product position.")
 	public List<FlexibleProductPosition> getFlexibleProductPosition(
-			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset)
+			@RequestParam(required = false, name = "Asset.") String asset)
 			throws ApiException {
 		return connectors.rest().savings().getFlexibleProductPosition(new FlexibleProductPositionParams(asset)).sync();
 	}
@@ -171,13 +162,13 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "fixed-projects")
 	@ApiOperation(value = "Get fixed and activity project list.")
 	public List<FixedProject> getFixedProjects(
-			@RequestParam(required = true) @ApiParam(value = "Project type.") FixedProjectType type,
-			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Project status.") FixedProjectStatus status,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "Results page.") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "Results limit.") Integer limit,
-			@RequestParam(required = false) @ApiParam(value = "Project sorting.") FixedProjectSorting sortBy,
-			@RequestParam(required = false) @ApiParam(value = "Sort ascending. Default: true.") Boolean isSortAsc)
+			@RequestParam(name = "Project type.") FixedProjectType type,
+			@RequestParam(required = false, name = "Asset.") String asset,
+			@RequestParam(required = false, name = "Project status.") FixedProjectStatus status,
+			@RequestParam(required = false, name = "Results page.") Integer page,
+			@RequestParam(required = false, name = "Results limit.") Integer limit,
+			@RequestParam(required = false, name = "Project sorting.") FixedProjectSorting sortBy,
+			@RequestParam(required = false, name = "Sort ascending. Default: true.") Boolean isSortAsc)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFixedProjects(new FixedProjectListParams(type, asset, status), new Paging(page, limit),
@@ -193,13 +184,11 @@ public class SavingsController extends BaseController {
 	 * @return Fixed purchase response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "purchase-fixed", produces = "application/json", params = {
-			"productId", "lot"
-	})
+	@JsonPostMapping(path = "purchase-fixed")
 	@ApiOperation(value = "Purchase fixed projet.")
 	public PurchaseResponse purchaseFixed(
-			@RequestParam(required = true) @ApiParam(value = "Product id.") String productId,
-			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot) throws ApiException {
+			@RequestParam(name = "Product id.") String productId,
+			@RequestParam(name = "Lot size.") Long lot) throws ApiException {
 		return connectors.rest().savings().purchaseFixed(new FixedPurchaseParams(productId, lot)).sync();
 	}
 
@@ -213,9 +202,9 @@ public class SavingsController extends BaseController {
 	@JsonGetMapping(path = "fixed-position")
 	@ApiOperation(value = "Get fixed projet position.")
 	public List<FixedProjectPosition> getFixedProjectPosition(
-			@RequestParam(required = false) @ApiParam(example = "BUSD", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Project id.") String projectId,
-			@RequestParam(required = false) @ApiParam(value = "Project status.") FixedProjectPositionStatus status)
+			@RequestParam(required = false, name = "Asset.") String asset,
+			@RequestParam(required = false, name = "Project id.") String projectId,
+			@RequestParam(required = false, name = "Project status.") FixedProjectPositionStatus status)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getFixedProjectPosition(new FixedProjectPositionParams(asset, projectId, status))
@@ -242,17 +231,15 @@ public class SavingsController extends BaseController {
 	 * @return Purchase record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "purchases", params = {
-			"lendingType"
-	})
+	@JsonGetMapping(path = "purchases")
 	@ApiOperation(value = "Get purchase record.")
 	public List<Purchase> getPurchases(
-			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false, name = "Asset.") String asset,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getPurchases(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
@@ -269,17 +256,15 @@ public class SavingsController extends BaseController {
 	 * @return Redemption record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "redemptions", params = {
-			"lendingType"
-	})
+	@JsonGetMapping(path = "redemptions")
 	@ApiOperation(value = "Get redemption record.")
 	public List<Redemption> getRedemptions(
-			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false, name = "Asset.") String asset,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings().getRedemptions(new LendingParams(lendingType, asset),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
@@ -295,17 +280,15 @@ public class SavingsController extends BaseController {
 	 * @return Interest record.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "interests", params = {
-			"lendingType"
-	})
+	@JsonGetMapping(path = "interests")
 	@ApiOperation(value = "Get interest record.")
 	public List<Interest> getInterests(
-			@RequestParam(required = true) @ApiParam(value = "Lending type.") LendingType lendingType,
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Lending type.") LendingType lendingType,
+			@RequestParam(required = false, name = "Asset.") String asset,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION) Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().savings()
 				.getInterests(new LendingParams(lendingType, asset), new FramedPaging(startTime, endTime, page, limit))
@@ -321,14 +304,12 @@ public class SavingsController extends BaseController {
 	 * @return Change response.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@PostMapping(path = "change-position", produces = "application/json", params = {
-			"projectId", "lot"
-	})
+	@JsonPostMapping(path = "change-position")
 	@ApiOperation(value = "Change fixed/activity position to daily position.")
 	public PositionChangedResponse fixedToDailyPosition(
-			@RequestParam(required = true) @ApiParam(value = "Lending type.") String projectId,
-			@RequestParam(required = true) @ApiParam(value = "Lot size.") Long lot,
-			@RequestParam(required = false) @ApiParam(value = "Position id.") Long positionId) throws ApiException {
+			@RequestParam(name = "Lending type.") String projectId,
+			@RequestParam(name = "Lot size.") Long lot,
+			@RequestParam(required = false, name = "Position id.") Long positionId) throws ApiException {
 		return connectors.rest().savings().fixedToDailyPosition(new ChangePositionParams(projectId, lot, positionId))
 				.sync();
 	}

@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,6 @@ import com.binance4j.web.annotation.JsonPostMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Wallet endpoints. */
 @RestController
@@ -87,9 +86,9 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the daily SPOT account snapshots.")
 
 	public SpotAccountSnapshotResponse getSpotAccountSnapshot(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet().getSpotAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
@@ -102,9 +101,9 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the daily MARGIN account snapshots.")
 
 	public MarginAccountSnapshotResponse getMarginAccountSnapshot(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet().getMarginAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
@@ -117,9 +116,9 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the daily FUTURES account snapshots.")
 
 	public FuturesAccountSnapshotResponse getFuturesAccountSnapshot(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet().getFuturesAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
@@ -161,9 +160,9 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Submits a withdraw request.")
 
 	public WithdrawResult withdraw(
-			@RequestParam(required = true) @ApiParam(value = "Volume to withdraw.") String amount,
-			@RequestParam(required = true) @ApiParam(value = "Coin to withdraw.") String coin,
-			@RequestParam(required = true) @ApiParam(value = "Destination address.") String address)
+			@RequestParam(name = "Volume to withdraw.") String amount,
+			@RequestParam(name = COIN_DESCRIPTION) String coin,
+			@RequestParam(name = "Destination address.") String address)
 			throws ApiException {
 		return connectors.rest().wallet().withdraw(new WithdrawParams(amount, coin, address)).sync();
 	}
@@ -176,12 +175,12 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the deposit history of one or multiple coins.")
 
 	public List<DepositHistory> getDepositHistory(
-			@RequestParam(required = false) @ApiParam(value = "Deposited coin.") String coin,
-			@RequestParam(required = false) @ApiParam(value = "Deposit status.") DepositStatus status,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = COIN_DESCRIPTION) String coin,
+			@RequestParam(required = false, name = "Deposit status.") DepositStatus status,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet().getDepositHistory(new DepositHistoryParams(status, coin),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
@@ -202,13 +201,13 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the last withdraw history of all coins.")
 
 	public List<WithdrawHistory> getWithdrawHistory(
-			@RequestParam(required = false) @ApiParam(value = "Withdrawn coin.") String coin,
-			@RequestParam(required = false) @ApiParam(value = "Withdraw status.") WithdrawStatus status,
-			@RequestParam(required = false) @ApiParam(value = "Withdraw order id.") String withdrawOrderId,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = COIN_DESCRIPTION) String coin,
+			@RequestParam(required = false, name = "Withdraw status.") WithdrawStatus status,
+			@RequestParam(required = false, name = "Withdraw order id.") String withdrawOrderId,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet()
 				.getWithdrawHistory(new WithdrawHistoryParams(coin, withdrawOrderId, status),
@@ -222,14 +221,11 @@ public class WalletController extends BaseController {
 	 * @return Deposit address.
 	 * @throws ApiException Something went wrong with the API.
 	 */
-	@JsonGetMapping(path = "deposit-address", params = {
-			"coin"
-	})
+	@JsonGetMapping(path = "deposit-address")
 	@ApiOperation(value = "Get deposit address.")
-
 	public DepositAddress getDepositAddress(
-			@RequestParam(required = true) @ApiParam(value = "Coin abbreviation.") String coin,
-			@RequestParam(required = false) @ApiParam(value = "Transfer network.") String network) throws ApiException {
+			@RequestParam(name = COIN_DESCRIPTION) String coin,
+			@RequestParam(required = false, name = "Transfer network.") String network) throws ApiException {
 		return connectors.rest().wallet().getDepositAddress(new DepositAddressParams(coin, network)).sync();
 	}
 
@@ -264,8 +260,8 @@ public class WalletController extends BaseController {
 	@JsonGetMapping(path = "dust-log")
 	@ApiOperation(value = "Get the dust transfer logs.")
 
-	public DustLog getDustLog(@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime) throws ApiException {
+	public DustLog getDustLog(@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime) throws ApiException {
 		return connectors.rest().wallet().getDustLog(new TimeFrame(startTime, endTime)).sync();
 	}
 
@@ -280,7 +276,7 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Convert dust assets to BNB.")
 
 	public DustTransferResponse dustTransfer(
-			@RequestParam(required = true) @ApiParam(example = "BTC, BNB, CAKE", value = "Symbols separated by a coma.") String symbols)
+			@RequestParam(name = SYMBOL_DESCRIPTION) String symbols)
 			throws ApiException {
 		return connectors.rest().wallet().dustTransfer(new DustTransferParams(symbols)).sync();
 	}
@@ -297,10 +293,10 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the dividend record of one or multiple assets.")
 
 	public AssetDividendRecord getAssetDividendRecord(
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = ASSET_DESCRIPTION) String asset,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet()
 				.getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(startTime, endTime, limit))
@@ -316,7 +312,7 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the details of one or all assets supported on Binance.")
 
 	public Map<String, AssetDetail> getAssetDetail(
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset)
+			@RequestParam(required = false, name = ASSET_DESCRIPTION) String asset)
 			throws ApiException {
 		return connectors.rest().wallet().getAssetDetail(new AssetDetailParams(asset)).sync();
 	}
@@ -330,7 +326,7 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get trade fees of one or all symbols.")
 
 	public List<TradeFee> getTradeFee(
-			@RequestParam(required = false) @ApiParam(example = "BTCUSDT", value = "Symbol.") String symbol)
+			@RequestParam(required = false, name = "Symbol.") String symbol)
 			throws ApiException {
 		return connectors.rest().wallet().getTradeFee(new TradeFeeParams(symbol)).sync();
 	}
@@ -352,11 +348,11 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Make a universal transfer.")
 
 	public WalletTransferResponse transfer(
-			@RequestParam(required = true) @ApiParam(example = "BTC", value = "Asset.") String asset,
-			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
-			@RequestParam(required = true) @ApiParam(value = "Amount.") String amount,
-			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
-			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String toSymbol)
+			@RequestParam(name = ASSET_DESCRIPTION) String asset,
+			@RequestParam(name = "Transfer type.") WalletTransferType type,
+			@RequestParam(name = "Amount.") String amount,
+			@RequestParam(required = false, name = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
+			@RequestParam(required = false, name = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String toSymbol)
 			throws ApiException {
 		return connectors.rest().wallet().transfer(new WalletTransferParams(asset, type, amount, fromSymbol, toSymbol))
 				.sync();
@@ -379,13 +375,13 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the user universal transfer history.")
 
 	public WalletTransferHistory getTransferHistory(
-			@RequestParam(required = true) @ApiParam(value = "Transfer type.") WalletTransferType type,
-			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
-			@RequestParam(required = false) @ApiParam(value = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String toSymbol,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Transfer type.") WalletTransferType type,
+			@RequestParam(required = false, name = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String fromSymbol,
+			@RequestParam(required = false, name = "Mandatory when transfer type is ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN.") String toSymbol,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().wallet()
 				.getTransferHistory(new WalletTransferHistoryParams(type, fromSymbol, toSymbol),
@@ -403,8 +399,8 @@ public class WalletController extends BaseController {
 	@ApiOperation(value = "Get the funding wallet asset balance.")
 
 	public List<FundingAsset> getFundingWallet(
-			@RequestParam(required = false) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(example = "true", value = "BTC value of the asset.") Boolean needBtcValuation)
+			@RequestParam(required = false, name = ASSET_DESCRIPTION) String asset,
+			@RequestParam(required = false, name = "BTC value of the asset.") Boolean needBtcValuation)
 			throws ApiException {
 		return connectors.rest().wallet().getFundingWallet(new FundingWalletParams(asset, needBtcValuation)).sync();
 	}

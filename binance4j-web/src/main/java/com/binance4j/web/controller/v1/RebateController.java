@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +11,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Rebate endpoints. */
 @RestController
@@ -30,10 +29,10 @@ public class RebateController extends BaseController {
 	@JsonGetMapping(path = "tax-query")
 	@ApiOperation(value = "Get the spot rebate history records.")
 	public SpotRebateHistoryResponse getSpotRebateHistoryRecords(
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "1", value = "The result page", defaultValue = "1") Integer page,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = PAGE_DESCRIPTION, defaultValue = "1") Integer page,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().rebate().getSpotRebateHistoryRecords(new FramedPaging(startTime, endTime, page, limit))
 				.sync();

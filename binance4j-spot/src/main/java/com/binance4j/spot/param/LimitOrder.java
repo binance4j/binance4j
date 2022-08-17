@@ -34,6 +34,24 @@ public class LimitOrder extends BaseOrder {
 	}
 
 	/**
+	 * 
+	 * @param symbol      Symbol.
+	 * @param side        Side.
+	 * @param quantity    Order quantity.
+	 * @param price       Order price.
+	 * @param timeInForce Order time in force.
+	 * @param icebergQty  Iceberg quantity.
+	 */
+	public LimitOrder(String symbol, OrderSide side, String quantity, String price,
+			String icebergQty, TimeInForce timeInForce) {
+		super(symbol, side, OrderType.LIMIT);
+		this.quantity = quantity;
+		this.price = price;
+		this.timeInForce = timeInForce;
+		this.icebergQty = icebergQty;
+	}
+
+	/**
 	 * Creates an instance of {@link LimitOrder} in a BUY side.
 	 * 
 	 * @param symbol      Symbol.

@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

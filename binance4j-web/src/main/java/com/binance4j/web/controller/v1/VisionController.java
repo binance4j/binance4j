@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -26,7 +26,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Vision endpoints. */
 @RestController
@@ -48,10 +47,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades (daily).")
 
 	public List<AggTrade> getAggTradesDailyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
 		return connectors.rest().visionSpot().getAggTrades(symbol, year, month, day).getData();
 	}
@@ -66,9 +65,9 @@ public class VisionController extends BaseController {
 	@JsonGetMapping(path = "aggtrades/{symbol}/{year}/{month}.json")
 	@ApiOperation(value = "Get symbol's aggregated trades (monthly).")
 	public List<AggTrade> getAggTradesMonthlyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
 		return connectors.rest().visionSpot().getAggTrades(symbol, year, month).getData();
 	}
@@ -86,10 +85,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades (daily).")
 
 	public ResponseEntity<byte[]> getAggTradesDailyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot().getAggTrades(symbol, year, month, day).getZip());
 	}
@@ -106,9 +105,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades (monthly).")
 
 	public ResponseEntity<byte[]> getAggTradesMonthlyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot().getAggTrades(symbol, year, month).getZip());
 	}
@@ -126,10 +125,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades (daily).")
 
 	public ResponseEntity<byte[]> getAggTradesDailyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot().getAggTrades(symbol, year, month, day).getZip());
 	}
@@ -144,11 +143,10 @@ public class VisionController extends BaseController {
 	 */
 	@GetMapping(path = "aggtrades/{symbol}/{year}/{month}.csv", produces = "application/octet-stream")
 	@ApiOperation(value = "Get symbol's aggregated trades (monthly).")
-
 	public ResponseEntity<byte[]> getAggTradesMonthlyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot().getAggTrades(symbol, year, month).getZip());
 	}
@@ -166,10 +164,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades file checksum (daily).")
 
 	public ChecksumParams getAggTradesDailyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getAggTradesChecksum(symbol, year, month, day);
 	}
@@ -186,9 +184,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's aggregated trades file checksum (monthly).")
 
 	public ChecksumParams getAggTradesMonthlyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getAggTradesChecksum(symbol, year, month);
 	}
@@ -207,10 +205,10 @@ public class VisionController extends BaseController {
 
 	@ApiOperation(value = "Get symbol's trades (daily).")
 	public List<VisionTrade> getTradesDailyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
 		return connectors.rest().visionSpot().getTrades(symbol, year, month, day).getData();
 	}
@@ -226,9 +224,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's trades (monthly).")
 
 	public List<VisionTrade> getTradesMonthlyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
 		return connectors.rest().visionSpot().getTrades(symbol, year, month).getData();
 	}
@@ -246,10 +244,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's  trades (daily).")
 
 	public ResponseEntity<byte[]> getTradesDailyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot().getTrades(symbol, year, month, day).getZip());
 	}
@@ -266,9 +264,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's  trades (monthly).")
 
 	public ResponseEntity<byte[]> getTradesMonthlyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot().getTrades(symbol, year, month).getZip());
 	}
@@ -286,10 +284,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's trades (daily).")
 
 	public ResponseEntity<byte[]> getTradesDailyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot().getTrades(symbol, year, month, day).getZip());
 	}
@@ -307,9 +305,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's trades (monthly).")
 
 	public ResponseEntity<byte[]> getTradesMonthlyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot().getTrades(symbol, year, month).getZip());
 	}
@@ -327,10 +325,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's trades file checksum (daily).")
 
 	public ChecksumParams getTradesDailyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getTradesChecksum(symbol, year, month, day);
 	}
@@ -348,9 +346,9 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's trades file checksum (monthly).")
 
 	public ChecksumParams getTradesMonthlyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getTradesChecksum(symbol, year, month);
 	}
@@ -370,11 +368,11 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines (daily).")
 
 	public List<Candle> getKlinesDailyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException {
 		return connectors.rest().visionSpot()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month, day)
@@ -393,10 +391,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines (monthly).")
 
 	public List<Candle> getKlinesMonthlyJson(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException {
 		return connectors.rest().visionSpot().getKlines(symbol, CandlestickInterval.fromValue(interval), year, month)
 				.getData();
@@ -416,11 +414,11 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's  klines (daily).")
 
 	public ResponseEntity<byte[]> getKlinesDailyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month, day).getZip());
@@ -439,10 +437,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's  klines (monthly).")
 
 	public ResponseEntity<byte[]> getKlinesMonthlyZip(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return ZisToZosResponse(connectors.rest().visionSpot()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month).getZip());
@@ -462,11 +460,11 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines (daily).")
 
 	public ResponseEntity<byte[]> getKlinesDailyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month, day).getZip());
@@ -485,10 +483,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines file checksum (monthly).")
 
 	public ResponseEntity<byte[]> getKlinesMonthlyCsv(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return zisToCsvResponse(connectors.rest().visionSpot()
 				.getKlines(symbol, CandlestickInterval.fromValue(interval), year, month).getZip());
@@ -508,11 +506,11 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines file checksum (daily).")
 
 	public ChecksumParams getKlinesDailyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.", allowableValues = "3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month,
-			@PathVariable(value = "day", required = false) @ApiParam(example = "01", value = "Day.") String day)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month,
+			@PathVariable(value = "day", required = false) String day)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
 				month,
@@ -532,10 +530,10 @@ public class VisionController extends BaseController {
 	@ApiOperation(value = "Get symbol's klines (monthly).")
 
 	public ChecksumParams getKlinesMonthlyChecksum(
-			@PathVariable(value = "symbol", required = true) @ApiParam(example = "BNBBTC", value = "Symbol.") String symbol,
-			@PathVariable(value = "interval", required = true) @ApiParam(example = "5m", value = "Interval.") String interval,
-			@PathVariable(value = "year", required = true) @ApiParam(example = "2022", value = "Year.") String year,
-			@PathVariable(value = "month", required = true) @ApiParam(example = "01", value = "Month.") String month)
+			@PathVariable(value = "symbol", required = true) String symbol,
+			@PathVariable(value = "interval", required = true) String interval,
+			@PathVariable(value = "year", required = true) String year,
+			@PathVariable(value = "month", required = true) String month)
 			throws ApiException, IOException {
 		return connectors.rest().visionSpot().getKlinesChecksum(symbol, CandlestickInterval.fromValue(interval), year,
 				month);

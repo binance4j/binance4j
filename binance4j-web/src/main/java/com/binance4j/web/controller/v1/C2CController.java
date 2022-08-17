@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +12,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for C2C endpoints. */
 @RestController
@@ -28,7 +27,7 @@ public class C2CController extends BaseController {
 	@JsonGetMapping(path = "trades")
 	@ApiOperation(value = "Get trades.")
 	public TradeHistory getTrades(
-			@RequestParam(required = true) @ApiParam(example = "BUY", value = "The trade type") TradeType tradeType)
+			@RequestParam(name = "The trade type") TradeType tradeType)
 			throws ApiException {
 		return connectors.rest().c2c().getTrades(new TradeHistoryParams(tradeType)).sync();
 	}

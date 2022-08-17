@@ -1,4 +1,4 @@
-package com.binance4j.web.controller;
+package com.binance4j.web.controller.v1;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ import com.binance4j.web.annotation.JsonGetMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 /** Controller for Loan endpoints. */
 @RestController
@@ -35,11 +34,11 @@ public class LoanController extends BaseController {
 	@JsonGetMapping(path = "income")
 	@ApiOperation(value = "Get incomes.")
 	public List<LoanIncome> getLoansIncome(
-			@RequestParam(required = true) @ApiParam(example = "BNB", value = "Asset.") String asset,
-			@RequestParam(required = false) @ApiParam(example = "borrowIn", value = "Income type.") LoanIncomeType type,
-			@RequestParam(required = false) @ApiParam(value = "Start time in ms.") Long startTime,
-			@RequestParam(required = false) @ApiParam(value = "End time in ms.") Long endTime,
-			@RequestParam(required = false) @ApiParam(example = "25", value = "The result limit.") Integer limit)
+			@RequestParam(name = "Asset.") String asset,
+			@RequestParam(required = false, name = "Income type.") LoanIncomeType type,
+			@RequestParam(required = false, name = START_TIME_DESCRIPTION) Long startTime,
+			@RequestParam(required = false, name = END_TIME_DESCRIPTION) Long endTime,
+			@RequestParam(required = false, name = LIMIT_DESCRIPTION) Integer limit)
 			throws ApiException {
 		return connectors.rest().loan()
 				.getLoansIncome(new LoanIncomeHistoryParams(asset, type), new TimeFrame(startTime, endTime, limit))
