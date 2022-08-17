@@ -16,7 +16,7 @@ public class MarketQuoteOrder extends BaseOrder {
 	 * @param side          Order side.
 	 * @param quoteOrderQty Quote order quantity.
 	 */
-	private MarketQuoteOrder(String symbol, OrderSide side, String quoteOrderQty) {
+	public MarketQuoteOrder(String symbol, OrderSide side, String quoteOrderQty) {
 		super(symbol, side, OrderType.MARKET);
 		this.quoteOrderQty = quoteOrderQty;
 	}

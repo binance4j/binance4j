@@ -15,7 +15,7 @@ public class MarketOrder extends BaseOrder {
 	 * @param symbol Symbol.
 	 * @param side   Side.
 	 */
-	private MarketOrder(String symbol, OrderSide side, String quantity) {
+	public MarketOrder(String symbol, OrderSide side, String quantity) {
 		super(symbol, side, OrderType.MARKET);
 		this.quantity = quantity;
 	}

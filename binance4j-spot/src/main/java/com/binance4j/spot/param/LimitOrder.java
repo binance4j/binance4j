@@ -26,7 +26,7 @@ public class LimitOrder extends BaseOrder {
 	 * @param price       Order price.
 	 * @param timeInForce Order time in force.
 	 */
-	private LimitOrder(String symbol, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
+	public LimitOrder(String symbol, OrderSide side, String quantity, String price, TimeInForce timeInForce) {
 		super(symbol, side, OrderType.LIMIT);
 		this.quantity = quantity;
 		this.price = price;

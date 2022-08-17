@@ -22,7 +22,7 @@ public class TakeProfitOrder extends BaseOrder {
 	 * @param quantity  Order quantity.
 	 * @param stopPrice Order price.
 	 */
-	private TakeProfitOrder(String symbol, OrderSide side, String quantity, String stopPrice) {
+	public TakeProfitOrder(String symbol, OrderSide side, String quantity, String stopPrice) {
 		super(symbol, side, OrderType.TAKE_PROFIT);
 		this.quantity = quantity;
 		this.stopPrice = stopPrice;
@@ -36,7 +36,7 @@ public class TakeProfitOrder extends BaseOrder {
 	 * @param quantity  Order quantity.
 	 * @param stopPrice Order price.
 	 */
-	private TakeProfitOrder(String symbol, OrderSide side, String quantity, Long trailingDelta) {
+	public TakeProfitOrder(String symbol, OrderSide side, String quantity, Long trailingDelta) {
 		super(symbol, side, OrderType.TAKE_PROFIT);
 		this.quantity = quantity;
 		this.trailingDelta = trailingDelta;

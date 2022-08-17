@@ -20,7 +20,7 @@ public class LimitMakerOrder extends BaseOrder {
 	 * @param quantity Order quantity.
 	 * @param price    Order price.
 	 */
-	private LimitMakerOrder(String symbol, OrderSide side, String quantity, String price) {
+	public LimitMakerOrder(String symbol, OrderSide side, String quantity, String price) {
 		super(symbol, side, OrderType.LIMIT_MAKER);
 		this.quantity = quantity;
 		this.price = price;

@@ -31,7 +31,7 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param stopPrice   Order price.
 	 * @param timeInForce Order time in force.
 	 */
-	private TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
+	public TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
 			TimeInForce timeInForce) {
 		super(symbol, side, OrderType.TAKE_PROFIT_LIMIT);
 		this.quantity = quantity;
@@ -50,7 +50,7 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param timeInForce   Order time in force.
 	 * @param trailingDelta Trailing delta.
 	 */
-	private TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, Long trailingDelta,
+	public TakeProfitLimitOrder(String symbol, OrderSide side, String quantity, String price, Long trailingDelta,
 			TimeInForce timeInForce) {
 		super(symbol, side, OrderType.TAKE_PROFIT_LIMIT);
 		this.quantity = quantity;

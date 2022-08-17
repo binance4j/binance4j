@@ -31,7 +31,7 @@ public class StopLossLimitOrder extends BaseOrder {
 	 * @param stopPrice   Order price.
 	 * @param timeInForce Order time in force.
 	 */
-	private StopLossLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
+	public StopLossLimitOrder(String symbol, OrderSide side, String quantity, String price, String stopPrice,
 			TimeInForce timeInForce) {
 		super(symbol, side, OrderType.STOP_LOSS_LIMIT);
 		this.quantity = quantity;
@@ -50,7 +50,7 @@ public class StopLossLimitOrder extends BaseOrder {
 	 * @param timeInForce   Order time in force.
 	 * @param trailingDelta Trailing delta.
 	 */
-	private StopLossLimitOrder(String symbol, OrderSide side, String quantity, String price, Long trailingDelta,
+	public StopLossLimitOrder(String symbol, OrderSide side, String quantity, String price, Long trailingDelta,
 			TimeInForce timeInForce) {
 		super(symbol, side, OrderType.STOP_LOSS_LIMIT);
 		this.quantity = quantity;
