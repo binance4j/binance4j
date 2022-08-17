@@ -17,6 +17,19 @@ public record OCOInfoParams(Long orderListId, String origClientOrderId) implemen
 	/**
 	 * Creates an instance of {@link OCOInfoParams}.
 	 * 
+	 * @param orderListId       Either {@code orderListId} or
+	 *                          {@code origClientOrderId} must be provided.
+	 * @param origClientOrderId Either {@code orderListId} or
+	 *                          {@code origClientOrderId} must be provided.
+	 */
+	public OCOInfoParams(Long orderListId, String origClientOrderId) {
+		this.orderListId = orderListId;
+		this.origClientOrderId = origClientOrderId;
+	}
+
+	/**
+	 * Creates an instance of {@link OCOInfoParams}.
+	 * 
 	 * @param orderListId Either {@code orderListId} or {@code origClientOrderId}
 	 *                    must be provided.
 	 */

@@ -16,6 +16,19 @@ public record TradesParams(String symbol, Long orderId, Long fromId) implements 
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 
+	 * @param symbol  Symbol of the trade.
+	 * @param orderId Order id of the trade.
+	 * @param fromId  Id from which we search trades.
+	 */
+	public TradesParams(String symbol, Long orderId, Long fromId) {
+		this.symbol = symbol;
+		this.orderId = orderId;
+		this.fromId = fromId;
+	}
+
+	/**
+	 * Creates an instance of {@link TradesParams}.
+	 * 
 	 * @param symbol Symbol of the trade.
 	 */
 	public TradesParams(String symbol) {
