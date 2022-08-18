@@ -15,6 +15,17 @@ public record InterestRateHistoryParams(String asset, Integer vipLevel) implemen
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.
 	 * 
+	 * @param asset    Asset.
+	 * @param vipLevel VIP level.
+	 */
+	public InterestRateHistoryParams(String asset, Integer vipLevel) {
+		this.asset = asset;
+		this.vipLevel = vipLevel;
+	}
+
+	/**
+	 * Creates an instance of {@link InterestRateHistoryParams}.
+	 * 
 	 * @param asset Asset.
 	 */
 	public InterestRateHistoryParams(String asset) {

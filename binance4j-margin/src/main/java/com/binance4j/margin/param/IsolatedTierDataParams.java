@@ -16,6 +16,17 @@ public record IsolatedTierDataParams(String symbol, String tier) implements Para
 	 * Creates an instance of {@link IsolatedTierDataParams}.
 	 * 
 	 * @param symbol Symbol.
+	 * @param tier   Tier.
+	 */
+	public IsolatedTierDataParams(String symbol, String tier) {
+		this.symbol = symbol;
+		this.tier = tier;
+	}
+
+	/**
+	 * Creates an instance of {@link IsolatedTierDataParams}.
+	 * 
+	 * @param symbol Symbol.
 	 */
 	public IsolatedTierDataParams(String symbol) {
 		this(symbol, null);

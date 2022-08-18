@@ -59,6 +59,10 @@ import com.binance4j.margin.param.IsolatedAccountParams;
 import com.binance4j.margin.param.IsolatedFeeParams;
 import com.binance4j.margin.param.IsolatedTierDataParams;
 import com.binance4j.margin.param.IsolatedTransferHistoryParams;
+import com.binance4j.margin.param.LimitMakerOrder;
+import com.binance4j.margin.param.LimitOrder;
+import com.binance4j.margin.param.MarketOrder;
+import com.binance4j.margin.param.MarketQuoteOrder;
 import com.binance4j.margin.param.MaxBorrowableParams;
 import com.binance4j.margin.param.MaxTransferableParams;
 import com.binance4j.margin.param.NewIsolatedTransferParams;
@@ -70,6 +74,10 @@ import com.binance4j.margin.param.PairParams;
 import com.binance4j.margin.param.PriceIndexParams;
 import com.binance4j.margin.param.RateLimitParams;
 import com.binance4j.margin.param.RepayParams;
+import com.binance4j.margin.param.StopLossLimitOrder;
+import com.binance4j.margin.param.StopLossOrder;
+import com.binance4j.margin.param.TakeProfitLimitOrder;
+import com.binance4j.margin.param.TakeProfitOrder;
 import com.binance4j.margin.param.ToggleBurnParams;
 import com.binance4j.margin.param.ToogleAccountParams;
 import com.binance4j.margin.param.TradeParams;
@@ -187,6 +195,90 @@ public class MarginClient extends RestClient<MarginMapping> {
 	public Request<NewOrderRecord> newOrder(NewOrderParams params) {
 		return new Request<>(service.newOrder(params.toMap()));
 	}
+
+	// ORDERS
+
+	/**
+	 * Tests a {@link MarketOrder}.
+	 * 
+	 * @param order the {@link MarketOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(MarketOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link MarketQuoteOrder}.
+	 * 
+	 * @param order the {@link MarketQuoteOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(MarketQuoteOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link LimitOrder}.
+	 * 
+	 * @param order the {@link LimitOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(LimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link LimitMakerOrder}.
+	 * 
+	 * @param order the {@link LimitMakerOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(LimitMakerOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link StopLossLimitOrder}.
+	 * 
+	 * @param order the {@link StopLossLimitOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(StopLossLimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link StopLossOrder}.
+	 * 
+	 * @param order the {@link StopLossOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(StopLossOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link TakeProfitLimitOrder}.
+	 * 
+	 * @param order the {@link TakeProfitLimitOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(TakeProfitLimitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	/**
+	 * Tests a {@link TakeProfitOrder}.
+	 * 
+	 * @param order the {@link TakeProfitOrder}.
+	 * @return The request to execute.
+	 */
+	public Request<NewOrderRecord> newOrder(TakeProfitOrder order) {
+		return new Request<>(service.newOrder(order.toMap()));
+	}
+
+	// END ORDERS
 
 	/**
 	 * Cancel an active order for margin account.
@@ -706,15 +798,6 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 */
 	public Request<List<OrderRateLimit>> getRateLimit(RateLimitParams params) {
 		return new Request<>(service.getRateLimit(params.toMap()));
-	}
-
-	/**
-	 * Displays the user's current margin order count usage for all intervals.
-	 * 
-	 * @return The request to execute.
-	 */
-	public Request<List<OrderRateLimit>> getOrderRateLimit() {
-		return new Request<>(service.getRateLimit(new RateLimitParams(null, null).toMap()));
 	}
 
 	/**

@@ -12,6 +12,16 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 20)
 public record RateLimitParams(String symbol, Boolean isIsolated) implements Params {
+	/**
+	 * Creates an instance of the class.
+	 * 
+	 * @param symbol     Symbol.
+	 * @param isIsolated Is it isolated?
+	 */
+	public RateLimitParams(String symbol, Boolean isIsolated) {
+		this.symbol = symbol;
+		this.isIsolated = isIsolated;
+	}
 
 	/**
 	 * Creates an instance of the class.

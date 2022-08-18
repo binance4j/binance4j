@@ -58,6 +58,29 @@ public class NewOCOOrderParams implements Params {
 	}
 
 	/**
+	 * - Produces an OCO order
+	 *
+	 * @param symbol               Symbol the order is made on.
+	 * @param side                 Order side (BUY/SELL).
+	 * @param quantity             Order quantity.
+	 * @param price                Order price.
+	 * @param stopPrice            Stop price.
+	 * @param stopLimitPrice       Stop limit price.
+	 * @param stopLimitTimeInForce Valid values are GTC/FOK/IOC.
+	 */
+	public NewOCOOrderParams(String symbol, OrderSide side, String quantity, String price, String stopPrice,
+			String stopLimitPrice,
+			TimeInForce stopLimitTimeInForce) {
+		this.symbol = symbol;
+		this.side = side;
+		this.quantity = quantity;
+		this.price = price;
+		this.stopPrice = stopPrice;
+		this.stopLimitPrice = stopLimitPrice;
+		this.stopLimitTimeInForce = stopLimitTimeInForce;
+	}
+
+	/**
 	 * @return the symbol
 	 */
 	public String getSymbol() {

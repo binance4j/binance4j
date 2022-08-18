@@ -15,6 +15,17 @@ public record CrossFeeParams(String coin, Integer vipLevel) implements Params {
 	/**
 	 * Creates an instance of {@link CrossFeeParams}
 	 * 
+	 * @param coin     Related coin.
+	 * @param vipLevel Related VIP level.
+	 */
+	public CrossFeeParams(String coin, Integer vipLevel) {
+		this.coin = coin;
+		this.vipLevel = vipLevel;
+	}
+
+	/**
+	 * Creates an instance of {@link CrossFeeParams}
+	 * 
 	 * @param coin Related coin.
 	 */
 	public CrossFeeParams(String coin) {
