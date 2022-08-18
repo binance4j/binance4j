@@ -31,10 +31,10 @@ public class TakeProfitOrder extends BaseOrder {
 
 	/**
 	 * 
-	 * @param symbol    Symbol.
-	 * @param side      Side.
-	 * @param quantity  Order quantity.
-	 * @param stopPrice Order price.
+	 * @param symbol        Symbol.
+	 * @param side          Side.
+	 * @param quantity      Order quantity.
+	 * @param trailingDelta trailing delta.
 	 */
 	public TakeProfitOrder(String symbol, OrderSide side, String quantity, Long trailingDelta) {
 		super(symbol, side, OrderType.TAKE_PROFIT);
