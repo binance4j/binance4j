@@ -24,7 +24,6 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/binance4j/binance4j',
-          lastVersion: '2.x',
         },
         blog: {
           showReadingTime: true,

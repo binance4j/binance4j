@@ -485,7 +485,9 @@ public class MarginClient extends RestClient<MarginMapping> {
 	 * 
 	 * @param params Request params.
 	 * @return The request to execute.
+	 * @deprecated Use specific order.
 	 */
+	@Deprecated
 	public Request<NewOCOOrderRecord> newOCO(NewOCOOrderParams params) {
 		return new Request<>(service.newOCO(params.toMap()));
 	}

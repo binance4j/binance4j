@@ -5,6 +5,31 @@ id: changelog
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2022-08-18
+
+### Changed
+
+- binance4j-margin:
+  - Deprecated NewOrderParams in `newOrder` and `newOrderTest`.
+
+### Added
+
+- binance4j-margin :
+  - Added specific Order Params to `newOrder` and `newOrderTest`:
+    - LimitOrder
+    - MarketOrder
+    - MarketQuoteOrder
+    - StopLossOrder
+    - StopLossLimitOrder
+    - TakeProfitOrder
+    - TakeProfitLimitOrder
+    - LimitMakerOrder
+
+## Fixed
+
+- binance4j-margin:
+  - Corrected missing property isIsolated in orders.
+
 ## [2.3.0] - 2022-08-16
 
 ### Added
