@@ -1,9 +1,11 @@
 package com.binance4j.web.controller.v1;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.binance4j.connectors.Connectors;
 
+@PreAuthorize("isAuthenticated()")
 public abstract class BaseController {
 	final static protected String ALGO_DESCRIPTION = "The algorithm.";
 	final static protected String COIN_DESCRIPTION = "The coin.";
