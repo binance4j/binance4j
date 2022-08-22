@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.binance4j.core.exception.ApiException;
-import com.binance4j.web.dto.AdminDetails;
 import com.binance4j.web.dto.Credentials;
 import com.binance4j.web.service.AdminDetailsService;
 import com.binance4j.web.service.JwtService;
@@ -18,9 +17,7 @@ import com.binance4j.web.service.JwtService;
 @RequestMapping("api/admin")
 public class AdminController {
 	@Autowired
-	AdminDetails adminDetails;
-	@Autowired
-	AdminDetailsService inMemoryUserDetailsService;
+	AdminDetailsService adminDetailsService;
 	@Autowired
 	JwtService jwtService;
 
@@ -34,8 +31,9 @@ public class AdminController {
 	 */
 	@PostMapping("auth/login")
 	public ResponseEntity<Void> login(@RequestBody Credentials credentials) throws ApiException {
-		return inMemoryUserDetailsService.validateCredentials(credentials)
-				? ResponseEntity.ok().headers(jwtService.generateJwtHeaders(adminDetails)).build()
+		return adminDetailsService.validateCredentials(credentials)
+				? ResponseEntity.ok().headers(jwtService.generateJwtHeaders(adminDetailsService.getAdminDetails()))
+						.build()
 				: ResponseEntity.notFound().build();
 	}
 }

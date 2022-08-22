@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.binance4j.connectors.Connectors;
 import com.binance4j.web.filter.AdminAuthenticationFilter;
+import com.binance4j.web.filter.KeysAuthenticationFilter;
 import com.binance4j.web.interceptor.AuthenticationInterceptor;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -33,6 +34,11 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	}
 
 	@Bean
+	public KeysAuthenticationFilter getKeysAuthenticationFilter() {
+		return new KeysAuthenticationFilter();
+	}
+
+	@Bean
 	public Connectors getConnectors() {
 		return new Connectors(null, null);
 	}
@@ -48,7 +54,8 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 		security.httpBasic().disable().cors().and().csrf().disable();
 		security.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		security.addFilterBefore(getAdminAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+		security.addFilterBefore(getAdminAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(getKeysAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 		return security.build();
 	}
 

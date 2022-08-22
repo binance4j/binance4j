@@ -31,4 +31,17 @@ public class AdminDetailsService implements UserDetailsService {
 				&& adminDetails.getUsername().equals(credentials.getUsername());
 	}
 
+	/**
+	 * @return the adminDetails
+	 */
+	public AdminDetails getAdminDetails() {
+		return adminDetails;
+	}
+
+	/**
+	 * @param adminDetails the adminDetails to set
+	 */
+	public void setAdminDetails(AdminDetails adminDetails) {
+		this.adminDetails = adminDetails;
+	}
 }
