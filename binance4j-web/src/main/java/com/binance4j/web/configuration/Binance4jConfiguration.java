@@ -15,6 +15,7 @@ import com.binance4j.connectors.Connectors;
 import com.binance4j.web.filter.AdminAuthenticationFilter;
 import com.binance4j.web.filter.KeysAuthenticationFilter;
 import com.binance4j.web.interceptor.AuthenticationInterceptor;
+import com.binance4j.web.interceptor.JwtInterceptor;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -26,6 +27,7 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(getAuthenticationInterceptor());
+		registry.addInterceptor(getJwtInterceptor());
 	}
 
 	@Bean
@@ -46,6 +48,11 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	@Bean
 	public AuthenticationInterceptor getAuthenticationInterceptor() {
 		return new AuthenticationInterceptor();
+	}
+
+	@Bean
+	public JwtInterceptor getJwtInterceptor() {
+		return new JwtInterceptor();
 	}
 
 	@Bean
