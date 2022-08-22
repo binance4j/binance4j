@@ -67,7 +67,7 @@ public class SpotController extends BaseController {
 	 * @param origClientOrderId Original client order id.
 	 * @param newClientOrderId  New client order id.
 	 * @return The cancellation response.
-	 * @throws ApiException
+	 * @throws ApiException Something went wrong.
 	 */
 	@DeleteMapping(path = "cancel-order")
 	@ApiOperation(value = "Cancel an open order.")
@@ -86,7 +86,7 @@ public class SpotController extends BaseController {
 	 * 
 	 * @param symbol Symbol.
 	 * @return The cancellation responses.
-	 * @throws ApiException
+	 * @throws ApiException Something went wrong.
 	 */
 	@DeleteMapping(path = "cancel-orders")
 	@ApiOperation(value = "Cancel open orders.")
@@ -118,9 +118,7 @@ public class SpotController extends BaseController {
 	/**
 	 * Get all open orders on a symbol.
 	 * 
-	 * @param symbol            Trade symbol.
-	 * @param orderId           Order id.
-	 * @param origClientOrderId Original client order id.
+	 * @param symbol Trade symbol.
 	 * 
 	 * @return Trade order information.
 	 * @throws ApiException Something went wrong.
@@ -187,7 +185,6 @@ public class SpotController extends BaseController {
 	/**
 	 * Retrieves a specific OCO based on provided optional parameters.
 	 * 
-	 * @param symbol            Trade symbol.
 	 * @param orderListId       Either {@code orderListId} or
 	 *                          {@code origClientOrderId} must be provided.
 	 * @param origClientOrderId Either {@code orderListId} or

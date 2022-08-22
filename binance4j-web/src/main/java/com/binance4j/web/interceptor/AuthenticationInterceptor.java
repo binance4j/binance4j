@@ -13,7 +13,6 @@ import com.binance4j.connectors.Connectors;
 /** Authentication interceptor */
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor {
-
 	@Autowired
 	Connectors connectors;
 

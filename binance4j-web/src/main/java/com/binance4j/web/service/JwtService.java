@@ -12,6 +12,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.binance4j.core.exception.ApiException;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -104,14 +106,19 @@ public class JwtService {
 	 * 
 	 * @param userDetails user details.
 	 * @return headers with generated access and refresh tokens.
-	 * @throws UnsupportedEncodingException The Character Encoding is not supported.
+	 * @throws ApiException Something went wrong.
 	 */
-	public HttpHeaders generateJwtHeaders(UserDetails userDetails) throws UnsupportedEncodingException {
-		HttpHeaders headers = new HttpHeaders();
-		headers.add(getAccessTokenName(), generateAccessToken(userDetails));
-		headers.add(getRefreshTokenName(), generateRefreshToken(userDetails));
+	public HttpHeaders generateJwtHeaders(UserDetails userDetails) throws ApiException {
+		try {
 
-		return headers;
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(getAccessTokenName(), generateAccessToken(userDetails));
+			headers.add(getRefreshTokenName(), generateRefreshToken(userDetails));
+
+			return headers;
+		} catch (UnsupportedEncodingException e) {
+			throw new ApiException(0, e.getMessage());
+		}
 	}
 
 	/**
@@ -129,7 +136,7 @@ public class JwtService {
 	/**
 	 * Generates a refresh token from a user details.
 	 * 
-	 * @param userDetails user details.
+	 * @param user user details.
 	 * @return a jwt from the user details.
 	 * @throws UnsupportedEncodingException The Character Encoding is not supported.
 	 */

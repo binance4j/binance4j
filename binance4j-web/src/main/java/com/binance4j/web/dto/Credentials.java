@@ -1,13 +1,12 @@
-package com.binance4j.web.entity;
+package com.binance4j.web.dto;
 
 /**
  * Authentication credentials
- * 
- * @param username username.
- * @param password password.
  */
 public class Credentials {
+	/** Username. */
 	String username;
+	/** Password. */
 	String password;
 
 	/**

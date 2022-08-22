@@ -83,8 +83,6 @@ public class SavingsController extends BaseController {
 	}
 
 	/**
-	 * @param status   Product status.
-	 * @param featured Featured.
 	 * @return Left daily purchase quota of flexible product.
 	 * @throws ApiException Something went wrong.
 	 */
@@ -96,8 +94,8 @@ public class SavingsController extends BaseController {
 	}
 
 	/**
-	 * @param status   Product status.
-	 * @param featured Featured.
+	 * @param productId   Product id.
+	 * @param productType Product type.
 	 * @return Left daily redemption quota of flexible product.
 	 * @throws ApiException Something went wrong.
 	 */

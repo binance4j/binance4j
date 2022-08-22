@@ -1,6 +1,5 @@
 # artifacts
-binance4j-swap/
-
+binance4j-web-test/
 # IntelliJ
 .idea/
 *.iws

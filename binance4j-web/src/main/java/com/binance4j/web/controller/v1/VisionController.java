@@ -300,10 +300,9 @@ public class VisionController extends BaseController {
 	}
 
 	/**
-	 * @param symbol   Trading pair.
-	 * @param year     Year.
-	 * @param month    Month.
-	 * @param interval The candlestick interval.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return Get symbol's trades in a csv format (daily).
 	 * @throws ApiException
 	 * @throws IOException
@@ -341,10 +340,9 @@ public class VisionController extends BaseController {
 	}
 
 	/**
-	 * @param symbol   Trading pair.
-	 * @param year     Year.
-	 * @param month    Month.
-	 * @param interval The candlestick interval.
+	 * @param symbol Trading pair.
+	 * @param year   Year.
+	 * @param month  Month.
 	 * @return Get symbol's trades in a csv format (daily).
 	 * @throws ApiException
 	 * @throws IOException

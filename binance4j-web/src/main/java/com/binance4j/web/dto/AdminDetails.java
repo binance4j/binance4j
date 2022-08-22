@@ -1,23 +1,18 @@
-package com.binance4j.web.entity;
+package com.binance4j.web.dto;
 
 import java.util.Collection;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-/** In memory user defined in application.properties. */
-@ConfigurationProperties(prefix = "binance4j.auth")
+/** Admin authentication properties. */
+@ConfigurationProperties("binance4j.auth")
 @Component
-public class InMemoryUserDetails implements UserDetails {
-	@Autowired
-	BCryptPasswordEncoder encoder;
-
+public class AdminDetails implements UserDetails {
 	/** Username. */
 	String username;
 	/** Password. */

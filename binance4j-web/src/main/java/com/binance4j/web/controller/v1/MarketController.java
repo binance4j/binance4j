@@ -208,7 +208,7 @@ public class MarketController extends BaseController {
 
 	/**
 	 * @param symbols Symbols we want the statistics.
-	 * @return best price && quantity on the order book for the given symbols.
+	 * @return best price and quantity on the order book for the given symbols.
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "order-book-ticker")

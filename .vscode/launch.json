@@ -9,6 +9,16 @@
             "projectName": "binance4j-web",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-WebTestApplication<web-test>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.binance4j.webtest.WebTestApplication",
+            "projectName": "web-test",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

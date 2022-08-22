@@ -209,7 +209,6 @@ public class MarginController extends BaseController {
 	/**
 	 * Get info about all cross margin pairs.
 	 * 
-	 * @param symbol Symbol.
 	 * @return All Cross margin Asset pairs.
 	 * @throws ApiException Something went wrong.
 	 */
@@ -392,10 +391,7 @@ public class MarginController extends BaseController {
 	/**
 	 * Get Force Liquidation Record.
 	 * 
-	 * @param asset          Related asset.
 	 * @param isolatedSymbol Isolated symbol.
-	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
-	 * @param archived       Set to true for archived data from 6 months ago.
 	 * @param startTime      Start time in ms.
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
@@ -452,9 +448,7 @@ public class MarginController extends BaseController {
 	/**
 	 * Get all open orders on a symbol.
 	 * 
-	 * @param symbol            Trade symbol.
-	 * @param orderId           Order id.
-	 * @param origClientOrderId Original client order id.
+	 * @param symbol Trade symbol.
 	 * 
 	 * @return Trade order information.
 	 * @throws ApiException Something went wrong.
@@ -664,7 +658,6 @@ public class MarginController extends BaseController {
 	 * 
 	 * @param asset     Asset.
 	 * @param symbol    Symbol.
-	 * @param amount    Amount.
 	 * @param transFrom Transfer origin.
 	 * @param transTo   Transfer destination.
 	 * @param archived  Set to true for archived data from 6 months ago.
