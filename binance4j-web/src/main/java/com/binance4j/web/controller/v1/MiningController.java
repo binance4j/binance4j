@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
@@ -42,6 +43,14 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(path = "api/v1/mining")
 @Api(value = "Mining", tags = "Mining", produces = "application/json", description = "Mining endpoints")
 public class MiningController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public MiningController(Connectors connectors) {
+		super(connectors);
+	}
 
 	/**
 	 * @return Mining client.

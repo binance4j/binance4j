@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.dto.CandlestickInterval;
@@ -24,15 +25,25 @@ import com.binance4j.vision.client.VisionSpotClient;
 import com.binance4j.vision.dto.VisionTrade;
 import com.binance4j.vision.param.ChecksumParams;
 import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /** Controller for Vision endpoints. */
 @RestController
-@RequestMapping("api/v1/vision")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "vision")
 @Api(value = "Vision", tags = "Vision", produces = "application/json", description = "Vision endpoints")
 public class VisionController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public VisionController(Connectors connectors) {
+		super(connectors);
+	}
+
 	/**
 	 * @return Vision spot client.
 	 */

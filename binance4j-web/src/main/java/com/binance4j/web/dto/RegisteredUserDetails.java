@@ -4,7 +4,8 @@ import java.util.Set;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-public class AdminDetails extends Binance4jUserDetails {
+/** Class for registered user in database. */
+public class RegisteredUserDetails extends Binance4jUserDetails {
 	/**
 	 * Creates instance.
 	 * 
@@ -13,8 +14,8 @@ public class AdminDetails extends Binance4jUserDetails {
 	 * @param key      Key.
 	 * @param secret   Secret.
 	 */
-	public AdminDetails(String username, String password, String key, String secret) {
+	public RegisteredUserDetails(String username, String password, String key, String secret) {
 		super(username, password, key, secret);
-		authorities = Set.of(new SimpleGrantedAuthority("ANONYMOUS"));
+		authorities = Set.of(new SimpleGrantedAuthority("USER"));
 	}
 }

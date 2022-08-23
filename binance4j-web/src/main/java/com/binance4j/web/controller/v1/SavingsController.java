@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.Paging;
@@ -44,6 +45,7 @@ import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -51,9 +53,17 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Savings endpoints. */
 @RestController
-@RequestMapping("api/v1/savings")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "savings")
 @Api(value = "Savings", tags = "Savings", produces = "application/json", description = "Savings endpoints")
 public class SavingsController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public SavingsController(Connectors connectors) {
+		super(connectors);
+	}
 
 	/**
 	 * @return Savings client.

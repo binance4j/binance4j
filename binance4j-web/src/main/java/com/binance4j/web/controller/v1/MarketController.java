@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.dto.AggTrade;
 import com.binance4j.core.dto.Candle;
 import com.binance4j.core.exception.ApiException;
@@ -30,6 +31,7 @@ import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
 import com.binance4j.web.annotation.JsonGetMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -37,9 +39,18 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Market endpoints. */
 @RestController
-@RequestMapping("api/v1/market")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "market")
 @Api(value = "Market", tags = "Market", produces = "application/json", description = "Market endpoints")
 public class MarketController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public MarketController(Connectors connectors) {
+		super(connectors);
+	}
+
 	/**
 	 * @return Market client.
 	 */

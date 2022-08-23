@@ -1,5 +1,6 @@
 package com.binance4j.web.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,18 +13,68 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.binance4j.connectors.Connectors;
-import com.binance4j.web.filter.AdminAuthenticationFilter;
+import com.binance4j.web.dto.AdminDetails;
+import com.binance4j.web.filter.JwtAuthenticationFilter;
 import com.binance4j.web.filter.KeysAuthenticationFilter;
-import com.binance4j.web.interceptor.AuthenticationInterceptor;
-import com.binance4j.web.interceptor.JwtInterceptor;
+import com.binance4j.web.interceptor.JwtExceptionInterceptor;
+import com.binance4j.web.interceptor.ResetBinanceKeysInterceptor;
+import com.binance4j.web.service.AdminDetailsService;
+import com.binance4j.web.service.AuthenticationService;
+import com.binance4j.web.service.BaseUserDetailsService;
+import com.binance4j.web.service.JwtService;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/** Binance4j proxy configuration. */
 @EnableWebSecurity
 @Configuration
 public class Binance4jConfiguration implements WebMvcConfigurer {
+	/** Connector controllers base URI. */
+	public final static String CONNECTORS_BASE_URI = "/api/v1/connectors/";
+	/** Admin username. */
+	@Value("${binance4j.admin.username}")
+	String adminUsername;
+	/** Admin password. */
+	@Value("${binance4j.admin.password}")
+	String adminPassword;
+	/** Admin key. */
+	@Value("${binance4j.admin.key}")
+	String adminKey;
+	/** Admin secret. */
+	@Value("${binance4j.admin.secret}")
+	String adminSecret;
+	/** Registered user authentication service. */
+	BaseUserDetailsService userDetailsService;
+
+	/**
+	 * @return Registered user authentication service.
+	 */
+	public BaseUserDetailsService getUserDetailsService() {
+		return userDetailsService;
+	}
+
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
+		// routes restriction
+		security.authorizeRequests().antMatchers(CONNECTORS_BASE_URI + "**").authenticated();
+		security.httpBasic().disable().cors().and().csrf().disable();
+
+		// enable stateless server
+		security.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+		// authentication filters
+		JwtAuthenticationFilter adminAuthenticationFilter = new JwtAuthenticationFilter(getAdminDetailsService(),
+				getJwtService(), getConnectors());
+		security.addFilterBefore(adminAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(getKeysAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
+		// build
+		return security.build();
+	}
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(getAuthenticationInterceptor());
@@ -31,13 +82,28 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	}
 
 	@Bean
-	public AdminAuthenticationFilter getAdminAuthenticationFilter() {
-		return new AdminAuthenticationFilter();
+	public JwtService getJwtService() {
+		return new JwtService();
+	}
+
+	@Bean
+	public AuthenticationService getAuthenticationService() {
+		return new AuthenticationService(getConnectors());
+	}
+
+	@Bean
+	public AdminDetails getAdminDetails() {
+		return new AdminDetails(adminUsername, adminPassword, adminKey, adminSecret);
+	}
+
+	@Bean
+	public AdminDetailsService getAdminDetailsService() {
+		return new AdminDetailsService(getAdminDetails());
 	}
 
 	@Bean
 	public KeysAuthenticationFilter getKeysAuthenticationFilter() {
-		return new KeysAuthenticationFilter();
+		return new KeysAuthenticationFilter(getAuthenticationService());
 	}
 
 	@Bean
@@ -46,24 +112,13 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	}
 
 	@Bean
-	public AuthenticationInterceptor getAuthenticationInterceptor() {
-		return new AuthenticationInterceptor();
+	public ResetBinanceKeysInterceptor getAuthenticationInterceptor() {
+		return new ResetBinanceKeysInterceptor(getConnectors());
 	}
 
 	@Bean
-	public JwtInterceptor getJwtInterceptor() {
-		return new JwtInterceptor();
-	}
-
-	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-		security.authorizeRequests().antMatchers("/api/v1/**").authenticated();
-		security.httpBasic().disable().cors().and().csrf().disable();
-		security.sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		security.addFilterBefore(getAdminAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-				.addFilterBefore(getKeysAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-		return security.build();
+	public JwtExceptionInterceptor getJwtInterceptor() {
+		return new JwtExceptionInterceptor();
 	}
 
 	@Bean

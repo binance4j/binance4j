@@ -8,13 +8,19 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.binance4j.core.exception.ApiException;
 
-/** JWT issues interceptor. */
+/** JWT exception interceptor. */
 @Component
-public class JwtInterceptor implements HandlerInterceptor {
+public class JwtExceptionInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+
 		String jwtAttribute = (String) request.getAttribute("jwt");
+
+		// no issue, continue.
+		if (jwtAttribute == null) {
+			return true;
+		}
 
 		return switch (jwtAttribute) {
 			case "refresh" -> throw new ApiException(403, "Access Token has expired.");

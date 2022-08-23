@@ -3,18 +3,26 @@ package com.binance4j.web.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.binance4j.connectors.Connectors;
 
-/** Authentication interceptor */
+/** Resets keys after response is sent for privacy. */
 @Component
-public class AuthenticationInterceptor implements HandlerInterceptor {
-	@Autowired
+public class ResetBinanceKeysInterceptor implements HandlerInterceptor {
+	/** Binance4j connectors. */
 	Connectors connectors;
+
+	/**
+	 * Creates instances.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public ResetBinanceKeysInterceptor(Connectors connectors) {
+		this.connectors = connectors;
+	}
 
 	// Destroying API keys after response.
 	@Override

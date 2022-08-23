@@ -1,34 +1,36 @@
 package com.binance4j.web.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.binance4j.web.dto.AdminDetails;
-import com.binance4j.web.dto.Credentials;
+import com.binance4j.web.dto.Binance4jUserDetails;
 
-/** Service to authenticate admin. */
+/**
+ * Service to authenticate the admin user registered in application.properties.
+ */
 @Service
-public class AdminDetailsService implements UserDetailsService {
-	@Autowired
-	AdminDetails adminDetails;
+public class AdminDetailsService implements Binance4jUserDetailsService {
+	private final AdminDetails adminDetails;
+
+	/**
+	 * Creates instance.
+	 * 
+	 * @param adminDetails Admin details.
+	 */
+	public AdminDetailsService(AdminDetails adminDetails) {
+		this.adminDetails = adminDetails;
+	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public Binance4jUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return adminDetails.getUsername().equals(username) ? adminDetails : null;
 	}
 
-	/**
-	 * Compares in memory user credentials with given credentials.
-	 * 
-	 * @param credentials credentials to compare with
-	 * @return credentials validity.
-	 */
-	public boolean validateCredentials(Credentials credentials) {
-		return credentials.getPassword().equals(adminDetails.getPassword())
-				&& adminDetails.getUsername().equals(credentials.getUsername());
+	@Override
+	public boolean validatePassword(UserDetails userDetails, String password) {
+		return userDetails.getPassword().equals(password);
 	}
 
 	/**
@@ -36,12 +38,5 @@ public class AdminDetailsService implements UserDetailsService {
 	 */
 	public AdminDetails getAdminDetails() {
 		return adminDetails;
-	}
-
-	/**
-	 * @param adminDetails the adminDetails to set
-	 */
-	public void setAdminDetails(AdminDetails adminDetails) {
-		this.adminDetails = adminDetails;
 	}
 }

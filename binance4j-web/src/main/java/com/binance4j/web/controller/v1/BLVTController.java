@@ -18,10 +18,12 @@ import com.binance4j.blvt.param.RedemptionParams;
 import com.binance4j.blvt.param.SubscriptionParams;
 import com.binance4j.blvt.param.TokenInfoParams;
 import com.binance4j.blvt.param.TransactionRecordParams;
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,9 +31,19 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Binance Leverage Token endpoints. */
 @RestController
-@RequestMapping("api/v1/blvt")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "blvt")
 @Api(value = "BLVT", tags = "BLVT", produces = "application/json", description = "Binance Leverage Token endpoints")
 public class BLVTController extends BaseController {
+
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public BLVTController(Connectors connectors) {
+		super(connectors);
+	}
+
 	/**
 	 * @return BLVT client.
 	 */

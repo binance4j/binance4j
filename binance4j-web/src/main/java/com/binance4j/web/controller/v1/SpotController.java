@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
@@ -41,6 +42,7 @@ import com.binance4j.spot.param.TakeProfitOrder;
 import com.binance4j.spot.param.TradesParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,9 +50,17 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Spot endpoints. */
 @RestController
-@RequestMapping("api/v1/spot")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "spot")
 @Api(value = "Spot", tags = "Spot", produces = "application/json", description = "Spot endpoints")
 public class SpotController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public SpotController(Connectors connectors) {
+		super(connectors);
+	}
 
 	/**
 	 * @return Spot client.

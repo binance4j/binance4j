@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binance4j.connectors.Connectors;
 import com.binance4j.core.dto.NewOrderResponseType;
 import com.binance4j.core.dto.OrderSide;
 import com.binance4j.core.dto.TimeInForce;
@@ -88,6 +89,7 @@ import com.binance4j.margin.param.TransactionHistoryParams;
 import com.binance4j.margin.param.TransferParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
+import com.binance4j.web.configuration.Binance4jConfiguration;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -95,9 +97,17 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Margin endpoints. */
 @RestController
-@RequestMapping("api/v1/margin")
+@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "margin")
 @Api(value = "Margin", tags = "Margin", produces = "application/json", description = "Margin endpoints")
 public class MarginController extends BaseController {
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	public MarginController(Connectors connectors) {
+		super(connectors);
+	}
 
 	/**
 	 * @return Margin client.

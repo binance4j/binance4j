@@ -1,10 +1,10 @@
 package com.binance4j.web.controller.v1;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.binance4j.connectors.Connectors;
 
+/** Service base controller. */
 @PreAuthorize("isAuthenticated()")
 public abstract class BaseController {
 	/** ALGO_DESCRIPTION */
@@ -47,9 +47,17 @@ public abstract class BaseController {
 	final static protected String USERNAME_DESCRIPTION = "The username.";
 	/** WORKER_DESCRIPTION */
 	final static protected String WORKER_DESCRIPTION = "The worker name.";
-
+	/** Default time in force. */
 	final static protected String DEFAULT_TIF = "GTC";
 
-	@Autowired
 	Connectors connectors;
+
+	/**
+	 * Creates instance.
+	 * 
+	 * @param connectors Binance4j connectors.
+	 */
+	protected BaseController(Connectors connectors) {
+		this.connectors = connectors;
+	}
 }
