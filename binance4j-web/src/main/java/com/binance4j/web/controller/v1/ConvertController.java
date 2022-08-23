@@ -9,7 +9,7 @@ import com.binance4j.convert.dto.ConversionHistory;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Convert endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "convert")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "convert")
 @Api(value = "Convert", tags = "Convert", produces = "application/json", description = "Convert endpoints")
 public class ConvertController extends BaseController {
 	/**

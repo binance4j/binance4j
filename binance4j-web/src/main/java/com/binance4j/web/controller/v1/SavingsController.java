@@ -45,7 +45,7 @@ import com.binance4j.savings.param.RedemptionParams;
 import com.binance4j.savings.param.RedemptionQuotaParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -53,7 +53,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Savings endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "savings")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "savings")
 @Api(value = "Savings", tags = "Savings", produces = "application/json", description = "Savings endpoints")
 public class SavingsController extends BaseController {
 	/**

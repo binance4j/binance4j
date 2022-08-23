@@ -15,7 +15,7 @@ import com.binance4j.fiat.dto.TransactionType;
 import com.binance4j.fiat.param.PaymentParams;
 import com.binance4j.fiat.param.TransactionParams;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Fiat endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "fiat")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "fiat")
 @Api(value = "Fiat", tags = "Fiat", produces = "application/json", description = "Fiat endpoints")
 public class FiatController extends BaseController {
 	/**

@@ -89,7 +89,7 @@ import com.binance4j.margin.param.TransactionHistoryParams;
 import com.binance4j.margin.param.TransferParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -97,7 +97,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Margin endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "margin")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "margin")
 @Api(value = "Margin", tags = "Margin", produces = "application/json", description = "Margin endpoints")
 public class MarginController extends BaseController {
 	/**

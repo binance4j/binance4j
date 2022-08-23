@@ -10,14 +10,14 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.portfoliomargin.dto.AccountInfo;
 import com.binance4j.portfoliomargin.dto.CollaterateRateInfo;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /** Controller for Portfolio margin endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "portfolio-margin")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "portfolio-margin")
 @Api(value = "Portfolio margin", tags = "Portfolio margin", produces = "application/json", description = "Portfolio margin endpoints")
 public class PortfolioMarginController extends BaseController {
 	/**

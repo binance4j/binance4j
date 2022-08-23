@@ -9,7 +9,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.rebate.dto.SpotRebateHistoryResponse;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Rebate endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "rebate")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "rebate")
 @Api(value = "Rebate", tags = "Rebate", produces = "application/json", description = "Rebate endpoints")
 public class RebateController extends BaseController {
 	/**

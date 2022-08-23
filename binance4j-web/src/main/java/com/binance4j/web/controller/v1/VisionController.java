@@ -25,14 +25,14 @@ import com.binance4j.vision.client.VisionSpotClient;
 import com.binance4j.vision.dto.VisionTrade;
 import com.binance4j.vision.param.ChecksumParams;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /** Controller for Vision endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "vision")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "vision")
 @Api(value = "Vision", tags = "Vision", produces = "application/json", description = "Vision endpoints")
 public class VisionController extends BaseController {
 	/**

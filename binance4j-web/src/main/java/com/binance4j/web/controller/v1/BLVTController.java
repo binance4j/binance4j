@@ -23,7 +23,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Binance Leverage Token endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "blvt")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "blvt")
 @Api(value = "BLVT", tags = "BLVT", produces = "application/json", description = "Binance Leverage Token endpoints")
 public class BLVTController extends BaseController {
 

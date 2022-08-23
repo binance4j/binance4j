@@ -45,7 +45,7 @@ public class AuthenticationController {
 		UserDetails admin = adminDetailsService.loadUser(credentials);
 
 		if (admin != null) {
-			ResponseEntity.ok().headers(jwtService.generateJwtHeaders(admin));
+			return ResponseEntity.ok().headers(jwtService.generateJwtHeaders(admin)).build();
 		}
 
 		return ResponseEntity.notFound().build();

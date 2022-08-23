@@ -16,7 +16,7 @@ import com.binance4j.nft.dto.TransactionHistory;
 import com.binance4j.nft.dto.WithdrawHistory;
 import com.binance4j.nft.param.TransactionHistoryParams;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for NFT endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "nft")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "nft")
 @Api(value = "NFT", tags = "NFT", produces = "application/json", description = "NFT endpoints")
 public class NFTController extends BaseController {
 	/**

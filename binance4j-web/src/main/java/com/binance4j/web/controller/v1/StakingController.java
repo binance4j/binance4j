@@ -27,7 +27,7 @@ import com.binance4j.staking.param.PurchaseParams;
 import com.binance4j.staking.param.RedeemParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Staking endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "staking")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "staking")
 @Api(value = "Staking", tags = "Staking", produces = "application/json", description = "Staking endpoints")
 public class StakingController extends BaseController {
 	/**

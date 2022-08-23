@@ -30,7 +30,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 /** Binance4j proxy configuration. */
 @EnableWebSecurity
 @Configuration
-public class Binance4jConfiguration implements WebMvcConfigurer {
+public class Binance4jWeb implements WebMvcConfigurer {
 	/** Connector controllers base URI. */
 	public final static String CONNECTORS_BASE_URI = "/api/v1/connectors/";
 	/** Admin username. */
@@ -48,11 +48,10 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 	/** Registered user authentication service. */
 	BaseUserDetailsService userDetailsService;
 
-	/**
-	 * @return Registered user authentication service.
-	 */
-	public BaseUserDetailsService getUserDetailsService() {
-		return userDetailsService;
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(getAuthenticationInterceptor());
+		registry.addInterceptor(getJwtInterceptor());
 	}
 
 	@Bean
@@ -66,19 +65,41 @@ public class Binance4jConfiguration implements WebMvcConfigurer {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		// authentication filters
-		JwtAuthenticationFilter adminAuthenticationFilter = new JwtAuthenticationFilter(getAdminDetailsService(),
-				getJwtService(), getConnectors());
-		security.addFilterBefore(adminAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+
+		security
+				.addFilterBefore(getAdminAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(getUserAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.addFilterBefore(getKeysAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
 		// build
 		return security.build();
 	}
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(getAuthenticationInterceptor());
-		registry.addInterceptor(getJwtInterceptor());
+	@Bean
+	public JwtAuthenticationFilter getAdminAuthenticationFilter() {
+		return new JwtAuthenticationFilter(getAdminDetailsService(),
+				getJwtService(), getConnectors());
+	}
+
+	@Bean
+	public JwtAuthenticationFilter getUserAuthenticationFilter() {
+		return new JwtAuthenticationFilter(null, getJwtService(), getConnectors());
+	}
+
+	/**
+	 * @return Registered user authentication service.
+	 */
+	@Bean
+	public BaseUserDetailsService getUserDetailsService() {
+		return userDetailsService;
+	}
+
+	/**
+	 * @param userDetailsService the userDetailsService to set
+	 */
+	public void setUserDetailsService(BaseUserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+		getUserAuthenticationFilter().setUserDetailsService(userDetailsService);
 	}
 
 	@Bean

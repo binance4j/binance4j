@@ -31,7 +31,7 @@ import com.binance4j.market.param.PriceTickersParams;
 import com.binance4j.market.param.TickersStatisticsParams;
 import com.binance4j.market.param.TradesParams;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Market endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "market")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "market")
 @Api(value = "Market", tags = "Market", produces = "application/json", description = "Market endpoints")
 public class MarketController extends BaseController {
 	/**

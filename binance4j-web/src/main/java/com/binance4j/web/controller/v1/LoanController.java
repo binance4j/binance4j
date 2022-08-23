@@ -13,7 +13,7 @@ import com.binance4j.loan.dto.LoanIncome;
 import com.binance4j.loan.dto.LoanIncomeType;
 import com.binance4j.loan.param.LoanIncomeHistoryParams;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Loan endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "loan")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "loan")
 @Api(value = "Loan", tags = "Loan", produces = "application/json", description = "Loan endpoints")
 public class LoanController extends BaseController {
 	/**

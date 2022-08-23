@@ -9,7 +9,7 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.pay.dto.TradeHistory;
 import com.binance4j.web.annotation.JsonGetMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Pay endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "pay")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "pay")
 @Api(value = "Pay", tags = "Pay", produces = "application/json", description = "Pay endpoints")
 public class PayController extends BaseController {
 	/**

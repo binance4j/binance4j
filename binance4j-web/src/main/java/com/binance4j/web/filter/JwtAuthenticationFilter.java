@@ -99,4 +99,47 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		return SecurityContextHolder.getContext().getAuthentication() != null
 				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated();
 	}
+
+	/**
+	 * @return the userDetailsService
+	 */
+	public Binance4jUserDetailsService getUserDetailsService() {
+		return userDetailsService;
+	}
+
+	/**
+	 * @param userDetailsService the userDetailsService to set
+	 */
+	public void setUserDetailsService(Binance4jUserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
+
+	/**
+	 * @return the jwtService
+	 */
+	public JwtService getJwtService() {
+		return jwtService;
+	}
+
+	/**
+	 * @param jwtService the jwtService to set
+	 */
+	public void setJwtService(JwtService jwtService) {
+		this.jwtService = jwtService;
+	}
+
+	/**
+	 * @return the connectors
+	 */
+	public Connectors getConnectors() {
+		return connectors;
+	}
+
+	/**
+	 * @param connectors the connectors to set
+	 */
+	public void setConnectors(Connectors connectors) {
+		this.connectors = connectors;
+	}
+
 }

@@ -48,7 +48,7 @@ import com.binance4j.wallet.param.WithdrawHistoryParams;
 import com.binance4j.wallet.param.WithdrawParams;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
-import com.binance4j.web.configuration.Binance4jConfiguration;
+import com.binance4j.web.configuration.Binance4jWeb;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -56,7 +56,7 @@ import io.swagger.annotations.ApiParam;
 
 /** Controller for Wallet endpoints. */
 @RestController
-@RequestMapping(Binance4jConfiguration.CONNECTORS_BASE_URI + "wallet")
+@RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "wallet")
 @Api(value = "Wallet", tags = "Wallet", produces = "application/json", description = "Wallet endpoints")
 public class WalletController extends BaseController {
 	/**
