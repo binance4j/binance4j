@@ -21,6 +21,7 @@ import com.binance4j.web.interceptor.ResetBinanceKeysInterceptor;
 import com.binance4j.web.service.AdminDetailsService;
 import com.binance4j.web.service.AuthenticationService;
 import com.binance4j.web.service.BaseUserDetailsService;
+import com.binance4j.web.service.DummyUserDetailsService;
 import com.binance4j.web.service.JwtService;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -83,7 +84,7 @@ public class Binance4jWeb implements WebMvcConfigurer {
 
 	@Bean
 	public JwtAuthenticationFilter getUserAuthenticationFilter() {
-		return new JwtAuthenticationFilter(null, getJwtService(), getConnectors());
+		return new JwtAuthenticationFilter(new DummyUserDetailsService(), getJwtService(), getConnectors());
 	}
 
 	/**
