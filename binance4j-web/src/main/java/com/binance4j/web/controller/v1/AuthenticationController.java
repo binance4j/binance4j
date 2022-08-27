@@ -1,5 +1,6 @@
 package com.binance4j.web.controller.v1;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.web.dto.Credentials;
 import com.binance4j.web.service.AdminDetailsService;
+import com.binance4j.web.service.AuthenticationService;
 import com.binance4j.web.service.JwtService;
 
 /** Authentication controller. */
@@ -20,6 +22,8 @@ public class AuthenticationController {
 	private final AdminDetailsService adminDetailsService;
 	/** JWT management service. */
 	private final JwtService jwtService;
+	/** Authentication service. */
+	private final AuthenticationService authenticationService;
 
 	/**
 	 * Creates instance.
@@ -27,9 +31,11 @@ public class AuthenticationController {
 	 * @param adminDetailsService Admin authentication service.
 	 * @param jwtService          JWT management service.
 	 */
-	public AuthenticationController(AdminDetailsService adminDetailsService, JwtService jwtService) {
+	public AuthenticationController(AdminDetailsService adminDetailsService, JwtService jwtService,
+			AuthenticationService authenticationService) {
 		this.adminDetailsService = adminDetailsService;
 		this.jwtService = jwtService;
+		this.authenticationService = authenticationService;
 	}
 
 	/**
@@ -49,5 +55,15 @@ public class AuthenticationController {
 		}
 
 		return ResponseEntity.notFound().build();
+	}
+
+	@PostMapping("refresh-tokens")
+	public ResponseEntity<Void> refreshTokens() throws ApiException {
+		if (!authenticationService.authenticated()) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		}
+
+		return ResponseEntity.ok().headers(jwtService.generateJwtHeaders(authenticationService.getAuthenticatedUser()))
+				.build();
 	}
 }

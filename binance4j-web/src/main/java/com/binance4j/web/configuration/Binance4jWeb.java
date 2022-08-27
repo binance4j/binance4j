@@ -76,6 +76,13 @@ public class Binance4jWeb implements WebMvcConfigurer {
 		return security.build();
 	}
 
+	// FILTERS //
+
+	@Bean
+	public KeysAuthenticationFilter getKeysAuthenticationFilter() {
+		return new KeysAuthenticationFilter(getAuthenticationService());
+	}
+
 	@Bean
 	public JwtAuthenticationFilter getAdminAuthenticationFilter() {
 		return new JwtAuthenticationFilter(getAdminDetailsService(),
@@ -86,6 +93,8 @@ public class Binance4jWeb implements WebMvcConfigurer {
 	public JwtAuthenticationFilter getUserAuthenticationFilter() {
 		return new JwtAuthenticationFilter(new DummyUserDetailsService(), getJwtService(), getConnectors());
 	}
+
+	// SERVICES //
 
 	/**
 	 * @return Registered user authentication service.
@@ -114,24 +123,11 @@ public class Binance4jWeb implements WebMvcConfigurer {
 	}
 
 	@Bean
-	public AdminDetails getAdminDetails() {
-		return new AdminDetails(adminUsername, adminPassword, adminKey, adminSecret);
-	}
-
-	@Bean
 	public AdminDetailsService getAdminDetailsService() {
 		return new AdminDetailsService(getAdminDetails());
 	}
 
-	@Bean
-	public KeysAuthenticationFilter getKeysAuthenticationFilter() {
-		return new KeysAuthenticationFilter(getAuthenticationService());
-	}
-
-	@Bean
-	public Connectors getConnectors() {
-		return new Connectors(null, null);
-	}
+	// INTERCEPTORS //
 
 	@Bean
 	public ResetBinanceKeysInterceptor getAuthenticationInterceptor() {
@@ -141,6 +137,18 @@ public class Binance4jWeb implements WebMvcConfigurer {
 	@Bean
 	public JwtExceptionInterceptor getJwtInterceptor() {
 		return new JwtExceptionInterceptor();
+	}
+
+	// MISC //
+
+	@Bean
+	public AdminDetails getAdminDetails() {
+		return new AdminDetails(adminUsername, adminPassword, adminKey, adminSecret);
+	}
+
+	@Bean
+	public Connectors getConnectors() {
+		return new Connectors(null, null);
 	}
 
 	@Bean

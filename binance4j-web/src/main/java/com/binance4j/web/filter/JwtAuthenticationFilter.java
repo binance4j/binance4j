@@ -26,6 +26,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	JwtService jwtService;
 	/** Binance4j connectors. */
 	Connectors connectors;
+	/** is filter enabled? */
+	boolean enabled = true;
 
 	/**
 	 * Creates instance
@@ -44,6 +46,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
+		// disabled, pass.
+		if (!enabled) {
+			chain.doFilter(request, response);
+			return;
+		}
+
 		// Already authenticated, pass.
 		if (isAlreadyAuthenticated()) {
 			chain.doFilter(request, response);
@@ -142,4 +150,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		this.connectors = connectors;
 	}
 
+	/** Enable filter. */
+	public void enable() {
+		enabled = true;
+	}
+
+	/** Disable filter. */
+	public void disable() {
+		enabled = false;
+	}
 }

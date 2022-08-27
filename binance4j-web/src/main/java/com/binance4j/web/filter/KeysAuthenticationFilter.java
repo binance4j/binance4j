@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.binance4j.web.dto.AnonymousUserDetails;
+import com.binance4j.web.dto.UsernamePasswordUserDetails;
 import com.binance4j.web.service.AuthenticationService;
 
 /**
@@ -19,6 +19,8 @@ import com.binance4j.web.service.AuthenticationService;
 @Component
 public class KeysAuthenticationFilter extends OncePerRequestFilter {
 	AuthenticationService authenticationService;
+	/** is filter enabled? */
+	boolean enabled = true;
 
 	/**
 	 * Creates instance
@@ -32,14 +34,20 @@ public class KeysAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
+		// disabled, pass.
+		if (!enabled) {
+			chain.doFilter(request, response);
+			return;
+		}
+
 		// Already authenticated, pass.
-		if (authenticationService.isAlreadyAuthenticated()) {
+		if (authenticationService.authenticated()) {
 			chain.doFilter(request, response);
 			return;
 		}
 
 		// Get token from headers.
-		AnonymousUserDetails user = new AnonymousUserDetails(request.getHeader("x-api-key"),
+		UsernamePasswordUserDetails user = new UsernamePasswordUserDetails(request.getHeader("x-api-key"),
 				request.getHeader("x-api-secret"));
 
 		// Credentials not complete, pass.
@@ -53,4 +61,13 @@ public class KeysAuthenticationFilter extends OncePerRequestFilter {
 		chain.doFilter(request, response);
 	}
 
+	/** Enable filter. */
+	public void enable() {
+		enabled = true;
+	}
+
+	/** Disable filter. */
+	public void disable() {
+		enabled = false;
+	}
 }

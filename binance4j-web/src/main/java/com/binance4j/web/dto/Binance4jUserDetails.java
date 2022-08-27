@@ -1,8 +1,10 @@
 package com.binance4j.web.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public abstract class Binance4jUserDetails implements UserDetails {
@@ -23,7 +25,7 @@ public abstract class Binance4jUserDetails implements UserDetails {
 	/** Is user enabled? */
 	boolean enabled;
 	/** Authorities. */
-	Set<SimpleGrantedAuthority> authorities;
+	Set<? extends GrantedAuthority> authorities;
 
 	/**
 	 * Creates instance.
@@ -33,11 +35,22 @@ public abstract class Binance4jUserDetails implements UserDetails {
 	 * @param key      Key.
 	 * @param secret   Secret.
 	 */
-	public Binance4jUserDetails(String username, String password, String key, String secret) {
+	protected Binance4jUserDetails(String username, String password, String key, String secret) {
 		this.username = username;
 		this.password = password;
 		this.key = key;
 		this.secret = secret;
+	}
+
+	/**
+	 * Creates instance from a spring security {@link Authentication}.
+	 * 
+	 * @param authentication Security authentication to copy the data from.
+	 */
+	protected Binance4jUserDetails(Authentication authentication) {
+		this.username = (String) authentication.getPrincipal();
+		this.password = (String) authentication.getCredentials();
+		this.authorities = new HashSet<>(authentication.getAuthorities().stream().toList());
 	}
 
 	/**
@@ -71,7 +84,7 @@ public abstract class Binance4jUserDetails implements UserDetails {
 	/**
 	 * @return the authorities
 	 */
-	public Set<SimpleGrantedAuthority> getAuthorities() {
+	public Set<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
 

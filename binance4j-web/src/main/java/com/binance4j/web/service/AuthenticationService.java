@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.binance4j.connectors.Connectors;
 import com.binance4j.web.dto.Binance4jUserDetails;
+import com.binance4j.web.dto.UsernamePasswordUserDetails;
 
 /** User authentication management service */
 @Service
@@ -34,8 +35,17 @@ public class AuthenticationService {
 	/**
 	 * @return Is user already authenticated?
 	 */
-	public boolean isAlreadyAuthenticated() {
+	public boolean authenticated() {
 		return SecurityContextHolder.getContext().getAuthentication() != null
 				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated();
 	}
+
+	/**
+	 * 
+	 * @return Authenticated user.
+	 */
+	public UsernamePasswordUserDetails getAuthenticatedUser() {
+		return new UsernamePasswordUserDetails(SecurityContextHolder.getContext().getAuthentication());
+	}
+
 }
