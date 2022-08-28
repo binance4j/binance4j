@@ -29,7 +29,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.binance4j</groupId>
     <artifactId>binance4j-connectors</artifactId>
-    <version>2.4.1.SNAPSHOT</version>
+    <version>2.4.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <repositories>
@@ -41,9 +41,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-
+        <kotlin.code.style>official</kotlin.code.style>
+        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
+        <junit-jupiter.version>5.8.2</junit-jupiter.version>
     </properties>
 
 
@@ -87,96 +87,126 @@
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-blvt</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-c2c</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-convert</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-fiat</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-loan</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-margin</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-market</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-mining</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-nft</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-pay</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-portfolio-margin</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-rebate</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-savings</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-spot</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-staking</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-vision</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-wallet</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.binance4j</groupId>
             <artifactId>binance4j-websocket</artifactId>
-            <version>2.4.1.SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+
     <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>1.7.10</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
             <!-- Attaches the sources -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -249,32 +279,5 @@
                 </executions>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-            <plugins>
-                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-                <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
