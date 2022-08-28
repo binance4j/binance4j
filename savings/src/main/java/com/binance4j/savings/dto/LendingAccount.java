@@ -18,10 +18,10 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Lending account.")
 data class LendingAccount(@ApiModelProperty("Position amount.") List<PositionAmount> positionAmountVos,
-		@ApiModelProperty("Total amount in btc.") var totalAmountInBTC : String? = null,
-		@ApiModelProperty("Total amount in usdt.") var totalAmountInUSDT : String? = null,
-		@ApiModelProperty("Total fixed amount in btc.") var totalFixedAmountInBTC : String? = null,
-		@ApiModelProperty("Total fixed amount in usdt.") var totalFixedAmountInUSDT : String? = null,
-		@ApiModelProperty("Total flexible in btc.") var totalFlexibleInBTC : String? = null,
-		@ApiModelProperty("Total flexible in usdt.") var totalFlexibleInUSDT : String? = null) {
+		@ApiModelProperty("Total amount in btc.") @JsonProperty("totalAmountInBTC ") var totalAmountInBTC : String? = null,
+		@ApiModelProperty("Total amount in usdt.") @JsonProperty("totalAmountInUSDT ") var totalAmountInUSDT : String? = null,
+		@ApiModelProperty("Total fixed amount in btc.") @JsonProperty("totalFixedAmountInBTC ") var totalFixedAmountInBTC : String? = null,
+		@ApiModelProperty("Total fixed amount in usdt.") @JsonProperty("totalFixedAmountInUSDT ") var totalFixedAmountInUSDT : String? = null,
+		@ApiModelProperty("Total flexible in btc.") @JsonProperty("totalFlexibleInBTC ") var totalFlexibleInBTC : String? = null,
+		@ApiModelProperty("Total flexible in usdt.") @JsonProperty("totalFlexibleInUSDT ") var totalFlexibleInUSDT : String? = null) {
 }

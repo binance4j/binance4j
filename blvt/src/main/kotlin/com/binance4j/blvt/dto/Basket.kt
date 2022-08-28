@@ -24,21 +24,27 @@
 
 package com.binance4j.blvt.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * [Token] Basket.
- * @property symbol        Symbol.
- * @property amount        Amount.
+ * @property symbol Symbol.
+ * @property amount Amount.
  * @property notionalValue Notional value.
  */
 @ApiModel("Token Basket.")
 data class Basket(
-    @ApiModelProperty("Symbol.")
-    var symbol: String? = null,
-    @ApiModelProperty("Amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Notional value.")
-    var notionalValue: String? = null
+        @ApiModelProperty("Symbol.")
+        @JsonProperty("symbol")
+        var symbol: String? = null,
+        
+        @ApiModelProperty("Amount.")
+        @JsonProperty("amount")
+        var amount: String? = null,
+
+        @ApiModelProperty("Notional value.")
+        @JsonProperty("notionalValue")
+        var notionalValue: String? = null
 )

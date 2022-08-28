@@ -15,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Response for changing fixed product to flexible.")
 data class PositionChangedResponse(
 @ApiModelProperty("Daily purchase id.")
-var dailyPurchaseId:Long?=null,
+@JsonProperty("dailyPurchaseId") var dailyPurchaseId:Long?=null,
 @ApiModelProperty("Success.")
-var success:Boolean?=null,
-@ApiModelProperty("Time.") var timestamp:Long?=null)
+@JsonProperty("success") var success:Boolean?=null,
+@ApiModelProperty("Time.") @JsonProperty("timestamp") var timestamp:Long?=null)
 {
 }

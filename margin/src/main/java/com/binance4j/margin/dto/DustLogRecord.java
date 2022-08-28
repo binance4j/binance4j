@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A record of asset conversions to BNB.")
 data class DustLogRecord(@ApiModelProperty("Result count.")
-var total:int?=null,
+@JsonProperty("total") var total:int?=null,
 @ApiModelProperty("Transfers.")
 List<UserAssetDribblet> userAssetDribblets)
 {
@@ -29,10 +29,10 @@ List<UserAssetDribblet> userAssetDribblets)
 	 * @property transId                  Transaction id.
 	 * @property userAssetDribbletDetails Transfer details.
 	 */
-	record UserAssetDribblet(@ApiModelProperty("Operate time.") var operateTime : Long? = null,
-			@ApiModelProperty("Total transfered BNB amount for this exchange.") var totalTransferedAmount : String? = null,
-			@ApiModelProperty("Total service charge amount for this exchange.") var totalServiceChargeAmount : String? = null,
-			@ApiModelProperty("Transaction id.") var transId : Long? = null,
+	record UserAssetDribblet(@ApiModelProperty("Operate time.") @JsonProperty("operateTime ") var operateTime : Long? = null,
+			@ApiModelProperty("Total transfered BNB amount for this exchange.") @JsonProperty("totalTransferedAmount ") var totalTransferedAmount : String? = null,
+			@ApiModelProperty("Total service charge amount for this exchange.") @JsonProperty("totalServiceChargeAmount ") var totalServiceChargeAmount : String? = null,
+			@ApiModelProperty("Transaction id.") @JsonProperty("transId ") var transId : Long? = null,
 			@ApiModelProperty("Transfer details.") List<UserAssetDribbletDetail> userAssetDribbletDetails) {
 		/**
 		 * @property transId             Transaction id.
@@ -42,12 +42,12 @@ List<UserAssetDribblet> userAssetDribblets)
 		 * @property transferedAmount    Asset amount.
 		 * @property fromAsset           Asset transfered.
 		 */
-		record UserAssetDribbletDetail(@ApiModelProperty("Transaction id.") var transId : Long? = null,
-				@ApiModelProperty("Fees.") var serviceChargeAmount : String? = null,
-				@ApiModelProperty("Converted BNB amount.") var amount : String? = null,
-				@ApiModelProperty("Operate time in ms.") var operateTime : Long? = null,
-				@ApiModelProperty("Asset amount.") var transferedAmount : String? = null,
-				@ApiModelProperty("Asset transfered.") var fromAsset : String? = null) {
+		record UserAssetDribbletDetail(@ApiModelProperty("Transaction id.") @JsonProperty("transId ") var transId : Long? = null,
+				@ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount ") var serviceChargeAmount : String? = null,
+				@ApiModelProperty("Converted BNB amount.") @JsonProperty("amount ") var amount : String? = null,
+				@ApiModelProperty("Operate time in ms.") @JsonProperty("operateTime ") var operateTime : Long? = null,
+				@ApiModelProperty("Asset amount.") @JsonProperty("transferedAmount ") var transferedAmount : String? = null,
+				@ApiModelProperty("Asset transfered.") @JsonProperty("fromAsset ") var fromAsset : String? = null) {
 		}
 	}
 }

@@ -20,18 +20,18 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An OCO Order details.")
 data class OCOInfo(
 @ApiModelProperty("Order list id.")
-var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId:Long?=null,
 @ApiModelProperty("Contingency type.")
-var contingencyType:String?=null,
+@JsonProperty("contingencyType") var contingencyType:String?=null,
 @ApiModelProperty("List status type.")
-var listStatusType:String?=null,
+@JsonProperty("listStatusType") var listStatusType:String?=null,
 @ApiModelProperty("List order status.")
-var listOrderStatus:String?=null,
+@JsonProperty("listOrderStatus") var listOrderStatus:String?=null,
 @ApiModelProperty("List client order id.")
-var listClientOrderId:String?=null,
+@JsonProperty("listClientOrderId") var listClientOrderId:String?=null,
 @ApiModelProperty("Transaction timestamp in ms.")
-var transactionTime:Long?=null,
+@JsonProperty("transactionTime") var transactionTime:Long?=null,
 @ApiModelProperty("Orders symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders)
 {}

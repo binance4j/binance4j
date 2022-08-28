@@ -24,7 +24,7 @@
 
 package com.binance4j.wallet.dto
 
-/** A daily account snapshot.  */
+/** A daily account snapshot. */
 interface Snapshot {
     /** The snapshot type ("spot/margin/futures"). */
     var type: String?

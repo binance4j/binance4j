@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The market depth.")
 data class OrderBook(
 @ApiModelProperty("Last update id of this order book.")
-var lastUpdateId:Long?=null,
+@JsonProperty("lastUpdateId") var lastUpdateId:Long?=null,
 @ApiModelProperty("List of bids (price/qty).") List<OrderBookEntry> bids,
 @ApiModelProperty("List of asks (price/qty).")
 List<OrderBookEntry> asks)

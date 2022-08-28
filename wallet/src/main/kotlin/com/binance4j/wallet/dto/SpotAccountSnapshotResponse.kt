@@ -24,22 +24,21 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Response of a SPOT account snapshot request.
  *
- * @property code        Code.
- * @property msg         Message.
+ * @property code Code.
+ * @property msg Message.
  * @property snapshotVos Snapshot.
  */
 @ApiModel("Response of a SPOT account snapshot request.")
 data class SpotAccountSnapshotResponse(
-    @ApiModelProperty("Code.")
-    override var code: Int? = null,
-    @ApiModelProperty("Message.")
-    override var msg: String? = null,
+    @ApiModelProperty("Code.") override @JsonProperty("code") var code: Int? = null,
+    @ApiModelProperty("Message.") override @JsonProperty("msg") var msg: String? = null,
     @ApiModelProperty("Snapshot.")
-    override var snapshotVos: List<SpotAccountSnapshot>? = null
+    override @JsonProperty("snapshotVos") var snapshotVos: List<SpotAccountSnapshot>? = null
 ) : AccountSnapshotResponse<SpotAccountSnapshot>

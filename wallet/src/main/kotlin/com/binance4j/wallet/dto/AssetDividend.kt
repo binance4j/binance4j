@@ -24,30 +24,26 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * An asset dividend.
  *
- * @property amount  Dividend amount.
- * @property enInfo  Info about the asset.
- * @property asset   Asset abbreviation.
- * @property id      Id.
+ * @property amount Dividend amount.
+ * @property enInfo Info about the asset.
+ * @property asset Asset abbreviation.
+ * @property id Id.
  * @property divTime Dividend time in ms.
- * @property tranId  Transaction id.
+ * @property tranId Transaction id.
  */
 @ApiModel("An asset dividend.")
 data class AssetDividend(
-    @ApiModelProperty("Dividend amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Info about the asset.")
-    var enInfo: String? = null,
-    @ApiModelProperty("Asset abbreviation.")
-    var asset: String? = null,
-    @ApiModelProperty("Id.")
-    var id: Long? = null,
-    @ApiModelProperty("Dividend time in ms.")
-    var divTime: Long? = null,
-    @ApiModelProperty("Transaction id.") var tranId: Long? = null
+    @ApiModelProperty("Dividend amount.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Info about the asset.") @JsonProperty("enInfo") var enInfo: String? = null,
+    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Id.") @JsonProperty("id") var id: Long? = null,
+    @ApiModelProperty("Dividend time in ms.") @JsonProperty("divTime") var divTime: Long? = null,
+    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long? = null
 )

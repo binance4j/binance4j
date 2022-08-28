@@ -24,55 +24,54 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * The coin info for the authenticated account.
  *
- * @property coin              Coin abbreviation.
- * @property name              Coin name.
- * @property depositAllEnable  Deposit permission.
- * @property isLegalMoney      Is the coin a legal money?
- * @property trading           Can the coin be traded?
+ * @property coin Coin abbreviation.
+ * @property name Coin name.
+ * @property depositAllEnable Deposit permission.
+ * @property isLegalMoney Is the coin a legal money?
+ * @property trading Can the coin be traded?
  * @property withdrawAllEnable Withdraw permission.
- * @property free              Free balance.
- * @property freeze            Frozen balance.
- * @property ipoable           Initial Public Offering balance (?)
- * @property ipoing            Initial Public Offering frozen balance (?)
- * @property locked            Locked balance.
- * @property storage           Storage
- * @property withdrawing       Withdrawing balance.
- * @property networkList       Coin network information.
+ * @property free Free balance.
+ * @property freeze Frozen balance.
+ * @property ipoable Initial Public Offering balance (?)
+ * @property ipoing Initial Public Offering frozen balance (?)
+ * @property locked Locked balance.
+ * @property storage Storage
+ * @property withdrawing Withdrawing balance.
+ * @property networkList Coin network information.
  */
 @ApiModel("The coin infos for the authenticated account.")
 data class CoinInformation(
-    @ApiModelProperty("Coin abbreviation.")
-    var coin: String? = null,
-    @ApiModelProperty("Coin name.")
-    var name: String? = null,
+    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String? = null,
+    @ApiModelProperty("Coin name.") @JsonProperty("name") var name: String? = null,
     @ApiModelProperty("Deposit permission.")
+    @JsonProperty
     var depositAllEnable: Boolean? = null,
     @ApiModelProperty("Is the coin a legal money?")
+    @JsonProperty
     var isLegalMoney: Boolean? = null,
-    @ApiModelProperty("Can the coin be traded?")
-    var trading: Boolean? = null,
+    @ApiModelProperty("Can the coin be traded?") @JsonProperty("trading") var trading: Boolean? = null,
     @ApiModelProperty("Withdraw permission.")
+    @JsonProperty
     var withdrawAllEnable: Boolean? = null,
-    @ApiModelProperty("Free balance.")
-    var free: String? = null,
-    @ApiModelProperty("Freezed balance.")
-    var freeze: String? = null,
+    @ApiModelProperty("Free balance.") @JsonProperty("free") var free: String? = null,
+    @ApiModelProperty("Freezed balance.") @JsonProperty("freeze") var freeze: String? = null,
     @ApiModelProperty("Initial Public Offering balance (?)")
+    @JsonProperty
     var ipoable: String? = null,
     @ApiModelProperty("Initial Public Offering freezed balance (?)")
+    @JsonProperty
     var ipoing: String? = null,
-    @ApiModelProperty("Locked balance.")
-    var locked: String? = null,
-    @ApiModelProperty("Storage")
-    var storage: String? = null,
-    @ApiModelProperty("Withdrawing balance.")
-    var withdrawing: String? = null,
+    @ApiModelProperty("Locked balance.") @JsonProperty("locked") var locked: String? = null,
+    @ApiModelProperty("Storage") @JsonProperty("storage") var storage: String? = null,
+    @ApiModelProperty("Withdrawing balance.") @JsonProperty("withdrawing") var withdrawing: String? = null,
     @ApiModelProperty("Coin network information.")
+    @JsonProperty
     var networkList: List<CoinNetworkInformation>? = null
 )

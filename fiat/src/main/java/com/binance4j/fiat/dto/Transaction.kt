@@ -30,34 +30,25 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * A fiat transaction.
  *
- * @property orderNo         Order No.
- * @property fiatCurrency    Fiat currency.
+ * @property orderNo Order No.
+ * @property fiatCurrency Fiat currency.
  * @property indicatedAmount Indicated amount.
- * @property amount          Amount.
- * @property totalFee        Total fee.
- * @property method          Method.
- * @property status          Status.
- * @property createTime      Create time in ms.
- * @property updateTime      Update time in ms.
+ * @property amount Amount.
+ * @property totalFee Total fee.
+ * @property method Method.
+ * @property status Status.
+ * @property createTime Create time in ms.
+ * @property updateTime Update time in ms.
  */
 @ApiModel("A fiat transaction.")
 data class Transaction(
-    @ApiModelProperty("Order No.")
-    var orderNo: String? = null,
-    @ApiModelProperty("Fiat currency.")
-    var fiatCurrency: String? = null,
-    @ApiModelProperty("Indicated amount.")
-    var indicatedAmount: String? = null,
-    @ApiModelProperty("Amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Total fee.")
-    var totalFee: String? = null,
-    @ApiModelProperty("Method.")
-    var method: String? = null,
-    @ApiModelProperty("Status.")
-    var status: String? = null,
-    @ApiModelProperty("Create time in ms.")
-    var createTime: Long? = null,
-    @ApiModelProperty("Update time in ms.")
-    var updateTime: Long? = null
+        @ApiModelProperty("Order No.") @JsonProperty("orderNo") var orderNo: String? = null,
+        @ApiModelProperty("Fiat currency.") @JsonProperty("fiatCurrency") var fiatCurrency: String? = null,
+        @ApiModelProperty("Indicated amount.") @JsonProperty("indicatedAmount") var indicatedAmount: String? = null,
+        @ApiModelProperty("Amount.") @JsonProperty("amount") var amount: String? = null,
+        @ApiModelProperty("Total fee.") @JsonProperty("totalFee") var totalFee: String? = null,
+        @ApiModelProperty("Method.") @JsonProperty("method") var method: String? = null,
+        @ApiModelProperty("Status.") @JsonProperty("status") var status: String? = null,
+        @ApiModelProperty("Create time in ms.") @JsonProperty("createTime") var createTime: Long? = null,
+        @ApiModelProperty("Update time in ms.") @JsonProperty("updateTime") var updateTime: Long? = null
 )

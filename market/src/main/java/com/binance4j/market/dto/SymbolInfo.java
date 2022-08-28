@@ -35,22 +35,59 @@ import io.swagger.annotations.ApiModelProperty;
  *      status explanation</a>
  */
 @ApiModel("Symbol information (base/quote).")
-data class SymbolInfo(@ApiModelProperty("Symbol status.") List<String> orderTypes,
-		@ApiModelProperty("Allowed orders on the symbol*.") @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
-		@ApiModelProperty("Symbol filters.") List<String> permissions,
-		@ApiModelProperty("Symbol permission.") var symbol : String? = null,
-		@ApiModelProperty("Symbol name.") var quoteAsset : String? = null, @ApiModelProperty("Quote asset.") var baseAsset : String? = null,
-		@ApiModelProperty("Base asset.") var baseAssetPrecision : Int? = null,
-		@ApiModelProperty("Base asset precision.") var baseCommissionPrecision : Int? = null,
-		@ApiModelProperty("Quote asset commission precision.") var quoteAssetPrecision : Int? = null,
-		@ApiModelProperty("Quote asset commission precision.") var quotePrecision : Int? = null,
-		@ApiModelProperty("Quote asset precision.") var quoteCommissionPrecision : Int? = null,
-		@ApiModelProperty("Quote asset commission precision.") var icebergAllowed : Boolean? = null,
-		@ApiModelProperty("Are iceberg orders allowed?") var ocoAllowed : Boolean? = null,
-		@ApiModelProperty("Are OCO orders allowed?") var quoteOrderQtyMarketAllowed : Boolean? = null,
-		@ApiModelProperty("Are orders by quote quantity allowed?") var isSpotTradingAllowed : Boolean? = null,
-		@ApiModelProperty("Cancel replace allowed?") var cancelReplaceAllowed : Boolean? = null,
-		@ApiModelProperty("Is trailing stop allowed?") var allowTrailingStop : Boolean? = null,
-		@ApiModelProperty("Is spot trading allowed?") var isMarginTradingAllowed : Boolean? = null,
-		@ApiModelProperty("Is margin trading allowed?") var status : String? = null) {
+data class SymbolInfo(
+@ApiModelProperty("Symbol status.")
+List<String> orderTypes,
+@ApiModelProperty("Allowed orders on the symbol*.")
+@JsonDeserialize(using = SymbolFiltersDeserializer.class)
+SymbolFilters filters,
+@ApiModelProperty("Symbol filters.")
+List<String> permissions,
+@ApiModelProperty("Symbol permission.")
+@JsonProperty("symbol ")
+var symbol:String?=null,
+@ApiModelProperty("Symbol name.") @JsonProperty("quoteAsset : String? = null, @ApiModelProperty("Quote asset.") var baseAsset ")
+var quoteAsset:String?=null,
+@ApiModelProperty("Quote asset.")
+var baseAsset:String?=null,
+@ApiModelProperty("Base asset.")
+@JsonProperty("baseAssetPrecision ")
+var baseAssetPrecision:Int?=null,
+@ApiModelProperty("Base asset precision.")
+@JsonProperty("baseCommissionPrecision ")
+var baseCommissionPrecision:Int?=null,
+@ApiModelProperty("Quote asset commission precision.")
+@JsonProperty("quoteAssetPrecision ")
+var quoteAssetPrecision:Int?=null,
+@ApiModelProperty("Quote asset commission precision.")
+@JsonProperty("quotePrecision ")
+var quotePrecision:Int?=null,
+@ApiModelProperty("Quote asset precision.")
+@JsonProperty("quoteCommissionPrecision ")
+var quoteCommissionPrecision:Int?=null,
+@ApiModelProperty("Quote asset commission precision.")
+@JsonProperty("icebergAllowed ")
+var icebergAllowed:Boolean?=null,
+@ApiModelProperty("Are iceberg orders allowed?")
+@JsonProperty("ocoAllowed ")
+var ocoAllowed:Boolean?=null,
+@ApiModelProperty("Are OCO orders allowed?")
+@JsonProperty("quoteOrderQtyMarketAllowed ")
+var quoteOrderQtyMarketAllowed:Boolean?=null,
+@ApiModelProperty("Are orders by quote quantity allowed?")
+@JsonProperty("isSpotTradingAllowed ")
+var isSpotTradingAllowed:Boolean?=null,
+@ApiModelProperty("Cancel replace allowed?")
+@JsonProperty("cancelReplaceAllowed ")
+var cancelReplaceAllowed:Boolean?=null,
+@ApiModelProperty("Is trailing stop allowed?")
+@JsonProperty("allowTrailingStop ")
+var allowTrailingStop:Boolean?=null,
+@ApiModelProperty("Is spot trading allowed?")
+@JsonProperty("isMarginTradingAllowed ")
+var isMarginTradingAllowed:Boolean?=null,
+@ApiModelProperty("Is margin trading allowed?")
+@JsonProperty("status ")
+var status:String?=null)
+{
 }

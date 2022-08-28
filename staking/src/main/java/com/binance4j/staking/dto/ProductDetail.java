@@ -18,20 +18,20 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Staking product detail.")
 data class ProductDetail(
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Reward Asset.")
-var rewardAsset:String?=null,
+@JsonProperty("rewardAsset") var rewardAsset:String?=null,
 @ApiModelProperty("Duration in ms.")
-var duration:int?=null,
+@JsonProperty("duration") var duration:int?=null,
 @ApiModelProperty("Renewable.")
-var renewable:Boolean?=null,
+@JsonProperty("renewable") var renewable:Boolean?=null,
 @ApiModelProperty("Apy.")
-var apy:String?=null,
+@JsonProperty("apy") var apy:String?=null,
 @ApiModelProperty("Extra reward asset.")
-var extraRewardAsset:String?=null,
+@JsonProperty("extraRewardAsset") var extraRewardAsset:String?=null,
 @ApiModelProperty("Extra reward APY.")
-var extraRewardsAPY:String?=null,
+@JsonProperty("extraRewardsAPY") var extraRewardsAPY:String?=null,
 @ApiModelProperty("project.")
-var project:String?=null)
+@JsonProperty("project") var project:String?=null)
 {
 }

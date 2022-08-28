@@ -19,22 +19,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Staking record.")
 data class StakingRecord(
 @ApiModelProperty("Position id.")
-var positionId:String?=null,
+@JsonProperty("positionId") var positionId:String?=null,
 @ApiModelProperty("Time.")
-var time:String?=null,
+@JsonProperty("time") var time:String?=null,
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Project.")
-var project:String?=null,
+@JsonProperty("project") var project:String?=null,
 @ApiModelProperty("Amount.")
-var amount:String?=null,
+@JsonProperty("amount") var amount:String?=null,
 @ApiModelProperty("Lock period.")
-var lockPeriod:String?=null,
+@JsonProperty("lockPeriod") var lockPeriod:String?=null,
 @ApiModelProperty("Deliver date.")
-var deliverDate:String?=null,
+@JsonProperty("deliverDate") var deliverDate:String?=null,
 @ApiModelProperty("Type.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Status.")
-var status:String?=null)
+@JsonProperty("status") var status:String?=null)
 {
 }

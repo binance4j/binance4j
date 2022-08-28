@@ -24,31 +24,42 @@
 
 package com.binance4j.blvt.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * BLVT redemption response.
  *
- * @property id           Subscription id.
- * @property status       Subscription status. S("success"), P("pending"), and F("failure").
- * @property tokenName    Token name.
- * @property amount       Redemption value in usdt.
+ * @property id Subscription id.
+ * @property status "Subscription status. S(uccess), P(ending), and F(ailure).
+ * @property tokenName Token name.
+ * @property amount Redemption value in usdt.
  * @property redeemAmount Redemption token amount.
- * @property timestamp    Timestamp in ms.
+ * @property timestamp Timestamp in ms.
  */
 @ApiModel("BLVT redemption response.")
 data class RedemptionResponse(
     @ApiModelProperty("Subscription id.")
+    @JsonProperty("id")
     var id: Long? = null,
-    @ApiModelProperty("Subscription status. S(\"success\"), P(\"pending\"), and F(\"failure\").")
+
+    @ApiModelProperty("Subscription status. S(uccess), P(ending), and F(ailure).")
+    @JsonProperty
     var status: String? = null,
     @ApiModelProperty("Token name.")
+    @JsonProperty("tokenName")
     var tokenName: String? = null,
+
     @ApiModelProperty("Redemption value in usdt.")
+    @JsonProperty("redeemAmount")
     var redeemAmount: String? = null,
+
     @ApiModelProperty("Redemption token amount.")
+    @JsonProperty("amount")
     var amount: String? = null,
+
     @ApiModelProperty("Timestamp in ms.")
+    @JsonProperty("timestamp")
     var timestamp: Long? = null
 )

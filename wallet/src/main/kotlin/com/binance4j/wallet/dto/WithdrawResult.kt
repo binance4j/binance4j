@@ -24,6 +24,7 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -33,7 +34,4 @@ import io.swagger.annotations.ApiModelProperty
  * @property id Withdraw id.
  */
 @ApiModel("The result of a withdraw.")
-data class WithdrawResult(
-    @ApiModelProperty("Withdraw id.")
-    var id: String? = null
-)
+data class WithdrawResult(@ApiModelProperty("Withdraw id.") @JsonProperty("id") var id: String? = null)

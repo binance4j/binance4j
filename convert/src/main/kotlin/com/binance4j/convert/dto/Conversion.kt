@@ -24,43 +24,63 @@
 
 package com.binance4j.convert.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A conversion of an asset into another.
  *
- * @property quoteId      Quote Id.
- * @property orderId      Order Id.
- * @property orderStatus  Order Status.
- * @property fromAsset    From Asset.
- * @property fromAmount   From Amount.
- * @property toAsset      To Asset.
- * @property toAmount     To Amount.
- * @property ratio        Ratio.
+ * @property quoteId Quote Id.
+ * @property orderId Order Id.
+ * @property orderStatus Order Status.
+ * @property fromAsset From Asset.
+ * @property fromAmount From Amount.
+ * @property toAsset To Asset.
+ * @property toAmount To Amount.
+ * @property ratio Ratio.
  * @property inverseRatio Inverse Ratio.
- * @property createTime   Create Time in ms.
+ * @property createTime Create Time in ms.
  */
 @ApiModel("A conversion of an asset into another.")
 data class Conversion(
     @ApiModelProperty("Quote Id.")
+    @JsonProperty("quoteId")
     var quoteId: String? = null,
-    @ApiModelProperty("Order Id.")
-    var orderId: Long? = null,
-    @ApiModelProperty("Order Status.")
-    var orderStatus: String? = null,
-    @ApiModelProperty("From Asset.")
-    var fromAsset: String? = null,
-    @ApiModelProperty("From Amount.")
-    var fromAmount: String? = null,
-    @ApiModelProperty("To Asset.")
-    var toAsset: String? = null,
-    @ApiModelProperty("To Amount.")
-    var toAmount: String? = null,
-    @ApiModelProperty("Ratio.")
-    var ratio: String? = null,
-    @ApiModelProperty("Inverse Ratio.")
-    var inverseRatio: String? = null,
-    @ApiModelProperty("Create Time in ms.") var createTime: Long? = null
-)
 
+    @ApiModelProperty("Order Id.")
+    @JsonProperty("orderId")
+    var orderId: Long? = null,
+
+    @ApiModelProperty("Order Status.")
+    @JsonProperty("orderStatus")
+    var orderStatus: String? = null,
+
+    @ApiModelProperty("From Asset.")
+    @JsonProperty("fromAsset")
+    var fromAsset: String? = null,
+
+    @ApiModelProperty("From Amount.")
+    @JsonProperty("fromAmount")
+    var fromAmount: String? = null,
+
+    @ApiModelProperty("To Asset.")
+    @JsonProperty("toAsset")
+    var toAsset: String? = null,
+
+    @ApiModelProperty("To Amount.")
+    @JsonProperty("toAmount")
+    var toAmount: String? = null,
+
+    @ApiModelProperty("Ratio.")
+    @JsonProperty("ratio")
+    var ratio: String? = null,
+
+    @ApiModelProperty("Inverse Ratio.")
+    @JsonProperty("inverseRatio")
+    var inverseRatio: String? = null,
+
+    @ApiModelProperty("Create Time in ms.")
+    @JsonProperty("createTime")
+    var createTime: Long? = null
+)

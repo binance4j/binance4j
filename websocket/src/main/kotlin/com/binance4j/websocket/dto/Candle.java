@@ -40,40 +40,40 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Kline/candle for a symbol.")
 data class Candle(
 @ApiModelProperty("Candlestick open timestamp in milliseconds")
-var openTime:Long?=null,
+@JsonProperty("openTime") var openTime:Long?=null,
 @ApiModelProperty("Open value")
-var open:String?=null,
+@JsonProperty("open") var open:String?=null,
 @ApiModelProperty("High value")
-var high:String?=null,
+@JsonProperty("high") var high:String?=null,
 @ApiModelProperty("Low value")
-var low:String?=null,
+@JsonProperty("low") var low:String?=null,
 @ApiModelProperty("Close value")
-var close:String?=null,
+@JsonProperty("close") var close:String?=null,
 @ApiModelProperty("Traded volume in the interval")
-var volume:String?=null,
+@JsonProperty("volume") var volume:String?=null,
 @ApiModelProperty("Candlestick close timestamp in milliseconds")
-var closeTime:Long?=null,
+@JsonProperty("closeTime") var closeTime:Long?=null,
 @ApiModelProperty("Quote asset traded volume")
-var quoteAssetVolume:String?=null,
+@JsonProperty("quoteAssetVolume") var quoteAssetVolume:String?=null,
 @ApiModelProperty("Number of trades")
-var numberOfTrades:Long?=null,
+@JsonProperty("numberOfTrades") var numberOfTrades:Long?=null,
 @ApiModelProperty("Taker buy base asset volume")
-var takerBuyBaseAssetVolume:String?=null,
+@JsonProperty("takerBuyBaseAssetVolume") var takerBuyBaseAssetVolume:String?=null,
 @ApiModelProperty("Taker buy quote asset volume")
-var takerBuyQuoteAssetVolume:String?=null,
+@JsonProperty("takerBuyQuoteAssetVolume") var takerBuyQuoteAssetVolume:String?=null,
 @ApiModelProperty("Event type.")
-var eventType:String?=null,
+@JsonProperty("eventType") var eventType:String?=null,
 @ApiModelProperty("Timestamp in ms.")
-var eventTime:Long?=null,
+@JsonProperty("eventTime") var eventTime:Long?=null,
 @ApiModelProperty("Trading pair.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Interval id.")
-var intervalId:String?=null,
+@JsonProperty("intervalId") var intervalId:String?=null,
 @ApiModelProperty("First trade id.")
-var firstTradeId:Long?=null,
+@JsonProperty("firstTradeId") var firstTradeId:Long?=null,
 @ApiModelProperty("Last trade id.")
-var lastTradeId:Long?=null,
+@JsonProperty("lastTradeId") var lastTradeId:Long?=null,
 @ApiModelProperty("Is it the last bar of the interval?")
-var isBarFinal:Boolean?=null)
+@JsonProperty("isBarFinal") var isBarFinal:Boolean?=null)
 {
 }

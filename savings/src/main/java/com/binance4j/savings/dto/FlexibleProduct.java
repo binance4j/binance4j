@@ -25,29 +25,29 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A Flexible product.")
 data class FlexibleProduct(
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Avg annual interest rate.")
-var avgAnnualInterestRate:String?=null,
+@JsonProperty("avgAnnualInterestRate") var avgAnnualInterestRate:String?=null,
 @ApiModelProperty("Tier annual interest rate.") Map<String, String> tierAnnualInterestRate,
 @ApiModelProperty("Latest annual intarest rate.")
-var latestAnnualInterestRate:String?=null,
+@JsonProperty("latestAnnualInterestRate") var latestAnnualInterestRate:String?=null,
 @ApiModelProperty("Product can be purchase?")
-var canPurchase:Boolean?=null,
+@JsonProperty("canPurchase") var canPurchase:Boolean?=null,
 @ApiModelProperty("Product can be redeem?")
-var canRedeem:Boolean?=null,
+@JsonProperty("canRedeem") var canRedeem:Boolean?=null,
 @ApiModelProperty("Featured.")
-var featured:Boolean?=null,
+@JsonProperty("featured") var featured:Boolean?=null,
 @ApiModelProperty("Min purchase amount.")
-var minPurchaseAmount:String?=null,
+@JsonProperty("minPurchaseAmount") var minPurchaseAmount:String?=null,
 @ApiModelProperty("Product id.")
-var productId:String?=null,
+@JsonProperty("productId") var productId:String?=null,
 @ApiModelProperty("Purchased amount.")
-var purchasedAmount:String?=null,
+@JsonProperty("purchasedAmount") var purchasedAmount:String?=null,
 @ApiModelProperty("Status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Up limit.")
-var upLimit:String?=null,
+@JsonProperty("upLimit") var upLimit:String?=null,
 @ApiModelProperty("Up limit per user.")
-var upLimitPerUser:String?=null)
+@JsonProperty("upLimitPerUser") var upLimitPerUser:String?=null)
 {
 }

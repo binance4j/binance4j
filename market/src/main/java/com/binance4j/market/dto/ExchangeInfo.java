@@ -19,9 +19,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("The current exchange trading rules and symbol information.")
 data class ExchangeInfo(@ApiModelProperty("Server timezone.")
-var timezone:String?=null,
+@JsonProperty("timezone") var timezone:String?=null,
 @ApiModelProperty("Server time.")
-var serverTime:Long?=null,
+@JsonProperty("serverTime") var serverTime:Long?=null,
 @ApiModelProperty("Request limits (weight, orders, raw...).")
 List<RateLimit> rateLimits,
 @ApiModelProperty("Trading rules of the exchange.")

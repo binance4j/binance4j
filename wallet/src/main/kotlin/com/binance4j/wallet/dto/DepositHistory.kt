@@ -24,50 +24,48 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A deposit history.
  *
- * @property amount        Volume to deposit.
- * @property coin          Coin abbreviation.
- * @property network       Transfer network.
- * @property address       Deposit address.
- * @property addressTag    Deposit address tag.
- * @property txId          Transaction id.
+ * @property amount Volume to deposit.
+ * @property coin Coin abbreviation.
+ * @property network Transfer network.
+ * @property address Deposit address.
+ * @property addressTag Deposit address tag.
+ * @property txId Transaction id.
  * @property unlockConfirm confirm times for unlocking.
- * @property confirmTimes  Confirm times
- * @property status        Deposit status code.
- * @property insertTime    confirm times for insertion (?)
- * @property transferType  Transfer type. 1 for internal transfer, 0 for external transfer.
- * @property walletType    Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.
+ * @property confirmTimes Confirm times
+ * @property status Deposit status code.
+ * @property insertTime confirm times for insertion (?)
+ * @property transferType Transfer type. 1 for internal transfer, 0 for external transfer.
+ * @property walletType Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.
  */
 @ApiModel("A deposit history.")
 data class DepositHistory(
-    @ApiModelProperty("Volume to deposit.")
-    var amount: String? = null,
-    @ApiModelProperty("Coin abbreviation.")
-    var coin: String? = null,
-    @ApiModelProperty("Transfer network.")
-    var network: String? = null,
-    @ApiModelProperty("Deposit address.")
-    var address: String? = null,
-    @ApiModelProperty("Deposit address tag.")
-    var addressTag: String? = null,
-    @ApiModelProperty("Transaction id.")
-    var txId: String? = null,
+    @ApiModelProperty("Volume to deposit.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String? = null,
+    @ApiModelProperty("Transfer network.") @JsonProperty("network") var network: String? = null,
+    @ApiModelProperty("Deposit address.") @JsonProperty("address") var address: String? = null,
+    @ApiModelProperty("Deposit address tag.") @JsonProperty("addressTag") var addressTag: String? = null,
+    @ApiModelProperty("Transaction id.") @JsonProperty("txId") var txId: String? = null,
     @ApiModelProperty("confirm times for unlocking.")
+    @JsonProperty
     var unlockConfirm: String? = null,
-    @ApiModelProperty("Confirm times")
-    var confirmTimes: String? = null,
-    @ApiModelProperty("Deposit status code.")
-    var status: String? = null,
+    @ApiModelProperty("Confirm times") @JsonProperty("confirmTimes") var confirmTimes: String? = null,
+    @ApiModelProperty("Deposit status code.") @JsonProperty("status") var status: String? = null,
     @ApiModelProperty("confirm times for insertion (?)")
+    @JsonProperty
     var insertTime: Long? = null,
     @ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.")
+    @JsonProperty
     var transferType: Int? = null,
-    @ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.") var walletType: Int? = null
+    @ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
+    @JsonProperty
+    var walletType: Int? = null
 ) {
     /** @return String value of status. */
     fun getDepositStatus(): DepositStatus {

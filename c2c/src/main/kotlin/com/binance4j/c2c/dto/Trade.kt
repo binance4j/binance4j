@@ -24,55 +24,83 @@
 
 package com.binance4j.c2c.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A C2C Trade.
  *
- * @property orderNumber         Order number.
- * @property advNo               Adv No.
- * @property tradeType           Trade type.
- * @property asset               Asset.
- * @property fiat                Fiat.
- * @property fiatSymbol          Fiat symbol.
- * @property amount              Amount.
- * @property totalPrice          Total price.
- * @property unitPrice           Unit price.
- * @property orderStatus         Order status.
- * @property createTime          Create time.
- * @property commission          Commission.
+ * @property orderNumber Order number.
+ * @property advNo Adv No.
+ * @property tradeType Trade type.
+ * @property asset Asset.
+ * @property fiat Fiat.
+ * @property fiatSymbol Fiat symbol.
+ * @property amount Amount.
+ * @property totalPrice Total price.
+ * @property unitPrice Unit price.
+ * @property orderStatus Order status.
+ * @property createTime Create time.
+ * @property commission Commission.
  * @property counterPartNickName Counterpart nickname.
- * @property advertisementRole   Advertisement role.
+ * @property advertisementRole Advertisement role.
  */
 @ApiModel("A C2C Trade.")
 data class Trade(
-    @ApiModelProperty("Order number.")
-    var orderNumber: String? = null,
-    @ApiModelProperty("Adv No.")
-    var advNo: Long? = null,
-    @ApiModelProperty("Trade type.")
-    var tradeType: String? = null,
-    @ApiModelProperty("Asset.")
-    var asset: String? = null,
-    @ApiModelProperty("Fiat.")
-    var fiat: String? = null,
-    @ApiModelProperty("Fiat symbol.")
-    var fiatSymbol: String? = null,
-    @ApiModelProperty("Amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Total price.")
-    var totalPrice: String? = null,
-    @ApiModelProperty("Unit price.")
-    var unitPrice: String? = null,
-    @ApiModelProperty("Order status.")
-    var orderStatus: String? = null,
-    @ApiModelProperty("Create time.")
-    var createTime: Long? = null,
-    @ApiModelProperty("Commission.")
-    var commission: String? = null,
-    @ApiModelProperty("Counter part nickname.")
-    var counterPartNickName: String? = null,
-    @ApiModelProperty("Advertisement role.")
-    var advertisementRole: String? = null
+        @ApiModelProperty("Order number.")
+        @JsonProperty("orderNumber")
+        var orderNumber: String? = null,
+
+        @ApiModelProperty("Adv No.")
+        @JsonProperty("advNo")
+        var advNo: Long? = null,
+
+        @ApiModelProperty("Trade type.")
+        @JsonProperty("tradeType")
+        var tradeType: String? = null,
+
+        @ApiModelProperty("Asset.")
+        @JsonProperty("asset")
+        var asset: String? = null,
+
+        @ApiModelProperty("Fiat.")
+        @JsonProperty("fiat")
+        var fiat: String? = null,
+
+        @ApiModelProperty("Fiat symbol.")
+        @JsonProperty("fiatSymbol")
+        var fiatSymbol: String? = null,
+
+        @ApiModelProperty("Amount.")
+        @JsonProperty("amount")
+        var amount: String? = null,
+
+        @ApiModelProperty("Total price.")
+        @JsonProperty("totalPrice")
+        var totalPrice: String? = null,
+
+        @ApiModelProperty("Unit price.")
+        @JsonProperty("unitPrice")
+        var unitPrice: String? = null,
+
+        @ApiModelProperty("Order status.")
+        @JsonProperty("orderStatus")
+        var orderStatus: String? = null,
+
+        @ApiModelProperty("Create time.")
+        @JsonProperty("createTime")
+        var createTime: Long? = null,
+
+        @ApiModelProperty("Commission.")
+        @JsonProperty("commission")
+        var commission: String? = null,
+
+        @ApiModelProperty("Counter part nickname.")
+        @JsonProperty("counterPartNickName")
+        var counterPartNickName: String? = null,
+
+        @ApiModelProperty("Advertisement role.")
+        @JsonProperty("advertisementRole")
+        var advertisementRole: String? = null
 )

@@ -24,22 +24,20 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * The snapshot assets balances.
  *
- * @property asset         Asset abbreviation.
+ * @property asset Asset abbreviation.
  * @property marginBalance Margin balance.
  * @property walletBalance Wallet balance.
  */
 @ApiModel("The snapshot assets balances.")
 data class FuturesSnapshotDataAssets(
-    @ApiModelProperty("Asset abbreviation.")
-    var asset: String? = null,
-    @ApiModelProperty("Margin balance.")
-    var marginBalance: String? = null,
-    @ApiModelProperty("Wallet balance.")
-    var walletBalance: String? = null
+    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Margin balance.") @JsonProperty("marginBalance") var marginBalance: String? = null,
+    @ApiModelProperty("Wallet balance.") @JsonProperty("walletBalance") var walletBalance: String? = null
 )

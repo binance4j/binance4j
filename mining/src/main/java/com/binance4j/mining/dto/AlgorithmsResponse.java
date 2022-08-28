@@ -17,9 +17,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Algorithms wrapper")
 data class AlgorithmsResponse(
 @ApiModelProperty("Response code.")
-var code:int?=null,
+@JsonProperty("code") var code:int?=null,
 @ApiModelProperty("Response message.")
-var msg:String?=null,
+@JsonProperty("msg") var msg:String?=null,
 @ApiModelProperty("Response data.") List<Algorithm> data)
 {
 }

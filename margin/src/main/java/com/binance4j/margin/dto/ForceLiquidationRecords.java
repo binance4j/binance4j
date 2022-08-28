@@ -13,5 +13,5 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("ForceLiquidationRecord records container.")
 data class ForceLiquidationRecords(@ApiModelProperty("Records.") List<ForceLiquidationRecord> rows,
-		@ApiModelProperty("Total number of records.") var total : Int? = null) {
+		@ApiModelProperty("Total number of records.") @JsonProperty("total ") var total : Int? = null) {
 }

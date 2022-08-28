@@ -24,35 +24,48 @@
 
 package com.binance4j.blvt.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A BLVT redemption.
  *
- * @property id          Id.
- * @property tokenName   Token name.
- * @property amount      Amount.
- * @property nav         Nav.
- * @property fee         Fee.
+ * @property id Id.
+ * @property tokenName Token name.
+ * @property amount Amount.
+ * @property nav Nav.
+ * @property fee Fee.
  * @property totalCharge Total charge.
- * @property timestamp   Timestamp in ms.
+ * @property timestamp Timestamp in ms.
  */
 @ApiModel(value = "A BLVT redemption.")
 data class Redemption(
-    @ApiModelProperty("Id.")
-    var id: Long? = null,
-    @ApiModelProperty("Token name.")
-    var tokenName: String? = null,
-    @ApiModelProperty("Amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Nav.")
-    var nav: String? = null,
-    @ApiModelProperty("Fee.")
-    var fee: String? = null,
-    @ApiModelProperty("Total charge.")
-    var totalCharge: String? = null,
-    @ApiModelProperty("Timestamp in ms.")
-    var timestamp: Long? = null
-)
+        @ApiModelProperty("Id.")
+        @JsonProperty("id")
+        var id: Long? = null,
 
+        @ApiModelProperty("Token name.")
+        @JsonProperty("tokenName")
+        var tokenName: String? = null,
+
+        @ApiModelProperty("Amount.")
+        @JsonProperty("amount")
+        var amount: String? = null,
+
+        @ApiModelProperty("Nav.")
+        @JsonProperty("nav")
+        var nav: String? = null,
+
+        @ApiModelProperty("Fee.")
+        @JsonProperty("fee")
+        var fee: String? = null,
+
+        @ApiModelProperty("Total charge.")
+        @JsonProperty("totalCharge")
+        var totalCharge: String? = null,
+
+        @ApiModelProperty("Timestamp in ms.")
+        @JsonProperty("timestamp")
+        var timestamp: Long? = null
+)

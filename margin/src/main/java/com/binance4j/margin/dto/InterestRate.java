@@ -14,11 +14,11 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A loan interest rate.")
 data class InterestRate(
 @ApiModelProperty("Related coin.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Daily interest rate.")
-var dailyInterestRate:String?=null,
+@JsonProperty("dailyInterestRate") var dailyInterestRate:String?=null,
 @ApiModelProperty("Timestamp of the applied interest rate in ms.")
-var timestamp:Long?=null,
-@ApiModelProperty("Account VIP level.") var vipLevel:int?=null)
+@JsonProperty("timestamp") var timestamp:Long?=null,
+@ApiModelProperty("Account VIP level.") @JsonProperty("vipLevel") var vipLevel:int?=null)
 {
 }

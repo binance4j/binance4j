@@ -24,6 +24,7 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -31,20 +32,22 @@ import io.swagger.annotations.ApiModelProperty
  * Details of a supported asset.
  *
  * @property minWithdrawAmount Minimal withdraw amount.
- * @property depositStatus     Deposit status (false if all networks are false).
- * @property withdrawFee       Withdraw fee.
- * @property withdrawStatus    Withdraw status (false if all networks are false).
- * @property depositTip        Reason of the status.
+ * @property depositStatus Deposit status (false if all networks are false).
+ * @property withdrawFee Withdraw fee.
+ * @property withdrawStatus Withdraw status (false if all networks are false).
+ * @property depositTip Reason of the status.
  */
 @ApiModel("Details of a supported asset.")
 data class AssetDetail(
     @ApiModelProperty("Minimal withdraw amount.")
+    @JsonProperty
     var minWithdrawAmount: String? = null,
     @ApiModelProperty("Deposit status (false if ALL of networks' are false).")
+    @JsonProperty
     var depositStatus: Boolean? = null,
-    @ApiModelProperty("Withdraw fee.")
-    var withdrawFee: Float? = null,
+    @ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee") var withdrawFee: Float? = null,
     @ApiModelProperty("Withdraw status (false if ALL of networks' are false).")
+    @JsonProperty
     var withdrawStatus: Boolean? = null,
-    @ApiModelProperty("Reason of the status.") var depositTip: String? = null
+    @ApiModelProperty("Reason of the status.") @JsonProperty("depositTip") var depositTip: String? = null
 )

@@ -18,20 +18,20 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Redemption infos.")
 data class Redemption(
 @ApiModelProperty("Amount.")
-var amount:String?=null,
+@JsonProperty("amount") var amount:String?=null,
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Create time.")
-var createTime:Long?=null,
+@JsonProperty("createTime") var createTime:Long?=null,
 @ApiModelProperty("Principal.")
-var principal:String?=null,
+@JsonProperty("principal") var principal:String?=null,
 @ApiModelProperty("Project id.")
-var projectId:String?=null,
+@JsonProperty("projectId") var projectId:String?=null,
 @ApiModelProperty("Project name.")
-var projectName:String?=null,
+@JsonProperty("projectName") var projectName:String?=null,
 @ApiModelProperty("Status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Type.")
-var type:String?=null)
+@JsonProperty("type") var type:String?=null)
 {
 }

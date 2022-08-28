@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A staking purchase response.")
 data class PurchaseResponse(
 @ApiModelProperty("Position id.")
-var positionId:String?=null,
-@ApiModelProperty("Success.") var success:Boolean?=null)
+@JsonProperty("positionId") var positionId:String?=null,
+@ApiModelProperty("Success.") @JsonProperty("success") var success:Boolean?=null)
 {
 }

@@ -1,7 +1,6 @@
 # artifacts
 binance4j-web-test/
 # IntelliJ
-.idea/
 *.iws
 *.iml
 *.ipr

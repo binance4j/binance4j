@@ -15,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Hashrate resale wrapper")
 data class HashrateResaleResponse(
 @ApiModelProperty("Code.")
-var code:int?=null,
+@JsonProperty("code") var code:int?=null,
 @ApiModelProperty("Message.")
-var msg:String?=null,
-@ApiModelProperty("Mining account.") var data:int?=null)
+@JsonProperty("msg") var msg:String?=null,
+@ApiModelProperty("Mining account.") @JsonProperty("data") var data:int?=null)
 {
 }

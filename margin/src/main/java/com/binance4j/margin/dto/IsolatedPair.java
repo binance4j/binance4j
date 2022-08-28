@@ -23,28 +23,28 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Isolated asset pair in an isolated account.")
 data class IsolatedPair(
 @ApiModelProperty("Base asset.")
-var baseAsset:IsolatedAsset?=null,
+@JsonProperty("baseAsset") var baseAsset:IsolatedAsset?=null,
 @ApiModelProperty("Quote asset.")
-var quoteAsset:IsolatedAsset?=null,
+@JsonProperty("quoteAsset") var quoteAsset:IsolatedAsset?=null,
 @ApiModelProperty("Asset symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("is isolated asset created.")
-var isolatedCreated:Boolean?=null,
+@JsonProperty("isolatedCreated") var isolatedCreated:Boolean?=null,
 @ApiModelProperty("Is trading enabled?")
-var tradeEnabled:Boolean?=null,
+@JsonProperty("tradeEnabled") var tradeEnabled:Boolean?=null,
 @ApiModelProperty("Is the pair enabled for the account?")
-var enabled:Boolean?=null,
+@JsonProperty("enabled") var enabled:Boolean?=null,
 @ApiModelProperty("Margin level status.")
-var marginLevelStatus:String?=null,
+@JsonProperty("marginLevelStatus") var marginLevelStatus:String?=null,
 @ApiModelProperty("Margin level.")
-var marginLevel:String?=null,
+@JsonProperty("marginLevel") var marginLevel:String?=null,
 @ApiModelProperty("Margin ratio.")
-var marginRatio:String?=null,
+@JsonProperty("marginRatio") var marginRatio:String?=null,
 @ApiModelProperty("Index price.")
-var indexPrice:String?=null,
+@JsonProperty("indexPrice") var indexPrice:String?=null,
 @ApiModelProperty("Liquidate price.")
-var liquidatePrice:String?=null,
+@JsonProperty("liquidatePrice") var liquidatePrice:String?=null,
 @ApiModelProperty("Liquidate rate.")
-var liquidateRate:String?=null)
+@JsonProperty("liquidateRate") var liquidateRate:String?=null)
 {
 }

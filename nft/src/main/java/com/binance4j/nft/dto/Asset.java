@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("NFT asset.")
 data class Asset(
 @ApiModelProperty("NFT Network.")
-var network:String?=null,
+@JsonProperty("network") var network:String?=null,
 @ApiModelProperty("NFT Contract Address.")
-var contractAddress:String?=null,
+@JsonProperty("contractAddress") var contractAddress:String?=null,
 @ApiModelProperty("NFT Token ID.")
-var tokenId:String?=null)
+@JsonProperty("tokenId") var tokenId:String?=null)
 {
 }

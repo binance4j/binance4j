@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Collaterate rate info.")
 data class CollaterateRateInfo(
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Collateral rate.")
-var collateralRate:String?=null)
+@JsonProperty("collateralRate") var collateralRate:String?=null)
 {
 }

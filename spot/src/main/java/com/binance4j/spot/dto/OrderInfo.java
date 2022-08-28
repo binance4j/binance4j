@@ -30,42 +30,42 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Trade order information.")
 data class OrderInfo(
 @ApiModelProperty("The order side.")
-var side:String?=null,
+@JsonProperty("side") var side:String?=null,
 @ApiModelProperty("Price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Original quantity.")
-var origQty:String?=null,
+@JsonProperty("origQty") var origQty:String?=null,
 @ApiModelProperty("Original quantity.")
-var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty:String?=null,
 @ApiModelProperty("Used to calculate the average price.")
-var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
 @ApiModelProperty("Order status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Time in force to indicate how long will the order remain active.")
-var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce:String?=null,
 @ApiModelProperty("Type of order.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Used with stop orders.")
-var stopPrice:String?=null,
+@JsonProperty("stopPrice") var stopPrice:String?=null,
 @ApiModelProperty("Used with iceberg orders.")
-var icebergQty:String?=null,
+@JsonProperty("icebergQty") var icebergQty:String?=null,
 @ApiModelProperty("Order timestamp.")
-var time:Long?=null,
+@JsonProperty("time") var time:Long?=null,
 @ApiModelProperty("Update timestamp.")
-var updateTime:Long?=null,
+@JsonProperty("updateTime") var updateTime:Long?=null,
 @ApiModelProperty("Original quote order quantity.")
-var origQuoteOrderQty:String?=null,
+@JsonProperty("origQuoteOrderQty") var origQuoteOrderQty:String?=null,
 @ApiModelProperty("is working.")
-var isWorking:Boolean?=null,
+@JsonProperty("isWorking") var isWorking:Boolean?=null,
 @ApiModelProperty("The order symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Order id.")
-var orderId:Long?=null,
+@JsonProperty("orderId") var orderId:Long?=null,
 @ApiModelProperty("Client order id.")
-var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId:String?=null,
 @ApiModelProperty("Order list id.")
-var orderListId:String?=null,
+@JsonProperty("orderListId") var orderListId:String?=null,
 @ApiModelProperty("Account id.")
-var accountId:String?=null)
+@JsonProperty("accountId") var accountId:String?=null)
 {
 }

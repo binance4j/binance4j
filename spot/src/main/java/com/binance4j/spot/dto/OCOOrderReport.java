@@ -24,32 +24,32 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("OCO order report.")
 data class OCOOrderReport(
 @ApiModelProperty("Symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Order Id.")
-var orderId:Long?=null,
+@JsonProperty("orderId") var orderId:Long?=null,
 @ApiModelProperty("Order List Id.")
-var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId:Long?=null,
 @ApiModelProperty("Client Order Id.")
-var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId:String?=null,
 @ApiModelProperty("Transact Time.")
-var transactTime:Long?=null,
+@JsonProperty("transactTime") var transactTime:Long?=null,
 @ApiModelProperty("Price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Original Quantity.")
-var origQty:String?=null,
+@JsonProperty("origQty") var origQty:String?=null,
 @ApiModelProperty("Executed Quantity.")
-var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty:String?=null,
 @ApiModelProperty("Cummulative Quote Quantity.")
-var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
 @ApiModelProperty("Status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Time In Force.")
-var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce:String?=null,
 @ApiModelProperty("Type.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Side.")
-var side:String?=null,
+@JsonProperty("side") var side:String?=null,
 @ApiModelProperty("StopPrice.")
-var stopPrice:String?=null)
+@JsonProperty("stopPrice") var stopPrice:String?=null)
 {
 }

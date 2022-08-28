@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Wraps a symbol and its corresponding latest price.")
 data class PriceTicker(
 @ApiModelProperty("Ticker symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Latest price.")
-var price:String?=null)
+@JsonProperty("price") var price:String?=null)
 {
 }

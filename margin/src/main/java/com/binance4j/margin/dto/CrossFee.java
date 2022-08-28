@@ -20,11 +20,11 @@ import io.swagger.annotations.ApiModelProperty;
  * @property marginablePairs Bound pairs.
  */
 @ApiModel("Cross margin fee data collection")
-data class CrossFee(@ApiModelProperty("User's VIP level.") int vipLevel, @ApiModelProperty("Coin name.") var coin : String? = null,
-		@ApiModelProperty("Borrow limit.") var borrowLimit : String? = null,
-		@ApiModelProperty("Daily interest.") var dailyInterest : String? = null,
-		@ApiModelProperty("Yearly interest.") var yearlyInterest : String? = null,
-		@ApiModelProperty("Is it borrowable?") var borrowable : Boolean? = null,
-		@ApiModelProperty("Is internal transfer allowed?") var transferIn : Boolean? = null,
+data class CrossFee(@ApiModelProperty("User's VIP level.") int vipLevel, @ApiModelProperty("Coin name.") @JsonProperty("coin ") var coin : String? = null,
+		@ApiModelProperty("Borrow limit.") @JsonProperty("borrowLimit ") var borrowLimit : String? = null,
+		@ApiModelProperty("Daily interest.") @JsonProperty("dailyInterest ") var dailyInterest : String? = null,
+		@ApiModelProperty("Yearly interest.") @JsonProperty("yearlyInterest ") var yearlyInterest : String? = null,
+		@ApiModelProperty("Is it borrowable?") @JsonProperty("borrowable ") var borrowable : Boolean? = null,
+		@ApiModelProperty("Is internal transfer allowed?") @JsonProperty("transferIn ") var transferIn : Boolean? = null,
 		@ApiModelProperty("Bound pairs.") List<String> marginablePairs) {
 }

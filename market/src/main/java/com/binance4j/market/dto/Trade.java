@@ -17,17 +17,17 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An executed trade history item.")
 data class Trade(
 @ApiModelProperty("Trade id.")
-var id:Long?=null,
+@JsonProperty("id") var id:Long?=null,
 @ApiModelProperty("Trad price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Trade volume.")
-var qty:String?=null,
+@JsonProperty("qty") var qty:String?=null,
 @ApiModelProperty("Trade opposite volume.")
-var quoteQty:String?=null,
+@JsonProperty("quoteQty") var quoteQty:String?=null,
 @ApiModelProperty("Trade execution in ms.")
-var time:Long?=null,
+@JsonProperty("time") var time:Long?=null,
 @ApiModelProperty("Is the trade a buyer maker trade.")
-var isBuyerMaker:Boolean?=null,
-@ApiModelProperty("Was the trade the best price match?") var isBestMatch:Boolean?=null)
+@JsonProperty("isBuyerMaker") var isBuyerMaker:Boolean?=null,
+@ApiModelProperty("Was the trade the best price match?") @JsonProperty("isBestMatch") var isBestMatch:Boolean?=null)
 {
 }

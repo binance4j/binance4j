@@ -24,6 +24,7 @@
 
 package com.binance4j.core.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -31,18 +32,14 @@ import io.swagger.annotations.ApiModelProperty
  * Requests and orders rate limit.
  *
  * @property rateLimitType Rate limit type.
- * @property interval      Limit interval type.
- * @property intervalNum   Limit interval number.
- * @property limit         Limit for the given interval.
+ * @property interval Limit interval type.
+ * @property intervalNum Limit interval number.
+ * @property limit Limit for the given interval.
  */
 @ApiModel("Requests and orders rate limit.")
 data class RateLimit(
-    @ApiModelProperty("The rate limit type.")
-    var rateLimitType: String? = null,
-    @ApiModelProperty("The limit interval type.")
-    var interval: String? = null,
-    @ApiModelProperty("The limit interval number.")
-    var intervalNum: Int? = null,
-    @ApiModelProperty("The limit for the given interval.")
-    var limit: Int? = null
+    @ApiModelProperty("The rate limit type.") @JsonProperty("rateLimitType") var rateLimitType: String? = null,
+    @ApiModelProperty("The limit interval type.") @JsonProperty("interval") var interval: String? = null,
+    @ApiModelProperty("The limit interval number.") @JsonProperty("intervalNum") var intervalNum: Int? = null,
+    @ApiModelProperty("The limit for the given interval.") @JsonProperty("limit") var limit: Int? = null
 )

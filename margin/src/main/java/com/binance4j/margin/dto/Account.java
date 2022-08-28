@@ -19,11 +19,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("The authenticated margin account.")
 data class Account(@ApiModelProperty("User assets.") List<AssetBalance> userAssets,
-		@ApiModelProperty("Margin level.") var marginLevel : String? = null,
-		@ApiModelProperty("Total asset of Bitcoin.") var totalAssetOfBtc : String? = null,
-		@ApiModelProperty("Total liability of Bitcoin.") var totalLiabilityOfBtc : String? = null,
-		@ApiModelProperty("Total net asset of Bitcoin.") var totalNetAssetOfBtc : String? = null,
-		@ApiModelProperty("Is borrow enabled?") var borrowEnabled : Boolean? = null,
-		@ApiModelProperty("Is trade enabled?") var tradeEnabled : Boolean? = null,
-		@ApiModelProperty("Is transfer Enabled?") var transferEnabled : Boolean? = null) {
+		@ApiModelProperty("Margin level.") @JsonProperty("marginLevel ") var marginLevel : String? = null,
+		@ApiModelProperty("Total asset of Bitcoin.") @JsonProperty("totalAssetOfBtc ") var totalAssetOfBtc : String? = null,
+		@ApiModelProperty("Total liability of Bitcoin.") @JsonProperty("totalLiabilityOfBtc ") var totalLiabilityOfBtc : String? = null,
+		@ApiModelProperty("Total net asset of Bitcoin.") @JsonProperty("totalNetAssetOfBtc ") var totalNetAssetOfBtc : String? = null,
+		@ApiModelProperty("Is borrow enabled?") @JsonProperty("borrowEnabled ") var borrowEnabled : Boolean? = null,
+		@ApiModelProperty("Is trade enabled?") @JsonProperty("tradeEnabled ") var tradeEnabled : Boolean? = null,
+		@ApiModelProperty("Is transfer Enabled?") @JsonProperty("transferEnabled ") var transferEnabled : Boolean? = null) {
 }

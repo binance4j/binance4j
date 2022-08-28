@@ -24,28 +24,30 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Margin account snapshot data.
  *
- * @property marginLevel         Margin level.
- * @property totalAssetOfBtc     Total Asset Of Btc.
+ * @property marginLevel Margin level.
+ * @property totalAssetOfBtc Total Asset Of Btc.
  * @property totalLiabilityOfBtc Total Liability Of Btc.
- * @property totalNetAssetOfBtc  Total Net Asset Of Btc.
- * @property userAssets          User Assets.
+ * @property totalNetAssetOfBtc Total Net Asset Of Btc.
+ * @property userAssets User Assets.
  */
 @ApiModel("Margin account snapshot data.")
 data class MarginAccountSnapshotData(
-    @ApiModelProperty("Margin level.")
-    var marginLevel: String? = null,
-    @ApiModelProperty("Total Asset Of Btc.")
-    var totalAssetOfBtc: String? = null,
+    @ApiModelProperty("Margin level.") @JsonProperty("marginLevel") var marginLevel: String? = null,
+    @ApiModelProperty("Total Asset Of Btc.") @JsonProperty("totalAssetOfBtc") var totalAssetOfBtc: String? = null,
     @ApiModelProperty("Total Liability Of Btc.")
+    @JsonProperty
     var totalLiabilityOfBtc: String? = null,
     @ApiModelProperty("Total Net Asset Of Btc.")
+    @JsonProperty
     var totalNetAssetOfBtc: String? = null,
     @ApiModelProperty("User Assets.")
+    @JsonProperty
     var userAssets: List<MarginAccountSnapshotUserAssets>? = null
 )

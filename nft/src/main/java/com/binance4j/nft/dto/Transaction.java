@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("NFT transaction.")
 data class Transaction(
 		@ApiModelProperty("Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee") String orderNo,
-		@ApiModelProperty("Tokens.") List<NFT> tokens, @ApiModelProperty("Trade time in ms.") var tradeTime : Long? = null,
-		@ApiModelProperty("Trade amount.") var tradeAmount : String? = null,
-		@ApiModelProperty("Currency used to buy the NFT.") var tradeCurrency : String? = null) {
+		@ApiModelProperty("Tokens.") List<NFT> tokens, @ApiModelProperty("Trade time in ms.") @JsonProperty("tradeTime ") var tradeTime : Long? = null,
+		@ApiModelProperty("Trade amount.") @JsonProperty("tradeAmount ") var tradeAmount : String? = null,
+		@ApiModelProperty("Currency used to buy the NFT.") @JsonProperty("tradeCurrency ") var tradeCurrency : String? = null) {
 }

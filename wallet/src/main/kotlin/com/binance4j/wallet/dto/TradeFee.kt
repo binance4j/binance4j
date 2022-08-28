@@ -24,23 +24,24 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A trading pair trade fees.
  *
- * @property symbol          Trading pair.
+ * @property symbol Trading pair.
  * @property makerCommission Maker fees (limit order).
  * @property takerCommission Taker fees (market order).
  */
 @ApiModel("A trading pair trade fees.")
 data class TradeFee(
-    @ApiModelProperty("Trading pair.")
-    var symbol: String? = null,
+    @ApiModelProperty("Trading pair.") @JsonProperty("symbol") var symbol: String? = null,
     @ApiModelProperty("Maker fees (limit order).")
+    @JsonProperty
     var makerCommission: String? = null,
     @ApiModelProperty("Taker fees (market order).")
+    @JsonProperty
     var takerCommission: String? = null
 )
-

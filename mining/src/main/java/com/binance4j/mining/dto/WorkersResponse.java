@@ -15,10 +15,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Workers data wrapper.")
 data class WorkersResponse(
 @ApiModelProperty("Response code.")
-var code:int?=null,
+@JsonProperty("code") var code:int?=null,
 @ApiModelProperty("Response message.")
-var msg:String?=null,
+@JsonProperty("msg") var msg:String?=null,
 @ApiModelProperty("Response data.")
-var data:WorkersData?=null)
+@JsonProperty("data") var data:WorkersData?=null)
 {
 }

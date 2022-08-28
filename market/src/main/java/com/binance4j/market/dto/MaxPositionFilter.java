@@ -14,6 +14,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("he maximum allowed position an account can have on the base asset of a symbol.")
 data class MaxPositionFilter(
 @ApiModelProperty("Max positions allowed.")
-var maxPosition:String?=null)
+@JsonProperty("maxPosition") var maxPosition:String?=null)
 {
 }

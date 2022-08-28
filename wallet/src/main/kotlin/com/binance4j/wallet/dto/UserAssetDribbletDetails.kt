@@ -24,31 +24,26 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Dust log details.
  *
- * @property transId             Transaction id.
- * @property operateTime         Timestamp.
+ * @property transId Transaction id.
+ * @property operateTime Timestamp.
  * @property serviceChargeAmount Fees.
- * @property amount              Volume.
- * @property transferedAmount    Transferred amount.
- * @property fromAsset           Transferred asset.
+ * @property amount Volume.
+ * @property transferedAmount Transferred amount.
+ * @property fromAsset Transferred asset.
  */
 @ApiModel("Dust log details.")
 data class UserAssetDribbletDetails(
-    @ApiModelProperty("Transaction id.")
-    var transId: Long? = null,
-    @ApiModelProperty("Timestamp.")
-    var operateTime: Long? = null,
-    @ApiModelProperty("Fees.")
-    var serviceChargeAmount: String? = null,
-    @ApiModelProperty("Volume.")
-    var amount: String? = null,
-    @ApiModelProperty("Transferred amount.")
-    var transferedAmount: String? = null,
-    @ApiModelProperty("Transferred asset.")
-    var fromAsset: String? = null
+    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long? = null,
+    @ApiModelProperty("Timestamp.") @JsonProperty("operateTime") var operateTime: Long? = null,
+    @ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount") var serviceChargeAmount: String? = null,
+    @ApiModelProperty("Volume.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Transferred amount.") @JsonProperty("transferedAmount") var transferedAmount: String? = null,
+    @ApiModelProperty("Transferred asset.") @JsonProperty("fromAsset") var fromAsset: String? = null
 )

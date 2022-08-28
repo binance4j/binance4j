@@ -13,5 +13,5 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Isolated margin transfer records.")
 data class IsolatedTransferRecords(@ApiModelProperty("Transfers.") List<IsolatedTransferRecord> rows,
-		@ApiModelProperty("Total records.") var total : Int? = null) {
+		@ApiModelProperty("Total records.") @JsonProperty("total ") var total : Int? = null) {
 }

@@ -24,19 +24,22 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * The account snapshot data.
  *
- * @property assets   Assets balances.
+ * @property assets Assets balances.
  * @property position Account snapshot position.
  */
 @ApiModel("The account snapshot data.")
 data class FuturesSnapshotData(
     @ApiModelProperty("Assets balances.")
+    @JsonProperty
     var assets: List<FuturesSnapshotDataAssets>? = null,
     @ApiModelProperty("Account snapshot position.")
+    @JsonProperty
     var position: List<FuturesAccountSnapshotPosition>? = null
 )

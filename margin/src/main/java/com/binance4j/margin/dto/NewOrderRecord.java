@@ -33,34 +33,34 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An newly placed order record.")
 data class NewOrderRecord(
 @ApiModelProperty("Order id.")
-var orderId:Long?=null,
+@JsonProperty("orderId") var orderId:Long?=null,
 @ApiModelProperty("Traded symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Order side.")
-var side:OrderSide?=null,
+@JsonProperty("side") var side:OrderSide?=null,
 @ApiModelProperty("Order status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Order type.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Order time in force.")
-var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce:String?=null,
 @ApiModelProperty("Transaction time.")
-var transactTime:Long?=null,
+@JsonProperty("transactTime") var transactTime:Long?=null,
 @ApiModelProperty("Client order id.")
-var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId:String?=null,
 @ApiModelProperty("Symbol price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Order original quantity.")
-var origQty:String?=null,
+@JsonProperty("origQty") var origQty:String?=null,
 @ApiModelProperty("Order executed quantity.")
-var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty:String?=null,
 @ApiModelProperty("Cumulative quote quantity.")
-var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
 @ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") String marginBuyBorrowAmount,
 @ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
 String marginBuyBorrowAsset,
 @ApiModelProperty("Is the order isolated?")
-var isIsolated:Boolean?=null,
+@JsonProperty("isIsolated") var isIsolated:Boolean?=null,
 @ApiModelProperty("Filled trades.")
 List<Trade> fills)
 {

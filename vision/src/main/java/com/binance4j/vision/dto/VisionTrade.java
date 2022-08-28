@@ -18,19 +18,19 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A trade.")
 data class VisionTrade(@ApiModelProperty("Trade id.")
-var tradeId:Long?=null,
+@JsonProperty("tradeId") var tradeId:Long?=null,
 @ApiModelProperty("Time in ms.")
-var time:Long?=null,
+@JsonProperty("time") var time:Long?=null,
 @ApiModelProperty("Price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Quantity.")
-var quantity:String?=null,
+@JsonProperty("quantity") var quantity:String?=null,
 @ApiModelProperty("Quote quantity.")
-var quoteQuantity:String?=null,
+@JsonProperty("quoteQuantity") var quoteQuantity:String?=null,
 @ApiModelProperty("Was it a buyer maker.")
-var isBuyerMaker:Boolean?=null,
+@JsonProperty("isBuyerMaker") var isBuyerMaker:Boolean?=null,
 @ApiModelProperty("Was it the best price match?")
-var isBestMatch:Boolean?=null)
+@JsonProperty("isBestMatch") var isBestMatch:Boolean?=null)
 {
 
 	/**

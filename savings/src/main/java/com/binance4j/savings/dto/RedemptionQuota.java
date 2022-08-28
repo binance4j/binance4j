@@ -14,12 +14,12 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Flexible redemption quota.")
 data class RedemptionQuota(
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Daily quota.")
-var dailyQuota:String?=null,
+@JsonProperty("dailyQuota") var dailyQuota:String?=null,
 @ApiModelProperty("Left quota.")
-var leftQuota:String?=null,
+@JsonProperty("leftQuota") var leftQuota:String?=null,
 @ApiModelProperty("Min redemption amount.")
-var minRedemptionAmount:String?=null)
+@JsonProperty("minRedemptionAmount") var minRedemptionAmount:String?=null)
 {
 }

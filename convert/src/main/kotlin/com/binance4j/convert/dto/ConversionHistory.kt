@@ -24,28 +24,38 @@
 
 package com.binance4j.convert.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Conversions history.
  *
- * @param list      Conversions.
+ * @param list Conversions.
  * @param startTime Start time in ms.
- * @param endTime   End time in ms.
- * @param limit     Results limit.
- * @param moreData  Is there more data?
+ * @param endTime End time in ms.
+ * @param limit Results limit.
+ * @param moreData Is there more data?
  */
 @ApiModel("Conversions history.")
 data class ConversionHistory(
     @ApiModelProperty("The conversions.")
+    @JsonProperty("list")
     var list: List<Conversion>? = null,
+
     @ApiModelProperty("Start time in ms.")
+    @JsonProperty("startTime")
     var startTime: Long? = null,
+
     @ApiModelProperty("End time in ms.")
+    @JsonProperty("endTime")
     var endTime: Long? = null,
+
     @ApiModelProperty("Results limit.")
+    @JsonProperty("limit")
     var limit: Int? = null,
+
     @ApiModelProperty("Is there more data?")
+    @JsonProperty("moreData")
     var moreData: Boolean? = null
 )

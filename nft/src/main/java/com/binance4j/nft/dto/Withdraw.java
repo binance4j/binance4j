@@ -17,18 +17,18 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("NFT Withdraw.")
 data class Withdraw(
 @ApiModelProperty("NFT Network.")
-var network:String?=null,
+@JsonProperty("network") var network:String?=null,
 @ApiModelProperty("NFT Contract Address.")
-var contractAddress:String?=null,
+@JsonProperty("contractAddress") var contractAddress:String?=null,
 @ApiModelProperty("NFT Token ID.")
-var tokenId:String?=null,
+@JsonProperty("tokenId") var tokenId:String?=null,
 @ApiModelProperty("Transaction ID.")
-var txID:String?=null,
+@JsonProperty("txID") var txID:String?=null,
 @ApiModelProperty("Deposit time in ms.")
-var timestamp:Long?=null,
+@JsonProperty("timestamp") var timestamp:Long?=null,
 @ApiModelProperty("Withdraw fee.")
-var fee:String?=null,
+@JsonProperty("fee") var fee:String?=null,
 @ApiModelProperty("Fee asset.")
-var feeAsset:String?=null)
+@JsonProperty("feeAsset") var feeAsset:String?=null)
 {
 }

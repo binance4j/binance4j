@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Margin portfolio account infos.")
 data class AccountInfo(
 @ApiModelProperty("Portfolio margin account maintenance margin rate")
-var uniMMR:String?=null,
+@JsonProperty("uniMMR") var uniMMR:String?=null,
 @ApiModelProperty("Account equity, unit：USD") String accountEquity,
 @ApiModelProperty("Portfolio margin account maintenance margin, unit：USD")
 String accountMaintMargin,

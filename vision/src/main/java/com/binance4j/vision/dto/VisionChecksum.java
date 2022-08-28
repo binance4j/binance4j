@@ -11,5 +11,5 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A file checksum.")
 data class VisionChecksum(@ApiModelProperty("MD5 checksum.") String checksum,
-		@ApiModelProperty("File name.") var fileName : String? = null) {
+		@ApiModelProperty("File name.") @JsonProperty("fileName ") var fileName : String? = null) {
 }

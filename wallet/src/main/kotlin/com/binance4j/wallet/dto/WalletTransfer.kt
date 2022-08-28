@@ -24,31 +24,29 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * A wallet to wallet transfer.
  *
- * @property asset     Transferred asset.
- * @property amount    Transferred amount.
- * @property type      Transfer type (origin wallet to destination wallet).
- * @property status    Transfer status.
- * @property tranId    Transaction id.
+ * @property asset Transferred asset.
+ * @property amount Transferred amount.
+ * @property type Transfer type (origin wallet to destination wallet).
+ * @property status Transfer status.
+ * @property tranId Transaction id.
  * @property timestamp Transfer timestamp.
  * @see WalletTransferType
  */
 @ApiModel("A wallet to wallet transfer.")
 data class WalletTransfer(
-    @ApiModelProperty("Transferred asset.")
-    var asset: String? = null,
-    @ApiModelProperty("Transferred amount.")
-    var amount: String? = null,
-    @ApiModelProperty("Transfer type (origin wallet to destination wallet).") var type: String? = null,
-    @ApiModelProperty("Transfer status.")
-    var status: String? = null,
-    @ApiModelProperty("Transaction id.")
-    var tranId: Long? = null,
-    @ApiModelProperty("Transfer timestamp.") var timestamp: Long? = null
+    @ApiModelProperty("Transferred asset.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Transferred amount.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Transfer type (origin wallet to destination wallet).")
+    @JsonProperty
+    var type: String? = null,
+    @ApiModelProperty("Transfer status.") @JsonProperty("status") var status: String? = null,
+    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long? = null,
+    @ApiModelProperty("Transfer timestamp.") @JsonProperty("timestamp") var timestamp: Long? = null
 )
-

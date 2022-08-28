@@ -24,35 +24,30 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Asset that can be converted into BNB.
  *
- * @property asset            Asset name.
- * @property assetFullName    Asset full name.
- * @property amountFree       Free balance.
- * @property toBTC            BTC valuation.
- * @property toBNB            BNB valuation.
+ * @property asset Asset name.
+ * @property assetFullName Asset full name.
+ * @property amountFree Free balance.
+ * @property toBTC BTC valuation.
+ * @property toBNB BNB valuation.
  * @property toBNBOffExchange BNB valuation commissions fees deducted.
- * @property exchange         Commission fees.
+ * @property exchange Commission fees.
  */
 @ApiModel("Asset that can be converted into BNB.")
 data class ConvertibleAsset(
-    @ApiModelProperty("Asset name.")
-    var asset: String? = null,
-    @ApiModelProperty("Asset full name.")
-    var assetFullName: String? = null,
-    @ApiModelProperty("Free balance.")
-    var amountFree: String? = null,
-    @ApiModelProperty("BTC valuation.")
-    var toBTC: String? = null,
-    @ApiModelProperty("BNB valuation.")
-    var toBNB: String? = null,
+    @ApiModelProperty("Asset name.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Asset full name.") @JsonProperty("assetFullName") var assetFullName: String? = null,
+    @ApiModelProperty("Free balance.") @JsonProperty("amountFree") var amountFree: String? = null,
+    @ApiModelProperty("BTC valuation.") @JsonProperty("toBTC") var toBTC: String? = null,
+    @ApiModelProperty("BNB valuation.") @JsonProperty("toBNB") var toBNB: String? = null,
     @ApiModelProperty("BNB valuation commissions fees deducted.")
+    @JsonProperty
     var toBNBOffExchange: String? = null,
-    @ApiModelProperty("Commission fees.")
-    var exchange: String? = null
+    @ApiModelProperty("Commission fees.") @JsonProperty("exchange") var exchange: String? = null
 )
-

@@ -14,12 +14,12 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Position Amount.")
 data class PositionAmount(
 @ApiModelProperty("Amount.")
-var amount:String?=null,
+@JsonProperty("amount") var amount:String?=null,
 @ApiModelProperty("Amount in BTC.")
-var amountInBTC:String?=null,
+@JsonProperty("amountInBTC") var amountInBTC:String?=null,
 @ApiModelProperty("Amount in USDT.")
-var amountInUSDT:String?=null,
+@JsonProperty("amountInUSDT") var amountInUSDT:String?=null,
 @ApiModelProperty("Asset.")
-var asset:String?=null)
+@JsonProperty("asset") var asset:String?=null)
 {
 }

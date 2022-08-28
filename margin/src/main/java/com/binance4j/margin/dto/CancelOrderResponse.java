@@ -24,31 +24,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The CancelOrder request result.")
 data class CancelOrderResponse(
 @ApiModelProperty("Status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Side.")
-var side:String?=null,
+@JsonProperty("side") var side:String?=null,
 @ApiModelProperty("Type.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Time in force.")
-var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce:String?=null,
 @ApiModelProperty("Order id.")
-var orderId:Long?=null,
+@JsonProperty("orderId") var orderId:Long?=null,
 @ApiModelProperty("Order list id.")
-var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId:Long?=null,
 @ApiModelProperty("Symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Orig client order id.")
-var origClientOrderId:String?=null,
+@JsonProperty("origClientOrderId") var origClientOrderId:String?=null,
 @ApiModelProperty("Client order id.")
-var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId:String?=null,
 @ApiModelProperty("Executed quantity.")
-var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty:String?=null,
 @ApiModelProperty("Price.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Original quantity.")
-var origQty:String?=null,
+@JsonProperty("origQty") var origQty:String?=null,
 @ApiModelProperty("Cummulative quote quantity.")
-var cummulativeQuoteQty:String?=null,
-@ApiModelProperty("Is isolated.") var isIsolated:Boolean?=null)
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
+@ApiModelProperty("Is isolated.") @JsonProperty("isIsolated") var isIsolated:Boolean?=null)
 {
 }

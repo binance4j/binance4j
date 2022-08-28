@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Sorting.")
 data class Sorting(@ApiModelProperty("Project sorting.")
-var sortBy:String?=null,
+@JsonProperty("sortBy") var sortBy:String?=null,
 @ApiModelProperty("Sort ascending. Default: true.")
 Boolean isSortAsc):Params
 {

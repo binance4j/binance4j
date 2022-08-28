@@ -24,29 +24,38 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Dribblets.
  *
- * @property operateTime              Operation timestamp.
- * @property totalTransferedAmount    Total transfered BNB amount for this
+ * @property operateTime Operation timestamp.
+ * @property totalTransferedAmount Total transfered BNB amount for this
+ * ```
  *                                 exchange.
- * @property totalServiceChargeAmount Total service charge amount for this
+ * @property totalServiceChargeAmount
+ * ```
+ * Total service charge amount for this
+ * ```
  *                                 exchange.
- * @property transId                  Transaction id.
+ * @property transId
+ * ```
+ * Transaction id.
  * @property userAssetDribbletDetails Details of this exchange.
  */
 @ApiModel("Dribblets.")
 data class UserAssetDribblets(
-    @ApiModelProperty("Operation timestamp.")
-    var operateTime: Long? = null,
+    @ApiModelProperty("Operation timestamp.") @JsonProperty("operateTime") var operateTime: Long? = null,
     @ApiModelProperty("Total transfered BNB amount for this exchange.")
+    @JsonProperty
     var totalTransferedAmount: String? = null,
     @ApiModelProperty("Total service charge amount for this exchange.")
+    @JsonProperty
     var totalServiceChargeAmount: String? = null,
-    @ApiModelProperty("Transaction id.")
-    var transId: Long? = null,
-    @ApiModelProperty("Details of this exchange.") var userAssetDribbletDetails: List<UserAssetDribbletDetails>? = null
+    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long? = null,
+    @ApiModelProperty("Details of this exchange.")
+    @JsonProperty
+    var userAssetDribbletDetails: List<UserAssetDribbletDetails>? = null
 )

@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Funds detail.")
 data class FundsDetail(
 @ApiModelProperty("Asset.")
-var currency:String?=null,
+@JsonProperty("currency") var currency:String?=null,
 @ApiModelProperty("Amount.")
-var amount:String?=null)
+@JsonProperty("amount") var amount:String?=null)
 {
 }

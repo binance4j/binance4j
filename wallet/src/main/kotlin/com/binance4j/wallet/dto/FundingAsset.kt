@@ -24,33 +24,35 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * The Funding Wallet balance reflects a user's total crypto balance from P2P
- * buy/sell orders, Binance Payment, Binance
- * Card and Crypto Deposit/Withdrawal.
+ * The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders,
+ * Binance Payment, Binance Card and Crypto Deposit/Withdrawal.
  *
- * @property asset        Asset abbreviation.
- * @property free         Available balance.
- * @property locked       Locked balance (volume in the order book).
- * @property freeze       Frozen balance.
- * @property withdrawing  Pending volume withdrawing.
+ * @property asset Asset abbreviation.
+ * @property free Available balance.
+ * @property locked Locked balance (volume in the order book).
+ * @property freeze Frozen balance.
+ * @property withdrawing Pending volume withdrawing.
  * @property btcValuation Value of the balance in BTC.
  */
-@ApiModel("The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders, Binance Payment, Binance Card and Crypto Deposit/Withdrawal.")
+@ApiModel(
+    "The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders, Binance Payment, Binance Card and Crypto Deposit/Withdrawal."
+)
 data class FundingAsset(
-    @ApiModelProperty("Asset abbreviation.")
-    var asset: String? = null,
-    @ApiModelProperty("Available balance.")
-    var free: String? = null,
+    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Available balance.") @JsonProperty("free") var free: String? = null,
     @ApiModelProperty("Locked balance (volume in the order book).")
+    @JsonProperty
     var locked: String? = null,
-    @ApiModelProperty("Frozen balance.")
-    var freeze: String? = null,
+    @ApiModelProperty("Frozen balance.") @JsonProperty("freeze") var freeze: String? = null,
     @ApiModelProperty("Pending volume withdrawing.")
+    @JsonProperty
     var withdrawing: String? = null,
     @ApiModelProperty("Value of the balance in BTC.")
+    @JsonProperty
     var btcValuation: String? = null
 )

@@ -29,31 +29,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("New order response.")
 data class NewOrderResponse(
 @ApiModelProperty("Trading pair to trade.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Order id.")
-var orderId:Long?=null,
+@JsonProperty("orderId") var orderId:Long?=null,
 @ApiModelProperty("Order list id.")
-var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId:Long?=null,
 @ApiModelProperty("Client order id.")
-var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId:String?=null,
 @ApiModelProperty("Order transaction timestamp.")
-var transactTime:Long?=null,
+@JsonProperty("transactTime") var transactTime:Long?=null,
 @ApiModelProperty("Price of trade.")
-var price:String?=null,
+@JsonProperty("price") var price:String?=null,
 @ApiModelProperty("Original traded quantity.")
-var origQty:String?=null,
+@JsonProperty("origQty") var origQty:String?=null,
 @ApiModelProperty("Current executed quantity.")
-var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty:String?=null,
 @ApiModelProperty("Opposite coin quantity.")
-var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
 @ApiModelProperty("Order status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("How long the order will remain active.")
-var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce:String?=null,
 @ApiModelProperty("Order type.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Order side.")
-var side:String?=null,
+@JsonProperty("side") var side:String?=null,
 @ApiModelProperty("List of trades that partially of fully filled the order.") List<OrderTrade> fills)
 {
 }

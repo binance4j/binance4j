@@ -17,11 +17,11 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Other profit.")
 data class OtherProfit(
 @ApiModelProperty("Mining date.")
-var time:Long?=null,
+@JsonProperty("time") var time:Long?=null,
 @ApiModelProperty("Coin Name.")
-var coinName:String?=null,
+@JsonProperty("coinName") var coinName:String?=null,
 @ApiModelProperty("Amount.")
-var type:int?=null,
+@JsonProperty("type") var type:int?=null,
 @ApiModelProperty("Status. 0: Unpaid 1: Paying 2：Paid") String profitAmount,
 @ApiModelProperty("Type.1: Merged Mining 2: Activity Bonus 3: Rebate 4: Smart Pool 6: Income Transfer 7: Pool Savings")
 int status)

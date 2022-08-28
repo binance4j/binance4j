@@ -24,14 +24,15 @@
 
 package com.binance4j.fiat.dto
 
-/** Payment type.
+/**
+ * Payment type.
  * @property value Value
- * */
-enum class PaymentType(var value: String) {
-    /** Buy.  */
+ */
+enum class PaymentType(@JsonProperty("value") var value: String) {
+    /** Buy. */
     BUY("0"),
 
-    /** Sell.  */
+    /** Sell. */
     SELL("1");
 
     override fun toString(): String {

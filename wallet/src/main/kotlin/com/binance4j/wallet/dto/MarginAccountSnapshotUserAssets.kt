@@ -24,31 +24,26 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Margin account snapshot user assets.
  *
- * @property asset    Asset abbreviation.
+ * @property asset Asset abbreviation.
  * @property borrowed Borrowed amount.
- * @property free     Fee amount.
+ * @property free Fee amount.
  * @property interest Interest amount.
- * @property locked   Locked volume.
+ * @property locked Locked volume.
  * @property netAsset Net asset.
  */
 @ApiModel("Margin account snapshot user assets.")
 data class MarginAccountSnapshotUserAssets(
-    @ApiModelProperty("Asset abbreviation.")
-    var asset: String? = null,
-    @ApiModelProperty("Borrowed amount.")
-    var borrowed: String? = null,
-    @ApiModelProperty("Fee amount.")
-    var free: String? = null,
-    @ApiModelProperty("Interest amount.")
-    var interest: String? = null,
-    @ApiModelProperty("Locked volume.")
-    var locked: String? = null,
-    @ApiModelProperty("Net asset.")
-    var netAsset: String? = null
+    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String? = null,
+    @ApiModelProperty("Borrowed amount.") @JsonProperty("borrowed") var borrowed: String? = null,
+    @ApiModelProperty("Fee amount.") @JsonProperty("free") var free: String? = null,
+    @ApiModelProperty("Interest amount.") @JsonProperty("interest") var interest: String? = null,
+    @ApiModelProperty("Locked volume.") @JsonProperty("locked") var locked: String? = null,
+    @ApiModelProperty("Net asset.") @JsonProperty("netAsset") var netAsset: String? = null
 )

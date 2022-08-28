@@ -24,22 +24,28 @@
 
 package com.binance4j.core.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * An asset balance in a wallet.
  *
- * @property asset  Asset symbol.
- * @property free   Available balance.
+ * @property asset Asset symbol.
+ * @property free Available balance.
  * @property locked Balance locked by open orders.
  */
 @ApiModel("An asset balance in a wallet.")
 data class AssetBalance(
     @ApiModelProperty("The Asset symbol.")
+    @JsonProperty("asset")
     var asset: String? = null,
+
     @ApiModelProperty("The available balance.")
+    @JsonProperty("free")
     var free: String? = null,
+
     @ApiModelProperty("The balance locked by open orders.")
+    @JsonProperty
     var locked: String? = null
 )

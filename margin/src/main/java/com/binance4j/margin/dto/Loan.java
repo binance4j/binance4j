@@ -20,14 +20,14 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An executed trade history item.")
 data class Loan(
 @ApiModelProperty("Loan status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Borrowed quantity.")
-var principal:String?=null,
+@JsonProperty("principal") var principal:String?=null,
 @ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.") Optional<String> isolatedSymbol,
 @ApiModelProperty("Related asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Loan timestamp in ms.")
-var timestamp:Long?=null,
-@ApiModelProperty("Transaction id.") var txId:Long?=null)
+@JsonProperty("timestamp") var timestamp:Long?=null,
+@ApiModelProperty("Transaction id.") @JsonProperty("txId") var txId:Long?=null)
 {
 }

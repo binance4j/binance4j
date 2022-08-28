@@ -16,10 +16,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Pay trade history.")
 data class TradeHistory(
 @ApiModelProperty("Response code.")
-var code:String?=null,
+@JsonProperty("code") var code:String?=null,
 @ApiModelProperty("Response message.")
-var message:String?=null,
+@JsonProperty("message") var message:String?=null,
 @ApiModelProperty("Trades.") List<Trade> data,
-@ApiModelProperty("Response success.") var success:Boolean?=null)
+@ApiModelProperty("Response success.") @JsonProperty("success") var success:Boolean?=null)
 {
 }

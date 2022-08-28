@@ -30,15 +30,15 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Pay transaction.")
 data class Trade(
 @ApiModelProperty("Transaction id.")
-var orderType:String?=null,
+@JsonProperty("orderType") var orderType:String?=null,
 @ApiModelProperty("Transaction time in ms.")
-var transactionId:String?=null,
+@JsonProperty("transactionId") var transactionId:String?=null,
 @ApiModelProperty("Transaction amount.")
-var transactionTime:Long?=null,
+@JsonProperty("transactionTime") var transactionTime:Long?=null,
 @ApiModelProperty("Transaction asset.")
-var amount:String?=null,
+@JsonProperty("amount") var amount:String?=null,
 @ApiModelProperty("Funds details.")
-var currency:String?=null,
+@JsonProperty("currency") var currency:String?=null,
 @ApiModelProperty("Order type. PAY: C2B Merchant Acquiring Payment. PAY_REFUND: C2B Merchant Acquiring Payment,refund. C2C: C2C Transfer Payment. CRYPTO_BOX: Crypto box. CRYPTO_BOX_RF: Crypto Box, refund. C2C_HOLDING: Transfer to new Binance user. C2C_HOLDING_RF: Transfer to new Binance user,refund. PAYOUT: B2C Disbursement Payment. ") List<FundsDetail> fundsDetail)
 {
 }

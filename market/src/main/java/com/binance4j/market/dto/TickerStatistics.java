@@ -32,26 +32,26 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("24 hour price change statistics for a ticker.")
 data class TickerStatistics(
 @ApiModelProperty("Ticker symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Price change during the last 24 hours.") String priceChange,
 @ApiModelProperty("Price change; in percentage; during the last 24 hours.")
 String priceChangePercent,
 @ApiModelProperty("Weighted average price.")
-var weightedAvgPrice:String?=null,
+@JsonProperty("weightedAvgPrice") var weightedAvgPrice:String?=null,
 @ApiModelProperty("Previous close price.")
-var prevClosePrice:String?=null,
+@JsonProperty("prevClosePrice") var prevClosePrice:String?=null,
 @ApiModelProperty("Last price.")
-var lastPrice:String?=null,
+@JsonProperty("lastPrice") var lastPrice:String?=null,
 @ApiModelProperty("Last quantity.")
-var lastQty:String?=null,
+@JsonProperty("lastQty") var lastQty:String?=null,
 @ApiModelProperty("Bid price.")
-var bidPrice:String?=null,
+@JsonProperty("bidPrice") var bidPrice:String?=null,
 @ApiModelProperty("Bid quantity.")
-var bidQty:String?=null,
+@JsonProperty("bidQty") var bidQty:String?=null,
 @ApiModelProperty("Ask price.")
-var askPrice:String?=null,
+@JsonProperty("askPrice") var askPrice:String?=null,
 @ApiModelProperty("Ask quantity.")
-var askQty:String?=null,
+@JsonProperty("askQty") var askQty:String?=null,
 @ApiModelProperty("Open price 24 hours ago.")
 String openPrice,
 @ApiModelProperty("Highest price during the past 24 hours.")
@@ -63,13 +63,13 @@ String volume,
 @ApiModelProperty("Total quote volume during the past 24 hours.")
 String quoteVolume,
 @ApiModelProperty("Open time.")
-var openTime:Long?=null,
+@JsonProperty("openTime") var openTime:Long?=null,
 @ApiModelProperty("Close time.")
-var closeTime:Long?=null,
+@JsonProperty("closeTime") var closeTime:Long?=null,
 @ApiModelProperty("First trade id.")
-var firstId:Long?=null,
+@JsonProperty("firstId") var firstId:Long?=null,
 @ApiModelProperty("Last trade id.")
-var lastId:Long?=null,
+@JsonProperty("lastId") var lastId:Long?=null,
 @ApiModelProperty("Total number of trades during the last 24 hours.")
 long count)
 {

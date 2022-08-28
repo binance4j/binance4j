@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A staking product.")
 data class Product(
 @ApiModelProperty("Project id.")
-var projectId:String?=null,
+@JsonProperty("projectId") var projectId:String?=null,
 @ApiModelProperty("Detail.")
-var detail:ProductDetail?=null,
+@JsonProperty("detail") var detail:ProductDetail?=null,
 @ApiModelProperty("Quota.")
-var quota:ProductQuota?=null)
+@JsonProperty("quota") var quota:ProductQuota?=null)
 {
 }

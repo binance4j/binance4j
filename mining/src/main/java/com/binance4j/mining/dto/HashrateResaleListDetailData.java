@@ -14,6 +14,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Hashrate detail data.")
 data class HashrateResaleListDetailData(
-		@ApiModelProperty("Config details.") List<HashrateResaleListDetail> configDetails,
-		@ApiModelProperty("Total amount.") var totalNum : Long? = null, @ApiModelProperty("Rows per page.") var pageSize : Long? = null) {
+@ApiModelProperty("Config details.")
+List<HashrateResaleListDetail> configDetails,
+@ApiModelProperty("Total amount.") @JsonProperty("totalNum : Long? = null, @ApiModelProperty("Rows per page.") var pageSize ")
+var totalNum:Long?=null,
+@ApiModelProperty("Rows per page.")
+var pageSize:Long?=null)
+{
 }

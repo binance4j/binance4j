@@ -15,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Miner details.")
 data class MinerDetails(
 @ApiModelProperty("Mining Account name.")
-var workerName:String?=null,
+@JsonProperty("workerName") var workerName:String?=null,
 @ApiModelProperty("Type of hourly hashrate.")
-var type:String?=null,
+@JsonProperty("type") var type:String?=null,
 @ApiModelProperty("Hashrate datas") List<HashrateData> hashrateDatas)
 {
 }

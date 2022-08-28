@@ -12,6 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A wrapper for the listen key.")
 data class ListenKey(
 @ApiModelProperty("Key used to open a user data stream.")
-var listenKey:String?=null)
+@JsonProperty("listenKey") var listenKey:String?=null)
 {
 }

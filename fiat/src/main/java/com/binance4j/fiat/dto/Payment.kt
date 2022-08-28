@@ -30,37 +30,29 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * A fiat payment.
  *
- * @property orderNo        Order No.
- * @property sourceAmount   Fiat trade amount.
- * @property fiatCurrency   Fiat token.
- * @property obtainAmount   Crypto trade amount.
+ * @property orderNo Order No.
+ * @property sourceAmount Fiat trade amount.
+ * @property fiatCurrency Fiat token.
+ * @property obtainAmount Crypto trade amount.
  * @property cryptoCurrency Crypto token.
- * @property totalFee       Trade fee.
- * @property price          Price.
- * @property status         Status: {@code Processing}, {@code Completed}, {@code Failed}, {@code Refunded}.
- * @property createTime     Create time in ms.
- * @property updateTime     Update time in ms.
+ * @property totalFee Trade fee.
+ * @property price Price.
+ * @property status Status: {@code Processing}, {@code Completed}, {@code Failed}, {@code Refunded}.
+ * @property createTime Create time in ms.
+ * @property updateTime Update time in ms.
  */
 @ApiModel("A fiat payment.")
 data class Payment(
-    @ApiModelProperty("Order No.")
-    var orderNo: String? = null,
-    @ApiModelProperty("Fiat trade amount.")
-    var sourceAmount: String? = null,
-    @ApiModelProperty("Fiat token.")
-    var fiatCurrency: String? = null,
-    @ApiModelProperty("Crypto trade amount.")
-    var obtainAmount: String? = null,
-    @ApiModelProperty("Crypto token.")
-    var cryptoCurrency: String? = null,
-    @ApiModelProperty("Trade fee.")
-    var totalFee: String? = null,
-    @ApiModelProperty("Price.")
-    var price: String? = null,
-    @ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
-    var status: String? = null,
-    @ApiModelProperty("Create time in ms.")
-    var createTime: Long? = null,
-    @ApiModelProperty("Update time in ms.")
-    var updateTime: Long? = null
+        @ApiModelProperty("Order No.") @JsonProperty("orderNo") var orderNo: String? = null,
+        @ApiModelProperty("Fiat trade amount.") @JsonProperty("sourceAmount") var sourceAmount: String? = null,
+        @ApiModelProperty("Fiat token.") @JsonProperty("fiatCurrency") var fiatCurrency: String? = null,
+        @ApiModelProperty("Crypto trade amount.") @JsonProperty("obtainAmount") var obtainAmount: String? = null,
+        @ApiModelProperty("Crypto token.") @JsonProperty("cryptoCurrency") var cryptoCurrency: String? = null,
+        @ApiModelProperty("Trade fee.") @JsonProperty("totalFee") var totalFee: String? = null,
+        @ApiModelProperty("Price.") @JsonProperty("price") var price: String? = null,
+        @ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
+        @JsonProperty
+        var status: String? = null,
+        @ApiModelProperty("Create time in ms.") @JsonProperty("createTime") var createTime: Long? = null,
+        @ApiModelProperty("Update time in ms.") @JsonProperty("updateTime") var updateTime: Long? = null
 )

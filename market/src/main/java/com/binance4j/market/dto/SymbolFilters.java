@@ -23,30 +23,30 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The trading rules of a symbol.")
 data class SymbolFilters(
 @ApiModelProperty("IcebergParts filter")
-var icebergParts:IcebergPartsFilter?=null,
+@JsonProperty("icebergParts") var icebergParts:IcebergPartsFilter?=null,
 @ApiModelProperty("LotSize filter")
-var lotSize:LotSizeFilter?=null,
+@JsonProperty("lotSize") var lotSize:LotSizeFilter?=null,
 @ApiModelProperty("MarketLotSize filter")
-var marketLotSize:MarketLotSizeFilter?=null,
+@JsonProperty("marketLotSize") var marketLotSize:MarketLotSizeFilter?=null,
 @ApiModelProperty("MaxNumAlgoOrders filter")
-var maxNumAlgoOrders:MaxNumAlgoOrdersFilter?=null,
+@JsonProperty("maxNumAlgoOrders") var maxNumAlgoOrders:MaxNumAlgoOrdersFilter?=null,
 @ApiModelProperty("MaxNumIcebergOrders filter")
-var maxNumIcebergOrders:MaxNumIcebergOrdersFilter?=null,
+@JsonProperty("maxNumIcebergOrders") var maxNumIcebergOrders:MaxNumIcebergOrdersFilter?=null,
 @ApiModelProperty("MaxNumOrders filter")
-var maxNumOrders:MaxNumOrdersFilter?=null,
+@JsonProperty("maxNumOrders") var maxNumOrders:MaxNumOrdersFilter?=null,
 @ApiModelProperty("MaxPosition filter")
-var maxPosition:MaxPositionFilter?=null,
+@JsonProperty("maxPosition") var maxPosition:MaxPositionFilter?=null,
 @ApiModelProperty("MinNotional filter")
-var minNotional:MinNotionalFilter?=null,
+@JsonProperty("minNotional") var minNotional:MinNotionalFilter?=null,
 @ApiModelProperty("Notional filter")
-var notional:NotionalFilter?=null,
+@JsonProperty("notional") var notional:NotionalFilter?=null,
 @ApiModelProperty("PercentPriceBySide filter")
-var percentPriceBySide:PercentPriceBySideFilter?=null,
+@JsonProperty("percentPriceBySide") var percentPriceBySide:PercentPriceBySideFilter?=null,
 @ApiModelProperty("PercentPrice filter")
-var percentPrice:PercentPriceFilter?=null,
+@JsonProperty("percentPrice") var percentPrice:PercentPriceFilter?=null,
 @ApiModelProperty("Price filter")
-var price:PriceFilter?=null,
+@JsonProperty("price") var price:PriceFilter?=null,
 @ApiModelProperty("TrailingDelta filter")
-var trailingDelta:TrailingDeltaFilter?=null)
+@JsonProperty("trailingDelta") var trailingDelta:TrailingDeltaFilter?=null)
 {
 }

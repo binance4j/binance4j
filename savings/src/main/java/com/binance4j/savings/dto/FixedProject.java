@@ -26,35 +26,35 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Fixed or activity project.")
 data class FixedProject(
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+@JsonProperty("asset") var asset:String?=null,
 @ApiModelProperty("Display priority.")
-var displayPriority:Long?=null,
+@JsonProperty("displayPriority") var displayPriority:Long?=null,
 @ApiModelProperty("Duration.")
-var duration:Long?=null,
+@JsonProperty("duration") var duration:Long?=null,
 @ApiModelProperty("Interest per lot.")
-var interestPerLot:String?=null,
+@JsonProperty("interestPerLot") var interestPerLot:String?=null,
 @ApiModelProperty("Interest rate.")
-var interestRate:String?=null,
+@JsonProperty("interestRate") var interestRate:String?=null,
 @ApiModelProperty("Lot size.")
-var lotSize:String?=null,
+@JsonProperty("lotSize") var lotSize:String?=null,
 @ApiModelProperty("Lots low limit.")
-var lotsLowLimit:Long?=null,
+@JsonProperty("lotsLowLimit") var lotsLowLimit:Long?=null,
 @ApiModelProperty("Lots purchased.")
-var lotsPurchased:Long?=null,
+@JsonProperty("lotsPurchased") var lotsPurchased:Long?=null,
 @ApiModelProperty("Lots up limit.")
-var lotsUpLimit:Long?=null,
+@JsonProperty("lotsUpLimit") var lotsUpLimit:Long?=null,
 @ApiModelProperty("Max lots per user.")
-var maxLotsPerUser:Long?=null,
+@JsonProperty("maxLotsPerUser") var maxLotsPerUser:Long?=null,
 @ApiModelProperty("Need kyc.")
-var needKyc:Boolean?=null,
+@JsonProperty("needKyc") var needKyc:Boolean?=null,
 @ApiModelProperty("Project id.")
-var projectId:String?=null,
+@JsonProperty("projectId") var projectId:String?=null,
 @ApiModelProperty("Project name.")
-var projectName:String?=null,
+@JsonProperty("projectName") var projectName:String?=null,
 @ApiModelProperty("Status.")
-var status:String?=null,
+@JsonProperty("status") var status:String?=null,
 @ApiModelProperty("Type.")
-var type:String?=null,
-@ApiModelProperty("With area limitation.") var withAreaLimitation:Boolean?=null)
+@JsonProperty("type") var type:String?=null,
+@ApiModelProperty("With area limitation.") @JsonProperty("withAreaLimitation") var withAreaLimitation:Boolean?=null)
 {
 }

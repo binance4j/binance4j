@@ -19,11 +19,25 @@ import io.swagger.annotations.ApiModelProperty;
  * @property algo               Algorithm.
  */
 @ApiModel("Statistics.")
-data class Statistics(@ApiModelProperty("15 mins hashrate.") String fifteenMinHashRate,
-		@ApiModelProperty("24H Hashrate.") String dayHashRate,
-		@ApiModelProperty("Effective quantity.") var validNum : Int? = null, @ApiModelProperty("Invalid quantity.") var invalidNum : Int? = null,
-		@ApiModelProperty("Today's estimate.") Map<String, String> profitToday,
-		@ApiModelProperty("Yesterday's earnings.") Map<String, String> profitYesterday,
-		@ApiModelProperty("Mining account.") var userName : String? = null, @ApiModelProperty("Hashrate unit.") var unit : String? = null,
-		@ApiModelProperty("Algorithm.") var algo : String? = null) {
+data class Statistics(
+@ApiModelProperty("15 mins hashrate.")
+String fifteenMinHashRate,
+@ApiModelProperty("24H Hashrate.")
+String dayHashRate,
+@ApiModelProperty("Effective quantity.") @JsonProperty("validNum : Int? = null, @ApiModelProperty("Invalid quantity.") var invalidNum ")
+var validNum:Int?=null,
+@ApiModelProperty("Invalid quantity.")
+var invalidNum:Int?=null,
+@ApiModelProperty("Today's estimate.")
+Map<String, String> profitToday,
+@ApiModelProperty("Yesterday's earnings.")
+Map<String, String> profitYesterday,
+@ApiModelProperty("Mining account.") @JsonProperty("userName : String? = null, @ApiModelProperty("Hashrate unit.") var unit ")
+var userName:String?=null,
+@ApiModelProperty("Hashrate unit.")
+var unit:String?=null,
+@ApiModelProperty("Algorithm.")
+@JsonProperty("algo ")
+var algo:String?=null)
+{
 }

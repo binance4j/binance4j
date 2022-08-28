@@ -18,19 +18,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Hashrate resale list detail.")
 data class HashrateResaleListDetail(
 @ApiModelProperty("Mining ID.")
-var configId:int?=null,
+@JsonProperty("configId") var configId:int?=null,
 @ApiModelProperty("Transfer out of subaccount.")
-var poolUsername:String?=null,
+@JsonProperty("poolUsername") var poolUsername:String?=null,
 @ApiModelProperty("Transfer into subaccount.")
-var toPoolUsername:String?=null,
+@JsonProperty("toPoolUsername") var toPoolUsername:String?=null,
 @ApiModelProperty("Transfer algorithm.")
-var algoName:String?=null,
+@JsonProperty("algoName") var algoName:String?=null,
 @ApiModelProperty("Transferred Hashrate quantity.")
-var hashRate:Long?=null,
+@JsonProperty("hashRate") var hashRate:Long?=null,
 @ApiModelProperty("Start date.")
-var startDay:Long?=null,
+@JsonProperty("startDay") var startDay:Long?=null,
 @ApiModelProperty("End date.")
-var endDay:Long?=null,
+@JsonProperty("endDay") var endDay:Long?=null,
 @ApiModelProperty("Status：0 Processing，1：Cancelled，2：Terminated.") int status)
 {
 }

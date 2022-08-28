@@ -23,18 +23,18 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The tiers for the number of Base Coins Borrowings and Quote Coins Borrowings currently exist in your account.")
 data class IsolatedTierData(
 @ApiModelProperty("Related symbol.")
-var symbol:String?=null,
+@JsonProperty("symbol") var symbol:String?=null,
 @ApiModelProperty("Tier.")
-var tier:int?=null,
+@JsonProperty("tier") var tier:int?=null,
 @ApiModelProperty("Effective multiple.")
-var effectiveMultiple:String?=null,
+@JsonProperty("effectiveMultiple") var effectiveMultiple:String?=null,
 @ApiModelProperty("Initial risk ratio.")
-var initialRiskRatio:String?=null,
+@JsonProperty("initialRiskRatio") var initialRiskRatio:String?=null,
 @ApiModelProperty("Liquidation risk ratio.")
-var liquidationRiskRatio:String?=null,
+@JsonProperty("liquidationRiskRatio") var liquidationRiskRatio:String?=null,
 @ApiModelProperty("Base asset max borrowable.")
-var baseAssetMaxBorrowable:String?=null,
+@JsonProperty("baseAssetMaxBorrowable") var baseAssetMaxBorrowable:String?=null,
 @ApiModelProperty("Quote asset max borrowable.")
-var quoteAssetMaxBorrowable:String?=null)
+@JsonProperty("quoteAssetMaxBorrowable") var quoteAssetMaxBorrowable:String?=null)
 {
 }

@@ -24,6 +24,7 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -31,15 +32,16 @@ import io.swagger.annotations.ApiModelProperty
  * The dust transfer (asset to BNB) response.
  *
  * @property totalServiceCharge Fees.
- * @property totalTransfered    Volume converted into BNB after fees.
- * @property transferResult     Detailed transfer result asset by asset.
+ * @property totalTransfered Volume converted into BNB after fees.
+ * @property transferResult Detailed transfer result asset by asset.
  */
 @ApiModel("The dust transfer (asset to BNB) response.")
 data class DustTransferResponse(
-    @ApiModelProperty("Fees.")
-    var totalServiceCharge: String? = null,
+    @ApiModelProperty("Fees.") @JsonProperty("totalServiceCharge") var totalServiceCharge: String? = null,
     @ApiModelProperty("Volume converted into BNB after fees.")
+    @JsonProperty
     var totalTransfered: String? = null,
     @ApiModelProperty("Detailed transfer result asset by asset.")
+    @JsonProperty
     var transferResult: List<DustTransferResult>? = null
 )

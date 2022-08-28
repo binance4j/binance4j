@@ -26,25 +26,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The SPOT account information.")
 data class Account(
 @ApiModelProperty("Maker commission.")
-var makerCommission:String?=null,
+@JsonProperty("makerCommission") var makerCommission:String?=null,
 @ApiModelProperty("Taker commission.")
-var takerCommission:String?=null,
+@JsonProperty("takerCommission") var takerCommission:String?=null,
 @ApiModelProperty("Buyer commission.")
-var buyerCommission:String?=null,
+@JsonProperty("buyerCommission") var buyerCommission:String?=null,
 @ApiModelProperty("Seller commission.")
-var sellerCommission:String?=null,
+@JsonProperty("sellerCommission") var sellerCommission:String?=null,
 @ApiModelProperty("Trade permission.")
-var canTrade:Boolean?=null,
+@JsonProperty("canTrade") var canTrade:Boolean?=null,
 @ApiModelProperty("Withdrawal permission.")
-var canWithdraw:Boolean?=null,
+@JsonProperty("canWithdraw") var canWithdraw:Boolean?=null,
 @ApiModelProperty("Deposit permission.")
-var canDeposit:Boolean?=null,
+@JsonProperty("canDeposit") var canDeposit:Boolean?=null,
 @ApiModelProperty("Timestamp of the last data update.")
-var updateTime:Long?=null,
+@JsonProperty("updateTime") var updateTime:Long?=null,
 @ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances,
 @ApiModelProperty("Account Type .")
-var accountType:String?=null,
+@JsonProperty("accountType") var accountType:String?=null,
 @ApiModelProperty("Permissions list.") List<String> permissions,
-@ApiModelProperty("Brokered account?") var brokered:Boolean?=null)
+@ApiModelProperty("Brokered account?") @JsonProperty("brokered") var brokered:Boolean?=null)
 {
 }

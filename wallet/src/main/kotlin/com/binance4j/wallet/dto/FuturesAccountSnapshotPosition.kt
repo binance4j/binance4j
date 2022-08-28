@@ -24,28 +24,24 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * Futures account snapshot position.
  *
- * @property symbol           Symbol.
- * @property entryPrice       Entry price.
- * @property markPrice        Mark price.
- * @property positionAmt      Position amount.
+ * @property symbol Symbol.
+ * @property entryPrice Entry price.
+ * @property markPrice Mark price.
+ * @property positionAmt Position amount.
  * @property unRealizedProfit Unrealized profit.
  */
 @ApiModel("Futures account snapshot position.")
 data class FuturesAccountSnapshotPosition(
-    @ApiModelProperty("Symbol.")
-    var symbol: String? = null,
-    @ApiModelProperty("Entry price.")
-    var entryPrice: String? = null,
-    @ApiModelProperty("Mark price.")
-    var markPrice: String? = null,
-    @ApiModelProperty("Position amount.")
-    var positionAmt: String? = null,
-    @ApiModelProperty("Unrealized profit.")
-    var unRealizedProfit: String? = null
+    @ApiModelProperty("Symbol.") @JsonProperty("symbol") var symbol: String? = null,
+    @ApiModelProperty("Entry price.") @JsonProperty("entryPrice") var entryPrice: String? = null,
+    @ApiModelProperty("Mark price.") @JsonProperty("markPrice") var markPrice: String? = null,
+    @ApiModelProperty("Position amount.") @JsonProperty("positionAmt") var positionAmt: String? = null,
+    @ApiModelProperty("Unrealized profit.") @JsonProperty("unRealizedProfit") var unRealizedProfit: String? = null
 )

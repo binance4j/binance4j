@@ -14,6 +14,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Account profits data.")
 data class AccountProfitsData(@ApiModelProperty("Profits datas.") List<AccountProfit> accountProfits,
-		@ApiModelProperty("Total amount.") var totalNum : Long? = null,
-		@ApiModelProperty("Rows per page.") var pageSize : Long? = null) {
+		@ApiModelProperty("Total amount.") @JsonProperty("totalNum ") var totalNum : Long? = null,
+		@ApiModelProperty("Rows per page.") @JsonProperty("pageSize ") var pageSize : Long? = null) {
 }

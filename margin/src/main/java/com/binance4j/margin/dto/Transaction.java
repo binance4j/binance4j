@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A transfer, borrow or repay transaction.")
 data class Transaction(
 @ApiModelProperty("Transaction id.")
-var tranId:String?=null,
+@JsonProperty("tranId") var tranId:String?=null,
 @ApiModelProperty("Client tag.")
-var clientTag:String?=null)
+@JsonProperty("clientTag") var clientTag:String?=null)
 {
 }

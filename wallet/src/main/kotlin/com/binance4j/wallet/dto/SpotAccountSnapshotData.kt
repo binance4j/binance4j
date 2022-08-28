@@ -25,17 +25,22 @@
 package com.binance4j.wallet.dto
 
 import com.binance4j.core.dto.AssetBalance
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
  * The SPOT account snapshot data.
  *
- * @property balances        Wallet asset balances.
+ * @property balances Wallet asset balances.
  * @property totalAssetOfBtc Cumulated value of the wallet in Bitcoin.
  */
 @ApiModel("The SPOT account snapshot data.")
 data class SpotAccountSnapshotData(
-    @ApiModelProperty("Wallet asset balances.") var balances: List<AssetBalance>? = null,
-    @ApiModelProperty("Cumulated value of the wallet in Bitcoin.") var totalAssetOfBtc: String? = null
+    @ApiModelProperty("Wallet asset balances.")
+    @JsonProperty
+    var balances: List<AssetBalance>? = null,
+    @ApiModelProperty("Cumulated value of the wallet in Bitcoin.")
+    @JsonProperty
+    var totalAssetOfBtc: String? = null
 )

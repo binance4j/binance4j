@@ -15,9 +15,22 @@ import io.swagger.annotations.ApiModelProperty;
  * @property coinName       Coin Name.
  */
 @ApiModel("Hashrate resale detail.")
-data class HashrateResaleDetail(@ApiModelProperty("Transfer out of sub-account.") String poolUsername,
-		@ApiModelProperty("Transfer into subaccount.") var toPoolUsername : String? = null,
-		@ApiModelProperty("Transfer algorithm.") var algoName : String? = null,
-		@ApiModelProperty("Transferred Hashrate quantity.") var hashRate : Long? = null, @ApiModelProperty("Transfer date.") var day : Long? = null,
-		@ApiModelProperty("Transferred income.") var amount : String? = null, @ApiModelProperty("Coin Name.") var coinName : String? = null) {
+data class HashrateResaleDetail(
+@ApiModelProperty("Transfer out of sub-account.")
+String poolUsername,
+@ApiModelProperty("Transfer into subaccount.")
+@JsonProperty("toPoolUsername ")
+var toPoolUsername:String?=null,
+@ApiModelProperty("Transfer algorithm.")
+@JsonProperty("algoName ")
+var algoName:String?=null,
+@ApiModelProperty("Transferred Hashrate quantity.") @JsonProperty("hashRate : Long? = null, @ApiModelProperty("Transfer date.") var day ")
+var hashRate:Long?=null,
+@ApiModelProperty("Transfer date.")
+var day:Long?=null,
+@ApiModelProperty("Transferred income.") @JsonProperty("amount : String? = null, @ApiModelProperty("Coin Name.") var coinName ")
+var amount:String?=null,
+@ApiModelProperty("Coin Name.")
+var coinName:String?=null)
+{
 }
