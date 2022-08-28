@@ -24,6 +24,11 @@
 
 package com.binance4j.core.test
 
+import com.binance4j.core.Request
+import com.binance4j.core.client.RestClient
+import com.fasterxml.jackson.databind.DeserializationFeature
+import org.junit.jupiter.api.assertDoesNotThrow
+
 /** Base class for Unit test.  */ // @Execution(ExecutionMode.CONCURRENT)
 abstract class CustomTest {
     /** The key.  */
@@ -61,4 +66,13 @@ abstract class CustomTest {
     /** The String.  */
     var symbols = listOf(symbol, "BNBBUSD", "BTCBUSD")
         protected set
+
+    init {
+        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+    }
+
+    fun assertNotThrow(request: Request<*>) {
+        assertDoesNotThrow { println(request.sync()) }
+    }
 }

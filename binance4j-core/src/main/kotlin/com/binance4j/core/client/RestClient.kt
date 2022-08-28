@@ -38,15 +38,15 @@ import retrofit2.converter.jackson.JacksonConverterFactory
  *
  * [See: doc](https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type)
  */
-abstract class RestClient<T>(var mapping: Class<T>, var key: String, var secret: String, var useTestnet: Boolean = false) {
+abstract class RestClient<T> @JvmOverloads constructor(var mapping: Class<T>, var key: String, var secret: String, var useTestnet: Boolean = false) {
     /** URL base domain.  */
-    private var baseDomain = "api.binance.com"
+    protected var baseDomain = "api.binance.com"
 
     /** Testnet URL base domain.  */
-    private var testnetDomain = "testnet.binance.vision"
+    protected var testnetDomain = "testnet.binance.vision"
 
     /** Request authentication interceptor */
-    private var interceptor: AuthenticationInterceptor
+    protected var interceptor: AuthenticationInterceptor
 
     /** The current API service  */
     protected var service: T
