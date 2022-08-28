@@ -46,7 +46,7 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
      * @return The request to execute.
      */
     @JvmOverloads
-    fun getTokenInfo(params: TokenInfoParams? = TokenInfoParams()): Request<List<Token>> = Request(service.getTokenInfo(Params.merge(params)))
+    fun getTokenInfo(params: TokenInfoParams = TokenInfoParams()): Request<List<Token>> = Request(service.getTokenInfo(params.toMap()))
 
     /**
      * Get subscription record.
@@ -55,7 +55,7 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
      * @return The request to execute.
      */
     @JvmOverloads
-    fun getSubscriptions(params: TransactionRecordParams? = TransactionRecordParams(), timeFrame: TimeFrame? = null): Request<List<Subscription>> =
+    fun getSubscriptions(params: TransactionRecordParams = TransactionRecordParams(), timeFrame: TimeFrame = TimeFrame()): Request<List<Subscription>> =
         Request(service.getSubscriptions(Params.merge(params, timeFrame)))
 
     /**
@@ -65,7 +65,7 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
      * @return The request to execute.
      */
     @JvmOverloads
-    fun getRedemptions(params: TransactionRecordParams? = TransactionRecordParams(), timeFrame: TimeFrame? = null): Request<List<Redemption>> =
+    fun getRedemptions(params: TransactionRecordParams = TransactionRecordParams(), timeFrame: TimeFrame = TimeFrame()): Request<List<Redemption>> =
         Request(service.getRedemptions(Params.merge(params, timeFrame)))
 
     /**
@@ -74,7 +74,7 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
      * @return The request to execute.
      */
     @JvmOverloads
-    fun getLimitInfo(params: LimitInfoParams? = LimitInfoParams()): Request<List<LimitInfo>> = Request(service.getLimitInfo(Params.merge(params)))
+    fun getLimitInfo(params: LimitInfoParams = LimitInfoParams()): Request<List<LimitInfo>> = Request(service.getLimitInfo(params.toMap()))
 
 
     /**

@@ -38,7 +38,7 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @GET(BASE + "tokenInfo")
+    @GET("/sapi/v1/blvt/tokenInfo")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H)
     @JvmSuppressWildcards
     fun getTokenInfo(@QueryMap map: Map<String, Any>): Call<List<Token>>
@@ -47,7 +47,7 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @POST(BASE + "subscribe")
+    @POST("/sapi/v1/blvt/subscribe")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H, RestMapping.IP_H)
     @JvmSuppressWildcards
     fun subscribe(@QueryMap map: Map<String, Any>): Call<SubscriptionResponse>
@@ -56,7 +56,7 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @GET(BASE + "subscribe/record")
+    @GET("/sapi/v1/blvt/subscribe/record")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H, RestMapping.IP_H)
     @JvmSuppressWildcards
     fun getSubscriptions(@QueryMap map: Map<String, Any>): Call<List<Subscription>>
@@ -65,7 +65,7 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @POST(BASE + "redeem")
+    @POST("/sapi/v1/blvt/redeem")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H, RestMapping.IP_H)
     @JvmSuppressWildcards
     fun redeem(@QueryMap map: Map<String, Any>): Call<RedemptionResponse>
@@ -74,7 +74,7 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @GET(BASE + "redeem/record")
+    @GET("/sapi/v1/blvt/redeem/record")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H, RestMapping.IP_H)
     @JvmSuppressWildcards
     fun getRedemptions(@QueryMap map: Map<String, Any>): Call<List<Redemption>>
@@ -83,13 +83,8 @@ interface BLVTMapping : RestMapping {
      * @param map Query map.
      * @return The generated Retrofit call.
      */
-    @GET(BASE + "userLimit")
+    @GET("/sapi/v1/blvt/userLimit")
     @Headers(RestMapping.SIGNED_H, RestMapping.WEIGHT_ONE_H, RestMapping.IP_H)
     @JvmSuppressWildcards
     fun getLimitInfo(@QueryMap map: Map<String, Any>): Call<List<LimitInfo>>
-
-    companion object {
-        /** The base uri.  */
-        const val BASE = "/sapi/v1/blvt/"
-    }
 }
