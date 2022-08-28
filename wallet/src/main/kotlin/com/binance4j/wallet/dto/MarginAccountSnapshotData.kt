@@ -26,7 +26,6 @@ package com.binance4j.wallet.dto
 
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
-import java.util.List
 
 /**
  * Margin account snapshot data.

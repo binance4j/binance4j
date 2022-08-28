@@ -207,7 +207,7 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
      * @return The request to execute.
      */
     fun getTransferHistory(params: WalletTransferHistoryParams, paging: FramedPaging = FramedPaging()): Request<WalletTransferHistory> =
-        Request(service.getTransferHistory(merge(params.toMap(), paging.toMap(java.util.Map.of("limit", "size", "page", "current")))))
+        Request(service.getTransferHistory(merge(params.toMap(), paging.toMap(mapOf("limit" to "size", "page" to "current")))))
 
 
     /**
