@@ -8,7 +8,9 @@ import org.ta4j.core.rules.BooleanIndicatorRule;
 import com.binance4j.strategy.TradingStrategy;
 
 /** A strategy that always exits */
-public class AlwaysExitStrategy implements TradingStrategy {
+public class AlwaysExitStrategy:TradingStrategy
+{
+
 	@Override
 	public Rule entry(BarSeries series) {
 		return new BooleanIndicatorRule(new ConstantIndicator<>(series, false));

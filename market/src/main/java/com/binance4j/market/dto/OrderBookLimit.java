@@ -22,7 +22,7 @@ public enum OrderBookLimit {
 	final String value;
 
 	/**
-	 * @param value Value
+	 * @property value Value
 	 */
 	private OrderBookLimit(String value) {
 		this.value = value;

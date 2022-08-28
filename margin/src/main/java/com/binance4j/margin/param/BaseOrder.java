@@ -7,7 +7,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.dto.SideEffectType;
 
 /** Base order class. */
-public abstract class BaseOrder implements Params {
+public abstract class BaseOrder:Params
+{
 	/** Order symbol. */
 	protected String symbol;
 	/** Order side. */

@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#borrow} params.
+ * [MarginClient.borrow] params.
  * 
  * @param asset      Asset to borrow.
  * @param amount     Amount to borrow.
@@ -14,7 +14,11 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated For isolated margin or not. Default: false.
  */
 @Param(weight = 300, type = RateLimitType.UID)
-public record BorrowParams(String asset, String amount, String symbol, Boolean isIsolated) implements Params {
+data class BorrowParams(
+String asset, String amount,
+String symbol, Boolean isIsolated):Params
+{
+
 	/**
 	 * Creates an instance of {@link BorrowParams}.
 	 * 

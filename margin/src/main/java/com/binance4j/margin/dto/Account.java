@@ -8,22 +8,22 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The authenticated margin account.
  * 
- * @param userAssets          User assets.
- * @param marginLevel         Margin level.
- * @param totalAssetOfBtc     Total asset of Bitcoin.
- * @param totalLiabilityOfBtc Total liability of Bitcoin.
- * @param totalNetAssetOfBtc  Total net asset of Bitcoin.
- * @param borrowEnabled       Is borrow enabled?
- * @param tradeEnabled        Is trade enabled?
- * @param transferEnabled     Is transfer Enabled?
+ * @property userAssets          User assets.
+ * @property marginLevel         Margin level.
+ * @property totalAssetOfBtc     Total asset of Bitcoin.
+ * @property totalLiabilityOfBtc Total liability of Bitcoin.
+ * @property totalNetAssetOfBtc  Total net asset of Bitcoin.
+ * @property borrowEnabled       Is borrow enabled?
+ * @property tradeEnabled        Is trade enabled?
+ * @property transferEnabled     Is transfer Enabled?
  */
 @ApiModel("The authenticated margin account.")
-public record Account(@ApiModelProperty("User assets.") List<AssetBalance> userAssets,
-		@ApiModelProperty("Margin level.") String marginLevel,
-		@ApiModelProperty("Total asset of Bitcoin.") String totalAssetOfBtc,
-		@ApiModelProperty("Total liability of Bitcoin.") String totalLiabilityOfBtc,
-		@ApiModelProperty("Total net asset of Bitcoin.") String totalNetAssetOfBtc,
-		@ApiModelProperty("Is borrow enabled?") boolean borrowEnabled,
-		@ApiModelProperty("Is trade enabled?") boolean tradeEnabled,
-		@ApiModelProperty("Is transfer Enabled?") boolean transferEnabled) {
+data class Account(@ApiModelProperty("User assets.") List<AssetBalance> userAssets,
+		@ApiModelProperty("Margin level.") var marginLevel : String? = null,
+		@ApiModelProperty("Total asset of Bitcoin.") var totalAssetOfBtc : String? = null,
+		@ApiModelProperty("Total liability of Bitcoin.") var totalLiabilityOfBtc : String? = null,
+		@ApiModelProperty("Total net asset of Bitcoin.") var totalNetAssetOfBtc : String? = null,
+		@ApiModelProperty("Is borrow enabled?") var borrowEnabled : Boolean? = null,
+		@ApiModelProperty("Is trade enabled?") var tradeEnabled : Boolean? = null,
+		@ApiModelProperty("Is transfer Enabled?") var transferEnabled : Boolean? = null) {
 }

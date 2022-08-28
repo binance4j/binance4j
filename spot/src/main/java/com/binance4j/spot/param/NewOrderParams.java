@@ -11,10 +11,11 @@ import com.binance4j.spot.client.SpotClient;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * {@link SpotClient#newOrder} params.
+ * [SpotClient.newOrder] params.
  */
 @Param(weight = 1, isOrder = true, type = RateLimitType.UID_AND_IP)
-public class NewOrderParams implements Params {
+public class NewOrderParams:Params
+{
 	/** The order symbol */
 	String symbol;
 	/** The order side */

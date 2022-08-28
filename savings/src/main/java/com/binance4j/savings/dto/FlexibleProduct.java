@@ -8,29 +8,46 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A Flexible product.
  * 
- * @param asset                    Asset.
- * @param avgAnnualInterestRate    Avg annual interest rate.
- * @param tierAnnualInterestRate   Tier annual interest rate.
- * @param latestAnnualInterestRate Latest annual intarest rate.
- * @param canPurchase              Product can be purchase?
- * @param canRedeem                Product can be redeem?
- * @param featured                 Featured.
- * @param minPurchaseAmount        Min purchase amount.
- * @param productId                Product id.
- * @param purchasedAmount          Purchased amount.
- * @param status                   Status.
- * @param upLimit                  Up limit.
- * @param upLimitPerUser           Up limit per user.
+ * @property asset                    Asset.
+ * @property avgAnnualInterestRate    Avg annual interest rate.
+ * @property tierAnnualInterestRate   Tier annual interest rate.
+ * @property latestAnnualInterestRate Latest annual intarest rate.
+ * @property canPurchase              Product can be purchase?
+ * @property canRedeem                Product can be redeem?
+ * @property featured                 Featured.
+ * @property minPurchaseAmount        Min purchase amount.
+ * @property productId                Product id.
+ * @property purchasedAmount          Purchased amount.
+ * @property status                   Status.
+ * @property upLimit                  Up limit.
+ * @property upLimitPerUser           Up limit per user.
  */
 @ApiModel("A Flexible product.")
-public record FlexibleProduct(@ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Avg annual interest rate.") String avgAnnualInterestRate,
-		@ApiModelProperty("Tier annual interest rate.") Map<String, String> tierAnnualInterestRate,
-		@ApiModelProperty("Latest annual intarest rate.") String latestAnnualInterestRate,
-		@ApiModelProperty("Product can be purchase?") boolean canPurchase,
-		@ApiModelProperty("Product can be redeem?") boolean canRedeem, @ApiModelProperty("Featured.") boolean featured,
-		@ApiModelProperty("Min purchase amount.") String minPurchaseAmount,
-		@ApiModelProperty("Product id.") String productId,
-		@ApiModelProperty("Purchased amount.") String purchasedAmount, @ApiModelProperty("Status.") String status,
-		@ApiModelProperty("Up limit.") String upLimit, @ApiModelProperty("Up limit per user.") String upLimitPerUser) {
+data class FlexibleProduct(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Avg annual interest rate.")
+var avgAnnualInterestRate:String?=null,
+@ApiModelProperty("Tier annual interest rate.") Map<String, String> tierAnnualInterestRate,
+@ApiModelProperty("Latest annual intarest rate.")
+var latestAnnualInterestRate:String?=null,
+@ApiModelProperty("Product can be purchase?")
+var canPurchase:Boolean?=null,
+@ApiModelProperty("Product can be redeem?")
+var canRedeem:Boolean?=null,
+@ApiModelProperty("Featured.")
+var featured:Boolean?=null,
+@ApiModelProperty("Min purchase amount.")
+var minPurchaseAmount:String?=null,
+@ApiModelProperty("Product id.")
+var productId:String?=null,
+@ApiModelProperty("Purchased amount.")
+var purchasedAmount:String?=null,
+@ApiModelProperty("Status.")
+var status:String?=null,
+@ApiModelProperty("Up limit.")
+var upLimit:String?=null,
+@ApiModelProperty("Up limit per user.")
+var upLimitPerUser:String?=null)
+{
 }

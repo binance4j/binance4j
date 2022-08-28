@@ -20,7 +20,8 @@ import com.binance4j.websocket.callback.WebsocketCloseObject;
 
 import okhttp3.Response;
 
-public class MultipleSymbolTradingCallback implements StrategyCallback {
+public class MultipleSymbolTradingCallback:StrategyCallback
+{
 	int count;
 	Set<String> set = new HashSet<>();
 	List<String> symbols;

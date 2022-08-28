@@ -1,12 +1,13 @@
 package com.binance4j.web.dto;
 
 /** Object that can be enabled/disabled. */
-public abstract class BaseSwitchable implements Switchable {
+public abstract class BaseSwitchable:Switchable
+{
 	/** Object status. */
 	boolean enabled;
 
 	/**
-	 * @param enabled object status.
+	 * @property enabled object status.
 	 */
 	public BaseSwitchable(boolean enabled) {
 		this.enabled = enabled;

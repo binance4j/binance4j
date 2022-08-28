@@ -6,12 +6,17 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A staking product.
  * 
- * @param projectId Project id.
- * @param detail    Detail.
- * @param quota     Quota.
+ * @property projectId Project id.
+ * @property detail    Detail.
+ * @property quota     Quota.
  */
 @ApiModel("A staking product.")
-public record Product(@ApiModelProperty("Project id.") String projectId,
-		@ApiModelProperty("Detail.") ProductDetail detail,
-		@ApiModelProperty("Quota.") ProductQuota quota) {
+data class Product(
+@ApiModelProperty("Project id.")
+var projectId:String?=null,
+@ApiModelProperty("Detail.")
+var detail:ProductDetail?=null,
+@ApiModelProperty("Quota.")
+var quota:ProductQuota?=null)
+{
 }

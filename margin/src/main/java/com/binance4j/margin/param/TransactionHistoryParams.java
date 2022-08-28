@@ -5,7 +5,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getInterestHistory},{@link MarginClient#getTransferHistory},{@link MarginClient#getLoanRecord},{@link MarginClient#getRepayRecord}
+ * [MarginClient#getInterestHistory},[MarginClient#getTransferHistory},{@link MarginClient.getLoanRecord],{@link MarginClient.getRepayRecord]
  * params.
  * 
  * @param asset          Related asset.
@@ -14,8 +14,11 @@ import com.binance4j.margin.client.MarginClient;
  * @param archived       Set to true for archived data from 6 months ago.
  */
 @Param
-public record TransactionHistoryParams(String asset, String isolatedSymbol, Long txId, Boolean archived)
-		implements Params {
+data class TransactionHistoryParams(
+String asset, String isolatedSymbol,
+Long txId, Boolean archived):Params
+{
+
 	/**
 	 * Creates an instance of {@link TransactionHistoryParams}.
 	 * 

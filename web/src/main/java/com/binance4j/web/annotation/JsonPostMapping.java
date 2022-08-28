@@ -20,37 +20,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public @interface JsonPostMapping {
 
 	/**
-	 * Alias for {@link RequestMapping#name}.
+	 * Alias for [RequestMapping.name].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String name() default "";
 
 	/**
-	 * Alias for {@link RequestMapping#value}.
+	 * Alias for [RequestMapping.value].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String[] value() default {};
 
 	/**
-	 * Alias for {@link RequestMapping#path}.
+	 * Alias for [RequestMapping.path].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String[] path() default {};
 
 	/**
-	 * Alias for {@link RequestMapping#params}.
+	 * Alias for [RequestMapping.params].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String[] params() default {};
 
 	/**
-	 * Alias for {@link RequestMapping#headers}.
+	 * Alias for [RequestMapping.headers].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String[] headers() default {};
 
 	/**
-	 * Alias for {@link RequestMapping#consumes}.
+	 * Alias for [RequestMapping.consumes].
 	 * 
 	 * @since 4.3.5
 	 */
@@ -58,7 +58,7 @@ public @interface JsonPostMapping {
 	String[] consumes() default {};
 
 	/**
-	 * Alias for {@link RequestMapping#produces}.
+	 * Alias for [RequestMapping.produces].
 	 */
 	@AliasFor(annotation = RequestMapping.class)
 	String[] produces() default "application/json";

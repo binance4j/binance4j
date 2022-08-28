@@ -6,14 +6,23 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A mineable coin.
  * 
- * @param coinName  Currency name.
- * @param coinId    Coin id.
- * @param poolIndex Pool index.
- * @param algoId    Algorithm id.
- * @param algoName  Name of the algorithm.
+ * @property coinName  Currency name.
+ * @property coinId    Coin id.
+ * @property poolIndex Pool index.
+ * @property algoId    Algorithm id.
+ * @property algoName  Name of the algorithm.
  */
 @ApiModel("A mineable coin.")
-public record Coin(@ApiModelProperty("Currency name.") String coinName, @ApiModelProperty("Coin id.") long coinId,
-		@ApiModelProperty("Pool index.") long poolIndex, @ApiModelProperty("Algorithm id.") long algoId,
-		@ApiModelProperty("Name of the algorithm.") String algoName) {
+data class Coin(
+@ApiModelProperty("Currency name.")
+var coinName:String?=null,
+@ApiModelProperty("Coin id.")
+var coinId:Long?=null,
+@ApiModelProperty("Pool index.")
+var poolIndex:Long?=null,
+@ApiModelProperty("Algorithm id.")
+var algoId:Long?=null,
+@ApiModelProperty("Name of the algorithm.")
+var algoName:String?=null)
+{
 }

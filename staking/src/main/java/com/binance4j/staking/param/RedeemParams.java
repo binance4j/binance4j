@@ -6,7 +6,7 @@ import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
 /**
- * {@link StakingClient#redeem} params.
+ * [StakingClient.redeem] params.
  * 
  * @param product    Product type.
  * @param productId  Product id.
@@ -15,7 +15,11 @@ import com.binance4j.staking.dto.ProductType;
  * @param amount     Amount to purchase. Mandatory if product is {@code F_DEFI}.
  */
 @Param
-public record RedeemParams(ProductType product, String productId, String positionId, String amount) implements Params {
+data class RedeemParams(
+ProductType product, String productId,
+String positionId, String amount):Params
+{
+
 	/**
 	 * Creates an instance of {@link RedeemParams}.
 	 * 

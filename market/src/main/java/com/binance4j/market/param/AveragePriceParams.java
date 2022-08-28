@@ -5,10 +5,10 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getAveragePrice} params.
+ * [MarketClient.getAveragePrice] params.
  * 
  * @param symbol Trading pair we want the price.
  */
 @Param(recvWindow = false, timestamp = false)
-public record AveragePriceParams(String symbol) implements Params {
+data class AveragePriceParams(String symbol) : Params {
 }

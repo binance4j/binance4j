@@ -5,15 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getOCO} params.
+ * [SpotClient.getOCO] params.
  * 
  * @param orderListId       Either {@code orderListId} or
  *                          {@code origClientOrderId} must be provided.
  * @param origClientOrderId Either {@code orderListId} or
  *                          {@code origClientOrderId} must be provided.
  */
-@Param(weight = 2)
-public record OCOInfoParams(Long orderListId, String origClientOrderId) implements Params {
+@Param
+data class OCOInfoParams(
+Long orderListId, String origClientOrderId):Params
+{
+
 	/**
 	 * Creates an instance of {@link OCOInfoParams}.
 	 * 

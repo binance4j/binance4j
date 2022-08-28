@@ -8,7 +8,7 @@ public enum RebateType {
 	REFERRAL_KICKBACK("2");
 
 	/**
-	 * @param value Value.
+	 * @property value Value.
 	 */
 	private RebateType(String value) {
 		this.value = value;

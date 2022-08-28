@@ -7,14 +7,18 @@ import com.binance4j.staking.dto.ProductType;
 import com.binance4j.staking.dto.TransactionType;
 
 /**
- * {@link StakingClient#getHistory} params.
+ * [StakingClient.getHistory] params.
  * 
  * @param product Product type.
  * @param txnType Transaction type.
  * @param asset   Product name.
  */
 @Param
-public record HistoryParams(String product, String txnType, String asset) implements Params {
+data class HistoryParams(
+String product, String txnType,
+String asset):Params
+{
+
 	/**
 	 * Creates an instance of {@link HistoryParams}.
 	 * 

@@ -9,18 +9,21 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * {@link FixedProjectListParams} sorting.
  * 
- * @param sortBy    Project sorting.
- * @param isSortAsc Sort ascending. Default: true.
+ * @property sortBy    Project sorting.
+ * @property isSortAsc Sort ascending. Default: true.
  */
 @ApiModel("Sorting.")
-public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiModelProperty("Sort ascending. Default: true.") Boolean isSortAsc)
-		implements Params {
+data class Sorting(@ApiModelProperty("Project sorting.")
+var sortBy:String?=null,
+@ApiModelProperty("Sort ascending. Default: true.")
+Boolean isSortAsc):Params
+{
 
 	/**
 	 * Creates an instance of {@link Sorting}.
 	 * 
-	 * @param sortBy    Project sorting.
-	 * @param isSortAsc Sort ascending. Default: true.
+	 * @property sortBy Project sorting.
+	 * @property isSortAsc Sort ascending. Default: true.
 	 */
 	public Sorting(FixedProjectSorting sortBy, Boolean isSortAsc) {
 		this(sortBy == null ? null : sortBy.toString(), null);
@@ -29,7 +32,7 @@ public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiM
 	/**
 	 * Creates an instance of {@link Sorting}.
 	 * 
-	 * @param sortBy Project sorting.
+	 * @property sortBy Project sorting.
 	 */
 	public Sorting(FixedProjectSorting sortBy) {
 		this(sortBy == null ? null : sortBy.toString(), null);
@@ -38,7 +41,7 @@ public record Sorting(@ApiModelProperty("Project sorting.") String sortBy, @ApiM
 	/**
 	 * Creates an instance of {@link Sorting}.
 	 * 
-	 * @param isSortAsc Sort ascending. Default: true.
+	 * @property isSortAsc Sort ascending. Default: true.
 	 */
 	public Sorting(Boolean isSortAsc) {
 		this((String) null, isSortAsc);

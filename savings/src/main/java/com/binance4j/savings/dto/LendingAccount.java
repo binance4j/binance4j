@@ -8,20 +8,20 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Lending account.
  * 
- * @param positionAmountVos      Position amount.
- * @param totalAmountInBTC       Total amount in btc.
- * @param totalAmountInUSDT      Total amount in usdt.
- * @param totalFixedAmountInBTC  Total fixed amount in btc.
- * @param totalFixedAmountInUSDT Total fixed amount in usdt.
- * @param totalFlexibleInBTC     Total flexible in btc.
- * @param totalFlexibleInUSDT    Total flexible in usdt.
+ * @property positionAmountVos      Position amount.
+ * @property totalAmountInBTC       Total amount in btc.
+ * @property totalAmountInUSDT      Total amount in usdt.
+ * @property totalFixedAmountInBTC  Total fixed amount in btc.
+ * @property totalFixedAmountInUSDT Total fixed amount in usdt.
+ * @property totalFlexibleInBTC     Total flexible in btc.
+ * @property totalFlexibleInUSDT    Total flexible in usdt.
  */
 @ApiModel("Lending account.")
-public record LendingAccount(@ApiModelProperty("Position amount.") List<PositionAmount> positionAmountVos,
-		@ApiModelProperty("Total amount in btc.") String totalAmountInBTC,
-		@ApiModelProperty("Total amount in usdt.") String totalAmountInUSDT,
-		@ApiModelProperty("Total fixed amount in btc.") String totalFixedAmountInBTC,
-		@ApiModelProperty("Total fixed amount in usdt.") String totalFixedAmountInUSDT,
-		@ApiModelProperty("Total flexible in btc.") String totalFlexibleInBTC,
-		@ApiModelProperty("Total flexible in usdt.") String totalFlexibleInUSDT) {
+data class LendingAccount(@ApiModelProperty("Position amount.") List<PositionAmount> positionAmountVos,
+		@ApiModelProperty("Total amount in btc.") var totalAmountInBTC : String? = null,
+		@ApiModelProperty("Total amount in usdt.") var totalAmountInUSDT : String? = null,
+		@ApiModelProperty("Total fixed amount in btc.") var totalFixedAmountInBTC : String? = null,
+		@ApiModelProperty("Total fixed amount in usdt.") var totalFixedAmountInUSDT : String? = null,
+		@ApiModelProperty("Total flexible in btc.") var totalFlexibleInBTC : String? = null,
+		@ApiModelProperty("Total flexible in usdt.") var totalFlexibleInUSDT : String? = null) {
 }

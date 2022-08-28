@@ -6,8 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Flexible purchase response.
  * 
- * @param purchaseId Purchase id.
+ * @property purchaseId Purchase id.
  */
 @ApiModel("Flexible purchase response.")
-public record PurchaseResponse(@ApiModelProperty("Purchase id.") String purchaseId) {
+data class PurchaseResponse(
+@ApiModelProperty("Purchase id.")
+var purchaseId:String?=null)
+{
 }

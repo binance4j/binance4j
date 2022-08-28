@@ -67,7 +67,7 @@ data class AggTrade constructor(
     var isBestMatch: Boolean? = null
 ) {
 
-    /** @param input CSV line. */
+    /** @property input CSV line. */
     constructor(input: List<String>) : this(
         input[0].toLong(), input[1], input[2], input[3].toLong(), input[4].toLong(), input[5].toLong(),
         java.lang.Boolean.parseBoolean(input[6]), java.lang.Boolean.parseBoolean(input[7])

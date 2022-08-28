@@ -6,8 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Personal left quota.
  * 
- * @param leftPersonalQuota User left quota.
+ * @property leftPersonalQuota User left quota.
  */
 @ApiModel("Personal left quota.")
-public record LeftQuota(@ApiModelProperty("User left quota.") String leftPersonalQuota) {
+data class LeftQuota(
+@ApiModelProperty("User left quota.")
+var leftPersonalQuota:String?=null)
+{
 }

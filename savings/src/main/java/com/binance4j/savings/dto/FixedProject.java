@@ -6,33 +6,55 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Fixed or activity project.
  * 
- * @param asset              Asset.
- * @param displayPriority    Display priority.
- * @param duration           Duration.
- * @param interestPerLot     Interest per lot.
- * @param interestRate       Interest rate.
- * @param lotSize            Lot size.
- * @param lotsLowLimit       Lots low limit.
- * @param lotsPurchased      Lots purchased.
- * @param lotsUpLimit        Lots up limit.
- * @param maxLotsPerUser     Max lots per user.
- * @param needKyc            Need kyc.
- * @param projectId          Project id.
- * @param projectName        Project name.
- * @param status             Status.
- * @param type               Type.
- * @param withAreaLimitation With area limitation.
+ * @property asset              Asset.
+ * @property displayPriority    Display priority.
+ * @property duration           Duration.
+ * @property interestPerLot     Interest per lot.
+ * @property interestRate       Interest rate.
+ * @property lotSize            Lot size.
+ * @property lotsLowLimit       Lots low limit.
+ * @property lotsPurchased      Lots purchased.
+ * @property lotsUpLimit        Lots up limit.
+ * @property maxLotsPerUser     Max lots per user.
+ * @property needKyc            Need kyc.
+ * @property projectId          Project id.
+ * @property projectName        Project name.
+ * @property status             Status.
+ * @property type               Type.
+ * @property withAreaLimitation With area limitation.
  */
 @ApiModel("Fixed or activity project.")
-public record FixedProject(@ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Display priority.") long displayPriority,
-		@ApiModelProperty("Duration.") long duration, @ApiModelProperty("Interest per lot.") String interestPerLot,
-		@ApiModelProperty("Interest rate.") String interestRate, @ApiModelProperty("Lot size.") String lotSize,
-		@ApiModelProperty("Lots low limit.") long lotsLowLimit, @ApiModelProperty("Lots purchased.") long lotsPurchased,
-		@ApiModelProperty("Lots up limit.") long lotsUpLimit,
-		@ApiModelProperty("Max lots per user.") long maxLotsPerUser,
-		@ApiModelProperty("Need kyc.") boolean needKyc, @ApiModelProperty("Project id.") String projectId,
-		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Status.") String status,
-		@ApiModelProperty("Type.") String type,
-		@ApiModelProperty("With area limitation.") boolean withAreaLimitation) {
+data class FixedProject(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Display priority.")
+var displayPriority:Long?=null,
+@ApiModelProperty("Duration.")
+var duration:Long?=null,
+@ApiModelProperty("Interest per lot.")
+var interestPerLot:String?=null,
+@ApiModelProperty("Interest rate.")
+var interestRate:String?=null,
+@ApiModelProperty("Lot size.")
+var lotSize:String?=null,
+@ApiModelProperty("Lots low limit.")
+var lotsLowLimit:Long?=null,
+@ApiModelProperty("Lots purchased.")
+var lotsPurchased:Long?=null,
+@ApiModelProperty("Lots up limit.")
+var lotsUpLimit:Long?=null,
+@ApiModelProperty("Max lots per user.")
+var maxLotsPerUser:Long?=null,
+@ApiModelProperty("Need kyc.")
+var needKyc:Boolean?=null,
+@ApiModelProperty("Project id.")
+var projectId:String?=null,
+@ApiModelProperty("Project name.")
+var projectName:String?=null,
+@ApiModelProperty("Status.")
+var status:String?=null,
+@ApiModelProperty("Type.")
+var type:String?=null,
+@ApiModelProperty("With area limitation.") var withAreaLimitation:Boolean?=null)
+{
 }

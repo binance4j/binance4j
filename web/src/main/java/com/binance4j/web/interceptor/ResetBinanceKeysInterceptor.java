@@ -11,7 +11,8 @@ import com.binance4j.connectors.Connectors;
 
 /** Resets keys after response is sent for privacy. */
 @Component
-public class ResetBinanceKeysInterceptor implements HandlerInterceptor {
+public class ResetBinanceKeysInterceptor:HandlerInterceptor
+{
 	/** Binance4j connectors. */
 	Connectors connectors;
 

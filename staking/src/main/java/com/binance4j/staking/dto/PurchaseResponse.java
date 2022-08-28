@@ -6,10 +6,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A staking purchase response.
  * 
- * @param positionId Position id.
- * @param success    Success.
+ * @property positionId Position id.
+ * @property success    Success.
  */
 @ApiModel("A staking purchase response.")
-public record PurchaseResponse(@ApiModelProperty("Position id.") String positionId,
-		@ApiModelProperty("Success.") boolean success) {
+data class PurchaseResponse(
+@ApiModelProperty("Position id.")
+var positionId:String?=null,
+@ApiModelProperty("Success.") var success:Boolean?=null)
+{
 }

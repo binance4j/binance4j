@@ -1,11 +1,13 @@
-package com.binance4j.wallet.dto;
+package com.binance4j.wallet.dto
 
-/** The account snapshot type. */
-public enum AccountSnapshotType {
-	/** SPOT. */
-	SPOT,
-	/** MARGIN. */
-	MARGIN,
-	/** FUTURES. */
-	FUTURES
+/** The account snapshot type.  */
+enum class AccountSnapshotType {
+    /** SPOT.  */
+    SPOT,
+
+    /** MARGIN.  */
+    MARGIN,
+
+    /** FUTURES.  */
+    FUTURES
 }

@@ -6,7 +6,8 @@ import com.binance4j.core.dto.OrderType;
 import com.binance4j.core.param.Params;
 
 /** Base order class. */
-public abstract class BaseOrder implements Params {
+public abstract class BaseOrder:Params
+{
 	/** Order symbol. */
 	protected String symbol;
 	/** Order side. */

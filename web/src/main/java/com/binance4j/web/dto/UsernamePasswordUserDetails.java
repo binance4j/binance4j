@@ -8,8 +8,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 /** User details with username and password only. */
 public class UsernamePasswordUserDetails extends Binance4jUserDetails {
 	/**
-	 * @param username username.
-	 * @param password password.
+	 * @property username username.
+	 * @property password password.
 	 */
 	public UsernamePasswordUserDetails(String username, String password) {
 		super(username, password, username, password);

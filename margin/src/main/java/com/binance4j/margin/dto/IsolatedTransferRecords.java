@@ -8,10 +8,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Isolated margin transfer records.
  * 
- * @param rows  Transfers.
- * @param total Total records.
+ * @property rows  Transfers.
+ * @property total Total records.
  */
 @ApiModel("Isolated margin transfer records.")
-public record IsolatedTransferRecords(@ApiModelProperty("Transfers.") List<IsolatedTransferRecord> rows,
-		@ApiModelProperty("Total records.") int total) {
+data class IsolatedTransferRecords(@ApiModelProperty("Transfers.") List<IsolatedTransferRecord> rows,
+		@ApiModelProperty("Total records.") var total : Int? = null) {
 }

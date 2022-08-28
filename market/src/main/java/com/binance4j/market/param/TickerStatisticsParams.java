@@ -5,11 +5,11 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#get24hTickerStatistics} params.
+ * [MarketClient.get24hTickerStatistics] params.
  * 
  * @param symbol Symbol.
  */
 @Param(weight = 40, recvWindow = false, timestamp = false)
-public record TickerStatisticsParams(String symbol) implements Params {
+data class TickerStatisticsParams(String symbol) : Params {
 
 }

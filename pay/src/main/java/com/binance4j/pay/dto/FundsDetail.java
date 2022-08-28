@@ -6,9 +6,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Funds detail.
  * 
- * @param currency Asset.
- * @param amount   Amount.
+ * @property currency Asset.
+ * @property amount   Amount.
  */
 @ApiModel("Funds detail.")
-public record FundsDetail(@ApiModelProperty("Asset.") String currency, @ApiModelProperty("Amount.") String amount) {
+data class FundsDetail(
+@ApiModelProperty("Asset.")
+var currency:String?=null,
+@ApiModelProperty("Amount.")
+var amount:String?=null)
+{
 }

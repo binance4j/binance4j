@@ -10,21 +10,21 @@ import io.swagger.annotations.ApiModelProperty;
  * specific data as
  * <a href="https://www.binance.com/en/margin-fee">here</a>
  * 
- * @param vipLevel        User's VIP level.
- * @param coin            Coin name.
- * @param borrowLimit     Borrow limit.
- * @param dailyInterest   Daily interest.
- * @param yearlyInterest  Yearly interest.
- * @param borrowable      Is it borrowable?
- * @param transferIn      Is internal transfer allowed?
- * @param marginablePairs Bound pairs.
+ * @property vipLevel        User's VIP level.
+ * @property coin            Coin name.
+ * @property borrowLimit     Borrow limit.
+ * @property dailyInterest   Daily interest.
+ * @property yearlyInterest  Yearly interest.
+ * @property borrowable      Is it borrowable?
+ * @property transferIn      Is internal transfer allowed?
+ * @property marginablePairs Bound pairs.
  */
 @ApiModel("Cross margin fee data collection")
-public record CrossFee(@ApiModelProperty("User's VIP level.") int vipLevel, @ApiModelProperty("Coin name.") String coin,
-		@ApiModelProperty("Borrow limit.") String borrowLimit,
-		@ApiModelProperty("Daily interest.") String dailyInterest,
-		@ApiModelProperty("Yearly interest.") String yearlyInterest,
-		@ApiModelProperty("Is it borrowable?") boolean borrowable,
-		@ApiModelProperty("Is internal transfer allowed?") boolean transferIn,
+data class CrossFee(@ApiModelProperty("User's VIP level.") int vipLevel, @ApiModelProperty("Coin name.") var coin : String? = null,
+		@ApiModelProperty("Borrow limit.") var borrowLimit : String? = null,
+		@ApiModelProperty("Daily interest.") var dailyInterest : String? = null,
+		@ApiModelProperty("Yearly interest.") var yearlyInterest : String? = null,
+		@ApiModelProperty("Is it borrowable?") var borrowable : Boolean? = null,
+		@ApiModelProperty("Is internal transfer allowed?") var transferIn : Boolean? = null,
 		@ApiModelProperty("Bound pairs.") List<String> marginablePairs) {
 }

@@ -6,14 +6,17 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.FixedProjectPositionStatus;
 
 /**
- * {@link SavingsClient#getFixedProjectPosition} params.
+ * [SavingsClient.getFixedProjectPosition] params.
  * 
  * @param asset     Asset.
  * @param projectId Project id.
  * @param status    Status.
  */
 @Param
-public record FixedProjectPositionParams(String asset, String projectId, FixedProjectPositionStatus status) implements Params {
+data class FixedProjectPositionParams(
+String asset, String projectId,
+FixedProjectPositionStatus status):Params
+{
 
 	/**
 	 * Creates an instance of {@link FixedProjectPositionParams}.

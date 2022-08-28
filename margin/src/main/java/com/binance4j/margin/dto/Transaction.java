@@ -6,10 +6,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A transfer, borrow or repay transaction.
  * 
- * @param tranId    Transaction id.
- * @param clientTag Client tag.
+ * @property tranId    Transaction id.
+ * @property clientTag Client tag.
  */
 @ApiModel("A transfer, borrow or repay transaction.")
-public record Transaction(@ApiModelProperty("Transaction id.") String tranId,
-		@ApiModelProperty("Client tag.") String clientTag) {
+data class Transaction(
+@ApiModelProperty("Transaction id.")
+var tranId:String?=null,
+@ApiModelProperty("Client tag.")
+var clientTag:String?=null)
+{
 }

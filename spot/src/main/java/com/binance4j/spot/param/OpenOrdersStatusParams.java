@@ -5,11 +5,11 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getOpenOrders} params.
+ * [SpotClient.getOpenOrders] params.
  * 
  * @param symbol Pair we want the open orders.
  */
-@Param(weight = 40)
-public record OpenOrdersStatusParams(String symbol) implements Params {
+@Param
+data class OpenOrdersStatusParams(String symbol) : Params {
 
 }

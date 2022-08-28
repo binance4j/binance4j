@@ -8,11 +8,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Hashrate detail data.
  * 
- * @param profitTransferDetails Details.
- * @param totalNum              Total amount.
- * @param pageSize              Rows per page.
+ * @property profitTransferDetails Details.
+ * @property totalNum              Total amount.
+ * @property pageSize              Rows per page.
  */
 @ApiModel("Hashrate detail data.")
-public record HashrateResaleDetailData(@ApiModelProperty("Details.") List<HashrateResaleDetail> profitTransferDetails,
-		@ApiModelProperty("Total amount.") long totalNum, @ApiModelProperty("Rows per page.") long pageSize) {
+data class HashrateResaleDetailData(@ApiModelProperty("Details.") List<HashrateResaleDetail> profitTransferDetails,
+		@ApiModelProperty("Total amount.") var totalNum : Long? = null, @ApiModelProperty("Rows per page.") var pageSize : Long? = null) {
 }

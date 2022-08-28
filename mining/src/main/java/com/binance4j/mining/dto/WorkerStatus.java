@@ -14,7 +14,7 @@ public enum WorkerStatus {
 	String value;
 
 	/**
-	 * @param value
+	 * @property value
 	 */
 	private WorkerStatus(String value) {
 		this.value = value;

@@ -6,8 +6,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A wrapper for the server time.
  * 
- * @param serverTime Server time in ms.
+ * @property serverTime Server time in ms.
  */
 @ApiModel("A wrapper for the server time.")
-public record ServerTimeResponse(@ApiModelProperty("The server time in ms.") long serverTime) {
+data class ServerTimeResponse(@ApiModelProperty("The server time in ms.") var serverTime:Long?=null)
+{
 }

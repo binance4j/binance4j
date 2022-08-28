@@ -7,14 +7,17 @@ import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.TransferType;
 
 /**
- * {@link MarginClient#transfer} params.
+ * [MarginClient.transfer] params.
  * 
  * @param asset  Asset being transferred.
  * @param amount Amount to be transferred.
  * @param type   Transfer type.
  */
 @Param(weight = 600, type = RateLimitType.UID)
-public record TransferParams(String asset, String amount, String type) implements Params {
+data class TransferParams(
+String asset, String amount,
+String type):Params
+{
 
 	/**
 	 * @param asset  Asset being transferred.

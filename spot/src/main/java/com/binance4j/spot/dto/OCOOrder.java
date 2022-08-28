@@ -6,11 +6,17 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OCO order infos.
  * 
- * @param symbol        symbol.
- * @param orderId       order id.
- * @param clientOrderId client order id.
+ * @property symbol        symbol.
+ * @property orderId       order id.
+ * @property clientOrderId client order id.
  */
 @ApiModel("OCO order infos.")
-public record OCOOrder(@ApiModelProperty("symbol.") String symbol, @ApiModelProperty("order id.") long orderId,
-		@ApiModelProperty("client order id.") String clientOrderId) {
+data class OCOOrder(
+@ApiModelProperty("symbol.")
+var symbol:String?=null,
+@ApiModelProperty("order id.")
+var orderId:Long?=null,
+@ApiModelProperty("client order id.")
+var clientOrderId:String?=null)
+{
 }

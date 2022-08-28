@@ -5,10 +5,10 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#cancelOpenOrders} params.
+ * [SpotClient.cancelOpenOrders] params.
  * 
  * @param symbol Trade symbol.
  */
 @Param
-public record CancelOpenOrdersParams(String symbol) implements Params {
+data class CancelOpenOrdersParams(String symbol) : Params {
 }

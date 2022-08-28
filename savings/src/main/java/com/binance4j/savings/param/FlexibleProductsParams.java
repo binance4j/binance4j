@@ -7,13 +7,15 @@ import com.binance4j.savings.dto.Featured;
 import com.binance4j.savings.dto.FlexibleProductStatus;
 
 /**
- * {@link SavingsClient#getFlexibleProducts} params.
+ * [SavingsClient.getFlexibleProducts] params.
  * 
  * @param status   Product status.
  * @param featured Featured.
  */
 @Param
-public record FlexibleProductsParams(String status, String featured) implements Params {
+data class FlexibleProductsParams(
+String status, String featured):Params
+{
 
 	/**
 	 * Creates an instance of {@link FlexibleProductsParams}.

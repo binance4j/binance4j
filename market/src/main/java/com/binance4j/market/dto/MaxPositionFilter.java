@@ -7,10 +7,13 @@ import io.swagger.annotations.ApiModelProperty;
  * The maximum allowed position an account can have on the base asset of a
  * symbol.
  * 
- * @param maxPosition Max positions allowed.
+ * @property maxPosition Max positions allowed.
  * @see <a href=
  *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @ApiModel("he maximum allowed position an account can have on the base asset of a symbol.")
-public record MaxPositionFilter(@ApiModelProperty("Max positions allowed.") String maxPosition) {
+data class MaxPositionFilter(
+@ApiModelProperty("Max positions allowed.")
+var maxPosition:String?=null)
+{
 }

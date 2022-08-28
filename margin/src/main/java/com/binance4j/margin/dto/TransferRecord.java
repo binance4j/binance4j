@@ -6,22 +6,33 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A transfer history record.
  * 
- * @param txId                 Transaction id.
- * @param amount               Transfered amount.
- * @param asset                Transfered asset.
- * @param status               Transfer status.
- * @param timestamp            Transaction time in ms.
- * @param type                 Transfer history type.
- * @param transferCounterparty Transfer counterparty.
- * @param clientTag            Client tag.
+ * @property txId                 Transaction id.
+ * @property amount               Transfered amount.
+ * @property asset                Transfered asset.
+ * @property status               Transfer status.
+ * @property timestamp            Transaction time in ms.
+ * @property type                 Transfer history type.
+ * @property transferCounterparty Transfer counterparty.
+ * @property clientTag            Client tag.
  * @see TransferRecordType
  */
 @ApiModel("A transfer history record.")
-public record TransferRecord(@ApiModelProperty("Transaction id.") long txId,
-		@ApiModelProperty("Transfered amount.") String amount,
-		@ApiModelProperty("Transfered asset.") String asset, @ApiModelProperty("Transfer status.") String status,
-		@ApiModelProperty("Transaction time in ms.") long timestamp,
-		@ApiModelProperty("Transfer history type.") String type,
-		@ApiModelProperty("Transfer counterparty.") String transferCounterparty,
-		@ApiModelProperty("Client tag.") String clientTag) {
+data class TransferRecord(
+@ApiModelProperty("Transaction id.")
+var txId:Long?=null,
+@ApiModelProperty("Transfered amount.")
+var amount:String?=null,
+@ApiModelProperty("Transfered asset.")
+var asset:String?=null,
+@ApiModelProperty("Transfer status.")
+var status:String?=null,
+@ApiModelProperty("Transaction time in ms.")
+var timestamp:Long?=null,
+@ApiModelProperty("Transfer history type.")
+var type:String?=null,
+@ApiModelProperty("Transfer counterparty.")
+var transferCounterparty:String?=null,
+@ApiModelProperty("Client tag.")
+var clientTag:String?=null)
+{
 }

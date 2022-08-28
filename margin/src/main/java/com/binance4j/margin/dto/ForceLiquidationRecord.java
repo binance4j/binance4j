@@ -9,25 +9,37 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Market order to exit leveraged position.
  * 
- * @param orderId     Order id.
- * @param updatedTime Liquidation timestamp in ms.
- * @param avgPrice    Symbol average price.
- * @param executedQty Executed quantity.
- * @param timeInForce Order time in force.
- * @param side        Order side.
- * @param symbol      Order symbol.
- * @param price       Order price.
- * @param qty         Order total quantity.
- * @param isIsolated  Is is isolated?
+ * @property orderId     Order id.
+ * @property updatedTime Liquidation timestamp in ms.
+ * @property avgPrice    Symbol average price.
+ * @property executedQty Executed quantity.
+ * @property timeInForce Order time in force.
+ * @property side        Order side.
+ * @property symbol      Order symbol.
+ * @property price       Order price.
+ * @property qty         Order total quantity.
+ * @property isIsolated  Is is isolated?
  */
 @ApiModel("Market order to exit leveraged position.")
-public record ForceLiquidationRecord(@ApiModelProperty("Order id.") long orderId,
-		@ApiModelProperty("Liquidation timestamp in ms.") long updatedTime,
-		@ApiModelProperty("Symbol average price.") String avgPrice,
-		@ApiModelProperty("Executed quantity.") String executedQty,
-		@ApiModelProperty("Order time in force.") TimeInForce timeInForce,
-		@ApiModelProperty("Order side.") OrderSide side,
-		@ApiModelProperty("Order symbol.") String symbol, @ApiModelProperty("Order price.") String price,
-		@ApiModelProperty("Order total quantity.") String qty,
-		@ApiModelProperty("Is is isolated?") boolean isIsolated) {
+data class ForceLiquidationRecord(
+@ApiModelProperty("Order id.")
+var orderId:Long?=null,
+@ApiModelProperty("Liquidation timestamp in ms.")
+var updatedTime:Long?=null,
+@ApiModelProperty("Symbol average price.")
+var avgPrice:String?=null,
+@ApiModelProperty("Executed quantity.")
+var executedQty:String?=null,
+@ApiModelProperty("Order time in force.")
+var timeInForce:TimeInForce?=null,
+@ApiModelProperty("Order side.")
+var side:OrderSide?=null,
+@ApiModelProperty("Order symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Order price.")
+var price:String?=null,
+@ApiModelProperty("Order total quantity.")
+var qty:String?=null,
+@ApiModelProperty("Is is isolated?") var isIsolated:Boolean?=null)
+{
 }

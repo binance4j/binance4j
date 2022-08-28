@@ -5,8 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getOpenOCO} params.
+ * [SpotClient.getOpenOCO] params.
  */
-@Param(weight = 3)
-public record OpenOCOParams() implements Params {
+@Param
+data class OpenOCOParams() : Params {
 }

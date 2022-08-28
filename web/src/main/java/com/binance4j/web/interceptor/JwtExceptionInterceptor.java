@@ -10,7 +10,9 @@ import com.binance4j.core.exception.ApiException;
 
 /** JWT exception interceptor. */
 @Component
-public class JwtExceptionInterceptor implements HandlerInterceptor {
+public class JwtExceptionInterceptor:HandlerInterceptor
+{
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

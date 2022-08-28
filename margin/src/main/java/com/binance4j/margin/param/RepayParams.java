@@ -6,7 +6,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#repay} params.
+ * [MarginClient.repay] params.
  * 
  * @param asset      Asset to repay.
  * @param amount     Amount to repay.
@@ -14,7 +14,11 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated For isolated margin or not. Default {@code false}.
  */
 @Param(weight = 300, type = RateLimitType.UID)
-public record RepayParams(String asset, String amount, String symbol, Boolean isIsolated) implements Params {
+data class RepayParams(
+String asset, String amount,
+String symbol, Boolean isIsolated):Params
+{
+
 	/**
 	 * Creates an instance of {@link RepayParams}.
 	 * 

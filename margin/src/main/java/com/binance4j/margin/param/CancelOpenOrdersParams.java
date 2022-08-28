@@ -5,13 +5,16 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#cancelOpenOrders} params.
+ * [MarginClient.cancelOpenOrders] params.
  * 
  * @param symbol     Trade symbol
  * @param isIsolated For isolated margin or nott. Default: false.
  */
 @Param
-public record CancelOpenOrdersParams(String symbol, Boolean isIsolated) implements Params {
+data class CancelOpenOrdersParams(
+String symbol, Boolean isIsolated):Params
+{
+
 	/**
 	 * Creates an instance of {@link CancelOpenOrdersParams}.
 	 * 

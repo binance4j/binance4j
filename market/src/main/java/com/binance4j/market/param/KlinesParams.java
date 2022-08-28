@@ -6,13 +6,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getKlines} params.
+ * [MarketClient.getKlines] params.
  * 
  * @param symbol   Trading pair we want the data.
  * @param interval Candlestick interval.
  */
 @Param(recvWindow = false, timestamp = false)
-public record KlinesParams(String symbol, String interval) implements Params {
+data class KlinesParams(
+String symbol, String interval):Params
+{
 
 	/**
 	 * Creates an instance of the class.

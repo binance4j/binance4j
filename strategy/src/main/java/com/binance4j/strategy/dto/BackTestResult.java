@@ -10,17 +10,22 @@ import io.swagger.annotations.ApiModelProperty;
  * A backtest result wrapper containing the strategy positions and its
  * statistics.
  * 
- * @param series        Series the backtest run.
- * @param statistics    Backtest positions statistics.
- * @param tradingRecord Positions record.
+ * @property series        Series the backtest run.
+ * @property statistics    Backtest positions statistics.
+ * @property tradingRecord Positions record.
  */
 @ApiModel("A backtest result wrapper containing the strategy positions and its statistics.")
-public record BackTestResult(@ApiModelProperty("Series the backtest run.") BarSeries series,
-		@ApiModelProperty("Backtest positions statistics.") TradingStatistics statistics,
-		@ApiModelProperty("Positions record.") TradingRecord tradingRecord) {
+data class BackTestResult(@ApiModelProperty("Series the backtest run.")
+var series:BarSeries?=null,
+@ApiModelProperty("Backtest positions statistics.")
+var statistics:TradingStatistics?=null,
+@ApiModelProperty("Positions record.")
+var tradingRecord:TradingRecord?=null)
+{
+
 	/**
-	 * @param series        Series the backtest run.
-	 * @param tradingRecord Positions record.
+	 * @property series        Series the backtest run.
+	 * @property tradingRecord Positions record.
 	 */
 	public BackTestResult(BarSeries series, TradingRecord tradingRecord) {
 		this(series, new TradingStatistics(tradingRecord, series), tradingRecord);

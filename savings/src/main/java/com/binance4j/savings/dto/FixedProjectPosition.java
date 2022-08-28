@@ -6,35 +6,59 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A fixed project position.
  * 
- * @param asset           Asset.
- * @param canTransfer     Can transfer.
- * @param createTimestamp Create timestamp.
- * @param duration        Duration.
- * @param endTime         Endtime.
- * @param interest        Interest.
- * @param interestRate    Interest rate.
- * @param lot             Lot.
- * @param positionId      Position id.
- * @param principal       Principal.
- * @param projectId       Project id.
- * @param projectName     Project name.
- * @param purchaseTime    Purchase time.
- * @param redeemDate      Redeem date.
- * @param startTime       Start time.
- * @param status          Status.
- * @param type            Type.
+ * @property asset           Asset.
+ * @property canTransfer     Can transfer.
+ * @property createTimestamp Create timestamp.
+ * @property duration        Duration.
+ * @property endTime         Endtime.
+ * @property interest        Interest.
+ * @property interestRate    Interest rate.
+ * @property lot             Lot.
+ * @property positionId      Position id.
+ * @property principal       Principal.
+ * @property projectId       Project id.
+ * @property projectName     Project name.
+ * @property purchaseTime    Purchase time.
+ * @property redeemDate      Redeem date.
+ * @property startTime       Start time.
+ * @property status          Status.
+ * @property type            Type.
  */
 @ApiModel("A fixed project position.")
-public record FixedProjectPosition(@ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Can transfer.") boolean canTransfer,
-		@ApiModelProperty("Create timestamp.") long createTimestamp, @ApiModelProperty("Duration.") long duration,
-		@ApiModelProperty("Endtime.") long endTime,
-		@ApiModelProperty("Interest.") String interest, @ApiModelProperty("Interest rate.") String interestRate,
-		@ApiModelProperty("Lot.") long lot,
-		@ApiModelProperty("Position id.") long positionId, @ApiModelProperty("Principal.") String principal,
-		@ApiModelProperty("Project id.") String projectId,
-		@ApiModelProperty("Project name.") String projectName, @ApiModelProperty("Purchase time.") long purchaseTime,
-		@ApiModelProperty("Redeem date.") String redeemDate, @ApiModelProperty("Start time.") long startTime,
-		@ApiModelProperty("Status.") String status,
-		@ApiModelProperty("Type.") String type) {
+data class FixedProjectPosition(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Can transfer.")
+var canTransfer:Boolean?=null,
+@ApiModelProperty("Create timestamp.")
+var createTimestamp:Long?=null,
+@ApiModelProperty("Duration.")
+var duration:Long?=null,
+@ApiModelProperty("Endtime.")
+var endTime:Long?=null,
+@ApiModelProperty("Interest.")
+var interest:String?=null,
+@ApiModelProperty("Interest rate.")
+var interestRate:String?=null,
+@ApiModelProperty("Lot.")
+var lot:Long?=null,
+@ApiModelProperty("Position id.")
+var positionId:Long?=null,
+@ApiModelProperty("Principal.")
+var principal:String?=null,
+@ApiModelProperty("Project id.")
+var projectId:String?=null,
+@ApiModelProperty("Project name.")
+var projectName:String?=null,
+@ApiModelProperty("Purchase time.")
+var purchaseTime:Long?=null,
+@ApiModelProperty("Redeem date.")
+var redeemDate:String?=null,
+@ApiModelProperty("Start time.")
+var startTime:Long?=null,
+@ApiModelProperty("Status.")
+var status:String?=null,
+@ApiModelProperty("Type.")
+var type:String?=null)
+{
 }

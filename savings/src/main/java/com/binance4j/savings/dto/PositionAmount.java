@@ -6,13 +6,20 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Position Amount.
  * 
- * @param amount       Amount.
- * @param amountInBTC  Amount in BTC.
- * @param amountInUSDT Amount in USDT.
- * @param asset        Asset.
+ * @property amount       Amount.
+ * @property amountInBTC  Amount in BTC.
+ * @property amountInUSDT Amount in USDT.
+ * @property asset        Asset.
  */
 @ApiModel("Position Amount.")
-public record PositionAmount(@ApiModelProperty("Amount.") String amount,
-		@ApiModelProperty("Amount in BTC.") String amountInBTC,
-		@ApiModelProperty("Amount in USDT.") String amountInUSDT, @ApiModelProperty("Asset.") String asset) {
+data class PositionAmount(
+@ApiModelProperty("Amount.")
+var amount:String?=null,
+@ApiModelProperty("Amount in BTC.")
+var amountInBTC:String?=null,
+@ApiModelProperty("Amount in USDT.")
+var amountInUSDT:String?=null,
+@ApiModelProperty("Asset.")
+var asset:String?=null)
+{
 }

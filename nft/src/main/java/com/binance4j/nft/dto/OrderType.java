@@ -14,7 +14,7 @@ public enum OrderType {
 	MINT_FEE("4");
 
 	/**
-	 * @param value Value.
+	 * @property value Value.
 	 */
 	private OrderType(String value) {
 		this.value = value;

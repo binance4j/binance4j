@@ -5,14 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getHistoricalTrades} params.
+ * [MarketClient.getHistoricalTrades] params.
  * 
  * @param symbol Trading pair to get the trades.
  * @param limit  Default 500; max 1000.
  * @param fromId Trade id to fetch from. Default gets most recent trades.
  */
 @Param(weight = 5, recvWindow = false, timestamp = false)
-public record HistoricalTradesParams(String symbol, Integer limit, Long fromId) implements Params {
+data class HistoricalTradesParams(
+String symbol, Integer limit,
+Long fromId):Params
+{
+
 	/**
 	 * Creates an instance of {@link HistoricalTradesParams}.
 	 * 

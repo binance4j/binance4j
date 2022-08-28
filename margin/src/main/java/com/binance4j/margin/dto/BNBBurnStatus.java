@@ -7,12 +7,15 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * BNB burn status after
- * {@link MarginClient#toggleBNBBurnOnSpotTradeAndMarginInterest}
+ * [MarginClient.toggleBNBBurnOnSpotTradeAndMarginInterest]
  * 
- * @param spotBNBBurn     Is spot BNB burn allowed.
- * @param interestBNBBurn Is interest BNB burn allowed.
+ * @property spotBNBBurn     Is spot BNB burn allowed.
+ * @property interestBNBBurn Is interest BNB burn allowed.
  */
 @ApiModel("BNB burn status")
-public record BNBBurnStatus(@ApiModelProperty("Is spot BNB burn allowed.") boolean spotBNBBurn,
-		@ApiModelProperty("Is interest BNB burn allowed.") boolean interestBNBBurn) {
+data class BNBBurnStatus(
+@ApiModelProperty("Is spot BNB burn allowed.")
+var spotBNBBurn:Boolean?=null,
+@ApiModelProperty("Is interest BNB burn allowed.") var interestBNBBurn:Boolean?=null)
+{
 }

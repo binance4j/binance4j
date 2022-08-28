@@ -11,20 +11,26 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The current exchange trading rules and symbol information.
  * 
- * @param timezone        Server timezone.
- * @param serverTime      Server time.
- * @param rateLimits      Request limits (weight, orders, raw...).
- * @param exchangeFilters Trading rules of the exchange.
- * @param symbols         Available symbols on the exchange.
+ * @property timezone        Server timezone.
+ * @property serverTime      Server time.
+ * @property rateLimits      Request limits (weight, orders, raw...).
+ * @property exchangeFilters Trading rules of the exchange.
+ * @property symbols         Available symbols on the exchange.
  */
 @ApiModel("The current exchange trading rules and symbol information.")
-public record ExchangeInfo(@ApiModelProperty("Server timezone.") String timezone,
-		@ApiModelProperty("Server time.") long serverTime,
-		@ApiModelProperty("Request limits (weight, orders, raw...).") List<RateLimit> rateLimits,
-		@ApiModelProperty("Trading rules of the exchange.") List<ExchangeFilter> exchangeFilters,
-		@ApiModelProperty("Available symbols on the exchange.") List<SymbolInfo> symbols) {
+data class ExchangeInfo(@ApiModelProperty("Server timezone.")
+var timezone:String?=null,
+@ApiModelProperty("Server time.")
+var serverTime:Long?=null,
+@ApiModelProperty("Request limits (weight, orders, raw...).")
+List<RateLimit> rateLimits,
+@ApiModelProperty("Trading rules of the exchange.")
+List<ExchangeFilter> exchangeFilters,
+@ApiModelProperty("Available symbols on the exchange.") List<SymbolInfo> symbols)
+{
+
 	/**
-	 * @param symbol Symbol we want the infos.
+	 * @property symbol Symbol we want the infos.
 	 * @return The symbol exchange information.
 	 * @throws NotFoundException Thrown if the symbol was not found
 	 */

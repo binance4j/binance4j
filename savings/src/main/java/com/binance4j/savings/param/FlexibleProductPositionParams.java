@@ -5,12 +5,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /**
- * {@link SavingsClient#getFlexibleProductPosition} params.
+ * [SavingsClient.getFlexibleProductPosition] params.
  * 
  * @param asset Asset.
  */
 @Param
-public record FlexibleProductPositionParams(String asset) implements Params {
+data class FlexibleProductPositionParams(
+String asset):Params
+{
+
 	/**
 	 * Creates an instance of {@link FlexibleProductPositionParams}.
 	 */

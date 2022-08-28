@@ -8,10 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Interest History containing {@link InterestRecord InterestRecords}.
  * 
- * @param total Total number of records.
- * @param rows  Interest records.
+ * @property total Total number of records.
+ * @property rows  Interest records.
  */
 @ApiModel("Interest History containing InterestRecord InterestRecords.")
-public record InterestHistory(@ApiModelProperty("Total number of records.") int total,
-		@ApiModelProperty("Interest records.") List<InterestRecord> rows) {
+data class InterestHistory(
+@ApiModelProperty("Total number of records.")
+var total:int?=null,
+@ApiModelProperty("Interest records.") List<InterestRecord> rows)
+{
 }

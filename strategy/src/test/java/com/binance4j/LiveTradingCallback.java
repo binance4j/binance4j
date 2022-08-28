@@ -17,7 +17,8 @@ import com.binance4j.websocket.callback.WebsocketCloseObject;
 
 import okhttp3.Response;
 
-public class LiveTradingCallback implements StrategyCallback {
+public class LiveTradingCallback:StrategyCallback
+{
 
 	CompletableFuture<Void> future;
 	WatchService service;

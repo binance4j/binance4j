@@ -6,11 +6,11 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.ProductType;
 
 /**
- * {@link SavingsClient#getLeftDailyRedemptionQuota} params.
+ * [SavingsClient.getLeftDailyRedemptionQuota] params.
  * 
  * @param productId Product id.
  * @param type      Product type.
  */
 @Param
-public record RedemptionQuotaParams(String productId, ProductType type) implements Params {
+data class RedemptionQuotaParams(String productId, ProductType type) : Params {
 }

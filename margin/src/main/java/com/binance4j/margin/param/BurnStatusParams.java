@@ -4,7 +4,7 @@ import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** {@link MarginClient#getBNBBurnStatus} params. */
+/** [MarginClient.getBNBBurnStatus] params. */
 @Param
-public record BurnStatusParams() implements Params {
+data class BurnStatusParams() : Params {
 }

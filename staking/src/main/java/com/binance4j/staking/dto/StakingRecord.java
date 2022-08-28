@@ -6,21 +6,35 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Staking record.
  * 
- * @param positionId  Position id.
- * @param time        Time.
- * @param asset       Asset.
- * @param project     Project.
- * @param amount      Amount.
- * @param lockPeriod  Lock period.
- * @param deliverDate Deliver date.
- * @param type        Type.
- * @param status      Status.
+ * @property positionId  Position id.
+ * @property time        Time.
+ * @property asset       Asset.
+ * @property project     Project.
+ * @property amount      Amount.
+ * @property lockPeriod  Lock period.
+ * @property deliverDate Deliver date.
+ * @property type        Type.
+ * @property status      Status.
  */
 @ApiModel("Staking record.")
-public record StakingRecord(@ApiModelProperty("Position id.") String positionId, @ApiModelProperty("Time.") String time,
-		@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Project.") String project,
-		@ApiModelProperty("Amount.") String amount,
-		@ApiModelProperty("Lock period.") String lockPeriod, @ApiModelProperty("Deliver date.") String deliverDate,
-		@ApiModelProperty("Type.") String type,
-		@ApiModelProperty("Status.") String status) {
+data class StakingRecord(
+@ApiModelProperty("Position id.")
+var positionId:String?=null,
+@ApiModelProperty("Time.")
+var time:String?=null,
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Project.")
+var project:String?=null,
+@ApiModelProperty("Amount.")
+var amount:String?=null,
+@ApiModelProperty("Lock period.")
+var lockPeriod:String?=null,
+@ApiModelProperty("Deliver date.")
+var deliverDate:String?=null,
+@ApiModelProperty("Type.")
+var type:String?=null,
+@ApiModelProperty("Status.")
+var status:String?=null)
+{
 }

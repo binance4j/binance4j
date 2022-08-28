@@ -5,10 +5,10 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getIsolatedAccount} params.
+ * [MarginClient.getIsolatedAccount] params.
  * 
  * @param symbols Max 5 symbols can be sent; separated by ",".
  */
-@Param(weight = 10)
-public record IsolatedAccountParams(String symbols) implements Params {
+@Param
+data class IsolatedAccountParams(String symbols) : Params {
 }

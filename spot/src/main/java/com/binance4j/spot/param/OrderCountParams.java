@@ -5,8 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getOrderCount} params.
+ * [SpotClient.getOrderCount] params.
  */
-@Param(weight = 20)
-public record OrderCountParams() implements Params {
+@Param
+data class OrderCountParams() : Params {
 }

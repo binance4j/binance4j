@@ -8,10 +8,10 @@ public class AdminDetails extends Binance4jUserDetails {
 	/**
 	 * Creates instance.
 	 * 
-	 * @param username Username.
-	 * @param password Password.
-	 * @param key      Key.
-	 * @param secret   Secret.
+	 * @property username Username.
+	 * @property password Password.
+	 * @property key      Key.
+	 * @property secret   Secret.
 	 */
 	public AdminDetails(String username, String password, String key, String secret) {
 		super(username, password, key, secret);

@@ -6,18 +6,25 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An asset on the platform.
  * 
- * @param assetFullName  Asset full name.
- * @param assetName      Asset name.
- * @param userMinBorrow  User minimum borrow.
- * @param userMinRepay   User minimum repay.
- * @param isBorrowable   Is it borrowable?
- * @param isMortgageable Is it mortgageable?
+ * @property assetFullName  Asset full name.
+ * @property assetName      Asset name.
+ * @property userMinBorrow  User minimum borrow.
+ * @property userMinRepay   User minimum repay.
+ * @property isBorrowable   Is it borrowable?
+ * @property isMortgageable Is it mortgageable?
  */
 @ApiModel("An asset on the platform.")
-public record Asset(@ApiModelProperty("Asset full name.") String assetFullName,
-		@ApiModelProperty("Asset name.") String assetName,
-		@ApiModelProperty("User minimum borrow.") String userMinBorrow,
-		@ApiModelProperty("User minimum repay.") String userMinRepay,
-		@ApiModelProperty("Is it borrowable?") boolean isBorrowable,
-		@ApiModelProperty("Is it mortgageable?") boolean isMortgageable) {
+data class Asset(
+@ApiModelProperty("Asset full name.")
+var assetFullName:String?=null,
+@ApiModelProperty("Asset name.")
+var assetName:String?=null,
+@ApiModelProperty("User minimum borrow.")
+var userMinBorrow:String?=null,
+@ApiModelProperty("User minimum repay.")
+var userMinRepay:String?=null,
+@ApiModelProperty("Is it borrowable?")
+var isBorrowable:Boolean?=null,
+@ApiModelProperty("Is it mortgageable?") var isMortgageable:Boolean?=null)
+{
 }

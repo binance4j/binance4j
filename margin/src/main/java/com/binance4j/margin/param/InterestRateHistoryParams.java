@@ -5,13 +5,16 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getInterestRateHistory} params.
+ * [MarginClient.getInterestRateHistory] params.
  * 
  * @param asset    Asset.
  * @param vipLevel VIP level.
  */
 @Param
-public record InterestRateHistoryParams(String asset, Integer vipLevel) implements Params {
+data class InterestRateHistoryParams(
+String asset, Integer vipLevel):Params
+{
+
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.
 	 * 

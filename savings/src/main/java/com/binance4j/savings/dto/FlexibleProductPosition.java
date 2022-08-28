@@ -8,35 +8,35 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Flexible product position.
  * 
- * @param tierAnnualInterestRate Tier annual interest rate.
- * @param annualInterestRate     Annual interest rate.
- * @param asset                  Asset.
- * @param avgAnnualInterestRate  Avg annual interest rate.
- * @param canRedeem              Can redeem.
- * @param dailyInterestRate      Daily interest rate.
- * @param freeAmount             Free amount.
- * @param freezeAmount           Freeze amount.
- * @param lockedAmount           Locked amount.
- * @param productId              Product id.
- * @param productName            Product name.
- * @param redeemingAmount        Redeeming amount.
- * @param todayPurchasedAmount   Today purchased amount.
- * @param totalAmount            Total amount.
- * @param totalInterest          Total interest.
+ * @property tierAnnualInterestRate Tier annual interest rate.
+ * @property annualInterestRate     Annual interest rate.
+ * @property asset                  Asset.
+ * @property avgAnnualInterestRate  Avg annual interest rate.
+ * @property canRedeem              Can redeem.
+ * @property dailyInterestRate      Daily interest rate.
+ * @property freeAmount             Free amount.
+ * @property freezeAmount           Freeze amount.
+ * @property lockedAmount           Locked amount.
+ * @property productId              Product id.
+ * @property productName            Product name.
+ * @property redeemingAmount        Redeeming amount.
+ * @property todayPurchasedAmount   Today purchased amount.
+ * @property totalAmount            Total amount.
+ * @property totalInterest          Total interest.
  */
 @ApiModel("Flexible product position.")
-public record FlexibleProductPosition(
+data class FlexibleProductPosition(
 		@ApiModelProperty("Tier annual interest rate.") Map<String, String> tierAnnualInterestRate,
-		@ApiModelProperty("Annual interest rate.") String annualInterestRate, @ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Avg annual interest rate.") String avgAnnualInterestRate,
-		@ApiModelProperty("Can redeem.") boolean canRedeem,
-		@ApiModelProperty("Daily interest rate.") String dailyInterestRate,
-		@ApiModelProperty("Free amount.") String freeAmount,
-		@ApiModelProperty("Freeze amount.") String freezeAmount,
-		@ApiModelProperty("Locked amount.") String lockedAmount,
-		@ApiModelProperty("Product id.") String productId, @ApiModelProperty("Product name.") String productName,
-		@ApiModelProperty("Redeeming amount.") String redeemingAmount,
-		@ApiModelProperty("Today purchased amount.") String todayPurchasedAmount,
-		@ApiModelProperty("Total amount.") String totalAmount,
-		@ApiModelProperty("Total interest.") String totalInterest) {
+		@ApiModelProperty("Annual interest rate.") var annualInterestRate : String? = null, @ApiModelProperty("Asset.") var asset : String? = null,
+		@ApiModelProperty("Avg annual interest rate.") var avgAnnualInterestRate : String? = null,
+		@ApiModelProperty("Can redeem.") var canRedeem : Boolean? = null,
+		@ApiModelProperty("Daily interest rate.") var dailyInterestRate : String? = null,
+		@ApiModelProperty("Free amount.") var freeAmount : String? = null,
+		@ApiModelProperty("Freeze amount.") var freezeAmount : String? = null,
+		@ApiModelProperty("Locked amount.") var lockedAmount : String? = null,
+		@ApiModelProperty("Product id.") var productId : String? = null, @ApiModelProperty("Product name.") var productName : String? = null,
+		@ApiModelProperty("Redeeming amount.") var redeemingAmount : String? = null,
+		@ApiModelProperty("Today purchased amount.") var todayPurchasedAmount : String? = null,
+		@ApiModelProperty("Total amount.") var totalAmount : String? = null,
+		@ApiModelProperty("Total interest.") var totalInterest : String? = null) {
 }

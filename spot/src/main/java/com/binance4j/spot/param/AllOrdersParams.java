@@ -5,20 +5,24 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getAllOrders} params.
+ * [SpotClient.getAllOrders] params.
  * 
  * @param symbol  Trading pair we want the orders.
  * @param orderId If orderId is set, it will get orders &gt;= that orderId. Otherwise, most recent orders are returned.
  *                    If startTime and/or endTime provided, orderId is not required.
  */
-@Param(weight = 10)
-public record AllOrdersParams(String symbol, Long orderId) implements Params {
+@Param
+data class AllOrdersParams(
+String symbol, Long orderId):Params
+{
+
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 
 	 * @param symbol  Trading pair we want the orders.
-	 * @param orderId If orderId is set, it will get orders &gt;= that orderId. Otherwise, most recent orders are returned.
-	 *                    If startTime and/or endTime provided, orderId is not required.
+	 * @param orderId If orderId is set, it will get orders &gt;= that orderId.
+	 *                Otherwise, most recent orders are returned.
+	 *                If startTime and/or endTime provided, orderId is not required.
 	 */
 	public AllOrdersParams(String symbol, Long orderId) {
 		this.symbol = symbol;

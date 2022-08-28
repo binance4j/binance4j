@@ -11,6 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @param message The exception message.
  */
 @ApiModel("ApiException")
-public record ApiExceptionResponse(@ApiModelProperty("The exception code.") int code,
+data class ApiExceptionResponse(@ApiModelProperty("The exception code.") int code,
 		@ApiModelProperty("The exception message.") String message) {
 }

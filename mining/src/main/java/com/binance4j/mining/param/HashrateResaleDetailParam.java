@@ -9,5 +9,7 @@ import com.binance4j.mining.client.MiningClient;
  * @param configId Config id.
  * @param userName User name.
  */
-public record HashrateResaleDetailParam(Integer configId, String userName) implements Params {
+data
+
+class HashrateResaleDetailParam(Integer configId, String userName) : Params {
 }

@@ -7,6 +7,6 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * {@link MiningClient} params.
  */
-@Param(weight = 5)
-public record HashrateResaleListParams() implements Params {
+@Param
+data class HashrateResaleListParams() : Params {
 }

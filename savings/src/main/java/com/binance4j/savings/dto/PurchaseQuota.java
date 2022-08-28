@@ -6,10 +6,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Flexible purchase quota.
  * 
- * @param asset     Asset.
- * @param leftQuota Left quota.
+ * @property asset     Asset.
+ * @property leftQuota Left quota.
  */
 @ApiModel("Flexible purchase quota.")
-public record PurchaseQuota(@ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Left quota.") String leftQuota) {
+data class PurchaseQuota(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Left quota.")
+var leftQuota:String?=null)
+{
 }

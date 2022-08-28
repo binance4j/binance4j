@@ -6,15 +6,18 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getAllOCO} params.
+ * [MarginClient.getAllOCO] params.
  * 
  * @param symbol     Mandatory for isolated margin, not supported for cross
  *                   margin.
  * @param fromId     If supplied, don't provide {@link TimeFrame}
  * @param isIsolated Is the order isolated?
  */
-@Param(weight = 200)
-public record GetAllOCOParams(String symbol, Long fromId, Boolean isIsolated) implements Params {
+@Param
+data class GetAllOCOParams(
+String symbol, Long fromId,
+Boolean isIsolated):Params
+{
 
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.

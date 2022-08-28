@@ -6,7 +6,7 @@ import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedTransferAccount;
 
 /**
- * {@link MarginClient#getIsolatedTransferHistory} params.
+ * [MarginClient.getIsolatedTransferHistory] params.
  * 
  * @param symbol    Symbol.
  * @param asset     Asset.
@@ -15,9 +15,13 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
  * @param archived  Set to true for archived data from 6 months ago.
  */
 @Param
-public record IsolatedTransferHistoryParams(String symbol, String asset, IsolatedTransferAccount transFrom,
-		IsolatedTransferAccount transTo, Boolean archived)
-		implements Params {
+data class IsolatedTransferHistoryParams(
+String symbol, String asset,
+IsolatedTransferAccount transFrom,
+		IsolatedTransferAccount transTo,
+Boolean archived):Params
+{
+
 	/**
 	 * Creates an instance of {@link IsolatedTransferHistoryParams}.
 	 * 

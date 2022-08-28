@@ -5,14 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.mining.client.MiningClient;
 
 /**
- * {@link MiningClient#getProfits} params.
+ * [MiningClient.getProfits] params.
  * 
  * @param algo     Transfer algorithm.
  * @param userName Mining account test.
  * @param coin     Coin name.
  */
-@Param(weight = 5)
-public record ProfitsParams(String algo, String userName, String coin) implements Params {
+@Param
+data class ProfitsParams(
+String algo, String userName,
+String coin):Params
+{
+
 	/**
 	 * Creates an instance of {@link ProfitsParams}.
 	 * 

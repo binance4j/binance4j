@@ -6,13 +6,20 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A mining algorithm.
  * 
- * @param algoName  Algorithm name.
- * @param algoId    Algorithm id.
- * @param poolIndex Sequence.
- * @param unit      Unit.
+ * @property algoName  Algorithm name.
+ * @property algoId    Algorithm id.
+ * @property poolIndex Sequence.
+ * @property unit      Unit.
  */
 @ApiModel("A mining algorithm.")
-public record Algorithm(@ApiModelProperty("Algorithm name.") String algoName,
-		@ApiModelProperty("Algorithm id.") long algoId,
-		@ApiModelProperty("Sequence.") long poolIndex, @ApiModelProperty("Unit.") String unit) {
+data class Algorithm(
+@ApiModelProperty("Algorithm name.")
+var algoName:String?=null,
+@ApiModelProperty("Algorithm id.")
+var algoId:Long?=null,
+@ApiModelProperty("Sequence.")
+var poolIndex:Long?=null,
+@ApiModelProperty("Unit.")
+var unit:String?=null)
+{
 }

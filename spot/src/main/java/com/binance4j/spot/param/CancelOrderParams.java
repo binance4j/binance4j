@@ -5,16 +5,19 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#cancelOrder} params.
+ * [SpotClient.cancelOrder] params.
  * 
  * @param symbol            Trade symbol.
  * @param orderId           Order id.
  * @param origClientOrderId Original client order id.
  * @param newClientOrderId  New client order id.
  */
-@Param(weight = 10)
-public record CancelOrderParams(String symbol, Long orderId, String origClientOrderId, String newClientOrderId)
-		implements Params {
+@Param
+data class CancelOrderParams(
+String symbol, Long orderId,
+String origClientOrderId, String newClientOrderId):Params
+{
+
 	/**
 	 * Creates an instance of {@link OpenOrdersStatusParams}.
 	 * 

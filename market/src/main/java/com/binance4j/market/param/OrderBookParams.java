@@ -6,13 +6,15 @@ import com.binance4j.market.client.MarketClient;
 import com.binance4j.market.dto.OrderBookLimit;
 
 /**
- * {@link MarketClient#getOrderBook} params.
+ * [MarketClient.getOrderBook] params.
  * 
  * @param symbol Trading pair we want the depth.
  * @param limit  Market depth size.
  */
 @Param(recvWindow = false, timestamp = false)
-public record OrderBookParams(String symbol, String limit) implements Params {
+data class OrderBookParams(
+String symbol, String limit):Params
+{
 
 	/**
 	 * Creates an instance of {@link OrderBookParams}.

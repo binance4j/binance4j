@@ -7,14 +7,18 @@ import com.binance4j.savings.dto.FixedProjectStatus;
 import com.binance4j.savings.dto.FixedProjectType;
 
 /**
- * {@link SavingsClient#getFixedProjects} params.
+ * [SavingsClient.getFixedProjects] params.
  * 
  * @param type   Project type.
  * @param asset  Asset.
  * @param status Project status. default: {@code START_TIME}.
  */
 @Param
-public record FixedProjectListParams(String type, String asset, String status) implements Params {
+data class FixedProjectListParams(
+String type, String asset,
+String status):Params
+{
+
 	/**
 	 * Creates an instance of {@link FixedProjectListParams}.
 	 * 

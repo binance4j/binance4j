@@ -5,13 +5,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getTrades} params.
+ * [MarketClient.getTrades] params.
  * 
  * @param symbol Symbol we want the trades.
  * @param limit  Trades size. Default 500; max 1000.
  */
 @Param(recvWindow = false, timestamp = false)
-public record TradesParams(String symbol, Integer limit) implements Params {
+data class TradesParams(
+String symbol, Integer limit):Params
+{
 
 	/**
 	 * Creates an instance of {@link TradesParams}.

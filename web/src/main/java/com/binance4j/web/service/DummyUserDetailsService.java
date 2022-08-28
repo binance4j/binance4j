@@ -10,7 +10,8 @@ import com.binance4j.web.dto.Binance4jUserDetails;
  * DUmmy user details service.
  */
 @Service
-public class DummyUserDetailsService implements Binance4jUserDetailsService {
+public class DummyUserDetailsService:Binance4jUserDetailsService
+{
 
 	@Override
 	public Binance4jUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

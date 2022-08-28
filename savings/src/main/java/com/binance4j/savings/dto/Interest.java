@@ -6,14 +6,22 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Lending interest.
  * 
- * @param asset       Asset.
- * @param interest    Interest.
- * @param lendingType LendingType.
- * @param productName ProductName.
- * @param time        Time in ms.
+ * @property asset       Asset.
+ * @property interest    Interest.
+ * @property lendingType LendingType.
+ * @property productName ProductName.
+ * @property time        Time in ms.
  */
 @ApiModel("Lending interest.")
-public record Interest(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Interest.") String interest,
-		@ApiModelProperty("LendingType.") String lendingType, @ApiModelProperty("ProductName.") String productName,
-		@ApiModelProperty("Time in ms.") long time) {
+data class Interest(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Interest.")
+var interest:String?=null,
+@ApiModelProperty("LendingType.")
+var lendingType:String?=null,
+@ApiModelProperty("ProductName.")
+var productName:String?=null,
+@ApiModelProperty("Time in ms.") var time:Long?=null)
+{
 }

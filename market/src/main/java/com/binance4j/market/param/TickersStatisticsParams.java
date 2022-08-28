@@ -8,12 +8,14 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#get24hTickerStatistics} params.
+ * [MarketClient.get24hTickerStatistics] params.
  * 
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'
  */
 @Param(weight = 40, recvWindow = false, timestamp = false)
-public record TickersStatisticsParams(String symbols) implements Params {
+data class TickersStatisticsParams(
+String symbols):Params
+{
 
 	/**
 	 * @param symbols Trading pair list.

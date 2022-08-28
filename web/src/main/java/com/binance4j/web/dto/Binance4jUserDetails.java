@@ -7,7 +7,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public abstract class Binance4jUserDetails implements UserDetails {
+public abstract class Binance4jUserDetails:UserDetails
+{
 	/** Username. */
 	String username;
 	/** Password. */
@@ -30,10 +31,10 @@ public abstract class Binance4jUserDetails implements UserDetails {
 	/**
 	 * Creates instance.
 	 * 
-	 * @param username Username.
-	 * @param password Password.
-	 * @param key      Key.
-	 * @param secret   Secret.
+	 * @property username Username.
+	 * @property password Password.
+	 * @property key      Key.
+	 * @property secret   Secret.
 	 */
 	protected Binance4jUserDetails(String username, String password, String key, String secret) {
 		this.username = username;
@@ -45,7 +46,7 @@ public abstract class Binance4jUserDetails implements UserDetails {
 	/**
 	 * Creates instance from a spring security {@link Authentication}.
 	 * 
-	 * @param authentication Security authentication to copy the data from.
+	 * @property authentication Security authentication to copy the data from.
 	 */
 	protected Binance4jUserDetails(Authentication authentication) {
 		this.username = (String) authentication.getPrincipal();

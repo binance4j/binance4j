@@ -8,12 +8,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Workers data.
  * 
- * @param workerDatas Workers datas.
- * @param totalNum    Total amount.
- * @param pageSize    Rows per page.
+ * @property workerDatas Workers datas.
+ * @property totalNum    Total amount.
+ * @property pageSize    Rows per page.
  */
 @ApiModel("Workers data.")
-public record WorkersData(@ApiModelProperty("Workers datas.") List<Worker> workerDatas,
-		@ApiModelProperty("Total amount.") long totalNum,
-		@ApiModelProperty("Rows per page.") long pageSize) {
+data class WorkersData(@ApiModelProperty("Workers datas.") List<Worker> workerDatas,
+		@ApiModelProperty("Total amount.") var totalNum : Long? = null,
+		@ApiModelProperty("Rows per page.") var pageSize : Long? = null) {
 }

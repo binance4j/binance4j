@@ -6,12 +6,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Max Borrowable amount.
  * 
- * @param amount      Account's currently max borrowable amount with sufficient
+ * @property amount      Account's currently max borrowable amount with sufficient
  *                    system availability.
- * @param borrowLimit Max borrowable amount limited by the account level.
+ * @property borrowLimit Max borrowable amount limited by the account level.
  */
 @ApiModel("Max Borrowable amount.")
-public record MaxBorrowable(
+data class MaxBorrowable(
 		@ApiModelProperty("Account's currently max borrowable amount with sufficient system availability.") String amount,
-		@ApiModelProperty("Max borrowable amount limited by the account level.") String borrowLimit) {
+		@ApiModelProperty("Max borrowable amount limited by the account level.") var borrowLimit : String? = null) {
 }

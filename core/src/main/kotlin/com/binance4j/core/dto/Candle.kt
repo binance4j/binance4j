@@ -74,7 +74,7 @@ data class Candle(
     /**
      * accepting a list of String acting like a line of data in a csv file
      *
-     * @param input String input.
+     * @property input String input.
      */
     constructor(input: List<String>) : this(
         input[0].toLong(), input[1], input[2], input[3], input[4], input[5], input[6].toLong(), input[7], input[8].toLong(), input[9], input[10]

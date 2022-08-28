@@ -5,10 +5,10 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getForceLiquidationRecord} params.
+ * [MarginClient.getForceLiquidationRecord] params.
  * 
  * @param isolatedSymbol Isolated symbol.
  */
 @Param
-public record ForceLiquidationRecordParams(String isolatedSymbol) implements Params {
+data class ForceLiquidationRecordParams(String isolatedSymbol) : Params {
 }

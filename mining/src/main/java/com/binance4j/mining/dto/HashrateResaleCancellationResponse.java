@@ -6,12 +6,16 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Hahsrate cancellation response.
  * 
- * @param code Code.
- * @param msg  Message.
- * @param data Cancellation success.
+ * @property code Code.
+ * @property msg  Message.
+ * @property data Cancellation success.
  */
 @ApiModel("Hahsrate cancellation response.")
-public record HashrateResaleCancellationResponse(@ApiModelProperty("Code.") int code,
-		@ApiModelProperty("Message.") String msg,
-		@ApiModelProperty("Cancellation success.") boolean data) {
+data class HashrateResaleCancellationResponse(
+@ApiModelProperty("Code.")
+var code:int?=null,
+@ApiModelProperty("Message.")
+var msg:String?=null,
+@ApiModelProperty("Cancellation success.") var data:Boolean?=null)
+{
 }

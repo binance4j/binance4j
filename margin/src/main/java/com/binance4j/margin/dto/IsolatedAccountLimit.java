@@ -6,10 +6,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Enabled Isolated account limit.
  * 
- * @param enabledAccount Enabled account.
- * @param maxAccount     Account limit.
+ * @property enabledAccount Enabled account.
+ * @property maxAccount     Account limit.
  */
 @ApiModel("Enabled Isolated account limit.")
-public record IsolatedAccountLimit(@ApiModelProperty("Enabled account.") int enabledAccount,
-		@ApiModelProperty("Account limit.") int maxAccount) {
+data class IsolatedAccountLimit(
+@ApiModelProperty("Enabled account.")
+var enabledAccount:int?=null,
+@ApiModelProperty("Account limit.") var maxAccount:int?=null)
+{
 }

@@ -6,16 +6,22 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The minimum and maximum value for the parameter trailingDelta.
  * 
- * @param minTrailingAboveDelta Min trailing above delta.
- * @param maxTrailingAboveDelta Max trailing above delta.
- * @param minTrailingBelowDelta Min trailing below delta.
- * @param maxTrailingBelowDelta Max trailing below delta.
+ * @property minTrailingAboveDelta Min trailing above delta.
+ * @property maxTrailingAboveDelta Max trailing above delta.
+ * @property minTrailingBelowDelta Min trailing below delta.
+ * @property maxTrailingBelowDelta Max trailing below delta.
  * @see <a href=
  *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @ApiModel("The minimum and maximum value for the parameter trailingDelta.")
-public record TrailingDeltaFilter(@ApiModelProperty("Min trailing above delta.") String minTrailingAboveDelta,
-		@ApiModelProperty("Max trailing above delta.") String maxTrailingAboveDelta,
-		@ApiModelProperty("Min trailing below delta.") String minTrailingBelowDelta,
-		@ApiModelProperty("Max trailing below delta.") String maxTrailingBelowDelta) {
+data class TrailingDeltaFilter(
+@ApiModelProperty("Min trailing above delta.")
+var minTrailingAboveDelta:String?=null,
+@ApiModelProperty("Max trailing above delta.")
+var maxTrailingAboveDelta:String?=null,
+@ApiModelProperty("Min trailing below delta.")
+var minTrailingBelowDelta:String?=null,
+@ApiModelProperty("Max trailing below delta.")
+var maxTrailingBelowDelta:String?=null)
+{
 }

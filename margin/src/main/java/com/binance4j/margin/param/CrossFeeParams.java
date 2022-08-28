@@ -5,13 +5,16 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getMarginFeeData} params.
+ * [MarginClient.getMarginFeeData] params.
  * 
  * @param coin     Related coin.
  * @param vipLevel Related VIP level.
  */
-@Param(weight = 5)
-public record CrossFeeParams(String coin, Integer vipLevel) implements Params {
+@Param
+data class CrossFeeParams(
+String coin, Integer vipLevel):Params
+{
+
 	/**
 	 * Creates an instance of {@link CrossFeeParams}
 	 * 

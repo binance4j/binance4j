@@ -6,19 +6,32 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Purchase infos.
  * 
- * @param amount      Amount.
- * @param asset       Asset.
- * @param createTime  Create time.
- * @param lendingType Lending type.
- * @param lot         Lot.
- * @param productName Product name.
- * @param purchaseId  Purchase id.
- * @param status      Status.
+ * @property amount      Amount.
+ * @property asset       Asset.
+ * @property createTime  Create time.
+ * @property lendingType Lending type.
+ * @property lot         Lot.
+ * @property productName Product name.
+ * @property purchaseId  Purchase id.
+ * @property status      Status.
  */
 @ApiModel("Purchase infos.")
-public record Purchase(@ApiModelProperty("Amount.") String amount, @ApiModelProperty("Asset.") String asset,
-		@ApiModelProperty("Create time.") long createTime,
-		@ApiModelProperty("Lending type.") String lendingType, @ApiModelProperty("Lot.") long lot,
-		@ApiModelProperty("Product name.") String productName,
-		@ApiModelProperty("Purchase id.") long purchaseId, @ApiModelProperty("Status.") String status) {
+data class Purchase(
+@ApiModelProperty("Amount.")
+var amount:String?=null,
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Create time.")
+var createTime:Long?=null,
+@ApiModelProperty("Lending type.")
+var lendingType:String?=null,
+@ApiModelProperty("Lot.")
+var lot:Long?=null,
+@ApiModelProperty("Product name.")
+var productName:String?=null,
+@ApiModelProperty("Purchase id.")
+var purchaseId:Long?=null,
+@ApiModelProperty("Status.")
+var status:String?=null)
+{
 }

@@ -8,12 +8,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getBookTicker} params.
+ * [MarketClient.getBookTicker] params.
  * 
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'.
  */
 @Param(weight = 2, recvWindow = false, timestamp = false)
-public record BookTickersParams(String symbols) implements Params {
+data class BookTickersParams(
+String symbols):Params
+{
+
 	/**
 	 * Creates an instance of the class.
 	 * 

@@ -31,7 +31,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 /** Binance4j proxy configuration. */
 @EnableWebSecurity
 @Configuration
-public class Binance4jWeb implements WebMvcConfigurer {
+public class Binance4jWeb:WebMvcConfigurer
+{
 	/** Connector controllers base URI. */
 	public final static String CONNECTORS_BASE_URI = "/api/v1/connectors/";
 	/** Admin username. */

@@ -8,12 +8,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getExchangeInfo} params.
+ * [MarketClient.getExchangeInfo] params.
  * 
  * @param symbols Symbols.
  */
 @Param(weight = 10, recvWindow = false, timestamp = false)
-public record ExchangeInfoParams(String symbols) implements Params {
+data class ExchangeInfoParams(
+String symbols):Params
+{
+
 	/** Creates an instance of {@link ExchangeInfoParams}. */
 	public ExchangeInfoParams() {
 		this("");

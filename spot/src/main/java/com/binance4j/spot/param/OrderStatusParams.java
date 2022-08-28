@@ -5,14 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getOrderStatus} params.
+ * [SpotClient.getOrderStatus] params.
  * 
  * @param symbol            Trading pair we want the order status.
  * @param origClientOrderId Client id we want the order status.
  * @param orderId           Order id we want the order status.
  */
-@Param(weight = 2)
-public record OrderStatusParams(String symbol, String origClientOrderId, Long orderId) implements Params {
+@Param
+data class OrderStatusParams(
+String symbol, String origClientOrderId,
+Long orderId):Params
+{
+
 	/**
 	 * Creates an instance of {@link OrderStatusParams}.
 	 * 

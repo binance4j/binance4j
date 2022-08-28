@@ -8,9 +8,10 @@ import com.binance4j.core.dto.TimeInForce;
 import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
-/** {@link MarginClient#newOCO} params. */
+/** [MarginClient.newOCO] params. */
 @Param(type = RateLimitType.UID)
-public class NewOCOOrderParams implements Params {
+public class NewOCOOrderParams:Params
+{
 	/** The order symbol */
 	String symbol;
 	/** The order side */

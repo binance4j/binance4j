@@ -5,14 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getTrades} params.
+ * [SpotClient.getTrades] params.
  * 
  * @param symbol  Symbol of the trade.
  * @param orderId Order id of the trade.
  * @param fromId  Id from which we search trades.
  */
-@Param(weight = 10)
-public record TradesParams(String symbol, Long orderId, Long fromId) implements Params {
+@Param
+data class TradesParams(
+String symbol, Long orderId,
+Long fromId):Params
+{
+
 	/**
 	 * Creates an instance of {@link TradesParams}.
 	 * 

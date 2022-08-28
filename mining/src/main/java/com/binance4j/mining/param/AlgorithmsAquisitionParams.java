@@ -5,8 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.mining.client.MiningClient;
 
 /**
- * {@link MiningClient#getAlgorithms} params.
+ * [MiningClient.getAlgorithms] params.
  */
 @Param
-public record AlgorithmsAquisitionParams() implements Params {
+data class AlgorithmsAquisitionParams() : Params {
 }

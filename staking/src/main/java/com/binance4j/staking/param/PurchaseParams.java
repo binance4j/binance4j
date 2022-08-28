@@ -6,7 +6,7 @@ import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
 /**
- * {@link StakingClient#purchase} params.
+ * [StakingClient.purchase] params.
  * 
  * @param product   Product type.
  * @param productId Product id.
@@ -15,7 +15,10 @@ import com.binance4j.staking.dto.ProductType;
  *                  {@code L_DEFI}.
  */
 @Param
-public record PurchaseParams(String product, String productId, String amount, Boolean renewable) implements Params {
+data class PurchaseParams(
+String product, String productId,
+String amount, Boolean renewable):Params
+{
 
 	/**
 	 * Creates an instance of {@link PurchaseParams}.

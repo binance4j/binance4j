@@ -5,8 +5,8 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getDustLog} params
+ * [MarginClient.getDustLog] params
  */
 @Param
-public record DustLogParams() implements Params {
+data class DustLogParams() : Params {
 }

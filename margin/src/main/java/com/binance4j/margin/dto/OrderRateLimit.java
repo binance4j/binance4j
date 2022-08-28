@@ -6,16 +6,23 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Margin Order rate limit.
  * 
- * @param rateLimitType Rate limit type.
- * @param interval      Interval.
- * @param intervalNum   Interval num.
- * @param limit         Limit.
- * @param count         Count.
+ * @property rateLimitType Rate limit type.
+ * @property interval      Interval.
+ * @property intervalNum   Interval num.
+ * @property limit         Limit.
+ * @property count         Count.
  */
 @ApiModel("Margin Order rate limit.")
-public record OrderRateLimit(@ApiModelProperty("Rate limit type.") String rateLimitType,
-		@ApiModelProperty("Interval.") String interval,
-		@ApiModelProperty("Interval num.") int intervalNum, @ApiModelProperty("Limit.") int limit,
-		@ApiModelProperty("Count.") int count) {
+data class OrderRateLimit(
+@ApiModelProperty("Rate limit type.")
+var rateLimitType:String?=null,
+@ApiModelProperty("Interval.")
+var interval:String?=null,
+@ApiModelProperty("Interval num.")
+var intervalNum:int?=null,
+@ApiModelProperty("Limit.")
+var limit:int?=null,
+@ApiModelProperty("Count.") var count:int?=null)
+{
 
 }

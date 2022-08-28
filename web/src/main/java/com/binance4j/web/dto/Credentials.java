@@ -17,7 +17,7 @@ public class Credentials {
 	}
 
 	/**
-	 * @param username the username to set
+	 * @property username the username to set
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -31,7 +31,7 @@ public class Credentials {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @property password the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;

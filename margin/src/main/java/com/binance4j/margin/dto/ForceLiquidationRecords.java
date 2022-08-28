@@ -8,10 +8,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A {@link ForceLiquidationRecord} records container.
  * 
- * @param rows  Records.
- * @param total Total number of records.
+ * @property rows  Records.
+ * @property total Total number of records.
  */
 @ApiModel("ForceLiquidationRecord records container.")
-public record ForceLiquidationRecords(@ApiModelProperty("Records.") List<ForceLiquidationRecord> rows,
-		@ApiModelProperty("Total number of records.") int total) {
+data class ForceLiquidationRecords(@ApiModelProperty("Records.") List<ForceLiquidationRecord> rows,
+		@ApiModelProperty("Total number of records.") var total : Int? = null) {
 }

@@ -16,7 +16,7 @@ public enum MinerSorting {
 	String value;
 
 	/**
-	 * @param value
+	 * @property value
 	 */
 	private MinerSorting(String value) {
 		this.value = value;

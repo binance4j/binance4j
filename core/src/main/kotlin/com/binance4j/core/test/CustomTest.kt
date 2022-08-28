@@ -73,6 +73,6 @@ abstract class CustomTest {
     }
 
     fun assertNotThrow(request: Request<*>) {
-        assertDoesNotThrow { println(request.sync()) }
+        assertDoesNotThrow { println("foo" + request.sync()) }
     }
 }

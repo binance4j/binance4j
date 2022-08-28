@@ -5,13 +5,15 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getIsolatedFeeData} params.
+ * [MarginClient.getIsolatedFeeData] params.
  * 
  * @param symbol   Asset.
  * @param vipLevel Vip level.
  */
-@Param(weight = 10)
-public record IsolatedFeeParams(String symbol, Integer vipLevel) implements Params {
+@Param
+data class IsolatedFeeParams(
+String symbol, Integer vipLevel):Params
+{
 
 	/**
 	 * Creates an instance of {@link InterestRateHistoryParams}.

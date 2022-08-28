@@ -8,7 +8,7 @@ import com.binance4j.mining.dto.SortSequence;
 import com.binance4j.mining.dto.WorkerStatus;
 
 /**
- * {@link MiningClient#getMiners} params.
+ * [MiningClient.getMiners] params.
  * 
  * @param algo         Algorithm.
  * @param userName     Mining account.
@@ -17,9 +17,13 @@ import com.binance4j.mining.dto.WorkerStatus;
  * @param sortColumn   Miner sort.
  * @param workerStatus Miner status.
  */
-@Param(weight = 5)
-public record MinersParams(String algo, String userName, Integer pageIndex, String sort, String sortColumn,
-		String workerStatus) implements Params {
+@Param
+data class MinersParams(
+String algo, String userName,
+Integer pageIndex, String sort,
+String sortColumn,
+		String workerStatus):Params
+{
 
 	/**
 	 * @param algo         Algorithm.

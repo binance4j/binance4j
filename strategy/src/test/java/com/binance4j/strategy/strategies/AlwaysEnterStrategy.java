@@ -8,7 +8,9 @@ import org.ta4j.core.rules.BooleanIndicatorRule;
 import com.binance4j.strategy.TradingStrategy;
 
 /** A strategy that always enters */
-public class AlwaysEnterStrategy implements TradingStrategy {
+public class AlwaysEnterStrategy:TradingStrategy
+{
+
 	@Override
 	public Rule entry(BarSeries series) {
 		return new BooleanIndicatorRule(new ConstantIndicator<>(series, true));

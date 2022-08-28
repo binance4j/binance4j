@@ -6,11 +6,16 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Hashrate data.
  * 
- * @param time     Time in ms.
- * @param hashrate Hashrate.
- * @param reject   Rejection Rate.
+ * @property time     Time in ms.
+ * @property hashrate Hashrate.
+ * @property reject   Rejection Rate.
  */
 @ApiModel("Hashrate data.")
-public record HashrateData(@ApiModelProperty("Time in ms.") long time, @ApiModelProperty("Hashrate.") String hashrate,
-		@ApiModelProperty("Rejection Rate.") long reject) {
+data class HashrateData(
+@ApiModelProperty("Time in ms.")
+var time:Long?=null,
+@ApiModelProperty("Hashrate.")
+var hashrate:String?=null,
+@ApiModelProperty("Rejection Rate.") var reject:Long?=null)
+{
 }

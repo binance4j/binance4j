@@ -10,7 +10,7 @@ public enum TransferType {
 	/** The value */
 	final String value;
 
-	/** @param value Value */
+	/** @property value Value */
 	private TransferType(String value) {
 		this.value = value;
 	}

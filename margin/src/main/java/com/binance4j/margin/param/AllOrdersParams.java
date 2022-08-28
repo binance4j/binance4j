@@ -5,14 +5,18 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getAllOrders} params.
+ * [MarginClient.getAllOrders] params.
  * 
  * @param symbol     Order symbol.
  * @param isIsolated Is the order isolated?
  * @param orderId    Order id.
  */
-@Param(weight = 200)
-public record AllOrdersParams(String symbol, Long orderId, Boolean isIsolated) implements Params {
+@Param
+data class AllOrdersParams(
+String symbol, Long orderId,
+Boolean isIsolated):Params
+{
+
 	/**
 	 * Creates an instance of {@link AllOrdersParams}.
 	 * 

@@ -6,18 +6,25 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An isolated {@link Asset} pair.
  * 
- * @param symbol        Asset pair.
- * @param base          Base asset.
- * @param quote         Quote asset.
- * @param isMarginTrade Is margin trade allowed?
- * @param isBuyAllowed  Is purchase allowed?
- * @param isSellAllowed Is sale allowed?
+ * @property symbol        Asset pair.
+ * @property base          Base asset.
+ * @property quote         Quote asset.
+ * @property isMarginTrade Is margin trade allowed?
+ * @property isBuyAllowed  Is purchase allowed?
+ * @property isSellAllowed Is sale allowed?
  */
 @ApiModel("An isolated asset pair.")
-public record IsolatedSymbol(@ApiModelProperty("Asset pair.") String symbol,
-		@ApiModelProperty("Base asset.") String base,
-		@ApiModelProperty("Quote asset.") String quote,
-		@ApiModelProperty("Is margin trade allowed?") boolean isMarginTrade,
-		@ApiModelProperty("Is purchase allowed?") boolean isBuyAllowed,
-		@ApiModelProperty("Is sale allowed?") boolean isSellAllowed) {
+data class IsolatedSymbol(
+@ApiModelProperty("Asset pair.")
+var symbol:String?=null,
+@ApiModelProperty("Base asset.")
+var base:String?=null,
+@ApiModelProperty("Quote asset.")
+var quote:String?=null,
+@ApiModelProperty("Is margin trade allowed?")
+var isMarginTrade:Boolean?=null,
+@ApiModelProperty("Is purchase allowed?")
+var isBuyAllowed:Boolean?=null,
+@ApiModelProperty("Is sale allowed?") var isSellAllowed:Boolean?=null)
+{
 }

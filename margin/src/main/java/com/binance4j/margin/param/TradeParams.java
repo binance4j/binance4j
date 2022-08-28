@@ -5,14 +5,17 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getTrades} params.
+ * [MarginClient.getTrades] params.
  * 
  * @param symbol     Symbol.
  * @param fromId     Search from id.
  * @param isIsolated Is isolated margin?
  */
-@Param(weight = 10)
-public record TradeParams(String symbol, Long fromId, Boolean isIsolated) implements Params {
+@Param
+data class TradeParams(
+String symbol, Long fromId,
+Boolean isIsolated):Params
+{
 
 	/**
 	 * Creates an instance of {@link TradeParams}.

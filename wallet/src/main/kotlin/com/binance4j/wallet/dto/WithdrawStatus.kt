@@ -1,42 +1,68 @@
-package com.binance4j.wallet.dto;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package com.binance4j.wallet.dto
 
-/** The status of a withdraw. */
-public enum WithdrawStatus {
-	/** Email sent. */
-	EMAIL_SENT("0"),
-	/** Cancelled. */
-	CANCELLED("1"),
-	/** Awaiting approval. */
-	AWAITING_APPROVAL("2"),
-	/** Rejected. */
-	REJECTED("3"),
-	/** Processing. */
-	PROCESSING("4"),
-	/** Failure. */
-	FAILURE("5"),
-	/** Completed. */
-	COMPLETED("6");
+/**
+ * The status of a withdrawal.
+ */
+enum class WithdrawStatus
+/**
+ * @property value Value.
+ */(val value: String) {
+    /** Email sent. */
+    EMAIL_SENT("0"),
 
-	final String value;
+    /** Cancelled. */
+    CANCELLED("1"),
 
-	/**
-	 * @param value Value.
-	 */
-	private WithdrawStatus(String value) {
-		this.value = value;
-	}
+    /** Awaiting approval. */
+    AWAITING_APPROVAL("2"),
 
-	@Override
-	public String toString() {
-		return value;
-	}
+    /** Rejected. */
+    REJECTED("3"),
 
-	static public WithdrawStatus fromValue(String value) {
-		for (WithdrawStatus e : WithdrawStatus.values()) {
-			if (e.toString().equals(value)) {
-				return e;
-			}
-		}
-		return null;
-	}
+    /** Processing. */
+    PROCESSING("4"),
+
+    /** Failure. */
+    FAILURE("5"),
+
+    /** Completed. */
+    COMPLETED("6");
+
+    override fun toString(): String {
+        return value
+    }
+
+    companion object {
+        fun fromValue(value: String): WithdrawStatus? {
+            for (e in values()) {
+                if (e.toString() == value) {
+                    return e
+                }
+            }
+            return null
+        }
+    }
 }

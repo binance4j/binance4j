@@ -12,10 +12,11 @@ import com.binance4j.margin.dto.SideEffectType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * {@link MarginClient#newOrder} params.
+ * [MarginClient.newOrder] params.
  */
 @Param(weight = 6, isOrder = true, type = RateLimitType.UID)
-public class NewOrderParams implements Params {
+public class NewOrderParams:Params
+{
 	/** The order symbol */
 	String symbol;
 	/** The order side */

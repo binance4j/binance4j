@@ -6,15 +6,18 @@ import com.binance4j.savings.client.SavingsClient;
 import com.binance4j.savings.dto.LendingType;
 
 /**
- * {@link SavingsClient#getInterests},
- * {@link SavingsClient#getPurchases},{@link SavingsClient#getRedemptions}
+ * [SavingsClient.getInterests],
+ * [SavingsClient#getPurchases},{@link SavingsClient.getRedemptions]
  * params.
  * 
  * @param lendingType Lending type.
  * @param asset       Asset name.
  */
 @Param
-public record LendingParams(LendingType lendingType, String asset) implements Params {
+data class LendingParams(
+LendingType lendingType, String asset):Params
+{
+
 	/**
 	 * Creates an instance of {@link LendingParams}.
 	 * 

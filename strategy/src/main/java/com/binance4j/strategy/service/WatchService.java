@@ -141,7 +141,7 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the
 	 * received {@link BarSeries} with
-	 * {@link ZoneId#systemDefault()}
+	 * [ZoneId.systemDefault()]
 	 *
 	 * @param symbols  Symbols to listen to.
 	 * @param interval Candlestick interval.
@@ -154,7 +154,7 @@ public class WatchService {
 	/**
 	 * Listens to the Klines websocket endpoint and runs the strategy over the
 	 * received {@link BarSeries} with
-	 * {@link ZoneId#systemDefault()}
+	 * [ZoneId.systemDefault()]
 	 *
 	 * @param symbols  Symbols to listen to.
 	 * @param interval Candlestick interval.

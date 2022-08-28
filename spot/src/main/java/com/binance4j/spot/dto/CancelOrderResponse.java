@@ -6,28 +6,47 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * The CancelOrder request result.
  * 
- * @param status              Status.
- * @param side                Side.
- * @param type                Type.
- * @param timeInForce         Time in force.
- * @param orderId             Order id.
- * @param orderListId         Order list id.
- * @param symbol              Symbol.
- * @param origClientOrderId   Orig client order id.
- * @param clientOrderId       Client order id.
- * @param executedQty         Executed quantity.
- * @param price               Price.
- * @param origQty             Original quantity.
- * @param cummulativeQuoteQty Cummulative quote quantity.
+ * @property status              Status.
+ * @property side                Side.
+ * @property type                Type.
+ * @property timeInForce         Time in force.
+ * @property orderId             Order id.
+ * @property orderListId         Order list id.
+ * @property symbol              Symbol.
+ * @property origClientOrderId   Orig client order id.
+ * @property clientOrderId       Client order id.
+ * @property executedQty         Executed quantity.
+ * @property price               Price.
+ * @property origQty             Original quantity.
+ * @property cummulativeQuoteQty Cummulative quote quantity.
  */
 @ApiModel("The CancelOrder request result.")
-public record CancelOrderResponse(@ApiModelProperty("Status.") String status, @ApiModelProperty("Side.") String side,
-		@ApiModelProperty("Type.") String type,
-		@ApiModelProperty("Time in force.") String timeInForce, @ApiModelProperty("Order id.") long orderId,
-		@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Symbol.") String symbol,
-		@ApiModelProperty("Orig client order id.") String origClientOrderId,
-		@ApiModelProperty("Client order id.") String clientOrderId,
-		@ApiModelProperty("Executed quantity.") String executedQty, @ApiModelProperty("Price.") String price,
-		@ApiModelProperty("Original quantity.") String origQty,
-		@ApiModelProperty("Cummulative quote quantity.") String cummulativeQuoteQty) {
+data class CancelOrderResponse(
+@ApiModelProperty("Status.")
+var status:String?=null,
+@ApiModelProperty("Side.")
+var side:String?=null,
+@ApiModelProperty("Type.")
+var type:String?=null,
+@ApiModelProperty("Time in force.")
+var timeInForce:String?=null,
+@ApiModelProperty("Order id.")
+var orderId:Long?=null,
+@ApiModelProperty("Order list id.")
+var orderListId:Long?=null,
+@ApiModelProperty("Symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Orig client order id.")
+var origClientOrderId:String?=null,
+@ApiModelProperty("Client order id.")
+var clientOrderId:String?=null,
+@ApiModelProperty("Executed quantity.")
+var executedQty:String?=null,
+@ApiModelProperty("Price.")
+var price:String?=null,
+@ApiModelProperty("Original quantity.")
+var origQty:String?=null,
+@ApiModelProperty("Cummulative quote quantity.")
+var cummulativeQuoteQty:String?=null)
+{
 }

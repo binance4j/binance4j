@@ -8,24 +8,34 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An OCO order record.
  * 
- * @param orderListId       Order list id.
- * @param transactionTime   Transaction timestamp in ms.
- * @param symbol            Related symbol.
- * @param contingencyType   Contingency type.
- * @param listStatusType    List status type.
- * @param listOrderStatus   List order status.
- * @param listClientOrderId List client order id.
- * @param isIsoslated       Is the order isolated?
- * @param orders            Two orders.
+ * @property orderListId       Order list id.
+ * @property transactionTime   Transaction timestamp in ms.
+ * @property symbol            Related symbol.
+ * @property contingencyType   Contingency type.
+ * @property listStatusType    List status type.
+ * @property listOrderStatus   List order status.
+ * @property listClientOrderId List client order id.
+ * @property isIsoslated       Is the order isolated?
+ * @property orders            Two orders.
  */
 @ApiModel("An OCO order record.")
-public record OCOOrderRecord(@ApiModelProperty("Order list id.") long orderListId,
-		@ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
-		@ApiModelProperty("Related symbol.") String symbol,
-		@ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status type.") String listStatusType,
-		@ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId,
-		@ApiModelProperty("Is the order isolated?") boolean isIsoslated,
-		@ApiModelProperty("The two orders.") List<OrderInfo> orders) {
+data class OCOOrderRecord(
+@ApiModelProperty("Order list id.")
+var orderListId:Long?=null,
+@ApiModelProperty("Transaction timestamp in ms.")
+var transactionTime:Long?=null,
+@ApiModelProperty("Related symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Contingency type.")
+var contingencyType:String?=null,
+@ApiModelProperty("List status type.")
+var listStatusType:String?=null,
+@ApiModelProperty("List order status.")
+var listOrderStatus:String?=null,
+@ApiModelProperty("List client order id.")
+var listClientOrderId:String?=null,
+@ApiModelProperty("Is the order isolated?")
+var isIsoslated:Boolean?=null,
+@ApiModelProperty("The two orders.") List<OrderInfo> orders)
+{
 }

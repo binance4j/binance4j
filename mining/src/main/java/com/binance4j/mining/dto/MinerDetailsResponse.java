@@ -8,14 +8,18 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * {@link MiningClient#getMinersDetails} response.
+ * [MiningClient.getMinersDetails] response.
  * 
- * @param code Response code.
- * @param msg  Response message.
- * @param data Response data.
+ * @property code Response code.
+ * @property msg  Response message.
+ * @property data Response data.
  */
 @ApiModel("Miners detail wrapper.")
-public record MinerDetailsResponse(@ApiModelProperty("Response code.") int code,
-		@ApiModelProperty("Response message.") String msg,
-		@ApiModelProperty("Response data.") List<MinerDetails> data) {
+data class MinerDetailsResponse(
+@ApiModelProperty("Response code.")
+var code:int?=null,
+@ApiModelProperty("Response message.")
+var msg:String?=null,
+@ApiModelProperty("Response data.") List<MinerDetails> data)
+{
 }

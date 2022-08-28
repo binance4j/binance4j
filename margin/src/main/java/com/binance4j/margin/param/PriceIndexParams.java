@@ -5,10 +5,10 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getPriceIndex} params.
+ * [MarginClient.getPriceIndex] params.
  * 
  * @param symbol Symbol.
  */
-@Param(weight = 10)
-public record PriceIndexParams(String symbol) implements Params {
+@Param
+data class PriceIndexParams(String symbol) : Params {
 }

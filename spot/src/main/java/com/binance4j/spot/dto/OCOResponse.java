@@ -10,25 +10,36 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Response of an OCO order.
  * 
- * @param orderListId       Order list id.
- * @param contingencyType   Contingency type.
- * @param listStatusType    List status.
- * @param listOrderStatus   List order status.
- * @param listClientOrderId List client order id.
- * @param transactionTime   Order timestamp.
- * @param symbol            Order symbol.
- * @param orders            The 2 orders.
- * @param isIsolated        Is it an isolated trade?
- * @param orderReports      Order reports.
+ * @property orderListId       Order list id.
+ * @property contingencyType   Contingency type.
+ * @property listStatusType    List status.
+ * @property listOrderStatus   List order status.
+ * @property listClientOrderId List client order id.
+ * @property transactionTime   Order timestamp.
+ * @property symbol            Order symbol.
+ * @property orders            The 2 orders.
+ * @property isIsolated        Is it an isolated trade?
+ * @property orderReports      Order reports.
  */
 @ApiModel("Response of an OCO order.")
-public record OCOResponse(@ApiModelProperty("Order list id.") long orderListId,
-		@ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status.") String listStatusType,
-		@ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId,
-		@ApiModelProperty("Order timestamp.") long transactionTime,
-		@ApiModelProperty("Order symbol.") String symbol, @ApiModelProperty("The 2 orders.") List<MiniOrderInfo> orders,
-		@ApiModelProperty("is it an isolated trade?") boolean isIsolated,
-		@ApiModelProperty("Order reports.") List<OCOOrderReport> orderReports) {
+data class OCOResponse(
+@ApiModelProperty("Order list id.")
+var orderListId:Long?=null,
+@ApiModelProperty("Contingency type.")
+var contingencyType:String?=null,
+@ApiModelProperty("List status.")
+var listStatusType:String?=null,
+@ApiModelProperty("List order status.")
+var listOrderStatus:String?=null,
+@ApiModelProperty("List client order id.")
+var listClientOrderId:String?=null,
+@ApiModelProperty("Order timestamp.")
+var transactionTime:Long?=null,
+@ApiModelProperty("Order symbol.")
+var symbol:String?=null,
+@ApiModelProperty("The 2 orders.") List<MiniOrderInfo> orders,
+@ApiModelProperty("is it an isolated trade?")
+var isIsolated:Boolean?=null,
+@ApiModelProperty("Order reports.") List<OCOOrderReport> orderReports)
+{
 }

@@ -6,19 +6,28 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An executed trade history item.
  * 
- * @param id           Trade id.
- * @param price        Trad price.
- * @param qty          Trade volume.
- * @param quoteQty     Trade opposite volume.
- * @param time         Trade execution in ms.
- * @param isBuyerMaker Is the trade a buyer maker trade.
- * @param isBestMatch  Was the trade the best price match?
+ * @property id           Trade id.
+ * @property price        Trad price.
+ * @property qty          Trade volume.
+ * @property quoteQty     Trade opposite volume.
+ * @property time         Trade execution in ms.
+ * @property isBuyerMaker Is the trade a buyer maker trade.
+ * @property isBestMatch  Was the trade the best price match?
  */
 @ApiModel("An executed trade history item.")
-public record Trade(@ApiModelProperty("Trade id.") long id, @ApiModelProperty("Trad price.") String price,
-		@ApiModelProperty("Trade volume.") String qty,
-		@ApiModelProperty("Trade opposite volume.") String quoteQty,
-		@ApiModelProperty("Trade execution in ms.") long time,
-		@ApiModelProperty("Is the trade a buyer maker trade.") boolean isBuyerMaker,
-		@ApiModelProperty("Was the trade the best price match?") boolean isBestMatch) {
+data class Trade(
+@ApiModelProperty("Trade id.")
+var id:Long?=null,
+@ApiModelProperty("Trad price.")
+var price:String?=null,
+@ApiModelProperty("Trade volume.")
+var qty:String?=null,
+@ApiModelProperty("Trade opposite volume.")
+var quoteQty:String?=null,
+@ApiModelProperty("Trade execution in ms.")
+var time:Long?=null,
+@ApiModelProperty("Is the trade a buyer maker trade.")
+var isBuyerMaker:Boolean?=null,
+@ApiModelProperty("Was the trade the best price match?") var isBestMatch:Boolean?=null)
+{
 }

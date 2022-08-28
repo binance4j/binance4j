@@ -4,7 +4,7 @@ import com.binance4j.core.param.Params;
 import com.binance4j.mining.client.MiningClient;
 
 /**
- * {@link MiningClient#resellHashrate} params.
+ * [MiningClient.resellHashrate] params.
  * 
  * @param userName   Mining Account test.
  * @param algo       Transfer algorithm.
@@ -15,6 +15,8 @@ import com.binance4j.mining.client.MiningClient;
  *                   than 500000000000 ETH is greater than
  *                   500000).
  */
-public record HashrateResaleParams(String userName, String algo, Long startDate, Long endDate, String toPoolUser,
-		Long hashRate) implements Params {
+data
+
+class HashrateResaleParams(String userName, String algo, Long startDate, Long endDate, String toPoolUser,
+		Long hashRate) : Params {
 }

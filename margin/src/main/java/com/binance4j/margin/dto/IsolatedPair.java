@@ -6,30 +6,45 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Isolated asset pair in an {@link IsolatedAccount}
  * 
- * @param baseAsset         Base asset.
- * @param quoteAsset        Quote asset.
- * @param symbol            Asset symbol.
- * @param isolatedCreated   is isolated asset created.
- * @param tradeEnabled      Is trading enabled?
- * @param enabled           Is the pair enabled for the account?
- * @param marginLevelStatus Margin level status.
- * @param marginLevel       Margin level.
- * @param marginRatio       Margin ratio.
- * @param indexPrice        Index price.
- * @param liquidatePrice    Liquidate price.
- * @param liquidateRate     Liquidate rate.
+ * @property baseAsset         Base asset.
+ * @property quoteAsset        Quote asset.
+ * @property symbol            Asset symbol.
+ * @property isolatedCreated   is isolated asset created.
+ * @property tradeEnabled      Is trading enabled?
+ * @property enabled           Is the pair enabled for the account?
+ * @property marginLevelStatus Margin level status.
+ * @property marginLevel       Margin level.
+ * @property marginRatio       Margin ratio.
+ * @property indexPrice        Index price.
+ * @property liquidatePrice    Liquidate price.
+ * @property liquidateRate     Liquidate rate.
  * @see LevelStatus
  */
 @ApiModel("Isolated asset pair in an isolated account.")
-public record IsolatedPair(@ApiModelProperty("Base asset.") IsolatedAsset baseAsset,
-		@ApiModelProperty("Quote asset.") IsolatedAsset quoteAsset,
-		@ApiModelProperty("Asset symbol.") String symbol,
-		@ApiModelProperty("is isolated asset created.") boolean isolatedCreated,
-		@ApiModelProperty("Is trading enabled?") boolean tradeEnabled,
-		@ApiModelProperty("Is the pair enabled for the account?") boolean enabled,
-		@ApiModelProperty("Margin level status.") String marginLevelStatus,
-		@ApiModelProperty("Margin level.") String marginLevel,
-		@ApiModelProperty("Margin ratio.") String marginRatio, @ApiModelProperty("Index price.") String indexPrice,
-		@ApiModelProperty("Liquidate price.") String liquidatePrice,
-		@ApiModelProperty("Liquidate rate.") String liquidateRate) {
+data class IsolatedPair(
+@ApiModelProperty("Base asset.")
+var baseAsset:IsolatedAsset?=null,
+@ApiModelProperty("Quote asset.")
+var quoteAsset:IsolatedAsset?=null,
+@ApiModelProperty("Asset symbol.")
+var symbol:String?=null,
+@ApiModelProperty("is isolated asset created.")
+var isolatedCreated:Boolean?=null,
+@ApiModelProperty("Is trading enabled?")
+var tradeEnabled:Boolean?=null,
+@ApiModelProperty("Is the pair enabled for the account?")
+var enabled:Boolean?=null,
+@ApiModelProperty("Margin level status.")
+var marginLevelStatus:String?=null,
+@ApiModelProperty("Margin level.")
+var marginLevel:String?=null,
+@ApiModelProperty("Margin ratio.")
+var marginRatio:String?=null,
+@ApiModelProperty("Index price.")
+var indexPrice:String?=null,
+@ApiModelProperty("Liquidate price.")
+var liquidatePrice:String?=null,
+@ApiModelProperty("Liquidate rate.")
+var liquidateRate:String?=null)
+{
 }

@@ -6,24 +6,37 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Isolated asset in {@link IsolatedPair}.
  * 
- * @param asset         Asset name.
- * @param borrowEnabled Borrowed quantity.
- * @param repayEnabled  Free quantity.
- * @param borrowed      Loan interest.
- * @param free          Locked quantity.
- * @param interest      Net asset quantity.
- * @param locked        Net asset of Bitcoin.
- * @param netAsset      Asset total quantity.
- * @param netAssetOfBtc Can the account borrow this asset?
- * @param totalAsset    Can the account repay this asset?
+ * @property asset         Asset name.
+ * @property borrowEnabled Borrowed quantity.
+ * @property repayEnabled  Free quantity.
+ * @property borrowed      Loan interest.
+ * @property free          Locked quantity.
+ * @property interest      Net asset quantity.
+ * @property locked        Net asset of Bitcoin.
+ * @property netAsset      Asset total quantity.
+ * @property netAssetOfBtc Can the account borrow this asset?
+ * @property totalAsset    Can the account repay this asset?
  */
 @ApiModel("Isolated asset in isolated pair.")
-public record IsolatedAsset(@ApiModelProperty("Asset name.") String asset,
-		@ApiModelProperty("Borrowed quantity.") String borrowed,
-		@ApiModelProperty("Free quantity.") String free, @ApiModelProperty("Loan interest.") String interest,
-		@ApiModelProperty("Locked quantity.") String locked, @ApiModelProperty("Net asset quantity.") String netAsset,
-		@ApiModelProperty("Net asset of Bitcoin.") String netAssetOfBtc,
-		@ApiModelProperty("Asset total quantity.") String totalAsset,
-		@ApiModelProperty("Can the account borrow this asset?") boolean borrowEnabled,
-		@ApiModelProperty("Can the account repay this asset?") boolean repayEnabled) {
+data class IsolatedAsset(
+@ApiModelProperty("Asset name.")
+var asset:String?=null,
+@ApiModelProperty("Borrowed quantity.")
+var borrowed:String?=null,
+@ApiModelProperty("Free quantity.")
+var free:String?=null,
+@ApiModelProperty("Loan interest.")
+var interest:String?=null,
+@ApiModelProperty("Locked quantity.")
+var locked:String?=null,
+@ApiModelProperty("Net asset quantity.")
+var netAsset:String?=null,
+@ApiModelProperty("Net asset of Bitcoin.")
+var netAssetOfBtc:String?=null,
+@ApiModelProperty("Asset total quantity.")
+var totalAsset:String?=null,
+@ApiModelProperty("Can the account borrow this asset?")
+var borrowEnabled:Boolean?=null,
+@ApiModelProperty("Can the account repay this asset?") var repayEnabled:Boolean?=null)
+{
 }

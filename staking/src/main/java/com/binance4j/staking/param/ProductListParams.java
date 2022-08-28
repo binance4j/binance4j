@@ -6,13 +6,16 @@ import com.binance4j.staking.client.StakingClient;
 import com.binance4j.staking.dto.ProductType;
 
 /**
- * {@link StakingClient#getProducts} params.
+ * [StakingClient.getProducts] params.
  * 
  * @param product Product type.
  * @param asset   Product name.
  */
 @Param
-public record ProductListParams(String product, String asset) implements Params {
+data class ProductListParams(
+String product, String asset):Params
+{
+
 	/**
 	 * Creates an instance of {@link ProductListParams}.
 	 * 

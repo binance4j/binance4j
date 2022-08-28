@@ -8,17 +8,30 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * An OCO Order details.
  * 
- * @param orderListId       Order list id.
- * @param contingencyType   Contingency type.
- * @param listStatusType    List status type.
- * @param listOrderStatus   List order status.
- * @param listClientOrderId List client order id.
- * @param transactionTime   Transaction timestamp in ms.
- * @param symbol            Orders symbol.
- * @param orders            Two orders of the OCO order.
+ * @property orderListId       Order list id.
+ * @property contingencyType   Contingency type.
+ * @property listStatusType    List status type.
+ * @property listOrderStatus   List order status.
+ * @property listClientOrderId List client order id.
+ * @property transactionTime   Transaction timestamp in ms.
+ * @property symbol            Orders symbol.
+ * @property orders            Two orders of the OCO order.
  */
 @ApiModel("An OCO Order details.")
-public record OCOInfo(@ApiModelProperty("Order list id.") long orderListId, @ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status type.") String listStatusType, @ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId, @ApiModelProperty("Transaction timestamp in ms.") long transactionTime,
-		@ApiModelProperty("Orders symbol.") String symbol, @ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders) {}
+data class OCOInfo(
+@ApiModelProperty("Order list id.")
+var orderListId:Long?=null,
+@ApiModelProperty("Contingency type.")
+var contingencyType:String?=null,
+@ApiModelProperty("List status type.")
+var listStatusType:String?=null,
+@ApiModelProperty("List order status.")
+var listOrderStatus:String?=null,
+@ApiModelProperty("List client order id.")
+var listClientOrderId:String?=null,
+@ApiModelProperty("Transaction timestamp in ms.")
+var transactionTime:Long?=null,
+@ApiModelProperty("Orders symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Two orders of the OCO order.") List<OCOOrder> orders)
+{}

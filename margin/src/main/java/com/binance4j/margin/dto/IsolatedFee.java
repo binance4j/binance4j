@@ -8,14 +8,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Isolated margin fee.
  * 
- * @param vipLevel VIP level.
- * @param symbol   Related symbol.
- * @param leverage Leverage.
- * @param data     Isolated fee data.
+ * @property vipLevel VIP level.
+ * @property symbol   Related symbol.
+ * @property leverage Leverage.
+ * @property data     Isolated fee data.
  */
 @ApiModel("Isolated margin fee.")
-public record IsolatedFee(@ApiModelProperty("VIP level.") int vipLevel,
-		@ApiModelProperty("Related symbol.") String symbol,
-		@ApiModelProperty("Leverage.") String leverage,
-		@ApiModelProperty("Isolated fee data.") List<IsolatedFeeData> data) {
+data class IsolatedFee(
+@ApiModelProperty("VIP level.")
+var vipLevel:int?=null,
+@ApiModelProperty("Related symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Leverage.")
+var leverage:String?=null,
+@ApiModelProperty("Isolated fee data.") List<IsolatedFeeData> data)
+{
 }

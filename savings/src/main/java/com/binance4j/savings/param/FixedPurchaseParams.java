@@ -5,11 +5,11 @@ import com.binance4j.core.param.Params;
 import com.binance4j.savings.client.SavingsClient;
 
 /**
- * {@link SavingsClient#purchaseFixed} params.
+ * [SavingsClient.purchaseFixed] params.
  * 
  * @param productId Product id.
  * @param lot       Amount.
  */
 @Param
-public record FixedPurchaseParams(String productId, Long lot) implements Params {
+data class FixedPurchaseParams(String productId, Long lot) : Params {
 }

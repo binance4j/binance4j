@@ -6,8 +6,9 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A staking redeem response.
  * 
- * @param success Success.
+ * @property success Success.
  */
 @ApiModel("A staking redeem response.")
-public record RedeemResponse(@ApiModelProperty("Success.") boolean success) {
+data class RedeemResponse(@ApiModelProperty("Success.") var success:Boolean?=null)
+{
 }

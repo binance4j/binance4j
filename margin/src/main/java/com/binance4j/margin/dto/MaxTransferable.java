@@ -6,8 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Max transferable amount.
  * 
- * @param amount Max transferable amount.
+ * @property amount Max transferable amount.
  */
 @ApiModel("Max transferable amount.")
-public record MaxTransferable(@ApiModelProperty("Max transferable amount.") String amount) {
+data class MaxTransferable(
+@ApiModelProperty("Max transferable amount.")
+var amount:String?=null)
+{
 }

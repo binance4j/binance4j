@@ -13,33 +13,46 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Record of a newly placed OCO order.
  * 
- * @param orderListId           Order list id.
- * @param contingencyType       Contingency type.
- * @param listStatusType        List status.
- * @param listOrderStatus       List order status.
- * @param listClientOrderId     List client order id.
- * @param transactionTime       Order timestamp.
- * @param symbol                Order symbol.
- * @param marginBuyBorrowAmount Margin buy borrow amount. Will not return if no
+ * @property orderListId           Order list id.
+ * @property contingencyType       Contingency type.
+ * @property listStatusType        List status.
+ * @property listOrderStatus       List order status.
+ * @property listClientOrderId     List client order id.
+ * @property transactionTime       Order timestamp.
+ * @property symbol                Order symbol.
+ * @property marginBuyBorrowAmount Margin buy borrow amount. Will not return if no
  *                              margin trade happens.
- * @param marginBuyBorrowAsset  Margin buy borrow asset. Will not return if no
+ * @property marginBuyBorrowAsset  Margin buy borrow asset. Will not return if no
  *                              margin trade happens.
- * @param isIsolated            Is the order isolated?
- * @param orders                The 2 orders.
- * @param orderReports          Order reports.
+ * @property isIsolated            Is the order isolated?
+ * @property orders                The 2 orders.
+ * @property orderReports          Order reports.
  */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @ApiModel("Record of a newly placed OCO order.")
-public record NewOCOOrderRecord(@ApiModelProperty("Order list id.") long orderListId,
-		@ApiModelProperty("Contingency type.") String contingencyType,
-		@ApiModelProperty("List status.") String listStatusType,
-		@ApiModelProperty("List order status.") String listOrderStatus,
-		@ApiModelProperty("List client order id.") String listClientOrderId,
-		@ApiModelProperty("Order timestamp.") long transactionTime,
-		@ApiModelProperty("Order symbol.") String symbol,
-		@ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") Optional<String> marginBuyBorrowAmount,
-		@ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.") Optional<String> marginBuyBorrowAsset,
-		@ApiModelProperty("Is the order isolated?") boolean isIsolated,
-		@ApiModelProperty("The 2 orders.") List<MiniOrderInfo> orders,
-		@ApiModelProperty("Order reports.") List<OrderReport> orderReports) {
+data class NewOCOOrderRecord(
+@ApiModelProperty("Order list id.")
+var orderListId:Long?=null,
+@ApiModelProperty("Contingency type.")
+var contingencyType:String?=null,
+@ApiModelProperty("List status.")
+var listStatusType:String?=null,
+@ApiModelProperty("List order status.")
+var listOrderStatus:String?=null,
+@ApiModelProperty("List client order id.")
+var listClientOrderId:String?=null,
+@ApiModelProperty("Order timestamp.")
+var transactionTime:Long?=null,
+@ApiModelProperty("Order symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") Optional<String> marginBuyBorrowAmount,
+@ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
+Optional<String> marginBuyBorrowAsset,
+@ApiModelProperty("Is the order isolated?")
+var isIsolated:Boolean?=null,
+@ApiModelProperty("The 2 orders.")
+List<MiniOrderInfo> orders,
+@ApiModelProperty("Order reports.")
+List<OrderReport> orderReports)
+{
 }

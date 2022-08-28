@@ -5,13 +5,16 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getRateLimit} params.
+ * [MarginClient.getRateLimit] params.
  * 
  * @param symbol     Symbol.
  * @param isIsolated Is it isolated?
  */
-@Param(weight = 20)
-public record RateLimitParams(String symbol, Boolean isIsolated) implements Params {
+@Param
+data class RateLimitParams(
+String symbol, Boolean isIsolated):Params
+{
+
 	/**
 	 * Creates an instance of the class.
 	 * 

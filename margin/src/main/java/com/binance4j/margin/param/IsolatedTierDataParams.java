@@ -5,13 +5,16 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /**
- * {@link MarginClient#getIsolatedMarginTierData} params.
+ * [MarginClient.getIsolatedMarginTierData] params.
  * 
  * @param symbol Symbol.
  * @param tier   Tier.
  */
 @Param
-public record IsolatedTierDataParams(String symbol, String tier) implements Params {
+data class IsolatedTierDataParams(
+String symbol, String tier):Params
+{
+
 	/**
 	 * Creates an instance of {@link IsolatedTierDataParams}.
 	 * 

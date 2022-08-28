@@ -6,42 +6,66 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Trade order information.
  * 
- * @param side                Order side.
- * @param price               Price.
- * @param origQty             Original quantity.
- * @param executedQty         Original quantity.
- * @param cummulativeQuoteQty Used to calculate the average price.
- * @param status              Order status.
- * @param timeInForce         Time in force to indicate how long will the order
+ * @property side                Order side.
+ * @property price               Price.
+ * @property origQty             Original quantity.
+ * @property executedQty         Original quantity.
+ * @property cummulativeQuoteQty Used to calculate the average price.
+ * @property status              Order status.
+ * @property timeInForce         Time in force to indicate how long will the order
  *                            remain active.
- * @param type                Type of order.
- * @param stopPrice           Used with stop orders.
- * @param icebergQty          Used with iceberg orders.
- * @param time                Order timestamp.
- * @param updateTime          Update timestamp.
- * @param origQuoteOrderQty   Original quote order quantity.
- * @param isWorking           is working.
- * @param symbol              Order symbol.
- * @param orderId             Order id.
- * @param clientOrderId       Client order id.
- * @param orderListId         Order list id.
- * @param accountId           Account id.
+ * @property type                Type of order.
+ * @property stopPrice           Used with stop orders.
+ * @property icebergQty          Used with iceberg orders.
+ * @property time                Order timestamp.
+ * @property updateTime          Update timestamp.
+ * @property origQuoteOrderQty   Original quote order quantity.
+ * @property isWorking           is working.
+ * @property symbol              Order symbol.
+ * @property orderId             Order id.
+ * @property clientOrderId       Client order id.
+ * @property orderListId         Order list id.
+ * @property accountId           Account id.
  */
 @ApiModel("Trade order information.")
-public record OrderInfo(@ApiModelProperty("The order side.") String side, @ApiModelProperty("Price.") String price,
-		@ApiModelProperty("Original quantity.") String origQty,
-		@ApiModelProperty("Original quantity.") String executedQty,
-		@ApiModelProperty("Used to calculate the average price.") String cummulativeQuoteQty,
-		@ApiModelProperty("Order status.") String status,
-		@ApiModelProperty("Time in force to indicate how long will the order remain active.") String timeInForce,
-		@ApiModelProperty("Type of order.") String type, @ApiModelProperty("Used with stop orders.") String stopPrice,
-		@ApiModelProperty("Used with iceberg orders.") String icebergQty,
-		@ApiModelProperty("Order timestamp.") long time,
-		@ApiModelProperty("Update timestamp.") long updateTime,
-		@ApiModelProperty("Original quote order quantity.") String origQuoteOrderQty,
-		@ApiModelProperty("is working.") boolean isWorking, @ApiModelProperty("The order symbol.") String symbol,
-		@ApiModelProperty("Order id.") long orderId,
-		@ApiModelProperty("Client order id.") String clientOrderId,
-		@ApiModelProperty("Order list id.") String orderListId,
-		@ApiModelProperty("Account id.") String accountId) {
+data class OrderInfo(
+@ApiModelProperty("The order side.")
+var side:String?=null,
+@ApiModelProperty("Price.")
+var price:String?=null,
+@ApiModelProperty("Original quantity.")
+var origQty:String?=null,
+@ApiModelProperty("Original quantity.")
+var executedQty:String?=null,
+@ApiModelProperty("Used to calculate the average price.")
+var cummulativeQuoteQty:String?=null,
+@ApiModelProperty("Order status.")
+var status:String?=null,
+@ApiModelProperty("Time in force to indicate how long will the order remain active.")
+var timeInForce:String?=null,
+@ApiModelProperty("Type of order.")
+var type:String?=null,
+@ApiModelProperty("Used with stop orders.")
+var stopPrice:String?=null,
+@ApiModelProperty("Used with iceberg orders.")
+var icebergQty:String?=null,
+@ApiModelProperty("Order timestamp.")
+var time:Long?=null,
+@ApiModelProperty("Update timestamp.")
+var updateTime:Long?=null,
+@ApiModelProperty("Original quote order quantity.")
+var origQuoteOrderQty:String?=null,
+@ApiModelProperty("is working.")
+var isWorking:Boolean?=null,
+@ApiModelProperty("The order symbol.")
+var symbol:String?=null,
+@ApiModelProperty("Order id.")
+var orderId:Long?=null,
+@ApiModelProperty("Client order id.")
+var clientOrderId:String?=null,
+@ApiModelProperty("Order list id.")
+var orderListId:String?=null,
+@ApiModelProperty("Account id.")
+var accountId:String?=null)
+{
 }

@@ -13,7 +13,9 @@ import org.ta4j.core.rules.UnderIndicatorRule;
 import com.binance4j.strategy.TradingStrategy;
 
 /** Test Strategy */
-public class TwoPeriodRSIStrategy implements TradingStrategy {
+public class TwoPeriodRSIStrategy:TradingStrategy
+{
+
 	@Override
 	public Rule entry(BarSeries series) {
 		ClosePriceIndicator closePrice = new ClosePriceIndicator(series);

@@ -11,7 +11,7 @@ public enum SortSequence {
 	String value;
 
 	/**
-	 * @param value Value.
+	 * @property value Value.
 	 */
 	private SortSequence(String value) {
 		this.value = value;

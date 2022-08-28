@@ -6,12 +6,17 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Isolated fee data.
  * 
- * @param coin          Related coin.
- * @param dailyInterest Daily interest.
- * @param borrowLimit   Borrow limit.
+ * @property coin          Related coin.
+ * @property dailyInterest Daily interest.
+ * @property borrowLimit   Borrow limit.
  */
 @ApiModel("Isolated fee data.")
-public record IsolatedFeeData(@ApiModelProperty("Related coin.") String coin,
-		@ApiModelProperty("Daily interest.") String dailyInterest,
-		@ApiModelProperty("Borrow limit.") String borrowLimit) {
+data class IsolatedFeeData(
+@ApiModelProperty("Related coin.")
+var coin:String?=null,
+@ApiModelProperty("Daily interest.")
+var dailyInterest:String?=null,
+@ApiModelProperty("Borrow limit.")
+var borrowLimit:String?=null)
+{
 }

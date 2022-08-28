@@ -11,7 +11,8 @@ import com.binance4j.web.dto.Binance4jUserDetails;
  * Service to authenticate the admin user registered in application.properties.
  */
 @Service
-public class AdminDetailsService implements Binance4jUserDetailsService {
+public class AdminDetailsService:Binance4jUserDetailsService
+{
 	private final AdminDetails adminDetails;
 
 	/**

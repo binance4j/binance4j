@@ -5,11 +5,11 @@ import com.binance4j.core.param.Params;
 import com.binance4j.spot.client.SpotClient;
 
 /**
- * {@link SpotClient#getAllOCO} params.
+ * [SpotClient.getAllOCO] params.
  *
  * @param fromId Id to search from.
  */
-@Param(weight = 10)
-public record AllOCOInfoParams(Long fromId) implements Params {
+@Param
+data class AllOCOInfoParams(Long fromId) : Params {
 
 }

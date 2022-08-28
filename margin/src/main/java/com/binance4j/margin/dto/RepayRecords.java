@@ -8,10 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A repay record.
  * 
- * @param total Total of repays.
- * @param rows  Repays.
+ * @property total Total of repays.
+ * @property rows  Repays.
  */
 @ApiModel("A repay record.")
-public record RepayRecords(@ApiModelProperty("Total of repays.") int total,
-		@ApiModelProperty("Repays.") List<RepayRecord> rows) {
+data class RepayRecords(
+@ApiModelProperty("Total of repays.")
+var total:int?=null,
+@ApiModelProperty("Repays.") List<RepayRecord> rows)
+{
 }

@@ -6,18 +6,29 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * NFT Withdraw.
  * 
- * @param network         NFT Network.
- * @param contractAddress NFT Contract Address.
- * @param tokenId         NFT Token ID.
- * @param txID            Transaction ID.
- * @param timestamp       Deposit time in ms.
- * @param fee             Withdraw fee.
- * @param feeAsset        Fee asset.
+ * @property network         NFT Network.
+ * @property contractAddress NFT Contract Address.
+ * @property tokenId         NFT Token ID.
+ * @property txID            Transaction ID.
+ * @property timestamp       Deposit time in ms.
+ * @property fee             Withdraw fee.
+ * @property feeAsset        Fee asset.
  */
 @ApiModel("NFT Withdraw.")
-public record Withdraw(@ApiModelProperty("NFT Network.") String network,
-		@ApiModelProperty("NFT Contract Address.") String contractAddress,
-		@ApiModelProperty("NFT Token ID.") String tokenId, @ApiModelProperty("Transaction ID.") String txID,
-		@ApiModelProperty("Deposit time in ms.") long timestamp, @ApiModelProperty("Withdraw fee.") String fee,
-		@ApiModelProperty("Fee asset.") String feeAsset) {
+data class Withdraw(
+@ApiModelProperty("NFT Network.")
+var network:String?=null,
+@ApiModelProperty("NFT Contract Address.")
+var contractAddress:String?=null,
+@ApiModelProperty("NFT Token ID.")
+var tokenId:String?=null,
+@ApiModelProperty("Transaction ID.")
+var txID:String?=null,
+@ApiModelProperty("Deposit time in ms.")
+var timestamp:Long?=null,
+@ApiModelProperty("Withdraw fee.")
+var fee:String?=null,
+@ApiModelProperty("Fee asset.")
+var feeAsset:String?=null)
+{
 }

@@ -6,20 +6,28 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * A miner/worker data.
  * 
- * @param workerId      Miner id.
- * @param workerName    Miner's name'.
- * @param status        Status：1 valid,2 invalid, 3 no longer valid.
- * @param hashRate      Real-time rate.
- * @param dayHashRate   24H Hashrate.
- * @param rejectRate    Real-time Rejection Rate.
- * @param lastShareTime Last submission time.
+ * @property workerId      Miner id.
+ * @property workerName    Miner's name'.
+ * @property status        Status：1 valid,2 invalid, 3 no longer valid.
+ * @property hashRate      Real-time rate.
+ * @property dayHashRate   24H Hashrate.
+ * @property rejectRate    Real-time Rejection Rate.
+ * @property lastShareTime Last submission time.
  */
 @ApiModel("A miner/worker data.")
-public record Worker(@ApiModelProperty("Miner id.") String workerId,
-		@ApiModelProperty("Miner's name'.") String workerName,
-		@ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.") long status,
-		@ApiModelProperty("Real-time rate.") long hashRate,
-		@ApiModelProperty("24H Hashrate.") long dayHashRate,
-		@ApiModelProperty("Real-time Rejection Rate.") long rejectRate,
-		@ApiModelProperty("Last submission time.") long lastShareTime) {
+data class Worker(
+@ApiModelProperty("Miner id.")
+var workerId:String?=null,
+@ApiModelProperty("Miner's name'.") String workerName,
+@ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.")
+long status,
+@ApiModelProperty("Real-time rate.")
+long hashRate,
+@ApiModelProperty("24H Hashrate.")
+long dayHashRate,
+@ApiModelProperty("Real-time Rejection Rate.")
+long rejectRate,
+@ApiModelProperty("Last submission time.")
+var lastShareTime:Long?=null)
+{
 }

@@ -6,12 +6,20 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Flexible redemption quota.
  * 
- * @param asset               Asset.
- * @param dailyQuota          Daily quota.
- * @param leftQuota           Left quota.
- * @param minRedemptionAmount Min redemption amount.
+ * @property asset               Asset.
+ * @property dailyQuota          Daily quota.
+ * @property leftQuota           Left quota.
+ * @property minRedemptionAmount Min redemption amount.
  */
 @ApiModel("Flexible redemption quota.")
-public record RedemptionQuota(@ApiModelProperty("Asset.") String asset, @ApiModelProperty("Daily quota.") String dailyQuota,
-		@ApiModelProperty("Left quota.") String leftQuota, @ApiModelProperty("Min redemption amount.") String minRedemptionAmount) {
+data class RedemptionQuota(
+@ApiModelProperty("Asset.")
+var asset:String?=null,
+@ApiModelProperty("Daily quota.")
+var dailyQuota:String?=null,
+@ApiModelProperty("Left quota.")
+var leftQuota:String?=null,
+@ApiModelProperty("Min redemption amount.")
+var minRedemptionAmount:String?=null)
+{
 }

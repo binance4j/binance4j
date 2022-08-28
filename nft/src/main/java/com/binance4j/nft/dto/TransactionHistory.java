@@ -8,10 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * NFT transaction history.
  * 
- * @param total Total records.
- * @param list  Transactions.
+ * @property total Total records.
+ * @property list  Transactions.
  */
 @ApiModel("NFT transaction history.")
-public record TransactionHistory(@ApiModelProperty("Total records.") long total,
-		@ApiModelProperty("Transactions.") List<Transaction> list) {
+data class TransactionHistory(
+@ApiModelProperty("Total records.")
+var total:Long?=null,
+@ApiModelProperty("Transactions.") List<Transaction> list)
+{
 }

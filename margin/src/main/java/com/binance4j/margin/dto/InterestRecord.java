@@ -8,26 +8,26 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Interest record in a {@link InterestHistory}.
  * 
- * @param isolatedSymbol      Isolated symbol. Will not be returned for crossed
+ * @property isolatedSymbol      Isolated symbol. Will not be returned for crossed
  *                            margin.
- * @param asset               Related asset.
- * @param rawAsset            Related raw asset. Will not be returned for
+ * @property asset               Related asset.
+ * @property rawAsset            Related raw asset. Will not be returned for
  *                            isolated margin.
- * @param interest            Interest.
- * @param interestAccuredTime Interest accrued (?) time.
- * @param interestRate        Interest rate.
- * @param principal           Borrowed quantity (?).
- * @param type                Interest type.
+ * @property interest            Interest.
+ * @property interestAccuredTime Interest accrued (?) time.
+ * @property interestRate        Interest rate.
+ * @property principal           Borrowed quantity (?).
+ * @property type                Interest type.
  * @see InterestType
  */
 @ApiModel("Interest record in a InterestHistory.")
-public record InterestRecord(
+data class InterestRecord(
 		@ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.") Optional<String> isolatedSymbol,
-		@ApiModelProperty("Related asset.") String asset,
+		@ApiModelProperty("Related asset.") var asset : String? = null,
 		@ApiModelProperty("Related raw asset. Will not be returned for isolated margin.") Optional<String> rawAsset,
-		@ApiModelProperty("Interest.") String interest,
+		@ApiModelProperty("Interest.") var interest : String? = null,
 		@ApiModelProperty("Interest accrued (?) time.") long interestAccuredTime,
-		@ApiModelProperty("Interest rate.") String interestRate,
+		@ApiModelProperty("Interest rate.") var interestRate : String? = null,
 		@ApiModelProperty("Borrowed quantity (?).") String principal,
-		@ApiModelProperty("Interest type.") String type) {
+		@ApiModelProperty("Interest type.") var type : String? = null) {
 }

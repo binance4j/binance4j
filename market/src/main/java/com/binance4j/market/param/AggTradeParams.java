@@ -6,14 +6,17 @@ import com.binance4j.core.param.TimeFrame;
 import com.binance4j.market.client.MarketClient;
 
 /**
- * {@link MarketClient#getAggTrades} params.
+ * [MarketClient.getAggTrades] params.
  * 
  * @param symbol Symbol.
  * @param fromId Id to get aggregate trades from (inclusive). Don't provide
  *               {@link TimeFrame} if set.
  */
 @Param(recvWindow = false, timestamp = false)
-public record AggTradeParams(String symbol, Long fromId) implements Params {
+data class AggTradeParams(
+String symbol, Long fromId):Params
+{
+
 	/**
 	 * Creates an instances of {@link AggTradeParams}.
 	 * 
