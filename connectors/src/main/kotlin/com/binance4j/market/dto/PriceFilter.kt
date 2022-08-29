@@ -24,34 +24,25 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+ * The price rules for a symbol.
+ *
+ * @property minPrice Minimum price/stopPrice allowed. Disabled on minPrice == 0.
+ * @property maxPrice Maximum price/stopPrice allowed. Disabled on maxPrice == 0.
+ * @property tickSize Intervals that a price/stopPrice can be increased/decreased
+ *                 by. Disabled on tickSize == 0.
+ *
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#filters)
+ */
+@ApiModel("The price rules for a symbol.")
+data class PriceFilter(
+	@ApiModelProperty("Minimum price/stopPrice allowed. Disabled on minPrice == 0.")
+	val minPrice: String,
+	@ApiModelProperty("Maximum price/stopPrice allowed. Disabled on maxPrice == 0.")
+	val maxPrice: String,
+	@ApiModelProperty("Intervals that a price/stopPrice can be increased/decreased by. Disabled on tickSize == 0.")
+	val tickSize: String
+)

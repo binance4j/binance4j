@@ -24,34 +24,20 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
+ * Trading rules of the exchange.
+ *
+ * @property filterType Filter type.
+ * @property limit      Filter limit.
+ */
+@ApiModel("Trading rules of the exchange.")
+data class ExchangeFilter(
+	@ApiModelProperty("Trading rules of the exchange.")
+	val filterType: ExchangeFilterType,
 	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+	@ApiModelProperty("Trading rules of the exchange.")
+	val limit: Int
+)

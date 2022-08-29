@@ -24,34 +24,30 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
+ * The minimum and maximum value for the parameter trailingDelta.
+ *
+ * @property minTrailingAboveDelta Min trailing above delta.
+ * @property maxTrailingAboveDelta Max trailing above delta.
+ * @property minTrailingBelowDelta Min trailing below delta.
+ * @property maxTrailingBelowDelta Max trailing below delta.
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ */
+@ApiModel("The minimum and maximum value for the parameter trailingDelta.")
+data class TrailingDeltaFilter(
+	@ApiModelProperty("Min trailing above delta.")
+	val minTrailingAboveDelta: String,
 	
-	/** 10  */
-	LIMIT_10("10"),
+	@ApiModelProperty("Max trailing above delta.")
+	val maxTrailingAboveDelta: String,
 	
-	/** 20  */
-	LIMIT_20("20"),
+	@ApiModelProperty("Min trailing below delta.")
+	val minTrailingBelowDelta: String,
 	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+	@ApiModelProperty("Max trailing below delta.")
+	val maxTrailingBelowDelta: String
+)

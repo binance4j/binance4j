@@ -24,34 +24,16 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+ * The maximum allowed position an account can have on the base asset of a
+ * symbol.
+ *
+ * @property maxPosition Max positions allowed.
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ */
+@ApiModel("he maximum allowed position an account can have on the base asset of a symbol.")
+data class MaxPositionFilter(@ApiModelProperty("Max positions allowed.") val maxPosition: String)

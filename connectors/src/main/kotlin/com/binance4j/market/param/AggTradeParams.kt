@@ -22,36 +22,27 @@
  * SOFTWARE.
  */
 
-package com.binance4j.market.dto
+package com.binance4j.market.param
 
-/** The order book result size  */
-enum class OrderBookLimit
+import com.binance4j.core.param.Params
+import com.binance4j.market.client.MarketClient
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
+ * [MarketClient.getAggTrades] params.
+ *
+ * @param symbol Symbol.
+ * @param fromId Id to get aggregate trades from (inclusive). Don't provide
+ *               {@link TimeFrame} if set. * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
+ */
+data class AggTradeParams @JvmOverloads constructor(
+	var symbol: String,
+	var fromId: Long? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params {
+	override fun recvWindow(): Long? = null
+	override fun timestamp(): Long? = null
 }

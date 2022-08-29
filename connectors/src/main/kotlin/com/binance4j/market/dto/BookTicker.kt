@@ -24,34 +24,32 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
+ * The best price/quantity on the order book for a given symbol.
+ *
+ * @property symbol   Ticker symbol.
+ * @property bidPrice Bid price.
+ * @property bidQty   Bid quantity.
+ * @property askPrice Ask price.
+ * @property askQty   Ask quantity.
+ */
+@ApiModel("The best price/quantity on the order book for a given symbol.")
+data class BookTicker(
+	@ApiModelProperty("Ticker symbol.")
+	val symbol: String,
 	
-	/** 10  */
-	LIMIT_10("10"),
+	@ApiModelProperty("Bid price.")
+	val bidPrice: String,
 	
-	/** 20  */
-	LIMIT_20("20"),
+	@ApiModelProperty("Bid quantity.")
+	val bidQty: String,
 	
-	/** 50  */
-	LIMIT_50("50"),
+	@ApiModelProperty("Ask price.")
+	val askPrice: String,
 	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+	@ApiModelProperty("Ask quantity.")
+	val askQty: String
+)

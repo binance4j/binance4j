@@ -24,34 +24,40 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
+ * An executed trade history item.
+ *
+ * @property id           Trade id.
+ * @property price        Trad price.
+ * @property qty          Trade volume.
+ * @property quoteQty     Trade opposite volume.
+ * @property time         Trade execution in ms.
+ * @property isBuyerMaker Is the trade a buyer maker trade.
+ * @property isBestMatch  Was the trade the best price match?
+ */
+@ApiModel("An executed trade history item.")
+data class Trade(
+	@ApiModelProperty("Trade id.")
+	val id: Long,
 	
-	/** 10  */
-	LIMIT_10("10"),
+	@ApiModelProperty("Trad price.")
+	val price: String,
 	
-	/** 20  */
-	LIMIT_20("20"),
+	@ApiModelProperty("Trade volume.")
+	val qty: String,
 	
-	/** 50  */
-	LIMIT_50("50"),
+	@ApiModelProperty("Trade opposite volume.")
+	val quoteQty: String,
 	
-	/** 100  */
-	LIMIT_100("100"),
+	@ApiModelProperty("Trade execution in ms.")
+	val time: Long,
 	
-	/** 500  */
-	LIMIT_500("500"),
+	@ApiModelProperty("Is the trade a buyer maker trade.")
+	val isBuyerMaker: Boolean,
 	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+	@ApiModelProperty("Was the trade the best price match?") val isBestMatch: Boolean
+)
+

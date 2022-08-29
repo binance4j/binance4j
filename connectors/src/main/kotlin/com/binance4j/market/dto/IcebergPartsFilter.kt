@@ -24,34 +24,15 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+ * The maximum parts an iceberg order can have. The number of Iceberg parts is
+ * defined as CEIL(qty/icebergQty).
+ *
+ * @property limit Filter limit number.
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#filters)
+ */
+@ApiModel("The maximum parts an iceberg order can have.")
+data class IcebergPartsFilter(@ApiModelProperty("The filter limit number.") val limit: Int)

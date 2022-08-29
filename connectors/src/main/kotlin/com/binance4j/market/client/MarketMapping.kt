@@ -1,166 +1,178 @@
-package com.binance4j.market.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.util.List;
-import java.util.Map;
+package com.binance4j.market.client
 
-import com.binance4j.core.client.RestMapping;
-import com.binance4j.core.dto.AggTrade;
-import com.binance4j.core.dto.Candle;
-import com.binance4j.market.dto.AveragePrice;
-import com.binance4j.market.dto.BookTicker;
-import com.binance4j.market.dto.ExchangeInfo;
-import com.binance4j.market.dto.OrderBook;
-import com.binance4j.market.dto.PriceTicker;
-import com.binance4j.market.dto.ServerTimeResponse;
-import com.binance4j.market.dto.TickerStatistics;
-import com.binance4j.market.dto.Trade;
+import com.binance4j.core.Binance4j.API_H
+import com.binance4j.core.Binance4j.IP_H
+import com.binance4j.core.Binance4j.WEIGHT_ONE_H
+import com.binance4j.core.dto.AggTrade
+import com.binance4j.core.dto.Candle
+import com.binance4j.market.dto.*
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.QueryMap
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.QueryMap;
-
-/** {@link MarketClient} mapping. */
-public interface MarketMapping extends RestMapping {
-	/** Base uri */
-	String BASE = "/api/v3/";
-
+/** [MarketClient] mapping.  */
+interface MarketMapping {
 	/**
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ping")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<Void> ping();
-
+	@GET("/api/v3/ping")
+	@Headers(IP_H, WEIGHT_ONE_H)
+	fun ping(): Call<Void>
+	
 	/**
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "time")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<ServerTimeResponse> getServerTime();
-
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET(BASE + "exchangeInfo")
-	@Headers({ IP_H, "X-WEIGHT: 10" })
-	Call<ExchangeInfo> getExchangeInfo(@QueryMap Map<String, Object> map);
-
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET(BASE + "depth")
-	@Headers({ IP_H, "X-WEIGHT: 50" })
-	Call<OrderBook> getOrderBook(@QueryMap Map<String, Object> map);
-
+	@Headers(IP_H, WEIGHT_ONE_H)
+	@GET("/api/v3/time")
+	fun getServerTime(): Call<ServerTimeResponse>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "trades")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/exchangeInfo")
+	@Headers(IP_H, "X-WEIGHT: 10")
+	fun getExchangeInfo(@QueryMap map: Map<String, Any>): Call<ExchangeInfo>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, "X-WEIGHT: 5" })
-	@GET(BASE + "historicalTrades")
-	Call<List<Trade>> getHistoricalTrades(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/depth")
+	@Headers(IP_H, "X-WEIGHT: 50")
+	fun getOrderBook(@QueryMap map: Map<String, Any>): Call<OrderBook>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "aggTrades")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<List<AggTrade>> getAggTrades(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/trades")
+	@Headers(IP_H, WEIGHT_ONE_H)
+	fun getTrades(@QueryMap map: Map<String, Any>): Call<List<Trade>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "klines")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<List<Candle>> getKlines(@QueryMap Map<String, Object> map);
-
+	@Headers(API_H, IP_H, "X-WEIGHT: 5")
+	@GET("/api/v3/historicalTrades")
+	fun getHistoricalTrades(@QueryMap map: Map<String, Any>): Call<List<Trade>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "avgPrice")
-	@Headers({ IP_H, WEIGHT_ONE_H })
-	Call<AveragePrice> getAveragePrice(@QueryMap Map<String, Object> map);
-
-	/**
-	 * @return The generated Retrofit call.
-	 */
-	@GET(BASE + "ticker/24hr")
-	@Headers({ IP_H, "X-WEIGHT: 40" })
-	Call<List<TickerStatistics>> get24hTickerStatistics();
-
+	@GET("/api/v3/aggTrades")
+	@Headers(IP_H, WEIGHT_ONE_H)
+	fun getAggTrades(@QueryMap map: Map<String, Any>): Call<List<AggTrade>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/24hr")
-	@Headers({ IP_H, "X-WEIGHT: 40" })
-	Call<TickerStatistics> get24hTickerStatistics(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/klines")
+	@Headers(IP_H, WEIGHT_ONE_H)
+	fun getKlines(@QueryMap map: Map<String, Any>): Call<List<Candle>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/24hr")
-	@Headers({ IP_H, "X-WEIGHT: 40" })
-	Call<List<TickerStatistics>> get24hTickersStatistics(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/avgPrice")
+	@Headers(IP_H, WEIGHT_ONE_H)
+	fun getAveragePrice(@QueryMap map: Map<String, Any>): Call<AveragePrice>
+	
 	/**
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/price")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<List<PriceTicker>> getTicker();
-
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET(BASE + "ticker/price")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<List<PriceTicker>> getTickers(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/ticker/24hr")
+	@Headers(IP_H, "X-WEIGHT: 40")
+	fun get24hTickerStatistics(): Call<List<TickerStatistics>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/price")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<PriceTicker> getTicker(@QueryMap Map<String, Object> map);
-
-	/**
-	 * @return The generated Retrofit call.
-	 */
-	@GET(BASE + "ticker/bookTicker")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<List<BookTicker>> getBookTicker();
-
+	@GET("/api/v3/ticker/24hr")
+	@Headers(IP_H, "X-WEIGHT: 40")
+	fun get24hTickerStatistics(@QueryMap map: Map<String, Any>): Call<TickerStatistics>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/bookTicker")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<BookTicker> getBookTicker(@QueryMap Map<String, Object> map);
-
+	@GET("/api/v3/ticker/24hr")
+	@Headers(IP_H, "X-WEIGHT: 40")
+	fun get24hTickersStatistics(@QueryMap map: Map<String, Any>): Call<List<TickerStatistics>>
+	
+	/**
+	 * @return The generated Retrofit call.
+	 */
+	@Headers(IP_H, "X-WEIGHT: 2")
+	@GET("/api/v3/ticker/price")
+	fun getTicker(): Call<List<PriceTicker>>
+	
 	/**
 	 * @param map Query map.
 	 * @return The generated Retrofit call.
 	 */
-	@GET(BASE + "ticker/bookTicker")
-	@Headers({ IP_H, "X-WEIGHT: 2" })
-	Call<List<BookTicker>> getBookTickers(@QueryMap Map<String, Object> map);
+	@GET("/api/v3/ticker/price")
+	@Headers(IP_H, "X-WEIGHT: 2")
+	fun getTickers(@QueryMap map: Map<String, Any>): Call<List<PriceTicker>>
+	
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/api/v3/ticker/price")
+	@Headers(IP_H, "X-WEIGHT: 2")
+	fun getTicker(@QueryMap map: Map<String, Any>): Call<PriceTicker>
+	
+	/**
+	 * @return The generated Retrofit call.
+	 */
+	@Headers(IP_H, "X-WEIGHT: 2")
+	@GET("/api/v3/ticker/bookTicker")
+	fun getBookTicker(): Call<List<BookTicker>>
+	
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/api/v3/ticker/bookTicker")
+	@Headers(IP_H, "X-WEIGHT: 2")
+	fun getBookTicker(@QueryMap map: Map<String, Any>): Call<BookTicker>
+	
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/api/v3/ticker/bookTicker")
+	@Headers(IP_H, "X-WEIGHT: 2")
+	fun getBookTickers(@QueryMap map: Map<String, Any>): Call<List<BookTicker>>
 }

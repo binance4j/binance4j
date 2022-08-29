@@ -24,34 +24,24 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+ * The maximum number of orders an account is allowed to have open on a symbol.
+ * Note that both "algo" orders and normal
+ * orders are counted for this filter.
+ *
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ * @property maxNumAlgoOrders Maximum number of "algo" orders an account is allowed
+ *                         to have open on a symbol. "Algo".
+ *                         orders are {@code STOP_LOSS} {@code STOP_LOSS_LIMIT}
+ *                         {@code TAKE_PROFIT} and
+ *                         {@code TAKE_PROFIT_LIMIT} orders.
+ */
+@ApiModel("The maximum number of orders an account is allowed to have open on a symbol.")
+data class MaxNumAlgoOrdersFilter(
+	@ApiModelProperty("The maximum number of \"algo\" orders an account is allowed to have open on a symbol.")
+	var maxNumAlgoOrders: String
+)

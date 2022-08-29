@@ -24,34 +24,29 @@
 
 package com.binance4j.market.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
+ * Defines valid range for a price based on the average of the previous trades.
+ * avgPriceMins is the number of minutes
+ * the average price is calculated over. 0 means the last price is used.
+ *
+ * @property multiplierUp   Multiplier up.
+ * @property multiplierDown Multiplier down.
+ * @property avgPriceMins   Weighted average price.
+ * @see <a href=
+ *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
+ *      *
+ */
+@ApiModel("Defines valid range for a price based on the average of the previous trades. avgPriceMins is the number of minutes the average price is calculated over. 0 means the last price is used.")
+data class PercentPriceFilter(
+	@ApiModelProperty("Multiplier up.")
+	val multiplierUp: String,
 	
-	/** 10  */
-	LIMIT_10("10"),
+	@ApiModelProperty("Multiplier down.")
+	val multiplierDown: String,
 	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+	@ApiModelProperty("Weighted average price.")
+	val avgPriceMins: String
+)

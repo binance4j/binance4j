@@ -21,40 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.binance4j.core.param
 
-import com.binance4j.core.Binance4j
-import com.fasterxml.jackson.core.type.TypeReference
+package com.binance4j.market.dto
 
-/** The base of every Binance Request */
-interface Params {
-	/** @return The request timestamp */
-	
-	fun timestamp(): Long? = System.currentTimeMillis()
-	
-	/** @return The receiving windows */
-	
-	fun recvWindow(): Long? = 60_000L
+/**
+ * Filters define trading rules on a symbol or an exchange. Filters come in two
+ * forms: symbol filters and exchange
+ * filters.
+ */
+enum class ExchangeFilterType {
+	/**
+	 * The {@code EXCHANGE_MAX_NUM_ORDERS} filter The maximum number of orders an
+	 * account is allowed to have open on the
+	 * exchange. Note that both "algo" orders and normal orders are counted for this
+	 * filter.
+	 */
+	EXCHANGE_MAX_NUM_ORDERS,
 	
 	/**
-	 * Converts the object into a map and replace the keys names of the generated
-	 * map with the values of the given map.
-	 *
-	 * @param replaceMap Map used to replace the keys of the generated map. The key in map2 is the key we want to change the name in map1 with the value of map2.
-	 * @return the merged maps.
+	 * The {@code EXCHANGE_MAX_NUM_ALGO_ORDERS} filter The maximum number of "algo"
+	 * orders an account is allowed to have
+	 * open on the exchange. "Algo" orders are {@code STOP_LOSS},
+	 * {@code STOP_LOSS_LIMIT}, {@code TAKE_PROFIT}, and
+	 * {@code TAKE_PROFIT_LIMIT} orders.
 	 */
-	fun toMap(replaceMap: Map<String, String>? = null): Map<String, Any> {
-		val map: MutableMap<String, Any> =
-			Binance4j.MAPPER.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
-		// remove useless entries
-		map.remove("order")
-		map.values.removeAll(setOf<Any?>(null))
-		map.values.removeAll(setOf(""))
-		
-		replaceMap!!.entries.forEach { (key, value): Map.Entry<String, String> ->
-			map[value] = map[key] as Any
-			map.remove(key)
-		}
-		return map
-	}
+	EXCHANGE_MAX_NUM_ALGO_ORDERS,
 }
