@@ -70,27 +70,27 @@ import io.swagger.annotations.ApiModelProperty
 data class OrderTradeUpdate(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	var eventType: String? = null,
+	var eventType: String = "",
 
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	var eventTime: Long? = null,
+	var eventTime: Long = 0L,
 
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
-	var symbol: String? = null,
+	var symbol: String = "",
 
 	@ApiModelProperty("Client order id.")
 	@JsonProperty("c")
-	var newClientOrderId: String? = null,
+	var newClientOrderId: String = "",
 
 	@ApiModelProperty("Buy/Sell order side.")
 	@JsonProperty("S")
-	var side: String? = null,
+	var side: String = "",
 
 	@ApiModelProperty("Type of order.")
 	@JsonProperty("o")
-	var type: String? = null,
+	var type: String = "",
 
 	@ApiModelProperty("Time in force to indicate how Long will the order remain active.")
 	@JsonProperty("f")
@@ -98,69 +98,69 @@ data class OrderTradeUpdate(
 
 	@ApiModelProperty("Original quantity in the order.")
 	@JsonProperty("q")
-	var originalQuantity: String? = null,
+	var originalQuantity: String = "",
 
 	@ApiModelProperty("Price.")
 	@JsonProperty("p")
-	var price: String? = null,
+	var price: String = "",
 
 	@ApiModelProperty("Type of execution.")
 	@JsonProperty("x")
-	var executionType: String? = null,
+	var executionType: String = "",
 
 	@ApiModelProperty("Status of the order.")
 	@JsonProperty("X")
-	var orderStatus: String? = null,
+	var orderStatus: String = "",
 
 	@ApiModelProperty("Reason why the order was rejected.")
 	@JsonProperty("r")
-	var orderRejectReason: String? = null,
+	var orderRejectReason: String = "",
 
 	@ApiModelProperty("Order id.")
 	@JsonProperty("i")
-	var orderId: Long? = null,
+	var orderId: Long = 0L,
 
 	@ApiModelProperty("Quantity of the last filled trade.")
 	@JsonProperty("l")
-	var quantityLastFilledTrade: String? = null,
+	var quantityLastFilledTrade: String = "",
 
 	@ApiModelProperty("Accumulated quantity of filled trades on this order.")
 	@JsonProperty("z")
-	var accumulatedQuantity: String? = null,
+	var accumulatedQuantity: String = "",
 
 	@ApiModelProperty("Price of last filled trade.")
 	@JsonProperty("L")
-	var priceOfLastFilledTrade: String? = null,
+	var priceOfLastFilledTrade: String = "",
 
 	@ApiModelProperty("Commission.")
 	@JsonProperty("n")
-	var commission: String? = null,
+	var commission: String = "",
 
 	@ApiModelProperty("Asset on which commission is taken.")
 	@JsonProperty("N")
-	var commissionAsset: String? = null,
+	var commissionAsset: String = "",
 
 	@ApiModelProperty("Order/trade time.")
 	@JsonProperty("T")
-	var orderTradeTime: Long? = null,
+	var orderTradeTime: Long = 0L,
 
 	@ApiModelProperty("Trade id.")
 	@JsonProperty("t")
-	var tradeId: Long? = null,
+	var tradeId: Long = 0L,
 
 	@ApiModelProperty("Order creation time.")
 	@JsonProperty("O")
-	var orderCreationTime: Long? = null,
+	var orderCreationTime: Long = 0L,
 
 	@ApiModelProperty("Cumulative quote asset transacted quantity.")
 	@JsonProperty("Z")
-	var cumulativeQuoteQuantity: String? = null,
+	var cumulativeQuoteQuantity: String = "",
 
 	@ApiModelProperty("Last quote asset transacted quantity (i.e. lastPrice * lastQty).")
 	@JsonProperty("Y")
-	var lastQuoteQuantity: String? = null,
+	var lastQuoteQuantity: String = "",
 
 	@ApiModelProperty("Quote Order quantity.")
 	@JsonProperty("Q")
-	var quoteOrderQuantity: String? = null
+	var quoteOrderQuantity: String = ""
 )

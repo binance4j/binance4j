@@ -41,15 +41,15 @@ import io.swagger.annotations.ApiModelProperty
 data class SpotRebateHistoryResponse(
     @ApiModelProperty("Status.")
     @JsonProperty("status")
-    var status: String? = null,
+    var status: String = "",
 
     @ApiModelProperty("Type.")
     @JsonProperty("type")
-    var type: String? = null,
+    var type: String = "",
 
     @ApiModelProperty("Code.")
     @JsonProperty("code")
-    var code: String? = null,
+    var code: String = "",
 
     @ApiModelProperty("Data.")
     @JsonProperty("data")

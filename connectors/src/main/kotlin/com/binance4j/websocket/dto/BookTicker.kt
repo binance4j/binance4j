@@ -47,25 +47,25 @@ import io.swagger.annotations.ApiModelProperty
 data class BookTicker(
     @ApiModelProperty("Update id.")
     @JsonProperty("u")
-    var updateId: Long? = null,
+    var updateId: Long = 0L,
 
     @ApiModelProperty("Trading pair.")
     @JsonProperty("s")
-    var symbol: String? = null,
+    var symbol: String = "",
 
     @ApiModelProperty("Bid price.")
     @JsonProperty("b")
-    var bidPrice: String? = null,
+    var bidPrice: String = "",
 
     @ApiModelProperty("Bid quantity.")
     @JsonProperty("B")
-    var bidQuantity: String? = null,
+    var bidQuantity: String = "",
 
     @ApiModelProperty("Ask price.")
     @JsonProperty("a")
-    var askPrice: String? = null,
+    var askPrice: String = "",
 
     @ApiModelProperty("Ask quantity.")
     @JsonProperty("A")
-    var askQuantity: String? = null
+    var askQuantity: String = ""
 )

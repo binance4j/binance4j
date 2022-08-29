@@ -40,10 +40,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Margin account snapshot user assets.")
 data class MarginAccountSnapshotUserAssets(
-    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String? = null,
-    @ApiModelProperty("Borrowed amount.") @JsonProperty("borrowed") var borrowed: String? = null,
-    @ApiModelProperty("Fee amount.") @JsonProperty("free") var free: String? = null,
-    @ApiModelProperty("Interest amount.") @JsonProperty("interest") var interest: String? = null,
-    @ApiModelProperty("Locked volume.") @JsonProperty("locked") var locked: String? = null,
-    @ApiModelProperty("Net asset.") @JsonProperty("netAsset") var netAsset: String? = null
+    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String = "",
+    @ApiModelProperty("Borrowed amount.") @JsonProperty("borrowed") var borrowed: String = "",
+    @ApiModelProperty("Fee amount.") @JsonProperty("free") var free: String = "",
+    @ApiModelProperty("Interest amount.") @JsonProperty("interest") var interest: String = "",
+    @ApiModelProperty("Locked volume.") @JsonProperty("locked") var locked: String = "",
+    @ApiModelProperty("Net asset.") @JsonProperty("netAsset") var netAsset: String = ""
 )

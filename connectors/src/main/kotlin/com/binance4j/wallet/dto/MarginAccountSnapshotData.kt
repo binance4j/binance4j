@@ -39,15 +39,15 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Margin account snapshot data.")
 data class MarginAccountSnapshotData(
-    @ApiModelProperty("Margin level.") @JsonProperty("marginLevel") var marginLevel: String? = null,
-    @ApiModelProperty("Total Asset Of Btc.") @JsonProperty("totalAssetOfBtc") var totalAssetOfBtc: String? = null,
+    @ApiModelProperty("Margin level.") @JsonProperty("marginLevel") var marginLevel: String = "",
+    @ApiModelProperty("Total Asset Of Btc.") @JsonProperty("totalAssetOfBtc") var totalAssetOfBtc: String = "",
     @ApiModelProperty("Total Liability Of Btc.")
     @JsonProperty
-    var totalLiabilityOfBtc: String? = null,
+    var totalLiabilityOfBtc: String = "",
     @ApiModelProperty("Total Net Asset Of Btc.")
     @JsonProperty
-    var totalNetAssetOfBtc: String? = null,
+    var totalNetAssetOfBtc: String = "",
     @ApiModelProperty("User Assets.")
     @JsonProperty
-    var userAssets: List<MarginAccountSnapshotUserAssets>? = null
+    var userAssets:List<MarginAccountSnapshotUserAssets> = emptyList()
 )

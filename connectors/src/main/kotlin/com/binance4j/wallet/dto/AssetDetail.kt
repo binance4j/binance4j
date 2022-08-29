@@ -41,13 +41,13 @@ import io.swagger.annotations.ApiModelProperty
 data class AssetDetail(
     @ApiModelProperty("Minimal withdraw amount.")
     @JsonProperty
-    var minWithdrawAmount: String? = null,
+    var minWithdrawAmount: String = "",
     @ApiModelProperty("Deposit status (false if ALL of networks' are false).")
     @JsonProperty
-    var depositStatus: Boolean? = null,
+    var depositStatus: Boolean = false,
     @ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee") var withdrawFee: Float? = null,
     @ApiModelProperty("Withdraw status (false if ALL of networks' are false).")
     @JsonProperty
-    var withdrawStatus: Boolean? = null,
-    @ApiModelProperty("Reason of the status.") @JsonProperty("depositTip") var depositTip: String? = null
+    var withdrawStatus: Boolean = false,
+    @ApiModelProperty("Reason of the status.") @JsonProperty("depositTip") var depositTip: String = ""
 )

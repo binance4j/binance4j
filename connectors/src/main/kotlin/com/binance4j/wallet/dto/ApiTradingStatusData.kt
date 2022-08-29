@@ -40,13 +40,13 @@ import io.swagger.annotations.ApiModelProperty
 data class ApiTradingStatusData(
     @ApiModelProperty("API trading function is locked or not.")
     @JsonProperty("isLocked")
-    var isLocked: Boolean? = null,
+    var isLocked: Boolean = false,
     @ApiModelProperty("If API trading function is locked, this is the planned recover time.")
     @JsonProperty("plannedRecoverTime")
-    var plannedRecoverTime: Long? = null,
+    var plannedRecoverTime: Long = 0L,
     @ApiModelProperty("Details update timestamps.")
     @JsonProperty("updateTime")
-    var updateTime: Long? = null,
+    var updateTime: Long = 0L,
     @ApiModelProperty("Trigger condition.")
     @JsonProperty("triggerCondition")
     var triggerCondition: ApiTradingStatusTriggerCondition? = null

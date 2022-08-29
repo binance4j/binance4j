@@ -24,32 +24,32 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("OCO order report.")
 data class OCOOrderReport(
 @ApiModelProperty("Symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Order Id.")
-@JsonProperty("orderId") var orderId:Long?=null,
+@JsonProperty("orderId") var orderId: Long = 0L,
 @ApiModelProperty("Order List Id.")
-@JsonProperty("orderListId") var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId: Long = 0L,
 @ApiModelProperty("Client Order Id.")
-@JsonProperty("clientOrderId") var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId: String = "",
 @ApiModelProperty("Transact Time.")
-@JsonProperty("transactTime") var transactTime:Long?=null,
+@JsonProperty("transactTime") var transactTime: Long = 0L,
 @ApiModelProperty("Price.")
-@JsonProperty("price") var price:String?=null,
+@JsonProperty("price") var price: String = "",
 @ApiModelProperty("Original Quantity.")
-@JsonProperty("origQty") var origQty:String?=null,
+@JsonProperty("origQty") var origQty: String = "",
 @ApiModelProperty("Executed Quantity.")
-@JsonProperty("executedQty") var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty: String = "",
 @ApiModelProperty("Cummulative Quote Quantity.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "",
 @ApiModelProperty("Status.")
-@JsonProperty("status") var status:String?=null,
+@JsonProperty("status") var status: String = "",
 @ApiModelProperty("Time In Force.")
-@JsonProperty("timeInForce") var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce: String = "",
 @ApiModelProperty("Type.")
-@JsonProperty("type") var type:String?=null,
+@JsonProperty("type") var type: String = "",
 @ApiModelProperty("Side.")
-@JsonProperty("side") var side:String?=null,
+@JsonProperty("side") var side: String = "",
 @ApiModelProperty("StopPrice.")
-@JsonProperty("stopPrice") var stopPrice:String?=null)
+@JsonProperty("stopPrice") var stopPrice: String = "")
 {
 }

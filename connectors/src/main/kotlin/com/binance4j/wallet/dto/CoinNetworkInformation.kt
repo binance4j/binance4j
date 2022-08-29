@@ -59,53 +59,53 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin network information.")
 data class CoinNetworkInformation(
-    @ApiModelProperty("Address pattern.") @JsonProperty("addressRegex") var addressRegex: String? = null,
-    @ApiModelProperty("Address rule") @JsonProperty("addressRule") var addressRule: String? = null,
-    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String? = null,
-    @ApiModelProperty("Deposit description.") @JsonProperty("depositDesc") var depositDesc: String? = null,
-    @ApiModelProperty("Withdraw description.") @JsonProperty("withdrawDesc") var withdrawDesc: String? = null,
-    @ApiModelProperty("Network name.") @JsonProperty("name") var name: String? = null,
-    @ApiModelProperty("Memo pattern.") @JsonProperty("memoRegex") var memoRegex: String? = null,
-    @ApiModelProperty("Network") @JsonProperty("network") var network: String? = null,
-    @ApiModelProperty("Tips about the network.") @JsonProperty("specialTips") var specialTips: String? = null,
+    @ApiModelProperty("Address pattern.") @JsonProperty("addressRegex") var addressRegex: String = "",
+    @ApiModelProperty("Address rule") @JsonProperty("addressRule") var addressRule: String = "",
+    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String = "",
+    @ApiModelProperty("Deposit description.") @JsonProperty("depositDesc") var depositDesc: String = "",
+    @ApiModelProperty("Withdraw description.") @JsonProperty("withdrawDesc") var withdrawDesc: String = "",
+    @ApiModelProperty("Network name.") @JsonProperty("name") var name: String = "",
+    @ApiModelProperty("Memo pattern.") @JsonProperty("memoRegex") var memoRegex: String = "",
+    @ApiModelProperty("Network") @JsonProperty("network") var network: String = "",
+    @ApiModelProperty("Tips about the network.") @JsonProperty("specialTips") var specialTips: String = "",
     @ApiModelProperty("Tips about the withdraw.")
     @JsonProperty
-    var specialWithdrawTips: String? = null,
-    @ApiModelProperty("Deposit dust.") @JsonProperty("depositDust") var depositDust: String? = null,
-    @ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee") var withdrawFee: String? = null,
+    var specialWithdrawTips: String = "",
+    @ApiModelProperty("Deposit dust.") @JsonProperty("depositDust") var depositDust: String = "",
+    @ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee") var withdrawFee: String = "",
     @ApiModelProperty("Withdraw integer multiple")
     @JsonProperty
-    var withdrawIntegerMultiple: String? = null,
+    var withdrawIntegerMultiple: String = "",
     @ApiModelProperty("Maximal amount authorized to be withdrawn.")
     @JsonProperty
-    var withdrawMax: String? = null,
+    var withdrawMax: String = "",
     @ApiModelProperty("Minimal amount authorized to be withdrawn.")
     @JsonProperty
-    var withdrawMin: String? = null,
+    var withdrawMin: String = "",
     @ApiModelProperty("Min number for balance confirmation.")
     @JsonProperty
-    var minConfirm: Int? = null,
+    var minConfirm: Int = 0,
     @ApiModelProperty("Confirmation number for balance unlock.")
     @JsonProperty
-    var unLockConfirm: Int? = null,
+    var unLockConfirm: Int = 0,
     @ApiModelProperty("If deposit is enabled.")
     @JsonProperty
-    var depositEnable: Boolean? = null,
+    var depositEnable: Boolean = false,
     @ApiModelProperty("if is the default network.")
     @JsonProperty
-    var isDefault: Boolean? = null,
+    var isDefault: Boolean = false,
     @ApiModelProperty("Reset address status.")
     @JsonProperty
-    var resetAddressStatus: Boolean? = null,
+    var resetAddressStatus: Boolean = false,
     @ApiModelProperty("If withdraw is enabled.")
     @JsonProperty
-    var withdrawEnable: Boolean? = null,
+    var withdrawEnable: Boolean = false,
     @ApiModelProperty("If the coin needs to provide memo to withdraw.")
     @JsonProperty
-    var sameAddress: Boolean? = null,
+    var sameAddress: Boolean = false,
     @ApiModelProperty("Estimated arrival time in ms.")
     @JsonProperty
-    var estimatedArrivalTime: Long? = null,
-    @ApiModelProperty("Is network busy?") @JsonProperty("busy") var busy: Boolean? = null,
-    @ApiModelProperty("Country.") @JsonProperty("country") var country: String? = null
+    var estimatedArrivalTime: Long = 0L,
+    @ApiModelProperty("Is network busy?") @JsonProperty("busy") var busy: Boolean = false,
+    @ApiModelProperty("Country.") @JsonProperty("country") var country: String = ""
 )

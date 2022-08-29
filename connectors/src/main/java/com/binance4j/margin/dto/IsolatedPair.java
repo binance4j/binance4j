@@ -27,24 +27,24 @@ data class IsolatedPair(
 @ApiModelProperty("Quote asset.")
 @JsonProperty("quoteAsset") var quoteAsset:IsolatedAsset?=null,
 @ApiModelProperty("Asset symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("is isolated asset created.")
-@JsonProperty("isolatedCreated") var isolatedCreated:Boolean?=null,
+@JsonProperty("isolatedCreated") var isolatedCreated: Boolean = false,
 @ApiModelProperty("Is trading enabled?")
-@JsonProperty("tradeEnabled") var tradeEnabled:Boolean?=null,
+@JsonProperty("tradeEnabled") var tradeEnabled: Boolean = false,
 @ApiModelProperty("Is the pair enabled for the account?")
-@JsonProperty("enabled") var enabled:Boolean?=null,
+@JsonProperty("enabled") var enabled: Boolean = false,
 @ApiModelProperty("Margin level status.")
-@JsonProperty("marginLevelStatus") var marginLevelStatus:String?=null,
+@JsonProperty("marginLevelStatus") var marginLevelStatus: String = "",
 @ApiModelProperty("Margin level.")
-@JsonProperty("marginLevel") var marginLevel:String?=null,
+@JsonProperty("marginLevel") var marginLevel: String = "",
 @ApiModelProperty("Margin ratio.")
-@JsonProperty("marginRatio") var marginRatio:String?=null,
+@JsonProperty("marginRatio") var marginRatio: String = "",
 @ApiModelProperty("Index price.")
-@JsonProperty("indexPrice") var indexPrice:String?=null,
+@JsonProperty("indexPrice") var indexPrice: String = "",
 @ApiModelProperty("Liquidate price.")
-@JsonProperty("liquidatePrice") var liquidatePrice:String?=null,
+@JsonProperty("liquidatePrice") var liquidatePrice: String = "",
 @ApiModelProperty("Liquidate rate.")
-@JsonProperty("liquidateRate") var liquidateRate:String?=null)
+@JsonProperty("liquidateRate") var liquidateRate: String = "")
 {
 }

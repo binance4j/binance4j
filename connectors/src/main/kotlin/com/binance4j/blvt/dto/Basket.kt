@@ -38,13 +38,13 @@ import io.swagger.annotations.ApiModelProperty
 data class Basket(
         @ApiModelProperty("Symbol.")
         @JsonProperty("symbol")
-        var symbol: String? = null,
+        var symbol: String = "",
         
         @ApiModelProperty("Amount.")
         @JsonProperty("amount")
-        var amount: String? = null,
+        var amount: String = "",
 
         @ApiModelProperty("Notional value.")
         @JsonProperty("notionalValue")
-        var notionalValue: String? = null
+        var notionalValue: String = ""
 )

@@ -57,7 +57,7 @@ data class UserDataUpdate(
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("eventTime")
-    var eventTime: Long? = null,
+    var eventTime: Long = 0L,
 
     @ApiModelProperty("Account update.")
     @JsonProperty("outboundAccountPositionUpdateEvent")

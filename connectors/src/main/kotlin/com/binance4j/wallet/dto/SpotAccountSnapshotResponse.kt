@@ -37,8 +37,8 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a SPOT account snapshot request.")
 data class SpotAccountSnapshotResponse(
-    @ApiModelProperty("Code.") override @JsonProperty("code") var code: Int? = null,
-    @ApiModelProperty("Message.") override @JsonProperty("msg") var msg: String? = null,
+    @ApiModelProperty("Code.") override @JsonProperty("code") var code: Int = 0,
+    @ApiModelProperty("Message.") override @JsonProperty("msg") var msg: String = "",
     @ApiModelProperty("Snapshot.")
-    override @JsonProperty("snapshotVos") var snapshotVos: List<SpotAccountSnapshot>? = null
+    override @JsonProperty("snapshotVos") var snapshotVos:List<SpotAccountSnapshot> = emptyList()
 ) : AccountSnapshotResponse<SpotAccountSnapshot>

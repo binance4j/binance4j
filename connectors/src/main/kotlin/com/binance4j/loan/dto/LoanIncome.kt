@@ -41,21 +41,21 @@ import io.swagger.annotations.ApiModelProperty
 data class LoanIncome(
         @ApiModelProperty("Income asset.")
         @JsonProperty("asset")
-        var asset: String? = null,
+        var asset: String = "",
 
         @ApiModelProperty("Income type.")
         @JsonProperty("type")
-        var type: String? = null,
+        var type: String = "",
 
         @ApiModelProperty("Income maount.")
         @JsonProperty("amount")
-        var amount: String? = null,
+        var amount: String = "",
 
         @ApiModelProperty("Timestamp in ms.")
         @JsonProperty("timestamp")
-        var timestamp: Long? = null,
+        var timestamp: Long = 0L,
 
         @ApiModelProperty("Transaction id.")
         @JsonProperty("tranId")
-        var tranId: String? = null
+        var tranId: String = ""
 )

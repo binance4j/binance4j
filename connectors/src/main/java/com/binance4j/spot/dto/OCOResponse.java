@@ -24,22 +24,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Response of an OCO order.")
 data class OCOResponse(
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId: Long = 0L,
 @ApiModelProperty("Contingency type.")
-@JsonProperty("contingencyType") var contingencyType:String?=null,
+@JsonProperty("contingencyType") var contingencyType: String = "",
 @ApiModelProperty("List status.")
-@JsonProperty("listStatusType") var listStatusType:String?=null,
+@JsonProperty("listStatusType") var listStatusType: String = "",
 @ApiModelProperty("List order status.")
-@JsonProperty("listOrderStatus") var listOrderStatus:String?=null,
+@JsonProperty("listOrderStatus") var listOrderStatus: String = "",
 @ApiModelProperty("List client order id.")
-@JsonProperty("listClientOrderId") var listClientOrderId:String?=null,
+@JsonProperty("listClientOrderId") var listClientOrderId: String = "",
 @ApiModelProperty("Order timestamp.")
-@JsonProperty("transactionTime") var transactionTime:Long?=null,
+@JsonProperty("transactionTime") var transactionTime: Long = 0L,
 @ApiModelProperty("Order symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("The 2 orders.") List<MiniOrderInfo> orders,
 @ApiModelProperty("is it an isolated trade?")
-@JsonProperty("isIsolated") var isIsolated:Boolean?=null,
+@JsonProperty("isIsolated") var isIsolated: Boolean = false,
 @ApiModelProperty("Order reports.") List<OCOOrderReport> orderReports)
 {
 }

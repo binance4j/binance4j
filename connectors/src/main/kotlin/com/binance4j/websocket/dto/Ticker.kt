@@ -62,93 +62,93 @@ import io.swagger.annotations.ApiModelProperty
 data class Ticker(
     @ApiModelProperty("Event type.")
     @JsonProperty("e")
-    var eventType: String? = null,
+    var eventType: String = "",
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("E")
-    var eventTime: Long? = null,
+    var eventTime: Long = 0L,
 
     @ApiModelProperty("Trading pair.")
     @JsonProperty("s")
-    var symbol: String? = null,
+    var symbol: String = "",
 
     @ApiModelProperty("Price change.")
     @JsonProperty("p")
-    var priceChange: String? = null,
+    var priceChange: String = "",
 
     @ApiModelProperty("Price change percent.")
     @JsonProperty("P")
-    var priceChangePercent: String? = null,
+    var priceChangePercent: String = "",
 
     @ApiModelProperty("Weighted average price.")
     @JsonProperty("w")
-    var weightedAveragePrice: String? = null,
+    var weightedAveragePrice: String = "",
 
     @ApiModelProperty("Previous days close price.")
     @JsonProperty("x")
-    var previousDaysClosePrice: String? = null,
+    var previousDaysClosePrice: String = "",
 
     @ApiModelProperty("Current days close price.")
     @JsonProperty("c")
-    var currentDaysClosePrice: String? = null,
+    var currentDaysClosePrice: String = "",
 
     @ApiModelProperty("Last quantity.")
     @JsonProperty("Q")
-    var closeTradesQuantity: String? = null,
+    var closeTradesQuantity: String = "",
 
     @ApiModelProperty("Best bid price.")
     @JsonProperty("b")
-    var bestBidPrice: String? = null,
+    var bestBidPrice: String = "",
 
     @ApiModelProperty("Best bid quantity.")
     @JsonProperty("B")
-    var bestBidQuantity: String? = null,
+    var bestBidQuantity: String = "",
 
     @ApiModelProperty("Best ask price.")
     @JsonProperty("a")
-    var bestAskPrice: String? = null,
+    var bestAskPrice: String = "",
 
     @ApiModelProperty("Best ask quantity.")
     @JsonProperty("A")
-    var bestAskQuantity: String? = null,
+    var bestAskQuantity: String = "",
 
     @ApiModelProperty("Open price.")
     @JsonProperty("o")
-    var openPrice: String? = null,
+    var openPrice: String = "",
 
     @ApiModelProperty("Highest price.")
     @JsonProperty("h")
-    var highPrice: String? = null,
+    var highPrice: String = "",
 
     @ApiModelProperty("Lowest price.")
     @JsonProperty("l")
-    var lowPrice: String? = null,
+    var lowPrice: String = "",
 
     @ApiModelProperty("Total traded base asset volume.")
     @JsonProperty("v")
-    var totalTradedBaseAssetVolume: String? = null,
+    var totalTradedBaseAssetVolume: String = "",
 
     @ApiModelProperty("Total traded quote asset volume.")
     @JsonProperty("q")
-    var totalTradedQuoteAssetVolume: String? = null,
+    var totalTradedQuoteAssetVolume: String = "",
 
     @ApiModelProperty("Statistics open time.")
     @JsonProperty("O")
-    var statisticsOpenTime: Long? = null,
+    var statisticsOpenTime: Long = 0L,
 
     @ApiModelProperty("Statistics close time.")
     @JsonProperty("C")
-    var statisticsCloseTime: Long? = null,
+    var statisticsCloseTime: Long = 0L,
 
     @ApiModelProperty("First trade ID.")
     @JsonProperty("F")
-    var firstTradeId: Long? = null,
+    var firstTradeId: Long = 0L,
 
     @ApiModelProperty("Last trade Id.")
     @JsonProperty("L")
-    var lastTradeId: Long? = null,
+    var lastTradeId: Long = 0L,
 
     @ApiModelProperty("Total number of trades.")
     @JsonProperty("n")
-    var totalNumberOfTrade: Long? = null
+    var totalNumberOfTrade: Long = 0L
 )

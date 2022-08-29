@@ -15,14 +15,14 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A mineable coin.")
 data class Coin(
 @ApiModelProperty("Currency name.")
-@JsonProperty("coinName") var coinName:String?=null,
+@JsonProperty("coinName") var coinName: String = "",
 @ApiModelProperty("Coin id.")
-@JsonProperty("coinId") var coinId:Long?=null,
+@JsonProperty("coinId") var coinId: Long = 0L,
 @ApiModelProperty("Pool index.")
-@JsonProperty("poolIndex") var poolIndex:Long?=null,
+@JsonProperty("poolIndex") var poolIndex: Long = 0L,
 @ApiModelProperty("Algorithm id.")
-@JsonProperty("algoId") var algoId:Long?=null,
+@JsonProperty("algoId") var algoId: Long = 0L,
 @ApiModelProperty("Name of the algorithm.")
-@JsonProperty("algoName") var algoName:String?=null)
+@JsonProperty("algoName") var algoName: String = "")
 {
 }

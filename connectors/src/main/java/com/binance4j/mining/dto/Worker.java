@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A miner/worker data.")
 data class Worker(
 @ApiModelProperty("Miner id.")
-@JsonProperty("workerId") var workerId:String?=null,
+@JsonProperty("workerId") var workerId: String = "",
 @ApiModelProperty("Miner's name'.") String workerName,
 @ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.")
 long status,
@@ -28,6 +28,6 @@ long dayHashRate,
 @ApiModelProperty("Real-time Rejection Rate.")
 long rejectRate,
 @ApiModelProperty("Last submission time.")
-@JsonProperty("lastShareTime") var lastShareTime:Long?=null)
+@JsonProperty("lastShareTime") var lastShareTime: Long = 0L)
 {
 }

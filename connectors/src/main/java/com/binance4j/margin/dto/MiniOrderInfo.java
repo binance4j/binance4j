@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Trade order information.")
 data class MiniOrderInfo(
 @ApiModelProperty("Order symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId:Long?=null,
+@JsonProperty("orderId") var orderId: Long = 0L,
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId:String?=null)
+@JsonProperty("clientOrderId") var clientOrderId: String = "")
 {
 }

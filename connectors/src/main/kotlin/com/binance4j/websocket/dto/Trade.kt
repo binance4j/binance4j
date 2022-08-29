@@ -48,40 +48,40 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Pair trade data.")
 data class Trade(
     @ApiModelProperty("Event type.")
-    @JsonProperty("e") var eventType: String? = null,
+    @JsonProperty("e") var eventType: String = "",
     @ApiModelProperty("Timestamp.")
     @JsonProperty("E")
-    var eventTime: Long? = null,
+    var eventTime: Long = 0L,
 
     @ApiModelProperty("Trading pair.")
     @JsonProperty("s")
-    var symbol: String? = null,
+    var symbol: String = "",
 
     @ApiModelProperty("Trade id.")
     @JsonProperty("t")
-    var tradeId: String? = null,
+    var tradeId: String = "",
 
     @ApiModelProperty("Price.")
     @JsonProperty("p")
-    var price: String? = null,
+    var price: String = "",
 
     @ApiModelProperty("Price.")
     @JsonProperty("q")
-    var quantity: String? = null,
+    var quantity: String = "",
 
     @ApiModelProperty("Buyer order id.")
     @JsonProperty("b")
-    var buyerOrderId: Long? = null,
+    var buyerOrderId: Long = 0L,
 
     @ApiModelProperty("Seller order id.")
     @JsonProperty("a")
-    var sellerOrderId: Long? = null,
+    var sellerOrderId: Long = 0L,
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("T")
-    var tradeTime: Long? = null,
+    var tradeTime: Long = 0L,
 
     @ApiModelProperty("Is the buyer the market maker?")
     @JsonProperty("m")
-    var buyerIsMarketMaker: Boolean? = null
+    var buyerIsMarketMaker: Boolean = false
 )

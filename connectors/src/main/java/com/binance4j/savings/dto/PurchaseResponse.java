@@ -11,6 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Flexible purchase response.")
 data class PurchaseResponse(
 @ApiModelProperty("Purchase id.")
-@JsonProperty("purchaseId") var purchaseId:String?=null)
+@JsonProperty("purchaseId") var purchaseId: String = "")
 {
 }

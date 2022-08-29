@@ -13,9 +13,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Hashrate data.")
 data class HashrateData(
 @ApiModelProperty("Time in ms.")
-@JsonProperty("time") var time:Long?=null,
+@JsonProperty("time") var time: Long = 0L,
 @ApiModelProperty("Hashrate.")
-@JsonProperty("hashrate") var hashrate:String?=null,
-@ApiModelProperty("Rejection Rate.") @JsonProperty("reject") var reject:Long?=null)
+@JsonProperty("hashrate") var hashrate: String = "",
+@ApiModelProperty("Rejection Rate.") @JsonProperty("reject") var reject: Long = 0L)
 {
 }

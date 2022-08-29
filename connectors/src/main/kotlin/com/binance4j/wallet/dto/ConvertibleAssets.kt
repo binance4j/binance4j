@@ -38,8 +38,8 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Assets that can be converted into BNB.")
 data class ConvertibleAssets(
-    @ApiModelProperty("Details.") @JsonProperty("details") var details: List<ConvertibleAsset>? = null,
-    @ApiModelProperty("BTC valuation.") @JsonProperty("totalTransferBtc") var totalTransferBtc: String? = null,
-    @ApiModelProperty("BNB valuation.") @JsonProperty("totalTransferBNB") var totalTransferBNB: String? = null,
-    @ApiModelProperty("Commission fee.") @JsonProperty("dribbletPercentage") var dribbletPercentage: String? = null
+    @ApiModelProperty("Details.") @JsonProperty("details") var details:List<ConvertibleAsset> = emptyList(),
+    @ApiModelProperty("BTC valuation.") @JsonProperty("totalTransferBtc") var totalTransferBtc: String = "",
+    @ApiModelProperty("BNB valuation.") @JsonProperty("totalTransferBNB") var totalTransferBNB: String = "",
+    @ApiModelProperty("Commission fee.") @JsonProperty("dribbletPercentage") var dribbletPercentage: String = ""
 )

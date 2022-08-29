@@ -50,57 +50,57 @@ import io.swagger.annotations.ApiModelProperty
 data class Trade(
         @ApiModelProperty("Order number.")
         @JsonProperty("orderNumber")
-        var orderNumber: String? = null,
+        var orderNumber: String = "",
 
         @ApiModelProperty("Adv No.")
         @JsonProperty("advNo")
-        var advNo: Long? = null,
+        var advNo: Long = 0L,
 
         @ApiModelProperty("Trade type.")
         @JsonProperty("tradeType")
-        var tradeType: String? = null,
+        var tradeType: String = "",
 
         @ApiModelProperty("Asset.")
         @JsonProperty("asset")
-        var asset: String? = null,
+        var asset: String = "",
 
         @ApiModelProperty("Fiat.")
         @JsonProperty("fiat")
-        var fiat: String? = null,
+        var fiat: String = "",
 
         @ApiModelProperty("Fiat symbol.")
         @JsonProperty("fiatSymbol")
-        var fiatSymbol: String? = null,
+        var fiatSymbol: String = "",
 
         @ApiModelProperty("Amount.")
         @JsonProperty("amount")
-        var amount: String? = null,
+        var amount: String = "",
 
         @ApiModelProperty("Total price.")
         @JsonProperty("totalPrice")
-        var totalPrice: String? = null,
+        var totalPrice: String = "",
 
         @ApiModelProperty("Unit price.")
         @JsonProperty("unitPrice")
-        var unitPrice: String? = null,
+        var unitPrice: String = "",
 
         @ApiModelProperty("Order status.")
         @JsonProperty("orderStatus")
-        var orderStatus: String? = null,
+        var orderStatus: String = "",
 
         @ApiModelProperty("Create time.")
         @JsonProperty("createTime")
-        var createTime: Long? = null,
+        var createTime: Long = 0L,
 
         @ApiModelProperty("Commission.")
         @JsonProperty("commission")
-        var commission: String? = null,
+        var commission: String = "",
 
         @ApiModelProperty("Counter part nickname.")
         @JsonProperty("counterPartNickName")
-        var counterPartNickName: String? = null,
+        var counterPartNickName: String = "",
 
         @ApiModelProperty("Advertisement role.")
         @JsonProperty("advertisementRole")
-        var advertisementRole: String? = null
+        var advertisementRole: String = ""
 )

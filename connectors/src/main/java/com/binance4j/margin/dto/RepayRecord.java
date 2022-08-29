@@ -22,19 +22,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Data about a repay.")
 data class RepayRecord(
 @ApiModelProperty("Transaction id.")
-@JsonProperty("txId") var txId:Long?=null,
+@JsonProperty("txId") var txId: Long = 0L,
 @ApiModelProperty("Transaction timestamp in ms.")
-@JsonProperty("timestamp") var timestamp:Long?=null,
+@JsonProperty("timestamp") var timestamp: Long = 0L,
 @ApiModelProperty("Isolated symbol, will not be returned for crossed margin.") Optional<String> isolatedSymbol,
 @ApiModelProperty("Total amount repaid.")
-@JsonProperty("amount") var amount:String?=null,
+@JsonProperty("amount") var amount: String = "",
 @ApiModelProperty("Asset.")
-@JsonProperty("asset") var asset:String?=null,
+@JsonProperty("asset") var asset: String = "",
 @ApiModelProperty("Interest repaid.")
-@JsonProperty("interest") var interest:String?=null,
+@JsonProperty("interest") var interest: String = "",
 @ApiModelProperty("Quantity repaid.")
-@JsonProperty("principal") var principal:String?=null,
+@JsonProperty("principal") var principal: String = "",
 @ApiModelProperty("Repay status.")
-@JsonProperty("status") var status:String?=null)
+@JsonProperty("status") var status: String = "")
 {
 }

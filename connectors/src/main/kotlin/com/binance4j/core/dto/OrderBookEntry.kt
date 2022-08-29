@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModelProperty
 data class OrderBookEntry(
     @ApiModelProperty("The price.")
     @JsonProperty("price")
-    var price: String? = null,
+    var price: String = "",
 
     @ApiModelProperty("The quantity.")
     @JsonProperty("qt")
-    var qt: String? = null
+    var qt: String = ""
 )

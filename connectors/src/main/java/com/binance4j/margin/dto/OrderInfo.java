@@ -30,42 +30,42 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Trade order information.")
 data class OrderInfo(
 @ApiModelProperty("The order side.")
-@JsonProperty("side") var side:String?=null,
+@JsonProperty("side") var side: String = "",
 @ApiModelProperty("Price.")
-@JsonProperty("price") var price:String?=null,
+@JsonProperty("price") var price: String = "",
 @ApiModelProperty("Original quantity.")
-@JsonProperty("origQty") var origQty:String?=null,
+@JsonProperty("origQty") var origQty: String = "",
 @ApiModelProperty("Original quantity.")
-@JsonProperty("executedQty") var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty: String = "",
 @ApiModelProperty("Used to calculate the average price.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null,
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "",
 @ApiModelProperty("Order status.")
-@JsonProperty("status") var status:String?=null,
+@JsonProperty("status") var status: String = "",
 @ApiModelProperty("Time in force to indicate how long will the order remain active.")
-@JsonProperty("timeInForce") var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce: String = "",
 @ApiModelProperty("Type of order.")
-@JsonProperty("type") var type:String?=null,
+@JsonProperty("type") var type: String = "",
 @ApiModelProperty("Used with stop orders.")
-@JsonProperty("stopPrice") var stopPrice:String?=null,
+@JsonProperty("stopPrice") var stopPrice: String = "",
 @ApiModelProperty("Used with iceberg orders.")
-@JsonProperty("icebergQty") var icebergQty:String?=null,
+@JsonProperty("icebergQty") var icebergQty: String = "",
 @ApiModelProperty("Order timestamp.")
-@JsonProperty("time") var time:Long?=null,
+@JsonProperty("time") var time: Long = 0L,
 @ApiModelProperty("Update timestamp.")
-@JsonProperty("updateTime") var updateTime:Long?=null,
+@JsonProperty("updateTime") var updateTime: Long = 0L,
 @ApiModelProperty("Original quote order quantity.")
-@JsonProperty("origQuoteOrderQty") var origQuoteOrderQty:String?=null,
+@JsonProperty("origQuoteOrderQty") var origQuoteOrderQty: String = "",
 @ApiModelProperty("is working.")
-@JsonProperty("isWorking") var isWorking:Boolean?=null,
+@JsonProperty("isWorking") var isWorking: Boolean = false,
 @ApiModelProperty("is isolated margin.")
-@JsonProperty("isIsolated") var isIsolated:Boolean?=null,
+@JsonProperty("isIsolated") var isIsolated: Boolean = false,
 @ApiModelProperty("The order symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId:Long?=null,
+@JsonProperty("orderId") var orderId: Long = 0L,
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId: String = "",
 @ApiModelProperty("Account id.")
-@JsonProperty("accountId") var accountId:String?=null)
+@JsonProperty("accountId") var accountId: String = "")
 {
 }

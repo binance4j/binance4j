@@ -24,20 +24,20 @@ data class Statistics(
 String fifteenMinHashRate,
 @ApiModelProperty("24H Hashrate.")
 String dayHashRate,
-@ApiModelProperty("Effective quantity.") @JsonProperty("validNum : Int? = null, @ApiModelProperty("Invalid quantity.") var invalidNum ")
-var validNum:Int?=null,
+@ApiModelProperty("Effective quantity.") @JsonProperty("validNum : Int = 0, @ApiModelProperty("Invalid quantity.") var invalidNum ")
+var validNum:Int = 0,
 @ApiModelProperty("Invalid quantity.")
-var invalidNum:Int?=null,
+var invalidNum:Int = 0,
 @ApiModelProperty("Today's estimate.")
 Map<String, String> profitToday,
 @ApiModelProperty("Yesterday's earnings.")
 Map<String, String> profitYesterday,
-@ApiModelProperty("Mining account.") @JsonProperty("userName : String? = null, @ApiModelProperty("Hashrate unit.") var unit ")
-var userName:String?=null,
+@ApiModelProperty("Mining account.") @JsonProperty("userName : String = "", @ApiModelProperty("Hashrate unit.") var unit ")
+var userName: String = "",
 @ApiModelProperty("Hashrate unit.")
-var unit:String?=null,
+var unit: String = "",
 @ApiModelProperty("Algorithm.")
 @JsonProperty("algo ")
-var algo:String?=null)
+var algo: String = "")
 {
 }

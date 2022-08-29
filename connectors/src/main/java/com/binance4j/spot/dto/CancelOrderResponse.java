@@ -23,30 +23,30 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The CancelOrder request result.")
 data class CancelOrderResponse(
 @ApiModelProperty("Status.")
-@JsonProperty("status") var status:String?=null,
+@JsonProperty("status") var status: String = "",
 @ApiModelProperty("Side.")
-@JsonProperty("side") var side:String?=null,
+@JsonProperty("side") var side: String = "",
 @ApiModelProperty("Type.")
-@JsonProperty("type") var type:String?=null,
+@JsonProperty("type") var type: String = "",
 @ApiModelProperty("Time in force.")
-@JsonProperty("timeInForce") var timeInForce:String?=null,
+@JsonProperty("timeInForce") var timeInForce: String = "",
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId:Long?=null,
+@JsonProperty("orderId") var orderId: Long = 0L,
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId: Long = 0L,
 @ApiModelProperty("Symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Orig client order id.")
-@JsonProperty("origClientOrderId") var origClientOrderId:String?=null,
+@JsonProperty("origClientOrderId") var origClientOrderId: String = "",
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId:String?=null,
+@JsonProperty("clientOrderId") var clientOrderId: String = "",
 @ApiModelProperty("Executed quantity.")
-@JsonProperty("executedQty") var executedQty:String?=null,
+@JsonProperty("executedQty") var executedQty: String = "",
 @ApiModelProperty("Price.")
-@JsonProperty("price") var price:String?=null,
+@JsonProperty("price") var price: String = "",
 @ApiModelProperty("Original quantity.")
-@JsonProperty("origQty") var origQty:String?=null,
+@JsonProperty("origQty") var origQty: String = "",
 @ApiModelProperty("Cummulative quote quantity.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty:String?=null)
+@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "")
 {
 }

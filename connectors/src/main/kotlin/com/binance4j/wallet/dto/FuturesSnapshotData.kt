@@ -38,8 +38,8 @@ import io.swagger.annotations.ApiModelProperty
 data class FuturesSnapshotData(
     @ApiModelProperty("Assets balances.")
     @JsonProperty
-    var assets: List<FuturesSnapshotDataAssets>? = null,
+    var assets:List<FuturesSnapshotDataAssets> = emptyList(),
     @ApiModelProperty("Account snapshot position.")
     @JsonProperty
-    var position: List<FuturesAccountSnapshotPosition>? = null
+    var position:List<FuturesAccountSnapshotPosition> = emptyList()
 )

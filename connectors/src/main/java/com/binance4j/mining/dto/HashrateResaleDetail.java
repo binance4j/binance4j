@@ -20,17 +20,17 @@ data class HashrateResaleDetail(
 String poolUsername,
 @ApiModelProperty("Transfer into subaccount.")
 @JsonProperty("toPoolUsername ")
-var toPoolUsername:String?=null,
+var toPoolUsername: String = "",
 @ApiModelProperty("Transfer algorithm.")
 @JsonProperty("algoName ")
-var algoName:String?=null,
-@ApiModelProperty("Transferred Hashrate quantity.") @JsonProperty("hashRate : Long? = null, @ApiModelProperty("Transfer date.") var day ")
-var hashRate:Long?=null,
+var algoName: String = "",
+@ApiModelProperty("Transferred Hashrate quantity.") @JsonProperty("hashRate : Long = 0L, @ApiModelProperty("Transfer date.") var day ")
+var hashRate: Long = 0L,
 @ApiModelProperty("Transfer date.")
-var day:Long?=null,
-@ApiModelProperty("Transferred income.") @JsonProperty("amount : String? = null, @ApiModelProperty("Coin Name.") var coinName ")
-var amount:String?=null,
+var day: Long = 0L,
+@ApiModelProperty("Transferred income.") @JsonProperty("amount : String = "", @ApiModelProperty("Coin Name.") var coinName ")
+var amount: String = "",
 @ApiModelProperty("Coin Name.")
-var coinName:String?=null)
+var coinName: String = "")
 {
 }

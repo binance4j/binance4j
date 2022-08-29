@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Current average price for a symbol.")
 data class AveragePrice(
 @ApiModelProperty("Mins.")
-@JsonProperty("mins") var mins:int?=null,
+@JsonProperty("mins") var mins:Int = 0,
 @ApiModelProperty("Average price of the asset.")
-@JsonProperty("price") var price:String?=null)
+@JsonProperty("price") var price: String = "")
 {
 }

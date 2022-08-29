@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("BNB burn status")
 data class BNBBurnStatus(
 @ApiModelProperty("Is spot BNB burn allowed.")
-@JsonProperty("spotBNBBurn") var spotBNBBurn:Boolean?=null,
-@ApiModelProperty("Is interest BNB burn allowed.") @JsonProperty("interestBNBBurn") var interestBNBBurn:Boolean?=null)
+@JsonProperty("spotBNBBurn") var spotBNBBurn: Boolean = false,
+@ApiModelProperty("Is interest BNB burn allowed.") @JsonProperty("interestBNBBurn") var interestBNBBurn: Boolean = false)
 {
 }

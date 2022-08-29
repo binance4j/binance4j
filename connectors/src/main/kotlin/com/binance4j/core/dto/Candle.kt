@@ -50,47 +50,47 @@ import io.swagger.annotations.ApiModelProperty
 data class Candle(
     @ApiModelProperty("The candlestick open timestamp in milliseconds.")
     @JsonProperty
-    var openTime: Long? = null,
+    var openTime: Long = 0L,
 
     @ApiModelProperty("The Open value.")
     @JsonProperty
-    var open: String? = null,
+    var open: String = "",
 
     @ApiModelProperty("The High value.")
     @JsonProperty
-    var high: String? = null,
+    var high: String = "",
 
     @ApiModelProperty("The Low value.")
     @JsonProperty
-    var low: String? = null,
+    var low: String = "",
 
     @ApiModelProperty("The Close value.")
     @JsonProperty
-    var close: String? = null,
+    var close: String = "",
 
     @ApiModelProperty("The traded volume in the interval.")
     @JsonProperty
-    var volume: String? = null,
+    var volume: String = "",
 
     @ApiModelProperty("The candlestick close timestamp in milliseconds.")
     @JsonProperty
-    var closeTime: Long? = null,
+    var closeTime: Long = 0L,
 
     @ApiModelProperty("The quote asset traded volume.")
     @JsonProperty
-    var quoteAssetVolume: String? = null,
+    var quoteAssetVolume: String = "",
 
     @ApiModelProperty("The number of trades.")
     @JsonProperty
-    var numberOfTrades: Long? = null,
+    var numberOfTrades: Long = 0L,
 
     @ApiModelProperty("Taker buy base asset volume.")
     @JsonProperty
-    var takerBuyBaseAssetVolume: String? = null,
+    var takerBuyBaseAssetVolume: String = "",
 
     @ApiModelProperty("Taker buy quote asset volume.")
     @JsonProperty
-    var takerBuyQuoteAssetVolume: String? = null
+    var takerBuyQuoteAssetVolume: String = ""
 ) {
     /**
      * accepting a list of String acting like a line of data in a csv file

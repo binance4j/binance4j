@@ -19,20 +19,20 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A transfer history record.")
 data class TransferRecord(
 @ApiModelProperty("Transaction id.")
-@JsonProperty("txId") var txId:Long?=null,
+@JsonProperty("txId") var txId: Long = 0L,
 @ApiModelProperty("Transfered amount.")
-@JsonProperty("amount") var amount:String?=null,
+@JsonProperty("amount") var amount: String = "",
 @ApiModelProperty("Transfered asset.")
-@JsonProperty("asset") var asset:String?=null,
+@JsonProperty("asset") var asset: String = "",
 @ApiModelProperty("Transfer status.")
-@JsonProperty("status") var status:String?=null,
+@JsonProperty("status") var status: String = "",
 @ApiModelProperty("Transaction time in ms.")
-@JsonProperty("timestamp") var timestamp:Long?=null,
+@JsonProperty("timestamp") var timestamp: Long = 0L,
 @ApiModelProperty("Transfer history type.")
-@JsonProperty("type") var type:String?=null,
+@JsonProperty("type") var type: String = "",
 @ApiModelProperty("Transfer counterparty.")
-@JsonProperty("transferCounterparty") var transferCounterparty:String?=null,
+@JsonProperty("transferCounterparty") var transferCounterparty: String = "",
 @ApiModelProperty("Client tag.")
-@JsonProperty("clientTag") var clientTag:String?=null)
+@JsonProperty("clientTag") var clientTag: String = "")
 {
 }

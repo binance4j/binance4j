@@ -15,13 +15,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The user's current order count usage for all intervals.")
 data class OrderCount(
 @ApiModelProperty("Type of order.")
-@JsonProperty("rateLimitType") var rateLimitType:String?=null,
+@JsonProperty("rateLimitType") var rateLimitType: String = "",
 @ApiModelProperty("Order interval.")
-@JsonProperty("interval") var interval:String?=null,
+@JsonProperty("interval") var interval: String = "",
 @ApiModelProperty("Order interval num.")
-@JsonProperty("intervalNum") var intervalNum:int?=null,
+@JsonProperty("intervalNum") var intervalNum:Int = 0,
 @ApiModelProperty("Order limit.")
-@JsonProperty("limit") var limit:int?=null,
-@ApiModelProperty("Current order count.") @JsonProperty("count") var count:int?=null)
+@JsonProperty("limit") var limit:Int = 0,
+@ApiModelProperty("Current order count.") @JsonProperty("count") var count:Int = 0)
 {
 }

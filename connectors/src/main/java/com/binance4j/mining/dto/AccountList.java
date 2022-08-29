@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Account statistics.")
 data class AccountList(
 @ApiModelProperty("Time in ms.")
-@JsonProperty("time") var time:Long?=null,
+@JsonProperty("time") var time: Long = 0L,
 @ApiModelProperty("Hashrate.")
-@JsonProperty("hashrate") var hashrate:String?=null,
+@JsonProperty("hashrate") var hashrate: String = "",
 @ApiModelProperty("Reject rate.")
-@JsonProperty("reject") var reject:String?=null)
+@JsonProperty("reject") var reject: String = "")
 {
 }

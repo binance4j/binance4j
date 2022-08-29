@@ -43,29 +43,29 @@ import io.swagger.annotations.ApiModelProperty
 data class Redemption(
         @ApiModelProperty("Id.")
         @JsonProperty("id")
-        var id: Long? = null,
+        var id: Long = 0L,
 
         @ApiModelProperty("Token name.")
         @JsonProperty("tokenName")
-        var tokenName: String? = null,
+        var tokenName: String = "",
 
         @ApiModelProperty("Amount.")
         @JsonProperty("amount")
-        var amount: String? = null,
+        var amount: String = "",
 
         @ApiModelProperty("Nav.")
         @JsonProperty("nav")
-        var nav: String? = null,
+        var nav: String = "",
 
         @ApiModelProperty("Fee.")
         @JsonProperty("fee")
-        var fee: String? = null,
+        var fee: String = "",
 
         @ApiModelProperty("Total charge.")
         @JsonProperty("totalCharge")
-        var totalCharge: String? = null,
+        var totalCharge: String = "",
 
         @ApiModelProperty("Timestamp in ms.")
         @JsonProperty("timestamp")
-        var timestamp: Long? = null
+        var timestamp: Long = 0L
 )

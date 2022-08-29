@@ -44,31 +44,31 @@ data class AggTrade
 constructor(
     @JsonProperty("a")
     @ApiModelProperty("The trade id")
-    var tradeId: Long? = null,
+    var tradeId: Long = 0L,
 
-    @JsonProperty("p") @ApiModelProperty("The price") var price: String? = null,
+    @JsonProperty("p") @ApiModelProperty("The price") var price: String = "",
 
     @JsonProperty("q")
     @ApiModelProperty("The quantity")
-    var quantity: String? = null,
+    var quantity: String = "",
 
     @JsonProperty("f")
     @ApiModelProperty("The first trade id")
-    var firstTradeId: Long? = null,
+    var firstTradeId: Long = 0L,
 
     @JsonProperty("l")
     @ApiModelProperty("The last trade id")
-    var lastTradeId: Long? = null,
+    var lastTradeId: Long = 0L,
 
-    @JsonProperty("T") @ApiModelProperty("The timestamp") var time: Long? = null,
+    @JsonProperty("T") @ApiModelProperty("The timestamp") var time: Long = 0L,
 
     @JsonProperty("m")
     @ApiModelProperty("Was it a buyer maker")
-    var isBuyerMaker: Boolean? = null,
+    var isBuyerMaker: Boolean = false,
     
     @JsonProperty("M")
     @ApiModelProperty("Was it the best price match?")
-    var isBestMatch: Boolean? = null
+    var isBestMatch: Boolean = false
 ) {
 
     /** @property input CSV line. */

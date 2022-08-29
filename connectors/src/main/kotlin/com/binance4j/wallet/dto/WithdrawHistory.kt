@@ -51,31 +51,31 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The withdrawal history.")
 data class WithdrawHistory(
-    @ApiModelProperty("Address to withdraw to.") @JsonProperty("address") var address: String? = null,
-    @ApiModelProperty("Withdraw date operation.") @JsonProperty("applyTime") var applyTime: String? = null,
-    @ApiModelProperty("Coin to withdraw.") @JsonProperty("coin") var coin: String? = null,
-    @ApiModelProperty("Withdraw id.") @JsonProperty("id") var id: String? = null,
+    @ApiModelProperty("Address to withdraw to.") @JsonProperty("address") var address: String = "",
+    @ApiModelProperty("Withdraw date operation.") @JsonProperty("applyTime") var applyTime: String = "",
+    @ApiModelProperty("Coin to withdraw.") @JsonProperty("coin") var coin: String = "",
+    @ApiModelProperty("Withdraw id.") @JsonProperty("id") var id: String = "",
     @ApiModelProperty(
         "Withdraw order id. will not be returned if there's no withdrawOrderId for this withdraw."
     )
     @JsonProperty
-    var withdrawOrderId: String? = null,
-    @ApiModelProperty("Network to withdraw on.") @JsonProperty("network") var network: String? = null,
-    @ApiModelProperty("Reason for withdrawal failure.") @JsonProperty("info") var info: String? = null,
-    @ApiModelProperty("Transaction id.") @JsonProperty("txId") var txId: String? = null,
-    @ApiModelProperty("Transaction key.") @JsonProperty("txKey") var txKey: String? = null,
+    var withdrawOrderId: String = "",
+    @ApiModelProperty("Network to withdraw on.") @JsonProperty("network") var network: String = "",
+    @ApiModelProperty("Reason for withdrawal failure.") @JsonProperty("info") var info: String = "",
+    @ApiModelProperty("Transaction id.") @JsonProperty("txId") var txId: String = "",
+    @ApiModelProperty("Transaction key.") @JsonProperty("txKey") var txKey: String = "",
     @ApiModelProperty("1 for internal transfer, 0 for external transfer.")
     @JsonProperty
-    var transferType: Int? = null,
+    var transferType: Int = 0,
     @ApiModelProperty(
         "(0:Email Sent, 1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)"
     )
     @JsonProperty
-    var status: Int? = null,
-    @ApiModelProperty("Confirm times for withdraw.") @JsonProperty("confirmNo") var confirmNo: Int? = null,
-    @ApiModelProperty("Withdrawn column.") @JsonProperty("amount") var amount: String? = null,
-    @ApiModelProperty("Withdraw fees.") @JsonProperty("transactionFee") var transactionFee: String? = null,
+    var status: Int = 0,
+    @ApiModelProperty("Confirm times for withdraw.") @JsonProperty("confirmNo") var confirmNo: Int = 0,
+    @ApiModelProperty("Withdrawn column.") @JsonProperty("amount") var amount: String = "",
+    @ApiModelProperty("Withdraw fees.") @JsonProperty("transactionFee") var transactionFee: String = "",
     @ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
     @JsonProperty
-    var walletType: Int? = null
+    var walletType: Int = 0
 )

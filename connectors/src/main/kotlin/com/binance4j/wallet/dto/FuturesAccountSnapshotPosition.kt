@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Futures account snapshot position.")
 data class FuturesAccountSnapshotPosition(
-    @ApiModelProperty("Symbol.") @JsonProperty("symbol") var symbol: String? = null,
-    @ApiModelProperty("Entry price.") @JsonProperty("entryPrice") var entryPrice: String? = null,
-    @ApiModelProperty("Mark price.") @JsonProperty("markPrice") var markPrice: String? = null,
-    @ApiModelProperty("Position amount.") @JsonProperty("positionAmt") var positionAmt: String? = null,
-    @ApiModelProperty("Unrealized profit.") @JsonProperty("unRealizedProfit") var unRealizedProfit: String? = null
+    @ApiModelProperty("Symbol.") @JsonProperty("symbol") var symbol: String = "",
+    @ApiModelProperty("Entry price.") @JsonProperty("entryPrice") var entryPrice: String = "",
+    @ApiModelProperty("Mark price.") @JsonProperty("markPrice") var markPrice: String = "",
+    @ApiModelProperty("Position amount.") @JsonProperty("positionAmt") var positionAmt: String = "",
+    @ApiModelProperty("Unrealized profit.") @JsonProperty("unRealizedProfit") var unRealizedProfit: String = ""
 )

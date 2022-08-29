@@ -40,21 +40,21 @@ import io.swagger.annotations.ApiModelProperty
 data class TradeHistory(
     @ApiModelProperty("Code.")
     @JsonProperty("code")
-    var code: String? = null,
+    var code: String = "",
 
     @ApiModelProperty("Message.")
     @JsonProperty("message")
-    var message: String? = null,
+    var message: String = "",
 
     @ApiModelProperty("Trades.")
     @JsonProperty("data")
-    var data: List<Trade>? = null,
+    var data:List<Trade> = emptyList(),
 
     @ApiModelProperty("Total.")
     @JsonProperty("total")
-    var total: Int? = null,
+    var total: Int = 0,
 
     @ApiModelProperty("Success.")
     @JsonProperty("success")
-    var success: Boolean? = null
+    var success: Boolean = false
 )

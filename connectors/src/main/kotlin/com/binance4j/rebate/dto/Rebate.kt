@@ -40,17 +40,17 @@ import io.swagger.annotations.ApiModelProperty
 data class Rebate(
     @ApiModelProperty("Rebate asset.")
     @JsonProperty("asset")
-    var asset: String? = null,
+    var asset: String = "",
 
     @ApiModelProperty("Rebate type.")
     @JsonProperty("type")
-    var type: String? = null,
+    var type: String = "",
 
     @ApiModelProperty("Rebate amount.")
     @JsonProperty("amount")
-    var amount: String? = null,
+    var amount: String = "",
 
     @ApiModelProperty("Rebate update time.")
     @JsonProperty("updateTime")
-    var updateTime: Long? = null
+    var updateTime: Long = 0L
 )

@@ -23,18 +23,18 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The tiers for the number of Base Coins Borrowings and Quote Coins Borrowings currently exist in your account.")
 data class IsolatedTierData(
 @ApiModelProperty("Related symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Tier.")
-@JsonProperty("tier") var tier:int?=null,
+@JsonProperty("tier") var tier:Int = 0,
 @ApiModelProperty("Effective multiple.")
-@JsonProperty("effectiveMultiple") var effectiveMultiple:String?=null,
+@JsonProperty("effectiveMultiple") var effectiveMultiple: String = "",
 @ApiModelProperty("Initial risk ratio.")
-@JsonProperty("initialRiskRatio") var initialRiskRatio:String?=null,
+@JsonProperty("initialRiskRatio") var initialRiskRatio: String = "",
 @ApiModelProperty("Liquidation risk ratio.")
-@JsonProperty("liquidationRiskRatio") var liquidationRiskRatio:String?=null,
+@JsonProperty("liquidationRiskRatio") var liquidationRiskRatio: String = "",
 @ApiModelProperty("Base asset max borrowable.")
-@JsonProperty("baseAssetMaxBorrowable") var baseAssetMaxBorrowable:String?=null,
+@JsonProperty("baseAssetMaxBorrowable") var baseAssetMaxBorrowable: String = "",
 @ApiModelProperty("Quote asset max borrowable.")
-@JsonProperty("quoteAssetMaxBorrowable") var quoteAssetMaxBorrowable:String?=null)
+@JsonProperty("quoteAssetMaxBorrowable") var quoteAssetMaxBorrowable: String = "")
 {
 }

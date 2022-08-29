@@ -41,21 +41,21 @@ import io.swagger.annotations.ApiModelProperty
 data class ConversionHistory(
     @ApiModelProperty("The conversions.")
     @JsonProperty("list")
-    var list: List<Conversion>? = null,
+    var list:List<Conversion> = emptyList(),
 
     @ApiModelProperty("Start time in ms.")
     @JsonProperty("startTime")
-    var startTime: Long? = null,
+    var startTime: Long = 0L,
 
     @ApiModelProperty("End time in ms.")
     @JsonProperty("endTime")
-    var endTime: Long? = null,
+    var endTime: Long = 0L,
 
     @ApiModelProperty("Results limit.")
     @JsonProperty("limit")
-    var limit: Int? = null,
+    var limit: Int = 0,
 
     @ApiModelProperty("Is there more data?")
     @JsonProperty("moreData")
-    var moreData: Boolean? = null
+    var moreData: Boolean = false
 )

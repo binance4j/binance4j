@@ -40,14 +40,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Details about an asset dust transfer (conversion into BNB).")
 data class DustTransferResult(
-    @ApiModelProperty("Amount of volume converted.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Amount of volume converted.") @JsonProperty("amount") var amount: String = "",
     @ApiModelProperty("Converted asset abbreviation.")
     @JsonProperty
-    var fromAsset: String? = null,
-    @ApiModelProperty("Operation timestamp.") @JsonProperty("operateTime") var operateTime: Long? = null,
-    @ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount") var serviceChargeAmount: String? = null,
-    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long? = null,
+    var fromAsset: String = "",
+    @ApiModelProperty("Operation timestamp.") @JsonProperty("operateTime") var operateTime: Long = 0L,
+    @ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount") var serviceChargeAmount: String = "",
+    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long = 0L,
     @ApiModelProperty("Transferred amount after fees.")
     @JsonProperty
-    var transferedAmount: String? = null
+    var transferedAmount: String = ""
 )

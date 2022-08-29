@@ -38,8 +38,8 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Requests and orders rate limit.")
 data class RateLimit(
-    @ApiModelProperty("The rate limit type.") @JsonProperty("rateLimitType") var rateLimitType: String? = null,
-    @ApiModelProperty("The limit interval type.") @JsonProperty("interval") var interval: String? = null,
-    @ApiModelProperty("The limit interval number.") @JsonProperty("intervalNum") var intervalNum: Int? = null,
-    @ApiModelProperty("The limit for the given interval.") @JsonProperty("limit") var limit: Int? = null
+    @ApiModelProperty("The rate limit type.") @JsonProperty("rateLimitType") var rateLimitType: String = "",
+    @ApiModelProperty("The limit interval type.") @JsonProperty("interval") var interval: String = "",
+    @ApiModelProperty("The limit interval number.") @JsonProperty("intervalNum") var intervalNum: Int = 0,
+    @ApiModelProperty("The limit for the given interval.") @JsonProperty("limit") var limit: Int = 0
 )

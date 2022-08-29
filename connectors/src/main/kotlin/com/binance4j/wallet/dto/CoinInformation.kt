@@ -48,30 +48,30 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin infos for the authenticated account.")
 data class CoinInformation(
-    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String? = null,
-    @ApiModelProperty("Coin name.") @JsonProperty("name") var name: String? = null,
+    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String = "",
+    @ApiModelProperty("Coin name.") @JsonProperty("name") var name: String = "",
     @ApiModelProperty("Deposit permission.")
     @JsonProperty
-    var depositAllEnable: Boolean? = null,
+    var depositAllEnable: Boolean = false,
     @ApiModelProperty("Is the coin a legal money?")
     @JsonProperty
-    var isLegalMoney: Boolean? = null,
-    @ApiModelProperty("Can the coin be traded?") @JsonProperty("trading") var trading: Boolean? = null,
+    var isLegalMoney: Boolean = false,
+    @ApiModelProperty("Can the coin be traded?") @JsonProperty("trading") var trading: Boolean = false,
     @ApiModelProperty("Withdraw permission.")
     @JsonProperty
-    var withdrawAllEnable: Boolean? = null,
-    @ApiModelProperty("Free balance.") @JsonProperty("free") var free: String? = null,
-    @ApiModelProperty("Freezed balance.") @JsonProperty("freeze") var freeze: String? = null,
+    var withdrawAllEnable: Boolean = false,
+    @ApiModelProperty("Free balance.") @JsonProperty("free") var free: String = "",
+    @ApiModelProperty("Freezed balance.") @JsonProperty("freeze") var freeze: String = "",
     @ApiModelProperty("Initial Public Offering balance (?)")
     @JsonProperty
-    var ipoable: String? = null,
+    var ipoable: String = "",
     @ApiModelProperty("Initial Public Offering freezed balance (?)")
     @JsonProperty
-    var ipoing: String? = null,
-    @ApiModelProperty("Locked balance.") @JsonProperty("locked") var locked: String? = null,
-    @ApiModelProperty("Storage") @JsonProperty("storage") var storage: String? = null,
-    @ApiModelProperty("Withdrawing balance.") @JsonProperty("withdrawing") var withdrawing: String? = null,
+    var ipoing: String = "",
+    @ApiModelProperty("Locked balance.") @JsonProperty("locked") var locked: String = "",
+    @ApiModelProperty("Storage") @JsonProperty("storage") var storage: String = "",
+    @ApiModelProperty("Withdrawing balance.") @JsonProperty("withdrawing") var withdrawing: String = "",
     @ApiModelProperty("Coin network information.")
     @JsonProperty
-    var networkList: List<CoinNetworkInformation>? = null
+    var networkList:List<CoinNetworkInformation> = emptyList()
 )

@@ -12,8 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Flexible purchase quota.")
 data class PurchaseQuota(
 @ApiModelProperty("Asset.")
-@JsonProperty("asset") var asset:String?=null,
+@JsonProperty("asset") var asset: String = "",
 @ApiModelProperty("Left quota.")
-@JsonProperty("leftQuota") var leftQuota:String?=null)
+@JsonProperty("leftQuota") var leftQuota: String = "")
 {
 }

@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("Isolated margin account info.")
 data class IsolatedAccount(@ApiModelProperty("Owned assets.") List<IsolatedPair> assets,
-		@ApiModelProperty("Total asset of Bitcoin.") @JsonProperty("totalAssetOfBtc ") var totalAssetOfBtc : String? = null,
-		@ApiModelProperty("Total liability of Bitcoin.") @JsonProperty("totalLiabilityOfBtc ") var totalLiabilityOfBtc : String? = null,
-		@ApiModelProperty("Total net asset of Bitcoin.") @JsonProperty("totalNetAssetOfBtc ") var totalNetAssetOfBtc : String? = null) {
+		@ApiModelProperty("Total asset of Bitcoin.") @JsonProperty("totalAssetOfBtc ") var totalAssetOfBtc : String = "",
+		@ApiModelProperty("Total liability of Bitcoin.") @JsonProperty("totalLiabilityOfBtc ") var totalLiabilityOfBtc : String = "",
+		@ApiModelProperty("Total net asset of Bitcoin.") @JsonProperty("totalNetAssetOfBtc ") var totalNetAssetOfBtc : String = "") {
 }

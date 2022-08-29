@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Isolated fee data.")
 data class IsolatedFeeData(
 @ApiModelProperty("Related coin.")
-@JsonProperty("coin") var coin:String?=null,
+@JsonProperty("coin") var coin: String = "",
 @ApiModelProperty("Daily interest.")
-@JsonProperty("dailyInterest") var dailyInterest:String?=null,
+@JsonProperty("dailyInterest") var dailyInterest: String = "",
 @ApiModelProperty("Borrow limit.")
-@JsonProperty("borrowLimit") var borrowLimit:String?=null)
+@JsonProperty("borrowLimit") var borrowLimit: String = "")
 {
 }

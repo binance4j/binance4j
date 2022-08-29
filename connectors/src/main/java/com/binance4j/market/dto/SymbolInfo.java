@@ -45,49 +45,49 @@ SymbolFilters filters,
 List<String> permissions,
 @ApiModelProperty("Symbol permission.")
 @JsonProperty("symbol ")
-var symbol:String?=null,
-@ApiModelProperty("Symbol name.") @JsonProperty("quoteAsset : String? = null, @ApiModelProperty("Quote asset.") var baseAsset ")
-var quoteAsset:String?=null,
+var symbol: String = "",
+@ApiModelProperty("Symbol name.") @JsonProperty("quoteAsset : String = "", @ApiModelProperty("Quote asset.") var baseAsset ")
+var quoteAsset: String = "",
 @ApiModelProperty("Quote asset.")
-var baseAsset:String?=null,
+var baseAsset: String = "",
 @ApiModelProperty("Base asset.")
 @JsonProperty("baseAssetPrecision ")
-var baseAssetPrecision:Int?=null,
+var baseAssetPrecision:Int = 0,
 @ApiModelProperty("Base asset precision.")
 @JsonProperty("baseCommissionPrecision ")
-var baseCommissionPrecision:Int?=null,
+var baseCommissionPrecision:Int = 0,
 @ApiModelProperty("Quote asset commission precision.")
 @JsonProperty("quoteAssetPrecision ")
-var quoteAssetPrecision:Int?=null,
+var quoteAssetPrecision:Int = 0,
 @ApiModelProperty("Quote asset commission precision.")
 @JsonProperty("quotePrecision ")
-var quotePrecision:Int?=null,
+var quotePrecision:Int = 0,
 @ApiModelProperty("Quote asset precision.")
 @JsonProperty("quoteCommissionPrecision ")
-var quoteCommissionPrecision:Int?=null,
+var quoteCommissionPrecision:Int = 0,
 @ApiModelProperty("Quote asset commission precision.")
 @JsonProperty("icebergAllowed ")
-var icebergAllowed:Boolean?=null,
+var icebergAllowed: Boolean = false,
 @ApiModelProperty("Are iceberg orders allowed?")
 @JsonProperty("ocoAllowed ")
-var ocoAllowed:Boolean?=null,
+var ocoAllowed: Boolean = false,
 @ApiModelProperty("Are OCO orders allowed?")
 @JsonProperty("quoteOrderQtyMarketAllowed ")
-var quoteOrderQtyMarketAllowed:Boolean?=null,
+var quoteOrderQtyMarketAllowed: Boolean = false,
 @ApiModelProperty("Are orders by quote quantity allowed?")
 @JsonProperty("isSpotTradingAllowed ")
-var isSpotTradingAllowed:Boolean?=null,
+var isSpotTradingAllowed: Boolean = false,
 @ApiModelProperty("Cancel replace allowed?")
 @JsonProperty("cancelReplaceAllowed ")
-var cancelReplaceAllowed:Boolean?=null,
+var cancelReplaceAllowed: Boolean = false,
 @ApiModelProperty("Is trailing stop allowed?")
 @JsonProperty("allowTrailingStop ")
-var allowTrailingStop:Boolean?=null,
+var allowTrailingStop: Boolean = false,
 @ApiModelProperty("Is spot trading allowed?")
 @JsonProperty("isMarginTradingAllowed ")
-var isMarginTradingAllowed:Boolean?=null,
+var isMarginTradingAllowed: Boolean = false,
 @ApiModelProperty("Is margin trading allowed?")
 @JsonProperty("status ")
-var status:String?=null)
+var status: String = "")
 {
 }

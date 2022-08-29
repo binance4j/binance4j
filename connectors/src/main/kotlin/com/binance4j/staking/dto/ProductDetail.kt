@@ -44,33 +44,33 @@ import io.swagger.annotations.ApiModelProperty
 data class ProductDetail(
     @ApiModelProperty("Asset.")
     @JsonProperty("asset")
-    var asset: String? = null,
+    var asset: String = "",
 
     @ApiModelProperty("Reward Asset.")
     @JsonProperty("rewardAsset")
-    var rewardAsset: String? = null,
+    var rewardAsset: String = "",
 
     @ApiModelProperty("Duration in ms.")
     @JsonProperty("duration")
-    var duration: Int? = null,
+    var duration: Int = 0,
 
     @ApiModelProperty("Renewable.")
     @JsonProperty("renewable")
-    var renewable: Boolean? = null,
+    var renewable: Boolean = false,
 
     @ApiModelProperty("Apy.")
     @JsonProperty("apy")
-    var apy: String? = null,
+    var apy: String = "",
 
     @ApiModelProperty("Extra reward asset.")
     @JsonProperty("extraRewardAsset")
-    var extraRewardAsset: String? = null,
+    var extraRewardAsset: String = "",
 
     @ApiModelProperty("Extra reward APY.")
     @JsonProperty("extraRewardsAPY")
-    var extraRewardsAPY: String? = null,
+    var extraRewardsAPY: String = "",
 
     @ApiModelProperty("project.")
     @JsonProperty("project")
-    var project: String? = null
+    var project: String = ""
 )

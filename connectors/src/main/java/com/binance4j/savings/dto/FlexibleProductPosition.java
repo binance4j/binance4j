@@ -28,42 +28,42 @@ import io.swagger.annotations.ApiModelProperty;
 data class FlexibleProductPosition(
 @ApiModelProperty("Tier annual interest rate.")
 Map<String, String> tierAnnualInterestRate,
-@ApiModelProperty("Annual interest rate.") @JsonProperty("annualInterestRate : String? = null, @ApiModelProperty("Asset.") var asset ") var annualInterestRate:String?=null,
+@ApiModelProperty("Annual interest rate.") @JsonProperty("annualInterestRate : String = "", @ApiModelProperty("Asset.") var asset ") var annualInterestRate: String = "",
 @ApiModelProperty("Asset.")
-var asset:String?=null,
+var asset: String = "",
 @ApiModelProperty("Avg annual interest rate.")
 @JsonProperty("avgAnnualInterestRate ")
-var avgAnnualInterestRate:String?=null,
+var avgAnnualInterestRate: String = "",
 @ApiModelProperty("Can redeem.")
 @JsonProperty("canRedeem ")
-var canRedeem:Boolean?=null,
+var canRedeem: Boolean = false,
 @ApiModelProperty("Daily interest rate.")
 @JsonProperty("dailyInterestRate ")
-var dailyInterestRate:String?=null,
+var dailyInterestRate: String = "",
 @ApiModelProperty("Free amount.")
 @JsonProperty("freeAmount ")
-var freeAmount:String?=null,
+var freeAmount: String = "",
 @ApiModelProperty("Freeze amount.")
 @JsonProperty("freezeAmount ")
-var freezeAmount:String?=null,
+var freezeAmount: String = "",
 @ApiModelProperty("Locked amount.")
 @JsonProperty("lockedAmount ")
-var lockedAmount:String?=null,
-@ApiModelProperty("Product id.") @JsonProperty("productId : String? = null, @ApiModelProperty("Product name.") var productName ")
-var productId:String?=null,
+var lockedAmount: String = "",
+@ApiModelProperty("Product id.") @JsonProperty("productId : String = "", @ApiModelProperty("Product name.") var productName ")
+var productId: String = "",
 @ApiModelProperty("Product name.")
-var productName:String?=null,
+var productName: String = "",
 @ApiModelProperty("Redeeming amount.")
 @JsonProperty("redeemingAmount ")
-var redeemingAmount:String?=null,
+var redeemingAmount: String = "",
 @ApiModelProperty("Today purchased amount.")
 @JsonProperty("todayPurchasedAmount ")
-var todayPurchasedAmount:String?=null,
+var todayPurchasedAmount: String = "",
 @ApiModelProperty("Total amount.")
 @JsonProperty("totalAmount ")
-var totalAmount:String?=null,
+var totalAmount: String = "",
 @ApiModelProperty("Total interest.")
 @JsonProperty("totalInterest ")
-var totalInterest:String?=null)
+var totalInterest: String = "")
 {
 }

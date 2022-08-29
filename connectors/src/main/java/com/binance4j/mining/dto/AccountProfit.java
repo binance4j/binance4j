@@ -16,15 +16,15 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Account profit.")
 data class AccountProfit(
 @ApiModelProperty("Time in ms.")
-@JsonProperty("time") var time:Long?=null,
+@JsonProperty("time") var time: Long = 0L,
 @ApiModelProperty("Coin.")
-@JsonProperty("coinName") var coinName:String?=null,
+@JsonProperty("coinName") var coinName: String = "",
 @ApiModelProperty("0:Referral 1：Refund 2：Rebate.") int type,
 @ApiModelProperty("Sub-account id.")
 int puid,
 @ApiModelProperty("Mining account.")
-@JsonProperty("subName") var subName:String?=null,
+@JsonProperty("subName") var subName: String = "",
 @ApiModelProperty("Amount.")
-@JsonProperty("amount") var amount:String?=null)
+@JsonProperty("amount") var amount: String = "")
 {
 }

@@ -42,24 +42,24 @@ import io.swagger.annotations.ApiModelProperty
 data class RedemptionResponse(
     @ApiModelProperty("Subscription id.")
     @JsonProperty("id")
-    var id: Long? = null,
+    var id: Long = 0L,
 
     @ApiModelProperty("Subscription status. S(uccess), P(ending), and F(ailure).")
     @JsonProperty
-    var status: String? = null,
+    var status: String = "",
     @ApiModelProperty("Token name.")
     @JsonProperty("tokenName")
-    var tokenName: String? = null,
+    var tokenName: String = "",
 
     @ApiModelProperty("Redemption value in usdt.")
     @JsonProperty("redeemAmount")
-    var redeemAmount: String? = null,
+    var redeemAmount: String = "",
 
     @ApiModelProperty("Redemption token amount.")
     @JsonProperty("amount")
-    var amount: String? = null,
+    var amount: String = "",
 
     @ApiModelProperty("Timestamp in ms.")
     @JsonProperty("timestamp")
-    var timestamp: Long? = null
+    var timestamp: Long = 0L
 )

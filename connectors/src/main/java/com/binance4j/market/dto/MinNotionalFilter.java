@@ -18,6 +18,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The minimum notional value allowed for an order on a symbol.")
 data class MinNotionalFilter(
 		@ApiModelProperty("The minimum notional value allowed for an order on a symbol. An order's notional value is the price * quantity.") String minNotional,
-		@ApiModelProperty("Whether or not the filter is applied to MARKET orders.") @JsonProperty("applyToMarket ") var applyToMarket : Boolean? = null,
+		@ApiModelProperty("Whether or not the filter is applied to MARKET orders.") @JsonProperty("applyToMarket ") var applyToMarket : Boolean = false,
 		@ApiModelProperty("The number of minutes the average price is calculated over. 0 means the last price is used.") int avgPriceMins) {
 }

@@ -46,41 +46,41 @@ import io.swagger.annotations.ApiModelProperty
 data class Conversion(
     @ApiModelProperty("Quote Id.")
     @JsonProperty("quoteId")
-    var quoteId: String? = null,
+    var quoteId: String = "",
 
     @ApiModelProperty("Order Id.")
     @JsonProperty("orderId")
-    var orderId: Long? = null,
+    var orderId: Long = 0L,
 
     @ApiModelProperty("Order Status.")
     @JsonProperty("orderStatus")
-    var orderStatus: String? = null,
+    var orderStatus: String = "",
 
     @ApiModelProperty("From Asset.")
     @JsonProperty("fromAsset")
-    var fromAsset: String? = null,
+    var fromAsset: String = "",
 
     @ApiModelProperty("From Amount.")
     @JsonProperty("fromAmount")
-    var fromAmount: String? = null,
+    var fromAmount: String = "",
 
     @ApiModelProperty("To Asset.")
     @JsonProperty("toAsset")
-    var toAsset: String? = null,
+    var toAsset: String = "",
 
     @ApiModelProperty("To Amount.")
     @JsonProperty("toAmount")
-    var toAmount: String? = null,
+    var toAmount: String = "",
 
     @ApiModelProperty("Ratio.")
     @JsonProperty("ratio")
-    var ratio: String? = null,
+    var ratio: String = "",
 
     @ApiModelProperty("Inverse Ratio.")
     @JsonProperty("inverseRatio")
-    var inverseRatio: String? = null,
+    var inverseRatio: String = "",
 
     @ApiModelProperty("Create Time in ms.")
     @JsonProperty("createTime")
-    var createTime: Long? = null
+    var createTime: Long = 0L
 )

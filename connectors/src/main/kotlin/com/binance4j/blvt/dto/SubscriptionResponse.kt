@@ -42,25 +42,25 @@ import io.swagger.annotations.ApiModelProperty
 data class SubscriptionResponse(
     @ApiModelProperty("Subscription id.")
     @JsonProperty("id")
-    var id: Long? = null,
+    var id: Long = 0L,
 
     @ApiModelProperty("Subscription status. S(uccess), P(ending), and F(ailure).")
     @JsonProperty("status")
-    var status: String? = null,
+    var status: String = "",
 
     @ApiModelProperty("Token name.")
     @JsonProperty("tokenName")
-    var tokenName: String? = null,
+    var tokenName: String = "",
 
     @ApiModelProperty("Subscribed token amount.")
     @JsonProperty("amount")
-    var amount: String? = null,
+    var amount: String = "",
 
     @ApiModelProperty("Subscription cost.")
     @JsonProperty("cost")
-    var cost: String? = null,
+    var cost: String = "",
 
     @ApiModelProperty("Timestamp in ms.")
     @JsonProperty("timestamp")
-    var timestamp: Long? = null
+    var timestamp: Long = 0L
 )

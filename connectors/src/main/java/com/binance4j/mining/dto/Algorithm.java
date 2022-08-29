@@ -14,12 +14,12 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A mining algorithm.")
 data class Algorithm(
 @ApiModelProperty("Algorithm name.")
-@JsonProperty("algoName") var algoName:String?=null,
+@JsonProperty("algoName") var algoName: String = "",
 @ApiModelProperty("Algorithm id.")
-@JsonProperty("algoId") var algoId:Long?=null,
+@JsonProperty("algoId") var algoId: Long = 0L,
 @ApiModelProperty("Sequence.")
-@JsonProperty("poolIndex") var poolIndex:Long?=null,
+@JsonProperty("poolIndex") var poolIndex: Long = 0L,
 @ApiModelProperty("Unit.")
-@JsonProperty("unit") var unit:String?=null)
+@JsonProperty("unit") var unit: String = "")
 {
 }

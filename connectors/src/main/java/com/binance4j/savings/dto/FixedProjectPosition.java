@@ -27,38 +27,38 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A fixed project position.")
 data class FixedProjectPosition(
 @ApiModelProperty("Asset.")
-@JsonProperty("asset") var asset:String?=null,
+@JsonProperty("asset") var asset: String = "",
 @ApiModelProperty("Can transfer.")
-@JsonProperty("canTransfer") var canTransfer:Boolean?=null,
+@JsonProperty("canTransfer") var canTransfer: Boolean = false,
 @ApiModelProperty("Create timestamp.")
-@JsonProperty("createTimestamp") var createTimestamp:Long?=null,
+@JsonProperty("createTimestamp") var createTimestamp: Long = 0L,
 @ApiModelProperty("Duration.")
-@JsonProperty("duration") var duration:Long?=null,
+@JsonProperty("duration") var duration: Long = 0L,
 @ApiModelProperty("Endtime.")
-@JsonProperty("endTime") var endTime:Long?=null,
+@JsonProperty("endTime") var endTime: Long = 0L,
 @ApiModelProperty("Interest.")
-@JsonProperty("interest") var interest:String?=null,
+@JsonProperty("interest") var interest: String = "",
 @ApiModelProperty("Interest rate.")
-@JsonProperty("interestRate") var interestRate:String?=null,
+@JsonProperty("interestRate") var interestRate: String = "",
 @ApiModelProperty("Lot.")
-@JsonProperty("lot") var lot:Long?=null,
+@JsonProperty("lot") var lot: Long = 0L,
 @ApiModelProperty("Position id.")
-@JsonProperty("positionId") var positionId:Long?=null,
+@JsonProperty("positionId") var positionId: Long = 0L,
 @ApiModelProperty("Principal.")
-@JsonProperty("principal") var principal:String?=null,
+@JsonProperty("principal") var principal: String = "",
 @ApiModelProperty("Project id.")
-@JsonProperty("projectId") var projectId:String?=null,
+@JsonProperty("projectId") var projectId: String = "",
 @ApiModelProperty("Project name.")
-@JsonProperty("projectName") var projectName:String?=null,
+@JsonProperty("projectName") var projectName: String = "",
 @ApiModelProperty("Purchase time.")
-@JsonProperty("purchaseTime") var purchaseTime:Long?=null,
+@JsonProperty("purchaseTime") var purchaseTime: Long = 0L,
 @ApiModelProperty("Redeem date.")
-@JsonProperty("redeemDate") var redeemDate:String?=null,
+@JsonProperty("redeemDate") var redeemDate: String = "",
 @ApiModelProperty("Start time.")
-@JsonProperty("startTime") var startTime:Long?=null,
+@JsonProperty("startTime") var startTime: Long = 0L,
 @ApiModelProperty("Status.")
-@JsonProperty("status") var status:String?=null,
+@JsonProperty("status") var status: String = "",
 @ApiModelProperty("Type.")
-@JsonProperty("type") var type:String?=null)
+@JsonProperty("type") var type: String = "")
 {
 }

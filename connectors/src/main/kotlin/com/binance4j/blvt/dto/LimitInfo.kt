@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 data class LimitInfo(
     @ApiModelProperty("Token name.")
     @JsonProperty("tokenName")
-    var tokenName: String? = null,
+    var tokenName: String = "",
 
     @ApiModelProperty("User daily total purchase limit in USDT.")
     @JsonProperty("userDailyTotalPurchaseLimit")
-    var userDailyTotalPurchaseLimit: String? = null,
+    var userDailyTotalPurchaseLimit: String = "",
 
     @ApiModelProperty("User daily total redeem limit in USDT.")
     @JsonProperty("userDailyTotalRedeemLimit")
-    var userDailyTotalRedeemLimit: String? = null
+    var userDailyTotalRedeemLimit: String = ""
 )

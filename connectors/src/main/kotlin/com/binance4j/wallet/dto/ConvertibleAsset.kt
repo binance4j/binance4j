@@ -41,13 +41,13 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Asset that can be converted into BNB.")
 data class ConvertibleAsset(
-    @ApiModelProperty("Asset name.") @JsonProperty("asset") var asset: String? = null,
-    @ApiModelProperty("Asset full name.") @JsonProperty("assetFullName") var assetFullName: String? = null,
-    @ApiModelProperty("Free balance.") @JsonProperty("amountFree") var amountFree: String? = null,
-    @ApiModelProperty("BTC valuation.") @JsonProperty("toBTC") var toBTC: String? = null,
-    @ApiModelProperty("BNB valuation.") @JsonProperty("toBNB") var toBNB: String? = null,
+    @ApiModelProperty("Asset name.") @JsonProperty("asset") var asset: String = "",
+    @ApiModelProperty("Asset full name.") @JsonProperty("assetFullName") var assetFullName: String = "",
+    @ApiModelProperty("Free balance.") @JsonProperty("amountFree") var amountFree: String = "",
+    @ApiModelProperty("BTC valuation.") @JsonProperty("toBTC") var toBTC: String = "",
+    @ApiModelProperty("BNB valuation.") @JsonProperty("toBNB") var toBNB: String = "",
     @ApiModelProperty("BNB valuation commissions fees deducted.")
     @JsonProperty
-    var toBNBOffExchange: String? = null,
-    @ApiModelProperty("Commission fees.") @JsonProperty("exchange") var exchange: String? = null
+    var toBNBOffExchange: String = "",
+    @ApiModelProperty("Commission fees.") @JsonProperty("exchange") var exchange: String = ""
 )

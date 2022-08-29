@@ -13,6 +13,6 @@ import io.swagger.annotations.ApiModelProperty;
 data class ExchangeFilter(
 @ApiModelProperty("Trading rules of the exchange.")
 @JsonProperty("filterType") var filterType:ExchangeFilterType?=null,
-@ApiModelProperty("Trading rules of the exchange.") @JsonProperty("limit") var limit:int?=null)
+@ApiModelProperty("Trading rules of the exchange.") @JsonProperty("limit") var limit:Int = 0)
 {
 }

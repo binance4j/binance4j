@@ -48,37 +48,37 @@ import io.swagger.annotations.ApiModelProperty
 data class MiniTicker(
     @ApiModelProperty("Event type.")
     @JsonProperty("e")
-    var eventType: String? = null,
+    var eventType: String = "",
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("E")
-    var eventTime: Long? = null,
+    var eventTime: Long = 0L,
 
     @ApiModelProperty("Trading pair.")
     @JsonProperty("s")
-    var symbol: String? = null,
+    var symbol: String = "",
 
     @ApiModelProperty("Close price.")
     @JsonProperty("c")
-    var closePrice: String? = null,
+    var closePrice: String = "",
 
     @ApiModelProperty("Open price.")
     @JsonProperty("o")
-    var openPrice: String? = null,
+    var openPrice: String = "",
 
     @ApiModelProperty("Highest price.")
     @JsonProperty("h")
-    var highPrice: String? = null,
+    var highPrice: String = "",
 
     @ApiModelProperty("Lowest price.")
     @JsonProperty("l")
-    var lowPrice: String? = null,
+    var lowPrice: String = "",
 
     @ApiModelProperty("Total traded base asset volume.")
     @JsonProperty("v")
-    var totalTradedBaseAssetVolume: String? = null,
+    var totalTradedBaseAssetVolume: String = "",
 
     @ApiModelProperty("Total traded quote asset volume.")
     @JsonProperty("q")
-    var totalTradedQuoteAssetVolume: String? = null
+    var totalTradedQuoteAssetVolume: String = ""
 ) 

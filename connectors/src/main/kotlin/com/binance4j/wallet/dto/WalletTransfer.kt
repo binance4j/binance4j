@@ -41,12 +41,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A wallet to wallet transfer.")
 data class WalletTransfer(
-    @ApiModelProperty("Transferred asset.") @JsonProperty("asset") var asset: String? = null,
-    @ApiModelProperty("Transferred amount.") @JsonProperty("amount") var amount: String? = null,
+    @ApiModelProperty("Transferred asset.") @JsonProperty("asset") var asset: String = "",
+    @ApiModelProperty("Transferred amount.") @JsonProperty("amount") var amount: String = "",
     @ApiModelProperty("Transfer type (origin wallet to destination wallet).")
     @JsonProperty
-    var type: String? = null,
-    @ApiModelProperty("Transfer status.") @JsonProperty("status") var status: String? = null,
-    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long? = null,
-    @ApiModelProperty("Transfer timestamp.") @JsonProperty("timestamp") var timestamp: Long? = null
+    var type: String = "",
+    @ApiModelProperty("Transfer status.") @JsonProperty("status") var status: String = "",
+    @ApiModelProperty("Transaction id.") @JsonProperty("tranId") var tranId: Long = 0L,
+    @ApiModelProperty("Transfer timestamp.") @JsonProperty("timestamp") var timestamp: Long = 0L
 )

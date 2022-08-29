@@ -51,61 +51,61 @@ import io.swagger.annotations.ApiModelProperty
 data class Token(
     @ApiModelProperty("Token name.")
     @JsonProperty("tokenName")
-    var tokenName: String? = null,
+    var tokenName: String = "",
 
     @ApiModelProperty("Description.")
     @JsonProperty("description")
-    var description: String? = null,
+    var description: String = "",
 
     @ApiModelProperty("Underlying.")
     @JsonProperty("underlying")
-    var underlying: String? = null,
+    var underlying: String = "",
 
     @ApiModelProperty("Token issued.")
     @JsonProperty("tokenIssued")
-    var tokenIssued: String? = null,
+    var tokenIssued: String = "",
 
     @ApiModelProperty("Basket.")
     @JsonProperty("basket")
-    var basket: String? = null,
+    var basket: String = "",
 
     @ApiModelProperty("Current baskets.")
     @JsonProperty("currentBaskets")
-    var currentBaskets: List<Basket>? = null,
+    var currentBaskets:List<Basket> = emptyList(),
 
     @ApiModelProperty("Nav.")
     @JsonProperty("nav")
-    var nav: String? = null,
+    var nav: String = "",
 
     @ApiModelProperty("Real leverage.")
     @JsonProperty("realLeverage")
-    var realLeverage: String? = null,
+    var realLeverage: String = "",
 
     @ApiModelProperty("Funding rate.")
     @JsonProperty("fundingRate")
-    var fundingRate: String? = null,
+    var fundingRate: String = "",
 
     @ApiModelProperty("Daily management fee.")
     @JsonProperty("dailyManagementFee")
-    var dailyManagementFee: String? = null,
+    var dailyManagementFee: String = "",
 
     @ApiModelProperty("Purchase Fee Pct.")
     @JsonProperty("purchaseFeePct")
-    var purchaseFeePct: String? = null,
+    var purchaseFeePct: String = "",
 
     @ApiModelProperty("Daily Purchase Limit.")
     @JsonProperty("dailyPurchaseLimit")
-    var dailyPurchaseLimit: String? = null,
+    var dailyPurchaseLimit: String = "",
     
     @ApiModelProperty("Redeem Fee Pct.")
     @JsonProperty("redeemFeePct")
-    var redeemFeePct: String? = null,
+    var redeemFeePct: String = "",
 
     @ApiModelProperty("Daily Redeem Limit.")
     @JsonProperty("dailyRedeemLimit")
-    var dailyRedeemLimit: String? = null,
+    var dailyRedeemLimit: String = "",
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("timestamp")
-    var timestamp: Long? = null
+    var timestamp: Long = 0L
 )

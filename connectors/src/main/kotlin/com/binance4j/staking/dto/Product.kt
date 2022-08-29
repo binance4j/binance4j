@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty
 data class Product(
     @ApiModelProperty("Project id.")
     @JsonProperty("projectId")
-    var projectId: String? = null,
+    var projectId: String = "",
 
     @ApiModelProperty("Detail.")
     @JsonProperty("detail")

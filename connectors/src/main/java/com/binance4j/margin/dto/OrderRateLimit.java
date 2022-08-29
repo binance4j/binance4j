@@ -15,14 +15,14 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Margin Order rate limit.")
 data class OrderRateLimit(
 @ApiModelProperty("Rate limit type.")
-@JsonProperty("rateLimitType") var rateLimitType:String?=null,
+@JsonProperty("rateLimitType") var rateLimitType: String = "",
 @ApiModelProperty("Interval.")
-@JsonProperty("interval") var interval:String?=null,
+@JsonProperty("interval") var interval: String = "",
 @ApiModelProperty("Interval num.")
-@JsonProperty("intervalNum") var intervalNum:int?=null,
+@JsonProperty("intervalNum") var intervalNum:Int = 0,
 @ApiModelProperty("Limit.")
-@JsonProperty("limit") var limit:int?=null,
-@ApiModelProperty("Count.") @JsonProperty("count") var count:int?=null)
+@JsonProperty("limit") var limit:Int = 0,
+@ApiModelProperty("Count.") @JsonProperty("count") var count:Int = 0)
 {
 
 }

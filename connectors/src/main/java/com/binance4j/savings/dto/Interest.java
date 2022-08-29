@@ -15,13 +15,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Lending interest.")
 data class Interest(
 @ApiModelProperty("Asset.")
-@JsonProperty("asset") var asset:String?=null,
+@JsonProperty("asset") var asset: String = "",
 @ApiModelProperty("Interest.")
-@JsonProperty("interest") var interest:String?=null,
+@JsonProperty("interest") var interest: String = "",
 @ApiModelProperty("LendingType.")
-@JsonProperty("lendingType") var lendingType:String?=null,
+@JsonProperty("lendingType") var lendingType: String = "",
 @ApiModelProperty("ProductName.")
-@JsonProperty("productName") var productName:String?=null,
-@ApiModelProperty("Time in ms.") @JsonProperty("time") var time:Long?=null)
+@JsonProperty("productName") var productName: String = "",
+@ApiModelProperty("Time in ms.") @JsonProperty("time") var time: Long = 0L)
 {
 }

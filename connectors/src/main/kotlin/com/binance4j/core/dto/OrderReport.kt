@@ -57,15 +57,15 @@ import io.swagger.annotations.ApiModelProperty
 data class OrderReport(
     @ApiModelProperty("The order list id.")
     @JsonProperty("orderListId")
-    var orderListId: Long? = null,
+    var orderListId: Long = 0L,
 
     @ApiModelProperty("The original client order id.")
     @JsonProperty("origClientOrderId")
-    var origClientOrderId: String? = null,
+    var origClientOrderId: String = "",
 
     @ApiModelProperty("The order timestamp.")
     @JsonProperty("transactTime")
-    var transactTime: Long? = null,
+    var transactTime: Long = 0L,
 
     @ApiModelProperty("The order side.")
     @JsonProperty("side")
@@ -73,69 +73,69 @@ data class OrderReport(
 
     @ApiModelProperty("Price.")
     @JsonProperty("price")
-    var price: String? = null,
+    var price: String = "",
 
     @ApiModelProperty("Original quantity.")
     @JsonProperty("origQty")
-    var origQty: String? = null,
+    var origQty: String = "",
 
     @ApiModelProperty("Original quantity.")
     @JsonProperty("executedQty")
-    var executedQty: String? = null,
+    var executedQty: String = "",
 
     @ApiModelProperty("Used to calculate the average price.")
     @JsonProperty("cummulativeQuoteQty")
-    var cumulativeQuoteQty: String? = null,
+    var cumulativeQuoteQty: String = "",
 
     @ApiModelProperty("Order status.")
     @JsonProperty("status")
-    var status: String? = null,
+    var status: String = "",
 
     @ApiModelProperty("Time in force to indicate how long will the order remain active.")
     @JsonProperty("timeInForce")
-    var timeInForce: String? = null,
+    var timeInForce: String = "",
 
     @ApiModelProperty("Type of order.")
     @JsonProperty("type")
-    var type: String? = null,
+    var type: String = "",
 
     @ApiModelProperty("Used with stop orders.")
     @JsonProperty("stopPrice")
-    var stopPrice: String? = null,
+    var stopPrice: String = "",
 
     @ApiModelProperty("Used with iceberg orders.")
     @JsonProperty("icebergQty")
-    var icebergQty: String? = null,
+    var icebergQty: String = "",
 
     @ApiModelProperty("Order timestamp.")
     @JsonProperty("time")
-    var time: Long? = null,
+    var time: Long = 0L,
 
     @ApiModelProperty("Update timestamp.")
     @JsonProperty("updateTime")
-    var updateTime: Long? = null,
+    var updateTime: Long = 0L,
 
     @ApiModelProperty("Original quote order quantity.")
     @JsonProperty("origQuoteOrderQty")
-    var origQuoteOrderQty: String? = null,
+    var origQuoteOrderQty: String = "",
 
     @ApiModelProperty("Is working.")
     @JsonProperty("isWorking")
-    var isWorking: Boolean? = null,
+    var isWorking: Boolean = false,
 
     @ApiModelProperty("is isolated margin.")
     @JsonProperty("isIsolated")
-    var isIsolated: Boolean? = null,
+    var isIsolated: Boolean = false,
 
     @ApiModelProperty("The order symbol.")
     @JsonProperty("symbol")
-    var symbol: String? = null,
+    var symbol: String = "",
 
     @ApiModelProperty("Order id.")
     @JsonProperty("orderId")
-    var orderId: Long? = null,
+    var orderId: Long = 0L,
 
     @ApiModelProperty("Client order id.")
     @JsonProperty("clientOrderId")
-    var clientOrderId: String? = null
+    var clientOrderId: String = ""
 )

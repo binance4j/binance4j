@@ -49,21 +49,55 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An executed trade.")
 @JsonIncludeProperties
 data class Trade(
-    @ApiModelProperty("Trade id.") @JsonProperty("id") var id: Long? = null,
-    @ApiModelProperty("Price.") @JsonProperty("price") var price: String? = null,
-    @ApiModelProperty("Quantity.") @JsonProperty("qty") var qty: String? = null,
-    @ApiModelProperty("Quote quantity for the trade (price * qty).")
-    @JsonProperty
-    var quoteQty: String? = null,
-    @ApiModelProperty("Commission.") @JsonProperty("commission") var commission: String? = null,
-    @ApiModelProperty("Asset on which commission is taken.")
-    @JsonProperty
-    var commissionAsset: String? = null,
-    @ApiModelProperty("Trade execution time.") @JsonProperty("time") var time: Long? = null,
-    @ApiModelProperty("The symbol of the trade.") @JsonProperty("symbol") var symbol: String? = null,
-    @ApiModelProperty("The order id.") @JsonProperty("orderId") var orderId: String? = null,
-    @ApiModelProperty("The order list id.") @JsonProperty("orderListId") var orderListId: String? = null,
-    @ApiModelProperty("Is buyer trade.") @JsonProperty("isBuyer") var isBuyer: Boolean? = null,
-    @ApiModelProperty("Is maker trade.") @JsonProperty("isMaker") var isMaker: Boolean? = null,
-    @ApiModelProperty("Is best match?") @JsonProperty("isBestMatch") var isBestMatch: Boolean? = null
+        @ApiModelProperty("Trade id.")
+        @JsonProperty("id")
+        var id: Long = 0L,
+
+        @ApiModelProperty("Price.")
+        @JsonProperty("price")
+        var price: String = "",
+
+        @ApiModelProperty("Quantity.")
+        @JsonProperty("qty")
+        var qty: String = "",
+
+        @ApiModelProperty("Quote quantity for the trade (price * qty).")
+        @JsonProperty
+        var quoteQty: String = "",
+
+        @ApiModelProperty("Commission.")
+        @JsonProperty("commission")
+        var commission: String = "",
+
+        @ApiModelProperty("Asset on which commission is taken.")
+        @JsonProperty
+        var commissionAsset: String = "",
+
+        @ApiModelProperty("Trade execution time.")
+        @JsonProperty("time")
+        var time: Long = 0L,
+
+        @ApiModelProperty("The symbol of the trade.")
+        @JsonProperty("symbol")
+        var symbol: String = "",
+
+        @ApiModelProperty("The order id.")
+        @JsonProperty("orderId")
+        var orderId: String = "",
+
+        @ApiModelProperty("The order list id.")
+        @JsonProperty("orderListId")
+        var orderListId: String = "",
+
+        @ApiModelProperty("Is buyer trade.")
+        @JsonProperty("isBuyer")
+        var isBuyer: Boolean = false,
+
+        @ApiModelProperty("Is maker trade.")
+        @JsonProperty("isMaker")
+        var isMaker: Boolean = false,
+
+        @ApiModelProperty("Is best match?")
+        @JsonProperty("isBestMatch")
+        var isBestMatch: Boolean = false
 )

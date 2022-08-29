@@ -53,43 +53,43 @@ import io.swagger.annotations.ApiModelProperty
 data class ApiPermissions(
     @ApiModelProperty("Is the key restricted to an ip address?")
     @JsonProperty
-    var ipRestrict: Boolean? = null,
+    var ipRestrict: Boolean = false,
     @ApiModelProperty(
         "This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable withdrawals"
     )
     @JsonProperty
-    var enableWithdrawals: Boolean? = null,
+    var enableWithdrawals: Boolean = false,
     @ApiModelProperty(
         "This option authorizes this key to transfer funds between your master account and your sub account instantly."
     )
     @JsonProperty
-    var enableInternalTransfer: Boolean? = null,
+    var enableInternalTransfer: Boolean = false,
     @ApiModelProperty(
         "Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each business's own transfer API rights are not affected by this authorization."
     )
     @JsonProperty
-    var permitsUniversalTransfer: Boolean? = null,
+    var permitsUniversalTransfer: Boolean = false,
     @ApiModelProperty("Authorizes this key to Vanilla options trading.")
     @JsonProperty
-    var enableVanillaOptions: Boolean? = null,
+    var enableVanillaOptions: Boolean = false,
     @ApiModelProperty("Does the key enables reading ?")
     @JsonProperty
-    var enableReading: Boolean? = null,
+    var enableReading: Boolean = false,
     @ApiModelProperty(
         "API Key created before your futures account opened does not support futures API service."
     )
     @JsonProperty
-    var enableFutures: Boolean? = null,
+    var enableFutures: Boolean = false,
     @ApiModelProperty(
         "This option can be adjusted after the Cross Margin account transfer is completed."
     )
     @JsonProperty
-    var enableMargin: Boolean? = null,
+    var enableMargin: Boolean = false,
     @ApiModelProperty("Spot and margin trading.")
     @JsonProperty
-    var enableSpotAndMarginTrading: Boolean? = null,
-    @ApiModelProperty("API key creation timestamp.") @JsonProperty("createTime") var createTime: Long? = null,
+    var enableSpotAndMarginTrading: Boolean = false,
+    @ApiModelProperty("API key creation timestamp.") @JsonProperty("createTime") var createTime: Long = 0L,
     @ApiModelProperty("Expiration time for spot and margin trading permission.")
     @JsonProperty
-    var tradingAuthorityExpirationTime: Long? = null
+    var tradingAuthorityExpirationTime: Long = 0L
 )

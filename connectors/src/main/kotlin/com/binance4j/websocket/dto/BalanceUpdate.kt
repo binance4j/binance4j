@@ -47,21 +47,21 @@ import io.swagger.annotations.ApiModelProperty
 data class BalanceUpdate(
     @ApiModelProperty("Event type.")
     @JsonProperty("e")
-    var eventType: String? = null,
+    var eventType: String = "",
 
     @ApiModelProperty("Timestamp.")
     @JsonProperty("E")
-    var eventTime: Long? = null,
+    var eventTime: Long = 0L,
 
     @ApiModelProperty("Asset.")
     @JsonProperty("a")
-    var asset: String? = null,
+    var asset: String = "",
 
     @ApiModelProperty("Balance delta.")
     @JsonProperty("d")
-    var balanceDelta: String? = null,
+    var balanceDelta: String = "",
 
     @ApiModelProperty("Clear time in ms.")
     @JsonProperty("T")
-    var clearTime: Long? = null
+    var clearTime: Long = 0L
 )

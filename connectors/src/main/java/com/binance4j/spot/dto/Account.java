@@ -26,25 +26,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The SPOT account information.")
 data class Account(
 @ApiModelProperty("Maker commission.")
-@JsonProperty("makerCommission") var makerCommission:String?=null,
+@JsonProperty("makerCommission") var makerCommission: String = "",
 @ApiModelProperty("Taker commission.")
-@JsonProperty("takerCommission") var takerCommission:String?=null,
+@JsonProperty("takerCommission") var takerCommission: String = "",
 @ApiModelProperty("Buyer commission.")
-@JsonProperty("buyerCommission") var buyerCommission:String?=null,
+@JsonProperty("buyerCommission") var buyerCommission: String = "",
 @ApiModelProperty("Seller commission.")
-@JsonProperty("sellerCommission") var sellerCommission:String?=null,
+@JsonProperty("sellerCommission") var sellerCommission: String = "",
 @ApiModelProperty("Trade permission.")
-@JsonProperty("canTrade") var canTrade:Boolean?=null,
+@JsonProperty("canTrade") var canTrade: Boolean = false,
 @ApiModelProperty("Withdrawal permission.")
-@JsonProperty("canWithdraw") var canWithdraw:Boolean?=null,
+@JsonProperty("canWithdraw") var canWithdraw: Boolean = false,
 @ApiModelProperty("Deposit permission.")
-@JsonProperty("canDeposit") var canDeposit:Boolean?=null,
+@JsonProperty("canDeposit") var canDeposit: Boolean = false,
 @ApiModelProperty("Timestamp of the last data update.")
-@JsonProperty("updateTime") var updateTime:Long?=null,
+@JsonProperty("updateTime") var updateTime: Long = 0L,
 @ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances,
 @ApiModelProperty("Account Type .")
-@JsonProperty("accountType") var accountType:String?=null,
+@JsonProperty("accountType") var accountType: String = "",
 @ApiModelProperty("Permissions list.") List<String> permissions,
-@ApiModelProperty("Brokered account?") @JsonProperty("brokered") var brokered:Boolean?=null)
+@ApiModelProperty("Brokered account?") @JsonProperty("brokered") var brokered: Boolean = false)
 {
 }

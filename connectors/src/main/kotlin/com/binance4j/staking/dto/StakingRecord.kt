@@ -45,38 +45,38 @@ import io.swagger.annotations.ApiModelProperty
 data class StakingRecord(
     @ApiModelProperty("Position id.")
     @JsonProperty("positionId")
-    var positionId: String? = null,
+    var positionId: String = "",
 
     @ApiModelProperty("Time.")
     @JsonProperty("time")
-    var time: String? = null,
+    var time: String = "",
 
     @ApiModelProperty("Asset.")
     @JsonProperty("asset")
-    var asset: String? = null,
+    var asset: String = "",
 
     @ApiModelProperty("Project.")
     @JsonProperty("project")
-    var project: String? = null,
+    var project: String = "",
 
     @ApiModelProperty("Amount.")
     @JsonProperty("amount")
-    var amount: String? = null,
+    var amount: String = "",
 
     @ApiModelProperty("Lock period.")
     @JsonProperty("lockPeriod")
-    var lockPeriod: String? = null,
+    var lockPeriod: String = "",
 
     @ApiModelProperty("Deliver date.")
     @JsonProperty("deliverDate")
-    var deliverDate: String? = null,
+    var deliverDate: String = "",
 
     @ApiModelProperty("Type.")
     @JsonProperty("type")
-    var type: String? = null,
+    var type: String = "",
 
     @ApiModelProperty("Status.")
     @JsonProperty("status")
-    var status: String? = null
+    var status: String = ""
 )
 

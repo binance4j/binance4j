@@ -38,9 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 data class PurchaseResponse(
     @ApiModelProperty("Position id.")
     @JsonProperty("positionId")
-    var positionId: String? = null,
+    var positionId: String = "",
 
     @ApiModelProperty("Success.")
     @JsonProperty("success")
-    var success: Boolean? = null
+    var success: Boolean = false
 )

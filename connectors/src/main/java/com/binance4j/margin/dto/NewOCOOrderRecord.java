@@ -32,24 +32,24 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Record of a newly placed OCO order.")
 data class NewOCOOrderRecord(
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId:Long?=null,
+@JsonProperty("orderListId") var orderListId: Long = 0L,
 @ApiModelProperty("Contingency type.")
-@JsonProperty("contingencyType") var contingencyType:String?=null,
+@JsonProperty("contingencyType") var contingencyType: String = "",
 @ApiModelProperty("List status.")
-@JsonProperty("listStatusType") var listStatusType:String?=null,
+@JsonProperty("listStatusType") var listStatusType: String = "",
 @ApiModelProperty("List order status.")
-@JsonProperty("listOrderStatus") var listOrderStatus:String?=null,
+@JsonProperty("listOrderStatus") var listOrderStatus: String = "",
 @ApiModelProperty("List client order id.")
-@JsonProperty("listClientOrderId") var listClientOrderId:String?=null,
+@JsonProperty("listClientOrderId") var listClientOrderId: String = "",
 @ApiModelProperty("Order timestamp.")
-@JsonProperty("transactionTime") var transactionTime:Long?=null,
+@JsonProperty("transactionTime") var transactionTime: Long = 0L,
 @ApiModelProperty("Order symbol.")
-@JsonProperty("symbol") var symbol:String?=null,
+@JsonProperty("symbol") var symbol: String = "",
 @ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") Optional<String> marginBuyBorrowAmount,
 @ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
 Optional<String> marginBuyBorrowAsset,
 @ApiModelProperty("Is the order isolated?")
-@JsonProperty("isIsolated") var isIsolated:Boolean?=null,
+@JsonProperty("isIsolated") var isIsolated: Boolean = false,
 @ApiModelProperty("The 2 orders.")
 List<MiniOrderInfo> orders,
 @ApiModelProperty("Order reports.")

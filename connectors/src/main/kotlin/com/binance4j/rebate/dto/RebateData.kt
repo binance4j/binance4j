@@ -40,17 +40,17 @@ import io.swagger.annotations.ApiModelProperty
 data class RebateData(
     @ApiModelProperty("Current page.")
     @JsonProperty("page")
-    var page: Int? = null,
+    var page: Int = 0,
 
     @ApiModelProperty("Total records.")
     @JsonProperty("totalRecords")
-    var totalRecords: Int? = null,
+    var totalRecords: Int = 0,
 
     @ApiModelProperty("Total pages.")
     @JsonProperty("totalPageNum")
-    var totalPageNum: Int? = null,
+    var totalPageNum: Int = 0,
 
     @ApiModelProperty("Rebates.")
     @JsonProperty("data")
-    var data: List<Rebate>? = null
+    var data:List<Rebate> = emptyList()
 )

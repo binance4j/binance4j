@@ -45,37 +45,37 @@ import io.swagger.annotations.ApiModelProperty
 data class Transaction(
     @ApiModelProperty("Order No.")
     @JsonProperty("orderNo")
-    var orderNo: String? = null,
+    var orderNo: String = "",
 
     @ApiModelProperty("Fiat currency.")
     @JsonProperty("fiatCurrency")
-    var fiatCurrency: String? = null,
+    var fiatCurrency: String = "",
 
     @ApiModelProperty("Indicated amount.")
     @JsonProperty("indicatedAmount")
-    var indicatedAmount: String? = null,
+    var indicatedAmount: String = "",
 
     @ApiModelProperty("Amount.")
     @JsonProperty("amount")
-    var amount: String? = null,
+    var amount: String = "",
 
     @ApiModelProperty("Total fee.")
     @JsonProperty("totalFee")
-    var totalFee: String? = null,
+    var totalFee: String = "",
 
     @ApiModelProperty("Method.")
     @JsonProperty("method")
-    var method: String? = null,
+    var method: String = "",
 
     @ApiModelProperty("Status.")
     @JsonProperty("status")
-    var status: String? = null,
+    var status: String = "",
 
     @ApiModelProperty("Create time in ms.")
     @JsonProperty("createTime")
-    var createTime: Long? = null,
+    var createTime: Long = 0L,
 
     @ApiModelProperty("Update time in ms.")
     @JsonProperty("updateTime")
-    var updateTime: Long? = null
+    var updateTime: Long = 0L
 )

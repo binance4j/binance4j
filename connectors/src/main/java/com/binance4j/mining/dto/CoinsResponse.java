@@ -17,9 +17,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Coins wrapper")
 data class CoinsResponse(
 @ApiModelProperty("Response code.")
-@JsonProperty("code") var code:String?=null,
+@JsonProperty("code") var code: String = "",
 @ApiModelProperty("Response message.")
-@JsonProperty("msg") var msg:String?=null,
+@JsonProperty("msg") var msg: String = "",
 @ApiModelProperty("Response data.") List<Coin> data)
 {
 }

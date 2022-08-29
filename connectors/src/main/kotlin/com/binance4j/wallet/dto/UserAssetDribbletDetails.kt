@@ -40,10 +40,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Dust log details.")
 data class UserAssetDribbletDetails(
-    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long? = null,
-    @ApiModelProperty("Timestamp.") @JsonProperty("operateTime") var operateTime: Long? = null,
-    @ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount") var serviceChargeAmount: String? = null,
-    @ApiModelProperty("Volume.") @JsonProperty("amount") var amount: String? = null,
-    @ApiModelProperty("Transferred amount.") @JsonProperty("transferedAmount") var transferedAmount: String? = null,
-    @ApiModelProperty("Transferred asset.") @JsonProperty("fromAsset") var fromAsset: String? = null
+    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long = 0L,
+    @ApiModelProperty("Timestamp.") @JsonProperty("operateTime") var operateTime: Long = 0L,
+    @ApiModelProperty("Fees.") @JsonProperty("serviceChargeAmount") var serviceChargeAmount: String = "",
+    @ApiModelProperty("Volume.") @JsonProperty("amount") var amount: String = "",
+    @ApiModelProperty("Transferred amount.") @JsonProperty("transferedAmount") var transferedAmount: String = "",
+    @ApiModelProperty("Transferred asset.") @JsonProperty("fromAsset") var fromAsset: String = ""
 )

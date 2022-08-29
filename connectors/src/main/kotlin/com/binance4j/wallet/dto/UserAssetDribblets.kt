@@ -47,15 +47,15 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Dribblets.")
 data class UserAssetDribblets(
-    @ApiModelProperty("Operation timestamp.") @JsonProperty("operateTime") var operateTime: Long? = null,
+    @ApiModelProperty("Operation timestamp.") @JsonProperty("operateTime") var operateTime: Long = 0L,
     @ApiModelProperty("Total transfered BNB amount for this exchange.")
     @JsonProperty
-    var totalTransferedAmount: String? = null,
+    var totalTransferedAmount: String = "",
     @ApiModelProperty("Total service charge amount for this exchange.")
     @JsonProperty
-    var totalServiceChargeAmount: String? = null,
-    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long? = null,
+    var totalServiceChargeAmount: String = "",
+    @ApiModelProperty("Transaction id.") @JsonProperty("transId") var transId: Long = 0L,
     @ApiModelProperty("Details of this exchange.")
     @JsonProperty
-    var userAssetDribbletDetails: List<UserAssetDribbletDetails>? = null
+    var userAssetDribbletDetails:List<UserAssetDribbletDetails> = emptyList()
 )

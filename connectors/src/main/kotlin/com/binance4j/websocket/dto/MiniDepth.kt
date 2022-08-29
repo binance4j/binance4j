@@ -42,13 +42,13 @@ import io.swagger.annotations.ApiModelProperty
 data class MiniDepth(
     @ApiModelProperty("Last update id.")
     @JsonProperty("lastUpdateId")
-    var lastUpdateId: Long? = null,
+    var lastUpdateId: Long = 0L,
 
     @ApiModelProperty("Bids.")
     @JsonProperty("bids")
-    var bids: List<OrderBookEntry>? = null,
+    var bids:List<OrderBookEntry> = emptyList(),
 
     @ApiModelProperty("Asks.")
     @JsonProperty("asks")
-    var asks: List<OrderBookEntry>? = null
+    var asks:List<OrderBookEntry> = emptyList()
 )
