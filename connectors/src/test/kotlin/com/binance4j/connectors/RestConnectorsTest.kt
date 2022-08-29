@@ -40,90 +40,90 @@ class RestConnectorsTest : CustomTest() {
     @Test
     @Throws(ApiException::class)
     fun testGetBLVTClient() {
-        Assertions.assertNotNull(connectors.rest.blvt())
+        Assertions.assertNotNull(connectors.REST.blvt())
     }
 
     @Test
     fun testGetC2CClient() {
-        Assertions.assertNotNull(connectors.rest.c2c())
+        Assertions.assertNotNull(connectors.REST.c2c())
     }
 
     @Test
     fun testGetFiatClient() {
-        Assertions.assertNotNull(connectors.rest.fiat())
+        Assertions.assertNotNull(connectors.REST.fiat())
     }
 
     @Test
     fun testGetLoanClient() {
-        Assertions.assertNotNull(connectors.rest.loan())
+        Assertions.assertNotNull(connectors.REST.loan())
     }
 
     @Test
     fun testGetMarginClient() {
-        Assertions.assertNotNull(connectors.rest.margin())
+        Assertions.assertNotNull(connectors.REST.margin())
     }
 
     @Test
     fun testGetMarketClient() {
-        Assertions.assertNotNull(connectors.rest.market())
+        Assertions.assertNotNull(connectors.REST.market())
     }
 
     @Test
     fun testGetMiningClient() {
-        Assertions.assertNotNull(connectors.rest.mining())
+        Assertions.assertNotNull(connectors.REST.mining())
     }
 
     @Test
     fun testGetNFTClient() {
-        Assertions.assertNotNull(connectors.rest.nft())
+        Assertions.assertNotNull(connectors.REST.nft())
     }
 
     @Test
     fun testGetPayClient() {
-        Assertions.assertNotNull(connectors.rest.pay())
+        Assertions.assertNotNull(connectors.REST.pay())
     }
 
     @Test
     fun testGetPortfolioMarginClient() {
-        Assertions.assertNotNull(connectors.rest.margin())
+        Assertions.assertNotNull(connectors.REST.margin())
     }
 
     @Test
     fun testGetRebateClient() {
-        Assertions.assertNotNull(connectors.rest.rebate())
+        Assertions.assertNotNull(connectors.REST.rebate())
     }
 
     @Test
     fun testGetSavingsClient() {
-        Assertions.assertNotNull(connectors.rest.savings())
+        Assertions.assertNotNull(connectors.REST.savings())
     }
 
     @Test
     fun testGetSpotClient() {
-        Assertions.assertNotNull(connectors.rest.spot())
+        Assertions.assertNotNull(connectors.REST.spot())
     }
 
     @Test
     fun testGetStakingClient() {
-        Assertions.assertNotNull(connectors.rest.staking())
+        Assertions.assertNotNull(connectors.REST.staking())
     }
 
     @Test
     fun testGetVisionSpotClient() {
-        Assertions.assertNotNull(connectors.rest.visionSpot())
+        Assertions.assertNotNull(connectors.REST.visionSpot())
     }
 
     @Test
     fun testGetWalletClient() {
-        Assertions.assertNotNull(connectors.rest.wallet())
+        Assertions.assertNotNull(connectors.REST.wallet())
     }
 
     @Test
     fun testUpdateKeys() {
-        assertEquals(connectors.rest.key, connectors.rest.c2c().key)
-        assertEquals(connectors.rest.secret, connectors.rest.blvt().secret)
-        connectors.rest.updateKeys("foo", "bar")
-        assertEquals(connectors.rest.key, connectors.rest.convert().key)
-        assertEquals(connectors.rest.secret, connectors.rest.blvt().secret)
+        assertEquals(connectors.REST.key, connectors.REST.c2c().key)
+        assertEquals(connectors.REST.secret, connectors.REST.blvt().secret)
+        connectors.REST.updateKeys("foo", "bar")
+        assertEquals(connectors.REST.key, connectors.REST.convert().key)
+        assertEquals(connectors.REST.secret, connectors.REST.blvt().secret)
     }
 }

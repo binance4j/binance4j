@@ -1,76 +1,67 @@
-package com.binance4j.websocket.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.time.Duration;
-import java.util.Timer;
-import java.util.TimerTask;
+package com.binance4j.websocket.client
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.dto.UserDataUpdate;
+import com.binance4j.websocket.callback.WebsocketCallback
+import com.binance4j.websocket.dto.UserDataUpdate
+import java.time.Duration
+import java.util.*
 
-/** Websocket client handling user data / balance events */
-public class WebsocketUserDataClient extends BaseWebsocketClient<UserDataUpdate> {
-	/** The inner user data client. */
-	final UserDataClient userDataClient;
-	/** The timer responsible to schedule the keep alive task. */
-	Timer timer;
-	/** The keep alive task schedule interval. Default 30 minutes. */
-	Duration keepAliveInterval = Duration.ofMinutes(30);
+/** Websocket client handling user data / balance events.
+ * @param userDataClient   [UserDataClient] that will fetch the listen key to open
+ * @param callback Callback.
+ * */
+class WebsocketUserDataClient(
+    val userDataClient: UserDataClient, callback: WebsocketCallback<UserDataUpdate>
+) : BaseWebsocketClient<UserDataUpdate>(null, userDataClient.startUserDataStream().sync().listenKey!!, UserDataUpdate::class.java, callback) {
 
-	/**
-	 * @param client   {@link UserDataClient} that will fetch the listen key to open
-	 *                 the stream and keep it alive at a periodical interval.
-	 * @param callback Callback.
-	 * @throws ApiException Will be thrown if the client is unable to fetch the
-	 *                      listen key
-	 */
-	public WebsocketUserDataClient(UserDataClient client, WebsocketCallback<UserDataUpdate> callback)
-			throws ApiException {
-		super(null, client.startUserDataStream().sync().listenKey(), UserDataUpdate.class, callback);
-		userDataClient = client;
-	}
+    /** The listen key the client is watching. */
+    val listenKey: String
+        get() = stream
 
-	@Override
-	public void open() {
-		super.open();
-		// let's start the keep alive task
-		timer = new Timer();
-		timer.schedule(new KeepAliveTask(), keepAliveInterval.toMillis(), keepAliveInterval.toMillis());
-	}
+    /** The timer responsible to schedule the keep alive task.  */
+    private lateinit var timer: Timer
 
-	@Override
-	public void close() {
-		super.close();
-		// let's stop the keep alive task
-		timer.cancel();
-	}
+    /** The keep alive task schedule interval. Default 30 minutes.  */
+    private var keepAliveInterval: Duration = Duration.ofMinutes(30)
 
-	/** The task responsible of keeping alive the listenKey. */
-	private class KeepAliveTask extends TimerTask {
-		@Override
-		public void run() {
-			userDataClient.keepAliveUserDataStream(stream);
-		}
-	}
+    override fun open() {
+        super.open()
+        timer = Timer()
+        timer.schedule(KeepAliveTask(), keepAliveInterval.toMillis(), keepAliveInterval.toMillis())
+    }
 
-	/**
-	 * @return the timer
-	 */
-	public Timer getTimer() {
-		return timer;
-	}
+    override fun close() {
+        super.close()
+        timer.cancel()
+    }
 
-	/**
-	 * @return the keepAliveInterval
-	 */
-	public Duration getKeepAliveInterval() {
-		return keepAliveInterval;
-	}
-
-	/**
-	 * @return The listen key the client is watching.
-	 */
-	public String getListenKey() {
-		return stream;
-	}
+    /** The task responsible for keeping alive the listenKey.  */
+    private inner class KeepAliveTask : TimerTask() {
+        override fun run() {
+            userDataClient.keepAliveUserDataStream(stream)
+        }
+    }
 }

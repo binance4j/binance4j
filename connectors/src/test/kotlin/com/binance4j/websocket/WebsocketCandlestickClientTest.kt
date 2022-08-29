@@ -21,26 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.websocket
 
-package com.binance4j.websocket;
+import com.binance4j.core.dto.CandlestickInterval
+import com.binance4j.websocket.client.WebsocketCandlestickClient
+import com.binance4j.websocket.dto.Candle
+import org.junit.jupiter.api.Test
 
-import com.binance4j.core.dto.CandlestickInterval;
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.client.WebsocketCandlestickClient;
-import com.binance4j.websocket.dto.Candle;
-import org.junit.jupiter.api.Test;
-
-import java.util.concurrent.ExecutionException;
-
-class WebsocketCandlestickClientTest {
-    TestCallback<Candle> callback = new TestCallback<>();
+internal class WebsocketCandlestickClientTest {
+    var callback = TestCallback<Candle>()
 
     @Test
-    void test1() throws ApiException, InterruptedException, ExecutionException {
-        WebsocketCandlestickClient client = new WebsocketCandlestickClient(callback.getSymbol(),
-                CandlestickInterval.ONE_MINUTE, callback);
-        callback.setWebsocketClient(client);
-        client.open();
-        callback.future.get();
+    fun test1() {
+        val client = WebsocketCandlestickClient(
+            callback.symbol,
+            CandlestickInterval.ONE_MINUTE, callback
+        )
+        callback.websocketClient = client
+        client.open()
+        callback.future.get()
     }
 }

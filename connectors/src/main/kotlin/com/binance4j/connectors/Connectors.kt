@@ -24,16 +24,13 @@
 
 package com.binance4j.connectors
 
-/**
- * Wrapper for all Rest and Websocket connectors.
- *
- * @param key    API key.
- * @param secret API secret.
- * */
-class Connectors(key: String, secret: String) {
-    /** Rest connectors wrapper.  */
-    val rest: RestConnectors = RestConnectors(key, secret)
+/** All Rest and Websocket connectors. */
+object Connectors {
+    /** Rest connectors.  */
+    @JvmStatic
+    val REST: RestConnectors = RestConnectors("", "")
 
-    /** Websocket connectors wrapper.  */
-    val ws: WebsocketConnectors = WebsocketConnectors()
+    /** Websocket connectors.  */
+    @JvmStatic
+    val WS: WebsocketConnectors = WebsocketConnectors()
 }

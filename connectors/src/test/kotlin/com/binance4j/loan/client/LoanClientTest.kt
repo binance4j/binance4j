@@ -23,7 +23,7 @@
  */
 package com.binance4j.loan.client
 
-import com.binance4j.core.client.RestClient
+import com.binance4j.core.Binance4j
 import com.binance4j.core.exception.ApiException
 import com.binance4j.core.param.TimeFrame
 import com.binance4j.core.test.CustomTest
@@ -35,8 +35,8 @@ class LoanClientTest : CustomTest() {
     protected var client = LoanClient(key, secret)
 
     init {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test

@@ -24,10 +24,9 @@
 
 package com.binance4j.core.client
 
+import com.binance4j.core.Binance4j
 import com.binance4j.core.interceptor.AuthenticationInterceptor
 import com.binance4j.core.interceptor.MetaHeadersInterceptor
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -58,15 +57,9 @@ abstract class RestClient<T> @JvmOverloads constructor(
         service = createService()
     }
 
-    companion object {
-        /** The Jackson object mapper for deserialization.  */
-        fun mapper(): ObjectMapper = ObjectMapper()
-    }
-
     /** Generates the API service.  */
     private fun createService(): T {
-        mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        val converterFactory = JacksonConverterFactory.create(mapper())
+        val converterFactory = JacksonConverterFactory.create(Binance4j.MAPPER)
         val dispatcher = Dispatcher()
         val httpClient = OkHttpClient.Builder().dispatcher(dispatcher).build()
         val apiUrl = if (useTestnet) "https://$testnetDomain" else "https://$baseDomain"

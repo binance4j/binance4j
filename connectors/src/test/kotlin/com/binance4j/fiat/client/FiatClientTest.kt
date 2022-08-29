@@ -24,7 +24,6 @@
 
 package com.binance4j.fiat.client
 
-import com.binance4j.core.client.RestClient
 import com.binance4j.core.exception.ApiException
 import com.binance4j.core.param.FramedPaging
 import com.binance4j.core.test.CustomTest
@@ -47,9 +46,9 @@ class FiatClientTest : CustomTest() {
     @Test
     @Throws(ApiException::class, InterruptedException::class)
     fun testGetPayments2() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getPayments(PaymentParams(PaymentType.BUY), FramedPaging(1)))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test

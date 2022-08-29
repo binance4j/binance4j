@@ -1,27 +1,41 @@
-package com.binance4j.websocket.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.dto.Depth;
-import com.binance4j.websocket.dto.DepthUpdateSpeed;
+package com.binance4j.websocket.client
 
-/** Websocket client handling depth events on one or many symbols */
-public class WebsocketDepthClient extends BaseWebsocketClient<Depth> {
-	/**
-	 * @param symbols  Symbols we want the data.
-	 * @param speed    Update speed.
-	 * @param callback Events handler.
-	 */
-	public WebsocketDepthClient(String symbols, DepthUpdateSpeed speed, WebsocketCallback<Depth> callback) {
-		super(symbols, String.format("depth@%s", speed.toString()), Depth.class, callback);
-	}
+import com.binance4j.websocket.callback.WebsocketCallback
+import com.binance4j.websocket.dto.Depth
+import com.binance4j.websocket.dto.DepthUpdateSpeed
 
-	/**
-	 * @param symbols  Trading pair iterable.
-	 * @param speed    Update speed.
-	 * @param callback Events handler.
-	 */
-	public WebsocketDepthClient(Iterable<? extends CharSequence> symbols, DepthUpdateSpeed speed,
-			WebsocketCallback<Depth> callback) {
-		this(String.join(",", symbols), speed, callback);
-	}
+/** Websocket client handling depth events on one or many symbols.
+ * @param symbols  Symbols we want the data.
+ * @param speed    Update speed.
+ * @param callback Events handler.
+ * */
+class WebsocketDepthClient(symbols: String, speed: DepthUpdateSpeed, callback: WebsocketCallback<Depth>) :
+    BaseWebsocketClient<Depth>(symbols, String.format("depth@%s", speed.toString()), Depth::class.java, callback) {
+    constructor(symbols: Iterable<CharSequence>, speed: DepthUpdateSpeed, callback: WebsocketCallback<Depth>) : this(
+        symbols.joinToString(","), speed, callback
+    )
 }

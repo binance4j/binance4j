@@ -21,53 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.websocket
 
-package com.binance4j.websocket;
+import com.binance4j.core.test.CustomTest
+import com.binance4j.websocket.client.UserDataClient
+import com.binance4j.websocket.param.IsolatedUserDataStreamParams
+import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.client.UserDataClient;
-import com.binance4j.websocket.dto.ListenKey;
-import com.binance4j.websocket.param.IsolatedUserDataStreamParams;
-import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams;
-import org.junit.jupiter.api.Test;
+internal class UserDataClientTest : CustomTest() {
+    val client: UserDataClient = UserDataClient(key, secret)
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-class UserDataClientTest {
-    final UserDataClient client;
-
-    UserDataClientTest() {
-        String key = System.getenv("BINANCE_API_KEY"), secret = System.getenv("BINANCE_API_SECRET");
-        this.client = new UserDataClient(key, secret);
+    @Test
+    fun testUserDataStream() {
+        val listenKey = client.startUserDataStream().sync()
+        assertTrue(listenKey.listenKey!!.isNotEmpty())
+        assertDoesNotThrow { client.keepAliveUserDataStream(listenKey.listenKey) }
+        assertDoesNotThrow { client.closeUserDataStream(listenKey.listenKey).sync() }
     }
 
     @Test
-    void testUserDataStream() throws ApiException {
-        ListenKey listenKey = client.startUserDataStream().sync();
-        assertTrue(listenKey.listenKey().length() > 0);
-        assertDoesNotThrow(() -> client.keepAliveUserDataStream(listenKey.listenKey()));
-        assertDoesNotThrow(() -> client.closeUserDataStream(listenKey.listenKey()).sync());
+    fun testMarginUserDataStream() {
+        val listenKey = client.startMarginUserDataStream().sync()
+        assertTrue(listenKey.listenKey!!.isNotEmpty())
+        assertDoesNotThrow { client.keepAliveMarginUserDataStream(listenKey.listenKey) }
+        assertDoesNotThrow { client.closeMarginUserDataStream(listenKey.listenKey).sync() }
     }
 
     @Test
-    void testMarginUserDataStream() throws ApiException {
-        ListenKey listenKey = client.startMarginUserDataStream().sync();
-        assertTrue(listenKey.listenKey().length() > 0);
-        assertDoesNotThrow(() -> client.keepAliveMarginUserDataStream(listenKey.listenKey()));
-        assertDoesNotThrow(() -> client.closeMarginUserDataStream(listenKey.listenKey()).sync());
-    }
-
-    @Test
-    void testIsolatedUserDataStream() throws ApiException {
-        String isolatedSymbol = "BTCUSDT";
-        IsolatedUserDataStreamParams IsolatedUserDataStreamRequest = new IsolatedUserDataStreamParams(isolatedSymbol);
-        ListenKey listenKey = client.startIsolatedUserDataStream(IsolatedUserDataStreamRequest).sync();
-        KeepAliveIsolatedUserDataStreamParams keepAliveIsolatedUserDataStreamRequest = new KeepAliveIsolatedUserDataStreamParams(
-                isolatedSymbol,
-                listenKey.listenKey());
-        assertTrue(listenKey.listenKey().length() > 0);
-        assertDoesNotThrow(() -> client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest));
-        assertDoesNotThrow(() -> client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).sync());
+    fun testIsolatedUserDataStream() {
+        val isolatedSymbol = "BTCUSDT"
+        val isolatedUserDataStreamRequest = IsolatedUserDataStreamParams(isolatedSymbol)
+        val listenKey = client.startIsolatedUserDataStream(isolatedUserDataStreamRequest).sync()
+        val keepAliveIsolatedUserDataStreamRequest = KeepAliveIsolatedUserDataStreamParams(
+            isolatedSymbol, listenKey.listenKey!!
+        )
+        assertTrue(listenKey.listenKey!!.isNotEmpty())
+        assertDoesNotThrow { client.keepAliveIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest) }
+        assertDoesNotThrow { client.closeIsolatedUserDataStream(keepAliveIsolatedUserDataStreamRequest).sync() }
     }
 }

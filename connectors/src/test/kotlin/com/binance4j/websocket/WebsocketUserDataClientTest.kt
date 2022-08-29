@@ -21,24 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.websocket
 
-package com.binance4j.websocket;
+import com.binance4j.websocket.client.UserDataClient
+import com.binance4j.websocket.client.WebsocketUserDataClient
+import com.binance4j.websocket.dto.UserDataUpdate
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.client.UserDataClient;
-import com.binance4j.websocket.client.WebsocketUserDataClient;
-import com.binance4j.websocket.dto.UserDataUpdate;
+internal class WebsocketUserDataClientTest {
+    var callback = TestCallback<UserDataUpdate>() // @Test
 
-import java.util.concurrent.ExecutionException;
-
-class WebsocketUserDataClientTest {
-    TestCallback<UserDataUpdate> callback = new TestCallback<>(); // @Test
-
-    void test1() throws ApiException, InterruptedException, ExecutionException {
-        WebsocketUserDataClient client = new WebsocketUserDataClient(
-                new UserDataClient(callback.getKey(), callback.getSecret()), callback);
-        callback.setWebsocketClient(client);
-        client.open();
-        callback.future.get();
+    fun test1() {
+        val client = WebsocketUserDataClient(
+            UserDataClient(callback.key, callback.secret), callback
+        )
+        callback.websocketClient = client
+        client.open()
+        callback.future.get()
     }
 }

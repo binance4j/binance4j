@@ -1,147 +1,125 @@
-package com.binance4j.websocket.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
+package com.binance4j.websocket.client
 
-import com.binance4j.websocket.callback.ApiWebSocketListener;
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
-import com.binance4j.websocket.event.WebsocketCloseClientHandler;
-import com.binance4j.websocket.event.WebsocketForceClosingHandler;
-
-import okhttp3.Dispatcher;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.WebSocket;
+import com.binance4j.websocket.callback.ApiWebSocketListener
+import com.binance4j.websocket.callback.WebsocketCallback
+import com.binance4j.websocket.callback.WebsocketInterceptorCallback
+import com.binance4j.websocket.configuration.WebsocketClientConfiguration
+import com.binance4j.websocket.event.WebsocketCloseClientHandler
+import com.binance4j.websocket.event.WebsocketForceClosingHandler
+import okhttp3.Dispatcher
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.WebSocket
+import java.util.*
 
 /** Websocket clients base class */
-public abstract class BaseWebsocketClient<T> :WebsocketClient
-{
-	/** The websocket client. */
-	protected BaseWebsocketClient<T> innerClient;
-	/** The response data sent by the API. */
-	protected Class<T> payloadClass;
-	/** The stream symbols. */
-	protected String symbols;
-	/** The stream to connect to. */
-	protected String stream;
-	/** The wrapped websocket. */
-	protected WebSocket innerWebsocket;
-	/** The user events handler. */
-	protected WebsocketCallback<T> callback;
-	/** The interceptor callback. */
-	protected WebsocketInterceptorCallback<T> interceptorCallback;
-	/** The channel to connect to. */
-	protected String channel;
-	/** The listenr using the interceptor callback. */
-	protected ApiWebSocketListener<T> listener;
-	/** The client configuration. */
-	WebsocketClientConfiguration configuration;
-	/** Will call onClosing and onClosed of the interceptor callback if not. */
-	protected WebsocketForceClosingHandler forceClosingHandler;
-	/** Will close the client after some time. */
-	protected WebsocketCloseClientHandler closeClientHandler;
+abstract class BaseWebsocketClient<T>(var symbols: String?, var stream: String, private var payloadClass: Class<T>, var callback: WebsocketCallback<T>) :
+    WebsocketClient {
+    /** The websocket client. */
+    internal lateinit var innerClient: BaseWebsocketClient<T>
 
-	/** Constructor */
-	protected BaseWebsocketClient() {
-	}
+    /** The wrapped websocket. */
+    internal lateinit var innerWebsocket: WebSocket
 
-	/**
-	 * @param symbols      Pairs of assets.
-	 * @param stream       Stream.
-	 * @param payloadClass Payload type.
-	 * @param callback     Events handler.
-	 */
-	protected BaseWebsocketClient(String symbols, String stream, Class<T> payloadClass, WebsocketCallback<T> callback) {
-		this.symbols = symbols == null ? null : symbols.replaceAll(" ", "");
-		this.stream = stream;
-		this.payloadClass = payloadClass;
-		this.callback = callback;
-		interceptorCallback = new WebsocketInterceptorCallback<>(this, callback);
-		listener = new ApiWebSocketListener<>(interceptorCallback, payloadClass);
-		configuration = new WebsocketClientConfiguration();
-		forceClosingHandler = new WebsocketForceClosingHandler(this, interceptorCallback);
-		closeClientHandler = new WebsocketCloseClientHandler(this, interceptorCallback);
-		generateChannel(true);
-	}
+    /** The interceptor callback. */
+    internal var interceptorCallback: WebsocketInterceptorCallback<T> = WebsocketInterceptorCallback(this, callback)
 
-	@Override
-	public void open() {
-		close(false);
-		innerWebsocket = newWebSocket(configuration, channel, listener);
-		interceptorCallback.setSocket(innerWebsocket);
-		interceptorCallback.setForceClosingHandler(forceClosingHandler);
-		interceptorCallback.getConnectionHandler().run();
-		closeClientHandler.run();
-	}
+    /** The channel to connect to. */
+    internal lateinit var channel: String
 
-	@Override
-	public void close() {
-		close(true);
-	}
+    /** The listener using the interceptor callback. */
+    internal var listener: ApiWebSocketListener<T> = ApiWebSocketListener(interceptorCallback, payloadClass)
 
-	/**
-	 * Closes the stream
-	 * 
-	 * @param closedByClient Defines if the cloising is made by the client.
-	 */
-	public void close(boolean closedByClient) {
-		this.interceptorCallback.setClosedByClient(closedByClient);
-		if (innerWebsocket != null) {
-			innerWebsocket.close(1000, null);
-			forceClosingHandler.run();
-		}
-	}
+    /** The client configuration. */
+    final override var configuration: WebsocketClientConfiguration = WebsocketClientConfiguration()
 
-	/**
-	 * Generate the websocket communicating with the API
-	 *
-	 * @param configuration Configuration.
-	 * @param channel       address containing the symbols and the stream name.
-	 * @param listener      Websocket listener.
-	 * @return The websocket to communicate with the API.
-	 */
-	protected WebSocket newWebSocket(WebsocketClientConfiguration configuration, String channel,
-			ApiWebSocketListener<?> listener) {
-		String streamingUrl = String.format("%s/%s", configuration.getBaseUrl(), channel);
-		Request request = new Request.Builder().url(streamingUrl).build();
-		return new OkHttpClient.Builder().dispatcher(new Dispatcher()).pingInterval(configuration.getPingInterval())
-				.build().newWebSocket(request, listener);
-	}
+    /** Will call onClosing and onClosed of the interceptor callback if not. */
+    internal var forceClosingHandler: WebsocketForceClosingHandler = WebsocketForceClosingHandler(this, interceptorCallback)
 
-	/**
-	 * Generates the channel the Websocket will connect to
-	 * 
-	 * @param symbolToLowerCase Are the symbols in lower case?
-	 */
-	protected void generateChannel(boolean symbolToLowerCase) {
-		if (symbols == null) {
-			channel = stream;
-		} else {
-			symbols = symbolToLowerCase ? symbols.toLowerCase() : symbols.toUpperCase();
-			channel = Arrays.stream(symbols.split(",")).map(String::trim).map(s -> String.format("%s@%s", s, stream))
-					.collect(Collectors.joining("/"));
-		}
-	}
+    /** Will close the client after some time. */
+    internal var closeClientHandler: WebsocketCloseClientHandler = WebsocketCloseClientHandler(this, interceptorCallback)
 
-	/**
-	 * @return the configuration
-	 */
-	public WebsocketClientConfiguration getConfiguration() {
-		return configuration;
-	}
+    /*
+     * @param symbols      Pairs of assets.
+     * @param stream       Stream.
+     * @param payloadClass Payload type.
+     * @param callback     Events handler.
+     */
+    init {
+        this.symbols = symbols?.replace(" ", "")
+        generateChannel(true)
+    }
 
-	/**
-	 * @param configuration Configuration to set
-	 */
-	public void setConfiguration(WebsocketClientConfiguration configuration) {
-		this.configuration = configuration;
-	}
+    override fun open() {
+        close(false)
+        innerWebsocket = newWebSocket(configuration, channel, listener)
+        interceptorCallback.socket = innerWebsocket
+        interceptorCallback.forceClosingHandler = forceClosingHandler
+        interceptorCallback.connectionHandler.run()
+        closeClientHandler.run()
+    }
 
-	/**
-	 * @return the symbols
-	 */
-	public String getSymbols() {
-		return symbols;
-	}
+    override fun close() {
+        close(true)
+    }
+
+    /**
+     * Closes the stream
+     *
+     * @param force Defines if the closing is made by the client.
+     */
+    override fun close(force: Boolean) {
+        this.interceptorCallback.closedByClient = force
+        innerWebsocket.close(1000, null)
+        forceClosingHandler.run()
+    }
+
+    /**
+     * Generate the websocket communicating with the API
+     *
+     * @param configuration Configuration.
+     * @param channel       address containing the symbols and the stream name.
+     * @param listener      Websocket listener.
+     * @return The websocket to communicate with the API.
+     */
+    internal fun newWebSocket(configuration: WebsocketClientConfiguration, channel: String, listener: ApiWebSocketListener<*>): WebSocket {
+        val streamingUrl = String.format("%s/%s", configuration.baseUrl, channel)
+        val request = Request.Builder().url(streamingUrl).build()
+        return OkHttpClient.Builder().dispatcher(Dispatcher()).pingInterval(configuration.pingInterval)
+            .build().newWebSocket(request, listener)
+    }
+
+    /**
+     * Generates the channel the Websocket will connect to
+     *
+     * @param symbolToLowerCase Are the symbols in lower case?
+     */
+    internal fun generateChannel(symbolToLowerCase: Boolean) {
+        symbols = if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault()) else symbols?.uppercase(Locale.getDefault())
+        channel = symbols?.split(",")?.map(String::trim)?.joinToString("/") { s -> String.format("%s@%s", s, stream) }.toString()
+    }
 }

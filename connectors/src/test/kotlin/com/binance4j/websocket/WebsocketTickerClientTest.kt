@@ -21,24 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.websocket
 
-package com.binance4j.websocket;
+import com.binance4j.websocket.client.WebsocketTickerClient
+import com.binance4j.websocket.dto.Ticker
+import org.junit.jupiter.api.Test
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.client.WebsocketTickerClient;
-import com.binance4j.websocket.dto.Ticker;
-import org.junit.jupiter.api.Test;
-
-import java.util.concurrent.ExecutionException;
-
-class WebsocketTickerClientTest {
-    TestCallback<Ticker> callback = new TestCallback<>();
+internal class WebsocketTickerClientTest {
+    var callback = TestCallback<Ticker>()
 
     @Test
-    void test1() throws ApiException, InterruptedException, ExecutionException {
-        WebsocketTickerClient client = new WebsocketTickerClient(callback.getSymbol(), callback);
-        callback.setWebsocketClient(client);
-        client.open();
-        callback.future.get();
+    fun test1() {
+        val client = WebsocketTickerClient(callback.symbol, callback)
+        callback.websocketClient = client
+        client.open()
+        callback.future.get()
     }
 }

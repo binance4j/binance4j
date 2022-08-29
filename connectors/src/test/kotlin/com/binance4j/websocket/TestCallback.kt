@@ -22,83 +22,46 @@
  * SOFTWARE.
  */
 
-package com.binance4j.websocket;
+package com.binance4j.websocket
 
-import java.util.concurrent.CompletableFuture;
-
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.test.CustomTest;
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.callback.WebsocketCloseObject;
-import com.binance4j.websocket.client.BaseWebsocketClient;
-
-import okhttp3.Response;
+import com.binance4j.core.exception.ApiException
+import com.binance4j.core.test.CustomTest
+import com.binance4j.websocket.callback.WebsocketCallback
+import com.binance4j.websocket.callback.WebsocketCloseObject
+import com.binance4j.websocket.client.BaseWebsocketClient
+import okhttp3.Response
+import org.junit.jupiter.api.Assertions.assertNotNull
+import java.util.concurrent.CompletableFuture
 
 /** Event handler callback. */
-public class TestCallback<T> extends CustomTest:WebsocketCallback<T>
-{
-	/** The CompletableFuture preventing the process to end before the tests. */
-	protected CompletableFuture<Void> future;
-	/** The ws client. */
-	protected BaseWebsocketClient<T> websocketClient;
+class TestCallback<T> : CustomTest(), WebsocketCallback<T> {
+    /** The CompletableFuture preventing the process to end before the tests. */
+    var future: CompletableFuture<Void> = CompletableFuture()
 
-	/** @param client. */
-	public TestCallback() {
-		super();
-		future = new CompletableFuture<>();
-	}
+    /** The ws client. */
+    lateinit var websocketClient: BaseWebsocketClient<T>
 
-	public void onMessage(Object response) {
-		testNoNulls(response);
-		if (websocketClient != null) {
-			websocketClient.close();
-		}
-	}
+    override fun onMessage(message: T) {
+        assertNotNull(message)
+        websocketClient.close()
+    }
 
-	public void onOpen(Response response) {
-		testNoNulls(response);
-	}
+    override fun onOpen(response: Response) {
+        assertNotNull(response)
+    }
 
-	public void onFailure(ApiException exception) {
-		testNoNulls(exception);
-		websocketClient.close();
-		future.complete(null);
-	}
+    override fun onFailure(exception: ApiException) {
+        assertNotNull(exception)
+        websocketClient.close()
+        future.complete(null)
+    }
 
-	public void onClosing(WebsocketCloseObject websocketCloseObject) {
-		testNoNulls(websocketCloseObject);
-	}
+    override fun onClosing(websocketCloseObject: WebsocketCloseObject) {
+        assertNotNull(websocketCloseObject)
+    }
 
-	public void onClosed(WebsocketCloseObject websocketCloseObject) {
-		testNoNulls(websocketCloseObject);
-		future.complete(null);
-	}
-
-	/**
-	 * @return the future.
-	 */
-	public CompletableFuture<Void> getFuture() {
-		return future;
-	}
-
-	/**
-	 * @param future Future to set.
-	 */
-	public void setFuture(CompletableFuture<Void> future) {
-		this.future = future;
-	}
-
-	/**
-	 * @return the websocketClient.
-	 */
-	public BaseWebsocketClient<T> getWebsocketClient() {
-		return websocketClient;
-	}
-
-	/**
-	 * @param websocketClient WebsocketClient to set.
-	 */
-	public void setWebsocketClient(BaseWebsocketClient<T> websocketClient) {
-		this.websocketClient = websocketClient;
-	}
+    override fun onClosed(websocketCloseObject: WebsocketCloseObject) {
+        assertNotNull(websocketCloseObject)
+        future.complete(null)
+    }
 }

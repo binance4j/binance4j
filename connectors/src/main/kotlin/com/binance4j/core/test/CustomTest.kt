@@ -24,8 +24,8 @@
 
 package com.binance4j.core.test
 
+import com.binance4j.core.Binance4j
 import com.binance4j.core.Request
-import com.binance4j.core.client.RestClient
 import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.assertDoesNotThrow
 
@@ -68,11 +68,11 @@ abstract class CustomTest {
         protected set
 
     init {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+            .configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     fun assertNotThrow(request: Request<*>) {
-        assertDoesNotThrow { println("foo" + request.sync()) }
+        assertDoesNotThrow { println(request.sync()) }
     }
 }

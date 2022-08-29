@@ -1,95 +1,114 @@
-package com.binance4j.websocket.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.util.Map;
+package com.binance4j.websocket.client
 
-import com.binance4j.core.client.RestMapping;
-import com.binance4j.core.interceptor.AuthenticationInterceptor;
-import com.binance4j.websocket.dto.ListenKey;
+import com.binance4j.core.client.RestMapping
+import com.binance4j.core.client.RestMapping.Companion.API_H
+import com.binance4j.core.client.RestMapping.Companion.IP_H
+import com.binance4j.core.client.RestMapping.Companion.WEIGHT_ONE_H
+import com.binance4j.websocket.dto.ListenKey
+import retrofit2.Call
+import retrofit2.http.*
 
-import retrofit2.Call;
-import retrofit2.http.DELETE;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+/** [UserDataClient] mapping.  */
+interface UserDataMapping : RestMapping {
+    /** @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/api/v3/userDataStream")
+    @JvmSuppressWildcards
+    fun startUserDataStream(): Call<ListenKey>
 
-/** {@link UserDataClient} mapping. */
-public interface UserDataMapping extends RestMapping {
+    /**
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/api/v3/userDataStream")
+    @JvmSuppressWildcards
+    fun keepAliveUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
 
-	/** The API key http full header. */
-	String API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER;
+    /**
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/api/v3/userDataStream")
+    @JvmSuppressWildcards
+    fun closeUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+    // MARGIN
+    /**
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/sapi/v1/userDataStream")
+    @JvmSuppressWildcards
+    fun startMarginUserDataStream(): Call<ListenKey>
 
-	// SPOT
+    /**
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/sapi/v1/userDataStream")
+    @JvmSuppressWildcards
+    fun keepAliveMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
 
-	/** @return The generated Retrofit Call */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@POST("/api/v3/userDataStream")
-	Call<ListenKey> startUserDataStream();
+    /**
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/sapi/v1/userDataStream")
+    @JvmSuppressWildcards
+    fun closeMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
 
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@PUT("/api/v3/userDataStream")
-	Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
+    /**
+     * @param map Query map.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/sapi/v1/userDataStream/isolated")
+    @JvmSuppressWildcards
+    fun startIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<ListenKey>
 
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@DELETE("/api/v3/userDataStream")
-	Call<Void> closeUserDataStream(@Query("listenKey") String listenKey);
+    /**
+     * @param map Query map.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/sapi/v1/userDataStream/isolated")
+    @JvmSuppressWildcards
+    fun keepAliveIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<Void>
 
-	// MARGIN
-
-	/**
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@POST("/sapi/v1/userDataStream")
-	Call<ListenKey> startMarginUserDataStream();
-
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@PUT("/sapi/v1/userDataStream")
-	Call<Void> keepAliveMarginUserDataStream(@Query("listenKey") String listenKey);
-
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@DELETE("/sapi/v1/userDataStream")
-	Call<Void> closeMarginUserDataStream(@Query("listenKey") String listenKey);
-
-	// ISOLATED
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@POST("/sapi/v1/userDataStream/isolated")
-	Call<ListenKey> startIsolatedUserDataStream(@QueryMap Map<String, Object> map);
-
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@PUT("/sapi/v1/userDataStream/isolated")
-	Call<Void> keepAliveIsolatedUserDataStream(@QueryMap Map<String, Object> map);
-
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
-	@DELETE("/sapi/v1/userDataStream/isolated")
-	Call<Void> closeIsolatedUserDataStream(@QueryMap Map<String, Object> map);
+    /**
+     * @param map Query map.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/sapi/v1/userDataStream/isolated")
+    @JvmSuppressWildcards
+    fun closeIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<Void>
 }

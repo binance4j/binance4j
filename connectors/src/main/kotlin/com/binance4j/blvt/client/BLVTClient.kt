@@ -47,7 +47,7 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
      */
     @JvmOverloads
     fun getTokenInfo(params: TokenInfoParams = TokenInfoParams()): Request<List<Token>> = Request(service.getTokenInfo(params.toMap()))
-    
+
     /**
      * Get subscription record.
      * @param params    Request params.

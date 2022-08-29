@@ -22,18 +22,15 @@
  * SOFTWARE.
  */
 
-package com.binance4j.websocket.dto;
+package com.binance4j.websocket.dto
 
-import java.util.List;
-
-import com.binance4j.core.dto.AssetBalance;
-import com.binance4j.websocket.serialization.AssetBalanceDeserializer;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.binance4j.core.dto.AssetBalance
+import com.binance4j.websocket.serialization.AssetBalanceDeserializer
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
 
 /**
  * Account update event which will reflect the current position/balances of the
@@ -48,8 +45,18 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Account update event which will reflect the current position/balances of the account.")
-data class AccountUpdate(@ApiModelProperty("Event type.") @JsonProperty("e") String eventType,
-		@ApiModelProperty("Timestamp.") @JsonProperty("E") Long eventTime,
-		@ApiModelProperty("Assets balance.") @JsonProperty("B") @JsonDeserialize(contentUsing = AssetBalanceDeserializer.class) List<AssetBalance> balances) {
-}
+data class AccountUpdate(
+	@ApiModelProperty("Event type.")
+	@JsonProperty("e")
+	var eventType: String? = null,
+
+	@ApiModelProperty("Timestamp.")
+	@JsonProperty("E")
+	var eventTime: Long? = null,
+	
+	@JsonProperty("B")
+	@ApiModelProperty("Assets balance.")
+	@JsonDeserialize(contentUsing = AssetBalanceDeserializer::class)
+	var balances: List<AssetBalance>? = null
+)
 

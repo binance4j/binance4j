@@ -33,8 +33,8 @@ class ExchangeInfoClientTest : CustomTest() {
     var client = RateLimitClient()
 
     init {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
     }
 
     @Test

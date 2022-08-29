@@ -1,23 +1,41 @@
-package com.binance4j.websocket.client;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import com.binance4j.websocket.callback.WebsocketCallback;
-import com.binance4j.websocket.dto.AggTrade;
+package com.binance4j.websocket.client
 
-/** Websocket client handling Aggregate trade events on a symbol or symbols */
-public class WebsocketAggTradeClient extends BaseWebsocketClient<AggTrade> {
-	/**
-	 * @param symbols  trading pair separated by a coma.
-	 * @param callback Events handler.
-	 */
-	public WebsocketAggTradeClient(String symbols, WebsocketCallback<AggTrade> callback) {
-		super(symbols, "aggTrade", AggTrade.class, callback);
-	}
+import com.binance4j.websocket.callback.WebsocketCallback
+import com.binance4j.websocket.dto.AggTrade
 
-	/**
-	 * @param symbols  Trading pair iterable.
-	 * @param callback Events handler.
-	 */
-	public WebsocketAggTradeClient(Iterable<? extends CharSequence> symbols, WebsocketCallback<AggTrade> callback) {
-		this(String.join(",", symbols), callback);
-	}
+/** Websocket client handling Aggregate trade events on a symbol or symbols.
+ * @param symbols  trading pair separated by a coma.
+ * @param callback Events handler.
+ */
+class WebsocketAggTradeClient(symbols: String, callback: WebsocketCallback<AggTrade>) :
+    BaseWebsocketClient<AggTrade>(symbols, "aggTrade", AggTrade::class.java, callback) {
+    /**
+     * @param symbols  Trading pair iterable.
+     * @param callback Events handler.
+     */
+    constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<AggTrade>) : this(java.lang.String.join(",", symbols), callback)
 }

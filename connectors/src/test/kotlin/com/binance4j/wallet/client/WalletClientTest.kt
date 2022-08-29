@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.client
 
-import com.binance4j.core.client.RestClient
 import com.binance4j.core.exception.ApiException
 import com.binance4j.core.param.TimeFrame
 import com.binance4j.core.test.CustomTest
@@ -65,9 +64,9 @@ class WalletClientTest : CustomTest() {
     @Test
     @Throws(ApiException::class)
     fun testGetAllCoinsInfo() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getAllCoinsInfo())
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
@@ -85,17 +84,17 @@ class WalletClientTest : CustomTest() {
     @Test
     @Throws(ApiException::class)
     fun testGetAssetDetail() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getAssetDetail())
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
     @Throws(ApiException::class)
     fun testGetAssetDetail2() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getAssetDetail(AssetDetailParams(asset)))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
@@ -191,17 +190,17 @@ class WalletClientTest : CustomTest() {
     @Test
     @Throws(ApiException::class)
     fun testGetFuturesAccountSnapshot2() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getFuturesAccountSnapshot(TimeFrame(limit.toLong())))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
     @Throws(ApiException::class)
     fun testGetMarginAccountSnapshot() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getMarginAccountSnapshot(TimeFrame(limit.toLong())))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
@@ -237,35 +236,35 @@ class WalletClientTest : CustomTest() {
     @Test
     @Throws(ApiException::class)
     fun testGetTransferHistory() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
     @Throws(ApiException::class)
     fun testGetTransferHistory2() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(
             client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
         )
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
     @Throws(ApiException::class)
     fun testGetWithdrawHistory() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getWithdrawHistory())
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test
     @Throws(ApiException::class)
     fun testGetWithdrawHistory2() {
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
         assertNotThrow(client.getWithdrawHistory(WithdrawHistoryParams("FTM", null, WithdrawStatus.COMPLETED)))
-        RestClient.mapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
     }
 
     @Test

@@ -56,6 +56,7 @@ enum class WithdrawStatus
     }
 
     companion object {
+        @JvmStatic
         fun fromValue(value: String): WithdrawStatus? {
             for (e in values()) {
                 if (e.toString() == value) {

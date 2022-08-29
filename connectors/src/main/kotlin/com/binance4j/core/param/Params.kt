@@ -23,25 +23,18 @@
  */
 package com.binance4j.core.param
 
+import com.binance4j.core.Binance4j
 import com.binance4j.core.annotation.Param
 import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.ObjectMapper
 import retrofit2.http.QueryMap
 
 /** The base of every Binance Request */
 interface Params {
     /**
-     * @return [ObjectMapper] responsible for deserialization.
-     */
-    fun mapper(): ObjectMapper {
-        return defaultMapper
-    }
-
-    /**
      * @return the params into a [QueryMap] minus null and useless parameters.
      */
     fun toMap(): MutableMap<String, Any> {
-        val map: MutableMap<String, Any> = mapper().convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
+        val map: MutableMap<String, Any> = Binance4j.MAPPER.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
         // add
         if (javaClass.isAnnotationPresent(Param::class.java) && javaClass.getAnnotation(Param::class.java).timestamp) map["timestamp"] =
             System.currentTimeMillis()
@@ -83,8 +76,6 @@ interface Params {
     }
 
     companion object {
-        /** Jackson object mapper used to convert a POJO into a [QueryMap] */
-        val defaultMapper = ObjectMapper()
 
         /** The receiving window. */
         const val defaultRecvWindow = 60000L
@@ -94,6 +85,7 @@ interface Params {
          * @return A map mad of all the given maps
          */
         @SafeVarargs
+        @JvmStatic
         fun merge(vararg maps: Map<String, Any>): Map<String, Any> {
             val map: MutableMap<String, Any> = HashMap()
             maps.forEach { m -> map.putAll(m) }

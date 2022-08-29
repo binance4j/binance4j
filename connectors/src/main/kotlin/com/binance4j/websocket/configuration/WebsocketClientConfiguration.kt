@@ -1,170 +1,57 @@
-package com.binance4j.websocket.configuration;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.time.Duration;
+package com.binance4j.websocket.configuration
 
-/** The websocket client ocnfiguration */
-public class WebsocketClientConfiguration {
-	/** The stream base url. */
-	String baseUrl = "wss://stream.binance.com:9443/ws";
-	/** The interval the client will send a ping. Default: 3m. */
-	Duration pingInterval = Duration.ofMinutes(3);
-	/** Reconnect if stream is closed by server. Default: true. */
-	boolean keepAlive = true;
-	/** The reconnection interval. Default: 30s. */
-	Duration reconnectionInterval = Duration.ofSeconds(10);
-	/** The number of time the client tries to reconnect. Default: 5. */
-	int maxReconnections = 5;
-	/**
-	 * The time the client waits for a server response before triggering a timeout.
-	 * Default: 3min.
-	 */
-	Duration noResponseTimeout = Duration.ofMinutes(3);
-	/**
-	 * Value added to [WebsocketClientConfiguration.noResponseTimeout] as time
-	 * margin error. Default: 5s
-	 */
-	Duration noResponseTimeoutMarginError = Duration.ofSeconds(5);
-	/** Time after which the client disconnects if stuck in closing state. */
-	Duration disconnectionTimeout = Duration.ofSeconds(5);
-	/**
-	 * Time after wich the client will disconnect. Default: 1 day.
-	 */
-	Duration closeAfter = Duration.ofDays(1);
+import java.time.Duration
 
-	/**
-	 * @return the baseUrl
-	 */
-	public String getBaseUrl() {
-		return baseUrl;
-	}
+/** The websocket client configuration  */
+data class WebsocketClientConfiguration(
+    /** The stream base url.  */
+    var baseUrl: String = "wss://stream.binance.com:9443/ws",
 
-	/**
-	 * @param baseUrl BaseUrl to set
-	 */
-	public void setBaseUrl(String baseUrl) {
-		this.baseUrl = baseUrl;
-	}
+    /** The interval the client will send a ping. Default: 3m.  */
+    var pingInterval: Duration = Duration.ofMinutes(3),
 
-	/**
-	 * @return the pingInterval
-	 */
-	public Duration getPingInterval() {
-		return pingInterval;
-	}
+    /** Reconnect if stream is closed by server. Default: true.  */
+    var isKeepAlive: Boolean = true,
 
-	/**
-	 * @param pingInterval PingInterval to set
-	 */
-	public void setPingInterval(Duration pingInterval) {
-		this.pingInterval = pingInterval;
-	}
+    /** The reconnection interval. Default: 30s.  */
+    var reconnectionInterval: Duration = Duration.ofSeconds(10),
 
-	/**
-	 * @return the keepAlive
-	 */
-	public boolean isKeepAlive() {
-		return keepAlive;
-	}
+    /** The number of time the client tries to reconnect. Default: 5.  */
+    var maxReconnections: Int = 5,
 
-	/**
-	 * @param keepAlive KeepAlive to set
-	 */
-	public void setKeepAlive(boolean keepAlive) {
-		this.keepAlive = keepAlive;
-	}
+    /** The time the client waits for a server response before triggering a timeout. Default: 3min.*/
+    var noResponseTimeout: Duration = Duration.ofMinutes(3),
 
-	/**
-	 * @return the reconnectionInterval
-	 */
-	public Duration getReconnectionInterval() {
-		return reconnectionInterval;
-	}
+    /** Value added to [WebsocketClientConfiguration.noResponseTimeout] as time margin error. Default: 5s */
+    var noResponseTimeoutMarginError: Duration = Duration.ofSeconds(5),
 
-	/**
-	 * @param reconnectionInterval ReconnectionInterval to set
-	 */
-	public void setReconnectionInterval(Duration reconnectionInterval) {
-		this.reconnectionInterval = reconnectionInterval;
-	}
+    /** Time after which the client disconnects if stuck in closing state.  */
+    var disconnectionTimeout: Duration = Duration.ofSeconds(5),
 
-	/**
-	 * @return the maxReconnections
-	 */
-	public int getMaxReconnections() {
-		return maxReconnections;
-	}
-
-	/**
-	 * @param maxReconnections MaxReconnections to set
-	 */
-	public void setMaxReconnections(int maxReconnections) {
-		this.maxReconnections = maxReconnections;
-	}
-
-	/**
-	 * @return the noResponseTimeout
-	 */
-	public Duration getNoResponseTimeout() {
-		return noResponseTimeout;
-	}
-
-	/**
-	 * @param noResponseTimeout NoResponseTimeout to set
-	 */
-	public void setNoResponseTimeout(Duration noResponseTimeout) {
-		this.noResponseTimeout = noResponseTimeout;
-	}
-
-	/**
-	 * @return the noResponseTimeoutMarginError
-	 */
-	public Duration getNoResponseTimeoutMarginError() {
-		return noResponseTimeoutMarginError;
-	}
-
-	/**
-	 * @param noResponseTimeoutMarginError NoResponseTimeoutMarginError to set
-	 */
-	public void setNoResponseTimeoutMarginError(Duration noResponseTimeoutMarginError) {
-		this.noResponseTimeoutMarginError = noResponseTimeoutMarginError;
-	}
-
-	/**
-	 * @return the disconnectionTimeout
-	 */
-	public Duration getDisconnectionTimeout() {
-		return disconnectionTimeout;
-	}
-
-	/**
-	 * @param disconnectionTimeout DisconnectionTimeout to set
-	 */
-	public void setDisconnectionTimeout(Duration disconnectionTimeout) {
-		this.disconnectionTimeout = disconnectionTimeout;
-	}
-
-	/**
-	 * @return the closeAfter
-	 */
-	public Duration getCloseAfter() {
-		return closeAfter;
-	}
-
-	/**
-	 * @param closeAfter CloseAfter to set
-	 */
-	public void setCloseAfter(Duration closeAfter) {
-		this.closeAfter = closeAfter;
-	}
-
-	@Override
-	public String toString() {
-		return "WebsocketClientConfiguration [baseUrl=" + baseUrl + ", closeAfter=" + closeAfter
-				+ ", disconnectionTimeout=" + disconnectionTimeout
-				+ ", keepAlive=" + keepAlive + ", maxReconnections=" + maxReconnections + ", noResponseTimeout="
-				+ noResponseTimeout
-				+ ", noResponseTimeoutMarginError=" + noResponseTimeoutMarginError + ", pingInterval=" + pingInterval
-				+ ", reconnectionInterval="
-				+ reconnectionInterval + "]";
-	}
-}
+    /** Time after which the client will disconnect. Default: 1 day.  */
+    var closeAfter: Duration = Duration.ofDays(1),
+)

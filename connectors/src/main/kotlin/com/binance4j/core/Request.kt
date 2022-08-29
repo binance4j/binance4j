@@ -23,29 +23,36 @@
  */
 package com.binance4j.core
 
+import com.binance4j.core.Binance4j.Companion.MAPPER
 import com.binance4j.core.callback.ApiCallback
 import com.binance4j.core.callback.ApiCallbackAdapter
 import com.binance4j.core.client.RestMapping
 import com.binance4j.core.exception.ApiError
 import com.binance4j.core.exception.ApiException
-import com.binance4j.core.ratelimiter.RateLimiting
-import com.binance4j.core.ratelimiter.RateLimiting.Companion.isEnabled
-import com.fasterxml.jackson.databind.ObjectMapper
 import retrofit2.Call
 import java.io.IOException
 
 /**
  * A class that receives and executes sync and async retrofit calls.
+ * @property call Retrofit call
  */
-open class Request<T>
-/**
- * @param call Retrofit call.
- */(
-    /**
-     * The current API call.
-     */
-    private val call: Call<T>
-) {
+open class Request<T>(private val call: Call<T>) {
+    /** Is the request an order request. */
+    val isOrder: Boolean
+        get() = call.request().header(RestMapping.ORDER_H) != null
+
+    /** The request weight. */
+    val weight: Int
+        get() = call.request().header(RestMapping.WEIGHT_H)?.toInt() ?: 1
+
+    /** The request rateLimit. */
+    val rateLimit: String
+        get() = call.request().header(RestMapping.RATE_LIMIT_H) ?: "IP"
+
+    /** The request path. */
+    val path: String
+        get() = call.request().url.toUri().path
+
     // static final RateLimiter
     /**
      * Executes the request synchronously
@@ -83,11 +90,8 @@ open class Request<T>
      * Rate limits the API calls.
      */
     private fun acquire() {
-        if (isEnabled) {
-            if (limiters == null) limiters = RateLimiting()
-            limiters!!.raw().acquire(1)
-            limiters!!.weight().acquire(weight)
-        }
+        Binance4j.RATE_LIMITING.rawRequestLimiter.acquire(1)
+        Binance4j.RATE_LIMITING.requestWeightLimiter.acquire(weight)
     }
 
     /**
@@ -106,25 +110,4 @@ open class Request<T>
             return signedHeader ?: apiHeader
         }
 
-    /** If the request is an order request. */
-    val isOrder: Boolean = call.request().header(RestMapping.ORDER_H) != null
-
-    /** The request weight */
-    val weight: Int = call.request().header(RestMapping.WEIGHT_H)?.toInt() ?: 1
-
-    /** The request rateLimit */
-    val rateLimit: String = call.request().header(RestMapping.RATE_LIMIT_H) ?: "IP"
-
-    /**
-     * @return the request path
-     */
-    val path: String = call.request().url.toUri().path
-
-    companion object {
-        /** The Jackson Object mapper for deserializing the Api error response. */
-        private val MAPPER = ObjectMapper()
-
-        /** Rate limiting. */
-        private var limiters: RateLimiting? = null
-    }
 }

@@ -21,25 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.websocket
 
-package com.binance4j.websocket;
+import com.binance4j.websocket.client.WebsocketDepthClient
+import com.binance4j.websocket.dto.Depth
+import com.binance4j.websocket.dto.DepthUpdateSpeed
+import org.junit.jupiter.api.Test
 
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.websocket.client.WebsocketDepthClient;
-import com.binance4j.websocket.dto.Depth;
-import com.binance4j.websocket.dto.DepthUpdateSpeed;
-import org.junit.jupiter.api.Test;
-
-import java.util.concurrent.ExecutionException;
-
-class WebsocketDepthClientTest {
-    TestCallback<Depth> callback = new TestCallback<>();
+internal class WebsocketDepthClientTest {
+    var callback = TestCallback<Depth>()
 
     @Test
-    void test1() throws ApiException, InterruptedException, ExecutionException {
-        WebsocketDepthClient client = new WebsocketDepthClient(callback.getSymbol(), DepthUpdateSpeed.MS_100, callback);
-        callback.setWebsocketClient(client);
-        client.open();
-        callback.future.get();
+    fun test1() {
+        val client = WebsocketDepthClient(callback.symbol, DepthUpdateSpeed.MS_100, callback)
+        callback.websocketClient = client
+        client.open()
+        callback.future.get()
     }
 }

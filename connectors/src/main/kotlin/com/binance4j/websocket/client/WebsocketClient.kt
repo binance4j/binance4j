@@ -1,22 +1,23 @@
-package com.binance4j.websocket.client;
+package com.binance4j.websocket.client
 
-import com.binance4j.websocket.configuration.WebsocketClientConfiguration;
+import com.binance4j.websocket.configuration.WebsocketClientConfiguration
 
-/** A websocket client */
-public interface WebsocketClient {
-	/** Opens the stream. */
-	void open();
+/** A websocket client  */
+interface WebsocketClient {
+    /** Opens the stream.  */
+    fun open()
 
-	/** Forces the closing of the stream. */
-	void close();
+    /** Forces the closing of the stream.  */
+    fun close()
 
-	/**
-	 * Closes of the stream
-	 * 
-	 * @param force force the closing?
-	 */
-	void close(boolean force);
+    /**
+     * Closes of the stream
+     *
+     * @param force force the closing?
+     */
+    fun close(force: Boolean)
 
-	/** @return The client configuration. */
-	WebsocketClientConfiguration getConfiguration();
+    /** @return The client configuration.
+     */
+    val configuration: WebsocketClientConfiguration?
 }

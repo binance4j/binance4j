@@ -42,6 +42,7 @@ enum class DepositStatus(val value: String) {
     }
 
     companion object {
+        @JvmStatic
         fun fromValue(value: String): DepositStatus? {
             for (e in values()) {
                 if (e.toString() == value) {

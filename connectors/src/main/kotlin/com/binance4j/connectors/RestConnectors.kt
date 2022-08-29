@@ -237,14 +237,15 @@ class RestConnectors(var key: String, var secret: String) {
     }
 
     /**
-     * Updates the API keys.
+     * Updates API keys.
      *
      * @param key    New public key.
      * @param secret New secret key.
      */
-    fun updateKeys(key: String, secret: String) {
+    fun updateKeys(key: String, secret: String): RestConnectors {
         this.key = key
         this.secret = secret
+        return this
     }
 
     /**

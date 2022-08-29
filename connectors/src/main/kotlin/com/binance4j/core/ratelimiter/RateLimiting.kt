@@ -23,18 +23,38 @@
  */
 package com.binance4j.core.ratelimiter
 
-import com.binance4j.core.client.RateLimitClient
+import com.binance4j.connectors.Connectors
 import com.binance4j.core.client.RateLimits
 import com.binance4j.core.exception.ApiException
+import kotlin.system.exitProcess
 
 /**
  * Wrapper for all rate limiters
  */
-class RateLimiting {
-    private val rateLimitClient = RateLimitClient()
-    private lateinit var rawRequestLimiter: RateLimiter
-    private lateinit var requestWeightLimiter: RateLimiter
-    private lateinit var rateLimits: RateLimits
+class RateLimiting private constructor() {
+
+    lateinit var rawRequestLimiter: RateLimiter
+        private set
+
+    lateinit var requestWeightLimiter: RateLimiter
+        private set
+
+    lateinit var rateLimits: RateLimits
+        private set
+
+    /** Is Rate limit enabled? */
+    var isEnabled: Boolean = false
+        private set
+
+    /** Enables global rate limiting. */
+    fun enable() {
+        isEnabled = true
+    }
+
+    /** Disables global rate limiting. */
+    fun disable() {
+        isEnabled = false
+    }
 
     /**
      * Fetches rate limits and creates instance of rate limiters
@@ -43,52 +63,27 @@ class RateLimiting {
         // Fetch rate limit data
         try {
             disable()
-            rateLimits = rateLimitClient.rateLimits.sync()
-            // init raw request limiter with data
+            // init raw request and request weight limiter with data
+            // TODO correct
+            rateLimits = Connectors.REST.market().getExchangeInfo()
             rawRequestLimiter = RateLimiter(rateLimits.requests())
-            // init request weight limiter with data
             requestWeightLimiter = RateLimiter(rateLimits.weight())
             enable()
         } catch (e: ApiException) {
             e.printStackTrace()
-            System.exit(0)
+            exitProcess(0)
         }
-    }
-
-    /**
-     * @return the requestWeightLimiter
-     */
-    fun weight(): RateLimiter {
-        return requestWeightLimiter
-    }
-
-    /**
-     * @return the rawRequestLimiter
-     */
-    fun raw(): RateLimiter {
-        return rawRequestLimiter
     }
 
     companion object {
-        /**
-         * @return if rate limiting is enabled.
-         */
-        var isEnabled = true
-            private set
+        /** Singleton */
+        private lateinit var rateLimiting: RateLimiting
 
-        /**
-         * Enables global rate limiting.
-         */
-        fun enable() {
-            isEnabled = true
+        /** @return The cached instance. */
+        @JvmStatic
+        operator fun invoke(): RateLimiting {
+            if (!::rateLimiting.isInitialized) rateLimiting = RateLimiting()
+            return rateLimiting
         }
-
-        /**
-         * Disables global rate limiting.
-         */
-        fun disable() {
-            isEnabled = false
-        }
-        // static
     }
 }
