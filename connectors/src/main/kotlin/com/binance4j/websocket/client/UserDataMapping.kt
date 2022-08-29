@@ -24,7 +24,6 @@
 
 package com.binance4j.websocket.client
 
-import com.binance4j.core.client.RestMapping
 import com.binance4j.core.client.RestMapping.Companion.API_H
 import com.binance4j.core.client.RestMapping.Companion.IP_H
 import com.binance4j.core.client.RestMapping.Companion.WEIGHT_ONE_H

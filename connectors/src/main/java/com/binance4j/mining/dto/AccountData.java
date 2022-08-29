@@ -15,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Account data.")
 data class AccountData(
 @ApiModelProperty("Type of daily hashrate.")
-@JsonProperty("type") var type: String = "",
+ val type : String,
 @ApiModelProperty("Mining account.")
-@JsonProperty("userName") var userName: String = "",
+ val userName : String,
 @ApiModelProperty("List.") List<AccountList> list)
 {
 }

@@ -34,8 +34,7 @@ import com.binance4j.wallet.client.WalletClient
  * @property asset            Asset we want the balance.
  * @property needBtcValuation Get the BTC value of the asset.
  */
-@Param
 data class FundingWalletParams @JvmOverloads constructor(
-    var asset: String? = null,
-    var needBtcValuation: Boolean? = null
+	var asset: String? = null,
+	var needBtcValuation: Boolean? = null
 ) : Params

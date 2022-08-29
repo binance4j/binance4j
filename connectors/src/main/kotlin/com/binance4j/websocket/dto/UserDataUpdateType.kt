@@ -27,28 +27,28 @@ package com.binance4j.websocket.dto
 /** The user data update type.
  * @property value The enum string value. */
 enum class UserDataUpdateType(val value: String) {
-    /** Corresponds to "outboundAccountPosition" events.  */
-    ACCOUNT_POSITION_UPDATE("outboundAccountPosition"),
-
-    /** Corresponds to "balanceUpdate" events.  */
-    BALANCE_UPDATE("balanceUpdate"),
-
-    /** Corresponds to "executionReport" events.  */
-    ORDER_TRADE_UPDATE("executionReport");
-
-    override fun toString(): String = value
-
-    companion object {
-        /**
-         * @property eventTypeId Enum string value.
-         * @return The enum value.
-         */
-        @JvmStatic
-        fun getValue(eventTypeId: String): UserDataUpdateType = when (eventTypeId) {
-            ORDER_TRADE_UPDATE.value -> ORDER_TRADE_UPDATE
-            ACCOUNT_POSITION_UPDATE.value -> ACCOUNT_POSITION_UPDATE
-            BALANCE_UPDATE.value -> BALANCE_UPDATE
-            else -> throw RuntimeException("Unrecognized user data update event type id: $eventTypeId")
-        }
-    }
+	/** Corresponds to "outboundAccountPosition" events.  */
+	ACCOUNT_POSITION_UPDATE("outboundAccountPosition"),
+	
+	/** Corresponds to "balanceUpdate" events.  */
+	BALANCE_UPDATE("balanceUpdate"),
+	
+	/** Corresponds to "executionReport" events.  */
+	ORDER_TRADE_UPDATE("executionReport");
+	
+	override fun toString(): String = value
+	
+	companion object {
+		/**
+		 * @property eventTypeId Enum string value.
+		 * @return The enum value.
+		 */
+		@JvmStatic
+		fun getValue(eventTypeId: String): UserDataUpdateType = when (eventTypeId) {
+			ORDER_TRADE_UPDATE.value -> ORDER_TRADE_UPDATE
+			ACCOUNT_POSITION_UPDATE.value -> ACCOUNT_POSITION_UPDATE
+			BALANCE_UPDATE.value -> BALANCE_UPDATE
+			else -> throw RuntimeException("Unrecognized user data update event type id: $eventTypeId")
+		}
+	}
 }

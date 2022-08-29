@@ -5,6 +5,5 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** [MarginClient.getEnabledIsolatedAccountLimit] params. */
-@Param
 data class IsolatedAccountLimitParams() : Params {
 }

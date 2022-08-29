@@ -28,11 +28,11 @@ package com.binance4j.websocket.dto
  * @property value The result update speed.
  * */
 enum class DepthUpdateSpeed(val value: String) {
-    /** Update of 1000ms.  */
-    MS_1000("1000ms"),
-
-    /** Update of 100ms.  */
-    MS_100("100ms");
-
-    override fun toString(): String = value
+	/** Update of 1000ms.  */
+	MS_1000("1000ms"),
+	
+	/** Update of 100ms.  */
+	MS_100("100ms");
+	
+	override fun toString(): String = value
 }

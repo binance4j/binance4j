@@ -11,6 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Max transferable amount.")
 data class MaxTransferable(
 @ApiModelProperty("Max transferable amount.")
-@JsonProperty("amount") var amount: String = "")
+ val amount : String)
 {
 }

@@ -41,19 +41,19 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Net asset value event.")
 data class BLVTCandleEvent(
-    @ApiModelProperty("Event name.")
-    @JsonProperty("e")
-    var eventName: String = "",
-
-    @ApiModelProperty("Event time.")
-    @JsonProperty("E")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("BLVT name.")
-    @JsonProperty("s")
-    var name: String = "",
-
-    @ApiModelProperty("BLVT candle.")
-    @JsonProperty("k")
-    var candle: BLVTCandle? = null
+	@ApiModelProperty("Event name.")
+	@JsonProperty("e")
+	val eventName: String,
+	
+	@ApiModelProperty("Event time.")
+	@JsonProperty("E")
+	val eventTime: Long,
+	
+	@ApiModelProperty("BLVT name.")
+	@JsonProperty("s")
+	val name: String,
+	
+	@ApiModelProperty("BLVT candle.")
+	@JsonProperty("k")
+	var candle: BLVTCandle? = null
 )

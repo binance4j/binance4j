@@ -13,7 +13,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param txId           Transaction id in POST /sapi/v1/margin/repay.
  * @param archived       Set to true for archived data from 6 months ago.
  */
-@Param
 data class TransactionHistoryParams(
 String asset, String isolatedSymbol,
 Long txId, Boolean archived):Params

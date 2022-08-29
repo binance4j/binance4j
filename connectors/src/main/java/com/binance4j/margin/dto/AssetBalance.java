@@ -16,16 +16,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Asset balance of an Account.")
 data class AssetBalance(
 @ApiModelProperty("Asset name.")
-@JsonProperty("asset") var asset: String = "",
+ val asset : String,
 @ApiModelProperty("Borrowed quantity.")
-@JsonProperty("borrowed") var borrowed: String = "",
+ val borrowed : String,
 @ApiModelProperty("Free quantity.")
-@JsonProperty("free") var free: String = "",
+ val free : String,
 @ApiModelProperty("Borrow interest.")
-@JsonProperty("interest") var interest: String = "",
+ val interest : String,
 @ApiModelProperty("Locked quantity.")
-@JsonProperty("locked") var locked: String = "",
+ val locked : String,
 @ApiModelProperty("Net asset.")
-@JsonProperty("netAsset") var netAsset: String = "")
+ val netAsset : String)
 {
 }

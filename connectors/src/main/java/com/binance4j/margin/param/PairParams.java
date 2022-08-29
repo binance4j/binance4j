@@ -9,6 +9,5 @@ import com.binance4j.margin.client.MarginClient;
  * 
  * @param symbol Symbol.
  */
-@Param
 data class PairParams(String symbol) : Params {
 }

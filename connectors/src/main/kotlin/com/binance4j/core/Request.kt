@@ -26,7 +26,6 @@ package com.binance4j.core
 import com.binance4j.core.Binance4j.Companion.MAPPER
 import com.binance4j.core.callback.ApiCallback
 import com.binance4j.core.callback.ApiCallbackAdapter
-import com.binance4j.core.client.RestMapping
 import com.binance4j.core.exception.ApiError
 import com.binance4j.core.exception.ApiException
 import retrofit2.Call

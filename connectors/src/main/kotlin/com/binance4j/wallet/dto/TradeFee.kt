@@ -37,11 +37,11 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A trading pair trade fees.")
 data class TradeFee(
-    @ApiModelProperty("Trading pair.") @JsonProperty("symbol") var symbol: String = "",
-    @ApiModelProperty("Maker fees (limit order).")
-    @JsonProperty
-    var makerCommission: String = "",
-    @ApiModelProperty("Taker fees (market order).")
-    @JsonProperty
-    var takerCommission: String = ""
+	@ApiModelProperty("Trading pair.") val symbol: String,
+	@ApiModelProperty("Maker fees (limit order).")
+	@JsonProperty
+	val makerCommission: String,
+	@ApiModelProperty("Taker fees (market order).")
+	@JsonProperty
+	val takerCommission: String
 )

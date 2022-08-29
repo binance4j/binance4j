@@ -26,25 +26,25 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The SPOT account information.")
 data class Account(
 @ApiModelProperty("Maker commission.")
-@JsonProperty("makerCommission") var makerCommission: String = "",
+ val makerCommission : String,
 @ApiModelProperty("Taker commission.")
-@JsonProperty("takerCommission") var takerCommission: String = "",
+ val takerCommission : String,
 @ApiModelProperty("Buyer commission.")
-@JsonProperty("buyerCommission") var buyerCommission: String = "",
+ val buyerCommission : String,
 @ApiModelProperty("Seller commission.")
-@JsonProperty("sellerCommission") var sellerCommission: String = "",
+ val sellerCommission : String,
 @ApiModelProperty("Trade permission.")
-@JsonProperty("canTrade") var canTrade: Boolean = false,
+ val canTrade : Boolean,
 @ApiModelProperty("Withdrawal permission.")
-@JsonProperty("canWithdraw") var canWithdraw: Boolean = false,
+ val canWithdraw : Boolean,
 @ApiModelProperty("Deposit permission.")
-@JsonProperty("canDeposit") var canDeposit: Boolean = false,
+ val canDeposit : Boolean,
 @ApiModelProperty("Timestamp of the last data update.")
-@JsonProperty("updateTime") var updateTime: Long = 0L,
+ val updateTime : Long,
 @ApiModelProperty("Balances of each asset in the SPOT wallet.") List<AssetBalance> balances,
 @ApiModelProperty("Account Type .")
-@JsonProperty("accountType") var accountType: String = "",
+ val accountType : String,
 @ApiModelProperty("Permissions list.") List<String> permissions,
-@ApiModelProperty("Brokered account?") @JsonProperty("brokered") var brokered: Boolean = false)
+@ApiModelProperty("Brokered account?")  val brokered : Boolean)
 {
 }

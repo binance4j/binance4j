@@ -36,8 +36,15 @@ import com.binance4j.staking.dto.ProductType
  * @param productId Product id.
  * @param asset     Product name.
  */
-@Param
-data class PositionParams @JvmOverloads constructor(var product: String? = null, var productId: String? = null, var asset: String? = null) : Params {
-    @JvmOverloads
-    constructor(product: ProductType, productId: String? = null, asset: String? = null) : this(product.toString(), productId, asset)
+data class PositionParams @JvmOverloads constructor(
+	var product: String? = null,
+	var productId: String? = null,
+	var asset: String? = null
+) : Params {
+	@JvmOverloads
+	constructor(product: ProductType, productId: String? = null, asset: String? = null) : this(
+		product.toString(),
+		productId,
+		asset
+	)
 }

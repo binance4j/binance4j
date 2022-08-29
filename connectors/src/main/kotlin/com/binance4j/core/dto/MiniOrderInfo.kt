@@ -24,7 +24,6 @@
 
 package com.binance4j.core.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,15 +36,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Trade order information.")
 data class MiniOrderInfo(
-    @ApiModelProperty("The order symbol.")
-    @JsonProperty("symbol")
-    var symbol: String = "",
-
-    @ApiModelProperty("Order id.")
-    @JsonProperty("orderId")
-    var orderId: Long = 0L,
-
-    @ApiModelProperty("Client order id.")
-    @JsonProperty("clientOrderId")
-    var clientOrderId: String = ""
+	@ApiModelProperty("The order symbol.")
+	val symbol: String,
+	
+	@ApiModelProperty("Order id.")
+	val orderId: Long,
+	
+	@ApiModelProperty("Client order id.")
+	val clientOrderId: String
 )

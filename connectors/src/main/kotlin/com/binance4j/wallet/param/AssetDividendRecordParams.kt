@@ -33,5 +33,4 @@ import com.binance4j.wallet.client.WalletClient
  *
  * @property asset Asset.
  */
-@Param
 data class AssetDividendRecordParams(var asset: String? = null) : Params

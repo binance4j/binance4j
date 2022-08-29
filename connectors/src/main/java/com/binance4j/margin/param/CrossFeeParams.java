@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param coin     Related coin.
  * @param vipLevel Related VIP level.
  */
-@Param
 data class CrossFeeParams(
 String coin, Integer vipLevel):Params
 {

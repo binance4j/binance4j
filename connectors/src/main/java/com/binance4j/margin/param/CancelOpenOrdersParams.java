@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param symbol     Trade symbol
  * @param isIsolated For isolated margin or nott. Default: false.
  */
-@Param
 data class CancelOpenOrdersParams(
 String symbol, Boolean isIsolated):Params
 {

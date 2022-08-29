@@ -33,5 +33,4 @@ import com.binance4j.wallet.client.WalletClient
  *
  * @property symbol Trading pair we want the fees.
  */
-@Param
 data class TradeFeeParams(var symbol: String? = null) : Params

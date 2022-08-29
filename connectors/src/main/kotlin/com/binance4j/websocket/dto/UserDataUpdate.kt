@@ -51,23 +51,22 @@ import io.swagger.annotations.ApiModelProperty
 @JsonDeserialize(using = UserDataUpdateEventDeserializer::class)
 @ApiModel("User data update event")
 data class UserDataUpdate(
-    @ApiModelProperty("Event type.")
-    @JsonProperty("eventType")
-    var eventType: UserDataUpdateType? = null,
-
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("eventTime")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Account update.")
-    @JsonProperty("outboundAccountPositionUpdateEvent")
-    var outboundAccountPositionUpdateEvent: AccountUpdate? = null,
-
-    @ApiModelProperty("Balance update.")
-    @JsonProperty("balanceUpdateEvent")
-    var balanceUpdateEvent: BalanceUpdate? = null,
-
-    @ApiModelProperty("Order trade update.")
-    @JsonProperty("orderTradeUpdateEvent")
-    var orderTradeUpdateEvent: OrderTradeUpdate? = null
+	@ApiModelProperty("Event type.")
+	
+	var eventType: UserDataUpdateType? = null,
+	
+	@ApiModelProperty("Timestamp.")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Account update.")
+	
+	var outboundAccountPositionUpdateEvent: AccountUpdate? = null,
+	
+	@ApiModelProperty("Balance update.")
+	
+	var balanceUpdateEvent: BalanceUpdate? = null,
+	
+	@ApiModelProperty("Order trade update.")
+	
+	var orderTradeUpdateEvent: OrderTradeUpdate? = null
 )

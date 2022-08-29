@@ -17,7 +17,6 @@ import com.binance4j.mining.dto.WorkerStatus;
  * @param sortColumn   Miner sort.
  * @param workerStatus Miner status.
  */
-@Param
 data class MinersParams(
 String algo, String userName,
 Integer pageIndex, String sort,

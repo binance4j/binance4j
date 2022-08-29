@@ -7,6 +7,5 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * {@link MiningClient} params.
  */
-@Param
 data class HashrateResaleListParams() : Params {
 }

@@ -36,10 +36,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The system status.")
 data class SystemStatus(
-    @ApiModelProperty("System status code (0: normal，1：maintenance).")
-    @JsonProperty
-    var status: Int = 0,
-    @ApiModelProperty("System status message (\"normal\" or \"system_maintenance\").")
-    @JsonProperty
-    var msg: String = ""
+	@ApiModelProperty("System status code (0: normal，1：maintenance).")
+	@JsonProperty
+	val status: Int
+	@ApiModelProperty("System status message (\"normal\" or \"system_maintenance\").")
+@JsonProperty
+val msg: String
 )

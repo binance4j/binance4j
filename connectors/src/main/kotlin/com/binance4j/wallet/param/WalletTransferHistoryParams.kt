@@ -36,7 +36,6 @@ import com.binance4j.wallet.dto.WalletTransferType
  * @property fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
  * @property toSymbol   Mandatory when {@code MARGIN_ISOLATEDMARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
  */
-@Param
 data class WalletTransferHistoryParams @JvmOverloads constructor(
 	var type: WalletTransferType,
 	var fromSymbol: String? = null,

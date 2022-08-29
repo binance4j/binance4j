@@ -24,7 +24,6 @@
 
 package com.binance4j.blvt.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,15 +36,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("BLVT User Limit Info.")
 data class LimitInfo(
-    @ApiModelProperty("Token name.")
-    @JsonProperty("tokenName")
-    var tokenName: String = "",
-
-    @ApiModelProperty("User daily total purchase limit in USDT.")
-    @JsonProperty("userDailyTotalPurchaseLimit")
-    var userDailyTotalPurchaseLimit: String = "",
-
-    @ApiModelProperty("User daily total redeem limit in USDT.")
-    @JsonProperty("userDailyTotalRedeemLimit")
-    var userDailyTotalRedeemLimit: String = ""
+	@ApiModelProperty("Token name.")
+	val tokenName: String,
+	
+	@ApiModelProperty("User daily total purchase limit in USDT.")
+	val userDailyTotalPurchaseLimit: String,
+	
+	@ApiModelProperty("User daily total redeem limit in USDT.")
+	val userDailyTotalRedeemLimit: String
 )

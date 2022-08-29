@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param asset    Asset.
  * @param vipLevel VIP level.
  */
-@Param
 data class InterestRateHistoryParams(
 String asset, Integer vipLevel):Params
 {

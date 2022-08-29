@@ -37,13 +37,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Trading status trigger condition.")
 data class ApiTradingStatusTriggerCondition(
-    @ApiModelProperty("Number of GTC orders.")
-    @JsonProperty("GCR")
-    var gcr: Long = 0L,
-    @ApiModelProperty("Number of FOK/IOC orders.")
-    @JsonProperty("IFER")
-    var ifer: Long = 0L,
-    @ApiModelProperty("Number of FOK/IOC orders.")
-    @JsonProperty("UFR")
-    var ufr: Long = 0L
+	@ApiModelProperty("Number of GTC orders.")
+	val gcr: Long,
+	@ApiModelProperty("Number of FOK/IOC orders.")
+	val ifer: Long,
+	@ApiModelProperty("Number of FOK/IOC orders.")
+	val ufr: Long
 )

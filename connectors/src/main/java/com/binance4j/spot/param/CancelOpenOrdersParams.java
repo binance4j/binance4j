@@ -9,6 +9,5 @@ import com.binance4j.spot.client.SpotClient;
  * 
  * @param symbol Trade symbol.
  */
-@Param
 data class CancelOpenOrdersParams(String symbol) : Params {
 }

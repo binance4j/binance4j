@@ -27,13 +27,13 @@ package com.binance4j.rebate.dto
  * @property value Value.
  */
 enum class RebateType(val value: String) {
-    /** commission rebate  */
-    COMMISSION_REBATE("1"),
-
-    /** referral kickback  */
-    REFERRAL_KICKBACK("2");
-
-    override fun toString(): String {
-        return value
-    }
+	/** commission rebate  */
+	COMMISSION_REBATE("1"),
+	
+	/** referral kickback  */
+	REFERRAL_KICKBACK("2");
+	
+	override fun toString(): String {
+		return value
+	}
 }

@@ -32,58 +32,58 @@ import kotlin.system.exitProcess
  * Wrapper for all rate limiters
  */
 class RateLimiting private constructor() {
-
-    lateinit var rawRequestLimiter: RateLimiter
-        private set
-
-    lateinit var requestWeightLimiter: RateLimiter
-        private set
-
-    lateinit var rateLimits: RateLimits
-        private set
-
-    /** Is Rate limit enabled? */
-    var isEnabled: Boolean = false
-        private set
-
-    /** Enables global rate limiting. */
-    fun enable() {
-        isEnabled = true
-    }
-
-    /** Disables global rate limiting. */
-    fun disable() {
-        isEnabled = false
-    }
-
-    /**
-     * Fetches rate limits and creates instance of rate limiters
-     */
-    init {
-        // Fetch rate limit data
-        try {
-            disable()
-            // init raw request and request weight limiter with data
-            // TODO correct
-            rateLimits = Connectors.REST.market().getExchangeInfo()
-            rawRequestLimiter = RateLimiter(rateLimits.requests())
-            requestWeightLimiter = RateLimiter(rateLimits.weight())
-            enable()
-        } catch (e: ApiException) {
-            e.printStackTrace()
-            exitProcess(0)
-        }
-    }
-
-    companion object {
-        /** Singleton */
-        private lateinit var rateLimiting: RateLimiting
-
-        /** @return The cached instance. */
-        @JvmStatic
-        operator fun invoke(): RateLimiting {
-            if (!::rateLimiting.isInitialized) rateLimiting = RateLimiting()
-            return rateLimiting
-        }
-    }
+	
+	lateinit var rawRequestLimiter: RateLimiter
+		private set
+	
+	lateinit var requestWeightLimiter: RateLimiter
+		private set
+	
+	lateinit var rateLimits: RateLimits
+		private set
+	
+	/** Is Rate limit enabled? */
+	val isEnabled: Boolean
+		private set
+	
+	/** Enables global rate limiting. */
+	fun enable() {
+		isEnabled = true
+	}
+	
+	/** Disables global rate limiting. */
+	fun disable() {
+		isEnabled = false
+	}
+	
+	/**
+	 * Fetches rate limits and creates instance of rate limiters
+	 */
+	init {
+		// Fetch rate limit data
+		try {
+			disable()
+			// init raw request and request weight limiter with data
+			// TODO correct
+			rateLimits = Connectors.`rest()`.market().getExchangeInfo()
+			rawRequestLimiter = RateLimiter(rateLimits.requests())
+			requestWeightLimiter = RateLimiter(rateLimits.weight())
+			enable()
+		} catch (e: ApiException) {
+			e.printStackTrace()
+			exitProcess(0)
+		}
+	}
+	
+	companion object {
+		/** Singleton */
+		private lateinit var rateLimiting: RateLimiting
+		
+		/** @return The cached instance. */
+		@JvmStatic
+		operator fun invoke(): RateLimiting {
+			if (!::rateLimiting.isInitialized) rateLimiting = RateLimiting()
+			return rateLimiting
+		}
+	}
 }

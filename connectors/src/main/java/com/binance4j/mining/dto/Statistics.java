@@ -33,11 +33,11 @@ Map<String, String> profitToday,
 @ApiModelProperty("Yesterday's earnings.")
 Map<String, String> profitYesterday,
 @ApiModelProperty("Mining account.") @JsonProperty("userName : String = "", @ApiModelProperty("Hashrate unit.") var unit ")
-var userName: String = "",
+val userName : String,
 @ApiModelProperty("Hashrate unit.")
-var unit: String = "",
+val unit : String,
 @ApiModelProperty("Algorithm.")
 @JsonProperty("algo ")
-var algo: String = "")
+val algo : String)
 {
 }

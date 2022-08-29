@@ -24,7 +24,6 @@
 
 package com.binance4j.fiat.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -44,42 +43,33 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A fiat payment.")
 data class Payment(
-    @ApiModelProperty("Order No.")
-    @JsonProperty("orderNo")
-    var orderNo: String = "",
-
-    @ApiModelProperty("Fiat trade amount.")
-    @JsonProperty("sourceAmount")
-    var sourceAmount: String = "",
-
-    @ApiModelProperty("Fiat token.")
-    @JsonProperty("fiatCurrency")
-    var fiatCurrency: String = "",
-
-    @ApiModelProperty("Crypto trade amount.")
-    @JsonProperty("obtainAmount")
-    var obtainAmount: String = "",
-
-    @ApiModelProperty("Crypto token.")
-    @JsonProperty("cryptoCurrency")
-    var cryptoCurrency: String = "",
-
-    @ApiModelProperty("Trade fee.")
-    @JsonProperty("totalFee")
-    var totalFee: String = "",
-
-    @ApiModelProperty("Price.")
-    @JsonProperty("price")
-    var price: String = "",
-
-    @ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
-    @JsonProperty
-    var status: String = "",
-    @ApiModelProperty("Create time in ms.")
-    @JsonProperty("createTime")
-    var createTime: Long = 0L,
-
-    @ApiModelProperty("Update time in ms.")
-    @JsonProperty("updateTime")
-    var updateTime: Long = 0L
+	@ApiModelProperty("Order No.")
+	val orderNo: String,
+	
+	@ApiModelProperty("Fiat trade amount.")
+	val sourceAmount: String,
+	
+	@ApiModelProperty("Fiat token.")
+	val fiatCurrency: String,
+	
+	@ApiModelProperty("Crypto trade amount.")
+	val obtainAmount: String,
+	
+	@ApiModelProperty("Crypto token.")
+	val cryptoCurrency: String,
+	
+	@ApiModelProperty("Trade fee.")
+	val totalFee: String,
+	
+	@ApiModelProperty("Price.")
+	val price: String,
+	
+	@ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
+	val status: String,
+	
+	@ApiModelProperty("Create time in ms.")
+	val createTime: Long,
+	
+	@ApiModelProperty("Update time in ms.")
+	val updateTime: Long
 )

@@ -11,7 +11,6 @@ import com.binance4j.spot.client.SpotClient;
  * @param orderId Order id of the trade.
  * @param fromId  Id from which we search trades.
  */
-@Param
 data class TradesParams(
 String symbol, Long orderId,
 Long fromId):Params

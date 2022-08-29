@@ -11,7 +11,6 @@ import com.binance4j.mining.client.MiningClient;
  * @param userName Mining account test.
  * @param coin     Coin name.
  */
-@Param
 data class ProfitsParams(
 String algo, String userName,
 String coin):Params

@@ -32,14 +32,14 @@ public class NewOCOOrderParams:Params
 	/** A unique Id for the limit order */
 	String limitClientOrderId;
 	/** Used to make the LIMIT_MAKER leg an iceberg order. */
-	@JsonProperty("limitIcebergQty")
+	
 	String limitIcebergQuantity;
 	/** A unique Id for the stop loss/stop loss limit leg */
 	String stopClientOrderId;
 	/** If provided, stopLimitTimeInForce is required. */
 	String stopLimitPrice;
 	/** Used with STOP_LOSS_LIMIT leg to make an iceberg order. */
-	@JsonProperty("stopIcebergQty")
+	
 	String stopIcebergQuantity;
 	/** Valid values are GTC/FOK/IOC */
 	TimeInForce stopLimitTimeInForce;

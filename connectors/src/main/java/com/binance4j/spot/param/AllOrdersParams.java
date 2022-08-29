@@ -11,7 +11,6 @@ import com.binance4j.spot.client.SpotClient;
  * @param orderId If orderId is set, it will get orders &gt;= that orderId. Otherwise, most recent orders are returned.
  *                    If startTime and/or endTime provided, orderId is not required.
  */
-@Param
 data class AllOrdersParams(
 String symbol, Long orderId):Params
 {

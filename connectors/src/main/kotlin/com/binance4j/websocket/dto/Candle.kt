@@ -64,75 +64,57 @@ import io.swagger.annotations.ApiModelProperty
 @JsonSerialize(using = CandlestickEventSerializer::class)
 @ApiModel("Kline/candle for a symbol.")
 data class Candle(
-    @ApiModelProperty("Candlestick open timestamp in milliseconds")
-    @JsonProperty("openTime")
-    var openTime: Long = 0L,
-
-    @ApiModelProperty("Open value")
-    @JsonProperty("open")
-    var open: String = "",
-
-    @ApiModelProperty("High value")
-    @JsonProperty("high")
-    var high: String = "",
-
-    @ApiModelProperty("Low value")
-    @JsonProperty("low")
-    var low: String = "",
-
-    @ApiModelProperty("Close value")
-    @JsonProperty("close")
-    var close: String = "",
-
-    @ApiModelProperty("Traded volume in the interval")
-    @JsonProperty("volume")
-    var volume: String = "",
-
-    @ApiModelProperty("Candlestick close timestamp in milliseconds")
-    @JsonProperty("closeTime")
-    var closeTime: Long = 0L,
-
-    @ApiModelProperty("Quote asset traded volume")
-    @JsonProperty("quoteAssetVolume")
-    var quoteAssetVolume: String = "",
-
-    @ApiModelProperty("Number of trades")
-    @JsonProperty("numberOfTrades")
-    var numberOfTrades: Long = 0L,
-
-    @ApiModelProperty("Taker buy base asset volume")
-    @JsonProperty("takerBuyBaseAssetVolume")
-    var takerBuyBaseAssetVolume: String = "",
-
-    @ApiModelProperty("Taker buy quote asset volume")
-    @JsonProperty("takerBuyQuoteAssetVolume")
-    var takerBuyQuoteAssetVolume: String = "",
-
-    @ApiModelProperty("Event type.")
-    @JsonProperty("eventType")
-    var eventType: String = "",
-
-    @ApiModelProperty("Timestamp in ms.")
-    @JsonProperty("eventTime")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Trading pair.")
-    @JsonProperty("symbol")
-    var symbol: String = "",
-
-    @ApiModelProperty("Interval id.")
-    @JsonProperty("intervalId")
-    var intervalId: String = "",
-
-    @ApiModelProperty("First trade id.")
-    @JsonProperty("firstTradeId")
-    var firstTradeId: Long = 0L,
-
-    @ApiModelProperty("Last trade id.")
-    @JsonProperty("lastTradeId")
-    var lastTradeId: Long = 0L,
-
-    @ApiModelProperty("Is it the last bar of the interval?")
-    @JsonProperty("isBarFinal")
-    var isBarFinal: Boolean = false
+	@ApiModelProperty("Candlestick open timestamp in milliseconds")
+	val openTime: Long,
+	
+	@ApiModelProperty("Open value")
+	val open: String,
+	
+	@ApiModelProperty("High value")
+	val high: String,
+	
+	@ApiModelProperty("Low value")
+	val low: String,
+	
+	@ApiModelProperty("Close value")
+	val close: String,
+	
+	@ApiModelProperty("Traded volume in the interval")
+	val volume: String,
+	
+	@ApiModelProperty("Candlestick close timestamp in milliseconds")
+	val closeTime: Long,
+	
+	@ApiModelProperty("Quote asset traded volume")
+	val quoteAssetVolume: String,
+	
+	@ApiModelProperty("Number of trades")
+	val numberOfTrades: Long,
+	
+	@ApiModelProperty("Taker buy base asset volume")
+	val takerBuyBaseAssetVolume: String,
+	
+	@ApiModelProperty("Taker buy quote asset volume")
+	val takerBuyQuoteAssetVolume: String,
+	
+	@ApiModelProperty("Event type.")
+	val eventType: String,
+	
+	@ApiModelProperty("Timestamp in ms.")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Trading pair.")
+	val symbol: String,
+	
+	@ApiModelProperty("Interval id.")
+	val intervalId: String,
+	
+	@ApiModelProperty("First trade id.")
+	val firstTradeId: Long,
+	
+	@ApiModelProperty("Last trade id.")
+	val lastTradeId: Long,
+	
+	@ApiModelProperty("Is it the last bar of the interval?")
+	val isBarFinal: Boolean
 )

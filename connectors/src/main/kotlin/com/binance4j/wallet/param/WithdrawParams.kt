@@ -41,15 +41,14 @@ import com.binance4j.wallet.client.WalletClient
  * @property name              Description of the address. Space in name should be encoded into %20.
  * @property walletType        The wallet type for withdraw.
  */
-@Param
 data class WithdrawParams @JvmOverloads constructor(
-    var coin: String,
-    var address: String,
-    var amount: String,
-    var withdrawOrderId: String? = null,
-    var network: String? = null,
-    var addressTag: String? = null,
-    var transactionFeeFlag: Boolean? = null,
-    var name: String? = null,
-    var walletType: String? = null,
+	var coin: String,
+	var address: String,
+	var amount: String,
+	var withdrawOrderId: String? = null,
+	var network: String? = null,
+	var addressTag: String? = null,
+	var transactionFeeFlag: Boolean? = null,
+	var name: String? = null,
+	var walletType: String? = null,
 ) : Params

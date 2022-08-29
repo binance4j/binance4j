@@ -10,6 +10,5 @@ import com.binance4j.mining.client.MiningClient;
  * @param algo     Transfer algorithm.
  * @param userName Mining account.
  */
-@Param
 data class AccountProfitsParams(String algo, String userName) : Params {
 }

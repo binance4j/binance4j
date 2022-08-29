@@ -29,13 +29,11 @@ package com.binance4j.fiat.dto
  * @property value Value
  */
 enum class PaymentType(var value: String) {
-    /** Buy. */
-    BUY("0"),
-
-    /** Sell. */
-    SELL("1");
-
-    override fun toString(): String {
-        return value
-    }
+	/** Buy. */
+	BUY("0"),
+	
+	/** Sell. */
+	SELL("1");
+	
+	override fun toString(): String = value
 }

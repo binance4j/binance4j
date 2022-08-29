@@ -45,39 +45,39 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Net asset value.")
 data class BLVT(
-    @ApiModelProperty("Event type.")
-    @JsonProperty("e")
-    var eventType: String = "",
-
-    @ApiModelProperty("Event time.")
-    @JsonProperty("E")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Name.")
-    @JsonProperty("s")
-    var name: String = "",
-
-    @ApiModelProperty("Tokens issued.")
-    @JsonProperty("m")
-    var tokensIssued: String = "",
-
-    @ApiModelProperty("BVLT basket.")
-    @JsonProperty("b")
-    var baskets:List<BLVTBasket> = emptyList(),
-
-    @ApiModelProperty("Nav.")
-    @JsonProperty("n")
-    var nav: String = "",
-
-    @ApiModelProperty("Real leverage.")
-    @JsonProperty("l")
-    var realLeverage: String = "",
-
-    @ApiModelProperty("Leverage.")
-    @JsonProperty("t")
-    var leverage: Int = 0,
-
-    @ApiModelProperty("Funding ratio.")
-    @JsonProperty("f")
-    var fundingRatio: String = ""
+	@ApiModelProperty("Event type.")
+	@JsonProperty("e")
+	val eventType: String,
+	
+	@ApiModelProperty("Event time.")
+	@JsonProperty("E")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Name.")
+	@JsonProperty("s")
+	val name: String,
+	
+	@ApiModelProperty("Tokens issued.")
+	@JsonProperty("m")
+	val tokensIssued: String,
+	
+	@ApiModelProperty("BVLT basket.")
+	@JsonProperty("b")
+	var baskets: List<BLVTBasket> = emptyList(),
+	
+	@ApiModelProperty("Nav.")
+	@JsonProperty("n")
+	val nav: String,
+	
+	@ApiModelProperty("Real leverage.")
+	@JsonProperty("l")
+	val realLeverage: String,
+	
+	@ApiModelProperty("Leverage.")
+	@JsonProperty("t")
+	val leverage: Int
+	
+	@ApiModelProperty("Funding ratio.")
+@JsonProperty("f")
+val fundingRatio: String
 )

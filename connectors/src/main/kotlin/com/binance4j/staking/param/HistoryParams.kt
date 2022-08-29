@@ -37,8 +37,15 @@ import com.binance4j.staking.dto.TransactionType
  * @property txnType Transaction type.
  * @property asset   Product name.
  */
-@Param
-data class HistoryParams @JvmOverloads constructor(var product: String, var txnType: String, var asset: String? = null) : Params {
-    @JvmOverloads
-    constructor(product: ProductType, txnType: TransactionType, asset: String? = null) : this(product.toString(), txnType.toString(), asset)
+data class HistoryParams @JvmOverloads constructor(
+	var product: String,
+	var txnType: String,
+	var asset: String? = null
+) : Params {
+	@JvmOverloads
+	constructor(product: ProductType, txnType: TransactionType, asset: String? = null) : this(
+		product.toString(),
+		txnType.toString(),
+		asset
+	)
 }

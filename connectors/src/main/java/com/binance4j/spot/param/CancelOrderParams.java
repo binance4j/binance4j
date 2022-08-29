@@ -12,7 +12,6 @@ import com.binance4j.spot.client.SpotClient;
  * @param origClientOrderId Original client order id.
  * @param newClientOrderId  New client order id.
  */
-@Param
 data class CancelOrderParams(
 String symbol, Long orderId,
 String origClientOrderId, String newClientOrderId):Params

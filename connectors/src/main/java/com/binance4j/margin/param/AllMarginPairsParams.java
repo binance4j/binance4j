@@ -5,6 +5,5 @@ import com.binance4j.core.param.Params;
 import com.binance4j.margin.client.MarginClient;
 
 /** [MarginClient.getAllCrossMarginPairs] params. */
-@Param
 data class AllMarginPairsParams() : Params {
 }

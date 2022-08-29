@@ -28,28 +28,28 @@ package com.binance4j.wallet.dto
  * @property value The status number.
  * */
 enum class DepositStatus(val value: String) {
-    /** Pending  */
-    PENDING("0"),
-
-    /** Cannot withdraw  */
-    CANNOT_WITHDRAW("6"),
-
-    /** Success  */
-    SUCCESS("1");
-
-    override fun toString(): String {
-        return value
-    }
-
-    companion object {
-        @JvmStatic
-        fun fromValue(value: String): DepositStatus? {
-            for (e in values()) {
-                if (e.toString() == value) {
-                    return e
-                }
-            }
-            return null
-        }
-    }
+	/** Pending  */
+	PENDING("0"),
+	
+	/** Cannot withdraw  */
+	CANNOT_WITHDRAW("6"),
+	
+	/** Success  */
+	SUCCESS("1");
+	
+	override fun toString(): String {
+		return value
+	}
+	
+	companion object {
+		@JvmStatic
+		fun fromValue(value: String): DepositStatus? {
+			for (e in values()) {
+				if (e.toString() == value) {
+					return e
+				}
+			}
+			return null
+		}
+	}
 }

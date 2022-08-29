@@ -20,23 +20,23 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Isolated asset in isolated pair.")
 data class IsolatedAsset(
 @ApiModelProperty("Asset name.")
-@JsonProperty("asset") var asset: String = "",
+ val asset : String,
 @ApiModelProperty("Borrowed quantity.")
-@JsonProperty("borrowed") var borrowed: String = "",
+ val borrowed : String,
 @ApiModelProperty("Free quantity.")
-@JsonProperty("free") var free: String = "",
+ val free : String,
 @ApiModelProperty("Loan interest.")
-@JsonProperty("interest") var interest: String = "",
+ val interest : String,
 @ApiModelProperty("Locked quantity.")
-@JsonProperty("locked") var locked: String = "",
+ val locked : String,
 @ApiModelProperty("Net asset quantity.")
-@JsonProperty("netAsset") var netAsset: String = "",
+ val netAsset : String,
 @ApiModelProperty("Net asset of Bitcoin.")
-@JsonProperty("netAssetOfBtc") var netAssetOfBtc: String = "",
+ val netAssetOfBtc : String,
 @ApiModelProperty("Asset total quantity.")
-@JsonProperty("totalAsset") var totalAsset: String = "",
+ val totalAsset : String,
 @ApiModelProperty("Can the account borrow this asset?")
-@JsonProperty("borrowEnabled") var borrowEnabled: Boolean = false,
-@ApiModelProperty("Can the account repay this asset?") @JsonProperty("repayEnabled") var repayEnabled: Boolean = false)
+ val borrowEnabled : Boolean,
+@ApiModelProperty("Can the account repay this asset?")  val repayEnabled : Boolean)
 {
 }

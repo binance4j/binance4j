@@ -16,15 +16,15 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An isolated asset pair.")
 data class IsolatedSymbol(
 @ApiModelProperty("Asset pair.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Base asset.")
-@JsonProperty("base") var base: String = "",
+ val base : String,
 @ApiModelProperty("Quote asset.")
-@JsonProperty("quote") var quote: String = "",
+ val quote : String,
 @ApiModelProperty("Is margin trade allowed?")
-@JsonProperty("isMarginTrade") var isMarginTrade: Boolean = false,
+ val isMarginTrade : Boolean,
 @ApiModelProperty("Is purchase allowed?")
-@JsonProperty("isBuyAllowed") var isBuyAllowed: Boolean = false,
-@ApiModelProperty("Is sale allowed?") @JsonProperty("isSellAllowed") var isSellAllowed: Boolean = false)
+ val isBuyAllowed : Boolean,
+@ApiModelProperty("Is sale allowed?")  val isSellAllowed : Boolean)
 {
 }

@@ -24,12 +24,8 @@
 
 package com.binance4j.wallet.param
 
-import com.binance4j.core.annotation.Param
-import com.binance4j.core.param.Params
-
 /**
  * [WalletClient#disableFastWithdrawSwitch},{@link WalletClient.enableFastWithdrawSwitch]
  * params.
  */
-@Param
 class FastWithdrawSwitchParams : Params

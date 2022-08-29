@@ -18,18 +18,18 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An asset transfer record between two accounts.")
 data class IsolatedTransferRecord(
 @ApiModelProperty("Transfered amount.")
-@JsonProperty("amount") var amount: String = "",
+ val amount : String,
 @ApiModelProperty("Transfered asset.")
-@JsonProperty("asset") var asset: String = "",
+ val asset : String,
 @ApiModelProperty("Transfer status.")
-@JsonProperty("status") var status: String = "",
+ val status : String,
 @ApiModelProperty("Transfer timestamp in ms.")
-@JsonProperty("timestamp") var timestamp: Long = 0L,
+ val timestamp : Long,
 @ApiModelProperty("Transaction id.")
-@JsonProperty("txId") var txId: Long = 0L,
+ val txId : Long,
 @ApiModelProperty("Account the asset is transfered from.")
-@JsonProperty("transFrom") var transFrom: String = "",
+ val transFrom : String,
 @ApiModelProperty("Account the asset is transfered to.")
-@JsonProperty("transTo") var transTo: String = "")
+ val transTo : String)
 {
 }

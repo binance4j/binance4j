@@ -45,23 +45,23 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Account update event which will reflect the balance changes of the account. This event is embedded as part of a user data update event.")
 data class BalanceUpdate(
-    @ApiModelProperty("Event type.")
-    @JsonProperty("e")
-    var eventType: String = "",
-
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("E")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Asset.")
-    @JsonProperty("a")
-    var asset: String = "",
-
-    @ApiModelProperty("Balance delta.")
-    @JsonProperty("d")
-    var balanceDelta: String = "",
-
-    @ApiModelProperty("Clear time in ms.")
-    @JsonProperty("T")
-    var clearTime: Long = 0L
+	@ApiModelProperty("Event type.")
+	@JsonProperty("e")
+	val eventType: String,
+	
+	@ApiModelProperty("Timestamp.")
+	@JsonProperty("E")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Asset.")
+	@JsonProperty("a")
+	val asset: String,
+	
+	@ApiModelProperty("Balance delta.")
+	@JsonProperty("d")
+	val balanceDelta: String,
+	
+	@ApiModelProperty("Clear time in ms.")
+	@JsonProperty("T")
+	val clearTime: Long
 )

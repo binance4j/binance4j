@@ -42,35 +42,28 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Staking product detail.")
 data class ProductDetail(
-    @ApiModelProperty("Asset.")
-    @JsonProperty("asset")
-    var asset: String = "",
+	@ApiModelProperty("Asset.")
+	val asset: String,
+	
+	@ApiModelProperty("Reward Asset.")
+	val rewardAsset: String,
+	
+	@ApiModelProperty("Duration in ms.")
+	
+	val duration: Int
+	
+	@ApiModelProperty("Renewable.")
+val renewable: Boolean,
 
-    @ApiModelProperty("Reward Asset.")
-    @JsonProperty("rewardAsset")
-    var rewardAsset: String = "",
+@ApiModelProperty("Apy.")
+val apy: String,
 
-    @ApiModelProperty("Duration in ms.")
-    @JsonProperty("duration")
-    var duration: Int = 0,
+@ApiModelProperty("Extra reward asset.")
+val extraRewardAsset: String,
 
-    @ApiModelProperty("Renewable.")
-    @JsonProperty("renewable")
-    var renewable: Boolean = false,
+@ApiModelProperty("Extra reward APY.")
+val extraRewardsAPY: String,
 
-    @ApiModelProperty("Apy.")
-    @JsonProperty("apy")
-    var apy: String = "",
-
-    @ApiModelProperty("Extra reward asset.")
-    @JsonProperty("extraRewardAsset")
-    var extraRewardAsset: String = "",
-
-    @ApiModelProperty("Extra reward APY.")
-    @JsonProperty("extraRewardsAPY")
-    var extraRewardsAPY: String = "",
-
-    @ApiModelProperty("project.")
-    @JsonProperty("project")
-    var project: String = ""
+@ApiModelProperty("project.")
+val project: String
 )

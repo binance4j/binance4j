@@ -21,21 +21,21 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An OCO order record.")
 data class OCOOrderRecord(
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId: Long = 0L,
+ val orderListId : Long,
 @ApiModelProperty("Transaction timestamp in ms.")
-@JsonProperty("transactionTime") var transactionTime: Long = 0L,
+ val transactionTime : Long,
 @ApiModelProperty("Related symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Contingency type.")
-@JsonProperty("contingencyType") var contingencyType: String = "",
+ val contingencyType : String,
 @ApiModelProperty("List status type.")
-@JsonProperty("listStatusType") var listStatusType: String = "",
+ val listStatusType : String,
 @ApiModelProperty("List order status.")
-@JsonProperty("listOrderStatus") var listOrderStatus: String = "",
+ val listOrderStatus : String,
 @ApiModelProperty("List client order id.")
-@JsonProperty("listClientOrderId") var listClientOrderId: String = "",
+ val listClientOrderId : String,
 @ApiModelProperty("Is the order isolated?")
-@JsonProperty("isIsoslated") var isIsoslated: Boolean = false,
+ val isIsoslated : Boolean,
 @ApiModelProperty("The two orders.") List<OrderInfo> orders)
 {
 }

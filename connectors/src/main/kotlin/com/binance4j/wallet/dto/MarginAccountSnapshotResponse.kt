@@ -37,8 +37,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a MARGIN account snapshot request.")
 data class MarginAccountSnapshotResponse(
-        @ApiModelProperty("Code.") @JsonProperty override var code: Int = 0,
-        @ApiModelProperty("Message.") @JsonProperty override var msg: String = "",
-        @ApiModelProperty("Snapshot.")
-    @JsonProperty override var snapshotVos:List<MarginAccountSnapshot> = emptyList()
+	@ApiModelProperty("Code.") @JsonProperty override val code: Int
+	@ApiModelProperty("Message.")
+@JsonProperty
+override val msg: String,
+
+@ApiModelProperty("Snapshot.")
+@JsonProperty
+override var snapshotVos: List<MarginAccountSnapshot> = emptyList()
 ) : AccountSnapshotResponse<MarginAccountSnapshot>

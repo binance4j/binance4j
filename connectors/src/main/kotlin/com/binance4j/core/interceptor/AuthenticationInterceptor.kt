@@ -35,10 +35,13 @@ import javax.crypto.spec.SecretKeySpec
 /**
  * The parameters interceptor that injects the API Key Header into requests, and
  * signs messages, whenever required.
- * @param key    API public key.
- * @param secret API private key.
+ * @property key    API public key
+ * @property secret API private key.
  */
-class AuthenticationInterceptor(var key: String, var secret: String) : Interceptor {
+class AuthenticationInterceptor : Interceptor {
+    lateinit var key: String
+    lateinit var secret: String
+
     /**
      * Intercepts the request
      *
@@ -59,24 +62,11 @@ class AuthenticationInterceptor(var key: String, var secret: String) : Intercept
         if (isSignatureRequired) {
             val payload = original.url.query
             if (payload != null && "" != payload) {
-                val signature = sign(payload, secret)
-                val signedUrl = original.url.newBuilder().addQueryParameter("signature", signature).build()
-                newRequestBuilder.url(signedUrl)
+                newRequestBuilder.url(original.url.newBuilder().addQueryParameter("signature", sign(payload, secret)).build())
             }
         }
         // Build new request after adding the necessary authentication information
         return chain.proceed(newRequestBuilder.build())
-    }
-
-    /**
-     * Updates the API keys.
-     *
-     * @param key    New public key.
-     * @param secret New secret key.
-     */
-    fun updateKeys(key: String, secret: String) {
-        this.key = key
-        this.secret = secret
     }
 
     companion object {

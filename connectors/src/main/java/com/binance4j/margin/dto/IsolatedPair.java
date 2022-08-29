@@ -23,28 +23,28 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Isolated asset pair in an isolated account.")
 data class IsolatedPair(
 @ApiModelProperty("Base asset.")
-@JsonProperty("baseAsset") var baseAsset:IsolatedAsset?=null,
+ var baseAsset:IsolatedAsset?=null,
 @ApiModelProperty("Quote asset.")
-@JsonProperty("quoteAsset") var quoteAsset:IsolatedAsset?=null,
+ var quoteAsset:IsolatedAsset?=null,
 @ApiModelProperty("Asset symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("is isolated asset created.")
-@JsonProperty("isolatedCreated") var isolatedCreated: Boolean = false,
+ val isolatedCreated : Boolean,
 @ApiModelProperty("Is trading enabled?")
-@JsonProperty("tradeEnabled") var tradeEnabled: Boolean = false,
+ val tradeEnabled : Boolean,
 @ApiModelProperty("Is the pair enabled for the account?")
-@JsonProperty("enabled") var enabled: Boolean = false,
+ val enabled : Boolean,
 @ApiModelProperty("Margin level status.")
-@JsonProperty("marginLevelStatus") var marginLevelStatus: String = "",
+ val marginLevelStatus : String,
 @ApiModelProperty("Margin level.")
-@JsonProperty("marginLevel") var marginLevel: String = "",
+ val marginLevel : String,
 @ApiModelProperty("Margin ratio.")
-@JsonProperty("marginRatio") var marginRatio: String = "",
+ val marginRatio : String,
 @ApiModelProperty("Index price.")
-@JsonProperty("indexPrice") var indexPrice: String = "",
+ val indexPrice : String,
 @ApiModelProperty("Liquidate price.")
-@JsonProperty("liquidatePrice") var liquidatePrice: String = "",
+ val liquidatePrice : String,
 @ApiModelProperty("Liquidate rate.")
-@JsonProperty("liquidateRate") var liquidateRate: String = "")
+ val liquidateRate : String)
 {
 }

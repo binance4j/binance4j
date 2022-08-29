@@ -30,40 +30,40 @@ enum class WithdrawStatus
 /**
  * @property value Value.
  */(val value: String) {
-    /** Email sent. */
-    EMAIL_SENT("0"),
-
-    /** Cancelled. */
-    CANCELLED("1"),
-
-    /** Awaiting approval. */
-    AWAITING_APPROVAL("2"),
-
-    /** Rejected. */
-    REJECTED("3"),
-
-    /** Processing. */
-    PROCESSING("4"),
-
-    /** Failure. */
-    FAILURE("5"),
-
-    /** Completed. */
-    COMPLETED("6");
-
-    override fun toString(): String {
-        return value
-    }
-
-    companion object {
-        @JvmStatic
-        fun fromValue(value: String): WithdrawStatus? {
-            for (e in values()) {
-                if (e.toString() == value) {
-                    return e
-                }
-            }
-            return null
-        }
-    }
+	/** Email sent. */
+	EMAIL_SENT("0"),
+	
+	/** Cancelled. */
+	CANCELLED("1"),
+	
+	/** Awaiting approval. */
+	AWAITING_APPROVAL("2"),
+	
+	/** Rejected. */
+	REJECTED("3"),
+	
+	/** Processing. */
+	PROCESSING("4"),
+	
+	/** Failure. */
+	FAILURE("5"),
+	
+	/** Completed. */
+	COMPLETED("6");
+	
+	override fun toString(): String {
+		return value
+	}
+	
+	companion object {
+		@JvmStatic
+		fun fromValue(value: String): WithdrawStatus? {
+			for (e in values()) {
+				if (e.toString() == value) {
+					return e
+				}
+			}
+			return null
+		}
+	}
 }

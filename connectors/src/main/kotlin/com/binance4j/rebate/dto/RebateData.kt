@@ -24,7 +24,6 @@
 
 package com.binance4j.rebate.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,19 +37,15 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Rebate data.")
 data class RebateData(
-    @ApiModelProperty("Current page.")
-    @JsonProperty("page")
-    var page: Int = 0,
-
-    @ApiModelProperty("Total records.")
-    @JsonProperty("totalRecords")
-    var totalRecords: Int = 0,
-
-    @ApiModelProperty("Total pages.")
-    @JsonProperty("totalPageNum")
-    var totalPageNum: Int = 0,
-
-    @ApiModelProperty("Rebates.")
-    @JsonProperty("data")
-    var data:List<Rebate> = emptyList()
+	@ApiModelProperty("Current page.")
+	val page: Int,
+	
+	@ApiModelProperty("Total records.")
+	val totalRecords: Int,
+	
+	@ApiModelProperty("Total pages.")
+	val totalPageNum: Int,
+	
+	@ApiModelProperty("Rebates.")
+	var data: List<Rebate>
 )

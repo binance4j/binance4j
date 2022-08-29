@@ -35,11 +35,10 @@ import com.binance4j.wallet.dto.DepositStatus
  * @param coin   Deposited coin.
  * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
  */
-@Param
 data class DepositHistoryParams @JvmOverloads constructor(
-    var coin: String? = null,
-    var status: String? = null
+	var coin: String? = null,
+	var status: String? = null
 ) : Params {
-    constructor (coin: String, status: DepositStatus? = null) : this(coin, status.toString())
-    constructor (status: DepositStatus) : this(null, status.toString())
+	constructor (coin: String, status: DepositStatus? = null) : this(coin, status.toString())
+	constructor (status: DepositStatus) : this(null, status.toString())
 }

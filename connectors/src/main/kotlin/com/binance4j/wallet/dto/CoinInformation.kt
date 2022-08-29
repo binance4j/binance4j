@@ -48,30 +48,30 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin infos for the authenticated account.")
 data class CoinInformation(
-    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String = "",
-    @ApiModelProperty("Coin name.") @JsonProperty("name") var name: String = "",
-    @ApiModelProperty("Deposit permission.")
-    @JsonProperty
-    var depositAllEnable: Boolean = false,
-    @ApiModelProperty("Is the coin a legal money?")
-    @JsonProperty
-    var isLegalMoney: Boolean = false,
-    @ApiModelProperty("Can the coin be traded?") @JsonProperty("trading") var trading: Boolean = false,
-    @ApiModelProperty("Withdraw permission.")
-    @JsonProperty
-    var withdrawAllEnable: Boolean = false,
-    @ApiModelProperty("Free balance.") @JsonProperty("free") var free: String = "",
-    @ApiModelProperty("Freezed balance.") @JsonProperty("freeze") var freeze: String = "",
-    @ApiModelProperty("Initial Public Offering balance (?)")
-    @JsonProperty
-    var ipoable: String = "",
-    @ApiModelProperty("Initial Public Offering freezed balance (?)")
-    @JsonProperty
-    var ipoing: String = "",
-    @ApiModelProperty("Locked balance.") @JsonProperty("locked") var locked: String = "",
-    @ApiModelProperty("Storage") @JsonProperty("storage") var storage: String = "",
-    @ApiModelProperty("Withdrawing balance.") @JsonProperty("withdrawing") var withdrawing: String = "",
-    @ApiModelProperty("Coin network information.")
-    @JsonProperty
-    var networkList:List<CoinNetworkInformation> = emptyList()
+	@ApiModelProperty("Coin abbreviation.") val coin: String,
+	@ApiModelProperty("Coin name.") val name: String,
+	@ApiModelProperty("Deposit permission.")
+	@JsonProperty
+	val depositAllEnable: Boolean,
+	@ApiModelProperty("Is the coin a legal money?")
+	@JsonProperty
+	val isLegalMoney: Boolean,
+	@ApiModelProperty("Can the coin be traded?") val trading: Boolean,
+	@ApiModelProperty("Withdraw permission.")
+	@JsonProperty
+	val withdrawAllEnable: Boolean,
+	@ApiModelProperty("Free balance.") val free: String,
+	@ApiModelProperty("Freezed balance.") val freeze: String,
+	@ApiModelProperty("Initial Public Offering balance (?)")
+	@JsonProperty
+	val ipoable: String,
+	@ApiModelProperty("Initial Public Offering freezed balance (?)")
+	@JsonProperty
+	val ipoing: String,
+	@ApiModelProperty("Locked balance.") val locked: String,
+	@ApiModelProperty("Storage") val storage: String,
+	@ApiModelProperty("Withdrawing balance.") val withdrawing: String,
+	@ApiModelProperty("Coin network information.")
+	@JsonProperty
+	var networkList: List<CoinNetworkInformation> = emptyList()
 )

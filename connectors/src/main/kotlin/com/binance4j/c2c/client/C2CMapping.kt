@@ -25,7 +25,6 @@
 package com.binance4j.c2c.client
 
 import com.binance4j.c2c.dto.TradeHistory
-import com.binance4j.core.client.RestMapping
 import com.binance4j.core.client.RestMapping.Companion.IP_H
 import com.binance4j.core.client.RestMapping.Companion.SIGNED_H
 import com.binance4j.core.client.RestMapping.Companion.WEIGHT_ONE_H

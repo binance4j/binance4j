@@ -11,6 +11,5 @@ import com.binance4j.mining.client.MiningClient;
  * @param userName   Mining account.
  * @param workerName Miner’s name.
  */
-@Param
 data class MinerDetailsParams(String algo, String userName, String workerName) : Params {
 }

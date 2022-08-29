@@ -24,83 +24,37 @@
 package com.binance4j.core.param
 
 import com.binance4j.core.Binance4j
-import com.binance4j.core.annotation.Param
 import com.fasterxml.jackson.core.type.TypeReference
-import retrofit2.http.QueryMap
 
 /** The base of every Binance Request */
 interface Params {
-    /**
-     * @return the params into a [QueryMap] minus null and useless parameters.
-     */
-    fun toMap(): MutableMap<String, Any> {
-        val map: MutableMap<String, Any> = Binance4j.MAPPER.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
-        // add
-        if (javaClass.isAnnotationPresent(Param::class.java) && javaClass.getAnnotation(Param::class.java).timestamp) map["timestamp"] =
-            System.currentTimeMillis()
-        if (javaClass.isAnnotationPresent(Param::class.java) && javaClass.getAnnotation(Param::class.java).recvWindow) map["recvWindow"] = defaultRecvWindow
-        // remove
-        removeFromMap(map)
-        return map
-    }
-
-    /**
-     * Removes values from a map.
-     *
-     * @param map The map to remove data from.
-     */
-    fun removeFromMap(map: MutableMap<String, Any>) {
-        // remove
-        map.remove("order")
-        map.values.removeAll(setOf<Any?>(null))
-        map.values.removeAll(setOf(""))
-    }
-
-    /**
-     * Converts the object into a map and replace the keys names of the generated
-     * map with the values of the given map.
-     *
-     * @param replaceMap Map used to replace the keys of the generated map. The key
-     * in map2 is the key we want to change the
-     * name in map1 with the value of map2.
-     * @return the merged maps.
-     */
-    fun toMap(replaceMap: Map<String, String>): Map<String, Any> {
-        val map = toMap()
-        replaceMap.entries.forEach { (key, value): Map.Entry<String, String> ->
-            map[value] = map[key] as Any
-            map.remove(key)
-        }
-        removeFromMap(map)
-        return map
-    }
-
-    companion object {
-
-        /** The receiving window. */
-        const val defaultRecvWindow = 60000L
-
-        /**
-         * @param maps Maps to merge into one
-         * @return A map mad of all the given maps
-         */
-        @SafeVarargs
-        @JvmStatic
-        fun merge(vararg maps: Map<String, Any>): Map<String, Any> {
-            val map: MutableMap<String, Any> = HashMap()
-            maps.forEach { m -> map.putAll(m) }
-            return map
-        }
-
-        /**
-         * @param maps Maps to merge into one
-         * @return A map mad of all the given maps
-         */
-        @JvmStatic
-        fun merge(vararg maps: Params): Map<String, Any> {
-            val map: MutableMap<String, Any> = HashMap()
-            maps.forEach { m -> map.putAll(m.toMap()) }
-            return map
-        }
-    }
+	/** @return The request timestamp */
+	
+	fun timestamp() = System.currentTimeMillis()
+	
+	/** @return The receiving windows */
+	
+	fun recvWindow(): Long = 60_000L
+	
+	/**
+	 * Converts the object into a map and replace the keys names of the generated
+	 * map with the values of the given map.
+	 *
+	 * @param replaceMap Map used to replace the keys of the generated map. The key in map2 is the key we want to change the name in map1 with the value of map2.
+	 * @return the merged maps.
+	 */
+	fun toMap(replaceMap: Map<String, String>? = null): Map<String, Any> {
+		val map: MutableMap<String, Any> =
+			Binance4j.MAPPER.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
+		// remove useless entries
+		map.remove("order")
+		map.values.removeAll(setOf<Any?>(null))
+		map.values.removeAll(setOf(""))
+		
+		replaceMap!!.entries.forEach { (key, value): Map.Entry<String, String> ->
+			map[value] = map[key] as Any
+			map.remove(key)
+		}
+		return map
+	}
 }

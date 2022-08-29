@@ -25,11 +25,16 @@
 package com.binance4j.convert.param
 
 import com.binance4j.convert.client.ConvertClient
-import com.binance4j.core.annotation.Param
 import com.binance4j.core.param.Params
 
 /**
  * [ConvertClient.getConversions] params.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
  */
-@Param
-class ConversionParams : Params
+class ConversionParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

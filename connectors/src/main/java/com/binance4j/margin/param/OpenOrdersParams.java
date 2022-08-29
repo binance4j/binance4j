@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param symbol     Symbol.
  * @param isIsolated Is the order isolated?
  */
-@Param
 data class OpenOrdersParams(
 String symbol, Boolean isIsolated):Params
 {

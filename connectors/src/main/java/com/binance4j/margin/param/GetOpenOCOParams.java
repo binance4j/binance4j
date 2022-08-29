@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param symbol     Isolated symbol. Not supported for cross margin.
  * @param isIsolated Is the order isolated?
  */
-@Param
 data class GetOpenOCOParams(
 String symbol, Boolean isIsolated):Params
 {

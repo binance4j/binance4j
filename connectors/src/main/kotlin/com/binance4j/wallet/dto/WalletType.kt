@@ -28,13 +28,13 @@ package com.binance4j.wallet.dto
  * @property value
  */
 enum class WalletType(val value: String) {
-    /** Spot  */
-    SPOT("0"),
-
-    /** Funding  */
-    FUNDING("1");
-
-    override fun toString(): String {
-        return value
-    }
+	/** Spot  */
+	SPOT("0"),
+	
+	/** Funding  */
+	FUNDING("1");
+	
+	override fun toString(): String {
+		return value
+	}
 }

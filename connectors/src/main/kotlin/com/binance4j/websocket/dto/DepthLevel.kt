@@ -27,14 +27,14 @@ package com.binance4j.websocket.dto
 /** The order book size.
  * @property value Result size. */
 enum class DepthLevel(val value: String) {
-    /** Depth of 5 results.  */
-    LEVEL_5("5"),
-
-    /** Depth of 10 results.  */
-    LEVEL_10("10"),
-
-    /** Depth of 20 results.  */
-    LEVEL_20("20");
-
-    override fun toString(): String = value
+	/** Depth of 5 results.  */
+	LEVEL_5("5"),
+	
+	/** Depth of 10 results.  */
+	LEVEL_10("10"),
+	
+	/** Depth of 20 results.  */
+	LEVEL_20("20");
+	
+	override fun toString(): String = value
 }

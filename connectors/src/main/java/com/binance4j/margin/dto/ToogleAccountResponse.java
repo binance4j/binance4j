@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Response after enabling/disabling isolated margin account.")
 data class ToogleAccountResponse(
 @ApiModelProperty("Was the request a success?")
-@JsonProperty("success") var success: Boolean = false,
+ val success : Boolean,
 @ApiModelProperty("The enabled/disabled symbol.") String symbol)
 {
 }

@@ -9,6 +9,5 @@ import com.binance4j.margin.client.MarginClient;
  * 
  * @param symbols Max 5 symbols can be sent; separated by ",".
  */
-@Param
 data class IsolatedAccountParams(String symbols) : Params {
 }

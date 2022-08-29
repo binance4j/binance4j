@@ -33,5 +33,4 @@ import com.binance4j.wallet.client.WalletClient
  *
  * @property asset Asset abbreviation.
  */
-@Param
 data class AssetDetailParams(var asset: String? = null) : Params

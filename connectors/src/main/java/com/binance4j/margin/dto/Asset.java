@@ -16,15 +16,15 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An asset on the platform.")
 data class Asset(
 @ApiModelProperty("Asset full name.")
-@JsonProperty("assetFullName") var assetFullName: String = "",
+ val assetFullName : String,
 @ApiModelProperty("Asset name.")
-@JsonProperty("assetName") var assetName: String = "",
+ val assetName : String,
 @ApiModelProperty("User minimum borrow.")
-@JsonProperty("userMinBorrow") var userMinBorrow: String = "",
+ val userMinBorrow : String,
 @ApiModelProperty("User minimum repay.")
-@JsonProperty("userMinRepay") var userMinRepay: String = "",
+ val userMinRepay : String,
 @ApiModelProperty("Is it borrowable?")
-@JsonProperty("isBorrowable") var isBorrowable: Boolean = false,
-@ApiModelProperty("Is it mortgageable?") @JsonProperty("isMortgageable") var isMortgageable: Boolean = false)
+ val isBorrowable : Boolean,
+@ApiModelProperty("Is it mortgageable?")  val isMortgageable : Boolean)
 {
 }

@@ -33,4 +33,4 @@ import io.swagger.annotations.ApiModelProperty
  * @property leftPersonalQuota User left quota.
  */
 @ApiModel("Personal left quota.")
-data class LeftQuota(@ApiModelProperty("User left quota.") @JsonProperty("leftPersonalQuota") var leftPersonalQuota: String = "")
+data class LeftQuota(@ApiModelProperty("User left quota.") val leftPersonalQuota: String)

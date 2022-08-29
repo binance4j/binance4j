@@ -23,7 +23,6 @@
  */
 package com.binance4j.c2c.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,23 +37,18 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("C2C trades history.")
 data class TradeHistory(
-    @ApiModelProperty("Code.")
-    @JsonProperty("code")
-    var code: String = "",
-
-    @ApiModelProperty("Message.")
-    @JsonProperty("message")
-    var message: String = "",
-
-    @ApiModelProperty("Trades.")
-    @JsonProperty("data")
-    var data:List<Trade> = emptyList(),
-
-    @ApiModelProperty("Total.")
-    @JsonProperty("total")
-    var total: Int = 0,
-
-    @ApiModelProperty("Success.")
-    @JsonProperty("success")
-    var success: Boolean = false
+	@ApiModelProperty("Code.")
+	val code: String,
+	
+	@ApiModelProperty("Message.")
+	val message: String,
+	
+	@ApiModelProperty("Trades.")
+	val data: List<Trade>,
+	
+	@ApiModelProperty("Total.")
+	val total: Int,
+	
+	@ApiModelProperty("Success.")
+	val success: Boolean
 )

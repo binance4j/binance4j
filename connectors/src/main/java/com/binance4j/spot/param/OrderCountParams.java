@@ -7,6 +7,5 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * [SpotClient.getOrderCount] params.
  */
-@Param
 data class OrderCountParams() : Params {
 }

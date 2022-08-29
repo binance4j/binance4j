@@ -48,66 +48,66 @@ import io.swagger.annotations.ApiModelProperty
 @JsonDeserialize(using = CandleDeserializer::class)
 @ApiModel("An ohlc candle for a symbol.")
 data class Candle(
-    @ApiModelProperty("The candlestick open timestamp in milliseconds.")
-    @JsonProperty
-    var openTime: Long = 0L,
-
-    @ApiModelProperty("The Open value.")
-    @JsonProperty
-    var open: String = "",
-
-    @ApiModelProperty("The High value.")
-    @JsonProperty
-    var high: String = "",
-
-    @ApiModelProperty("The Low value.")
-    @JsonProperty
-    var low: String = "",
-
-    @ApiModelProperty("The Close value.")
-    @JsonProperty
-    var close: String = "",
-
-    @ApiModelProperty("The traded volume in the interval.")
-    @JsonProperty
-    var volume: String = "",
-
-    @ApiModelProperty("The candlestick close timestamp in milliseconds.")
-    @JsonProperty
-    var closeTime: Long = 0L,
-
-    @ApiModelProperty("The quote asset traded volume.")
-    @JsonProperty
-    var quoteAssetVolume: String = "",
-
-    @ApiModelProperty("The number of trades.")
-    @JsonProperty
-    var numberOfTrades: Long = 0L,
-
-    @ApiModelProperty("Taker buy base asset volume.")
-    @JsonProperty
-    var takerBuyBaseAssetVolume: String = "",
-
-    @ApiModelProperty("Taker buy quote asset volume.")
-    @JsonProperty
-    var takerBuyQuoteAssetVolume: String = ""
+	@ApiModelProperty("The candlestick open timestamp in milliseconds.")
+	@JsonProperty
+	val openTime: Long,
+	
+	@ApiModelProperty("The Open value.")
+	@JsonProperty
+	val open: String,
+	
+	@ApiModelProperty("The High value.")
+	@JsonProperty
+	val high: String,
+	
+	@ApiModelProperty("The Low value.")
+	@JsonProperty
+	val low: String,
+	
+	@ApiModelProperty("The Close value.")
+	@JsonProperty
+	val close: String,
+	
+	@ApiModelProperty("The traded volume in the interval.")
+	@JsonProperty
+	val volume: String,
+	
+	@ApiModelProperty("The candlestick close timestamp in milliseconds.")
+	@JsonProperty
+	val closeTime: Long,
+	
+	@ApiModelProperty("The quote asset traded volume.")
+	@JsonProperty
+	val quoteAssetVolume: String,
+	
+	@ApiModelProperty("The number of trades.")
+	@JsonProperty
+	val numberOfTrades: Long,
+	
+	@ApiModelProperty("Taker buy base asset volume.")
+	@JsonProperty
+	val takerBuyBaseAssetVolume: String,
+	
+	@ApiModelProperty("Taker buy quote asset volume.")
+	@JsonProperty
+	val takerBuyQuoteAssetVolume: String
 ) {
-    /**
-     * accepting a list of String acting like a line of data in a csv file
-     *
-     * @property input String input.
-     */
-    constructor(input: List<String>) : this(
-        input[0].toLong(),
-        input[1],
-        input[2],
-        input[3],
-        input[4],
-        input[5],
-        input[6].toLong(),
-        input[7],
-        input[8].toLong(),
-        input[9],
-        input[10]
-    )
+	/**
+	 * accepting a list of String acting like a line of data in a csv file
+	 *
+	 * @property input String input.
+	 */
+	constructor(input: List<String>) : this(
+		input[0].toLong(),
+		input[1],
+		input[2],
+		input[3],
+		input[4],
+		input[5],
+		input[6].toLong(),
+		input[7],
+		input[8].toLong(),
+		input[9],
+		input[10]
+	)
 }

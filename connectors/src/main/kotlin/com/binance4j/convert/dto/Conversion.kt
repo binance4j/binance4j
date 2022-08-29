@@ -24,7 +24,6 @@
 
 package com.binance4j.convert.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -44,43 +43,33 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A conversion of an asset into another.")
 data class Conversion(
-    @ApiModelProperty("Quote Id.")
-    @JsonProperty("quoteId")
-    var quoteId: String = "",
-
-    @ApiModelProperty("Order Id.")
-    @JsonProperty("orderId")
-    var orderId: Long = 0L,
-
-    @ApiModelProperty("Order Status.")
-    @JsonProperty("orderStatus")
-    var orderStatus: String = "",
-
-    @ApiModelProperty("From Asset.")
-    @JsonProperty("fromAsset")
-    var fromAsset: String = "",
-
-    @ApiModelProperty("From Amount.")
-    @JsonProperty("fromAmount")
-    var fromAmount: String = "",
-
-    @ApiModelProperty("To Asset.")
-    @JsonProperty("toAsset")
-    var toAsset: String = "",
-
-    @ApiModelProperty("To Amount.")
-    @JsonProperty("toAmount")
-    var toAmount: String = "",
-
-    @ApiModelProperty("Ratio.")
-    @JsonProperty("ratio")
-    var ratio: String = "",
-
-    @ApiModelProperty("Inverse Ratio.")
-    @JsonProperty("inverseRatio")
-    var inverseRatio: String = "",
-
-    @ApiModelProperty("Create Time in ms.")
-    @JsonProperty("createTime")
-    var createTime: Long = 0L
+	@ApiModelProperty("Quote Id.")
+	val quoteId: String,
+	
+	@ApiModelProperty("Order Id.")
+	val orderId: Long,
+	
+	@ApiModelProperty("Order Status.")
+	val orderStatus: String,
+	
+	@ApiModelProperty("From Asset.")
+	val fromAsset: String,
+	
+	@ApiModelProperty("From Amount.")
+	val fromAmount: String,
+	
+	@ApiModelProperty("To Asset.")
+	val toAsset: String,
+	
+	@ApiModelProperty("To Amount.")
+	val toAmount: String,
+	
+	@ApiModelProperty("Ratio.")
+	val ratio: String,
+	
+	@ApiModelProperty("Inverse Ratio.")
+	val inverseRatio: String,
+	
+	@ApiModelProperty("Create Time in ms.")
+	val createTime: Long
 )

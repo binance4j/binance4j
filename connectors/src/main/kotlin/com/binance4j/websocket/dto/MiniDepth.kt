@@ -40,15 +40,14 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Top bids and asks.")
 data class MiniDepth(
-    @ApiModelProperty("Last update id.")
-    @JsonProperty("lastUpdateId")
-    var lastUpdateId: Long = 0L,
-
-    @ApiModelProperty("Bids.")
-    @JsonProperty("bids")
-    var bids:List<OrderBookEntry> = emptyList(),
-
-    @ApiModelProperty("Asks.")
-    @JsonProperty("asks")
-    var asks:List<OrderBookEntry> = emptyList()
+	@ApiModelProperty("Last update id.")
+	val lastUpdateId: Long,
+	
+	@ApiModelProperty("Bids.")
+	
+	var bids: List<OrderBookEntry> = emptyList(),
+	
+	@ApiModelProperty("Asks.")
+	
+	var asks: List<OrderBookEntry> = emptyList()
 )

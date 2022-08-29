@@ -14,7 +14,6 @@ import com.binance4j.margin.dto.IsolatedTransferAccount;
  * @param transTo   Transfer destination.
  * @param archived  Set to true for archived data from 6 months ago.
  */
-@Param
 data class IsolatedTransferHistoryParams(
 String symbol, String asset,
 IsolatedTransferAccount transFrom,

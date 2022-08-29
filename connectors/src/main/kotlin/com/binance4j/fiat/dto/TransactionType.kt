@@ -29,13 +29,11 @@ package com.binance4j.fiat.dto
  * @property value Value
  */
 enum class TransactionType(var value: String) {
-    /** Deposit. */
-    DEPOSIT("0"),
-
-    /** Withdraw. */
-    WITHDRAW("1");
-
-    override fun toString(): String {
-        return value
-    }
+	/** Deposit. */
+	DEPOSIT("0"),
+	
+	/** Withdraw. */
+	WITHDRAW("1");
+	
+	override fun toString(): String = value
 }

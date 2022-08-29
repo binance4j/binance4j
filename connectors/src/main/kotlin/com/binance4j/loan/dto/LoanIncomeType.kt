@@ -26,28 +26,26 @@ package com.binance4j.loan.dto
 
 /** Loan income type.  */
 enum class LoanIncomeType(var value: String) {
-    /** Borrow in  */
-    BORROW_IN("borrowIn"),
-
-    /** Collateral spent  */
-    COLLATERAL_SPENT("collateralSpent"),
-
-    /** Repay amount  */
-    REPAY_AMOUNT("repayAmount"),
-
-    /** Collateral return after repayment.  */
-    COLLATERAL_RETURN("collateralReturn"),
-
-    /** Add collateral  */
-    ADD_COLLATERAL("addCollateral"),
-
-    /** Remove collateral  */
-    REMOVE_COLLATERAL("removeCollateral"),
-
-    /** collateral return after liquidation  */
-    COLLATERAL_RETURN_AFTER_LIQUIDATION("collateralReturnAfterLiquidation");
-
-    override fun toString(): String {
-        return value
-    }
+	/** Borrow in  */
+	BORROW_IN("borrowIn"),
+	
+	/** Collateral spent  */
+	COLLATERAL_SPENT("collateralSpent"),
+	
+	/** Repay amount  */
+	REPAY_AMOUNT("repayAmount"),
+	
+	/** Collateral return after repayment.  */
+	COLLATERAL_RETURN("collateralReturn"),
+	
+	/** Add collateral  */
+	ADD_COLLATERAL("addCollateral"),
+	
+	/** Remove collateral  */
+	REMOVE_COLLATERAL("removeCollateral"),
+	
+	/** collateral return after liquidation  */
+	COLLATERAL_RETURN_AFTER_LIQUIDATION("collateralReturnAfterLiquidation");
+	
+	override fun toString(): String = value
 }

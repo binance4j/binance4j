@@ -35,6 +35,6 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The authenticated account status.")
 data class AccountStatus(
-        @ApiModelProperty("Account status.") @JsonProperty
-        var data: String = ""
+	@ApiModelProperty("Account status.") @JsonProperty
+	val data: String
 )

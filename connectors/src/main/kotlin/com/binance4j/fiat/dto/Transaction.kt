@@ -24,7 +24,6 @@
 
 package com.binance4j.fiat.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -43,39 +42,30 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A fiat transaction.")
 data class Transaction(
-    @ApiModelProperty("Order No.")
-    @JsonProperty("orderNo")
-    var orderNo: String = "",
-
-    @ApiModelProperty("Fiat currency.")
-    @JsonProperty("fiatCurrency")
-    var fiatCurrency: String = "",
-
-    @ApiModelProperty("Indicated amount.")
-    @JsonProperty("indicatedAmount")
-    var indicatedAmount: String = "",
-
-    @ApiModelProperty("Amount.")
-    @JsonProperty("amount")
-    var amount: String = "",
-
-    @ApiModelProperty("Total fee.")
-    @JsonProperty("totalFee")
-    var totalFee: String = "",
-
-    @ApiModelProperty("Method.")
-    @JsonProperty("method")
-    var method: String = "",
-
-    @ApiModelProperty("Status.")
-    @JsonProperty("status")
-    var status: String = "",
-
-    @ApiModelProperty("Create time in ms.")
-    @JsonProperty("createTime")
-    var createTime: Long = 0L,
-
-    @ApiModelProperty("Update time in ms.")
-    @JsonProperty("updateTime")
-    var updateTime: Long = 0L
+	@ApiModelProperty("Order No.")
+	val orderNo: String,
+	
+	@ApiModelProperty("Fiat currency.")
+	val fiatCurrency: String,
+	
+	@ApiModelProperty("Indicated amount.")
+	val indicatedAmount: String,
+	
+	@ApiModelProperty("Amount.")
+	val amount: String,
+	
+	@ApiModelProperty("Total fee.")
+	val totalFee: String,
+	
+	@ApiModelProperty("Method.")
+	val method: String,
+	
+	@ApiModelProperty("Status.")
+	val status: String,
+	
+	@ApiModelProperty("Create time in ms.")
+	val createTime: Long,
+	
+	@ApiModelProperty("Update time in ms.")
+	val updateTime: Long
 )

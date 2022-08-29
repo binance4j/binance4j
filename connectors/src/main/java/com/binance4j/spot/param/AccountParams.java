@@ -7,6 +7,5 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * [SpotClient.getAccount] params.
  */
-@Param
 data class AccountParams() : Params {
 }

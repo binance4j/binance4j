@@ -17,8 +17,8 @@ data class HashrateResaleListDetailData(
 @ApiModelProperty("Config details.")
 List<HashrateResaleListDetail> configDetails,
 @ApiModelProperty("Total amount.") @JsonProperty("totalNum : Long = 0L, @ApiModelProperty("Rows per page.") var pageSize ")
-var totalNum: Long = 0L,
+val totalNum : Long,
 @ApiModelProperty("Rows per page.")
-var pageSize: Long = 0L)
+val pageSize : Long)
 {
 }

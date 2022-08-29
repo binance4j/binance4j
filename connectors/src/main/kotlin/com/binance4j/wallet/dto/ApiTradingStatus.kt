@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The authenticated account api trading status detail.")
 data class ApiTradingStatus(
-    @ApiModelProperty("Trading status data.")
-    @JsonProperty("data")
-    var data: ApiTradingStatusData? = null
+	@ApiModelProperty("Trading status data.")
+	
+	var data: ApiTradingStatusData? = null
 )

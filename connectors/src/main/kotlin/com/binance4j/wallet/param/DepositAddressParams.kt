@@ -34,8 +34,7 @@ import com.binance4j.wallet.client.WalletClient
  * @param coin    Coin abbreviation.
  * @param network Transfer network.
  */
-@Param
 data class DepositAddressParams @JvmOverloads constructor(
-    var coin: String,
-    var network: String? = null
+	var coin: String,
+	var network: String? = null
 ) : Params

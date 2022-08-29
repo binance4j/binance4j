@@ -35,7 +35,6 @@ import com.binance4j.staking.dto.ProductType
  * @param product   Product type.
  * @param productId Product id.
  */
-@Param
 data class LeftQuotaParams(var product: String, var productId: String) : Params {
-    constructor(product: ProductType, productId: String) : this(product.toString(), productId)
+	constructor(product: ProductType, productId: String) : this(product.toString(), productId)
 }

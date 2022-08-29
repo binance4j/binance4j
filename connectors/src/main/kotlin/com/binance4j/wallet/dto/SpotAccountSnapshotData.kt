@@ -37,10 +37,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The SPOT account snapshot data.")
 data class SpotAccountSnapshotData(
-    @ApiModelProperty("Wallet asset balances.")
-    @JsonProperty
-    var balances:List<AssetBalance> = emptyList(),
-    @ApiModelProperty("Cumulated value of the wallet in Bitcoin.")
-    @JsonProperty
-    var totalAssetOfBtc: String = ""
+	@ApiModelProperty("Wallet asset balances.")
+	@JsonProperty
+	var balances: List<AssetBalance> = emptyList(),
+	@ApiModelProperty("Cumulated value of the wallet in Bitcoin.")
+	@JsonProperty
+	val totalAssetOfBtc: String
 )

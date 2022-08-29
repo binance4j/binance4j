@@ -28,27 +28,22 @@ import com.binance4j.convert.dto.ConversionHistory
 import com.binance4j.convert.param.ConversionParams
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.core.param.TimeFrame
 
 /**
- * Api client for the convert endpoints
+ * Api client for the convert endpoints.
+ *
+ * @param key    API public key.
+ * @param secret API secret key.
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.convert-endpoints)
  */
-class ConvertClient
-/**
- * @param key    API public key.
- * @param secret API secret key.
- */
-    (key: String, secret: String) : RestClient<ConvertMapping>(ConvertMapping::class.java, key, secret) {
-    /**
-     * Get assets conversion history.
-     *
-     * @param params Request params.
-     * @return The request to execute.
-     */
-    fun getConversions(params: TimeFrame): Request<ConversionHistory> {
-        return Request(service.getConversions(merge(ConversionParams(), params)))
-    }
+class ConvertClient(key: String, secret: String) : RestClient<ConvertMapping>(ConvertMapping::class.java, key, secret) {
+	/**
+	 * Get assets conversion history.
+	 *
+	 * @param params Request params.
+	 * @return The request to execute.
+	 */
+	fun getConversions(params: ConversionParams = ConversionParams()): Request<ConversionHistory> =
+		Request(service.getConversions(params.toMap()))
 }

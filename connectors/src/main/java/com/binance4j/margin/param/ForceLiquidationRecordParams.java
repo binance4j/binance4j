@@ -9,6 +9,5 @@ import com.binance4j.margin.client.MarginClient;
  * 
  * @param isolatedSymbol Isolated symbol.
  */
-@Param
 data class ForceLiquidationRecordParams(String isolatedSymbol) : Params {
 }

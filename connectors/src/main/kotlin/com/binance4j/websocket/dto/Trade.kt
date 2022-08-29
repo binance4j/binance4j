@@ -47,41 +47,41 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Pair trade data.")
 data class Trade(
-    @ApiModelProperty("Event type.")
-    @JsonProperty("e") var eventType: String = "",
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("E")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Trading pair.")
-    @JsonProperty("s")
-    var symbol: String = "",
-
-    @ApiModelProperty("Trade id.")
-    @JsonProperty("t")
-    var tradeId: String = "",
-
-    @ApiModelProperty("Price.")
-    @JsonProperty("p")
-    var price: String = "",
-
-    @ApiModelProperty("Price.")
-    @JsonProperty("q")
-    var quantity: String = "",
-
-    @ApiModelProperty("Buyer order id.")
-    @JsonProperty("b")
-    var buyerOrderId: Long = 0L,
-
-    @ApiModelProperty("Seller order id.")
-    @JsonProperty("a")
-    var sellerOrderId: Long = 0L,
-
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("T")
-    var tradeTime: Long = 0L,
-
-    @ApiModelProperty("Is the buyer the market maker?")
-    @JsonProperty("m")
-    var buyerIsMarketMaker: Boolean = false
+	@ApiModelProperty("Event type.")
+	@JsonProperty("e") val eventType: String,
+	@ApiModelProperty("Timestamp.")
+	@JsonProperty("E")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Trading pair.")
+	@JsonProperty("s")
+	val symbol: String,
+	
+	@ApiModelProperty("Trade id.")
+	@JsonProperty("t")
+	val tradeId: String,
+	
+	@ApiModelProperty("Price.")
+	@JsonProperty("p")
+	val price: String,
+	
+	@ApiModelProperty("Price.")
+	@JsonProperty("q")
+	val quantity: String,
+	
+	@ApiModelProperty("Buyer order id.")
+	@JsonProperty("b")
+	val buyerOrderId: Long,
+	
+	@ApiModelProperty("Seller order id.")
+	@JsonProperty("a")
+	val sellerOrderId: Long,
+	
+	@ApiModelProperty("Timestamp.")
+	@JsonProperty("T")
+	val tradeTime: Long,
+	
+	@ApiModelProperty("Is the buyer the market maker?")
+	@JsonProperty("m")
+	val buyerIsMarketMaker: Boolean
 )

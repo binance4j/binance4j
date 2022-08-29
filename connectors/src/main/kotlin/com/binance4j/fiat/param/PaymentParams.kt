@@ -24,7 +24,6 @@
 
 package com.binance4j.fiat.param
 
-import com.binance4j.core.annotation.Param
 import com.binance4j.core.param.Params
 import com.binance4j.fiat.client.FiatClient
 import com.binance4j.fiat.dto.PaymentType
@@ -34,7 +33,6 @@ import com.binance4j.fiat.dto.PaymentType
  *
  * @param transactionType Payment type.
  */
-@Param
 data class PaymentParams(var transactionType: String) : Params {
-    constructor(transactionType: PaymentType) : this(transactionType.toString())
+	constructor(transactionType: PaymentType) : this(transactionType.toString())
 }

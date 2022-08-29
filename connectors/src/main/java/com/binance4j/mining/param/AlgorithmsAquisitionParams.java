@@ -7,6 +7,5 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * [MiningClient.getAlgorithms] params.
  */
-@Param
 data class AlgorithmsAquisitionParams() : Params {
 }

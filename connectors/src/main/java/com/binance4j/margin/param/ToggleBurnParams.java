@@ -10,7 +10,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param spotBNBBurn     Use BNB to pay for trading fees on SPOT?
  * @param interestBNBBurn Use BNB to pay for margin loan's interest?
  */
-@Param
 data class ToggleBurnParams(Boolean spotBNBBurn, Boolean interestBNBBurn) : Params {
 
 }

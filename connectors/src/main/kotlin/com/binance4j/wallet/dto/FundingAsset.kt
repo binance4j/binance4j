@@ -40,19 +40,19 @@ import io.swagger.annotations.ApiModelProperty
  * @property btcValuation Value of the balance in BTC.
  */
 @ApiModel(
-    "The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders, Binance Payment, Binance Card and Crypto Deposit/Withdrawal."
+	"The Funding Wallet balance reflects a user's total crypto balance from P2P buy/sell orders, Binance Payment, Binance Card and Crypto Deposit/Withdrawal."
 )
 data class FundingAsset(
-    @ApiModelProperty("Asset abbreviation.") @JsonProperty("asset") var asset: String = "",
-    @ApiModelProperty("Available balance.") @JsonProperty("free") var free: String = "",
-    @ApiModelProperty("Locked balance (volume in the order book).")
-    @JsonProperty
-    var locked: String = "",
-    @ApiModelProperty("Frozen balance.") @JsonProperty("freeze") var freeze: String = "",
-    @ApiModelProperty("Pending volume withdrawing.")
-    @JsonProperty
-    var withdrawing: String = "",
-    @ApiModelProperty("Value of the balance in BTC.")
-    @JsonProperty
-    var btcValuation: String = ""
+	@ApiModelProperty("Asset abbreviation.") val asset: String,
+	@ApiModelProperty("Available balance.") val free: String,
+	@ApiModelProperty("Locked balance (volume in the order book).")
+	@JsonProperty
+	val locked: String,
+	@ApiModelProperty("Frozen balance.") val freeze: String,
+	@ApiModelProperty("Pending volume withdrawing.")
+	@JsonProperty
+	val withdrawing: String,
+	@ApiModelProperty("Value of the balance in BTC.")
+	@JsonProperty
+	val btcval uation : String
 )

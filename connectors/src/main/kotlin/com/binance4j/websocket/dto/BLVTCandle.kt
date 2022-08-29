@@ -52,49 +52,49 @@ import io.swagger.annotations.ApiModelProperty
 data class BLVTCandle(
 	@ApiModelProperty("Start time.")
 	@JsonProperty("t")
-	var startTime: Long = 0L,
-
+	val startTime: Long,
+	
 	@ApiModelProperty("End time.")
 	@JsonProperty("T")
-	var endTime: Long = 0L,
-
+	val endTime: Long,
+	
 	@ApiModelProperty("Name.")
 	@JsonProperty("s")
-	var name: String = "",
-
+	val name: String,
+	
 	@ApiModelProperty("Interval.")
 	@JsonProperty("i")
 	var interval: CandlestickInterval? = null,
-
+	
 	@ApiModelProperty("First update.")
 	@JsonProperty("f")
-	var firstUpdate: Long = 0L,
-
+	val firstUpdate: Long,
+	
 	@ApiModelProperty("Last update.")
 	@JsonProperty("L")
-	var lastUpdate: Long = 0L,
-
+	val lastUpdate: Long,
+	
 	@ApiModelProperty("Open.")
 	@JsonProperty("o")
-	var open: String = "",
-
+	val open: String,
+	
 	@ApiModelProperty("Close.")
 	@JsonProperty("c")
-	var close: String = "",
-
+	val close: String,
+	
 	@ApiModelProperty("High.")
 	@JsonProperty("h")
-	var high: String = "",
-
+	val high: String,
+	
 	@ApiModelProperty("Low.")
 	@JsonProperty("l")
-	var low: String = "",
-
+	val low: String,
+	
 	@ApiModelProperty("Real leverage.")
 	@JsonProperty("v")
-	var realLeverage: String = "",
+	val realLeverage: String,
 	
 	@ApiModelProperty("Number of updates.")
 	@JsonProperty("n")
-	var updateNumbers: Long = 0L
+	val updateNumbers: Long
 )

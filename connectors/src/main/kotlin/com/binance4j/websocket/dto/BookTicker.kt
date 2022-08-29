@@ -45,27 +45,27 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("BookTickerEvent event for a symbol. Pushes any update to the best bid or ask price or quantity in real-time for a specified symbol.")
 data class BookTicker(
-    @ApiModelProperty("Update id.")
-    @JsonProperty("u")
-    var updateId: Long = 0L,
-
-    @ApiModelProperty("Trading pair.")
-    @JsonProperty("s")
-    var symbol: String = "",
-
-    @ApiModelProperty("Bid price.")
-    @JsonProperty("b")
-    var bidPrice: String = "",
-
-    @ApiModelProperty("Bid quantity.")
-    @JsonProperty("B")
-    var bidQuantity: String = "",
-
-    @ApiModelProperty("Ask price.")
-    @JsonProperty("a")
-    var askPrice: String = "",
-
-    @ApiModelProperty("Ask quantity.")
-    @JsonProperty("A")
-    var askQuantity: String = ""
+	@ApiModelProperty("Update id.")
+	@JsonProperty("u")
+	val updateId: Long,
+	
+	@ApiModelProperty("Trading pair.")
+	@JsonProperty("s")
+	val symbol: String,
+	
+	@ApiModelProperty("Bid price.")
+	@JsonProperty("b")
+	val bidPrice: String,
+	
+	@ApiModelProperty("Bid quantity.")
+	@JsonProperty("B")
+	val bidQuantity: String,
+	
+	@ApiModelProperty("Ask price.")
+	@JsonProperty("a")
+	val askPrice: String,
+	
+	@ApiModelProperty("Ask quantity.")
+	@JsonProperty("A")
+	val askQuantity: String
 )

@@ -37,15 +37,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A staking product.")
 data class Product(
-    @ApiModelProperty("Project id.")
-    @JsonProperty("projectId")
-    var projectId: String = "",
-
-    @ApiModelProperty("Detail.")
-    @JsonProperty("detail")
-    var detail: ProductDetail? = null,
-
-    @ApiModelProperty("Quota.")
-    @JsonProperty("quota")
-    var quota: ProductQuota? = null
+	@ApiModelProperty("Project id.")
+	val projectId: String,
+	
+	@ApiModelProperty("Detail.")
+	
+	var detail: ProductDetail? = null,
+	
+	@ApiModelProperty("Quota.")
+	
+	var quota: ProductQuota? = null
 )

@@ -36,35 +36,36 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class StakingClientTest : CustomTest() {
-    private var productId = "Cake*120"
-    private val client: StakingClient
-        get() = Connectors.REST.updateKeys(key, secret).staking()
-
-    @Test
-    fun testGetHistory() {
-        ProductType.values().forEach { product ->
-            TransactionType.values().forEach { transaction ->
-                assertNotThrow(client.getHistory(HistoryParams(product, transaction)))
-            }
-        }
-    }
-
-    @Test
-    fun testGetLeftQuota() {
-        ProductType.values().forEach { product -> assertNotThrow(client.getLeftQuota(LeftQuotaParams(product, productId))) }
-    }
-
-    @Test
-    fun testGetPosition() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        ProductType.values().forEach { product -> assertNotThrow(client.getPosition(PositionParams(product))) }
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    fun testGetProducts() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        ProductType.values().forEach { product -> assertNotThrow(client.getProducts(ProductListParams(product))) }
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
+	private var productId = "Cake*120"
+	private val client: StakingClient
+		get() = Connectors.`rest()`.updateKeys(key, secret).staking()
+	
+	@Test
+	fun testGetHistory() {
+		ProductType.values().forEach { product ->
+			TransactionType.values().forEach { transaction ->
+				assertNotThrow(client.getHistory(HistoryParams(product, transaction)))
+			}
+		}
+	}
+	
+	@Test
+	fun testGetLeftQuota() {
+		ProductType.values()
+			.forEach { product -> assertNotThrow(client.getLeftQuota(LeftQuotaParams(product, productId))) }
+	}
+	
+	@Test
+	fun testGetPosition() {
+		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		ProductType.values().forEach { product -> assertNotThrow(client.getPosition(PositionParams(product))) }
+		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	fun testGetProducts() {
+		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		ProductType.values().forEach { product -> assertNotThrow(client.getProducts(ProductListParams(product))) }
+		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
 }

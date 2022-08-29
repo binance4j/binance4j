@@ -24,7 +24,6 @@
 
 package com.binance4j.blvt.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -49,63 +48,48 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Binance leverage token.")
 data class Token(
-    @ApiModelProperty("Token name.")
-    @JsonProperty("tokenName")
-    var tokenName: String = "",
-
-    @ApiModelProperty("Description.")
-    @JsonProperty("description")
-    var description: String = "",
-
-    @ApiModelProperty("Underlying.")
-    @JsonProperty("underlying")
-    var underlying: String = "",
-
-    @ApiModelProperty("Token issued.")
-    @JsonProperty("tokenIssued")
-    var tokenIssued: String = "",
-
-    @ApiModelProperty("Basket.")
-    @JsonProperty("basket")
-    var basket: String = "",
-
-    @ApiModelProperty("Current baskets.")
-    @JsonProperty("currentBaskets")
-    var currentBaskets:List<Basket> = emptyList(),
-
-    @ApiModelProperty("Nav.")
-    @JsonProperty("nav")
-    var nav: String = "",
-
-    @ApiModelProperty("Real leverage.")
-    @JsonProperty("realLeverage")
-    var realLeverage: String = "",
-
-    @ApiModelProperty("Funding rate.")
-    @JsonProperty("fundingRate")
-    var fundingRate: String = "",
-
-    @ApiModelProperty("Daily management fee.")
-    @JsonProperty("dailyManagementFee")
-    var dailyManagementFee: String = "",
-
-    @ApiModelProperty("Purchase Fee Pct.")
-    @JsonProperty("purchaseFeePct")
-    var purchaseFeePct: String = "",
-
-    @ApiModelProperty("Daily Purchase Limit.")
-    @JsonProperty("dailyPurchaseLimit")
-    var dailyPurchaseLimit: String = "",
-    
-    @ApiModelProperty("Redeem Fee Pct.")
-    @JsonProperty("redeemFeePct")
-    var redeemFeePct: String = "",
-
-    @ApiModelProperty("Daily Redeem Limit.")
-    @JsonProperty("dailyRedeemLimit")
-    var dailyRedeemLimit: String = "",
-
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("timestamp")
-    var timestamp: Long = 0L
+	@ApiModelProperty("Token name.")
+	val tokenName: String,
+	
+	@ApiModelProperty("Description.")
+	val description: String,
+	
+	@ApiModelProperty("Underlying.")
+	val underlying: String,
+	
+	@ApiModelProperty("Token issued.")
+	val tokenIssued: String,
+	
+	@ApiModelProperty("Basket.")
+	val basket: String,
+	
+	@ApiModelProperty("Current baskets.")
+	val currentBaskets: List<Basket>,
+	
+	@ApiModelProperty("Nav.")
+	val nav: String,
+	
+	@ApiModelProperty("Real leverage.")
+	val realLeverage: String,
+	
+	@ApiModelProperty("Funding rate.")
+	val fundingRate: String,
+	
+	@ApiModelProperty("Daily management fee.")
+	val dailyManagementFee: String,
+	
+	@ApiModelProperty("Purchase Fee Pct.")
+	val purchaseFeePct: String,
+	
+	@ApiModelProperty("Daily Purchase Limit.")
+	val dailyPurchaseLimit: String,
+	
+	@ApiModelProperty("Redeem Fee Pct.")
+	val redeemFeePct: String,
+	
+	@ApiModelProperty("Daily Redeem Limit.")
+	val dailyRedeemLimit: String,
+	
+	@ApiModelProperty("Timestamp.")
+	val timestamp: Long
 )

@@ -37,15 +37,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Staking product quota.")
 data class ProductQuota(
-    @ApiModelProperty("Total personal quota.")
-    @JsonProperty("totalPersonalQuota")
-    var totalPersonalQuota: String = "",
-
-    @ApiModelProperty("Minimum.")
-    @JsonProperty("minimum")
-    var minimum: String = "",
-
-    @ApiModelProperty("Quota per order.")
-    @JsonProperty("quotaPerOrder")
-    var quotaPerOrder: String = ""
+	@ApiModelProperty("Total personal quota.")
+	val totalPersonalQuota: String,
+	
+	@ApiModelProperty("Minimum.")
+	val minimum: String,
+	
+	@ApiModelProperty("Quota per order.")
+	val quotaPerOrder: String
 )

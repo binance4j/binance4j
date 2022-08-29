@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A loan record.")
 data class LoanRecord(
 @ApiModelProperty("Total records.")
-@JsonProperty("total") var total:Int = 0,
+ var total:Int = 0,
 @ApiModelProperty("Records.") List<Loan> rows)
 {
 }

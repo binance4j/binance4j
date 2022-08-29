@@ -49,41 +49,41 @@ import io.swagger.annotations.ApiModelProperty
 data class AggTrade(
 	@ApiModelProperty("Agg trade id.")
 	@JsonProperty("a")
-	var aggregatedTradeId: Long = 0L,
-
+	val aggregatedTradeId: Long,
+	
 	@ApiModelProperty("Price.")
 	@JsonProperty("p")
-	var price: String = "",
-
+	val price: String,
+	
 	@ApiModelProperty("Volume.")
 	@JsonProperty("q")
-	var quantity: String = "",
-
+	val quantity: String,
+	
 	@ApiModelProperty("First trade id.")
 	@JsonProperty("f")
-	var firstBreakdownTradeId: Long = 0L,
-
+	val firstBreakdownTradeId: Long,
+	
 	@ApiModelProperty("Last trade id.")
 	@JsonProperty("l")
-	var lastBreakdownTradeId: Long = 0L,
-
+	val lastBreakdownTradeId: Long,
+	
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("T")
-	var tradeTime: Long = 0L,
-
+	val tradeTime: Long,
+	
 	@ApiModelProperty("Was the buyer the maker?")
 	@JsonProperty("m")
-	var isBuyerMaker: Boolean = false,
-
+	val isBuyerMaker: Boolean,
+	
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	var eventType: String = "",
-
+	val eventType: String,
+	
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	var eventTime: Long = 0L,
-
+	val eventTime: Long,
+	
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
-	var symbol: String = ""
+	val symbol: String
 )

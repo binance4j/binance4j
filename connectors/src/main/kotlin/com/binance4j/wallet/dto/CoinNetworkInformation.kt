@@ -59,53 +59,61 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin network information.")
 data class CoinNetworkInformation(
-    @ApiModelProperty("Address pattern.") @JsonProperty("addressRegex") var addressRegex: String = "",
-    @ApiModelProperty("Address rule") @JsonProperty("addressRule") var addressRule: String = "",
-    @ApiModelProperty("Coin abbreviation.") @JsonProperty("coin") var coin: String = "",
-    @ApiModelProperty("Deposit description.") @JsonProperty("depositDesc") var depositDesc: String = "",
-    @ApiModelProperty("Withdraw description.") @JsonProperty("withdrawDesc") var withdrawDesc: String = "",
-    @ApiModelProperty("Network name.") @JsonProperty("name") var name: String = "",
-    @ApiModelProperty("Memo pattern.") @JsonProperty("memoRegex") var memoRegex: String = "",
-    @ApiModelProperty("Network") @JsonProperty("network") var network: String = "",
-    @ApiModelProperty("Tips about the network.") @JsonProperty("specialTips") var specialTips: String = "",
-    @ApiModelProperty("Tips about the withdraw.")
-    @JsonProperty
-    var specialWithdrawTips: String = "",
-    @ApiModelProperty("Deposit dust.") @JsonProperty("depositDust") var depositDust: String = "",
-    @ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee") var withdrawFee: String = "",
-    @ApiModelProperty("Withdraw integer multiple")
-    @JsonProperty
-    var withdrawIntegerMultiple: String = "",
-    @ApiModelProperty("Maximal amount authorized to be withdrawn.")
-    @JsonProperty
-    var withdrawMax: String = "",
-    @ApiModelProperty("Minimal amount authorized to be withdrawn.")
-    @JsonProperty
-    var withdrawMin: String = "",
-    @ApiModelProperty("Min number for balance confirmation.")
-    @JsonProperty
-    var minConfirm: Int = 0,
-    @ApiModelProperty("Confirmation number for balance unlock.")
-    @JsonProperty
-    var unLockConfirm: Int = 0,
-    @ApiModelProperty("If deposit is enabled.")
-    @JsonProperty
-    var depositEnable: Boolean = false,
-    @ApiModelProperty("if is the default network.")
-    @JsonProperty
-    var isDefault: Boolean = false,
-    @ApiModelProperty("Reset address status.")
-    @JsonProperty
-    var resetAddressStatus: Boolean = false,
-    @ApiModelProperty("If withdraw is enabled.")
-    @JsonProperty
-    var withdrawEnable: Boolean = false,
-    @ApiModelProperty("If the coin needs to provide memo to withdraw.")
-    @JsonProperty
-    var sameAddress: Boolean = false,
-    @ApiModelProperty("Estimated arrival time in ms.")
-    @JsonProperty
-    var estimatedArrivalTime: Long = 0L,
-    @ApiModelProperty("Is network busy?") @JsonProperty("busy") var busy: Boolean = false,
-    @ApiModelProperty("Country.") @JsonProperty("country") var country: String = ""
+	@ApiModelProperty("Address pattern.") val addressRegex: String,
+	@ApiModelProperty("Address rule") val addressRule: String,
+	@ApiModelProperty("Coin abbreviation.") val coin: String,
+	@ApiModelProperty("Deposit description.") val depositDesc: String,
+	@ApiModelProperty("Withdraw description.") val withdrawDesc: String,
+	@ApiModelProperty("Network name.") val name: String,
+	@ApiModelProperty("Memo pattern.") val memoRegex: String,
+	@ApiModelProperty("Network") val network: String,
+	@ApiModelProperty("Tips about the network.") val specialTips: String,
+	@ApiModelProperty("Tips about the withdraw.")
+	@JsonProperty
+	val specialWithdrawTips: String,
+	@ApiModelProperty("Deposit dust.") val depositDust: String,
+	@ApiModelProperty("Withdraw fee.") val withdrawFee: String,
+	@ApiModelProperty("Withdraw integer multiple")
+	@JsonProperty
+	val withdrawIntegerMultiple: String,
+	@ApiModelProperty("Maximal amount authorized to be withdrawn.")
+	@JsonProperty
+	val withdrawMax: String,
+	@ApiModelProperty("Minimal amount authorized to be withdrawn.")
+	@JsonProperty
+	val withdrawMin: String,
+	@ApiModelProperty("Min number for balance confirmation.")
+	@JsonProperty
+	val minConfirm: Int
+	@ApiModelProperty("Confirmation number for balance unlock.")
+@JsonProperty
+val unLockConfirm: Int
+
+@ApiModelProperty("If deposit is enabled.")
+@JsonProperty
+val depositEnable: Boolean,
+
+@ApiModelProperty("if is the default network.")
+@JsonProperty
+val isDefault: Boolean,
+
+@ApiModelProperty("Reset address status.")
+@JsonProperty
+val resetAddressStatus: Boolean,
+
+@ApiModelProperty("If withdraw is enabled.")
+@JsonProperty
+val withdrawEnable: Boolean,
+
+@ApiModelProperty("If the coin needs to provide memo to withdraw.")
+@JsonProperty
+val sameAddress: Boolean,
+
+@ApiModelProperty("Estimated arrival time in ms.")
+@JsonProperty
+val estimatedArrivalTime: Long,
+@ApiModelProperty("Is network busy?")
+val busy: Boolean,
+@ApiModelProperty("Country.")
+val country: String
 )

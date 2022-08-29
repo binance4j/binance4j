@@ -7,6 +7,5 @@ import com.binance4j.spot.client.SpotClient;
 /**
  * [SpotClient.getOpenOCO] params.
  */
-@Param
 data class OpenOCOParams() : Params {
 }

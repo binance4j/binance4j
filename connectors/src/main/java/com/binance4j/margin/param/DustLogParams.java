@@ -7,6 +7,5 @@ import com.binance4j.margin.client.MarginClient;
 /**
  * [MarginClient.getDustLog] params
  */
-@Param
 data class DustLogParams() : Params {
 }

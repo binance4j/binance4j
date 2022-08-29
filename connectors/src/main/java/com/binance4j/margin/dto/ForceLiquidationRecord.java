@@ -23,23 +23,23 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Market order to exit leveraged position.")
 data class ForceLiquidationRecord(
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId: Long = 0L,
+ val orderId : Long,
 @ApiModelProperty("Liquidation timestamp in ms.")
-@JsonProperty("updatedTime") var updatedTime: Long = 0L,
+ val updatedTime : Long,
 @ApiModelProperty("Symbol average price.")
-@JsonProperty("avgPrice") var avgPrice: String = "",
+ val avgPrice : String,
 @ApiModelProperty("Executed quantity.")
-@JsonProperty("executedQty") var executedQty: String = "",
+ val executedQty : String,
 @ApiModelProperty("Order time in force.")
-@JsonProperty("timeInForce") var timeInForce:TimeInForce?=null,
+ var timeInForce:TimeInForce?=null,
 @ApiModelProperty("Order side.")
-@JsonProperty("side") var side:OrderSide?=null,
+ var side:OrderSide?=null,
 @ApiModelProperty("Order symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Order price.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Order total quantity.")
-@JsonProperty("qty") var qty: String = "",
-@ApiModelProperty("Is is isolated?") @JsonProperty("isIsolated") var isIsolated: Boolean = false)
+ val qty : String,
+@ApiModelProperty("Is is isolated?")  val isIsolated : Boolean)
 {
 }

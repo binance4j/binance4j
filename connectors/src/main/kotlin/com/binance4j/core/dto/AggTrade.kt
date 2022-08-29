@@ -42,46 +42,48 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel(description = "Aggregated trades.")
 data class AggTrade
 constructor(
-    @JsonProperty("a")
-    @ApiModelProperty("The trade id")
-    var tradeId: Long = 0L,
-
-    @JsonProperty("p") @ApiModelProperty("The price") var price: String = "",
-
-    @JsonProperty("q")
-    @ApiModelProperty("The quantity")
-    var quantity: String = "",
-
-    @JsonProperty("f")
-    @ApiModelProperty("The first trade id")
-    var firstTradeId: Long = 0L,
-
-    @JsonProperty("l")
-    @ApiModelProperty("The last trade id")
-    var lastTradeId: Long = 0L,
-
-    @JsonProperty("T") @ApiModelProperty("The timestamp") var time: Long = 0L,
-
-    @JsonProperty("m")
-    @ApiModelProperty("Was it a buyer maker")
-    var isBuyerMaker: Boolean = false,
-    
-    @JsonProperty("M")
-    @ApiModelProperty("Was it the best price match?")
-    var isBestMatch: Boolean = false
+	@JsonProperty("a")
+	@ApiModelProperty("The trade id")
+	val tradeId: Long,
+	
+	@JsonProperty("p")
+	@ApiModelProperty("The price")
+	val price: String,
+	
+	@JsonProperty("q")
+	@ApiModelProperty("The quantity")
+	val quantity: String,
+	
+	@JsonProperty("f")
+	@ApiModelProperty("The first trade id")
+	val firstTradeId: Long,
+	
+	@JsonProperty("l")
+	@ApiModelProperty("The last trade id")
+	val lastTradeId: Long,
+	
+	@JsonProperty("T")
+	@ApiModelProperty("The timestamp")
+	val time: Long,
+	
+	@JsonProperty("m")
+	@ApiModelProperty("Was it a buyer maker")
+	val isBuyerMaker: Boolean,
+	
+	@JsonProperty("M")
+	@ApiModelProperty("Was it the best price match?")
+	val isBestMatch: Boolean
 ) {
-
-    /** @property input CSV line. */
-    constructor(
-        input: List<String>
-    ) : this(
-        input[0].toLong(),
-        input[1],
-        input[2],
-        input[3].toLong(),
-        input[4].toLong(),
-        input[5].toLong(),
-        java.lang.Boolean.parseBoolean(input[6]),
-        java.lang.Boolean.parseBoolean(input[7])
-    )
+	
+	/** @property input CSV line. */
+	constructor(input: List<String>) : this(
+		input[0].toLong(),
+		input[1],
+		input[2],
+		input[3].toLong(),
+		input[4].toLong(),
+		input[5].toLong(),
+		java.lang.Boolean.parseBoolean(input[6]),
+		java.lang.Boolean.parseBoolean(input[7])
+	)
 }

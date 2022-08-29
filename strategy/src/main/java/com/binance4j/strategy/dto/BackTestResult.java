@@ -16,11 +16,11 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("A backtest result wrapper containing the strategy positions and its statistics.")
 data class BackTestResult(@ApiModelProperty("Series the backtest run.")
-@JsonProperty("series") var series:BarSeries?=null,
+ var series:BarSeries?=null,
 @ApiModelProperty("Backtest positions statistics.")
-@JsonProperty("statistics") var statistics:TradingStatistics?=null,
+ var statistics:TradingStatistics?=null,
 @ApiModelProperty("Positions record.")
-@JsonProperty("tradingRecord") var tradingRecord:TradingRecord?=null)
+ var tradingRecord:TradingRecord?=null)
 {
 
 	/**

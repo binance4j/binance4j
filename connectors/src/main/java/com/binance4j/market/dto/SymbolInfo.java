@@ -45,11 +45,11 @@ SymbolFilters filters,
 List<String> permissions,
 @ApiModelProperty("Symbol permission.")
 @JsonProperty("symbol ")
-var symbol: String = "",
+val symbol : String,
 @ApiModelProperty("Symbol name.") @JsonProperty("quoteAsset : String = "", @ApiModelProperty("Quote asset.") var baseAsset ")
-var quoteAsset: String = "",
+val quoteAsset : String,
 @ApiModelProperty("Quote asset.")
-var baseAsset: String = "",
+val baseAsset : String,
 @ApiModelProperty("Base asset.")
 @JsonProperty("baseAssetPrecision ")
 var baseAssetPrecision:Int = 0,
@@ -67,27 +67,27 @@ var quotePrecision:Int = 0,
 var quoteCommissionPrecision:Int = 0,
 @ApiModelProperty("Quote asset commission precision.")
 @JsonProperty("icebergAllowed ")
-var icebergAllowed: Boolean = false,
+val icebergAllowed : Boolean,
 @ApiModelProperty("Are iceberg orders allowed?")
 @JsonProperty("ocoAllowed ")
-var ocoAllowed: Boolean = false,
+val ocoAllowed : Boolean,
 @ApiModelProperty("Are OCO orders allowed?")
 @JsonProperty("quoteOrderQtyMarketAllowed ")
-var quoteOrderQtyMarketAllowed: Boolean = false,
+val quoteOrderQtyMarketAllowed : Boolean,
 @ApiModelProperty("Are orders by quote quantity allowed?")
 @JsonProperty("isSpotTradingAllowed ")
-var isSpotTradingAllowed: Boolean = false,
+val isSpotTradingAllowed : Boolean,
 @ApiModelProperty("Cancel replace allowed?")
 @JsonProperty("cancelReplaceAllowed ")
-var cancelReplaceAllowed: Boolean = false,
+val cancelReplaceAllowed : Boolean,
 @ApiModelProperty("Is trailing stop allowed?")
 @JsonProperty("allowTrailingStop ")
-var allowTrailingStop: Boolean = false,
+val allowTrailingStop : Boolean,
 @ApiModelProperty("Is spot trading allowed?")
 @JsonProperty("isMarginTradingAllowed ")
-var isMarginTradingAllowed: Boolean = false,
+val isMarginTradingAllowed : Boolean,
 @ApiModelProperty("Is margin trading allowed?")
 @JsonProperty("status ")
-var status: String = "")
+val status : String)
 {
 }

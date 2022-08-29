@@ -33,4 +33,4 @@ import io.swagger.annotations.ApiModelProperty
  * @property success Success.
  */
 @ApiModel("Auto staking response.")
-data class AutoStakingResponse(@ApiModelProperty("Success.") @JsonProperty("success") var success: Boolean = false)
+data class AutoStakingResponse(@ApiModelProperty("Success.") val success: Boolean)

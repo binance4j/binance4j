@@ -12,7 +12,6 @@ import com.binance4j.spot.client.SpotClient;
  * @param origClientOrderId Either {@code orderListId} or
  *                          {@code origClientOrderId} must be provided.
  */
-@Param
 data class OCOInfoParams(
 Long orderListId, String origClientOrderId):Params
 {

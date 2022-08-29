@@ -44,31 +44,31 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("The symbol order book.")
 data class Depth(
-    @ApiModelProperty("Event type.")
-    @JsonProperty("e")
-    var eventType: String = "",
-
-    @ApiModelProperty("Timestamp.")
-    @JsonProperty("E")
-    var eventTime: Long = 0L,
-
-    @ApiModelProperty("Trading pair.")
-    @JsonProperty("s")
-    var symbol: String = "",
-
-    @ApiModelProperty("First update id.")
-    @JsonProperty("U")
-    var firstUpdateId: Long = 0L,
-
-    @ApiModelProperty("Last update id.")
-    @JsonProperty("u")
-    var finalUpdateId: Long = 0L,
-
-    @ApiModelProperty("Offers.")
-    @JsonProperty("b")
-    var bids:List<OrderBookEntry> = emptyList(),
-
-    @ApiModelProperty("Demands.")
-    @JsonProperty("a")
-    var asks:List<OrderBookEntry> = emptyList()
+	@ApiModelProperty("Event type.")
+	@JsonProperty("e")
+	val eventType: String,
+	
+	@ApiModelProperty("Timestamp.")
+	@JsonProperty("E")
+	val eventTime: Long,
+	
+	@ApiModelProperty("Trading pair.")
+	@JsonProperty("s")
+	val symbol: String,
+	
+	@ApiModelProperty("First update id.")
+	@JsonProperty("U")
+	val firstUpdateId: Long,
+	
+	@ApiModelProperty("Last update id.")
+	@JsonProperty("u")
+	val finalUpdateId: Long,
+	
+	@ApiModelProperty("Offers.")
+	@JsonProperty("b")
+	var bids: List<OrderBookEntry> = emptyList(),
+	
+	@ApiModelProperty("Demands.")
+	@JsonProperty("a")
+	var asks: List<OrderBookEntry> = emptyList()
 )

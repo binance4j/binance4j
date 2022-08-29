@@ -9,6 +9,5 @@ import com.binance4j.margin.client.MarginClient;
  * 
  * @param asset Asset we want infos about.
  */
-@Param
 data class AssetParams(String asset) : Params {
 }

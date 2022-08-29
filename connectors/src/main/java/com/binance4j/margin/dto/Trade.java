@@ -22,27 +22,27 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A trade being part of a NewOrderRecord.")
 data class Trade(
 @ApiModelProperty("Trade id.")
-@JsonProperty("id") var id: Long = 0L,
+ val id : Long,
 @ApiModelProperty("Related order id.")
-@JsonProperty("orderId") var orderId: Long = 0L,
+ val orderId : Long,
 @ApiModelProperty("Traded symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Commission asset .")
-@JsonProperty("commissionAsset") var commissionAsset: String = "",
+ val commissionAsset : String,
 @ApiModelProperty("Commission amount.")
-@JsonProperty("commission") var commission: String = "",
+ val commission : String,
 @ApiModelProperty("Trade price.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Traded quantity.")
-@JsonProperty("qty") var qty: String = "",
+ val qty : String,
 @ApiModelProperty("Transaction time.")
-@JsonProperty("time") var time: Long = 0L,
+ val time : Long,
 @ApiModelProperty("Is it the best match?")
-@JsonProperty("isBestMatch") var isBestMatch: Boolean = false,
+ val isBestMatch : Boolean,
 @ApiModelProperty("Is it a buyer trade?")
-@JsonProperty("isBuyer") var isBuyer: Boolean = false,
+ val isBuyer : Boolean,
 @ApiModelProperty("Is it a maker trade?")
-@JsonProperty("isMaker") var isMaker: Boolean = false,
-@ApiModelProperty("Is it an isolated trade?") @JsonProperty("isIsolated") var isIsolated: Boolean = false)
+ val isMaker : Boolean,
+@ApiModelProperty("Is it an isolated trade?")  val isIsolated : Boolean)
 {
 }

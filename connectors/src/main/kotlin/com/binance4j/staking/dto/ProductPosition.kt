@@ -63,106 +63,81 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Product position.")
 data class ProductPosition(
-    @ApiModelProperty("Staking position ID.")
-    @JsonProperty("positionId")
-    var positionId: String = "",
-
-    @ApiModelProperty("Staking project ID.")
-    @JsonProperty("productId")
-    var productId: String = "",
-
-    @ApiModelProperty("Locked asset.")
-    @JsonProperty("asset")
-    var asset: String = "",
-
-    @ApiModelProperty("Locked Amount.")
-    @JsonProperty("amount")
-    var amount: String = "",
-
-    @ApiModelProperty("Subscription time.")
-    @JsonProperty("purchaseTime")
-    var purchaseTime: String = "",
-
-    @ApiModelProperty("Lock period(days ).")
-    @JsonProperty("duration")
-    var duration: String = "",
-    @ApiModelProperty("Accrue days.")
-    @JsonProperty("accrualDays")
-    var accrualDays: String = "",
-
-    @ApiModelProperty("Earned asset.")
-    @JsonProperty("rewardAsset")
-    var rewardAsset: String = "",
-
-    @ApiModelProperty("APY.")
-    @JsonProperty("apy")
-    var apy: String = "",
-
-    @ApiModelProperty("Earned amount.")
-    @JsonProperty("rewardAmt")
-    var rewardAmt: String = "",
-
-    @ApiModelProperty("Rewards assets of extra staking type.")
-    @JsonProperty("extraRewardAsset")
-    var extraRewardAsset: String = "",
-
-    @ApiModelProperty("APY of extra staking type.")
-    @JsonProperty("extraRewardAPY")
-    var extraRewardAPY: String = "",
-
-    @JsonProperty("extraRewardAPY")
-    @ApiModelProperty("Rewards of extra staking type, distribute when order expires.")
-    var estExtraRewardAmt: String = "",
-
-    @ApiModelProperty("Next estimated interest payment.")
-    @JsonProperty("nextInterestPay")
-    var nextInterestPay: String = "",
-
-    @ApiModelProperty("Next interest payment date.")
-    @JsonProperty("nextInterestPayDate")
-    var nextInterestPayDate: String = "",
-
-    @ApiModelProperty("Interest cycle.")
-    @JsonProperty("payInterestPeriod")
-    var payInterestPeriod: String = "",
-
-    @ApiModelProperty("Early redemption amount.")
-    @JsonProperty("redeemAmountEarly")
-    var redeemAmountEarly: String = "",
-
-    @ApiModelProperty("Interest accrual end date.")
-    @JsonProperty("interestEndDate")
-    var interestEndDate: String = "",
-
-    @ApiModelProperty("Redemption arrival time.")
-    @JsonProperty("deliverDate")
-    var deliverDate: String = "",
-
-    @ApiModelProperty("Redemption interval.")
-    @JsonProperty("redeemPeriod")
-    var redeemPeriod: String = "",
-
-    @ApiModelProperty("Amount under redemption.")
-    @JsonProperty("redeemingAmt")
-    var redeemingAmt: String = "",
-
-    @ApiModelProperty("Arrival time of partial redemption amount of order.")
-    @JsonProperty("partialAmtDeliverDate")
-    var partialAmtDeliverDate: String = "",
-
-    @ApiModelProperty("When it is true, early redemption can be operated.")
-    @JsonProperty("canRedeemEarly")
-    var canRedeemEarly: Boolean = false,
-
-    @ApiModelProperty("When it is true, auto staking can be operated.")
-    @JsonProperty("renewable")
-    var renewable: Boolean = false,
-
-    @ApiModelProperty("Order type is auto-staking or normal.")
-    @JsonProperty("type")
-    var type: String = "",
-
-    @ApiModelProperty("Position status.")
-    @JsonProperty("status")
-    var status: String = ""
+	@ApiModelProperty("Staking position ID.")
+	val positionId: String,
+	
+	@ApiModelProperty("Staking project ID.")
+	val productId: String,
+	
+	@ApiModelProperty("Locked asset.")
+	val asset: String,
+	
+	@ApiModelProperty("Locked Amount.")
+	val amount: String,
+	
+	@ApiModelProperty("Subscription time.")
+	val purchaseTime: String,
+	
+	@ApiModelProperty("Lock period(days ).")
+	val duration: String,
+	@ApiModelProperty("Accrue days.")
+	val accrualDays: String,
+	
+	@ApiModelProperty("Earned asset.")
+	val rewardAsset: String,
+	
+	@ApiModelProperty("APY.")
+	val apy: String,
+	
+	@ApiModelProperty("Earned amount.")
+	val rewardAmt: String,
+	
+	@ApiModelProperty("Rewards assets of extra staking type.")
+	val extraRewardAsset: String,
+	
+	@ApiModelProperty("APY of extra staking type.")
+	val extraRewardAPY: String,
+	
+	
+	@ApiModelProperty("Rewards of extra staking type, distribute when order expires.")
+	val estExtraRewardAmt: String,
+	
+	@ApiModelProperty("Next estimated interest payment.")
+	val nextInterestPay: String,
+	
+	@ApiModelProperty("Next interest payment date.")
+	val nextInterestPayDate: String,
+	
+	@ApiModelProperty("Interest cycle.")
+	val payInterestPeriod: String,
+	
+	@ApiModelProperty("Early redemption amount.")
+	val redeemAmountEarly: String,
+	
+	@ApiModelProperty("Interest accrual end date.")
+	val interestEndDate: String,
+	
+	@ApiModelProperty("Redemption arrival time.")
+	val deliverDate: String,
+	
+	@ApiModelProperty("Redemption interval.")
+	val redeemPeriod: String,
+	
+	@ApiModelProperty("Amount under redemption.")
+	val redeemingAmt: String,
+	
+	@ApiModelProperty("Arrival time of partial redemption amount of order.")
+	val partialAmtDeliverDate: String,
+	
+	@ApiModelProperty("When it is true, early redemption can be operated.")
+	val canRedeemEarly: Boolean,
+	
+	@ApiModelProperty("When it is true, auto staking can be operated.")
+	val renewable: Boolean,
+	
+	@ApiModelProperty("Order type is auto-staking or normal.")
+	val type: String,
+	
+	@ApiModelProperty("Position status.")
+	val status: String
 )

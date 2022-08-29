@@ -25,7 +25,6 @@
 package com.binance4j.convert.client
 
 import com.binance4j.convert.dto.ConversionHistory
-import com.binance4j.core.client.RestMapping
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

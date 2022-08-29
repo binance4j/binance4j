@@ -33,34 +33,34 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("An newly placed order record.")
 data class NewOrderRecord(
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId: Long = 0L,
+ val orderId : Long,
 @ApiModelProperty("Traded symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Order side.")
-@JsonProperty("side") var side:OrderSide?=null,
+ var side:OrderSide?=null,
 @ApiModelProperty("Order status.")
-@JsonProperty("status") var status: String = "",
+ val status : String,
 @ApiModelProperty("Order type.")
-@JsonProperty("type") var type: String = "",
+ val type : String,
 @ApiModelProperty("Order time in force.")
-@JsonProperty("timeInForce") var timeInForce: String = "",
+ val timeInForce : String,
 @ApiModelProperty("Transaction time.")
-@JsonProperty("transactTime") var transactTime: Long = 0L,
+ val transactTime : Long,
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId: String = "",
+ val clientOrderId : String,
 @ApiModelProperty("Symbol price.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Order original quantity.")
-@JsonProperty("origQty") var origQty: String = "",
+ val origQty : String,
 @ApiModelProperty("Order executed quantity.")
-@JsonProperty("executedQty") var executedQty: String = "",
+ val executedQty : String,
 @ApiModelProperty("Cumulative quote quantity.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "",
+ val cummulativeQuoteQty : String,
 @ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") String marginBuyBorrowAmount,
 @ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
 String marginBuyBorrowAsset,
 @ApiModelProperty("Is the order isolated?")
-@JsonProperty("isIsolated") var isIsolated: Boolean = false,
+ val isIsolated : Boolean,
 @ApiModelProperty("Filled trades.")
 List<Trade> fills)
 {

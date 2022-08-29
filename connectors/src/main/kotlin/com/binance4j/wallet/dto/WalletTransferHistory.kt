@@ -36,8 +36,8 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The transfers' wrapper.")
 data class WalletTransferHistory(
-    @ApiModelProperty("List of transfers.")
-    @JsonProperty
-    var rows:List<WalletTransfer> = emptyList(),
-    @ApiModelProperty("Result size.") @JsonProperty("total") var total: Long = 0L
+	@ApiModelProperty("List of transfers.")
+	@JsonProperty
+	var rows: List<WalletTransfer> = emptyList(),
+	@ApiModelProperty("Result size.") val total: Long
 )

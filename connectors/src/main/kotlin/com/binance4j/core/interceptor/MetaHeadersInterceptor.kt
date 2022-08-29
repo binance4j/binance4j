@@ -24,7 +24,6 @@
 
 package com.binance4j.core.interceptor
 
-import com.binance4j.core.client.RestMapping
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -41,7 +40,7 @@ class MetaHeadersInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder().removeHeader(RestMapping.ORDER_H)
-            .removeHeader(RestMapping.RATE_LIMIT_H).removeHeader(RestMapping.WEIGHT_H)
+                .removeHeader(RestMapping.RATE_LIMIT_H).removeHeader(RestMapping.WEIGHT_H)
         return chain.proceed(builder.build())
     }
 }

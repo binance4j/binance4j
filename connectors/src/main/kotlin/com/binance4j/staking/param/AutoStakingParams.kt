@@ -36,5 +36,4 @@ import com.binance4j.staking.dto.ProductType
  * @param positionId Position id.
  * @param renewable  Renew purchase?
  */
-@Param
 data class AutoStakingParams(var product: ProductType, var positionId: String, var renewable: Boolean) : Params

@@ -23,30 +23,30 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("The trading rules of a symbol.")
 data class SymbolFilters(
 @ApiModelProperty("IcebergParts filter")
-@JsonProperty("icebergParts") var icebergParts:IcebergPartsFilter?=null,
+ var icebergParts:IcebergPartsFilter?=null,
 @ApiModelProperty("LotSize filter")
-@JsonProperty("lotSize") var lotSize:LotSizeFilter?=null,
+ var lotSize:LotSizeFilter?=null,
 @ApiModelProperty("MarketLotSize filter")
-@JsonProperty("marketLotSize") var marketLotSize:MarketLotSizeFilter?=null,
+ var marketLotSize:MarketLotSizeFilter?=null,
 @ApiModelProperty("MaxNumAlgoOrders filter")
-@JsonProperty("maxNumAlgoOrders") var maxNumAlgoOrders:MaxNumAlgoOrdersFilter?=null,
+ var maxNumAlgoOrders:MaxNumAlgoOrdersFilter?=null,
 @ApiModelProperty("MaxNumIcebergOrders filter")
-@JsonProperty("maxNumIcebergOrders") var maxNumIcebergOrders:MaxNumIcebergOrdersFilter?=null,
+ var maxNumIcebergOrders:MaxNumIcebergOrdersFilter?=null,
 @ApiModelProperty("MaxNumOrders filter")
-@JsonProperty("maxNumOrders") var maxNumOrders:MaxNumOrdersFilter?=null,
+ var maxNumOrders:MaxNumOrdersFilter?=null,
 @ApiModelProperty("MaxPosition filter")
-@JsonProperty("maxPosition") var maxPosition:MaxPositionFilter?=null,
+ var maxPosition:MaxPositionFilter?=null,
 @ApiModelProperty("MinNotional filter")
-@JsonProperty("minNotional") var minNotional:MinNotionalFilter?=null,
+ var minNotional:MinNotionalFilter?=null,
 @ApiModelProperty("Notional filter")
-@JsonProperty("notional") var notional:NotionalFilter?=null,
+ var notional:NotionalFilter?=null,
 @ApiModelProperty("PercentPriceBySide filter")
-@JsonProperty("percentPriceBySide") var percentPriceBySide:PercentPriceBySideFilter?=null,
+ var percentPriceBySide:PercentPriceBySideFilter?=null,
 @ApiModelProperty("PercentPrice filter")
-@JsonProperty("percentPrice") var percentPrice:PercentPriceFilter?=null,
+ var percentPrice:PercentPriceFilter?=null,
 @ApiModelProperty("Price filter")
-@JsonProperty("price") var price:PriceFilter?=null,
+ var price:PriceFilter?=null,
 @ApiModelProperty("TrailingDelta filter")
-@JsonProperty("trailingDelta") var trailingDelta:TrailingDeltaFilter?=null)
+ var trailingDelta:TrailingDeltaFilter?=null)
 {
 }

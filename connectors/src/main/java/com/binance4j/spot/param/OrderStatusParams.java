@@ -11,7 +11,6 @@ import com.binance4j.spot.client.SpotClient;
  * @param origClientOrderId Client id we want the order status.
  * @param orderId           Order id we want the order status.
  */
-@Param
 data class OrderStatusParams(
 String symbol, String origClientOrderId,
 Long orderId):Params

@@ -9,7 +9,6 @@ import com.binance4j.spot.client.SpotClient;
  *
  * @param fromId Id to search from.
  */
-@Param
 data class AllOCOInfoParams(Long fromId) : Params {
 
 }

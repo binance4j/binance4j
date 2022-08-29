@@ -15,10 +15,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Hashrate resale detail wrapper.")
 data class HashrateResaleDetailResponse(
 @ApiModelProperty("Response code.")
-@JsonProperty("code") var code:Int = 0,
+ var code:Int = 0,
 @ApiModelProperty("Response message.")
-@JsonProperty("msg") var msg: String = "",
+ val msg : String,
 @ApiModelProperty("Response data.")
-@JsonProperty("data") var data:HashrateResaleDetailData?=null)
+ var data:HashrateResaleDetailData?=null)
 {
 }

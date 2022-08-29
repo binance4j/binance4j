@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Interest History containing InterestRecord InterestRecords.")
 data class InterestHistory(
 @ApiModelProperty("Total number of records.")
-@JsonProperty("total") var total:Int = 0,
+ var total:Int = 0,
 @ApiModelProperty("Interest records.") List<InterestRecord> rows)
 {
 }

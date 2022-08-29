@@ -34,4 +34,4 @@ import io.swagger.annotations.ApiModelProperty
  * @property success Success.
  */
 @ApiModel("A staking redeem response.")
-data class RedeemResponse(@ApiModelProperty("Success.") @JsonProperty("success") var success: Boolean = false)
+data class RedeemResponse(@ApiModelProperty("Success.") val success: Boolean)

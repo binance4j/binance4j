@@ -7,6 +7,5 @@ import com.binance4j.mining.client.MiningClient;
 /**
  * [MiningClient.getCoins] params.
  */
-@Param
 data class CoinsAquisitionParams() : Params {
 }

@@ -30,42 +30,42 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Trade order information.")
 data class OrderInfo(
 @ApiModelProperty("The order side.")
-@JsonProperty("side") var side: String = "",
+ val side : String,
 @ApiModelProperty("Price.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Original quantity.")
-@JsonProperty("origQty") var origQty: String = "",
+ val origQty : String,
 @ApiModelProperty("Original quantity.")
-@JsonProperty("executedQty") var executedQty: String = "",
+ val executedQty : String,
 @ApiModelProperty("Used to calculate the average price.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "",
+ val cummulativeQuoteQty : String,
 @ApiModelProperty("Order status.")
-@JsonProperty("status") var status: String = "",
+ val status : String,
 @ApiModelProperty("Time in force to indicate how long will the order remain active.")
-@JsonProperty("timeInForce") var timeInForce: String = "",
+ val timeInForce : String,
 @ApiModelProperty("Type of order.")
-@JsonProperty("type") var type: String = "",
+ val type : String,
 @ApiModelProperty("Used with stop orders.")
-@JsonProperty("stopPrice") var stopPrice: String = "",
+ val stopPrice : String,
 @ApiModelProperty("Used with iceberg orders.")
-@JsonProperty("icebergQty") var icebergQty: String = "",
+ val icebergQty : String,
 @ApiModelProperty("Order timestamp.")
-@JsonProperty("time") var time: Long = 0L,
+ val time : Long,
 @ApiModelProperty("Update timestamp.")
-@JsonProperty("updateTime") var updateTime: Long = 0L,
+ val updateTime : Long,
 @ApiModelProperty("Original quote order quantity.")
-@JsonProperty("origQuoteOrderQty") var origQuoteOrderQty: String = "",
+ val origQuoteOrderQty : String,
 @ApiModelProperty("is working.")
-@JsonProperty("isWorking") var isWorking: Boolean = false,
+ val isWorking : Boolean,
 @ApiModelProperty("The order symbol.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId: Long = 0L,
+ val orderId : Long,
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId: String = "",
+ val clientOrderId : String,
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId: String = "",
+ val orderListId : String,
 @ApiModelProperty("Account id.")
-@JsonProperty("accountId") var accountId: String = "")
+ val accountId : String)
 {
 }

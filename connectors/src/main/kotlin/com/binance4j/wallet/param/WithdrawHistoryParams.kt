@@ -38,11 +38,14 @@ import com.binance4j.wallet.dto.WithdrawStatus
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data)
  */
-@Param
 data class WithdrawHistoryParams @JvmOverloads constructor(
-    var coin: String? = null,
-    var withdrawOrderId: String? = null,
-    var status: String? = null
+	var coin: String? = null,
+	var withdrawOrderId: String? = null,
+	var status: String? = null
 ) : Params {
-    constructor(coin: String? = null, withdrawOrderId: String? = null, status: WithdrawStatus? = null) : this(coin, withdrawOrderId, status.toString())
+	constructor(coin: String? = null, withdrawOrderId: String? = null, status: WithdrawStatus? = null) : this(
+		coin,
+		withdrawOrderId,
+		status.toString()
+	)
 }

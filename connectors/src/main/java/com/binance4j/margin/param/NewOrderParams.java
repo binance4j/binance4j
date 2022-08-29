@@ -34,10 +34,10 @@ public class NewOrderParams:Params
 	/** The order lifetime */
 	TimeInForce timeInForce;
 	/** The quote order quantity */
-	@JsonProperty("quoteOrderQty")
+	
 	String quoteOrderQuantity;
 	/** The iceberg quantity */
-	@JsonProperty("icebergQty")
+	
 	String icebergQuantity;
 	/** The order unique id. Else is produced automatically. */
 	String newClientOrderId;

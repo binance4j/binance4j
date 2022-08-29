@@ -13,7 +13,6 @@ import com.binance4j.margin.client.MarginClient;
  * @param fromId     If supplied, don't provide {@link TimeFrame}
  * @param isIsolated Is the order isolated?
  */
-@Param
 data class GetAllOCOParams(
 String symbol, Long fromId,
 Boolean isIsolated):Params

@@ -29,31 +29,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("New order response.")
 data class NewOrderResponse(
 @ApiModelProperty("Trading pair to trade.")
-@JsonProperty("symbol") var symbol: String = "",
+ val symbol : String,
 @ApiModelProperty("Order id.")
-@JsonProperty("orderId") var orderId: Long = 0L,
+ val orderId : Long,
 @ApiModelProperty("Order list id.")
-@JsonProperty("orderListId") var orderListId: Long = 0L,
+ val orderListId : Long,
 @ApiModelProperty("Client order id.")
-@JsonProperty("clientOrderId") var clientOrderId: String = "",
+ val clientOrderId : String,
 @ApiModelProperty("Order transaction timestamp.")
-@JsonProperty("transactTime") var transactTime: Long = 0L,
+ val transactTime : Long,
 @ApiModelProperty("Price of trade.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Original traded quantity.")
-@JsonProperty("origQty") var origQty: String = "",
+ val origQty : String,
 @ApiModelProperty("Current executed quantity.")
-@JsonProperty("executedQty") var executedQty: String = "",
+ val executedQty : String,
 @ApiModelProperty("Opposite coin quantity.")
-@JsonProperty("cummulativeQuoteQty") var cummulativeQuoteQty: String = "",
+ val cummulativeQuoteQty : String,
 @ApiModelProperty("Order status.")
-@JsonProperty("status") var status: String = "",
+ val status : String,
 @ApiModelProperty("How long the order will remain active.")
-@JsonProperty("timeInForce") var timeInForce: String = "",
+ val timeInForce : String,
 @ApiModelProperty("Order type.")
-@JsonProperty("type") var type: String = "",
+ val type : String,
 @ApiModelProperty("Order side.")
-@JsonProperty("side") var side: String = "",
+ val side : String,
 @ApiModelProperty("List of trades that partially of fully filled the order.") List<OrderTrade> fills)
 {
 }

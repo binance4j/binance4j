@@ -13,10 +13,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A symbol price index.")
 data class PriceIndex(
 @ApiModelProperty("Last price calculation timestamp in ms.")
-@JsonProperty("calcTime") var calcTime: Long = 0L,
+ val calcTime : Long,
 @ApiModelProperty("Price.")
-@JsonProperty("price") var price: String = "",
+ val price : String,
 @ApiModelProperty("Asset pair.")
-@JsonProperty("symbol") var symbol: String = "")
+ val symbol : String)
 {
 }

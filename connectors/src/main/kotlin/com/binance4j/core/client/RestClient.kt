@@ -33,52 +33,50 @@ import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 
 /**
- * A base client for the Binance API
+ * A base client for the Binance API.
+ *
+ * @param T The Retrofit2 mapping type.
+ * @param mapping The Retrofit2 mapping.
+ * @param key The API key.
+ * @param secret The API secret.
+ * @param useTestnet Should the client use the Test Network?
  *
  * [See: doc](https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type)
  */
 abstract class RestClient<T> @JvmOverloads constructor(
-    var mapping: Class<T>, var key: String, var secret: String, var useTestnet: Boolean = false
+	mapping: Class<T>,
+	key: String = "",
+	secret: String = "",
+	useTestnet: Boolean = false
 ) {
-    /** URL base domain.  */
-    protected var baseDomain = "api.binance.com"
-
-    /** Testnet URL base domain.  */
-    protected var testnetDomain = "testnet.binance.vision"
-
-    /** Request authentication interceptor */
-    protected var interceptor: AuthenticationInterceptor
-
-    /** The current API service  */
-    protected var service: T
-
-    init {
-        interceptor = AuthenticationInterceptor(key, secret)
-        service = createService()
-    }
-
-    /** Generates the API service.  */
-    private fun createService(): T {
-        val converterFactory = JacksonConverterFactory.create(Binance4j.MAPPER)
-        val dispatcher = Dispatcher()
-        val httpClient = OkHttpClient.Builder().dispatcher(dispatcher).build()
-        val apiUrl = if (useTestnet) "https://$testnetDomain" else "https://$baseDomain"
-        val client = httpClient.newBuilder().addInterceptor(interceptor)
-            .addInterceptor(MetaHeadersInterceptor()).build()
-        return Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
-            .create(mapping)
-    }
-
-    /**
-     * Updates the API keys.
-     *
-     * @param key    New public key.
-     * @param secret New secret key.
-     */
-    fun updateKeys(key: String, secret: String) {
-        this.key = key
-        this.secret = secret
-        // We also update the authentication interceptor keys
-        interceptor.updateKeys(key, secret)
-    }
+	/** Request authentication interceptor. */
+	private var interceptor: AuthenticationInterceptor = AuthenticationInterceptor()
+	
+	/** API service to make calls.  */
+	protected var service: T = createService(mapping, useTestnet)
+	
+	/** Generates the API service.
+	 *
+	 * @param mapping The Retrofit2 mapping.
+	 * @param useTestnet Should the client use the Test Network?
+	 */
+	private fun createService(mapping: Class<T>, useTestnet: Boolean): T {
+		val apiUrl = if (useTestnet) "https://testnet.binance.vision" else "https://api.binance.com"
+		val converterFactory = JacksonConverterFactory.create(Binance4j.MAPPER)
+		val client = OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder().addInterceptor(interceptor)
+			.addInterceptor(MetaHeadersInterceptor()).build()
+		return Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
+			.create(mapping)
+	}
+	
+	/**
+	 * Updates the authentication interceptor's API keys.
+	 *
+	 * @param key    New key.
+	 * @param secret New secret.
+	 */
+	fun updateKeys(key: String, secret: String) {
+		interceptor.key = key
+		interceptor.secret = secret
+	}
 }
