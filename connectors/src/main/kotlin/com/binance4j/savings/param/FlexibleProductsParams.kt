@@ -38,8 +38,9 @@ import com.binance4j.savings.dto.FlexibleProductStatus
 data class FlexibleProductsParams @JvmOverloads constructor(
 	var status: String? = null, var featured: String? = null, var current: Int? = null, var size: Int? = null
 ) : Params {
+	@JvmOverloads
 	constructor(
-		status: FlexibleProductStatus? = null,
+		status: FlexibleProductStatus,
 		featured: Featured? = null,
 		current: Int? = null,
 		size: Int? = null

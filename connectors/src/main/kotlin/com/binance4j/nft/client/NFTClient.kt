@@ -25,12 +25,6 @@ package com.binance4j.nft.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.FramedPaging
-import com.binance4j.core.param.Paging
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.nft.dto.AssetHistory
-import com.binance4j.nft.dto.TransactionHistory
-import com.binance4j.nft.dto.WithdrawHistory
 import com.binance4j.nft.param.AssetParams
 import com.binance4j.nft.param.OperationParams
 import com.binance4j.nft.param.TransactionHistoryParams
@@ -38,48 +32,46 @@ import com.binance4j.nft.param.TransactionHistoryParams
 /**
  * Api client for the NFT endpoints
  *
- * @see [Documentation](https://binance-docs.github.io/apidocs/spot/en/.nft-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.nft-endpoints)
  */
 class NFTClient
 /**
  * @param key    API public key.
  * @param secret API secret key.
  */
-(key: String, secret: String) : RestClient<NFTMapping>(NFTMapping::class.java, key, secret) {
+	(key: String, secret: String) : RestClient<NFTMapping>(NFTMapping::class.java, key, secret) {
 	/**
 	 * Get NFT Transaction History.
 	 *
 	 * @param params       Request params.
-	 * @param framedPaging Paging.
 	 * @return The request to execute.
 	 */
-	@JvmOverloads
-	fun getTransactions(params: TransactionHistoryParams, framedPaging: FramedPaging = FramedPaging()): Request<TransactionHistory> = Request(service.getTransactions(merge(params, framedPaging)))
+	fun getTransactions(params: TransactionHistoryParams) = Request(service.getTransactions(params.toMap()))
 	
 	/**
 	 * Get NFT deposit History.
 	 *
-	 * @param interval Time interval search.
+	 * @param params Time interval search.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getDeposits(interval: FramedPaging = FramedPaging()): Request<com.binance4j.wallet.dto.DepositHistory> = Request(service.getDeposits(merge(OperationParams(), interval)))
+	fun getDeposits(params: OperationParams = OperationParams()) = Request(service.getDeposits(params.toMap()))
 	
 	/**
 	 * Get NFT withdraw History.
 	 *
-	 * @param interval Time interval search.
+	 * @param params Time interval search.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getWithdraws(interval: FramedPaging = FramedPaging()): Request<WithdrawHistory> = Request(service.getWithdraws(merge(OperationParams(), interval)))
+	fun getWithdraws(params: OperationParams = OperationParams()) = Request(service.getWithdraws(params.toMap()))
 	
 	/**
 	 * Get NFT assets.
 	 *
-	 * @param paging Paging.
+	 * @param params Paging.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getAssets(paging: Paging = Paging()): Request<AssetHistory> = Request(service.getAssets(merge(AssetParams(), paging)))
+	fun getAssets(params: AssetParams = AssetParams()) = Request(service.getAssets(params.toMap()))
 }

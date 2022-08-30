@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -52,44 +51,35 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The API key permissions.")
 data class ApiPermissions(
 	@ApiModelProperty("Is the key restricted to an ip address?")
-	@JsonProperty
 	val ipRestrict: Boolean,
 	@ApiModelProperty(
 		"This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable withdrawals"
 	)
-	@JsonProperty
 	val enableWithdrawals: Boolean,
 	@ApiModelProperty(
 		"This option authorizes this key to transfer funds between your master account and your sub account instantly."
 	)
-	@JsonProperty
 	val enableInternalTransfer: Boolean,
 	@ApiModelProperty(
 		"Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each business's own transfer API rights are not affected by this authorization."
 	)
-	@JsonProperty
 	val permitsUniversalTransfer: Boolean,
 	@ApiModelProperty("Authorizes this key to Vanilla options trading.")
-	@JsonProperty
 	val enableVanillaOptions: Boolean,
 	@ApiModelProperty("Does the key enables reading ?")
-	@JsonProperty
 	val enableReading: Boolean,
 	@ApiModelProperty(
 		"API Key created before your futures account opened does not support futures API service."
 	)
-	@JsonProperty
 	val enableFutures: Boolean,
 	@ApiModelProperty(
 		"This option can be adjusted after the Cross Margin account transfer is completed."
 	)
-	@JsonProperty
 	val enableMargin: Boolean,
 	@ApiModelProperty("Spot and margin trading.")
-	@JsonProperty
 	val enableSpotAndMarginTrading: Boolean,
-	@ApiModelProperty("API key creation timestamp.") val createTime: Long,
+	@ApiModelProperty("API key creation timestamp.")
+	val createTime: Long,
 	@ApiModelProperty("Expiration time for spot and margin trading permission.")
-	@JsonProperty
-	val tradingAuthorityExpirationTime: Long
+	val tradingAuthorityExpirationTime: Long,
 )

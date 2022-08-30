@@ -24,5 +24,5 @@
 
 package com.binance4j.core.exception
 
-/** Thrown when data was not found  */
+/** Thrown when data was not found.  */
 class NotFoundException : ApiException(404, "Not Found")

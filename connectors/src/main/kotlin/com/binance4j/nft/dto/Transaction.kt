@@ -24,7 +24,6 @@
 
 package com.binance4j.nft.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,17 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class Transaction(
 	@ApiModelProperty("Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee")
 	val orderNo: String,
-	
 	@ApiModelProperty("Tokens.")
-	
-	var tokens: List<NFT> = emptyList(),
-	
+	val tokens: List<NFT>,
 	@ApiModelProperty("Trade time in ms.")
 	val tradeTime: Long,
-	
 	@ApiModelProperty("Trade amount.")
 	val tradeAmount: String,
-	
 	@ApiModelProperty("Currency used to buy the NFT.")
 	val tradeCurrency: String
 )

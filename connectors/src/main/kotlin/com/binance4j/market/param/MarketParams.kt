@@ -21,31 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.binance4j.core.client
 
-import com.binance4j.core.Request
-import com.binance4j.core.client.RateLimitClient.RateLimitMapping
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+package com.binance4j.market.param
 
-/**
- * Simple client for fetching API Rate Limits.
- */
-class RateLimitClient : RestClient<RateLimitMapping>(RateLimitMapping::class.java, "", "") {
-    /** Exchange info. */
-    val rateLimits: Request<RateLimits> = Request(service.getRateLimits(mapOf("symbol" to "BNBBUSD")))
+import com.binance4j.core.param.Params
 
-    /** Mapping.  */
-    interface RateLimitMapping : RestMapping {
-        /**
-         * @param map map
-         * @return Rate limits.
-         */
-        @GET("/api/v3/exchangeInfo")
-        @Headers("X-WEIGHT: 10")
-        @JvmSuppressWildcards
-        fun getRateLimits(@QueryMap map: Map<String, Any>): Call<RateLimits>
-    }
+/** Params wrapper for Market params that don't have recvWindow nor timestamp. */
+interface MarketParams : Params {
+	override val recvWindow: Long? get() = null
+	override val timestamp: Long? get() = null
+	
+	companion object {
+		@JvmStatic
+		fun joinSymbols(symbols: List<String>): String {
+			return "[" + symbols.joinToString(",") { s ->
+				String.format(
+					"\"%s\"",
+					s.trim()
+				)
+			} + "]"
+		}
+	}
 }

@@ -26,6 +26,7 @@ package com.binance4j.fiat.dto
 
 /**
  * Payment type.
+ *
  * @property value Value
  */
 enum class PaymentType(var value: String) {

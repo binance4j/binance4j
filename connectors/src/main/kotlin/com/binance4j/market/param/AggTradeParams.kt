@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -42,7 +41,4 @@ data class AggTradeParams @JvmOverloads constructor(
 	var startTime: Long? = null,
 	var endTime: Long? = null,
 	var limit: Int? = null
-) : Params {
-	override fun recvWindow(): Long? = null
-	override fun timestamp(): Long? = null
-}
+) : MarketParams

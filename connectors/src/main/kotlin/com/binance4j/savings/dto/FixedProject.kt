@@ -51,49 +51,34 @@ import io.swagger.annotations.ApiModelProperty
 data class FixedProject(
 	@ApiModelProperty("Asset.")
 	val asset: String = "",
-	
 	@ApiModelProperty("Display priority.")
 	val displayPriority: Long,
-	
 	@ApiModelProperty("Duration.")
 	val duration: Long,
-	
 	@ApiModelProperty("Interest per lot.")
 	val interestPerLot: String,
-	
 	@ApiModelProperty("Interest rate.")
 	val interestRate: String,
-	
 	@ApiModelProperty("Lot size.")
 	val lotSize: String,
-	
 	@ApiModelProperty("Lots low limit.")
 	val lotsLowLimit: Long,
-	
 	@ApiModelProperty("Lots purchased.")
 	val lotsPurchased: Long,
-	
 	@ApiModelProperty("Lots up limit.")
 	val lotsUpLimit: Long,
-	
 	@ApiModelProperty("Max lots per user.")
 	val maxLotsPerUser: Long,
-	
 	@ApiModelProperty("Need kyc.")
 	val needKyc: Boolean,
-	
 	@ApiModelProperty("Project id.")
 	val projectId: String,
-	
 	@ApiModelProperty("Project name.")
 	val projectName: String,
-	
 	@ApiModelProperty("Status.")
 	val status: String,
-	
 	@ApiModelProperty("Type.")
 	val type: String,
-	
 	@ApiModelProperty("With area limitation.")
 	val withAreaLimitation: Boolean
 )

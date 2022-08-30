@@ -24,7 +24,6 @@
 
 package com.binance4j.portfoliomargin.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,7 +37,6 @@ import io.swagger.annotations.ApiModelProperty
 data class CollateralRateInfo(
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Collateral rate.")
 	val collateralRate: String
 )

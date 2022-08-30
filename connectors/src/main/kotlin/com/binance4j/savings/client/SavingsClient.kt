@@ -25,7 +25,6 @@ package com.binance4j.savings.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.savings.dto.*
 import com.binance4j.savings.param.*
 
 /**
@@ -42,7 +41,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFlexibleProducts(params: FlexibleProductsParams = FlexibleProductsParams("")): Request<List<FlexibleProduct>> =
+	fun getFlexibleProducts(params: FlexibleProductsParams = FlexibleProductsParams("")) =
 		Request(service.getFlexibleProducts(params.toMap()))
 	
 	/**
@@ -51,7 +50,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getLeftDailyFlexiblePurchaseQuota(params: PurchaseQuotaParams): Request<PurchaseQuota> =
+	fun getLeftDailyFlexiblePurchaseQuota(params: PurchaseQuotaParams) =
 		Request(service.getLeftDailyFlexiblePurchaseQuota(params.toMap()))
 	
 	/**
@@ -60,8 +59,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun purchaseFlexible(params: FlexiblePurchaseParams): Request<PurchaseResponse> =
-		Request(service.purchaseFlexible(params.toMap()))
+	fun purchaseFlexible(params: FlexiblePurchaseParams) = Request(service.purchaseFlexible(params.toMap()))
 	
 	/**
 	 * Get Left Daily Redemption Quota of Flexible Product.
@@ -69,7 +67,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getLeftDailyRedemptionQuota(params: RedemptionQuotaParams): Request<RedemptionQuota> =
+	fun getLeftDailyRedemptionQuota(params: RedemptionQuotaParams) =
 		Request(service.getLeftDailyRedemptionQuota(params.toMap()))
 	
 	/**
@@ -78,7 +76,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun redeemFlexible(params: RedemptionParams): Request<Void> = Request(service.redeemFlexible(params.toMap()))
+	fun redeemFlexible(params: RedemptionParams) = Request(service.redeemFlexible(params.toMap()))
 	
 	/**
 	 * Get flexible product position.
@@ -86,7 +84,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFlexibleProductPosition(params: FlexibleProductPositionParams = FlexibleProductPositionParams()): Request<List<FlexibleProductPosition>> =
+	fun getFlexibleProductPosition(params: FlexibleProductPositionParams = FlexibleProductPositionParams()) =
 		Request(service.getFlexibleProductPosition(params.toMap()))
 	
 	/**
@@ -95,8 +93,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFixedProjects(params: FixedProjectListParams): Request<List<FixedProject>> =
-		Request(service.getFixedProjects(params.toMap()))
+	fun getFixedProjects(params: FixedProjectListParams) = Request(service.getFixedProjects(params.toMap()))
 	
 	/**
 	 * Purchase fixed project.
@@ -104,8 +101,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun purchaseFixed(params: FixedPurchaseParams): Request<PurchaseResponse> =
-		Request(service.purchaseFixed(params.toMap()))
+	fun purchaseFixed(params: FixedPurchaseParams) = Request(service.purchaseFixed(params.toMap()))
 	
 	/**
 	 * Get fixed/activity project position.
@@ -113,16 +109,15 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFixedProjectPosition(params: FixedProjectPositionParams): Request<List<FixedProjectPosition>> =
+	fun getFixedProjectPosition(params: FixedProjectPositionParams) =
 		Request(service.getFixedProjectPosition(params.toMap()))
-	
 	
 	/**
 	 * Get lending account.
 	 *
 	 * @return The request to execute.
 	 */
-	fun getAccount(): Request<LendingAccount> = Request(service.getAccount(LendingAccountParams().toMap()))
+	fun getAccount() = Request(service.getAccount(LendingAccountParams().toMap()))
 	
 	/**
 	 * Get purchase record.
@@ -130,7 +125,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getPurchases(params: LendingParams): Request<List<Purchase>> = Request(service.getPurchases(params.toMap()))
+	fun getPurchases(params: LendingParams) = Request(service.getPurchases(params.toMap()))
 	
 	/**
 	 * Get redemption record.
@@ -138,8 +133,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getRedemptions(params: LendingParams): Request<List<Redemption>> =
-		Request(service.getRedemptions(params.toMap()))
+	fun getRedemptions(params: LendingParams) = Request(service.getRedemptions(params.toMap()))
 	
 	/**
 	 * Get interest record.
@@ -147,7 +141,7 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getInterests(params: LendingParams): Request<List<Interest>> = Request(service.getInterests(params.toMap()))
+	fun getInterests(params: LendingParams) = Request(service.getInterests(params.toMap()))
 	
 	/**
 	 * Change fixed/activity position to daily position.
@@ -155,6 +149,5 @@ class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(Sa
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun fixedToDailyPosition(params: ChangePositionParams): Request<PositionChangedResponse> =
-		Request(service.fixedToDailyPosition(params.toMap()))
+	fun fixedToDailyPosition(params: ChangePositionParams) = Request(service.fixedToDailyPosition(params.toMap()))
 }

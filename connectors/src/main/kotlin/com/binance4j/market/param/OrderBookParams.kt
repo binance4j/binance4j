@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 import com.binance4j.market.dto.OrderBookLimit
 
@@ -34,9 +33,6 @@ import com.binance4j.market.dto.OrderBookLimit
  * @param symbol Trading pair we want the depth.
  * @param limit  Market depth size.
  */
-data class OrderBookParams(var symbol: String, var limit: String) : Params {
-	override fun timestamp(): Long? = null
-	override fun recvWindow(): Long? = null
-	
+data class OrderBookParams(var symbol: String, var limit: String) : MarketParams {
 	constructor(symbol: String, limit: OrderBookLimit) : this(symbol, limit.toString())
 }

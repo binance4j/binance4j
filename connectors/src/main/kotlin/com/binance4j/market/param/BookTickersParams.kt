@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -32,14 +31,7 @@ import com.binance4j.market.client.MarketClient
  *
  * @param symbols Symbols. Format: '["BTCBUSD","BNBBUSD"]'.
  */
-class BookTickersParams private constructor(var symbols: String) : Params {
-	override fun recvWindow(): Long? = null
-	override fun timestamp(): Long? = null
+class BookTickersParams private constructor(var symbols: String) : MarketParams {
 	
-	constructor (symbols: List<String>) : this("[" + symbols.joinToString(",") { s ->
-		String.format(
-			"\"%s\"",
-			s.trim()
-		)
-	} + "]")
+	constructor (symbols: List<String>) : this(MarketParams.joinSymbols(symbols))
 }

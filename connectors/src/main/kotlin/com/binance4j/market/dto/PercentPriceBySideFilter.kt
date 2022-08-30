@@ -45,16 +45,12 @@ import io.swagger.annotations.ApiModelProperty
 data class PercentPriceBySideFilter(
 	@ApiModelProperty("Bid multiplier up.")
 	val bidMultiplierUp: String,
-	
 	@ApiModelProperty("Bid multiplier down.")
 	val bidMultiplierDown: String,
-	
 	@ApiModelProperty("Ask multiplier up.")
 	val askMultiplierUp: String,
-	
 	@ApiModelProperty("Ask multiplier down.")
 	val askMultiplierDown: String,
-	
 	@ApiModelProperty("Weighted average price.")
 	val avgPriceMins: String
 )

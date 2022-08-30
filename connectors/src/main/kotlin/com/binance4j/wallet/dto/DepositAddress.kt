@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,8 +37,12 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A deposit address for a given asset.")
 data class DepositAddress(
-	@ApiModelProperty("Deposit url.") val url: String,
-	@ApiModelProperty("Deposit address.") val address: String,
-	@ApiModelProperty("Deposit tag.") val tag: String,
-	@ApiModelProperty("Coin abbreviation.") val coin: String
+	@ApiModelProperty("Deposit url.")
+	val url: String,
+	@ApiModelProperty("Deposit address.")
+	val address: String,
+	@ApiModelProperty("Deposit tag.")
+	val tag: String,
+	@ApiModelProperty("Coin abbreviation.")
+	val coin: String
 )

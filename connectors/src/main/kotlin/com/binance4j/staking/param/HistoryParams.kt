@@ -24,7 +24,6 @@
 
 package com.binance4j.staking.param
 
-import com.binance4j.core.annotation.Param
 import com.binance4j.core.param.Params
 import com.binance4j.staking.client.StakingClient
 import com.binance4j.staking.dto.ProductType
@@ -33,19 +32,33 @@ import com.binance4j.staking.dto.TransactionType
 /**
  * [StakingClient.getHistory] params.
  *
- * @property product Product type.
- * @property txnType Transaction type.
- * @property asset   Product name.
+ * @property product    Product type.
+ * @property txnType    Transaction type.
+ * @property asset      Product name.
+ * @property startTime     Start time in ms.
+ * @property endTime       End time in ms.
+ * @property current       Result page.
+ * @property size          Results in the page.
  */
 data class HistoryParams @JvmOverloads constructor(
 	var product: String,
 	var txnType: String,
-	var asset: String? = null
+	var asset: String? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var current: Int? = null,
+	var size: Int? = null
 ) : Params {
 	@JvmOverloads
-	constructor(product: ProductType, txnType: TransactionType, asset: String? = null) : this(
-		product.toString(),
-		txnType.toString(),
-		asset
+	constructor(
+		product: ProductType,
+		txnType: TransactionType,
+		asset: String? = null,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		current: Int? = null,
+		size: Int? = null
+	) : this(
+		product.toString(), txnType.toString(), asset, startTime, endTime, current, size
 	)
 }

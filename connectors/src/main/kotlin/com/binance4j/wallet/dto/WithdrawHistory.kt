@@ -51,35 +51,39 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The withdrawal history.")
 data class WithdrawHistory(
-	@ApiModelProperty("Address to withdraw to.") val address: String,
-	@ApiModelProperty("Withdraw date operation.") val applyTime: String,
-	@ApiModelProperty("Coin to withdraw.") val coin: String,
-	@ApiModelProperty("Withdraw id.") val id: String,
+	@ApiModelProperty("Address to withdraw to.")
+	val address: String,
+	@ApiModelProperty("Withdraw date operation.")
+	val applyTime: String,
+	@ApiModelProperty("Coin to withdraw.")
+	val coin: String,
+	@ApiModelProperty("Withdraw id.")
+	val id: String,
 	@ApiModelProperty(
 		"Withdraw order id. will not be returned if there's no withdrawOrderId for this withdraw."
 	)
-	@JsonProperty
 	val withdrawOrderId: String,
-	@ApiModelProperty("Network to withdraw on.") val network: String,
-	@ApiModelProperty("Reason for withdrawal failure.") val info: String,
-	@ApiModelProperty("Transaction id.") val txId: String,
-	@ApiModelProperty("Transaction key.") val txKey: String,
+	@ApiModelProperty("Network to withdraw on.")
+	val network: String,
+	@ApiModelProperty("Reason for withdrawal failure.")
+	val info: String,
+	@ApiModelProperty("Transaction id.")
+	val txId: String,
+	@ApiModelProperty("Transaction key.")
+	val txKey: String,
 	@ApiModelProperty("1 for internal transfer, 0 for external transfer.")
-	@JsonProperty
-	val transferType: Int
+	val transferType: Int,
 	@ApiModelProperty(
-"(0:Email Sent, 1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)"
-)
-@JsonProperty
-val status: Int
-@ApiModelProperty("Confirm times for withdraw.")
-val confirmNo: Int
-@ApiModelProperty("Withdrawn column.")
-val amount: String,
-@ApiModelProperty("Withdraw fees.")
-val transactionFee: String,
-
-@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
-@JsonProperty
-var walletType: Int = 0
+		"(0:Email Sent, 1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)"
+	)
+	@JsonProperty
+	val status: Int,
+	@ApiModelProperty("Confirm times for withdraw.")
+	val confirmNo: Int,
+	@ApiModelProperty("Withdrawn column.")
+	val amount: String,
+	@ApiModelProperty("Withdraw fees.")
+	val transactionFee: String,
+	@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
+	var walletType: Int = 0
 )

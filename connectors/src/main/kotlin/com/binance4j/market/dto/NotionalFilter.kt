@@ -48,9 +48,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The acceptable notional range allowed for an order on a symbol.")
 data class NotionalFilter(
-	@ApiModelProperty("The minimum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.") val minNotional: Int,
-	@ApiModelProperty("The maximum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.") val maxNotional: Int,
-	@ApiModelProperty("Determines whether the minNotional will be applied to MARKET orders.") @JsonProperty("applyMinToMarket ") val applyMinToMarket: Boolean,
-	@ApiModelProperty(" determines whether the maxNotional will be applied to MARKET orders.") @JsonProperty("applyMaxToMarket ") val applyMaxToMarket: Boolean,
-	@ApiModelProperty("Number of minutes the average price is calculated over. 0 means the last price is used.") val avgPriceMins: Int
+	@ApiModelProperty("The minimum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.")
+	val minNotional: String,
+	@ApiModelProperty("The maximum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.")
+	val maxNotional: String,
+	@ApiModelProperty("Determines whether the minNotional will be applied to MARKET orders.") @JsonProperty("applyMinToMarket ")
+	val applyMinToMarket: Boolean,
+	@ApiModelProperty(" determines whether the maxNotional will be applied to MARKET orders.") @JsonProperty("applyMaxToMarket ")
+	val applyMaxToMarket: Boolean,
+	@ApiModelProperty("Number of minutes the average price is calculated over. 0 means the last price is used.")
+	val avgPriceMins: Int
 )

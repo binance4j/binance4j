@@ -24,6 +24,9 @@
 
 package com.binance4j.core.interceptor
 
+import com.binance4j.core.Binance4j.API_KEY_HEADER
+import com.binance4j.core.Binance4j.ENDPOINT_SECURITY_TYPE_APIKEY
+import com.binance4j.core.Binance4j.ENDPOINT_SECURITY_TYPE_SIGNED
 import com.binance4j.core.exception.UnableToSignException
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -38,71 +41,53 @@ import javax.crypto.spec.SecretKeySpec
  * @property key    API public key
  * @property secret API private key.
  */
-class AuthenticationInterceptor : Interceptor {
-    lateinit var key: String
-    lateinit var secret: String
-
-    /**
-     * Intercepts the request
-     *
-     * @param chain Request chain.
-     */
-    @Throws(IOException::class)
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val original = chain.request()
-        val newRequestBuilder = original.newBuilder()
-        val isApiKeyRequired = original.header(ENDPOINT_SECURITY_TYPE_APIKEY) != null
-        val isSignatureRequired = original.header(ENDPOINT_SECURITY_TYPE_SIGNED) != null
-        newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED)
-        // Endpoint requires sending a valid API-KEY
-        if (isApiKeyRequired || isSignatureRequired) {
-            newRequestBuilder.addHeader(API_KEY_HEADER, key)
-        }
-        // Endpoint requires signing the payload
-        if (isSignatureRequired) {
-            val payload = original.url.query
-            if (payload != null && "" != payload) {
-                newRequestBuilder.url(original.url.newBuilder().addQueryParameter("signature", sign(payload, secret)).build())
-            }
-        }
-        // Build new request after adding the necessary authentication information
-        return chain.proceed(newRequestBuilder.build())
-    }
-
-    companion object {
-        /** The API key http header.  */
-        const val API_KEY_HEADER = "X-MBX-APIKEY"
-
-        /** The API key http header decorator.  */
-        const val ENDPOINT_SECURITY_TYPE_APIKEY = "APIKEY"
-
-        /** The API key http full header.  */
-        const val ENDPOINT_SECURITY_TYPE_APIKEY_HEADER = "$ENDPOINT_SECURITY_TYPE_APIKEY: #"
-
-        /** The signed http header decorator.  */
-        const val ENDPOINT_SECURITY_TYPE_SIGNED = "SIGNED"
-
-        /** The signed http full header.  */
-        const val ENDPOINT_SECURITY_TYPE_SIGNED_HEADER = "$ENDPOINT_SECURITY_TYPE_SIGNED: #"
-
-        /**
-         * Sign the given message using the given secret.
-         *
-         * @param message message to sign.
-         * @param secret  secret key.
-         * @return a signed message.
-         */
-        @JvmStatic
-        @Throws(UnableToSignException::class)
-        fun sign(message: String, secret: String): String {
-            return try {
-                val sha256HMAC = Mac.getInstance("HmacSHA256")
-                val secretKeySpec = SecretKeySpec(secret.toByteArray(), "HmacSHA256")
-                sha256HMAC.init(secretKeySpec)
-                String(Hex.encodeHex(sha256HMAC.doFinal(message.toByteArray())))
-            } catch (e: Exception) {
-                throw UnableToSignException(e)
-            }
-        }
-    }
+class AuthenticationInterceptor(var key: String, var secret: String) : Interceptor {
+	
+	/**
+	 * Intercepts the request
+	 *
+	 * @param chain Request chain.
+	 */
+	@Throws(IOException::class)
+	override fun intercept(chain: Interceptor.Chain): Response {
+		val original = chain.request()
+		val newRequestBuilder = original.newBuilder()
+		val isApiKeyRequired = original.header(ENDPOINT_SECURITY_TYPE_APIKEY) != null
+		val isSignatureRequired = original.header(ENDPOINT_SECURITY_TYPE_SIGNED) != null
+		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED)
+		// Endpoint requires sending a valid API-KEY
+		if (isApiKeyRequired || isSignatureRequired) {
+			newRequestBuilder.addHeader(API_KEY_HEADER, key)
+		}
+		// Endpoint requires signing the payload
+		if (isSignatureRequired) {
+			val payload = original.url.query
+			if (payload != null && "" != payload) {
+				newRequestBuilder.url(
+					original.url.newBuilder().addQueryParameter("signature", sign(payload, secret)).build()
+				)
+			}
+		}
+		// Build new request after adding the necessary authentication information
+		return chain.proceed(newRequestBuilder.build())
+	}
+	
+	/**
+	 * Sign the given message using the given secret.
+	 *
+	 * @param message message to sign.
+	 * @param secret  secret key.
+	 * @return A signed message.
+	 */
+	@Throws(UnableToSignException::class)
+	fun sign(message: String, secret: String): String {
+		return try {
+			val sha256HMAC = Mac.getInstance("HmacSHA256")
+			val secretKeySpec = SecretKeySpec(secret.toByteArray(), "HmacSHA256")
+			sha256HMAC.init(secretKeySpec)
+			String(Hex.encodeHex(sha256HMAC.doFinal(message.toByteArray())))
+		} catch (e: Exception) {
+			throw UnableToSignException(e)
+		}
+	}
 }

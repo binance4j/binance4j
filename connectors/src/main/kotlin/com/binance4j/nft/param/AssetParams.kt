@@ -28,4 +28,4 @@ import com.binance4j.core.param.Params
 import com.binance4j.nft.client.NFTClient
 
 /** [NFTClient.getAssets] params. */
-class AssetParams : Params
+data class AssetParams @JvmOverloads constructor(var page: Int? = null, var limit: Int? = null) : Params

@@ -25,7 +25,6 @@
 package com.binance4j.rebate.dto
 
 import com.binance4j.rebate.client.RebateClient
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,14 +40,10 @@ import io.swagger.annotations.ApiModelProperty
 data class SpotRebateHistoryResponse(
 	@ApiModelProperty("Status.")
 	val status: String,
-	
 	@ApiModelProperty("Type.")
 	val type: String,
-	
 	@ApiModelProperty("Code.")
 	val code: String,
-	
 	@ApiModelProperty("Data.")
-	
 	var data: RebateData? = null
 )

@@ -24,4 +24,5 @@
 
 package com.binance4j.core.dto
 
+/** A void response. */
 class VoidResponse

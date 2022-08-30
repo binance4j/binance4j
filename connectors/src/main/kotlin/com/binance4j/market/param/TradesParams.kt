@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -33,7 +32,4 @@ import com.binance4j.market.client.MarketClient
  * @param symbol Symbol we want the trades.
  * @param limit  Trades size. Default 500; max 1000.
  */
-data class TradesParams @JvmOverloads constructor(var symbol: String, var limit: Int? = null) : Params {
-	override fun recvWindow(): Long? = null
-	override fun timestamp(): Long? = null
-}
+data class TradesParams @JvmOverloads constructor(var symbol: String, var limit: Int? = null) : MarketParams

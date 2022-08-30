@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,7 +36,10 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A daily SPOT account snapshot.")
 data class SpotAccountSnapshot(
-	@ApiModelProperty("Type.") override val type: String,
-	@ApiModelProperty("Update time in ms.") override val updateTime: Long,
-	@ApiModelProperty("Data.") var data: SpotAccountSnapshotData? = null
+	@ApiModelProperty("Type.")
+	override var type: String,
+	@ApiModelProperty("Update time in ms.")
+	override var updateTime: Long,
+	@ApiModelProperty("Data.")
+	var data: SpotAccountSnapshotData
 ) : Snapshot

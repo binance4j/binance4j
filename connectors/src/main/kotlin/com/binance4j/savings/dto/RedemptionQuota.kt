@@ -39,13 +39,10 @@ import io.swagger.annotations.ApiModelProperty
 data class RedemptionQuota(
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Daily quota.")
 	val dailyQuota: String,
-	
 	@ApiModelProperty("Left quota.")
 	val leftQuota: String,
-	
 	@ApiModelProperty("Min redemption amount.")
 	val minRedemptionAmount: String
 )

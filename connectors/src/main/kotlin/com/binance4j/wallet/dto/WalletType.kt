@@ -34,7 +34,5 @@ enum class WalletType(val value: String) {
 	/** Funding  */
 	FUNDING("1");
 	
-	override fun toString(): String {
-		return value
-	}
+	override fun toString() = value
 }

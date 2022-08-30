@@ -25,7 +25,6 @@
 package com.binance4j.market.param
 
 import com.binance4j.core.dto.CandlestickInterval
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -37,16 +36,14 @@ import com.binance4j.market.client.MarketClient
  * @param endTime   End time in ms.
  * @param limit     Results limit.
  */
-data class KlinesParams(
+data class KlinesParams @JvmOverloads constructor(
 	var symbol: String,
 	var interval: String,
 	var startTime: Long? = null,
 	var endTime: Long? = null,
 	var limit: Int? = null
-) : Params {
-	override fun timestamp(): Long? = null
-	override fun recvWindow(): Long? = null
-	
+) : MarketParams {
+	@JvmOverloads
 	constructor(
 		symbol: String,
 		interval: CandlestickInterval,

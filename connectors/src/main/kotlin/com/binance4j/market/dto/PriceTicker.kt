@@ -37,7 +37,6 @@ import io.swagger.annotations.ApiModelProperty
 data class PriceTicker(
 	@ApiModelProperty("Ticker symbol.")
 	val symbol: String,
-	
 	@ApiModelProperty("Latest price.")
 	val price: String
 )

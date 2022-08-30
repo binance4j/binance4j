@@ -66,49 +66,37 @@ import io.swagger.annotations.ApiModelProperty
 data class Candle(
 	@ApiModelProperty("Candlestick open timestamp in milliseconds")
 	val openTime: Long,
-	
 	@ApiModelProperty("Open value")
 	val open: String,
-	
 	@ApiModelProperty("High value")
 	val high: String,
-	
 	@ApiModelProperty("Low value")
 	val low: String,
-	
 	@ApiModelProperty("Close value")
 	val close: String,
-	
 	@ApiModelProperty("Traded volume in the interval")
 	val volume: String,
-	
 	@ApiModelProperty("Candlestick close timestamp in milliseconds")
 	val closeTime: Long,
 	
 	@ApiModelProperty("Quote asset traded volume")
 	val quoteAssetVolume: String,
-	
 	@ApiModelProperty("Number of trades")
 	val numberOfTrades: Long,
 	
 	@ApiModelProperty("Taker buy base asset volume")
 	val takerBuyBaseAssetVolume: String,
-	
 	@ApiModelProperty("Taker buy quote asset volume")
 	val takerBuyQuoteAssetVolume: String,
-	
 	@ApiModelProperty("Event type.")
 	val eventType: String,
-	
 	@ApiModelProperty("Timestamp in ms.")
 	val eventTime: Long,
 	
 	@ApiModelProperty("Trading pair.")
 	val symbol: String,
-	
 	@ApiModelProperty("Interval id.")
 	val intervalId: String,
-	
 	@ApiModelProperty("First trade id.")
 	val firstTradeId: Long,
 	

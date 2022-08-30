@@ -24,8 +24,8 @@
 
 package com.binance4j.core.event
 
-/** A scheduled task called by a [ScheduledEvent] as a lambda  */
+/** A scheduled task called by a [ScheduledEvent] as a lambda.  */
 fun interface ScheduledTask {
-    /** Lambda method  */
-    fun call()
+	/** Lambda method  */
+	fun call()
 }

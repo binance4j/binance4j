@@ -31,72 +31,72 @@ import kotlin.math.max
  * Rate limiter.
  * @param rateLimit The rateLimit to calculate limit per second.
  */
-class RateLimiter(rateLimit: RateLimit?) {
-
-    /** Points per second. */
-    val rate: Int
-
-    /** Remaining points for the period. */
-    private var remaining: Int
-
-    /** Interval event reloading points per period every second. */
-    private var periodStart: Long = 0
-
-    /** Now */
-    private var now: Long = 0
-
-    /** Next period */
-    private var nextPeriod: Long = 0
-
-    /** Time to wait before next period */
-    private var wait: Long = 0
-
-    init {
-        // calculating limit per second from RateLimit instance
-        val intervalInSeconds = RateLimitInterval.valueOf(rateLimit?.interval!!).value * rateLimit.intervalNum!!
-        rate = floor((rateLimit.limit!! / intervalInSeconds).toDouble()).toInt()
-        remaining = rate
-    }
-
-    /**
-     * Acquires the given number of points from this RateLimiter, blocking until
-     * the request can be granted.
-     *
-     * @param points The points to remove.
-     * @return time spent sleeping to enforce rate, in ms; 0 if not rate-limited.
-     */
-    fun acquire(points: Int): Long {
-        now = System.currentTimeMillis()
-        remaining = max(0, remaining - points)
-
-        if (periodStart == 0L) {
-            periodStart = now
-        }
-
-        nextPeriod = periodStart + 1000
-
-        if (remaining <= 0) {
-            try {
-                wait = max(0, nextPeriod - now)
-                // sleep till next period
-                Thread.sleep(wait)
-                now = System.currentTimeMillis()
-            } catch (e: InterruptedException) {
-                e.printStackTrace()
-            }
-        } else {
-            wait = 0
-        }
-
-        // resetting values if period is exceeded
-        if (now >= nextPeriod) {
-            resetValues()
-        }
-        return wait
-    }
-
-    private fun resetValues() {
-        remaining = rate
-        periodStart = now
-    }
+class RateLimiter(rateLimit: RateLimit) {
+	
+	/** Points per second. */
+	val rate: Int
+	
+	/** Remaining points for the period. */
+	private var remaining: Int
+	
+	/** Interval event reloading points per period every second. */
+	private var periodStart: Long = 0
+	
+	/** Now */
+	private var now: Long = 0
+	
+	/** Next period */
+	private var nextPeriod: Long = 0
+	
+	/** Time to wait before next period */
+	private var wait: Long = 0
+	
+	init {
+		// calculating limit per second from RateLimit instance
+		val intervalInSeconds = RateLimitInterval.valueOf(rateLimit.interval).value * rateLimit.intervalNum
+		rate = floor((rateLimit.limit / intervalInSeconds).toDouble()).toInt()
+		remaining = rate
+	}
+	
+	/**
+	 * Acquires the given number of points from this RateLimiter, blocking until
+	 * the request can be granted.
+	 *
+	 * @param points The points to remove.
+	 * @return time spent sleeping to enforce rate, in ms; 0 if not rate-limited.
+	 */
+	fun acquire(points: Int): Long {
+		now = System.currentTimeMillis()
+		remaining = max(0, remaining - points)
+		
+		if (periodStart == 0L) {
+			periodStart = now
+		}
+		
+		nextPeriod = periodStart + 1000
+		
+		if (remaining <= 0) {
+			try {
+				wait = max(0, nextPeriod - now)
+				// sleep till next period
+				Thread.sleep(wait)
+				now = System.currentTimeMillis()
+			} catch (e: InterruptedException) {
+				e.printStackTrace()
+			}
+		} else {
+			wait = 0
+		}
+		
+		// resetting values if period is exceeded
+		if (now >= nextPeriod) {
+			resetValues()
+		}
+		return wait
+	}
+	
+	private fun resetValues() {
+		remaining = rate
+		periodStart = now
+	}
 }

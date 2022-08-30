@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,12 +36,9 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a MARGIN account snapshot request.")
 data class MarginAccountSnapshotResponse(
-	@ApiModelProperty("Code.") @JsonProperty override val code: Int
+	@ApiModelProperty("Code.") override var code: Int,
 	@ApiModelProperty("Message.")
-@JsonProperty
-override val msg: String,
-
-@ApiModelProperty("Snapshot.")
-@JsonProperty
-override var snapshotVos: List<MarginAccountSnapshot> = emptyList()
+	override var msg: String,
+	@ApiModelProperty("Snapshot.")
+	override var snapshotVos: List<MarginAccountSnapshot>
 ) : AccountSnapshotResponse<MarginAccountSnapshot>

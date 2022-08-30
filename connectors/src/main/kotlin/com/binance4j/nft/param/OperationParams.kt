@@ -28,4 +28,9 @@ import com.binance4j.core.param.Params
 import com.binance4j.nft.client.NFTClient
 
 /** [NFTClient.getWithdraws] and [NFTClient.getDeposits] params. */
-class OperationParams : Params
+data class OperationParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var limit: Int? = null
+) : Params

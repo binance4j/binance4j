@@ -30,51 +30,43 @@ import io.swagger.annotations.ApiModelProperty
 
 /**
  * Aggregated trades.
- * @property tradeId The trade id.
- * @property price The price.
- * @property quantity The quantity.
- * @property firstTradeId The first trade id.
- * @property lastTradeId The last trade id.
- * @property time The timestamp.
- * @property isBuyerMaker Was it a buyer maker.
- * @property isBestMatch Was it the best price match.
+ *
+ * @property tradeId        The trade id.
+ * @property price          The price.
+ * @property quantity       The quantity.
+ * @property firstTradeId   The first trade id.
+ * @property lastTradeId    The last trade id.
+ * @property time           The timestamp.
+ * @property isBuyerMaker   Was it a buyer maker.
+ * @property isBestMatch    Was it the best price match.
  */
 @ApiModel(description = "Aggregated trades.")
-data class AggTrade
-constructor(
+data class AggTrade(
 	@JsonProperty("a")
 	@ApiModelProperty("The trade id")
 	val tradeId: Long,
-	
 	@JsonProperty("p")
 	@ApiModelProperty("The price")
 	val price: String,
-	
 	@JsonProperty("q")
 	@ApiModelProperty("The quantity")
 	val quantity: String,
-	
 	@JsonProperty("f")
 	@ApiModelProperty("The first trade id")
 	val firstTradeId: Long,
-	
 	@JsonProperty("l")
 	@ApiModelProperty("The last trade id")
 	val lastTradeId: Long,
-	
 	@JsonProperty("T")
 	@ApiModelProperty("The timestamp")
 	val time: Long,
-	
 	@JsonProperty("m")
 	@ApiModelProperty("Was it a buyer maker")
 	val isBuyerMaker: Boolean,
-	
 	@JsonProperty("M")
 	@ApiModelProperty("Was it the best price match?")
 	val isBestMatch: Boolean
 ) {
-	
 	/** @property input CSV line. */
 	constructor(input: List<String>) : this(
 		input[0].toLong(),

@@ -37,9 +37,7 @@ enum class DepositStatus(val value: String) {
 	/** Success  */
 	SUCCESS("1");
 	
-	override fun toString(): String {
-		return value
-	}
+	override fun toString(): String = value
 	
 	companion object {
 		@JvmStatic

@@ -24,7 +24,7 @@
 
 package com.binance4j.wallet.param
 
-import com.binance4j.core.annotation.Param
+
 import com.binance4j.core.param.Params
 import com.binance4j.wallet.client.WalletClient
 
@@ -33,4 +33,4 @@ import com.binance4j.wallet.client.WalletClient
  *
  * @property symbol Trading pair we want the fees.
  */
-data class TradeFeeParams(var symbol: String? = null) : Params
+data class TradeFeeParams @JvmOverloads constructor(var symbol: String? = null) : Params

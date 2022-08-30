@@ -39,13 +39,10 @@ import io.swagger.annotations.ApiModelProperty
 data class RebateData(
 	@ApiModelProperty("Current page.")
 	val page: Int,
-	
 	@ApiModelProperty("Total records.")
 	val totalRecords: Int,
-	
 	@ApiModelProperty("Total pages.")
 	val totalPageNum: Int,
-	
 	@ApiModelProperty("Rebates.")
 	var data: List<Rebate>
 )

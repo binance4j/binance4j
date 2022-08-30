@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,13 +40,18 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Asset that can be converted into BNB.")
 data class ConvertibleAsset(
-	@ApiModelProperty("Asset name.") val asset: String,
-	@ApiModelProperty("Asset full name.") val assetFullName: String,
-	@ApiModelProperty("Free balance.") val amountFree: String,
-	@ApiModelProperty("BTC valuation.") val toBTC: String,
-	@ApiModelProperty("BNB valuation.") val toBNB: String,
+	@ApiModelProperty("Asset name.")
+	val asset: String,
+	@ApiModelProperty("Asset full name.")
+	val assetFullName: String,
+	@ApiModelProperty("Free balance.")
+	val amountFree: String,
+	@ApiModelProperty("BTC valuation.")
+	val toBTC: String,
+	@ApiModelProperty("BNB valuation.")
+	val toBNB: String,
 	@ApiModelProperty("BNB valuation commissions fees deducted.")
-	@JsonProperty
 	val toBNBOffExchange: String,
-	@ApiModelProperty("Commission fees.") val exchange: String
+	@ApiModelProperty("Commission fees.")
+	val exchange: String
 )

@@ -24,7 +24,6 @@
 
 package com.binance4j.portfoliomargin.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,17 +35,14 @@ import io.swagger.annotations.ApiModelProperty
  * @property accountMaintMargin Portfolio margin account maintenance margin, unit：USD
  * @property accountStatus      Portfolio margin account. status: NORMAL, "MARGIN_CALL", "SUPPLY_MARGIN", "REDUCE_ONLY", "ACTIVE_LIQUIDATION", "FORCE_LIQUIDATION", "BANKRUPTED"
  */
-@ApiModel("Margin portfolio account infos.")
+@ApiModel("Margin portfolio account info's.")
 data class AccountInfo(
 	@ApiModelProperty("Portfolio margin account maintenance margin rate")
 	val uniMMR: String,
-	
 	@ApiModelProperty("Account equity, unit：USD")
 	val accountEquity: String,
-	
 	@ApiModelProperty("Portfolio margin account maintenance margin, unit：USD")
 	val accountMaintMargin: String,
-	
 	@ApiModelProperty("Portfolio margin account. status: NORMAL, MARGIN_CALL, SUPPLY_MARGIN, REDUCE_ONLY, ACTIVE_LIQUIDATION, FORCE_LIQUIDATION, BANKRUPTED")
 	val accountStatus: String
 )

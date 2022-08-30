@@ -41,21 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 data class ExchangeInfo(
 	@ApiModelProperty("Server timezone.")
 	val timezone: String,
-	
 	@ApiModelProperty("Server time.")
 	val serverTime: Long,
-	
 	@ApiModelProperty("Request limits (weight, orders, raw...).")
 	var rateLimits: List<RateLimit>,
-	
 	@ApiModelProperty("Trading rules of the exchange.")
 	var exchangeFilters: List<ExchangeFilter>,
-	
 	@ApiModelProperty("Available symbols on the exchange.")
-	var symbols: List<SymbolInfo>
+	var symbols: List<SymbolInfo>,
 ) {
 	/**
-	 * @property symbol Symbol we want the infos.
+	 * @property symbol Symbol we want the info.
 	 * @return The symbol exchange information.
 	 */
 	fun getSymbolInfo(symbol: String): SymbolInfo = symbols.first { symbolInfo -> symbolInfo.symbol == symbol }

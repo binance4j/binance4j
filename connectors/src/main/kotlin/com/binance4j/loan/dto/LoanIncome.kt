@@ -40,16 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class LoanIncome(
 	@ApiModelProperty("Income asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Income type.")
 	val type: String,
-	
 	@ApiModelProperty("Income amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Timestamp in ms.")
 	val timestamp: Long,
-	
 	@ApiModelProperty("Transaction id.")
 	val tranId: String
 )

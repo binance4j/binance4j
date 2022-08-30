@@ -29,10 +29,10 @@ import com.fasterxml.jackson.core.type.TypeReference
 /** The base of every Binance Request */
 interface Params {
 	/** The request timestamp */
-	val timestamp: Long get() = System.currentTimeMillis()
+	val timestamp: Long? get() = System.currentTimeMillis()
 	
 	/** The receiving windows */
-	val recvWindow: Long get() = 60_000L
+	val recvWindow: Long? get() = 60_000L
 	
 	/** Converts the object into a map and removes empty/null values. */
 	fun toMap(): Map<String, Any> {

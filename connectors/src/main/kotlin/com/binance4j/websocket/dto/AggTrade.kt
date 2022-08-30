@@ -50,40 +50,35 @@ data class AggTrade(
 	@ApiModelProperty("Agg trade id.")
 	@JsonProperty("a")
 	val aggregatedTradeId: Long,
-	
 	@ApiModelProperty("Price.")
-	@JsonProperty("p")
-	val price: String,
-	
-	@ApiModelProperty("Volume.")
-	@JsonProperty("q")
-	val quantity: String,
-	
-	@ApiModelProperty("First trade id.")
-	@JsonProperty("f")
-	val firstBreakdownTradeId: Long,
-	
-	@ApiModelProperty("Last trade id.")
-	@JsonProperty("l")
-	val lastBreakdownTradeId: Long,
-	
-	@ApiModelProperty("Timestamp.")
-	@JsonProperty("T")
-	val tradeTime: Long,
-	
-	@ApiModelProperty("Was the buyer the maker?")
-	@JsonProperty("m")
-	val isBuyerMaker: Boolean,
-	
-	@ApiModelProperty("Event type.")
-	@JsonProperty("e")
-	val eventType: String,
-	
-	@ApiModelProperty("Timestamp.")
-	@JsonProperty("E")
-	val eventTime: Long,
-	
-	@ApiModelProperty("Trading pair.")
-	@JsonProperty("s")
-	val symbol: String
+@JsonProperty("p")
+val price: String,
+@ApiModelProperty("Volume.")
+@JsonProperty("q")
+val quantity: String,
+@ApiModelProperty("First trade id.")
+@JsonProperty("f")
+val firstBreakdownTradeId: Long,
+
+@ApiModelProperty("Last trade id.")
+@JsonProperty("l")
+val lastBreakdownTradeId: Long,
+
+@ApiModelProperty("Timestamp.")
+@JsonProperty("T")
+val tradeTime: Long,
+
+@ApiModelProperty("Was the buyer the maker?")
+@JsonProperty("m")
+val isBuyerMaker: Boolean
+@ApiModelProperty("Event type.")
+@JsonProperty("e")
+val eventType: String,
+@ApiModelProperty("Timestamp.")
+@JsonProperty("E")
+val eventTime: Long,
+
+@ApiModelProperty("Trading pair.")
+@JsonProperty("s")
+val symbol: String
 )

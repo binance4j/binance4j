@@ -24,7 +24,6 @@
 
 package com.binance4j.nft.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,16 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class Deposit(
 	@ApiModelProperty("NFT Network.")
 	val network: String,
-	
 	@ApiModelProperty("NFT Contract Address.")
 	val contractAddress: String,
-	
 	@ApiModelProperty("NFT Token ID.")
 	val tokenId: String,
-	
 	@ApiModelProperty("Transaction ID.")
 	val txID: String,
-	
 	@ApiModelProperty("Deposit time in ms.")
-	val timestamp: Long
+	val timestamp: Long,
 )

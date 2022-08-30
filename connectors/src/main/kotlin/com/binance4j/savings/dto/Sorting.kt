@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Sorting.")
 data class Sorting(
 	@ApiModelProperty("Project sorting.")
-	val sortBy: String? = null,
+	val sortBy: String,
 	@ApiModelProperty("Sort ascending. Default: true.")
-	var isSortAsc: Boolean? = null
+	var isSortAsc: Boolean
 ) : Params {
-	constructor (sortBy: FixedProjectSorting, isSortAsc: Boolean? = null) : this(sortBy.toString(), isSortAsc)
+	constructor (sortBy: FixedProjectSorting, isSortAsc: Boolean) : this(sortBy.toString(), isSortAsc)
 }

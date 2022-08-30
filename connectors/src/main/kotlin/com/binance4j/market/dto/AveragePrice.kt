@@ -37,7 +37,6 @@ import io.swagger.annotations.ApiModelProperty
 data class AveragePrice(
 	@ApiModelProperty("Mins.")
 	var mins: Int = 0,
-	
 	@ApiModelProperty("Average price of the asset.")
 	val price: String
 )

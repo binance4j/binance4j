@@ -37,5 +37,5 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset dividend record.")
 data class AssetDividendRecord(
 	@ApiModelProperty("Records.") var rows: List<AssetDividend> = emptyList(),
-	@ApiModelProperty("Number of record.") val total: Long
+	@ApiModelProperty("Number of record.") val total: Long,
 )

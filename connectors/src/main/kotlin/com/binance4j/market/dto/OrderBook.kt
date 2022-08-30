@@ -39,10 +39,8 @@ import io.swagger.annotations.ApiModelProperty
 data class OrderBook(
 	@ApiModelProperty("Last update id of this order book.")
 	val lastUpdateId: Long,
-	
 	@ApiModelProperty("List of bids (price/qty).")
 	val bids: List<OrderBookEntry>,
-	
 	@ApiModelProperty("List of asks (price/qty).")
 	val asks: List<OrderBookEntry>
 )

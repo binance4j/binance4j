@@ -51,42 +51,30 @@ import io.swagger.annotations.ApiModelProperty
 data class Trade(
 	@ApiModelProperty("Trade id.")
 	val id: Long,
-	
 	@ApiModelProperty("Price.")
 	val price: String,
-	
 	@ApiModelProperty("Quantity.")
 	val qty: String,
-	
 	@ApiModelProperty("Quote quantity for the trade (price * qty).")
 	@JsonProperty
 	val quoteQty: String,
-	
 	@ApiModelProperty("Commission.")
 	val commission: String,
-	
 	@ApiModelProperty("Asset on which commission is taken.")
 	@JsonProperty
 	val commissionAsset: String,
-	
 	@ApiModelProperty("Trade execution time.")
 	val time: Long,
-	
 	@ApiModelProperty("The symbol of the trade.")
 	val symbol: String,
-	
 	@ApiModelProperty("The order id.")
 	val orderId: String,
-	
 	@ApiModelProperty("The order list id.")
 	val orderListId: String,
-	
 	@ApiModelProperty("Is buyer trade.")
 	val isBuyer: Boolean,
-	
 	@ApiModelProperty("Is maker trade.")
 	val isMaker: Boolean,
-	
 	@ApiModelProperty("Is best match?")
 	val isBestMatch: Boolean
 )

@@ -23,9 +23,9 @@
  */
 package com.binance4j.fiat.client
 
-import com.binance4j.core.client.RestMapping.Companion.IP_H
-import com.binance4j.core.client.RestMapping.Companion.SIGNED_H
-import com.binance4j.core.client.RestMapping.Companion.WEIGHT_ONE_H
+import com.binance4j.core.Binance4j.IP_H
+import com.binance4j.core.Binance4j.SIGNED_H
+import com.binance4j.core.Binance4j.WEIGHT_ONE_H
 import com.binance4j.fiat.dto.PaymentHistory
 import com.binance4j.fiat.dto.TransactionHistory
 import retrofit2.Call
@@ -36,22 +36,22 @@ import retrofit2.http.QueryMap
 /**
  * [FiatClient] mapping.
  */
-interface FiatMapping : RestMapping {
-    /**
-     * @param map Query map.
-     * @return The generated Retrofit call.
-     */
-    @GET("/sapi/v1/fiat/orders")
-    @Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
-    @JvmSuppressWildcards
-    fun getTransactions(@QueryMap map: Map<String, Any>): Call<TransactionHistory>
-
-    /**
-     * @param map Query map.
-     * @return The generated Retrofit call.
-     */
-    @GET("/sapi/v1/fiat/payments")
-    @Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
-    @JvmSuppressWildcards
-    fun getPayments(@QueryMap map: Map<String, Any>): Call<PaymentHistory>
+interface FiatMapping {
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/sapi/v1/fiat/orders")
+	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
+	@JvmSuppressWildcards
+	fun getTransactions(@QueryMap map: Map<String, Any>): Call<TransactionHistory>
+	
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/sapi/v1/fiat/payments")
+	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
+	@JvmSuppressWildcards
+	fun getPayments(@QueryMap map: Map<String, Any>): Call<PaymentHistory>
 }

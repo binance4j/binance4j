@@ -56,65 +56,44 @@ import io.swagger.annotations.ApiModelProperty
 data class OrderReport(
 	@ApiModelProperty("The order list id.")
 	val orderListId: Long,
-	
 	@ApiModelProperty("The original client order id.")
 	val origClientOrderId: String,
-	
 	@ApiModelProperty("The order timestamp.")
 	val transactTime: Long,
-	
 	@ApiModelProperty("The order side.")
-	
 	var side: OrderSide? = null,
-	
 	@ApiModelProperty("Price.")
 	val price: String,
-	
 	@ApiModelProperty("Original quantity.")
 	val origQty: String,
-	
 	@ApiModelProperty("Original quantity.")
 	val executedQty: String,
-	
 	@ApiModelProperty("Used to calculate the average price.")
 	val cumulativeQuoteQty: String,
-	
 	@ApiModelProperty("Order status.")
 	val status: String,
-	
 	@ApiModelProperty("Time in force to indicate how long will the order remain active.")
 	val timeInForce: String,
-	
 	@ApiModelProperty("Type of order.")
 	val type: String,
-	
 	@ApiModelProperty("Used with stop orders.")
 	val stopPrice: String,
-	
 	@ApiModelProperty("Used with iceberg orders.")
 	val icebergQty: String,
-	
 	@ApiModelProperty("Order timestamp.")
 	val time: Long,
-	
 	@ApiModelProperty("Update timestamp.")
 	val updateTime: Long,
-	
 	@ApiModelProperty("Original quote order quantity.")
 	val origQuoteOrderQty: String,
-	
 	@ApiModelProperty("Is working.")
 	val isWorking: Boolean,
-	
 	@ApiModelProperty("is isolated margin.")
 	val isIsolated: Boolean,
-	
 	@ApiModelProperty("The order symbol.")
 	val symbol: String,
-	
 	@ApiModelProperty("Order id.")
 	val orderId: Long,
-	
 	@ApiModelProperty("Client order id.")
 	val clientOrderId: String
 )

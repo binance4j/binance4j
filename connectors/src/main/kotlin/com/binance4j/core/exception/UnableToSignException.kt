@@ -24,7 +24,9 @@
 
 package com.binance4j.core.exception
 
-/** Runtime exception thrown if [RestClient] can't sign the API keys
+import com.binance4j.core.Request
+
+/** Runtime exception thrown if the [Request] can't sign the API keys
  * @param e Original exception
  */
 class UnableToSignException(e: Exception) : RuntimeException("Unable to sign message.", e)

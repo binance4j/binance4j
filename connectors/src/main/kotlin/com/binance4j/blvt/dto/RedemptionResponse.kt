@@ -50,5 +50,5 @@ data class RedemptionResponse(
 	@ApiModelProperty("Redemption token amount.")
 	val amount: String,
 	@ApiModelProperty("Timestamp in ms.")
-	val timestamp: Long
+	val timestamp: Long,
 )

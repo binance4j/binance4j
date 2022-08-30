@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,10 +39,16 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Margin account snapshot user assets.")
 data class MarginAccountSnapshotUserAssets(
-	@ApiModelProperty("Asset abbreviation.") val asset: String,
-	@ApiModelProperty("Borrowed amount.") val borrowed: String,
-	@ApiModelProperty("Fee amount.") val free: String,
-	@ApiModelProperty("Interest amount.") val interest: String,
-	@ApiModelProperty("Locked volume.") val locked: String,
-	@ApiModelProperty("Net asset.") val netAsset: String
+	@ApiModelProperty("Asset abbreviation.")
+	val asset: String,
+	@ApiModelProperty("Borrowed amount.")
+	val borrowed: String,
+	@ApiModelProperty("Fee amount.")
+	val free: String,
+	@ApiModelProperty("Interest amount.")
+	val interest: String,
+	@ApiModelProperty("Locked volume.")
+	val locked: String,
+	@ApiModelProperty("Net asset.")
+	val netAsset: String
 )

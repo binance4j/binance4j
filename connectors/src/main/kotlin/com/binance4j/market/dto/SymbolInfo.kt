@@ -57,59 +57,41 @@ import io.swagger.annotations.ApiModelProperty
 data class SymbolInfo(
 	@ApiModelProperty("Symbol status.")
 	val orderTypes: List<String>,
-	
 	@ApiModelProperty("Allowed orders on the symbol*.")
 	@JsonDeserialize(using = SymbolFiltersDeserializer::class)
 	val filters: SymbolFilters,
-	
 	@ApiModelProperty("Symbol filters.")
 	val permissions: List<String>,
-	
 	@ApiModelProperty("Symbol permission.")
 	val symbol: String,
-	
 	@ApiModelProperty("Symbol name.")
 	val quoteAsset: String,
-	
 	@ApiModelProperty("Quote asset.")
 	val baseAsset: String,
-	
 	@ApiModelProperty("Base asset.")
 	val baseAssetPrecision: Int,
-	
 	@ApiModelProperty("Base asset precision.")
 	val baseCommissionPrecision: Int,
-	
 	@ApiModelProperty("Quote asset commission precision.")
 	val quoteAssetPrecision: Int,
-	
 	@ApiModelProperty("Quote asset commission precision.")
 	val quotePrecision: Int,
-	
 	@ApiModelProperty("Quote asset precision.")
 	val quoteCommissionPrecision: Int,
-	
 	@ApiModelProperty("Quote asset commission precision.")
 	val icebergAllowed: Boolean,
-	
 	@ApiModelProperty("Are iceberg orders allowed?")
 	val ocoAllowed: Boolean,
-	
 	@ApiModelProperty("Are OCO orders allowed?")
 	val quoteOrderQtyMarketAllowed: Boolean,
-	
 	@ApiModelProperty("Are orders by quote quantity allowed?")
 	val isSpotTradingAllowed: Boolean,
-	
 	@ApiModelProperty("Cancel replace allowed?")
 	val cancelReplaceAllowed: Boolean,
-	
 	@ApiModelProperty("Is trailing stop allowed?")
 	val allowTrailingStop: Boolean,
-	
 	@ApiModelProperty("Is spot trading allowed?")
 	val isMarginTradingAllowed: Boolean,
-	
 	@ApiModelProperty("Is margin trading allowed?")
 	val status: String
 )

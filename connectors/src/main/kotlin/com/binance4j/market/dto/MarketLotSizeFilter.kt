@@ -41,10 +41,8 @@ import io.swagger.annotations.ApiModelProperty
 data class MarketLotSizeFilter(
 	@ApiModelProperty("Minimum quantity/iceberg quantity allowed.")
 	var minQty: String,
-	
 	@ApiModelProperty("Maximum quantity/iceberg quantity allowed.")
 	var maxQty: String,
-	
 	@ApiModelProperty("Intervals that a quantity/iceberg quantity can be increased/decreased by.")
 	var stepSize: String
 )

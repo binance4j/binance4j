@@ -25,13 +25,12 @@
 package com.binance4j.core.dto
 
 import com.binance4j.core.serialization.CandleDeserializer
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * An ohlc candle for a symbol.
+ * An OHLC candle for a symbol.
  *
  * @property openTime Candlestick open timestamp in milliseconds.
  * @property open Open value.
@@ -46,55 +45,32 @@ import io.swagger.annotations.ApiModelProperty
  * @property takerBuyQuoteAssetVolume Taker buy quote asset volume.
  */
 @JsonDeserialize(using = CandleDeserializer::class)
-@ApiModel("An ohlc candle for a symbol.")
+@ApiModel("An OHLC candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("The candlestick open timestamp in milliseconds.")
-	@JsonProperty
 	val openTime: Long,
-	
 	@ApiModelProperty("The Open value.")
-	@JsonProperty
 	val open: String,
-	
 	@ApiModelProperty("The High value.")
-	@JsonProperty
 	val high: String,
-	
 	@ApiModelProperty("The Low value.")
-	@JsonProperty
 	val low: String,
-	
 	@ApiModelProperty("The Close value.")
-	@JsonProperty
 	val close: String,
-	
 	@ApiModelProperty("The traded volume in the interval.")
-	@JsonProperty
 	val volume: String,
-	
 	@ApiModelProperty("The candlestick close timestamp in milliseconds.")
-	@JsonProperty
 	val closeTime: Long,
-	
 	@ApiModelProperty("The quote asset traded volume.")
-	@JsonProperty
 	val quoteAssetVolume: String,
-	
 	@ApiModelProperty("The number of trades.")
-	@JsonProperty
 	val numberOfTrades: Long,
-	
 	@ApiModelProperty("Taker buy base asset volume.")
-	@JsonProperty
 	val takerBuyBaseAssetVolume: String,
-	
 	@ApiModelProperty("Taker buy quote asset volume.")
-	@JsonProperty
 	val takerBuyQuoteAssetVolume: String
 ) {
 	/**
-	 * accepting a list of String acting like a line of data in a csv file
-	 *
 	 * @property input String input.
 	 */
 	constructor(input: List<String>) : this(

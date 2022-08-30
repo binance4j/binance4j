@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,12 +40,16 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A wallet to wallet transfer.")
 data class WalletTransfer(
-	@ApiModelProperty("Transferred asset.") val asset: String,
-	@ApiModelProperty("Transferred amount.") val amount: String,
+	@ApiModelProperty("Transferred asset.")
+	val asset: String,
+	@ApiModelProperty("Transferred amount.")
+	val amount: String,
 	@ApiModelProperty("Transfer type (origin wallet to destination wallet).")
-	@JsonProperty
 	val type: String,
-	@ApiModelProperty("Transfer status.") val status: String,
-	@ApiModelProperty("Transaction id.") val tranId: Long,
-	@ApiModelProperty("Transfer timestamp.") val timestamp: Long
+	@ApiModelProperty("Transfer status.")
+	val status: String,
+	@ApiModelProperty("Transaction id.")
+	val tranId: Long,
+	@ApiModelProperty("Transfer timestamp.")
+	val timestamp: Long,
 )

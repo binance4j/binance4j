@@ -40,16 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class Interest(
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Interest.")
 	val interest: String,
-	
 	@ApiModelProperty("LendingType.")
 	val lendingType: String,
-	
 	@ApiModelProperty("ProductName.")
 	val productName: String,
-	
 	@ApiModelProperty("Time in ms.")
-	val time: Long
+	val time: Long,
 )

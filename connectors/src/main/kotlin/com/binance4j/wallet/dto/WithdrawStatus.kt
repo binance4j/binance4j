@@ -51,9 +51,7 @@ enum class WithdrawStatus
 	/** Completed. */
 	COMPLETED("6");
 	
-	override fun toString(): String {
-		return value
-	}
+	override fun toString() = value
 	
 	companion object {
 		@JvmStatic

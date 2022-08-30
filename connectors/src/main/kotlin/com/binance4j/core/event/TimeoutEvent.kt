@@ -27,14 +27,13 @@ package com.binance4j.core.event
 import java.time.Duration
 
 /**
- * A [ScheduledEvent] that will execute the given [ScheduledTask]
- * after the given [timeout][Duration]
+ * A [ScheduledEvent] that will execute the given [ScheduledTask] after the given [timeout][Duration]
  * @param timeout       Timeout duration.
  * @param scheduledTask Task to execute.
  */
 class TimeoutEvent(timeout: Duration, scheduledTask: ScheduledTask) : BaseScheduledEvent() {
-    init {
-        task = Task(scheduledTask, this)
-        timer.schedule(task, timeout.toMillis())
-    }
+	init {
+		task = Task(scheduledTask, this)
+		timer.schedule(task, timeout.toMillis())
+	}
 }

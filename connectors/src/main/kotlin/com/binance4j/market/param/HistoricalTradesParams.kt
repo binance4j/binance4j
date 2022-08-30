@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -38,7 +37,4 @@ data class HistoricalTradesParams @JvmOverloads constructor(
 	var symbol: String,
 	var limit: Int? = null,
 	var fromId: Long? = null
-) : Params {
-	override fun recvWindow(): Long? = null
-	override fun timestamp(): Long? = null
-}
+) : MarketParams 

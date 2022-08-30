@@ -38,10 +38,8 @@ import io.swagger.annotations.ApiModelProperty
 data class MiniOrderInfo(
 	@ApiModelProperty("The order symbol.")
 	val symbol: String,
-	
 	@ApiModelProperty("Order id.")
 	val orderId: Long,
-	
 	@ApiModelProperty("Client order id.")
 	val clientOrderId: String
 )

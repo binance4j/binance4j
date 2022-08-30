@@ -41,19 +41,14 @@ import io.swagger.annotations.ApiModelProperty
 data class SubscriptionResponse(
 	@ApiModelProperty("Subscription id.")
 	val id: Long,
-	
 	@ApiModelProperty("Subscription status. S(uccess), P(ending), and F(ailure).")
 	val status: String,
-	
 	@ApiModelProperty("Token name.")
 	val tokenName: String,
-	
 	@ApiModelProperty("Subscribed token amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Subscription cost.")
 	val cost: String,
-	
 	@ApiModelProperty("Timestamp in ms.")
-	val timestamp: Long
+	val timestamp: Long,
 )

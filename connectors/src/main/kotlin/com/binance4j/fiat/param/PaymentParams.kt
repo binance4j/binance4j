@@ -32,7 +32,23 @@ import com.binance4j.fiat.dto.PaymentType
  * [FiatClient.getPayments] params.
  *
  * @param transactionType Payment type.
+ * @param beginTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param page      Result page.
+ * @param rows     Results in the page.
  */
-data class PaymentParams(var transactionType: String) : Params {
-	constructor(transactionType: PaymentType) : this(transactionType.toString())
+data class PaymentParams @JvmOverloads constructor(
+	var transactionType: String, var beginTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var rows: Int? = null
+) : Params {
+	@JvmOverloads
+	constructor(
+		transactionType: PaymentType,
+		beginTime: Long? = null,
+		endTime: Long? = null,
+		page: Int? = null,
+		rows: Int? = null
+	) : this(transactionType.toString(), beginTime, endTime, page, rows)
 }

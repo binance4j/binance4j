@@ -43,25 +43,18 @@ import io.swagger.annotations.ApiModelProperty
 data class Redemption(
 	@ApiModelProperty("Amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Create time.")
 	val createTime: Long,
-	
 	@ApiModelProperty("Principal.")
 	val principal: String,
-	
 	@ApiModelProperty("Project id.")
 	val projectId: String,
-	
 	@ApiModelProperty("Project name.")
 	val projectName: String,
-	
 	@ApiModelProperty("Status.")
 	val status: String,
-	
 	@ApiModelProperty("Type.")
 	val type: String
 )

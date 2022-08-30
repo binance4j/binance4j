@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,15 +38,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Margin account snapshot data.")
 data class MarginAccountSnapshotData(
-	@ApiModelProperty("Margin level.") val marginLevel: String,
-	@ApiModelProperty("Total Asset Of Btc.") val totalAssetOfBtc: String,
+	@ApiModelProperty("Margin level.")
+	val marginLevel: String,
+	@ApiModelProperty("Total Asset Of Btc.")
+	val totalAssetOfBtc: String,
 	@ApiModelProperty("Total Liability Of Btc.")
-	@JsonProperty
 	val totalLiabilityOfBtc: String,
 	@ApiModelProperty("Total Net Asset Of Btc.")
-	@JsonProperty
 	val totalNetAssetOfBtc: String,
 	@ApiModelProperty("User Assets.")
-	@JsonProperty
-	var userAssets: List<MarginAccountSnapshotUserAssets> = emptyList()
+	var userAssets: List<MarginAccountSnapshotUserAssets>
 )

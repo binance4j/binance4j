@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,5 +41,5 @@ data class ApiTradingStatusTriggerCondition(
 	@ApiModelProperty("Number of FOK/IOC orders.")
 	val ifer: Long,
 	@ApiModelProperty("Number of FOK/IOC orders.")
-	val ufr: Long
+	val ufr: Long,
 )

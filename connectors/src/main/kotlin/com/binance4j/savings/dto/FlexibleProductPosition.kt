@@ -50,46 +50,32 @@ import io.swagger.annotations.ApiModelProperty
 data class FlexibleProductPosition(
 	@ApiModelProperty("Tier annual interest rate.")
 	val tierAnnualInterestRate: Map<String, String>,
-	
 	@ApiModelProperty("Annual interest rate.")
 	val annualInterestRate: String,
-	
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Avg annual interest rate.")
 	val avgAnnualInterestRate: String,
-	
 	@ApiModelProperty("Can redeem.")
 	val canRedeem: Boolean,
-	
 	@ApiModelProperty("Daily interest rate.")
 	val dailyInterestRate: String,
-	
 	@ApiModelProperty("Free amount.")
 	val freeAmount: String,
-	
 	@ApiModelProperty("Freeze amount.")
 	val freezeAmount: String,
-	
 	@ApiModelProperty("Locked amount.")
 	val lockedAmount: String,
-	
 	@ApiModelProperty("Product id.")
 	val productId: String,
-	
 	@ApiModelProperty("Product name.")
 	val productName: String,
-	
 	@ApiModelProperty("Redeeming amount.")
 	val redeemingAmount: String,
-	
 	@ApiModelProperty("Today purchased amount.")
 	val todayPurchasedAmount: String,
-	
 	@ApiModelProperty("Total amount.")
 	val totalAmount: String,
-	
 	@ApiModelProperty("Total interest.")
 	val totalInterest: String
 )

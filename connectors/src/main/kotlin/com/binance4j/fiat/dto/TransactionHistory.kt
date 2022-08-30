@@ -40,16 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class TransactionHistory(
 	@ApiModelProperty("Code.")
 	val code: String,
-	
 	@ApiModelProperty("Message.")
 	val message: String,
-	
 	@ApiModelProperty("Transactions.")
 	val data: List<Transaction>,
-	
 	@ApiModelProperty("Total.")
 	val total: Int,
-	
 	@ApiModelProperty("Success.")
 	val success: Boolean
 )

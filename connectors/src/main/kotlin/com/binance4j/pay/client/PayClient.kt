@@ -25,9 +25,6 @@ package com.binance4j.pay.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.core.param.TimeFrame
-import com.binance4j.pay.dto.TradeHistory
 import com.binance4j.pay.param.TradeHistoryParams
 
 /**
@@ -41,9 +38,10 @@ class PayClient(key: String, secret: String) : RestClient<PayMapping>(PayMapping
 	/**
 	 * Get pay trades.
 	 *
-	 * @param timeFrame Time frame.
+	 * @param params Request params
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getTrades(timeFrame: TimeFrame = TimeFrame()): Request<TradeHistory> = Request(service.getTrades(merge(TradeHistoryParams(), timeFrame)))
+	fun getTrades(params: TradeHistoryParams = TradeHistoryParams()) =
+		Request(service.getTrades(params.toMap()))
 }

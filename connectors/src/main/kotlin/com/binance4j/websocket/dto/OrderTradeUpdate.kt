@@ -71,95 +71,72 @@ data class OrderTradeUpdate(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
 	val eventType: String,
-	
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
 	val eventTime: Long,
-	
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
 	val symbol: String,
-	
 	@ApiModelProperty("Client order id.")
 	@JsonProperty("c")
 	val newClientOrderId: String,
-	
 	@ApiModelProperty("Buy/Sell order side.")
 	@JsonProperty("S")
 	val side: String,
-	
 	@ApiModelProperty("Type of order.")
 	@JsonProperty("o")
 	val type: String,
-	
 	@ApiModelProperty("Time in force to indicate how Long will the order remain active.")
 	@JsonProperty("f")
 	var timeInForce: TimeInForce? = null,
-	
 	@ApiModelProperty("Original quantity in the order.")
 	@JsonProperty("q")
 	val originalQuantity: String,
-	
 	@ApiModelProperty("Price.")
 	@JsonProperty("p")
 	val price: String,
-	
 	@ApiModelProperty("Type of execution.")
 	@JsonProperty("x")
 	val executionType: String,
-	
 	@ApiModelProperty("Status of the order.")
 	@JsonProperty("X")
 	val orderStatus: String,
-	
 	@ApiModelProperty("Reason why the order was rejected.")
 	@JsonProperty("r")
 	val orderRejectReason: String,
-	
 	@ApiModelProperty("Order id.")
 	@JsonProperty("i")
 	val orderId: Long,
-	
 	@ApiModelProperty("Quantity of the last filled trade.")
 	@JsonProperty("l")
 	val quantityLastFilledTrade: String,
-	
 	@ApiModelProperty("Accumulated quantity of filled trades on this order.")
 	@JsonProperty("z")
 	val accumulatedQuantity: String,
-	
 	@ApiModelProperty("Price of last filled trade.")
 	@JsonProperty("L")
 	val priceOfLastFilledTrade: String,
-	
 	@ApiModelProperty("Commission.")
 	@JsonProperty("n")
 	val commission: String,
-	
 	@ApiModelProperty("Asset on which commission is taken.")
 	@JsonProperty("N")
 	val commissionAsset: String,
-	
 	@ApiModelProperty("Order/trade time.")
 	@JsonProperty("T")
 	val orderTradeTime: Long,
-	
 	@ApiModelProperty("Trade id.")
 	@JsonProperty("t")
 	val tradeId: Long,
-	
 	@ApiModelProperty("Order creation time.")
 	@JsonProperty("O")
 	val orderCreationTime: Long,
-	
 	@ApiModelProperty("Cumulative quote asset transacted quantity.")
 	@JsonProperty("Z")
 	val cumulativeQuoteQuantity: String,
-	
 	@ApiModelProperty("Last quote asset transacted quantity (i.e. lastPrice * lastQty).")
 	@JsonProperty("Y")
 	val lastQuoteQuantity: String,
-	
 	@ApiModelProperty("Quote Order quantity.")
 	@JsonProperty("Q")
 	val quoteOrderQuantity: String

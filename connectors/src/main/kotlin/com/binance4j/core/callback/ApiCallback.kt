@@ -26,13 +26,13 @@ package com.binance4j.core.callback
 
 import com.binance4j.core.exception.ApiException
 
-/** A functional interface wrapping the response of a Binance API request  */
+/** A functional interface wrapping the response of a request  */
 fun interface ApiCallback<T> {
-    /**
-     * Triggered when the receiving a response from the server.
-     *
-     * @param response  API response.
-     * @param exception Exception response sent by the Binance API.
-     */
-    fun onResponse(response: T?, exception: ApiException?)
+	/**
+	 * Triggered when the receiving a response from the server.
+	 *
+	 * @param response  API response.
+	 * @param exception Exception response sent by the Binance API.
+	 */
+	fun onResponse(response: T?, exception: ApiException?)
 }

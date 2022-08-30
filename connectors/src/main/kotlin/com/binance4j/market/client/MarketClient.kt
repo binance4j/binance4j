@@ -25,9 +25,6 @@ package com.binance4j.market.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.dto.AggTrade
-import com.binance4j.core.dto.Candle
-import com.binance4j.market.dto.*
 import com.binance4j.market.param.*
 
 /**
@@ -46,34 +43,22 @@ class MarketClient
 	 *
 	 * @return The request to execute.
 	 */
-	fun ping(): Request<Void> = Request(service.ping())
+	fun ping() = Request(service.ping())
 	
 	/**
 	 * Test connectivity to the Rest API and get the current server time.
 	 *
 	 * @return The request to execute.
 	 */
-	fun getServerTime(): Request<ServerTimeResponse> = Request(service.getServerTime())
+	fun getServerTime() = Request(service.getServerTime())
 	
 	/**
-	 * Get current exchange trading rules and one or many symbols informations.
-	 *
-	 *
-	 * If any symbol provided in either `symbol` or `symbols` do not
-	 * exist, the endpoint will throw an error.
-	 *
+	 * Get current exchange trading rules and one or many symbols info.
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getExchangeInfo(params: ExchangeInfoParams): Request<ExchangeInfo> =
+	fun getExchangeInfo(params: ExchangeInfoParams = ExchangeInfoParams()) =
 		Request(service.getExchangeInfo(params.toMap()))
-	
-	/**
-	 * Get current exchange trading rules and all symbols information.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getExchangeInfo(): Request<ExchangeInfo> = getExchangeInfo(ExchangeInfoParams())
 	
 	/**
 	 * Get the symbol order book.
@@ -81,7 +66,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getOrderBook(params: OrderBookParams): Request<OrderBook> = Request(service.getOrderBook(params.toMap()))
+	fun getOrderBook(params: OrderBookParams) = Request(service.getOrderBook(params.toMap()))
 	
 	/**
 	 * Get recent trades.
@@ -89,7 +74,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getTrades(params: TradesParams): Request<List<Trade>> = Request(service.getTrades(params.toMap()))
+	fun getTrades(params: TradesParams) = Request(service.getTrades(params.toMap()))
 	
 	/**
 	 * Get older market trades.
@@ -97,8 +82,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getHistoricalTrades(params: HistoricalTradesParams): Request<List<Trade>> =
-		Request(service.getHistoricalTrades(params.toMap()))
+	fun getHistoricalTrades(params: HistoricalTradesParams) = Request(service.getHistoricalTrades(params.toMap()))
 	
 	/**
 	 * Get compressed, aggregate trades.
@@ -106,7 +90,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getAggTrades(params: AggTradeParams): Request<List<AggTrade>> = Request(service.getAggTrades(params.toMap()))
+	fun getAggTrades(params: AggTradeParams) = Request(service.getAggTrades(params.toMap()))
 	
 	/**
 	 * Kline/candles for a symbol.
@@ -114,7 +98,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getKlines(params: KlinesParams): Request<List<Candle>> = Request(service.getKlines(params.toMap()))
+	fun getKlines(params: KlinesParams) = Request(service.getKlines(params.toMap()))
 	
 	/**
 	 * Get Current average price for a symbol.
@@ -122,8 +106,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getAveragePrice(params: AveragePriceParams): Request<AveragePrice> =
-		Request(service.getAveragePrice(params.toMap()))
+	fun getAveragePrice(params: AveragePriceParams) = Request(service.getAveragePrice(params.toMap()))
 	
 	/**
 	 * Get 24-hour rolling window price change statistics of a symbol.
@@ -131,15 +114,14 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun get24hTickerStatistics(params: TickerStatisticsParams): Request<TickerStatistics> =
-		Request(service.get24hTickerStatistics(params.toMap()))
+	fun get24hTickerStatistics(params: TickerStatisticsParams) = Request(service.get24hTickerStatistics(params.toMap()))
 	
 	/**
 	 * Get 24-hour rolling window price change statistics of all symbols.
 	 *
 	 * @return The request to execute.
 	 */
-	fun get24hTickerStatistics(): Request<List<TickerStatistics>> = Request(service.get24hTickerStatistics())
+	fun get24hTickerStatistics() = Request(service.get24hTickerStatistics())
 	
 	/**
 	 * Get 24-hour rolling window price change statistics of specific symbols.
@@ -147,7 +129,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun get24hTickerStatistics(params: TickersStatisticsParams): Request<List<TickerStatistics>> =
+	fun get24hTickerStatistics(params: TickersStatisticsParams) =
 		Request(service.get24hTickersStatistics(params.toMap()))
 	
 	/**
@@ -155,7 +137,7 @@ class MarketClient
 	 *
 	 * @return The request to execute.
 	 */
-	fun getTicker(): Request<List<PriceTicker>> = Request(service.getTicker())
+	fun getTicker() = Request(service.getTicker())
 	
 	/**
 	 * Latest price for a symbol or symbols.
@@ -163,7 +145,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getTicker(params: PriceTickerParams): Request<PriceTicker> = Request(service.getTicker(params.toMap()))
+	fun getTicker(params: PriceTickerParams) = Request(service.getTicker(params.toMap()))
 	
 	/**
 	 * Latest price for a symbol or symbols.
@@ -171,7 +153,7 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getTicker(params: PriceTickersParams): Request<List<PriceTicker>> = Request(service.getTickers(params.toMap()))
+	fun getTicker(params: PriceTickersParams) = Request(service.getTickers(params.toMap()))
 	
 	/**
 	 * Get best price/quantity on the order book for a symbol.
@@ -179,14 +161,14 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getBookTicker(params: BookTickerParams): Request<BookTicker> = Request(service.getBookTicker(params.toMap()))
+	fun getBookTicker(params: BookTickerParams) = Request(service.getBookTicker(params.toMap()))
 	
 	/**
 	 * Get best price/quantity on the order book for all symbols.
 	 *
 	 * @return The request to execute.
 	 */
-	fun getBookTicker(): Request<List<BookTicker>> = Request(service.getBookTicker())
+	fun getBookTicker() = Request(service.getBookTicker())
 	
 	/**
 	 * Get best price/quantity on the order book for the given symbols.
@@ -194,6 +176,5 @@ class MarketClient
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getBookTicker(params: BookTickersParams): Request<List<BookTicker>> =
-		Request(service.getBookTickers(params.toMap()))
+	fun getBookTicker(params: BookTickersParams) = Request(service.getBookTickers(params.toMap()))
 }

@@ -43,17 +43,15 @@ import io.swagger.annotations.ApiModelProperty
 data class BLVTCandleEvent(
 	@ApiModelProperty("Event name.")
 	@JsonProperty("e")
-	val eventName: String,
-	
+	val eventName: String
 	@ApiModelProperty("Event time.")
-	@JsonProperty("E")
-	val eventTime: Long,
-	
-	@ApiModelProperty("BLVT name.")
-	@JsonProperty("s")
-	val name: String,
-	
-	@ApiModelProperty("BLVT candle.")
-	@JsonProperty("k")
-	var candle: BLVTCandle? = null
+@JsonProperty("E")
+val eventTime: Long,
+
+@ApiModelProperty("BLVT name.")
+@JsonProperty("s")
+val name: String,
+@ApiModelProperty("BLVT candle.")
+@JsonProperty("k")
+var candle: BLVTCandle? = null
 )

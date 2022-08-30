@@ -67,7 +67,7 @@ class RateLimiting private constructor() {
 			// TODO correct
 			rateLimits = Connectors.`rest()`.market().getExchangeInfo()
 			rawRequestLimiter = RateLimiter(rateLimits.requests())
-			requestWeightLimiter = RateLimiter(rateLimits.weight())
+			requestWeightLimiter = RateLimiter(rateLimits.weightLimit())
 			enable()
 		} catch (e: ApiException) {
 			e.printStackTrace()

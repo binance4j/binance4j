@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -48,30 +47,32 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin infos for the authenticated account.")
 data class CoinInformation(
-	@ApiModelProperty("Coin abbreviation.") val coin: String,
-	@ApiModelProperty("Coin name.") val name: String,
+	@ApiModelProperty("Coin abbreviation.")
+	val coin: String,
+	@ApiModelProperty("Coin name.")
+	val name: String,
 	@ApiModelProperty("Deposit permission.")
-	@JsonProperty
 	val depositAllEnable: Boolean,
 	@ApiModelProperty("Is the coin a legal money?")
-	@JsonProperty
 	val isLegalMoney: Boolean,
-	@ApiModelProperty("Can the coin be traded?") val trading: Boolean,
+	@ApiModelProperty("Can the coin be traded?")
+	val trading: Boolean,
 	@ApiModelProperty("Withdraw permission.")
-	@JsonProperty
 	val withdrawAllEnable: Boolean,
-	@ApiModelProperty("Free balance.") val free: String,
-	@ApiModelProperty("Freezed balance.") val freeze: String,
+	@ApiModelProperty("Free balance.")
+	val free: String,
+	@ApiModelProperty("Freezed balance.")
+	val freeze: String,
 	@ApiModelProperty("Initial Public Offering balance (?)")
-	@JsonProperty
 	val ipoable: String,
 	@ApiModelProperty("Initial Public Offering freezed balance (?)")
-	@JsonProperty
 	val ipoing: String,
-	@ApiModelProperty("Locked balance.") val locked: String,
-	@ApiModelProperty("Storage") val storage: String,
-	@ApiModelProperty("Withdrawing balance.") val withdrawing: String,
+	@ApiModelProperty("Locked balance.")
+	val locked: String,
+	@ApiModelProperty("Storage")
+	val storage: String,
+	@ApiModelProperty("Withdrawing balance.")
+	val withdrawing: String,
 	@ApiModelProperty("Coin network information.")
-	@JsonProperty
-	var networkList: List<CoinNetworkInformation> = emptyList()
+	var networkList: List<CoinNetworkInformation>
 )

@@ -22,23 +22,21 @@
  * SOFTWARE.
  */
 
-package com.binance4j.nft.dto;
+package com.binance4j.nft.dto
 
-import java.util.List;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
 
 /**
  * NFT deposit history.
- * 
+ *
  * @property total Total records.
  * @property list  Transactions.
  */
 @ApiModel("NFT deposit history.")
 data class DepositHistory(
-@ApiModelProperty("Total records.")
- val total : Long,
-@ApiModelProperty("Transactions.") List<Deposit> list)
-{
-}
+	@ApiModelProperty("Total records.")
+	val total: Long,
+	@ApiModelProperty("Transactions.")
+	val list: List<Deposit>
+)

@@ -48,37 +48,30 @@ import io.swagger.annotations.ApiModelProperty
 data class MiniTicker(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
-	
+	val eventType: String
 	@ApiModelProperty("Timestamp.")
-	@JsonProperty("E")
-	val eventTime: Long,
-	
-	@ApiModelProperty("Trading pair.")
-	@JsonProperty("s")
-	val symbol: String,
-	
-	@ApiModelProperty("Close price.")
-	@JsonProperty("c")
-	val closePrice: String,
-	
-	@ApiModelProperty("Open price.")
-	@JsonProperty("o")
-	val openPrice: String,
-	
-	@ApiModelProperty("Highest price.")
-	@JsonProperty("h")
-	val highPrice: String,
-	
-	@ApiModelProperty("Lowest price.")
-	@JsonProperty("l")
-	val lowPrice: String,
-	
-	@ApiModelProperty("Total traded base asset volume.")
-	@JsonProperty("v")
-	val totalTradedBaseAssetVolume: String,
-	
-	@ApiModelProperty("Total traded quote asset volume.")
-	@JsonProperty("q")
-	val totalTradedQuoteAssetVolume: String
+@JsonProperty("E")
+val eventTime: Long,
+
+@ApiModelProperty("Trading pair.")
+@JsonProperty("s")
+val symbol: String,
+@ApiModelProperty("Close price.")
+@JsonProperty("c")
+val closePrice: String,
+@ApiModelProperty("Open price.")
+@JsonProperty("o")
+val openPrice: String,
+@ApiModelProperty("Highest price.")
+@JsonProperty("h")
+val highPrice: String,
+@ApiModelProperty("Lowest price.")
+@JsonProperty("l")
+val lowPrice: String,
+@ApiModelProperty("Total traded base asset volume.")
+@JsonProperty("v")
+val totalTradedBaseAssetVolume: String,
+@ApiModelProperty("Total traded quote asset volume.")
+@JsonProperty("q")
+val totalTradedQuoteAssetVolume: String
 ) 

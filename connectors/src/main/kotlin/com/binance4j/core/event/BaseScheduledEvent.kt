@@ -30,57 +30,51 @@ import java.util.*
  * @param task The task to execute.
  */
 abstract class BaseScheduledEvent : ScheduledEvent {
-
-    /** init time  */
-    override val initTime: Long = System.currentTimeMillis()
-
-    /** The event's inner [Timer].  */
-    protected val timer: Timer = Timer()
-
-    /** last call  */
-    override var lastCall: Long = 0
-        protected set
-
-    /** Is running  */
-    override var isRunning = false
-        protected set
-
-    override val ticks: Int
-        get() = task.ticks
-
-    override val isFinalTick: Boolean
-        get() = task.ticks == task.maxTicks
-
-    protected lateinit var task: Task
-
-    /** Cancels the event.  */
-    override fun cancel() {
-        timer.cancel()
-        timer.purge()
-        isRunning = false
-    }
-
-    /** The inner timer task
-     *
-     * @param task           Task to execute.
-     * @param scheduledEvent Event wrapper.
-     * @param maxTicks The max times the task can be called.
-     */
-    inner class Task(
-        private val task: ScheduledTask, private val scheduledEvent: BaseScheduledEvent, val maxTicks: Int = 0
-    ) : TimerTask() {
-        /** The number of time the task was called.  */
-        var ticks = 0
-
-        override fun run() {
-            isRunning = true
-            if (ticks >= maxTicks && maxTicks != 0) {
-                scheduledEvent.cancel()
-            } else {
-                ticks++
-                lastCall = System.currentTimeMillis()
-                task.call()
-            }
-        }
-    }
+	
+	/** init time  */
+	override val initTime: Long = System.currentTimeMillis()
+	
+	/** The event's inner [Timer].  */
+	protected val timer: Timer = Timer()
+	
+	/** last call  */
+	override var lastCall: Long = 0
+		protected set
+	
+	/** Is running  */
+	override var isRunning = false
+		protected set
+	
+	override val ticks: Int get() = task.ticks
+	
+	override val isFinalTick: Boolean get() = task.ticks == task.maxTicks
+	
+	protected lateinit var task: Task
+	
+	/** Cancels the event.  */
+	override fun cancel() {
+		timer.cancel(); timer.purge(); isRunning = false
+	}
+	
+	/** The inner timer task
+	 *
+	 * @param task           Task to execute.
+	 * @param scheduledEvent Event wrapper.
+	 * @param maxTicks The max times the task can be called.
+	 */
+	inner class Task(
+		private val task: ScheduledTask, private val scheduledEvent: BaseScheduledEvent, val maxTicks: Int = 0
+	) : TimerTask() {
+		/** The number of time the task was called.  */
+		var ticks = 0
+		
+		override fun run() {
+			isRunning = true
+			if (ticks >= maxTicks && maxTicks != 0) {
+				scheduledEvent.cancel()
+			} else {
+				ticks++; lastCall = System.currentTimeMillis(); task.call()
+			}
+		}
+	}
 }

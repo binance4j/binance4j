@@ -24,7 +24,6 @@
 
 package com.binance4j.staking.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -45,29 +44,21 @@ import io.swagger.annotations.ApiModelProperty
 data class StakingRecord(
 	@ApiModelProperty("Position id.")
 	val positionId: String,
-	
 	@ApiModelProperty("Time.")
 	val time: String,
-	
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Project.")
 	val project: String,
-	
 	@ApiModelProperty("Amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Lock period.")
 	val lockPeriod: String,
-	
 	@ApiModelProperty("Deliver date.")
 	val deliverDate: String,
-	
 	@ApiModelProperty("Type.")
 	val type: String,
-	
 	@ApiModelProperty("Status.")
-	val status : String
+	val status: String
 )
 

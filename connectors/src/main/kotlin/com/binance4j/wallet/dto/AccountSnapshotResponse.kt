@@ -26,12 +26,12 @@ package com.binance4j.wallet.dto
 
 /** The base of an account snapshot response. */
 interface AccountSnapshotResponse<T> {
-    /** @return Response status code (200 for success; others are error codes). */
-    var code: Int?
-
-    /** @return The potential response error message. */
-    var msg: String?
-
-    /** @return A list of account snapshots. */
-    var snapshotVos: List<T>?
+	/** Response status code (200 for success; others are error codes). */
+	var code: Int
+	
+	/** The potential response error message. */
+	var msg: String
+	
+	/** A list of account snapshots. */
+	var snapshotVos: List<T>
 }

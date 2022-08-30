@@ -28,4 +28,8 @@ import com.binance4j.core.param.Params
 import com.binance4j.pay.client.PayClient
 
 /** [PayClient.getTrades] params. */
-class TradeHistoryParams : Params
+data class TradeHistoryParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

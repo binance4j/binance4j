@@ -40,16 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 data class BookTicker(
 	@ApiModelProperty("Ticker symbol.")
 	val symbol: String,
-	
 	@ApiModelProperty("Bid price.")
 	val bidPrice: String,
-	
 	@ApiModelProperty("Bid quantity.")
 	val bidQty: String,
-	
 	@ApiModelProperty("Ask price.")
 	val askPrice: String,
-	
 	@ApiModelProperty("Ask quantity.")
 	val askQty: String
 )

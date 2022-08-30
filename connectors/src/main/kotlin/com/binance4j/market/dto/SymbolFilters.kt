@@ -48,40 +48,28 @@ import io.swagger.annotations.ApiModelProperty
 data class SymbolFilters(
 	@ApiModelProperty("IcebergParts filter")
 	val icebergParts: IcebergPartsFilter,
-	
 	@ApiModelProperty("LotSize filter")
 	val lotSize: LotSizeFilter,
-	
 	@ApiModelProperty("MarketLotSize filter")
 	val marketLotSize: MarketLotSizeFilter,
-	
 	@ApiModelProperty("MaxNumAlgoOrders filter")
 	val maxNumAlgoOrders: MaxNumAlgoOrdersFilter,
-	
 	@ApiModelProperty("MaxNumIcebergOrders filter")
 	val maxNumIcebergOrders: MaxNumIcebergOrdersFilter,
-	
 	@ApiModelProperty("MaxNumOrders filter")
 	val maxNumOrders: MaxNumOrdersFilter,
-	
 	@ApiModelProperty("MaxPosition filter")
 	val maxPosition: MaxPositionFilter,
-	
 	@ApiModelProperty("MinNotional filter")
 	val minNotional: MinNotionalFilter,
-	
 	@ApiModelProperty("Notional filter")
 	val notional: NotionalFilter,
-	
 	@ApiModelProperty("PercentPriceBySide filter")
 	val percentPriceBySide: PercentPriceBySideFilter,
-	
 	@ApiModelProperty("PercentPrice filter")
 	val percentPrice: PercentPriceFilter,
-	
 	@ApiModelProperty("Price filter")
 	val price: PriceFilter,
-	
 	@ApiModelProperty("TrailingDelta filter")
 	val trailingDelta: TrailingDeltaFilter
 )

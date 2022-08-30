@@ -24,7 +24,6 @@
 
 package com.binance4j.core
 
-import com.binance4j.core.interceptor.AuthenticationInterceptor
 import com.binance4j.core.ratelimiter.RateLimiting
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -39,11 +38,20 @@ object Binance4j {
 	@JvmStatic
 	val rateLimiting: RateLimiting = RateLimiting.invoke()
 	
+	/** The API key http header.  */
+	const val API_KEY_HEADER = "X-MBX-APIKEY"
+	
+	/** The API key http header decorator.  */
+	const val ENDPOINT_SECURITY_TYPE_APIKEY = "APIKEY"
+	
+	/** The signed http header decorator.  */
+	const val ENDPOINT_SECURITY_TYPE_SIGNED = "SIGNED"
+	
 	/** The signed http full header.  */
-	const val SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER
+	const val SIGNED_H = "$ENDPOINT_SECURITY_TYPE_SIGNED: #"
 	
 	/** The API key http full header.  */
-	const val API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER
+	const val API_H = "$ENDPOINT_SECURITY_TYPE_APIKEY: #"
 	
 	/** Header name to determine if request is an order  */
 	const val ORDER_H = "X-ORDER"

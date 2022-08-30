@@ -24,6 +24,9 @@
 
 package com.binance4j.core.interceptor
 
+import com.binance4j.core.Binance4j.ORDER_H
+import com.binance4j.core.Binance4j.RATE_LIMIT_H
+import com.binance4j.core.Binance4j.WEIGHT_H
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -32,15 +35,15 @@ import java.io.IOException
  * Interceptor to remove metadata headers before sending the request.
  */
 class MetaHeadersInterceptor : Interceptor {
-    /**
-     * Intercepts the request
-     *
-     * @param chain Request chain.
-     */
-    @Throws(IOException::class)
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val builder = chain.request().newBuilder().removeHeader(RestMapping.ORDER_H)
-                .removeHeader(RestMapping.RATE_LIMIT_H).removeHeader(RestMapping.WEIGHT_H)
-        return chain.proceed(builder.build())
-    }
+	/**
+	 * Intercepts the request
+	 *
+	 * @param chain Request chain.
+	 */
+	@Throws(IOException::class)
+	override fun intercept(chain: Interceptor.Chain): Response {
+		val builder =
+			chain.request().newBuilder().removeHeader(ORDER_H).removeHeader(RATE_LIMIT_H).removeHeader(WEIGHT_H)
+		return chain.proceed(builder.build())
+	}
 }

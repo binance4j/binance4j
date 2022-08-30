@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -69,51 +68,33 @@ data class CoinNetworkInformation(
 	@ApiModelProperty("Network") val network: String,
 	@ApiModelProperty("Tips about the network.") val specialTips: String,
 	@ApiModelProperty("Tips about the withdraw.")
-	@JsonProperty
 	val specialWithdrawTips: String,
 	@ApiModelProperty("Deposit dust.") val depositDust: String,
 	@ApiModelProperty("Withdraw fee.") val withdrawFee: String,
 	@ApiModelProperty("Withdraw integer multiple")
-	@JsonProperty
 	val withdrawIntegerMultiple: String,
 	@ApiModelProperty("Maximal amount authorized to be withdrawn.")
-	@JsonProperty
 	val withdrawMax: String,
 	@ApiModelProperty("Minimal amount authorized to be withdrawn.")
-	@JsonProperty
 	val withdrawMin: String,
 	@ApiModelProperty("Min number for balance confirmation.")
-	@JsonProperty
-	val minConfirm: Int
+	val minConfirm: Int,
 	@ApiModelProperty("Confirmation number for balance unlock.")
-@JsonProperty
-val unLockConfirm: Int
-
-@ApiModelProperty("If deposit is enabled.")
-@JsonProperty
-val depositEnable: Boolean,
-
-@ApiModelProperty("if is the default network.")
-@JsonProperty
-val isDefault: Boolean,
-
-@ApiModelProperty("Reset address status.")
-@JsonProperty
-val resetAddressStatus: Boolean,
-
-@ApiModelProperty("If withdraw is enabled.")
-@JsonProperty
-val withdrawEnable: Boolean,
-
-@ApiModelProperty("If the coin needs to provide memo to withdraw.")
-@JsonProperty
-val sameAddress: Boolean,
-
-@ApiModelProperty("Estimated arrival time in ms.")
-@JsonProperty
-val estimatedArrivalTime: Long,
-@ApiModelProperty("Is network busy?")
-val busy: Boolean,
-@ApiModelProperty("Country.")
-val country: String
+	val unLockConfirm: Int,
+	@ApiModelProperty("If deposit is enabled.")
+	val depositEnable: Boolean,
+	@ApiModelProperty("if is the default network.")
+	val isDefault: Boolean,
+	@ApiModelProperty("Reset address status.")
+	val resetAddressStatus: Boolean,
+	@ApiModelProperty("If withdraw is enabled.")
+	val withdrawEnable: Boolean,
+	@ApiModelProperty("If the coin needs to provide memo to withdraw.")
+	val sameAddress: Boolean,
+	@ApiModelProperty("Estimated arrival time in ms.")
+	val estimatedArrivalTime: Long,
+	@ApiModelProperty("Is network busy?")
+	val busy: Boolean,
+	@ApiModelProperty("Country.")
+	val country: String
 )

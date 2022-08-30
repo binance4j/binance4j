@@ -26,10 +26,6 @@ package com.binance4j.fiat.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.FramedPaging
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.fiat.dto.PaymentHistory
-import com.binance4j.fiat.dto.TransactionHistory
 import com.binance4j.fiat.param.PaymentParams
 import com.binance4j.fiat.param.TransactionParams
 
@@ -38,30 +34,23 @@ import com.binance4j.fiat.param.TransactionParams
  *
  * @param key    API public key.
  * @param secret API secret key.
+ *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.fiat-endpoints)
  */
 class FiatClient(key: String, secret: String) : RestClient<FiatMapping>(FiatMapping::class.java, key, secret) {
-    /**
-     * Get fiat transactions.
-     *
-     * @param params       Request params.
-     * @param framedPaging Paging.
-     * @return The request to execute.
-     */
-    fun getTransactions(params: TransactionParams, framedPaging: FramedPaging = FramedPaging()): Request<TransactionHistory> = Request(
-        service.getTransactions(merge(params.toMap(), framedPaging.toMap(mapOf("startTime" to "beginTime", "limit" to "rows"))))
-    )
-
-    /**
-     * Get fiat payments.
-     *
-     * @param params       Request params.
-     * @param framedPaging Paging.
-     * @return The request to execute.
-     */
-    fun getPayments(params: PaymentParams, framedPaging: FramedPaging = FramedPaging()): Request<PaymentHistory> = Request(
-        service.getPayments(
-            merge(params.toMap(), framedPaging.toMap(mapOf("startTime" to "beginTime", "limit" to "rows")))
-        )
-    )
+	/**
+	 * Get fiat transactions.
+	 *
+	 * @param params    Request params.
+	 * @return The request to execute.
+	 */
+	fun getTransactions(params: TransactionParams) = Request(service.getTransactions(params.toMap()))
+	
+	/**
+	 * Get fiat payments.
+	 *
+	 * @param params    Request params.
+	 * @return The request to execute.
+	 */
+	fun getPayments(params: PaymentParams) = Request(service.getPayments(params.toMap()))
 }

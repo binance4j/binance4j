@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The system status.")
 data class SystemStatus(
 	@ApiModelProperty("System status code (0: normal，1：maintenance).")
-	@JsonProperty
-	val status: Int
+	val status: Int,
 	@ApiModelProperty("System status message (\"normal\" or \"system_maintenance\").")
-@JsonProperty
-val msg: String
+	val msg: String
 )

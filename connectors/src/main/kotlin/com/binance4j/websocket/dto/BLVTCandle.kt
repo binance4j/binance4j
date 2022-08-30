@@ -53,48 +53,41 @@ data class BLVTCandle(
 	@ApiModelProperty("Start time.")
 	@JsonProperty("t")
 	val startTime: Long,
-	
 	@ApiModelProperty("End time.")
-	@JsonProperty("T")
-	val endTime: Long,
-	
-	@ApiModelProperty("Name.")
-	@JsonProperty("s")
-	val name: String,
-	
-	@ApiModelProperty("Interval.")
-	@JsonProperty("i")
-	var interval: CandlestickInterval? = null,
-	
-	@ApiModelProperty("First update.")
-	@JsonProperty("f")
-	val firstUpdate: Long,
-	
-	@ApiModelProperty("Last update.")
-	@JsonProperty("L")
-	val lastUpdate: Long,
-	
-	@ApiModelProperty("Open.")
-	@JsonProperty("o")
-	val open: String,
-	
-	@ApiModelProperty("Close.")
-	@JsonProperty("c")
-	val close: String,
-	
-	@ApiModelProperty("High.")
-	@JsonProperty("h")
-	val high: String,
-	
-	@ApiModelProperty("Low.")
-	@JsonProperty("l")
-	val low: String,
-	
-	@ApiModelProperty("Real leverage.")
-	@JsonProperty("v")
-	val realLeverage: String,
-	
-	@ApiModelProperty("Number of updates.")
-	@JsonProperty("n")
-	val updateNumbers: Long
+@JsonProperty("T")
+val endTime: Long,
+
+@ApiModelProperty("Name.")
+@JsonProperty("s")
+val name: String,
+@ApiModelProperty("Interval.")
+@JsonProperty("i")
+var interval: CandlestickInterval? = null
+
+@ApiModelProperty("First update.")
+@JsonProperty("f")
+val firstUpdate: Long,
+
+@ApiModelProperty("Last update.")
+@JsonProperty("L")
+val lastUpdate: Long,
+
+@ApiModelProperty("Open.")
+@JsonProperty("o")
+val open: String,
+@ApiModelProperty("Close.")
+@JsonProperty("c")
+val close: String,
+@ApiModelProperty("High.")
+@JsonProperty("h")
+val high: String,
+@ApiModelProperty("Low.")
+@JsonProperty("l")
+val low: String,
+@ApiModelProperty("Real leverage.")
+@JsonProperty("v")
+val realLeverage: String,
+@ApiModelProperty("Number of updates.")
+@JsonProperty("n")
+val updateNumbers: Long,
 )

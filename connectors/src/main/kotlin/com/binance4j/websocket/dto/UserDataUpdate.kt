@@ -53,20 +53,19 @@ import io.swagger.annotations.ApiModelProperty
 data class UserDataUpdate(
 	@ApiModelProperty("Event type.")
 	
-	var eventType: UserDataUpdateType? = null,
-	
+	var eventType: UserDataUpdateType? = null
 	@ApiModelProperty("Timestamp.")
-	val eventTime: Long,
-	
-	@ApiModelProperty("Account update.")
-	
-	var outboundAccountPositionUpdateEvent: AccountUpdate? = null,
-	
-	@ApiModelProperty("Balance update.")
-	
-	var balanceUpdateEvent: BalanceUpdate? = null,
-	
-	@ApiModelProperty("Order trade update.")
-	
-	var orderTradeUpdateEvent: OrderTradeUpdate? = null
+val eventTime: Long,
+
+@ApiModelProperty("Account update.")
+
+var outboundAccountPositionUpdateEvent: AccountUpdate? = null
+
+@ApiModelProperty("Balance update.")
+
+var balanceUpdateEvent: BalanceUpdate? = null
+
+@ApiModelProperty("Order trade update.")
+
+var orderTradeUpdateEvent: OrderTradeUpdate? = null
 )

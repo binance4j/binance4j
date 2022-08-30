@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A daily MARGIN account snapshot.")
 data class MarginAccountSnapshot(
-	@ApiModelProperty("Type.") @JsonProperty override val type: String,
-	@ApiModelProperty("Update time in ms.") @JsonProperty override val updateTime: Long,
+	@ApiModelProperty("Type.") @JsonProperty override var type: String,
+	@ApiModelProperty("Update time in ms.") @JsonProperty override var updateTime: Long,
 	@ApiModelProperty("Data.") var data: MarginAccountSnapshotData? = null
 ) : Snapshot

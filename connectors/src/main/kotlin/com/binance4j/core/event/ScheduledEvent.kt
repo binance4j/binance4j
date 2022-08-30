@@ -24,23 +24,25 @@
 
 package com.binance4j.core.event
 
+import java.util.*
+
 /** A scheduled event calling a [TimerTask].  */
 interface ScheduledEvent {
-    /** Cancels the event.  */
-    fun cancel()
-
-    /** The event instantiation time in ms. */
-    val initTime: Long
-
-    /** The event last call time in ms. */
-    val lastCall: Long
-
-    /** The number of times the task was called. */
-    val ticks: Int
-
-    /** Tells if the last tick is the final one. */
-    val isFinalTick: Boolean
-
-    /** Tells if the event is running. */
-    val isRunning: Boolean
+	/** Cancels the event.  */
+	fun cancel()
+	
+	/** The event instantiation time in ms. */
+	val initTime: Long,
+	
+	/** The event last call time in ms. */
+	val lastCall: Long,
+	
+	/** The number of times the task was called. */
+	val ticks: Int
+	
+	/** Tells if the last tick is the final one. */
+	val isFinalTick: Boolean
+	
+	/** Tells if the event is running. */
+	val isRunning: Boolean
 }

@@ -62,93 +62,76 @@ import io.swagger.annotations.ApiModelProperty
 data class Ticker(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
-	
+	val eventType: String
 	@ApiModelProperty("Timestamp.")
-	@JsonProperty("E")
-	val eventTime: Long,
-	
-	@ApiModelProperty("Trading pair.")
-	@JsonProperty("s")
-	val symbol: String,
-	
-	@ApiModelProperty("Price change.")
-	@JsonProperty("p")
-	val priceChange: String,
-	
-	@ApiModelProperty("Price change percent.")
-	@JsonProperty("P")
-	val priceChangePercent: String,
-	
-	@ApiModelProperty("Weighted average price.")
-	@JsonProperty("w")
-	val weightedAveragePrice: String,
-	
-	@ApiModelProperty("Previous days close price.")
-	@JsonProperty("x")
-	val previousDaysClosePrice: String,
-	
-	@ApiModelProperty("Current days close price.")
-	@JsonProperty("c")
-	val currentDaysClosePrice: String,
-	
-	@ApiModelProperty("Last quantity.")
-	@JsonProperty("Q")
-	val closeTradesQuantity: String,
-	
-	@ApiModelProperty("Best bid price.")
-	@JsonProperty("b")
-	val bestBidPrice: String,
-	
-	@ApiModelProperty("Best bid quantity.")
-	@JsonProperty("B")
-	val bestBidQuantity: String,
-	
-	@ApiModelProperty("Best ask price.")
-	@JsonProperty("a")
-	val bestAskPrice: String,
-	
-	@ApiModelProperty("Best ask quantity.")
-	@JsonProperty("A")
-	val bestAskQuantity: String,
-	
-	@ApiModelProperty("Open price.")
-	@JsonProperty("o")
-	val openPrice: String,
-	
-	@ApiModelProperty("Highest price.")
-	@JsonProperty("h")
-	val highPrice: String,
-	
-	@ApiModelProperty("Lowest price.")
-	@JsonProperty("l")
-	val lowPrice: String,
-	
-	@ApiModelProperty("Total traded base asset volume.")
-	@JsonProperty("v")
-	val totalTradedBaseAssetVolume: String,
-	
-	@ApiModelProperty("Total traded quote asset volume.")
-	@JsonProperty("q")
-	val totalTradedQuoteAssetVolume: String,
-	
-	@ApiModelProperty("Statistics open time.")
-	@JsonProperty("O")
-	val statisticsOpenTime: Long,
-	
-	@ApiModelProperty("Statistics close time.")
-	@JsonProperty("C")
-	val statisticsCloseTime: Long,
-	
-	@ApiModelProperty("First trade ID.")
-	@JsonProperty("F")
-	val firstTradeId: Long,
-	
-	@ApiModelProperty("Last trade Id.")
-	@JsonProperty("L")
-	val lastTradeId: Long,
-	
-	@ApiModelProperty("Total number of trades.")
-	@JsonProperty("n")
-	val totalNumberOfTrade: Long
+@JsonProperty("E")
+val eventTime: Long,
+
+@ApiModelProperty("Trading pair.")
+@JsonProperty("s")
+val symbol: String,
+@ApiModelProperty("Price change.")
+@JsonProperty("p")
+val priceChange: String,
+@ApiModelProperty("Price change percent.")
+@JsonProperty("P")
+val priceChangePercent: String,
+@ApiModelProperty("Weighted average price.")
+@JsonProperty("w")
+val weightedAveragePrice: String,
+@ApiModelProperty("Previous days close price.")
+@JsonProperty("x")
+val previousDaysClosePrice: String,
+@ApiModelProperty("Current days close price.")
+@JsonProperty("c")
+val currentDaysClosePrice: String,
+@ApiModelProperty("Last quantity.")
+@JsonProperty("Q")
+val closeTradesQuantity: String,
+@ApiModelProperty("Best bid price.")
+@JsonProperty("b")
+val bestBidPrice: String,
+@ApiModelProperty("Best bid quantity.")
+@JsonProperty("B")
+val bestBidQuantity: String,
+@ApiModelProperty("Best ask price.")
+@JsonProperty("a")
+val bestAskPrice: String,
+@ApiModelProperty("Best ask quantity.")
+@JsonProperty("A")
+val bestAskQuantity: String,
+@ApiModelProperty("Open price.")
+@JsonProperty("o")
+val openPrice: String,
+@ApiModelProperty("Highest price.")
+@JsonProperty("h")
+val highPrice: String,
+@ApiModelProperty("Lowest price.")
+@JsonProperty("l")
+val lowPrice: String,
+@ApiModelProperty("Total traded base asset volume.")
+@JsonProperty("v")
+val totalTradedBaseAssetVolume: String,
+@ApiModelProperty("Total traded quote asset volume.")
+@JsonProperty("q")
+val totalTradedQuoteAssetVolume: String,
+@ApiModelProperty("Statistics open time.")
+@JsonProperty("O")
+val statisticsOpenTime: Long,
+
+@ApiModelProperty("Statistics close time.")
+@JsonProperty("C")
+val statisticsCloseTime: Long,
+
+@ApiModelProperty("First trade ID.")
+@JsonProperty("F")
+val firstTradeId: Long,
+
+@ApiModelProperty("Last trade Id.")
+@JsonProperty("L")
+val lastTradeId: Long,
+
+@ApiModelProperty("Total number of trades.")
+@JsonProperty("n")
+val totalNumberOfTrade: Long,
 )

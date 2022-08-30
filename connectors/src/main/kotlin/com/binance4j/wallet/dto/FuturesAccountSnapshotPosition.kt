@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,9 +38,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Futures account snapshot position.")
 data class FuturesAccountSnapshotPosition(
-	@ApiModelProperty("Symbol.") val symbol: String,
-	@ApiModelProperty("Entry price.") val entryPrice: String,
-	@ApiModelProperty("Mark price.") val markPrice: String,
-	@ApiModelProperty("Position amount.") val positionAmt: String,
-	@ApiModelProperty("Unrealized profit.") val unRealizedProfit: String
+	@ApiModelProperty("Symbol.")
+	val symbol: String,
+	@ApiModelProperty("Entry price.")
+	val entryPrice: String,
+	@ApiModelProperty("Mark price.")
+	val markPrice: String,
+	@ApiModelProperty("Position amount.")
+	val positionAmt: String,
+	@ApiModelProperty("Unrealized profit.")
+	val unRealizedProfit: String
 )

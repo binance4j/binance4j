@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,10 +39,16 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("An asset dividend.")
 data class AssetDividend(
-	@ApiModelProperty("Dividend amount.") val amount: String,
-	@ApiModelProperty("Info about the asset.") val enInfo: String,
-	@ApiModelProperty("Asset abbreviation.") val asset: String,
-	@ApiModelProperty("Id.") val id: Long,
-	@ApiModelProperty("Dividend time in ms.") val divTime: Long,
-	@ApiModelProperty("Transaction id.") val tranId: Long
+	@ApiModelProperty("Dividend amount.")
+	val amount: String,
+	@ApiModelProperty("Info about the asset.")
+	val enInfo: String,
+	@ApiModelProperty("Asset abbreviation.")
+	val asset: String,
+	@ApiModelProperty("Id.")
+	val id: Long,
+	@ApiModelProperty("Dividend time in ms.")
+	val divTime: Long,
+	@ApiModelProperty("Transaction id.")
+	val tranId: Long,
 )

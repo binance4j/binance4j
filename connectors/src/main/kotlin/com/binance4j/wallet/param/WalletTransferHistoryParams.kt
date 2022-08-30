@@ -24,7 +24,7 @@
 
 package com.binance4j.wallet.param
 
-import com.binance4j.core.annotation.Param
+
 import com.binance4j.core.param.Params
 import com.binance4j.wallet.client.WalletClient
 import com.binance4j.wallet.dto.WalletTransferType
@@ -40,5 +40,4 @@ data class WalletTransferHistoryParams @JvmOverloads constructor(
 	var type: WalletTransferType,
 	var fromSymbol: String? = null,
 	var toSymbol: String? = null
-) :
-	Params
+) : Params

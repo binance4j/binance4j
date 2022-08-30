@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,19 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Details of a supported asset.")
 data class AssetDetail(
 	@ApiModelProperty("Minimal withdraw amount.")
-	@JsonProperty
 	val minWithdrawAmount: String,
-	
 	@ApiModelProperty("Deposit status (false if ALL of networks' are false).")
-	@JsonProperty
 	val depositStatus: Boolean,
-	
-	@ApiModelProperty("Withdraw fee.") var withdrawFee: Float = 0f,
-	
+	@ApiModelProperty("Withdraw fee.")
+	var withdrawFee: Float = 0f,
 	@ApiModelProperty("Withdraw status (false if ALL of networks' are false).")
-	@JsonProperty
 	val withdrawStatus: Boolean,
-	
 	@ApiModelProperty("Reason of the status.")
 	val depositTip: String
 )

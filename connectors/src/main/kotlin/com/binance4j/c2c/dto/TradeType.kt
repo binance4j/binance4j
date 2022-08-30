@@ -26,9 +26,9 @@ package com.binance4j.c2c.dto
 
 /** Trade type. */
 enum class TradeType {
-    /** Buy. */
-    BUY,
-
-    /** Sell. */
-    SELL
+	/** Buy. */
+	BUY,
+	
+	/** Sell. */
+	SELL
 }

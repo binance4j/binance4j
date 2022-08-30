@@ -23,8 +23,8 @@
  */
 package com.binance4j.rebate.client
 
-import com.binance4j.core.client.RestMapping.Companion.SIGNED_H
-import com.binance4j.core.client.RestMapping.Companion.UID_H
+import com.binance4j.core.Binance4j.SIGNED_H
+import com.binance4j.core.Binance4j.UID_H
 import com.binance4j.rebate.dto.SpotRebateHistoryResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -34,13 +34,13 @@ import retrofit2.http.QueryMap
 /**
  * [RebateClient] mapping.
  */
-interface RebateMapping : RestMapping {
-    /**
-     * @param map Query map.
-     * @return The generated Retrofit call.
-     */
-    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-    @GET("/sapi/v1/rebate/taxQuery")
-    @JvmSuppressWildcards
-    fun getSpotRebateHistoryRecords(@QueryMap map: Map<String, Any>): Call<SpotRebateHistoryResponse>
+interface RebateMapping {
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+	@GET("/sapi/v1/rebate/taxQuery")
+	@JvmSuppressWildcards
+	fun getSpotRebateHistoryRecords(@QueryMap map: Map<String, Any>): Call<SpotRebateHistoryResponse>
 }

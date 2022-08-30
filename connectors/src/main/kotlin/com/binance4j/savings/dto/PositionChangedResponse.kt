@@ -38,10 +38,8 @@ import io.swagger.annotations.ApiModelProperty
 data class PositionChangedResponse(
 	@ApiModelProperty("Daily purchase id.")
 	val dailyPurchaseId: Long,
-	
 	@ApiModelProperty("Success.")
 	val success: Boolean,
-	
 	@ApiModelProperty("Time.")
-	val timestamp: Long
+	val timestamp: Long,
 )

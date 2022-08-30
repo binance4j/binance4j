@@ -24,7 +24,6 @@
 
 package com.binance4j.rebate.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,13 +39,10 @@ import io.swagger.annotations.ApiModelProperty
 data class Rebate(
 	@ApiModelProperty("Rebate asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Rebate type.")
 	val type: String,
-	
 	@ApiModelProperty("Rebate amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Rebate update time.")
-	val updateTime: Long
+	val updateTime: Long,
 )

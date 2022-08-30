@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,10 +39,16 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Dust log details.")
 data class UserAssetDribbletDetails(
-	@ApiModelProperty("Transaction id.") val transId: Long,
-	@ApiModelProperty("Timestamp.") val operateTime: Long,
-	@ApiModelProperty("Fees.") val serviceChargeAmount: String,
-	@ApiModelProperty("Volume.") val amount: String,
-	@ApiModelProperty("Transferred amount.") val transferedAmount: String,
-	@ApiModelProperty("Transferred asset.") val fromAsset: String
+	@ApiModelProperty("Transaction id.")
+	val transId: Long,
+	@ApiModelProperty("Timestamp.")
+	val operateTime: Long,
+	@ApiModelProperty("Fees.")
+	val serviceChargeAmount: String,
+	@ApiModelProperty("Volume.")
+	val amount: String,
+	@ApiModelProperty("Transferred amount.")
+	val transferedAmount: String,
+	@ApiModelProperty("Transferred asset.")
+	val fromAsset: String
 )

@@ -24,7 +24,6 @@
 
 package com.binance4j.staking.param
 
-import com.binance4j.core.annotation.Param
 import com.binance4j.core.param.Params
 import com.binance4j.staking.client.StakingClient
 import com.binance4j.staking.dto.ProductType
@@ -35,16 +34,24 @@ import com.binance4j.staking.dto.ProductType
  * @param product   Product type.
  * @param productId Product id.
  * @param asset     Product name.
+ * @param current   Results page.
+ * @param size      Number of rows.
  */
 data class PositionParams @JvmOverloads constructor(
 	var product: String? = null,
 	var productId: String? = null,
-	var asset: String? = null
+	var asset: String? = null,
+	var current: Int? = null,
+	var size: Int? = null
 ) : Params {
 	@JvmOverloads
-	constructor(product: ProductType, productId: String? = null, asset: String? = null) : this(
+	constructor(
+		product: ProductType, productId: String? = null, asset: String? = null, current: Int? = null, size: Int? = null
+	) : this(
 		product.toString(),
 		productId,
-		asset
+		asset,
+		current,
+		size
 	)
 }

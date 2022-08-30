@@ -29,12 +29,13 @@ import com.binance4j.core.param.Params
 
 /**
  * [ConvertClient.getConversions] params.
+ *
  * @param startTime Start time in ms.
  * @param endTime   End time in ms.
- * @param limit     Results limit.
+ * @param limit     Results limit. Default 100, Max 1000
  */
 class ConversionParams @JvmOverloads constructor(
-	var startTime: Long? = null,
-	var endTime: Long? = null,
+	var startTime: Long,
+	var endTime: Long,
 	var limit: Int? = null
 ) : Params

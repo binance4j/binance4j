@@ -30,16 +30,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 /**
  * Rate limits wrapper.
  *
- * @param rateLimits rate limits.
+ * @param limits Rate limits.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class RateLimits(val rateLimits: List<RateLimit>? = null) {
-    /** The first "REQUEST_WEIGHT" rate limit */
-    fun weight(): RateLimit? = rateLimits?.stream()?.filter { rl: RateLimit -> rl.rateLimitType.equals("REQUEST_WEIGHT") }?.findFirst()?.get()
-
-    /** The first "ORDERS" rate limit */
-    fun orders(): RateLimit? = rateLimits?.stream()?.filter { rl: RateLimit -> rl.rateLimitType.equals("ORDERS") }?.findFirst()?.get()
-
-    /** The first "RAW_REQUESTS" rate limit */
-    fun requests(): RateLimit? = rateLimits?.stream()?.filter { rl: RateLimit -> rl.rateLimitType.equals("RAW_REQUESTS") }?.findFirst()?.get()
+data class RateLimits(val limits: List<RateLimit>) {
+	/** Request weight limit. */
+	val weightLimit: RateLimit get() = limits.first { rl -> rl.rateLimitType == "REQUEST_WEIGHT" }
+	
+	/** Order limit. */
+	val ordersLimit: RateLimit get() = limits.first { rl -> rl.rateLimitType == "ORDERS" }
+	
+	/** Raw request limit. */
+	val rawRequestsLimit: RateLimit get() = limits.first { rl -> rl.rateLimitType == "RAW_REQUESTS" }
 }

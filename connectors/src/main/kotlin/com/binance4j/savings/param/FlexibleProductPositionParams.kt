@@ -32,4 +32,4 @@ import com.binance4j.savings.client.SavingsClient
  *
  * @param asset Asset.
  */
-data class FlexibleProductPositionParams(var asset: String? = null) : Params
+data class FlexibleProductPositionParams @JvmOverloads constructor(var asset: String? = null) : Params

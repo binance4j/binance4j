@@ -52,23 +52,18 @@ data class Trade(
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
 	val eventTime: Long,
-	
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
 	val symbol: String,
-	
 	@ApiModelProperty("Trade id.")
 	@JsonProperty("t")
 	val tradeId: String,
-	
 	@ApiModelProperty("Price.")
 	@JsonProperty("p")
 	val price: String,
-	
 	@ApiModelProperty("Price.")
 	@JsonProperty("q")
 	val quantity: String,
-	
 	@ApiModelProperty("Buyer order id.")
 	@JsonProperty("b")
 	val buyerOrderId: Long,

@@ -23,6 +23,7 @@
  */
 package com.binance4j.pay.client
 
+import com.binance4j.pay.client.PayClient
 import com.binance4j.core.Binance4j
 import com.binance4j.core.exception.ApiException
 import com.binance4j.core.param.TimeFrame

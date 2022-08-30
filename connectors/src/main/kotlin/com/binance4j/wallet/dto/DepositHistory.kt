@@ -46,29 +46,32 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A deposit history.")
 data class DepositHistory(
-	@ApiModelProperty("Volume to deposit.") val amount: String,
-	@ApiModelProperty("Coin abbreviation.") val coin: String,
-	@ApiModelProperty("Transfer network.") val network: String,
-	@ApiModelProperty("Deposit address.") val address: String,
-	@ApiModelProperty("Deposit address tag.") val addressTag: String,
-	@ApiModelProperty("Transaction id.") val txId: String,
+	@ApiModelProperty("Volume to deposit.")
+	val amount: String,
+	@ApiModelProperty("Coin abbreviation.")
+	val coin: String,
+	@ApiModelProperty("Transfer network.")
+	val network: String,
+	@ApiModelProperty("Deposit address.")
+	val address: String,
+	@ApiModelProperty("Deposit address tag.")
+	val addressTag: String,
+	@ApiModelProperty("Transaction id.")
+	val txId: String,
 	@ApiModelProperty("confirm times for unlocking.")
-	@JsonProperty
 	val unlockConfirm: String,
-	@ApiModelProperty("Confirm times") val confirmTimes: String,
-	@ApiModelProperty("Deposit status code.") val status: String,
+	@ApiModelProperty("Confirm times")
+	val confirmTimes: String,
+	@ApiModelProperty("Deposit status code.")
+	val status: String,
 	@ApiModelProperty("confirm times for insertion (?)")
-	@JsonProperty
 	val insertTime: Long,
 	@ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.")
 	@JsonProperty
-	val transferType: Int
+	val transferType: Int,
 	@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
-@JsonProperty
-var walletType: Int = 0
+	var walletType: Int = 0
 ) {
-	/** @return String value of status. */
-	fun getDepositStatus(): DepositStatus {
-		return DepositStatus.fromValue(status!!)!!
-	}
+	/** String value of status. */
+	val depositStatus: DepositStatus? get() = DepositStatus.fromValue(status)
 }

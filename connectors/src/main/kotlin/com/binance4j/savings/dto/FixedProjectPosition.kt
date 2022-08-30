@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property canTransfer     Can transfer.
  * @property createTimestamp Create timestamp.
  * @property duration        Duration.
- * @property endTime         Endtime.
+ * @property endTime         End time.
  * @property interest        Interest.
  * @property interestRate    Interest rate.
  * @property lot             Lot.
@@ -52,52 +52,36 @@ import io.swagger.annotations.ApiModelProperty
 data class FixedProjectPosition(
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Can transfer.")
 	val canTransfer: Boolean,
-	
 	@ApiModelProperty("Create timestamp.")
 	val createTimestamp: Long,
-	
 	@ApiModelProperty("Duration.")
 	val duration: Long,
-	
-	@ApiModelProperty("Endtime.")
+	@ApiModelProperty("End time.")
 	val endTime: Long,
-	
 	@ApiModelProperty("Interest.")
 	val interest: String,
-	
 	@ApiModelProperty("Interest rate.")
 	val interestRate: String,
-	
 	@ApiModelProperty("Lot.")
 	val lot: Long,
-	
 	@ApiModelProperty("Position id.")
 	val positionId: Long,
-	
 	@ApiModelProperty("Principal.")
 	val principal: String,
-	
 	@ApiModelProperty("Project id.")
 	val projectId: String,
-	
 	@ApiModelProperty("Project name.")
 	val projectName: String,
-	
 	@ApiModelProperty("Purchase time.")
 	val purchaseTime: Long,
-	
 	@ApiModelProperty("Redeem date.")
 	val redeemDate: String,
-	
 	@ApiModelProperty("Start time.")
 	val startTime: Long,
-	
 	@ApiModelProperty("Status.")
 	val status: String,
-	
 	@ApiModelProperty("Type.")
 	val type: String
 )

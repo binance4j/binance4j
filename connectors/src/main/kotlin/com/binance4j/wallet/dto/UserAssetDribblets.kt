@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,15 +46,14 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Dribblets.")
 data class UserAssetDribblets(
-        @ApiModelProperty("Operation timestamp.") val operateTime: Long,
-        @ApiModelProperty("Total transfered BNB amount for this exchange.")
-        @JsonProperty
-        val totalTransferedAmount: String,
-        @ApiModelProperty("Total service charge amount for this exchange.")
-        @JsonProperty
-        val totalServiceChargeAmount: String,
-        @ApiModelProperty("Transaction id.") val transId: Long,
-        @ApiModelProperty("Details of this exchange.")
-        @JsonProperty
-        var userAssetDribbletDetails: List<UserAssetDribbletDetails> = emptyList()
+	@ApiModelProperty("Operation timestamp.")
+	val operateTime: Long,
+	@ApiModelProperty("Total transfered BNB amount for this exchange.")
+	val totalTransferedAmount: String,
+	@ApiModelProperty("Total service charge amount for this exchange.")
+	val totalServiceChargeAmount: String,
+	@ApiModelProperty("Transaction id.")
+	val transId: Long,
+	@ApiModelProperty("Details of this exchange.")
+	var userAssetDribbletDetails: List<UserAssetDribbletDetails>
 )

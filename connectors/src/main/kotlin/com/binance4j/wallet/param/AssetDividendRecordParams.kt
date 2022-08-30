@@ -24,7 +24,7 @@
 
 package com.binance4j.wallet.param
 
-import com.binance4j.core.annotation.Param
+
 import com.binance4j.core.param.Params
 import com.binance4j.wallet.client.WalletClient
 
@@ -33,4 +33,4 @@ import com.binance4j.wallet.client.WalletClient
  *
  * @property asset Asset.
  */
-data class AssetDividendRecordParams(var asset: String? = null) : Params
+data class AssetDividendRecordParams @JvmOverloads constructor(var asset: String? = null) : Params

@@ -53,5 +53,5 @@ data class Redemption(
 	@ApiModelProperty("Total charge.")
 	val totalCharge: String,
 	@ApiModelProperty("Timestamp in ms.")
-	val timestamp: Long
+	val timestamp: Long,
 )

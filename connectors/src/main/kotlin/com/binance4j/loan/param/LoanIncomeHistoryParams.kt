@@ -33,7 +33,23 @@ import com.binance4j.loan.dto.LoanIncomeType
  *
  * @property asset Asset we want the incomes.
  * @property type  Loan income type. All types will be returned by default.
+ * @property startTime Start time in ms.
+ * @property endTime   End time in ms.
+ * @property limit     Results limit.
  */
-data class LoanIncomeHistoryParams(var asset: String, var type: String? = null) : Params {
-	constructor(asset: String, type: LoanIncomeType) : this(asset, type.toString())
+data class LoanIncomeHistoryParams @JvmOverloads constructor(
+	var asset: String,
+	var type: String? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params {
+	@JvmOverloads
+	constructor(
+		asset: String,
+		type: LoanIncomeType,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		limit: Int? = null
+	) : this(asset, type.toString(), startTime, endTime, limit)
 }

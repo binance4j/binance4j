@@ -57,64 +57,44 @@ import io.swagger.annotations.ApiModelProperty
 data class TickerStatistics(
 	@ApiModelProperty("Ticker symbol.")
 	val symbol: String,
-	
 	@ApiModelProperty("Price change during the last 24 hours.")
 	val priceChange: String,
-	
 	@ApiModelProperty("Price change; in percentage; during the last 24 hours.")
 	val priceChangePercent: String,
-	
 	@ApiModelProperty("Weighted average price.")
 	val weightedAvgPrice: String,
-	
 	@ApiModelProperty("Previous close price.")
 	val prevClosePrice: String,
-	
 	@ApiModelProperty("Last price.")
 	val lastPrice: String,
-	
 	@ApiModelProperty("Last quantity.")
 	val lastQty: String,
-	
 	@ApiModelProperty("Bid price.")
 	val bidPrice: String,
-	
 	@ApiModelProperty("Bid quantity.")
 	val bidQty: String,
-	
 	@ApiModelProperty("Ask price.")
 	val askPrice: String,
-	
 	@ApiModelProperty("Ask quantity.")
 	val askQty: String,
-	
 	@ApiModelProperty("Open price 24 hours ago.")
 	val openPrice: String,
-	
 	@ApiModelProperty("Highest price during the past 24 hours.")
 	val highPrice: String,
-	
 	@ApiModelProperty("Lowest price during the past 24 hours.")
 	val lowPrice: String,
-	
 	@ApiModelProperty("Total volume during the past 24 hours.")
 	val volume: String,
-	
 	@ApiModelProperty("Total quote volume during the past 24 hours.")
 	val quoteVolume: String,
-	
 	@ApiModelProperty("Open time.")
 	val openTime: Long,
-	
 	@ApiModelProperty("Close time.")
 	val closeTime: Long,
-	
 	@ApiModelProperty("First trade id.")
 	val firstId: Long,
-	
 	@ApiModelProperty("Last trade id.")
 	val lastId: Long,
-	
 	@ApiModelProperty("Total number of trades during the last 24 hours.")
-	val count: Long
+	val count: Long,
 )

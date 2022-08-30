@@ -24,7 +24,6 @@
 
 package com.binance4j.wallet.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -35,5 +34,6 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The user universal transfer response.")
 data class WalletTransferResponse(
-	@ApiModelProperty("Transaction id.") val tranId: Long
+	@ApiModelProperty("Transaction id.")
+	val tranId: Long,
 )

@@ -49,43 +49,30 @@ import io.swagger.annotations.ApiModelProperty
 data class Trade(
 	@ApiModelProperty("Order number.")
 	val orderNumber: String,
-	
 	@ApiModelProperty("Adv No.")
 	val advNo: Long,
-	
 	@ApiModelProperty("Trade type.")
 	val tradeType: String,
-	
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Fiat.")
 	val fiat: String,
-	
 	@ApiModelProperty("Fiat symbol.")
 	val fiatSymbol: String,
-	
 	@ApiModelProperty("Amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Total price.")
 	val totalPrice: String,
-	
 	@ApiModelProperty("Unit price.")
 	val unitPrice: String,
-	
 	@ApiModelProperty("Order status.")
 	val orderStatus: String,
-	
 	@ApiModelProperty("Create time.")
 	val createTime: Long,
-	
 	@ApiModelProperty("Commission.")
 	val commission: String,
-	
 	@ApiModelProperty("Counter part nickname.")
 	val counterPartNickName: String,
-	
 	@ApiModelProperty("Advertisement role.")
 	val advertisementRole: String
 )

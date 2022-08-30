@@ -25,8 +25,6 @@ package com.binance4j.portfoliomargin.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.portfoliomargin.dto.AccountInfo
-import com.binance4j.portfoliomargin.dto.CollateralRateInfo
 import com.binance4j.portfoliomargin.param.AccountInfoParams
 import com.binance4j.portfoliomargin.param.CollateralRateInfoParams
 
@@ -38,18 +36,19 @@ import com.binance4j.portfoliomargin.param.CollateralRateInfoParams
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.portfolio-margin-endpoints)
  */
-class PortfolioMarginClient(key: String, secret: String) : RestClient<PortfolioMarginMapping>(PortfolioMarginMapping::class.java, key, secret) {
+class PortfolioMarginClient(key: String, secret: String) :
+	RestClient<PortfolioMarginMapping>(PortfolioMarginMapping::class.java, key, secret) {
 	/**
 	 * Get account info.
 	 *
 	 * @return The request to execute.
 	 */
-	fun getAccountInfo(): Request<AccountInfo> = Request(service.getAccountInfo(AccountInfoParams().toMap()))
+	fun getAccountInfo() = Request(service.getAccountInfo(AccountInfoParams().toMap()))
 	
 	/**
 	 * Get collateral rate.
 	 *
 	 * @return The request to execute.
 	 */
-	fun getCollateralRate(): Request<List<CollateralRateInfo>> = Request(service.getCollateralRate(CollateralRateInfoParams().toMap()))
+	fun getCollateralRate() = Request(service.getCollateralRate(CollateralRateInfoParams().toMap()))
 }

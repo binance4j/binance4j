@@ -24,9 +24,19 @@
 
 package com.binance4j.rebate.param
 
+import com.binance4j.core.param.Params
 import com.binance4j.rebate.client.RebateClient
 
 /**
  * [RebateClient.getSpotRebateHistoryRecords] params.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param page      Result page.
+ * @param limit     Results in the page.
  */
-class SpotRebateHistoryParams : Params
+class SpotRebateHistoryParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var limit: Int? = null
+) : Params

@@ -37,7 +37,6 @@ import io.swagger.annotations.ApiModelProperty
 data class PurchaseQuota(
 	@ApiModelProperty("Asset.")
 	val asset: String,
-	
 	@ApiModelProperty("Left quota.")
 	val leftQuota: String
 )

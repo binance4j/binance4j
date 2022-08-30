@@ -24,7 +24,6 @@
 
 package com.binance4j.market.param
 
-import com.binance4j.core.param.Params
 import com.binance4j.market.client.MarketClient
 
 /**
@@ -32,7 +31,4 @@ import com.binance4j.market.client.MarketClient
  *
  * @param symbol Symbol.
  */
-data class PriceTickerParams(var symbol: String) : Params {
-	override fun timestamp(): Long? = null
-	override fun recvWindow(): Long? = null
-}
+data class PriceTickerParams(var symbol: String) : MarketParams

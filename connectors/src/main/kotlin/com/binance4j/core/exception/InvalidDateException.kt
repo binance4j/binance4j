@@ -24,5 +24,5 @@
 
 package com.binance4j.core.exception
 
-/** Thrown when given date is invalid  */
+/** Thrown when given date is invalid.  */
 class InvalidDateException : ApiException(-500, "Date is invalid")

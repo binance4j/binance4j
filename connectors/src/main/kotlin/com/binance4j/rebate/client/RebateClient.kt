@@ -25,9 +25,6 @@ package com.binance4j.rebate.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.FramedPaging
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.rebate.dto.SpotRebateHistoryResponse
 import com.binance4j.rebate.param.SpotRebateHistoryParams
 
 /**
@@ -38,14 +35,13 @@ import com.binance4j.rebate.param.SpotRebateHistoryParams
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.rebate-endpoints)
  */
 class RebateClient(key: String, secret: String) : RestClient<RebateMapping>(RebateMapping::class.java, key, secret) {
-    /**
-     * Get the spot rebate history records.
-     *
-     * @param interval Interval search.
-     * @return The request to execute.
-     */
-    @JvmOverloads
-    fun getSpotRebateHistoryRecords(interval: FramedPaging = FramedPaging()): Request<SpotRebateHistoryResponse> = Request(
-        service.getSpotRebateHistoryRecords(merge(SpotRebateHistoryParams(), interval))
-    )
+	/**
+	 * Get the spot rebate history records.
+	 *
+	 * @param params Request params.
+	 * @return The request to execute.
+	 */
+	@JvmOverloads
+	fun getSpotRebateHistoryRecords(params: SpotRebateHistoryParams = SpotRebateHistoryParams()) =
+		Request(service.getSpotRebateHistoryRecords(params.toMap()))
 }

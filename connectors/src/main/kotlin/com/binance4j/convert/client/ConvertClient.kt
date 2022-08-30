@@ -24,7 +24,6 @@
 
 package com.binance4j.convert.client
 
-import com.binance4j.convert.dto.ConversionHistory
 import com.binance4j.convert.param.ConversionParams
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
@@ -44,6 +43,5 @@ class ConvertClient(key: String, secret: String) : RestClient<ConvertMapping>(Co
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getConversions(params: ConversionParams = ConversionParams()): Request<ConversionHistory> =
-		Request(service.getConversions(params.toMap()))
+	fun getConversions(params: ConversionParams) = Request(service.getConversions(params.toMap()))
 }

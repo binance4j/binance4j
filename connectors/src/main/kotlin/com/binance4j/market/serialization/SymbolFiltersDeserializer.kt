@@ -36,19 +36,19 @@ import java.util.function.Consumer
 
 /** [SymbolFilters] deserializer  */
 class SymbolFiltersDeserializer : JsonDeserializer<SymbolFilters>() {
-	private var icebergPartsFilter: IcebergPartsFilter? = null
-	private var lotSizeFilter: LotSizeFilter? = null
-	private var marketLotSizeFilter: MarketLotSizeFilter? = null
-	private var maxNumAlgoOrdersFilter: MaxNumAlgoOrdersFilter? = null
-	private var maxNumIcebergOrdersFilter: MaxNumIcebergOrdersFilter? = null
-	private var maxNumOrdersFilter: MaxNumOrdersFilter? = null
-	private var maxPositionFilter: MaxPositionFilter? = null
-	private var minNotionalFilter: MinNotionalFilter? = null
-	private var notionalFilter: NotionalFilter? = null
-	private var percentPriceBySideFilter: PercentPriceBySideFilter? = null
-	private var percentPriceFilter: PercentPriceFilter? = null
-	private var priceFilter: PriceFilter? = null
-	private var trailingDeltaFilter: TrailingDeltaFilter? = null
+	private lateinit var icebergPartsFilter: IcebergPartsFilter
+	private lateinit var lotSizeFilter: LotSizeFilter
+	private lateinit var marketLotSizeFilter: MarketLotSizeFilter
+	private lateinit var maxNumAlgoOrdersFilter: MaxNumAlgoOrdersFilter
+	private lateinit var maxNumIcebergOrdersFilter: MaxNumIcebergOrdersFilter
+	private lateinit var maxNumOrdersFilter: MaxNumOrdersFilter
+	private lateinit var maxPositionFilter: MaxPositionFilter
+	private lateinit var minNotionalFilter: MinNotionalFilter
+	private lateinit var notionalFilter: NotionalFilter
+	private lateinit var percentPriceBySideFilter: PercentPriceBySideFilter
+	private lateinit var percentPriceFilter: PercentPriceFilter
+	private lateinit var priceFilter: PriceFilter
+	private lateinit var trailingDeltaFilter: TrailingDeltaFilter
 	
 	@Throws(IOException::class)
 	override fun deserialize(jp: JsonParser, ctx: DeserializationContext): SymbolFilters {
@@ -112,7 +112,9 @@ class SymbolFiltersDeserializer : JsonDeserializer<SymbolFilters>() {
 					n["maxTrailingBelowDelta"].asText()
 				)
 				
-				else -> {}
+				else -> {
+					/** DO NOTHING */
+				}
 			}
 		})
 		return SymbolFilters(

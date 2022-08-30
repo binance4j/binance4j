@@ -33,6 +33,19 @@ import com.binance4j.nft.dto.OrderType
  *
  * @property orderType Order type.
  */
-data class TransactionHistoryParams(var orderType: String) : Params {
-	constructor(orderType: OrderType) : this(orderType.toString())
+data class TransactionHistoryParams @JvmOverloads constructor(
+	var orderType: String,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var limit: Int? = null
+) : Params {
+	@JvmOverloads
+	constructor(
+		orderType: OrderType,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		page: Int? = null,
+		limit: Int? = null
+	) : this(orderType.toString(), startTime, endTime, page, limit)
 }
