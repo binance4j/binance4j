@@ -21,15 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package com.binance4j.market.param
-
-import com.binance4j.market.client.MarketClient
+package com.binance4j.mining.dto
 
 /**
- * [MarketClient.getOrderBook] params.
+ * Worker status.
  *
- * @param symbol Trading pair we want the depth.
- * @param limit  Market depth size.
+ * @property value
  */
-data class OrderBookParams @JvmOverloads constructor(var symbol: String, var limit: Int? = null) : MarketParams
+enum class WorkerStatus(var value: String) {
+	/** All. */
+	ALL("0"),
+	
+	/** Valid. */
+	VALID("1"),
+	
+	/**  Invalid. */
+	INVALID("2"),
+	
+	/** Failure. */
+	FAILURE("3");
+	
+	override fun toString(): String = value
+}

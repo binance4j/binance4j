@@ -22,36 +22,36 @@
  * SOFTWARE.
  */
 
-package com.binance4j.market.dto
+package com.binance4j.mining.dto
 
-/** The order book result size  */
-enum class OrderBookLimit
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
 /**
- * @property value Value
- */(val value: String) {
-	/** 5  */
-	LIMIT_5("5"),
-	
-	/** 10  */
-	LIMIT_10("10"),
-	
-	/** 20  */
-	LIMIT_20("20"),
-	
-	/** 50  */
-	LIMIT_50("50"),
-	
-	/** 100  */
-	LIMIT_100("100"),
-	
-	/** 500  */
-	LIMIT_500("500"),
-	
-	/** 1000  */
-	LIMIT_1000("1000"),
-	
-	/** 5000  */
-	LIMIT_5000("5000");
-	
-	override fun toString(): String = value
-}
+ * Hash rate resale list detail.
+ *
+ * @property poolUsername   Transfer out of subaccount.
+ * @property toPoolUsername Transfer into subaccount.
+ * @property algoName       Transfer algorithm.
+ * @property hashRate       Transferred Hash rate quantity.
+ * @property day            Transfer date.
+ * @property amount         Transferred amount.
+ * @property coinName       Coin name.
+ */
+@ApiModel("Hash rate resale list detail.")
+data class HashrateProfitTransferDetails(
+	@ApiModelProperty("Transfer out of subaccount.")
+	val poolUsername: String,
+	@ApiModelProperty("Transfer into subaccount.")
+	val toPoolUsername: String,
+	@ApiModelProperty("Transfer algorithm.")
+	val algoName: String,
+	@ApiModelProperty("Transferred Hash rate quantity.")
+	val hashRate: Long,
+	@ApiModelProperty("Transfer date.")
+	val day: Long,
+	@ApiModelProperty("Transferred Amount.")
+	val amount: String,
+	@ApiModelProperty("Coin name.")
+	val coinName: String,
+)
