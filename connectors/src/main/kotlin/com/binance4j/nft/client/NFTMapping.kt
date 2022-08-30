@@ -24,8 +24,8 @@
 
 package com.binance4j.nft.client
 
-import com.binance4j.core.Binance4j.SIGNED_H
-import com.binance4j.core.Binance4j.UID_H
+import com.binance4j.core.Headers.SIGNED_H
+import com.binance4j.core.Headers.UID_H
 import com.binance4j.nft.dto.AssetHistory
 import com.binance4j.nft.dto.TransactionHistory
 import com.binance4j.nft.dto.WithdrawHistory

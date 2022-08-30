@@ -25,9 +25,9 @@
 package com.binance4j.c2c.client
 
 import com.binance4j.c2c.dto.TradeHistory
-import com.binance4j.core.client.RestMapping.Companion.IP_H
-import com.binance4j.core.client.RestMapping.Companion.SIGNED_H
-import com.binance4j.core.client.RestMapping.Companion.WEIGHT_ONE_H
+import com.binance4j.core.Headers.IP_H
+import com.binance4j.core.Headers.SIGNED_H
+import com.binance4j.core.Headers.WEIGHT_ONE_H
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -36,13 +36,13 @@ import retrofit2.http.QueryMap
 /**
  * [C2CClient] mapping.
  */
-interface C2CMapping : RestMapping {
-    /**
-     * @param map Query map.
-     * @return The generated Retrofit call.
-     */
-    @GET("/sapi/v1/c2c/orderMatch/listUserOrderHistory")
-    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-    @JvmSuppressWildcards
-    fun getTrades(@QueryMap map: Map<String, Any>): Call<TradeHistory>
+interface C2CMapping {
+	/**
+	 * @param map Query map.
+	 * @return The generated Retrofit call.
+	 */
+	@GET("/sapi/v1/c2c/orderMatch/listUserOrderHistory")
+	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+	@JvmSuppressWildcards
+	fun getTrades(@QueryMap map: Map<String, Any>): Call<TradeHistory>
 }

@@ -25,9 +25,9 @@
 package com.binance4j.convert.client
 
 import com.binance4j.convert.dto.ConversionHistory
-import com.binance4j.core.Binance4j.IP_H
-import com.binance4j.core.Binance4j.SIGNED_H
-import com.binance4j.core.Binance4j.WEIGHT_H
+import com.binance4j.core.Headers.IP_H
+import com.binance4j.core.Headers.SIGNED_H
+import com.binance4j.core.Headers.WEIGHT_H
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

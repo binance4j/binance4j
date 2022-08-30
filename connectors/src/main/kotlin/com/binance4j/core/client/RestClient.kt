@@ -44,7 +44,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory
  * [See: doc](https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type)
  */
 abstract class RestClient<T> @JvmOverloads constructor(
-	mapping: Class<T>, key: String = "", secret: String = "", useTestnet: Boolean = false
+	mapping: Class<T>, var key: String = "", var secret: String = "", useTestnet: Boolean = false
 ) {
 	/** Request authentication interceptor. */
 	private var interceptor: AuthenticationInterceptor = AuthenticationInterceptor(key, secret)

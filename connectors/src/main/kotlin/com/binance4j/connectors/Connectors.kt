@@ -34,9 +34,9 @@ object Connectors {
 	fun rest(): RestConnectors = rest
 	
 	/**
-	 * @return Rest connectors.
 	 * @param key new API key
 	 * @param secret new API secret
+	 * @return Rest connectors after updating keys.
 	 * */
 	@JvmStatic
 	fun rest(key: String, secret: String): RestConnectors = rest.updateKeys(key, secret)

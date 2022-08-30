@@ -49,34 +49,33 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Binance leverage token.")
 data class Token(
 	@ApiModelProperty("Token name.")
-	val tokenName: String
+	val tokenName: String,
 	@ApiModelProperty("Description.")
-val description: String,
-@ApiModelProperty("Underlying.")
-val underlying: String,
-@ApiModelProperty("Token issued.")
-val tokenIssued: String,
-@ApiModelProperty("Basket.")
-val basket: String,
-@ApiModelProperty("Current baskets.")
-val currentBaskets: List<Basket>
-
-@ApiModelProperty("Nav.")
-val nav: String,
-@ApiModelProperty("Real leverage.")
-val realLeverage: String,
-@ApiModelProperty("Funding rate.")
-val fundingRate: String,
-@ApiModelProperty("Daily management fee.")
-val dailyManagementFee: String,
-@ApiModelProperty("Purchase Fee Pct.")
-val purchaseFeePct: String,
-@ApiModelProperty("Daily Purchase Limit.")
-val dailyPurchaseLimit: String,
-@ApiModelProperty("Redeem Fee Pct.")
-val redeemFeePct: String,
-@ApiModelProperty("Daily Redeem Limit.")
-val dailyRedeemLimit: String,
-@ApiModelProperty("Timestamp.")
-val timestamp: Long,
+	val description: String,
+	@ApiModelProperty("Underlying.")
+	val underlying: String,
+	@ApiModelProperty("Token issued.")
+	val tokenIssued: String,
+	@ApiModelProperty("Basket.")
+	val basket: String,
+	@ApiModelProperty("Current baskets.")
+	val currentBaskets: List<Basket>,
+	@ApiModelProperty("Nav.")
+	val nav: String,
+	@ApiModelProperty("Real leverage.")
+	val realLeverage: String,
+	@ApiModelProperty("Funding rate.")
+	val fundingRate: String,
+	@ApiModelProperty("Daily management fee.")
+	val dailyManagementFee: String,
+	@ApiModelProperty("Purchase Fee Pct.")
+	val purchaseFeePct: String,
+	@ApiModelProperty("Daily Purchase Limit.")
+	val dailyPurchaseLimit: String,
+	@ApiModelProperty("Redeem Fee Pct.")
+	val redeemFeePct: String,
+	@ApiModelProperty("Daily Redeem Limit.")
+	val dailyRedeemLimit: String,
+	@ApiModelProperty("Timestamp.")
+	val timestamp: Long,
 )

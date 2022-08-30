@@ -37,43 +37,4 @@ object Binance4j {
 	/** Rate limiting. */
 	@JvmStatic
 	val rateLimiting: RateLimiting = RateLimiting.invoke()
-	
-	/** The API key http header.  */
-	const val API_KEY_HEADER = "X-MBX-APIKEY"
-	
-	/** The API key http header decorator.  */
-	const val ENDPOINT_SECURITY_TYPE_APIKEY = "APIKEY"
-	
-	/** The signed http header decorator.  */
-	const val ENDPOINT_SECURITY_TYPE_SIGNED = "SIGNED"
-	
-	/** The signed http full header.  */
-	const val SIGNED_H = "$ENDPOINT_SECURITY_TYPE_SIGNED: #"
-	
-	/** The API key http full header.  */
-	const val API_H = "$ENDPOINT_SECURITY_TYPE_APIKEY: #"
-	
-	/** Header name to determine if request is an order  */
-	const val ORDER_H = "X-ORDER"
-	
-	/** Header to tell that this request is an order.  */
-	const val IS_ORDER_H = "$ORDER_H: #"
-	
-	/** Header name to determine the rate limit type.  */
-	const val RATE_LIMIT_H = "X-LIMIT"
-	
-	/** IP limited header for rate limiter interceptor. */
-	const val IP_H = "$RATE_LIMIT_H: IP"
-	
-	/** UID limited header for rate limiter interceptor. */
-	const val UID_H = "$RATE_LIMIT_H: UID"
-	
-	/** UID and IP limited header for rate limiter interceptor. */
-	const val IP_UID_H = "$RATE_LIMIT_H: IP_UID"
-	
-	/** Request weight header.  */
-	const val WEIGHT_H = "X-WEIGHT"
-	
-	/** Request with a weight of one.  */
-	const val WEIGHT_ONE_H = "$WEIGHT_H: 1"
 }

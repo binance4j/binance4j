@@ -23,8 +23,8 @@
  */
 package com.binance4j.pay.client
 
-import com.binance4j.core.Binance4j.SIGNED_H
-import com.binance4j.core.Binance4j.UID_H
+import com.binance4j.core.Headers.SIGNED_H
+import com.binance4j.core.Headers.UID_H
 import com.binance4j.pay.dto.TradeHistory
 import retrofit2.Call
 import retrofit2.http.GET

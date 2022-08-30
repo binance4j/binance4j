@@ -24,9 +24,9 @@
 
 package com.binance4j.core.interceptor
 
-import com.binance4j.core.Binance4j.ORDER_H
-import com.binance4j.core.Binance4j.RATE_LIMIT_H
-import com.binance4j.core.Binance4j.WEIGHT_H
+import com.binance4j.core.Headers.ORDER_H
+import com.binance4j.core.Headers.RATE_LIMIT_H
+import com.binance4j.core.Headers.WEIGHT_H
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

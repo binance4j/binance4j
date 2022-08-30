@@ -23,10 +23,10 @@
  */
 package com.binance4j.portfoliomargin.client
 
-import com.binance4j.core.Binance4j.API_H
-import com.binance4j.core.Binance4j.IP_H
-import com.binance4j.core.Binance4j.SIGNED_H
-import com.binance4j.core.Binance4j.WEIGHT_ONE_H
+import com.binance4j.core.Headers.API_H
+import com.binance4j.core.Headers.IP_H
+import com.binance4j.core.Headers.SIGNED_H
+import com.binance4j.core.Headers.WEIGHT_ONE_H
 import com.binance4j.portfoliomargin.dto.AccountInfo
 import com.binance4j.portfoliomargin.dto.CollateralRateInfo
 import retrofit2.Call

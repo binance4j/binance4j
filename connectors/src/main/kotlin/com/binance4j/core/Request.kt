@@ -36,13 +36,13 @@ import java.io.IOException
  */
 open class Request<T>(private val call: Call<T>) {
 	/** Is the request an order request. */
-	val isOrder: Boolean get() = call.request().header(Binance4j.ORDER_H) != null
+	val isOrder: Boolean get() = call.request().header(Headers.ORDER_H) != null
 	
 	/** The request weight. */
-	val weight: Int get() = call.request().header(Binance4j.WEIGHT_H)?.toInt() ?: 1
+	val weight: Int get() = call.request().header(Headers.WEIGHT_H)?.toInt() ?: 1
 	
 	/** The request rateLimit. */
-	val rateLimit: String get() = call.request().header(Binance4j.RATE_LIMIT_H) ?: "IP"
+	val rateLimit: String get() = call.request().header(Headers.RATE_LIMIT_H) ?: "IP"
 	
 	/** The request path. */
 	val path: String get() = call.request().url.toUri().path
@@ -84,5 +84,5 @@ open class Request<T>(private val call: Call<T>) {
 	val method: String get() = call.request().method
 	
 	/** The request signature.*/
-	val signature: String? get() = call.request().header(Binance4j.SIGNED_H) ?: call.request().header(Binance4j.API_H)
+	val signature: String? get() = call.request().header(Headers.SIGNED_H) ?: call.request().header(Headers.API_H)
 }

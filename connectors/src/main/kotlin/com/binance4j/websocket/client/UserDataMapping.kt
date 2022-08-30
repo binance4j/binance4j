@@ -24,9 +24,9 @@
 
 package com.binance4j.websocket.client
 
-import com.binance4j.core.Binance4j.API_H
-import com.binance4j.core.Binance4j.IP_H
-import com.binance4j.core.Binance4j.WEIGHT_ONE_H
+import com.binance4j.core.Headers.API_H
+import com.binance4j.core.Headers.IP_H
+import com.binance4j.core.Headers.WEIGHT_ONE_H
 import com.binance4j.websocket.dto.ListenKey
 import retrofit2.Call
 import retrofit2.http.*

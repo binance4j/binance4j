@@ -33,18 +33,16 @@ import kotlin.system.exitProcess
  */
 class RateLimiting private constructor() {
 	
-	lateinit var rawRequestLimiter: RateLimiter
+	var rawRequestLimiter: RateLimiter
 		private set
 	
-	lateinit var requestWeightLimiter: RateLimiter
+	var requestWeightLimiter: RateLimiter
 		private set
 	
-	lateinit var rateLimits: RateLimits
-		private set
+	private var rateLimits: RateLimits
 	
 	/** Is Rate limit enabled? */
-	val isEnabled: Boolean
-		private set
+	private var isEnabled: Boolean = false
 	
 	/** Enables global rate limiting. */
 	fun enable() {
@@ -64,10 +62,9 @@ class RateLimiting private constructor() {
 		try {
 			disable()
 			// init raw request and request weight limiter with data
-			// TODO correct
-			rateLimits = Connectors.`rest()`.market().getExchangeInfo()
-			rawRequestLimiter = RateLimiter(rateLimits.requests())
-			requestWeightLimiter = RateLimiter(rateLimits.weightLimit())
+			rateLimits = RateLimits(Connectors.rest().market().getExchangeInfo().sync().rateLimits)
+			rawRequestLimiter = RateLimiter(rateLimits.rawRequestsLimit)
+			requestWeightLimiter = RateLimiter(rateLimits.weightLimit)
 			enable()
 		} catch (e: ApiException) {
 			e.printStackTrace()
