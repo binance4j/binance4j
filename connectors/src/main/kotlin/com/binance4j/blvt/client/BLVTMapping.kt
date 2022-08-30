@@ -37,56 +37,56 @@ import retrofit2.http.QueryMap
 /** [BLVTClient] mapping.  */
 interface BLVTMapping {
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@GET("/sapi/v1/blvt/tokenInfo")
 	@Headers(SIGNED_H, WEIGHT_ONE_H)
 	@JvmSuppressWildcards
-	fun getTokenInfo(@QueryMap map: Map<String, Any>): Call<List<Token>>
+	fun getTokenInfo(@QueryMap m: Map<String, Any>): Call<List<Token>>
 	
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@POST("/sapi/v1/blvt/subscribe")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
 	@JvmSuppressWildcards
-	fun subscribe(@QueryMap map: Map<String, Any>): Call<SubscriptionResponse>
+	fun subscribe(@QueryMap m: Map<String, Any>): Call<SubscriptionResponse>
 	
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@GET("/sapi/v1/blvt/subscribe/record")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
 	@JvmSuppressWildcards
-	fun getSubscriptions(@QueryMap map: Map<String, Any>): Call<List<Subscription>>
+	fun getSubscriptions(@QueryMap m: Map<String, Any>): Call<List<Subscription>>
 	
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@POST("/sapi/v1/blvt/redeem")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
 	@JvmSuppressWildcards
-	fun redeem(@QueryMap map: Map<String, Any>): Call<RedemptionResponse>
+	fun redeem(@QueryMap m: Map<String, Any>): Call<RedemptionResponse>
 	
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@GET("/sapi/v1/blvt/redeem/record")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
 	@JvmSuppressWildcards
-	fun getRedemptions(@QueryMap map: Map<String, Any>): Call<List<Redemption>>
+	fun getRedemptions(@QueryMap m: Map<String, Any>): Call<List<Redemption>>
 	
 	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
+	 * @param m Parameters.
+	 * @return An API call.
 	 */
 	@GET("/sapi/v1/blvt/userLimit")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
 	@JvmSuppressWildcards
-	fun getLimitInfo(@QueryMap map: Map<String, Any>): Call<List<LimitInfo>>
+	fun getLimitInfo(@QueryMap m: Map<String, Any>): Call<List<LimitInfo>>
 }

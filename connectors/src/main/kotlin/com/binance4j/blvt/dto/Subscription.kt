@@ -42,22 +42,16 @@ import io.swagger.annotations.ApiModelProperty
 data class Subscription(
 	@ApiModelProperty("Id.")
 	val id: Long,
-	
 	@ApiModelProperty("Token name.")
 	val tokenName: String,
-	
 	@ApiModelProperty("Amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Nav.")
 	val nav: String,
-	
 	@ApiModelProperty("Fee.")
 	val fee: String,
-	
 	@ApiModelProperty("Total charge.")
 	val totalCharge: String,
-	
 	@ApiModelProperty("Timestamp in ms.")
 	val timestamp: Long
 )

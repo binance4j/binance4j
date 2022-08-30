@@ -41,19 +41,14 @@ import io.swagger.annotations.ApiModelProperty
 data class RedemptionResponse(
 	@ApiModelProperty("Subscription id.")
 	val id: Long,
-	
 	@ApiModelProperty("Subscription status. S(uccess), P(ending), and F(ailure).")
 	val status: String,
-	
 	@ApiModelProperty("Token name.")
 	val tokenName: String,
-	
 	@ApiModelProperty("Redemption value in usdt.")
 	val redeemAmount: String,
-	
 	@ApiModelProperty("Redemption token amount.")
 	val amount: String,
-	
 	@ApiModelProperty("Timestamp in ms.")
 	val timestamp: Long
 )

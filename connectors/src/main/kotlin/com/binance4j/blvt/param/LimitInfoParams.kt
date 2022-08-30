@@ -30,6 +30,6 @@ import com.binance4j.core.param.Params
 /**
  * [BLVTClient.getLimitInfo] params.
  *
- * @param tokenName Token name.
+ * @property tokenName Token name.
  */
 data class LimitInfoParams @JvmOverloads constructor(var tokenName: String? = null) : Params

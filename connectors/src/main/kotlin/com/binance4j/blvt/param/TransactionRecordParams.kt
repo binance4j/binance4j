@@ -30,11 +30,11 @@ import com.binance4j.core.param.Params
 /**
  * [BLVTClient.getRedemptions] params.
  *
- * @property tokenName Token name.
- * @property id        Subscription id.
- * @param startTime Start time in ms.
- * @param endTime   End time in ms.
- * @param limit     Results limit.
+ * @property tokenName  Token name.
+ * @property id         Subscription id.
+ * @property startTime  Start time in ms.
+ * @property endTime    End time in ms.
+ * @property limit      Results limit.
  */
 data class TransactionRecordParams @JvmOverloads constructor(
 	var tokenName: String? = null,

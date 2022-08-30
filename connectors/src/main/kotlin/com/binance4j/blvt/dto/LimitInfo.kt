@@ -38,10 +38,8 @@ import io.swagger.annotations.ApiModelProperty
 data class LimitInfo(
 	@ApiModelProperty("Token name.")
 	val tokenName: String,
-	
 	@ApiModelProperty("User daily total purchase limit in USDT.")
 	val userDailyTotalPurchaseLimit: String,
-	
 	@ApiModelProperty("User daily total redeem limit in USDT.")
 	val userDailyTotalRedeemLimit: String
 )

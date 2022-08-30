@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * Binance leverage token.
  *
- * @property tokenName [Token.TOKEN_NAME]
+ * @property tokenName token name
  * @property description Description.
  * @property underlying Underlying.
  * @property tokenIssued Token issued.

@@ -23,7 +23,6 @@
  */
 package com.binance4j.core
 
-import com.binance4j.core.Binance4j.Companion.MAPPER
 import com.binance4j.core.callback.ApiCallback
 import com.binance4j.core.callback.ApiCallbackAdapter
 import com.binance4j.core.exception.ApiError
@@ -37,22 +36,17 @@ import java.io.IOException
  */
 open class Request<T>(private val call: Call<T>) {
 	/** Is the request an order request. */
-	val isOrder: Boolean
-		get() = call.request().header(RestMapping.ORDER_H) != null
+	val isOrder: Boolean get() = call.request().header(Binance4j.ORDER_H) != null
 	
 	/** The request weight. */
-	val weight: Int
-		get() = call.request().header(RestMapping.WEIGHT_H)?.toInt() ?: 1
+	val weight: Int get() = call.request().header(Binance4j.WEIGHT_H)?.toInt() ?: 1
 	
 	/** The request rateLimit. */
-	val rateLimit: String
-		get() = call.request().header(RestMapping.RATE_LIMIT_H) ?: "IP"
+	val rateLimit: String get() = call.request().header(Binance4j.RATE_LIMIT_H) ?: "IP"
 	
 	/** The request path. */
-	val path: String
-		get() = call.request().url.toUri().path
+	val path: String get() = call.request().url.toUri().path
 	
-	// static final RateLimiter
 	/**
 	 * Executes the request synchronously
 	 *
@@ -63,13 +57,9 @@ open class Request<T>(private val call: Call<T>) {
 	open fun sync(): T {
 		acquire()
 		try {
-			val response = call.execute()
-			if (response.isSuccessful) {
-				return response.body()!!
-			} else {
-				assert(response.errorBody() != null)
-				throw ApiException(MAPPER.readValue(response.errorBody()!!.string(), ApiError::class.java))
-			}
+			val res = call.execute()
+			if (res.isSuccessful) return res.body()!!
+			throw ApiException(Binance4j.mapper.readValue(res.errorBody()!!.string(), ApiError::class.java))
 		} catch (e: IOException) {
 			throw ApiException(-400, e.message!!)
 		}
@@ -81,32 +71,18 @@ open class Request<T>(private val call: Call<T>) {
 	 * @param callback Request callback managing a success or error response.
 	 */
 	fun async(callback: ApiCallback<T>) {
-		acquire()
-		call.enqueue(ApiCallbackAdapter(callback))
+		acquire(); call.enqueue(ApiCallbackAdapter(callback))
 	}
 	
-	/**
-	 * Rate limits the API calls.
-	 */
+	/** Rate limits the API calls. */
 	private fun acquire() {
 		Binance4j.rateLimiting.rawRequestLimiter.acquire(1)
 		Binance4j.rateLimiting.requestWeightLimiter.acquire(weight)
 	}
 	
-	/**
-	 * @return the request method
-	 */
-	val method: String
-		get() = call.request().method
+	/** The request method.*/
+	val method: String get() = call.request().method
 	
-	/**
-	 * @return the request signature
-	 */
-	val signature: String?
-		get() {
-			val signedHeader = call.request().header(RestMapping.SIGNED_H)
-			val apiHeader = call.request().header(RestMapping.API_H)
-			return signedHeader ?: apiHeader
-		}
-	
+	/** The request signature.*/
+	val signature: String? get() = call.request().header(Binance4j.SIGNED_H) ?: call.request().header(Binance4j.API_H)
 }
