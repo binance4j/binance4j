@@ -34,18 +34,28 @@ import com.binance4j.wallet.dto.WithdrawStatus
  *
  * @param coin            Coin we want the history.
  * @param withdrawOrderId Withdraw order id to fetch.
- * @param status          Status to look for.
+ * @param status          Status to look for. * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param page      Result page.
+ * @param limit     Results in the page.
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data)
  */
 data class WithdrawHistoryParams @JvmOverloads constructor(
+	var status: String? = null,
 	var coin: String? = null,
 	var withdrawOrderId: String? = null,
-	var status: String? = null
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var limit: Int? = null
 ) : Params {
-	constructor(coin: String? = null, withdrawOrderId: String? = null, status: WithdrawStatus? = null) : this(
-		coin,
-		withdrawOrderId,
-		status.toString()
-	)
+	constructor(
+		status: WithdrawStatus, coin: String? = null,
+		withdrawOrderId: String? = null,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		page: Int? = null,
+		limit: Int? = null
+	) : this(status.toString(), coin, withdrawOrderId, startTime, endTime, page, limit)
 }

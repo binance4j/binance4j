@@ -26,10 +26,7 @@ package com.binance4j.wallet.client
 
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.FramedPaging
-import com.binance4j.core.param.Params.Companion.merge
-import com.binance4j.core.param.TimeFrame
-import com.binance4j.wallet.dto.*
+import com.binance4j.wallet.dto.AccountSnapshotType
 import com.binance4j.wallet.param.*
 
 /**
@@ -41,12 +38,14 @@ import com.binance4j.wallet.param.*
 class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(WalletMapping::class.java, key, secret) {
 	/**
 	 * Fetches the system status.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getSystemStatus() = Request(service.getSystemStatus())
 	
 	/**
-	 * Gets the information of coins (available for deposit and withdraw) for user .
+	 * Gets the information of coins (available for deposit and withdraw) for user.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getAllCoinsInfo() =
@@ -54,46 +53,52 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Fetches the daily SPOT account snapshots.
-	 * @param timeFrame Search interval.
+	 *
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getSpotAccountSnapshot(timeFrame: TimeFrame = TimeFrame()) = Request(
-		service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, merge(AccountSnapshotParams(), timeFrame))
+	fun getSpotAccountSnapshot(params: AccountSnapshotParams = AccountSnapshotParams()) = Request(
+		service.getSpotAccountSnapshot(AccountSnapshotType.SPOT, params.toMap())
 	)
 	
 	/**
 	 * Fetches the daily MARGIN account snapshots.
-	 * @param timeFrame Search interval.
+	 *
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getMarginAccountSnapshot(timeFrame: TimeFrame = TimeFrame()) = Request(
-		service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, merge(AccountSnapshotParams(), timeFrame))
+	fun getMarginAccountSnapshot(params: AccountSnapshotParams = AccountSnapshotParams()) = Request(
+		service.getMarginAccountSnapshot(AccountSnapshotType.MARGIN, params.toMap())
 	)
 	
 	/**
 	 * Fetches the daily FUTURES account snapshots.
-	 * @param timeFrame Search interval.
+	 *
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFuturesAccountSnapshot(timeFrame: TimeFrame = TimeFrame()) = Request(
-		service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, merge(AccountSnapshotParams(), timeFrame))
+	fun getFuturesAccountSnapshot(params: AccountSnapshotParams = AccountSnapshotParams()) = Request(
+		service.getFuturesAccountSnapshot(AccountSnapshotType.FUTURES, params.toMap())
 	)
 	
 	/**
 	 * Disables fast withdraw switch under your account.
+	 *
 	 * @return The request to execute.
 	 */
 	fun disableFastWithdrawSwitch() = Request(service.disableFastWithdrawSwitch(FastWithdrawSwitchParams().toMap()))
 	
 	/**
 	 * Enables fast withdraw switch under your account.
+	 *
 	 * @return The request to execute.
 	 */
 	fun enableFastWithdrawSwitch() = Request(service.enableFastWithdrawSwitch(FastWithdrawSwitchParams().toMap()))
 	
 	/**
 	 * Submits a withdrawal request. If network not send, you can get `network` and `isDefault` in networkList of a coin in the response of [getAllCoinsInfo]
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
@@ -101,30 +106,27 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Fetches the deposit history of one or multiple coins.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getDepositHistory(
-		params: DepositHistoryParams = DepositHistoryParams(),
-		paging: FramedPaging = FramedPaging()
-	): Request<List<DepositHistory>> =
-		Request(service.getDepositHistory(merge(params, paging)))
+	fun getDepositHistory(params: DepositHistoryParams = DepositHistoryParams()) =
+		Request(service.getDepositHistory(params.toMap()))
 	
 	/**
 	 * Fetches the withdrawal history of one or multiple coins.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getWithdrawHistory(
-		params: WithdrawHistoryParams = WithdrawHistoryParams("", "", ""),
-		paging: FramedPaging = FramedPaging()
-	): Request<List<WithdrawHistory>> =
-		Request(service.getWithdrawHistory(merge(params, paging)))
+	fun getWithdrawHistory(params: WithdrawHistoryParams = WithdrawHistoryParams()) =
+		Request(service.getWithdrawHistory(params.toMap()))
 	
 	/**
 	 * Fetches deposit address
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
@@ -132,32 +134,37 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Fetches the account status detail.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getAccountStatus() = Request(service.getAccountstatus(AccountStatusParams().toMap()))
 	
 	/**
 	 * Fetches the account api trading status detail.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getApiTradingStatus() = Request(service.getApiTradingStatus(ApiTradingStatusParams().toMap()))
 	
 	/**
 	 * Fetches the dust transfer logs.
-	 * @param timeFrame Search interval.
+	 *
+	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getDustLog(timeFrame: TimeFrame = TimeFrame()) = Request(service.getDustLog(merge(DustLogParams(), timeFrame)))
+	fun getDustLog(params: DustLogParams = DustLogParams()) = Request(service.getDustLog(params.toMap()))
 	
 	/**
 	 * Retrieves the assets convertible into BNB.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getConvertibleAssets() = Request(service.getConvertibleAssets(ConvertibleAssetParams().toMap()))
 	
 	/**
 	 * Retrieves the assets convertible into BNB.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
@@ -165,6 +172,7 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Convert dust assets to BNB.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
@@ -172,32 +180,34 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Queries the dividend record of one or multiple assets.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getAssetDividendRecord(
-		params: AssetDividendRecordParams = AssetDividendRecordParams(), timeFrame: TimeFrame = TimeFrame()
-	) = Request(service.getAssetDividendRecord(merge(params, timeFrame)))
+	fun getAssetDividendRecord(params: AssetDividendRecordParams = AssetDividendRecordParams()) =
+		Request(service.getAssetDividendRecord(params.toMap()))
 	
 	/**
 	 * Fetches the details of an asset supported on Binance. Please get network and
 	 * other deposit or withdraw details from [getAllCoinsInfo].
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getAssetDetail(params: AssetDetailParams = AssetDetailParams()): Request<Map<String, AssetDetail>> =
+	fun getAssetDetail(params: AssetDetailParams = AssetDetailParams()) =
 		Request(service.getAssetDetail(params.toMap()))
 	
 	/**
 	 * Fetches the trade fee.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getTradeFee(params: TradeFeeParams = TradeFeeParams()): Request<List<TradeFee>> =
-		Request(service.getTradeFee(params.toMap()))
+	fun getTradeFee(params: TradeFeeParams = TradeFeeParams()) = Request(service.getTradeFee(params.toMap()))
 	
 	/**
 	 * Make a universal transfer.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
@@ -205,30 +215,24 @@ class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(Wall
 	
 	/**
 	 * Fetches the user universal transfer history
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getTransferHistory(params: WalletTransferHistoryParams, paging: FramedPaging = FramedPaging()) =
-		Request(
-			service.getTransferHistory(
-				merge(
-					params.toMap(),
-					paging.toMap(mapOf("limit" to "size", "page" to "current"))
-				)
-			)
-		)
-	
+	fun getTransferHistory(params: WalletTransferHistoryParams) = Request(service.getTransferHistory(params.toMap()))
 	
 	/**
-	 * Fetches the funding wallet asset balance
+	 * Fetches the funding wallet asset balance.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun getFundingWallet(params: FundingWalletParams = FundingWalletParams()): Request<List<FundingAsset>> =
+	fun getFundingWallet(params: FundingWalletParams = FundingWalletParams()) =
 		Request(service.getFundingWallet(params.toMap()))
 	
 	/**
 	 * Fetches the API Key Permission.
+	 *
 	 * @return The request to execute.
 	 */
 	fun getApiPermissions() = Request(service.getApiPermissions(ApiPermissionsParams().toMap()))

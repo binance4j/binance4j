@@ -37,8 +37,28 @@ import com.binance4j.wallet.dto.DepositStatus
  */
 data class DepositHistoryParams @JvmOverloads constructor(
 	var coin: String? = null,
-	var status: String? = null
+	var status: String? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var page: Int? = null,
+	var limit: Int? = null
 ) : Params {
-	constructor (coin: String, status: DepositStatus? = null) : this(coin, status.toString())
-	constructor (status: DepositStatus) : this(null, status.toString())
+	@JvmOverloads
+	constructor(
+		coin: String,
+		status: DepositStatus,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		page: Int? = null,
+		limit: Int? = null
+	) : this(coin, status.toString(), startTime, endTime, page, limit)
+	
+	@JvmOverloads
+	constructor (
+		status: DepositStatus,
+		startTime: Long? = null,
+		endTime: Long? = null,
+		page: Int? = null,
+		limit: Int? = null
+	) : this(null, status.toString(), startTime, endTime, page, limit)
 }
