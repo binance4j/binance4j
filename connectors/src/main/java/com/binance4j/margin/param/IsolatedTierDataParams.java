@@ -11,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param tier   Tier.
  */
 data class IsolatedTierDataParams(
-String symbol, String tier):Params
+symbol : String, String tier):Params
 {
 
 	/**

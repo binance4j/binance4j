@@ -15,8 +15,8 @@ import com.binance4j.margin.dto.TransferType;
  */
 @Param(weight = 600, type = RateLimitType.UID)
 data class TransferParams(
-String asset, String amount,
-String type):Params
+asset : String, String amount,
+type : String):Params
 {
 
 	/**

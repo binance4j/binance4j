@@ -35,8 +35,8 @@ class MapTest {
 		params.foo = "string"
 		params.bar = 2
 		val map: Map<String, Any> = params.toMap()
-		Assertions.assertEquals(map["foo"], params.foo)
-		Assertions.assertEquals(map["bar"], params.bar)
+		Assertions.assertEquals(map["foo"] as String, params.foo)
+		Assertions.assertEquals(map["bar"] as Int, params.bar)
 		Assertions.assertNotNull(map["timestamp"])
 		Assertions.assertNotNull(map["recvWindow"])
 	}
@@ -48,12 +48,10 @@ class MapTest {
 		Assertions.assertFalse(map.containsKey("recvWindow"))
 	}
 	
-	@Param
 	internal inner class CustomParams : Params {
 		var foo: String? = null
 		var bar = 0
 	}
 	
-	@Param(recvWindow = false, timestamp = false)
 	internal inner class NoTimestampParams : Params
 }

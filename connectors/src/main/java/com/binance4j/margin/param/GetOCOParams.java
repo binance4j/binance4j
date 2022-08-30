@@ -16,7 +16,7 @@ import com.binance4j.margin.client.MarginClient;
  *                          {@code origClientOrderId} must be provided.
  */
 data class GetOCOParams(
-String symbol, Boolean isIsolated,
+symbol : String, Boolean isIsolated,
 Long orderListId, String origClientOrderId):Params
 {
 

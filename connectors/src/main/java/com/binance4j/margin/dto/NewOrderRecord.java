@@ -58,7 +58,7 @@ data class NewOrderRecord(
  val cummulativeQuoteQty : String,
 @ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.") String marginBuyBorrowAmount,
 @ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
-String marginBuyBorrowAsset,
+marginBuyBorrowAsset : String,
 @ApiModelProperty("Is the order isolated?")
  val isIsolated : Boolean,
 @ApiModelProperty("Filled trades.")

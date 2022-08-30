@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A list of transfer history records.")
 data class TransferRecords(
 @ApiModelProperty("Total of records.")
- var total:Int = 0,
+ var total:Int,
 @ApiModelProperty("The records.") List<TransferRecord> rows)
 {
 }

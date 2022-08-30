@@ -14,7 +14,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated Is the order isolated?
  */
 data class GetAllOCOParams(
-String symbol, Long fromId,
+symbol : String, Long fromId,
 Boolean isIsolated):Params
 {
 

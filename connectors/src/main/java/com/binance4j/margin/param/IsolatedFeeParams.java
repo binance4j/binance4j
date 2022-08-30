@@ -11,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param vipLevel Vip level.
  */
 data class IsolatedFeeParams(
-String symbol, Integer vipLevel):Params
+symbol : String, Integer vipLevel):Params
 {
 
 	/**

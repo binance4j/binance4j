@@ -19,6 +19,6 @@ data class InterestRate(
  val dailyInterestRate : String,
 @ApiModelProperty("Timestamp of the applied interest rate in ms.")
  val timestamp : Long,
-@ApiModelProperty("Account VIP level.")  var vipLevel:Int = 0)
+@ApiModelProperty("Account VIP level.")  var vipLevel:Int)
 {
 }

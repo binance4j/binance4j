@@ -12,7 +12,7 @@ import com.binance4j.spot.client.SpotClient;
  *                    If startTime and/or endTime provided, orderId is not required.
  */
 data class AllOrdersParams(
-String symbol, Long orderId):Params
+symbol : String, Long orderId):Params
 {
 
 	/**

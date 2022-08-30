@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Isolated margin fee.")
 data class IsolatedFee(
 @ApiModelProperty("VIP level.")
- var vipLevel:Int = 0,
+ var vipLevel:Int,
 @ApiModelProperty("Related symbol.")
  val symbol : String,
 @ApiModelProperty("Leverage.")

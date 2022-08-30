@@ -38,8 +38,8 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated For isolated margin or not. Default: false.
  */
 data class BorrowParams(
-String asset, String amount,
-String symbol, Boolean isIsolated):Params
+asset : String, String amount,
+symbol : String, Boolean isIsolated):Params
 {
 
 	/**

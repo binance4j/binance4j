@@ -12,7 +12,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated Is isolated margin?
  */
 data class TradeParams(
-String symbol, Long fromId,
+symbol : String, Long fromId,
 Boolean isIsolated):Params
 {
 

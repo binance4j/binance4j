@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("A repay record.")
 data class RepayRecords(
 @ApiModelProperty("Total of repays.")
- var total:Int = 0,
+ var total:Int,
 @ApiModelProperty("Repays.") List<RepayRecord> rows)
 {
 }

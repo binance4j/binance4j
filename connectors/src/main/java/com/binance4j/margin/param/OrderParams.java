@@ -13,7 +13,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param origClientOrderId Origin client order id.
  */
 data class OrderParams(
-String symbol, Long orderId,
+symbol : String, Long orderId,
 Boolean isIsolated, String origClientOrderId):Params
 {
 

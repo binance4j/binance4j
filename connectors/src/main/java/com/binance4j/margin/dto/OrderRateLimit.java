@@ -19,10 +19,10 @@ data class OrderRateLimit(
 @ApiModelProperty("Interval.")
  val interval : String,
 @ApiModelProperty("Interval num.")
- var intervalNum:Int = 0,
+ var intervalNum:Int,
 @ApiModelProperty("Limit.")
- var limit:Int = 0,
-@ApiModelProperty("Count.")  var count:Int = 0)
+ var limit:Int,
+@ApiModelProperty("Count.")  var count:Int)
 {
 
 }

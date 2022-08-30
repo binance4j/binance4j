@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("Enabled Isolated account limit.")
 data class IsolatedAccountLimit(
 @ApiModelProperty("Enabled account.")
- var enabledAccount:Int = 0,
-@ApiModelProperty("Account limit.")  var maxAccount:Int = 0)
+ var enabledAccount:Int,
+@ApiModelProperty("Account limit.")  var maxAccount:Int)
 {
 }

@@ -12,7 +12,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param orderId    Order id.
  */
 data class AllOrdersParams(
-String symbol, Long orderId,
+symbol : String, Long orderId,
 Boolean isIsolated):Params
 {
 

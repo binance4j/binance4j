@@ -25,7 +25,7 @@ data class IsolatedTierData(
 @ApiModelProperty("Related symbol.")
  val symbol : String,
 @ApiModelProperty("Tier.")
- var tier:Int = 0,
+ var tier:Int,
 @ApiModelProperty("Effective multiple.")
  val effectiveMultiple : String,
 @ApiModelProperty("Initial risk ratio.")

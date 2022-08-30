@@ -15,8 +15,8 @@ import com.binance4j.margin.client.MarginClient;
  */
 @Param(weight = 300, type = RateLimitType.UID)
 data class RepayParams(
-String asset, String amount,
-String symbol, Boolean isIsolated):Params
+asset : String, String amount,
+symbol : String, Boolean isIsolated):Params
 {
 
 	/**

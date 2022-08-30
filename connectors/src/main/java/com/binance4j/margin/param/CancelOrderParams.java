@@ -13,8 +13,8 @@ import com.binance4j.margin.client.MarginClient;
  * @param newClientOrderId  New client order id.
  */
 data class CancelOrderParams(
-String symbol, Long orderId,
-String origClientOrderId, String newClientOrderId):Params
+symbol : String, Long orderId,
+origClientOrderId : String, String newClientOrderId):Params
 {
 
 	/**

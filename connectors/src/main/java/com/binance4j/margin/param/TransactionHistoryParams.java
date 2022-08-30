@@ -14,7 +14,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param archived       Set to true for archived data from 6 months ago.
  */
 data class TransactionHistoryParams(
-String asset, String isolatedSymbol,
+asset : String, String isolatedSymbol,
 Long txId, Boolean archived):Params
 {
 

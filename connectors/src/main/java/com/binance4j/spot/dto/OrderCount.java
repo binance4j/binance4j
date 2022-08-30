@@ -19,9 +19,9 @@ data class OrderCount(
 @ApiModelProperty("Order interval.")
  val interval : String,
 @ApiModelProperty("Order interval num.")
- var intervalNum:Int = 0,
+ var intervalNum:Int,
 @ApiModelProperty("Order limit.")
- var limit:Int = 0,
-@ApiModelProperty("Current order count.")  var count:Int = 0)
+ var limit:Int,
+@ApiModelProperty("Current order count.")  var count:Int)
 {
 }

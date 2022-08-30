@@ -11,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param isIsolated Is it isolated?
  */
 data class RateLimitParams(
-String symbol, Boolean isIsolated):Params
+symbol : String, Boolean isIsolated):Params
 {
 
 	/**

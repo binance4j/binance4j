@@ -12,7 +12,7 @@ import com.binance4j.spot.client.SpotClient;
  * @param fromId  Id from which we search trades.
  */
 data class TradesParams(
-String symbol, Long orderId,
+symbol : String, Long orderId,
 Long fromId):Params
 {
 

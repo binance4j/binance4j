@@ -27,9 +27,14 @@ package com.binance4j.core.param
 /**
  * Framed paging search.
  *
- * @param startTime Start time in ms.
- * @param endTime   End time in ms.
- * @param page      Result page.
- * @param limit     Results in the page.
+ * @param startDate Start time in ms.
+ * @param endDate   End time in ms.
+ * @param pageIndex      Result page.
+ * @param pageSize     Results in the page.
  */
-data class FramedPaging @JvmOverloads constructor(var startTime: Long? = null, var endTime: Long? = null, var page: Int? = null, var limit: Int? = null) : Params
+data class FramedPaging @JvmOverloads constructor(
+	var startDate: Long? = null,
+	var endDate: Long? = null,
+	var pageIndex: Int? = null,
+	var pageSize: Int? = null
+) : Params

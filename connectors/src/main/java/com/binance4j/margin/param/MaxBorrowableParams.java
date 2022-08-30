@@ -11,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param isolatedSymbol Symbol.
  */
 data class MaxBorrowableParams(
-String asset, String isolatedSymbol):Params
+asset : String, String isolatedSymbol):Params
 {
 
 	/**
