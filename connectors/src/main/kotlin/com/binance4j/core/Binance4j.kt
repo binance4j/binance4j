@@ -31,41 +31,41 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 /** Library constants */
 object Binance4j {
-    /** Jackson Object mapper. */
-    @JvmStatic
-    val MAPPER: ObjectMapper = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-
-    /** Rate limiting. */
-    @JvmStatic
-    val RATE_LIMITING: RateLimiting = RateLimiting.invoke()
-
-    /** The signed http full header.  */
-    const val SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER
-
-    /** The API key http full header.  */
-    const val API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER
-
-    /** Header name to determine if request is an order  */
-    const val ORDER_H = "X-ORDER"
-
-    /** Header to tell that this request is an order.  */
-    const val IS_ORDER_H = "$ORDER_H: #"
-
-    /** Header name to determine the rate limit type.  */
-    const val RATE_LIMIT_H = "X-LIMIT"
-
-    /** IP limited header for rate limiter interceptor. */
-    const val IP_H = "$RATE_LIMIT_H: IP"
-
-    /** UID limited header for rate limiter interceptor. */
-    const val UID_H = "$RATE_LIMIT_H: UID"
-
-    /** UID and IP limited header for rate limiter interceptor. */
-    const val IP_UID_H = "$RATE_LIMIT_H: IP_UID"
-
-    /** Request weight header.  */
-    const val WEIGHT_H = "X-WEIGHT"
-
-    /** Request with a weight of one.  */
-    const val WEIGHT_ONE_H = "$WEIGHT_H: 1"
+	/** Jackson Object mapper. */
+	@JvmStatic
+	val mapper: ObjectMapper = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+	
+	/** Rate limiting. */
+	@JvmStatic
+	val rateLimiting: RateLimiting = RateLimiting.invoke()
+	
+	/** The signed http full header.  */
+	const val SIGNED_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER
+	
+	/** The API key http full header.  */
+	const val API_H = AuthenticationInterceptor.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER
+	
+	/** Header name to determine if request is an order  */
+	const val ORDER_H = "X-ORDER"
+	
+	/** Header to tell that this request is an order.  */
+	const val IS_ORDER_H = "$ORDER_H: #"
+	
+	/** Header name to determine the rate limit type.  */
+	const val RATE_LIMIT_H = "X-LIMIT"
+	
+	/** IP limited header for rate limiter interceptor. */
+	const val IP_H = "$RATE_LIMIT_H: IP"
+	
+	/** UID limited header for rate limiter interceptor. */
+	const val UID_H = "$RATE_LIMIT_H: UID"
+	
+	/** UID and IP limited header for rate limiter interceptor. */
+	const val IP_UID_H = "$RATE_LIMIT_H: IP_UID"
+	
+	/** Request weight header.  */
+	const val WEIGHT_H = "X-WEIGHT"
+	
+	/** Request with a weight of one.  */
+	const val WEIGHT_ONE_H = "$WEIGHT_H: 1"
 }

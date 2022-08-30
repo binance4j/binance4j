@@ -32,6 +32,14 @@ import com.binance4j.core.param.Params
  *
  * @property tokenName Token name.
  * @property id        Subscription id.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
  */
-data class TransactionRecordParams @JvmOverloads constructor(var tokenName: String? = null, var id: Long? = null) :
-	Params
+data class TransactionRecordParams @JvmOverloads constructor(
+	var tokenName: String? = null,
+	var id: Long? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

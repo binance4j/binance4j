@@ -35,31 +35,31 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class FiatClientTest : CustomTest() {
-    private var client = FiatClient(key, secret)
-
-    @Test
-    @Throws(ApiException::class, InterruptedException::class)
-    fun testGetPayments() {
-        assertNotThrow(client.getPayments(PaymentParams(PaymentType.SELL)))
-    }
-
-    @Test
-    @Throws(ApiException::class, InterruptedException::class)
-    fun testGetPayments2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getPayments(PaymentParams(PaymentType.BUY), FramedPaging(1)))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class, InterruptedException::class)
-    fun testGetTransactions() {
-        assertNotThrow(client.getTransactions(TransactionParams(TransactionType.WITHDRAW)))
-    }
-
-    @Test
-    @Throws(ApiException::class, InterruptedException::class)
-    fun testGetTransactions2() {
-        assertNotThrow(client.getTransactions(TransactionParams(TransactionType.DEPOSIT), FramedPaging(1)))
-    }
+	private var client = FiatClient(key, secret)
+	
+	@Test
+	@Throws(ApiException::class, InterruptedException::class)
+	fun testGetPayments() {
+		assertNotThrow(client.getPayments(PaymentParams(PaymentType.SELL)))
+	}
+	
+	@Test
+	@Throws(ApiException::class, InterruptedException::class)
+	fun testGetPayments2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getPayments(PaymentParams(PaymentType.BUY), FramedPaging(1)))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class, InterruptedException::class)
+	fun testGetTransactions() {
+		assertNotThrow(client.getTransactions(TransactionParams(TransactionType.WITHDRAW)))
+	}
+	
+	@Test
+	@Throws(ApiException::class, InterruptedException::class)
+	fun testGetTransactions2() {
+		assertNotThrow(client.getTransactions(TransactionParams(TransactionType.DEPOSIT), FramedPaging(1)))
+	}
 }

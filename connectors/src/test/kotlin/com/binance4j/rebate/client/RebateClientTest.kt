@@ -31,21 +31,21 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class RebateClientTest : CustomTest() {
-    var client = RebateClient(key, secret)
-    
-    @Test
-    @Throws(ApiException::class)
-    fun testGetSpotRebateHistoryRecords() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getSpotRebateHistoryRecords())
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetSpotRebateHistoryRecords2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getSpotRebateHistoryRecords(FramedPaging(1)))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
+	var client = RebateClient(key, secret)
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetSpotRebateHistoryRecords() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getSpotRebateHistoryRecords())
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetSpotRebateHistoryRecords2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getSpotRebateHistoryRecords(FramedPaging(1)))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
 }

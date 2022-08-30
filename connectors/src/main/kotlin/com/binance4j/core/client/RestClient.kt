@@ -62,7 +62,7 @@ abstract class RestClient<T> @JvmOverloads constructor(
 	 */
 	private fun createService(mapping: Class<T>, useTestnet: Boolean): T {
 		val apiUrl = if (useTestnet) "https://testnet.binance.vision" else "https://api.binance.com"
-		val converterFactory = JacksonConverterFactory.create(Binance4j.MAPPER)
+		val converterFactory = JacksonConverterFactory.create(Binance4j.mapper)
 		val client = OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder().addInterceptor(interceptor)
 			.addInterceptor(MetaHeadersInterceptor()).build()
 		return Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()

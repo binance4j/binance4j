@@ -28,33 +28,16 @@ import com.fasterxml.jackson.core.type.TypeReference
 
 /** The base of every Binance Request */
 interface Params {
-	/** @return The request timestamp */
+	/** The request timestamp */
+	val timestamp: Long get() = System.currentTimeMillis()
 	
-	fun timestamp(): Long? = System.currentTimeMillis()
+	/** The receiving windows */
+	val recvWindow: Long get() = 60_000L
 	
-	/** @return The receiving windows */
-	
-	fun recvWindow(): Long? = 60_000L
-	
-	/**
-	 * Converts the object into a map and replace the keys names of the generated
-	 * map with the values of the given map.
-	 *
-	 * @param replaceMap Map used to replace the keys of the generated map. The key in map2 is the key we want to change the name in map1 with the value of map2.
-	 * @return the merged maps.
-	 */
-	fun toMap(replaceMap: Map<String, String>? = null): Map<String, Any> {
-		val map: MutableMap<String, Any> =
-			Binance4j.MAPPER.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
-		// remove useless entries
-		map.remove("order")
-		map.values.removeAll(setOf<Any?>(null))
-		map.values.removeAll(setOf(""))
-		
-		replaceMap!!.entries.forEach { (key, value): Map.Entry<String, String> ->
-			map[value] = map[key] as Any
-			map.remove(key)
-		}
+	/** Converts the object into a map and removes empty/null values. */
+	fun toMap(): Map<String, Any> {
+		val map = Binance4j.mapper.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
+		map.values.removeAll(setOf<Any?>(null, ""))
 		return map
 	}
 }

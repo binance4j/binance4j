@@ -32,22 +32,22 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class LoanClientTest : CustomTest() {
-    protected var client = LoanClient(key, secret)
-
-    init {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetLoansIncome() {
-        assertNotThrow(client.getLoansIncome(LoanIncomeHistoryParams(asset)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetLoansIncome2() {
-        assertNotThrow(client.getLoansIncome(LoanIncomeHistoryParams(asset), TimeFrame(25)))
-    }
+	protected var client = LoanClient(key, secret)
+	
+	init {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetLoansIncome() {
+		assertNotThrow(client.getLoansIncome(LoanIncomeHistoryParams(asset)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetLoansIncome2() {
+		assertNotThrow(client.getLoansIncome(LoanIncomeHistoryParams(asset), TimeFrame(25)))
+	}
 }

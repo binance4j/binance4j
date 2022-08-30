@@ -57,15 +57,15 @@ class StakingClientTest : CustomTest() {
 	
 	@Test
 	fun testGetPosition() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		ProductType.values().forEach { product -> assertNotThrow(client.getPosition(PositionParams(product))) }
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	@Test
 	fun testGetProducts() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		ProductType.values().forEach { product -> assertNotThrow(client.getProducts(ProductListParams(product))) }
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 }

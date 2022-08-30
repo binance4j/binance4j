@@ -30,17 +30,17 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class ExchangeInfoClientTest : CustomTest() {
-    var client = RateLimitClient()
-
-    init {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetExchangeInfo() {
-        val data = client.rateLimits.sync()
-        println(data)
-    }
+	var client = RateLimitClient()
+	
+	init {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetExchangeInfo() {
+		val data = client.rateLimits.sync()
+		println(data)
+	}
 }

@@ -36,77 +36,77 @@ import java.io.IOException
  * @property call Retrofit call
  */
 open class Request<T>(private val call: Call<T>) {
-    /** Is the request an order request. */
-    val isOrder: Boolean
-        get() = call.request().header(RestMapping.ORDER_H) != null
-
-    /** The request weight. */
-    val weight: Int
-        get() = call.request().header(RestMapping.WEIGHT_H)?.toInt() ?: 1
-
-    /** The request rateLimit. */
-    val rateLimit: String
-        get() = call.request().header(RestMapping.RATE_LIMIT_H) ?: "IP"
-
-    /** The request path. */
-    val path: String
-        get() = call.request().url.toUri().path
-
-    // static final RateLimiter
-    /**
-     * Executes the request synchronously
-     *
-     * @return The request response.
-     * @throws ApiException The exception produced with the server error response
-     */
-    @Throws(ApiException::class)
-    open fun sync(): T {
-        acquire()
-        try {
-            val response = call.execute()
-            if (response.isSuccessful) {
-                return response.body()!!
-            } else {
-                assert(response.errorBody() != null)
-                throw ApiException(MAPPER.readValue(response.errorBody()!!.string(), ApiError::class.java))
-            }
-        } catch (e: IOException) {
-            throw ApiException(-400, e.message!!)
-        }
-    }
-
-    /**
-     * Executes the request asynchronously
-     *
-     * @param callback Request callback managing a success or error response.
-     */
-    fun async(callback: ApiCallback<T>) {
-        acquire()
-        call.enqueue(ApiCallbackAdapter(callback))
-    }
-
-    /**
-     * Rate limits the API calls.
-     */
-    private fun acquire() {
-        Binance4j.RATE_LIMITING.rawRequestLimiter.acquire(1)
-        Binance4j.RATE_LIMITING.requestWeightLimiter.acquire(weight)
-    }
-
-    /**
-     * @return the request method
-     */
-    val method: String
-        get() = call.request().method
-
-    /**
-     * @return the request signature
-     */
-    val signature: String?
-        get() {
-            val signedHeader = call.request().header(RestMapping.SIGNED_H)
-            val apiHeader = call.request().header(RestMapping.API_H)
-            return signedHeader ?: apiHeader
-        }
-
+	/** Is the request an order request. */
+	val isOrder: Boolean
+		get() = call.request().header(RestMapping.ORDER_H) != null
+	
+	/** The request weight. */
+	val weight: Int
+		get() = call.request().header(RestMapping.WEIGHT_H)?.toInt() ?: 1
+	
+	/** The request rateLimit. */
+	val rateLimit: String
+		get() = call.request().header(RestMapping.RATE_LIMIT_H) ?: "IP"
+	
+	/** The request path. */
+	val path: String
+		get() = call.request().url.toUri().path
+	
+	// static final RateLimiter
+	/**
+	 * Executes the request synchronously
+	 *
+	 * @return The request response.
+	 * @throws ApiException The exception produced with the server error response
+	 */
+	@Throws(ApiException::class)
+	open fun sync(): T {
+		acquire()
+		try {
+			val response = call.execute()
+			if (response.isSuccessful) {
+				return response.body()!!
+			} else {
+				assert(response.errorBody() != null)
+				throw ApiException(MAPPER.readValue(response.errorBody()!!.string(), ApiError::class.java))
+			}
+		} catch (e: IOException) {
+			throw ApiException(-400, e.message!!)
+		}
+	}
+	
+	/**
+	 * Executes the request asynchronously
+	 *
+	 * @param callback Request callback managing a success or error response.
+	 */
+	fun async(callback: ApiCallback<T>) {
+		acquire()
+		call.enqueue(ApiCallbackAdapter(callback))
+	}
+	
+	/**
+	 * Rate limits the API calls.
+	 */
+	private fun acquire() {
+		Binance4j.rateLimiting.rawRequestLimiter.acquire(1)
+		Binance4j.rateLimiting.requestWeightLimiter.acquire(weight)
+	}
+	
+	/**
+	 * @return the request method
+	 */
+	val method: String
+		get() = call.request().method
+	
+	/**
+	 * @return the request signature
+	 */
+	val signature: String?
+		get() {
+			val signedHeader = call.request().header(RestMapping.SIGNED_H)
+			val apiHeader = call.request().header(RestMapping.API_H)
+			return signedHeader ?: apiHeader
+		}
+	
 }

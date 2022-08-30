@@ -50,9 +50,9 @@ class SavingsClientTest : CustomTest() {
 	
 	@Test
 	fun testGetFlexibleProducts() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		assertNotThrow(client.getFlexibleProducts())
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	@Test
@@ -64,11 +64,11 @@ class SavingsClientTest : CustomTest() {
 	
 	@Test
 	fun testGetPurchases() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		assertNotThrow(client.getPurchases(LendingParams(LendingType.DAILY)))
 		assertNotThrow(client.getPurchases(LendingParams(LendingType.ACTIVITY)))
 		assertNotThrow(client.getPurchases(LendingParams(LendingType.CUSTOMIZED_FIXED)))
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	@Test
@@ -80,18 +80,18 @@ class SavingsClientTest : CustomTest() {
 	
 	@Test
 	fun testGetLeftDailyFlexiblePurchaseQuota() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		val productId = client.getFlexibleProducts().sync()[0].productId
 		assertNotThrow(client.getLeftDailyFlexiblePurchaseQuota(PurchaseQuotaParams(productId)))
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	@Test
 	fun testGetLeftDailyRedemptionQuota() {
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
 		val productId = client.getFlexibleProducts().sync()[0].productId
 		assertNotThrow(client.getLeftDailyRedemptionQuota(RedemptionQuotaParams(productId, ProductType.FAST)))
-		Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	// NOT TESTED

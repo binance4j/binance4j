@@ -24,56 +24,47 @@
 
 package com.binance4j.blvt.client
 
-import com.binance4j.blvt.dto.*
 import com.binance4j.blvt.param.*
 import com.binance4j.core.Request
 import com.binance4j.core.client.RestClient
-import com.binance4j.core.param.Params
-import com.binance4j.core.param.TimeFrame
-
 
 /**
  * Api client for the BLVT endpoints.
+ *
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Binance doc](https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints)
+ * [Binance documentation](https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints)
  */
 class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapping::class.java, key, secret) {
 	/**
 	 * Get BLVT Info.
+	 *
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getTokenInfo(params: TokenInfoParams = TokenInfoParams()): Request<List<Token>> =
-		Request(service.getTokenInfo(params.toMap()))
+	fun getTokenInfo(params: TokenInfoParams = TokenInfoParams()) = Request(service.getTokenInfo(params.toMap()))
 	
 	/**
 	 * Get subscription record.
+	 *
 	 * @param params    Request params.
-	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getSubscriptions(
-		params: TransactionRecordParams = TransactionRecordParams(),
-		timeFrame: TimeFrame = TimeFrame()
-	): Request<List<Subscription>> =
-		Request(service.getSubscriptions(Params.merge(params, timeFrame)))
+	fun getSubscriptions(params: TransactionRecordParams = TransactionRecordParams()) =
+		Request(service.getSubscriptions(params.toMap()))
 	
 	/**
 	 * Get redemption record.
+	 *
 	 * @param params    Request params.
-	 * @param timeFrame Time search params.
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getRedemptions(
-		params: TransactionRecordParams = TransactionRecordParams(),
-		timeFrame: TimeFrame = TimeFrame()
-	): Request<List<Redemption>> =
-		Request(service.getRedemptions(Params.merge(params, timeFrame)))
+	fun getRedemptions(params: TransactionRecordParams = TransactionRecordParams()) =
+		Request(service.getRedemptions(params.toMap()))
 	
 	/**
 	 * Get user limit info.
@@ -81,17 +72,14 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getLimitInfo(params: LimitInfoParams = LimitInfoParams()): Request<List<LimitInfo>> =
-		Request(service.getLimitInfo(params.toMap()))
-	
+	fun getLimitInfo(params: LimitInfoParams = LimitInfoParams()) = Request(service.getLimitInfo(params.toMap()))
 	
 	/**
 	 * Subscribe BLVT.
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun subscribe(params: SubscriptionParams): Request<SubscriptionResponse> =
-		Request(service.subscribe(params.toMap()))
+	fun subscribe(params: SubscriptionParams) = Request(service.subscribe(params.toMap()))
 	
 	
 	/**
@@ -99,5 +87,5 @@ class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapp
 	 * @param params Request params.
 	 * @return The request to execute.
 	 */
-	fun redeem(params: RedemptionParams): Request<RedemptionResponse> = Request(service.redeem(params.toMap()))
+	fun redeem(params: RedemptionParams) = Request(service.redeem(params.toMap()))
 }

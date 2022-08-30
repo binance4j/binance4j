@@ -35,246 +35,246 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.Test
 
 class WalletClientTest : CustomTest() {
-    private var client = WalletClient(key, secret)
-
-    @Test
-    @Throws(ApiException::class)
-    fun testDisableFastWithdrawSwitch() {
-        assertNotThrow(client.disableFastWithdrawSwitch())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testEnableFastWithdrawSwitch() {
-        assertNotThrow(client.enableFastWithdrawSwitch())
-    }
-
-    // TODO @Test
-    @Throws(ApiException::class)
-    fun testdustTransfer() {
-        assertNotThrow(client.dustTransfer(DustTransferParams(assets)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAccountstatus() {
-        assertNotThrow(client.getAccountStatus())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAllCoinsInfo() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getAllCoinsInfo())
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetApiPermissions() {
-        assertNotThrow(client.getApiPermissions())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetApiTradingStatus() {
-        assertNotThrow(client.getApiTradingStatus())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAssetDetail() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getAssetDetail())
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAssetDetail2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getAssetDetail(AssetDetailParams(asset)))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAssetDividendRecord() {
-        assertNotThrow(client.getAssetDividendRecord())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAssetDividendRecord2() {
-        assertNotThrow(client.getAssetDividendRecord(AssetDividendRecordParams(asset)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetAssetDividendRecord3() {
-        assertNotThrow(client.getAssetDividendRecord(AssetDividendRecordParams(asset), TimeFrame(limit.toLong())))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetConvertibleAssets() {
-        assertNotThrow(client.getConvertibleAssets())
-    }
-
-    // @Test OK but restricted on GitHub Actions (USA?)
-    @Throws(ApiException::class)
-    fun testGetDepositAddress() {
-        assertNotThrow(client.getDepositAddress(DepositAddressParams("BNB")))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDepositHistory() {
-        assertNotThrow(client.getDepositHistory())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDepositHistory2() {
-        assertNotThrow(client.getDepositHistory(DepositHistoryParams(asset)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDepositHistory3() {
-        assertNotThrow(client.getDepositHistory(DepositHistoryParams(DepositStatus.SUCCESS)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDepositHistory4() {
-        assertNotThrow(client.getDepositHistory(DepositHistoryParams(asset, DepositStatus.SUCCESS)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDustLog() {
-        assertNotThrow(client.getDustLog())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetDustLog2() {
-        assertNotThrow(client.getDustLog(TimeFrame(10)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testgetFundingWallet() {
-        assertNotThrow(client.getFundingWallet())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testgetFundingWallet2() {
-        assertNotThrow(client.getFundingWallet(FundingWalletParams(asset)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testgetFundingWallet3() {
-        assertNotThrow(client.getFundingWallet(FundingWalletParams(asset, true)))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetFuturesAccountSnapshot() {
-        assertNotThrow(client.getFuturesAccountSnapshot())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetFuturesAccountSnapshot2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getFuturesAccountSnapshot(TimeFrame(limit.toLong())))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetMarginAccountSnapshot() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getMarginAccountSnapshot(TimeFrame(limit.toLong())))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetSpotAccountSnapshot() {
-        assertNotThrow(client.getSpotAccountSnapshot())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetSpotAccountSnapshot2() {
-        assertNotThrow(client.getSpotAccountSnapshot(TimeFrame(limit.toLong())))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetSystemStatus() {
-        assertNotThrow(client.getSystemStatus())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetTradeFee() {
-        assertNotThrow(client.getTradeFee())
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetTradeFee2() {
-        assertNotThrow(client.getTradeFee(TradeFeeParams("BNBBTC")))
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetTransferHistory() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetTransferHistory2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(
-            client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
-        )
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetWithdrawHistory() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getWithdrawHistory())
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testGetWithdrawHistory2() {
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-        assertNotThrow(client.getWithdrawHistory(WithdrawHistoryParams("FTM", null, WithdrawStatus.COMPLETED)))
-        Binance4j.MAPPER.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-    }
-
-    @Test
-    @Throws(ApiException::class)
-    fun testTransfer() {
-    }
-
-    // @Test
-    @Throws(ApiException::class)
-    fun testWithdraw() {
-        assertNotThrow(client.withdraw(WithdrawParams("amount", "coin", "address")))
-    }
+	private var client = WalletClient(key, secret)
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testDisableFastWithdrawSwitch() {
+		assertNotThrow(client.disableFastWithdrawSwitch())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testEnableFastWithdrawSwitch() {
+		assertNotThrow(client.enableFastWithdrawSwitch())
+	}
+	
+	// TODO @Test
+	@Throws(ApiException::class)
+	fun testdustTransfer() {
+		assertNotThrow(client.dustTransfer(DustTransferParams(assets)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAccountstatus() {
+		assertNotThrow(client.getAccountStatus())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAllCoinsInfo() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getAllCoinsInfo())
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetApiPermissions() {
+		assertNotThrow(client.getApiPermissions())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetApiTradingStatus() {
+		assertNotThrow(client.getApiTradingStatus())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAssetDetail() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getAssetDetail())
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAssetDetail2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getAssetDetail(AssetDetailParams(asset)))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAssetDividendRecord() {
+		assertNotThrow(client.getAssetDividendRecord())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAssetDividendRecord2() {
+		assertNotThrow(client.getAssetDividendRecord(AssetDividendRecordParams(asset)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetAssetDividendRecord3() {
+		assertNotThrow(client.getAssetDividendRecord(AssetDividendRecordParams(asset), TimeFrame(limit.toLong())))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetConvertibleAssets() {
+		assertNotThrow(client.getConvertibleAssets())
+	}
+	
+	// @Test OK but restricted on GitHub Actions (USA?)
+	@Throws(ApiException::class)
+	fun testGetDepositAddress() {
+		assertNotThrow(client.getDepositAddress(DepositAddressParams("BNB")))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDepositHistory() {
+		assertNotThrow(client.getDepositHistory())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDepositHistory2() {
+		assertNotThrow(client.getDepositHistory(DepositHistoryParams(asset)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDepositHistory3() {
+		assertNotThrow(client.getDepositHistory(DepositHistoryParams(DepositStatus.SUCCESS)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDepositHistory4() {
+		assertNotThrow(client.getDepositHistory(DepositHistoryParams(asset, DepositStatus.SUCCESS)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDustLog() {
+		assertNotThrow(client.getDustLog())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetDustLog2() {
+		assertNotThrow(client.getDustLog(TimeFrame(10)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testgetFundingWallet() {
+		assertNotThrow(client.getFundingWallet())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testgetFundingWallet2() {
+		assertNotThrow(client.getFundingWallet(FundingWalletParams(asset)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testgetFundingWallet3() {
+		assertNotThrow(client.getFundingWallet(FundingWalletParams(asset, true)))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetFuturesAccountSnapshot() {
+		assertNotThrow(client.getFuturesAccountSnapshot())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetFuturesAccountSnapshot2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getFuturesAccountSnapshot(TimeFrame(limit.toLong())))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetMarginAccountSnapshot() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getMarginAccountSnapshot(TimeFrame(limit.toLong())))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetSpotAccountSnapshot() {
+		assertNotThrow(client.getSpotAccountSnapshot())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetSpotAccountSnapshot2() {
+		assertNotThrow(client.getSpotAccountSnapshot(TimeFrame(limit.toLong())))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetSystemStatus() {
+		assertNotThrow(client.getSystemStatus())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetTradeFee() {
+		assertNotThrow(client.getTradeFee())
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetTradeFee2() {
+		assertNotThrow(client.getTradeFee(TradeFeeParams("BNBBTC")))
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetTransferHistory() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN)))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetTransferHistory2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(
+			client.getTransferHistory(WalletTransferHistoryParams(WalletTransferType.MAIN_MARGIN, asset, asset))
+		)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetWithdrawHistory() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getWithdrawHistory())
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testGetWithdrawHistory2() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getWithdrawHistory(WithdrawHistoryParams("FTM", null, WithdrawStatus.COMPLETED)))
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+	}
+	
+	@Test
+	@Throws(ApiException::class)
+	fun testTransfer() {
+	}
+	
+	// @Test
+	@Throws(ApiException::class)
+	fun testWithdraw() {
+		assertNotThrow(client.withdraw(WithdrawParams("amount", "coin", "address")))
+	}
 }
