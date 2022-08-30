@@ -30,19 +30,23 @@ import com.binance4j.websocket.dto.Candle
 import com.binance4j.websocket.service.DurationService.convert
 
 /** Websocket client handling Kline events on one or many symbols.
- * @property symbols  Symbols we want the klines.
- * @property interval Candlestick interval.
- * @property callback Events handler.
+ * @param symbols  Symbols we want the klines.
+ * @param interval Candlestick interval.
+ * @param callback Events handler.
  * */
 class WebsocketCandlestickClient(
-    symbols: String, interval: CandlestickInterval, callback: WebsocketCallback<Candle>
+	symbols: String, interval: CandlestickInterval, callback: WebsocketCallback<Candle>
 ) : BaseWebsocketClient<Candle>(symbols, String.format("kline_%s", interval.toString()), Candle::class.java, callback) {
-    init {
-        // We define the read timeout the same as the interval + a margin
-        configuration.noResponseTimeout = convert(interval).plus(configuration.noResponseTimeoutMarginError)
-    }
-
-    constructor(symbols: Iterable<CharSequence>, interval: CandlestickInterval, callback: WebsocketCallback<Candle>) : this(
-        symbols.joinToString(","), interval, callback
-    )
+	init {
+		// We define the read timeout the same as the interval + a margin
+		configuration.noResponseTimeout = convert(interval).plus(configuration.noResponseTimeoutMarginError)
+	}
+	
+	constructor(
+		symbols: Iterable<CharSequence>,
+		interval: CandlestickInterval,
+		callback: WebsocketCallback<Candle>
+	) : this(
+		symbols.joinToString(","), interval, callback
+	)
 }

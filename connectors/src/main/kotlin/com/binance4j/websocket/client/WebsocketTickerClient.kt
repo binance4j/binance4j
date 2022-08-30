@@ -29,12 +29,15 @@ import com.binance4j.websocket.dto.Ticker
 
 /**
  * Handles 24hr rolling window ticker statistics for a single symbol. These are
- * NOT the statistics of the UTC day, but a
- * 24hr rolling window for the previous 24hrs.
+ * NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
+ *
  * @param symbols  Symbols we want the data.
  * @param callback Events handler.
  */
 class WebsocketTickerClient(symbols: String, callback: WebsocketCallback<Ticker>) :
-    BaseWebsocketClient<Ticker>(symbols, "ticker", Ticker::class.java, callback) {
-    constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<Ticker>) : this(symbols.joinToString(","), callback)
+	BaseWebsocketClient<Ticker>(symbols, "ticker", Ticker::class.java, callback) {
+	constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<Ticker>) : this(
+		symbols.joinToString(","),
+		callback
+	)
 }

@@ -67,15 +67,12 @@ data class Trade(
 	@ApiModelProperty("Buyer order id.")
 	@JsonProperty("b")
 	val buyerOrderId: Long,
-	
 	@ApiModelProperty("Seller order id.")
 	@JsonProperty("a")
 	val sellerOrderId: Long,
-	
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("T")
 	val tradeTime: Long,
-	
 	@ApiModelProperty("Is the buyer the market maker?")
 	@JsonProperty("m")
 	val buyerIsMarketMaker: Boolean

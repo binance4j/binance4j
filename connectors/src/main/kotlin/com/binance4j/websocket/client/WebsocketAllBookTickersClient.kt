@@ -31,4 +31,4 @@ import com.binance4j.websocket.dto.BookTicker
  * @param callback Events handler.
  *  */
 class WebsocketAllBookTickersClient(callback: WebsocketCallback<BookTicker>) :
-    BaseWebsocketClient<BookTicker>(null, "!bookTicker", BookTicker::class.java, callback)
+	BaseWebsocketClient<BookTicker>(null, "!bookTicker", BookTicker::class.java, callback)

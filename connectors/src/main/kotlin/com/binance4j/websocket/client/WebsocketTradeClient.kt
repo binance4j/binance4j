@@ -27,10 +27,14 @@ import com.binance4j.websocket.callback.WebsocketCallback
 import com.binance4j.websocket.dto.Trade
 
 /**
- * Websocket client handling trade events on one or many symbols
+ * Websocket client handling trade events on one or many symbols.
+ *
  * @param symbols  Symbols we want the data.
  * @param callback Events handler.
  */
-class WebsocketTradeClient(symbols: String, callback: WebsocketCallback<Trade>) : BaseWebsocketClient<Trade>(symbols, "trade", Trade::class.java, callback) {
-    constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<Trade>) : this(symbols.joinToString(","), callback)
+class WebsocketTradeClient(symbols: String, callback: WebsocketCallback<Trade>) :
+	BaseWebsocketClient<Trade>(symbols, "trade", Trade::class.java, callback) {
+	constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<Trade>) : this(
+		symbols.joinToString(","), callback
+	)
 }

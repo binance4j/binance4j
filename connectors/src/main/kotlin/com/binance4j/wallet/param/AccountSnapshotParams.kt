@@ -30,8 +30,12 @@ import com.binance4j.core.param.Params
  * The parameters to get a list of SPOT, MARGIN or FUTURES daily account
  * snapshots
  *
- * @param startTime Start time in ms.
- * @param endTime   End time in ms.
- * @param limit     Results limit.
+ * @property startTime Start time in ms.
+ * @property endTime   End time in ms.
+ * @property limit     Results limit.
  */
-class AccountSnapshotParams(var startTime: Long? = null, var endTime: Long? = null, var limit: Int? = null) : Params
+class AccountSnapshotParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

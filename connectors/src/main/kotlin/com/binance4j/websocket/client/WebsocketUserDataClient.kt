@@ -30,38 +30,42 @@ import java.time.Duration
 import java.util.*
 
 /** Websocket client handling user data / balance events.
+ * @property userDataClient   [UserDataClient] that will fetch the listen key to open
+ *
  * @param userDataClient   [UserDataClient] that will fetch the listen key to open
  * @param callback Callback.
  * */
 class WebsocketUserDataClient(
-    val userDataClient: UserDataClient, callback: WebsocketCallback<UserDataUpdate>
-) : BaseWebsocketClient<UserDataUpdate>(null, userDataClient.startUserDataStream().sync().listenKey!!, UserDataUpdate::class.java, callback) {
-
-    /** The listen key the client is watching. */
-    val listenKey: String
-        get() = stream
-
-    /** The timer responsible to schedule the keep alive task.  */
-    private lateinit var timer: Timer
-
-    /** The keep alive task schedule interval. Default 30 minutes.  */
-    private var keepAliveInterval: Duration = Duration.ofMinutes(30)
-
-    override fun open() {
-        super.open()
-        timer = Timer()
-        timer.schedule(KeepAliveTask(), keepAliveInterval.toMillis(), keepAliveInterval.toMillis())
-    }
-
-    override fun close() {
-        super.close()
-        timer.cancel()
-    }
-
-    /** The task responsible for keeping alive the listenKey.  */
-    private inner class KeepAliveTask : TimerTask() {
-        override fun run() {
-            userDataClient.keepAliveUserDataStream(stream)
-        }
-    }
+	val userDataClient: UserDataClient, callback: WebsocketCallback<UserDataUpdate>
+) : BaseWebsocketClient<UserDataUpdate>(
+	null, userDataClient.startUserDataStream().sync().listenKey, UserDataUpdate::class.java, callback
+) {
+	
+	/** The listen key the client is watching. */
+	val listenKey: String
+		get() = stream
+	
+	/** The timer responsible to schedule the keep alive task.  */
+	private lateinit var timer: Timer
+	
+	/** The keep alive task schedule interval. Default 30 minutes.  */
+	private var keepAliveInterval: Duration = Duration.ofMinutes(30)
+	
+	override fun open() {
+		super.open()
+		timer = Timer()
+		timer.schedule(KeepAliveTask(), keepAliveInterval.toMillis(), keepAliveInterval.toMillis())
+	}
+	
+	override fun close() {
+		super.close()
+		timer.cancel()
+	}
+	
+	/** The task responsible for keeping alive the listenKey.  */
+	private inner class KeepAliveTask : TimerTask() {
+		override fun run() {
+			userDataClient.keepAliveUserDataStream(stream)
+		}
+	}
 }

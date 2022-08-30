@@ -25,6 +25,7 @@
 package com.binance4j.websocket.callback
 
 /** Contains the code and the reason of the websocket closing.
+ *
  * @property code    The closing code.
  * @property reason  The closing reason.
  * */

@@ -45,29 +45,29 @@ abstract class BaseWebsocketClient<T>(
 ) :
 	WebsocketClient {
 	/** The websocket client. */
-	internal lateinit var innerClient: BaseWebsocketClient<T>
+	protected lateinit var innerClient: BaseWebsocketClient<T>
 	
 	/** The wrapped websocket. */
-	internal lateinit var innerWebsocket: WebSocket
+	private lateinit var innerWebsocket: WebSocket
 	
 	/** The interceptor callback. */
-	internal var interceptorCallback: WebsocketInterceptorCallback<T> = WebsocketInterceptorCallback(this, callback)
+	private var interceptorCallback: WebsocketInterceptorCallback<T> = WebsocketInterceptorCallback(this, callback)
 	
 	/** The channel to connect to. */
-	internal lateinit var channel: String,
+	private lateinit var channel: String
 	
 	/** The listener using the interceptor callback. */
-	internal var listener: ApiWebSocketListener<T> = ApiWebSocketListener(interceptorCallback, payloadClass)
+	private var listener: ApiWebSocketListener<T> = ApiWebSocketListener(interceptorCallback, payloadClass)
 	
 	/** The client configuration. */
 	final override var configuration: WebsocketClientConfiguration = WebsocketClientConfiguration()
 	
 	/** Will call onClosing and onClosed of the interceptor callback if not. */
-	internal var forceClosingHandler: WebsocketForceClosingHandler =
+	private var forceClosingHandler: WebsocketForceClosingHandler =
 		WebsocketForceClosingHandler(this, interceptorCallback)
 	
 	/** Will close the client after some time. */
-	internal var closeClientHandler: WebsocketCloseClientHandler =
+	private var closeClientHandler: WebsocketCloseClientHandler =
 		WebsocketCloseClientHandler(this, interceptorCallback)
 	
 	/*
@@ -90,9 +90,7 @@ abstract class BaseWebsocketClient<T>(
 		closeClientHandler.run()
 	}
 	
-	override fun close() {
-		close(true)
-	}
+	override fun close() = close(true)
 	
 	/**
 	 * Closes the stream
@@ -131,8 +129,9 @@ abstract class BaseWebsocketClient<T>(
 	 */
 	internal fun generateChannel(symbolToLowerCase: Boolean) {
 		symbols =
-			if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault()) else symbols?.uppercase(Locale.getDefault())
-		channel = symbols?.split(",")?.map(String::trim)?.joinToString("/") { s -> String.format("%s@%s", s, stream) }
-			.toString()
+			if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault())
+			else symbols?.uppercase(Locale.getDefault())
+		channel =
+			symbols.toString().split(",").map(String::trim).joinToString("/") { s -> String.format("%s@%s", s, stream) }
 	}
 }

@@ -31,7 +31,7 @@ import com.binance4j.wallet.client.WalletClient
 /**
  * [WalletClient.dustTransfer] params.
  *
- * @param assets List of assets to convert into BNB.
+ * @property assets List of assets to convert into BNB.
  */
 data class DustTransferParams(var assets: List<String>) : Params {
 	constructor(assets: String) : this(assets.replace(" ", "").split(","))

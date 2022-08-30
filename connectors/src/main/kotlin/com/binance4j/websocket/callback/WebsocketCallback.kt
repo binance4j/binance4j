@@ -27,48 +27,48 @@ package com.binance4j.websocket.callback
 import com.binance4j.core.exception.ApiException
 import okhttp3.Response
 
-/** Websocket client stream events handler  */
+/** Websocket client stream events handler.  */
 fun interface WebsocketCallback<T> {
-    /**
-     * Triggered when the server sends data
-     *
-     * @param message Server message.
-     */
-    fun onMessage(message: T)
-
-    /**
-     * Triggered when the connection fails
-     *
-     * @param exception Exception containing the API code and message error.
-     */
-    fun onFailure(exception: ApiException) {
-        /** Empty */
-    }
-
-    /**
-     * Triggered when the connection is closing
-     *
-     * @param websocketCloseObject Websocket closing code and reason container.
-     */
-    fun onClosing(websocketCloseObject: WebsocketCloseObject) {
-        /** Empty */
-    }
-
-    /**
-     * Triggered when the connection is closed
-     *
-     * @param websocketCloseObject Websocket closing code and reason container.
-     */
-    fun onClosed(websocketCloseObject: WebsocketCloseObject) {
-        /** Empty */
-    }
-
-    /**
-     * Triggered when the connection is opened
-     *
-     * @param response API open response.
-     */
-    fun onOpen(response: Response) {
-        /** Empty */
-    }
+	/**
+	 * Triggered when the server sends data
+	 *
+	 * @param message Server message.
+	 */
+	fun onMessage(message: T)
+	
+	/**
+	 * Triggered when the connection fails
+	 *
+	 * @param exception Exception containing the API code and message error.
+	 */
+	fun onFailure(exception: ApiException) {
+		/** Empty */
+	}
+	
+	/**
+	 * Triggered when the connection is closing
+	 *
+	 * @param websocketCloseObject Websocket closing code and reason container.
+	 */
+	fun onClosing(websocketCloseObject: WebsocketCloseObject) {
+		/** Empty */
+	}
+	
+	/**
+	 * Triggered when the connection is closed
+	 *
+	 * @param websocketCloseObject Websocket closing code and reason container.
+	 */
+	fun onClosed(websocketCloseObject: WebsocketCloseObject) {
+		/** Empty */
+	}
+	
+	/**
+	 * Triggered when the connection is opened
+	 *
+	 * @param response API open response.
+	 */
+	fun onOpen(response: Response) {
+		/** Empty */
+	}
 }

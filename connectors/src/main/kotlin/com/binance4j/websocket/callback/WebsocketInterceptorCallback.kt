@@ -45,22 +45,22 @@ class WebsocketInterceptorCallback<T>(
 	var callback: WebsocketCallback<T>
 ) : WebsocketCallback<T> {
 	/** Event to handle connection failure and try to reconnect. */
-	internal var connectionHandler: WebsocketEventHandler = WebsocketConnectionHandler(websocketClient, this)
+	var connectionHandler: WebsocketEventHandler = WebsocketConnectionHandler(websocketClient, this)
 	
 	/** Event to handle no response from server. */
-	internal var noResponseHandler: WebsocketEventHandler = WebsocketNoResponseHandler(websocketClient, this)
+	private var noResponseHandler: WebsocketEventHandler = WebsocketNoResponseHandler(websocketClient, this)
 	
 	/** Event to handle failure in the disconnection state. */
-	internal var disconnectionHandler: WebsocketEventHandler = WebsocketDisconnectionHandler(websocketClient, this)
+	private var disconnectionHandler: WebsocketEventHandler = WebsocketDisconnectionHandler(websocketClient, this)
 	
 	/** Forces the call of onClosing and onClosed. */
-	internal lateinit var forceClosingHandler: WebsocketEventHandler
+	lateinit var forceClosingHandler: WebsocketEventHandler
 	
 	/** Tells the interceptor if the closing has been made by the client. */
-	internal val closedByClient: Boolean
+	var closedByClient: Boolean = false
 	
 	/** Has the onClosing handler been called. */
-	internal val onClosingCalled: Boolean
+	var onClosingCalled: Boolean = false
 	
 	/** Socket using the callback. */
 	internal var socket: WebSocket? = null
@@ -70,7 +70,7 @@ class WebsocketInterceptorCallback<T>(
 		callback.onMessage(message)
 	}
 	
-	override fun onClosing(websocketCloseObject: WebsocketCloseObject?) {
+	override fun onClosing(websocketCloseObject: WebsocketCloseObject) {
 		forceClosingHandler.cancel()
 		onClosingCalled = true
 		// we force disconnection
@@ -78,7 +78,7 @@ class WebsocketInterceptorCallback<T>(
 		callback.onClosing(websocketCloseObject)
 	}
 	
-	override fun onClosed(websocketCloseObject: WebsocketCloseObject?) {
+	override fun onClosed(websocketCloseObject: WebsocketCloseObject) {
 		// we stop disconnection forcing
 		disconnectionHandler.cancel()
 		callback.onClosed(websocketCloseObject) // Reconnect if server closed stream and keepAlive is on
@@ -88,15 +88,11 @@ class WebsocketInterceptorCallback<T>(
 		socket = null
 	}
 	
-	override fun onOpen(response: Response?) {
-		// we stop trying to reconnect
+	override fun onOpen(response: Response) {
 		connectionHandler.cancel()
-		// we handle no response data
 		noResponseHandler.run()
 		callback.onOpen(response)
 	}
 	
-	override fun onFailure(exception: ApiException?) {
-		callback.onFailure(exception)
-	}
+	override fun onFailure(exception: ApiException) = callback.onFailure(exception)
 }

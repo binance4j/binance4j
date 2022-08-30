@@ -32,10 +32,9 @@ import com.binance4j.websocket.dto.AggTrade
  * @param callback Events handler.
  */
 class WebsocketAggTradeClient(symbols: String, callback: WebsocketCallback<AggTrade>) :
-    BaseWebsocketClient<AggTrade>(symbols, "aggTrade", AggTrade::class.java, callback) {
-    /**
-     * @param symbols  Trading pair iterable.
-     * @param callback Events handler.
-     */
-    constructor(symbols: Iterable<CharSequence>, callback: WebsocketCallback<AggTrade>) : this(java.lang.String.join(",", symbols), callback)
+	BaseWebsocketClient<AggTrade>(symbols, "aggTrade", AggTrade::class.java, callback) {
+	constructor(
+		symbols: Iterable<CharSequence>,
+		callback: WebsocketCallback<AggTrade>
+	) : this(java.lang.String.join(",", symbols), callback)
 }

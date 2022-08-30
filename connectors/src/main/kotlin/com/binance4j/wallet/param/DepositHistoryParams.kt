@@ -32,8 +32,8 @@ import com.binance4j.wallet.dto.DepositStatus
 /**
  * [WalletClient.getDepositHistory] params.
  *
- * @param coin   Deposited coin.
- * @param status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
+ * @property coin   Deposited coin.
+ * @property status Deposit status. 0:pending, 1:success,6: credited but cannot withdraw.
  */
 data class DepositHistoryParams @JvmOverloads constructor(
 	var coin: String? = null,

@@ -32,9 +32,9 @@ import com.binance4j.wallet.client.WalletClient
  * [WalletClient.getAssetDividendRecord] params.
  *
  * @property asset  Asset.
- * @param startTime Start time in ms.
- * @param endTime   End time in ms.
- * @param limit     Results limit.
+ * @property startTime Start time in ms.
+ * @property endTime   End time in ms.
+ * @property limit     Results limit.
  */
 data class AssetDividendRecordParams @JvmOverloads constructor(
 	var asset: String? = null,

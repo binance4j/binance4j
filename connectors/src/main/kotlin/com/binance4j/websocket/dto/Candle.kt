@@ -29,10 +29,8 @@ import com.binance4j.websocket.serialization.CandlestickEventSerializer
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonFormat.Shape
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -78,12 +76,10 @@ data class Candle(
 	val volume: String,
 	@ApiModelProperty("Candlestick close timestamp in milliseconds")
 	val closeTime: Long,
-	
 	@ApiModelProperty("Quote asset traded volume")
 	val quoteAssetVolume: String,
 	@ApiModelProperty("Number of trades")
 	val numberOfTrades: Long,
-	
 	@ApiModelProperty("Taker buy base asset volume")
 	val takerBuyBaseAssetVolume: String,
 	@ApiModelProperty("Taker buy quote asset volume")
@@ -92,17 +88,14 @@ data class Candle(
 	val eventType: String,
 	@ApiModelProperty("Timestamp in ms.")
 	val eventTime: Long,
-	
 	@ApiModelProperty("Trading pair.")
 	val symbol: String,
 	@ApiModelProperty("Interval id.")
 	val intervalId: String,
 	@ApiModelProperty("First trade id.")
 	val firstTradeId: Long,
-	
 	@ApiModelProperty("Last trade id.")
 	val lastTradeId: Long,
-	
 	@ApiModelProperty("Is it the last bar of the interval?")
 	val isBarFinal: Boolean
 )
