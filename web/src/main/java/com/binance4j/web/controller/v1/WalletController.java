@@ -54,29 +54,32 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-/** Controller for Wallet endpoints. */
+/**
+ * Controller for Wallet endpoints.
+ */
 @RestController
 @RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "wallet")
 @Api(value = "Wallet", tags = "Wallet", produces = "application/json", description = "Wallet endpoints")
 public class WalletController extends BaseController {
 	/**
 	 * Creates instance.
-	 * 
+	 *
 	 * @param connectors Binance4j connectors.
 	 */
 	public WalletController(Connectors connectors) {
 		super(connectors);
 	}
-
+	
 	/**
 	 * @return Wallet client.
 	 */
 	private WalletClient client() {
 		return connectors.rest().wallet();
 	}
-
+	
 	/**
 	 * @return The system status.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "system-status")
@@ -84,10 +87,11 @@ public class WalletController extends BaseController {
 	public SystemStatus getSystemStatus() throws ApiException {
 		return client().getSystemStatus().sync();
 	}
-
+	
 	/**
 	 * @return The information of coins (available for deposit and withdraw) for
-	 *         user.
+	 * user.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "coins")
@@ -95,9 +99,10 @@ public class WalletController extends BaseController {
 	public List<CoinInformation> getAllCoinsInfo() throws ApiException {
 		return client().getAllCoinsInfo().sync();
 	}
-
+	
 	/**
 	 * @return The daily SPOT account snapshots.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "spot-snapshot")
@@ -109,9 +114,10 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getSpotAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
-
+	
 	/**
 	 * @return The daily MARGIN account snapshots.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "margin-snapshot")
@@ -123,9 +129,10 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getMarginAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
-
+	
 	/**
 	 * @return The daily FUTURES account snapshots.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "futures-snapshot")
@@ -137,10 +144,10 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getFuturesAccountSnapshot(new TimeFrame(startTime, endTime, limit)).sync();
 	}
-
+	
 	/**
 	 * Enables fast withdraw switch under your account.
-	 * 
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "enable-fast-withdraw-switch")
@@ -148,10 +155,10 @@ public class WalletController extends BaseController {
 	public Void enableFastWithdrawSwitch() throws ApiException {
 		return client().enableFastWithdrawSwitch().sync();
 	}
-
+	
 	/**
 	 * Disables fast withdraw switch under your account.
-	 * 
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "disable-fast-withdraw-switch")
@@ -159,14 +166,16 @@ public class WalletController extends BaseController {
 	public Void disableFastWithdrawSwitch() throws ApiException {
 		return client().disableFastWithdrawSwitch().sync();
 	}
-
+	
 	/**
 	 * Submits a withdraw request.
-	 * 
+	 *
 	 * @param coin    Coin to withdraw.
 	 * @param address Destination address.
 	 * @param amount  Volume to withdraw.
+	 *
 	 * @return The result of a withdraw.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "withdraw")
@@ -178,9 +187,10 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().withdraw(new WithdrawParams(amount, coin, address)).sync();
 	}
-
+	
 	/**
 	 * @return Deposit history.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "deposits")
@@ -196,7 +206,7 @@ public class WalletController extends BaseController {
 		return client().getDepositHistory(new DepositHistoryParams(status, coin),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * @param coin            Coin.
 	 * @param withdrawOrderId Withdraw order id.
@@ -205,7 +215,9 @@ public class WalletController extends BaseController {
 	 * @param endTime         End time in ms.
 	 * @param page            Results page.
 	 * @param limit           Results limit.
+	 *
 	 * @return Withdraw history.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "withdraws")
@@ -224,11 +236,13 @@ public class WalletController extends BaseController {
 						new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * @param coin    Coin abbreviation.
 	 * @param network Transfer network.
+	 *
 	 * @return Deposit address.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "deposit-address")
@@ -238,9 +252,10 @@ public class WalletController extends BaseController {
 			@RequestParam(required = false) @ApiParam("Transfer network.") String network) throws ApiException {
 		return client().getDepositAddress(new DepositAddressParams(coin, network)).sync();
 	}
-
+	
 	/**
 	 * @return Account status.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "account-status")
@@ -248,9 +263,10 @@ public class WalletController extends BaseController {
 	public AccountStatus getAccountStatus() throws ApiException {
 		return client().getAccountStatus().sync();
 	}
-
+	
 	/**
 	 * @return The account api trading status detail.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trading-status")
@@ -258,26 +274,30 @@ public class WalletController extends BaseController {
 	public ApiTradingStatus getApiTradingStatus() throws ApiException {
 		return client().getApiTradingStatus().sync();
 	}
-
+	
 	/**
 	 * @param startTime Start time in ms.
 	 * @param endTime   End time in ms.
+	 *
 	 * @return The the dust transfer logs.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "dust-log")
 	@ApiOperation(value = "Get the dust transfer logs.")
-
+	
 	public DustLog getDustLog(@RequestParam(required = false) @ApiParam(START_TIME_DESCRIPTION) Long startTime,
-			@RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime) throws ApiException {
+	                          @RequestParam(required = false) @ApiParam(END_TIME_DESCRIPTION) Long endTime) throws ApiException {
 		return client().getDustLog(new TimeFrame(startTime, endTime)).sync();
 	}
-
+	
 	/**
 	 * Convert dust assets to BNB.
-	 * 
+	 *
 	 * @param symbols Symbols separated by a coma.
+	 *
 	 * @return The dust transfer response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "dust-transfer")
@@ -287,13 +307,15 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().dustTransfer(new DustTransferParams(symbols)).sync();
 	}
-
+	
 	/**
 	 * @param asset     Asset.
 	 * @param startTime Start time in ms.
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
+	 *
 	 * @return The dividend record of one or multiple assets.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "asset-dividends")
@@ -308,10 +330,12 @@ public class WalletController extends BaseController {
 				.getAssetDividendRecord(new AssetDividendRecordParams(asset), new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * @param asset Asset.
+	 *
 	 * @return The details of one or all assets supported on Binance.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "asset-details")
@@ -321,10 +345,12 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getAssetDetail(new AssetDetailParams(asset)).sync();
 	}
-
+	
 	/**
 	 * @param symbol Symbol.
+	 *
 	 * @return Trade fees of one or all symbols
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trade-fee")
@@ -334,18 +360,20 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getTradeFee(new TradeFeeParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * Make a universal transfer.
-	 * 
+	 *
 	 * @param asset      Asset.
 	 * @param type       Transfer type.
 	 * @param amount     Volume.
-	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
-	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
-	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
-	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param fromSymbol Mandatory when `ISOLATEDMARGIN_MARGIN` and
+	 *                   `ISOLATEDMARGIN_ISOLATEDMARGIN`.
+	 * @param toSymbol   Mandatory when `ISOLATEDMARGIN_MARGIN` and
+	 *                   `ISOLATEDMARGIN_ISOLATEDMARGIN`.
+	 *
 	 * @return The user universal transfer response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "universal-transfer")
@@ -360,18 +388,20 @@ public class WalletController extends BaseController {
 		return client().transfer(new WalletTransferParams(asset, type, amount, fromSymbol, toSymbol))
 				.sync();
 	}
-
+	
 	/**
 	 * @param type       Transfer type.
-	 * @param fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
-	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
-	 * @param toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and
-	 *                   {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+	 * @param fromSymbol Mandatory when `ISOLATEDMARGIN_MARGIN` and
+	 *                   `ISOLATEDMARGIN_ISOLATEDMARGIN`.
+	 * @param toSymbol   Mandatory when `ISOLATEDMARGIN_MARGIN` and
+	 *                   `ISOLATEDMARGIN_ISOLATEDMARGIN`.
 	 * @param startTime  Start time in ms.
 	 * @param endTime    End time in ms.
 	 * @param page       Results page.
 	 * @param limit      Results limit.
+	 *
 	 * @return The user universal transfer history.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "universal-transfers")
@@ -390,11 +420,13 @@ public class WalletController extends BaseController {
 						new FramedPaging(startTime, endTime, page, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * @param asset            Asset we want the balance.
 	 * @param needBtcValuation Get the BTC value of the asset.
+	 *
 	 * @return the funding wallet asset balance.
+	 *
 	 * @throws ApiException
 	 */
 	@JsonGetMapping(path = "funding-wallet")
@@ -405,9 +437,10 @@ public class WalletController extends BaseController {
 			throws ApiException {
 		return client().getFundingWallet(new FundingWalletParams(asset, needBtcValuation)).sync();
 	}
-
+	
 	/**
 	 * @return the API Key Permission.
+	 *
 	 * @throws ApiException
 	 */
 	@JsonGetMapping(path = "api-permissions")

@@ -26,7 +26,7 @@ symbol : String, Boolean isIsolated):Params
 	/**
 	 * Creates an instance of {@link GetOpenOCOParams}.
 	 * 
-	 * @param symbol Isolated symbol. {@code isIsolated} set to true.
+	 * @param symbol Isolated symbol. `isIsolated` set to true.
 	 */
 	public GetOpenOCOParams(String symbol) {
 		this(symbol, true);

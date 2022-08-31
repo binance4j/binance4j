@@ -1,6 +1,6 @@
 package com.binance4j.margin.dto;
 
-import java.util.List;
+;
 import java.util.Optional;
 
 import com.binance4j.core.dto.OrderReport;

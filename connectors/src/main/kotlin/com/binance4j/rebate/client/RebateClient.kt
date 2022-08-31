@@ -32,7 +32,7 @@ import com.binance4j.rebate.param.SpotRebateHistoryParams
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.rebate-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#rebate-endpoints)
  */
 class RebateClient(key: String, secret: String) : RestClient<RebateMapping>(RebateMapping::class.java, key, secret) {
 	/**

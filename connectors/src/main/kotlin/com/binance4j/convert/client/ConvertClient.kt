@@ -34,7 +34,7 @@ import com.binance4j.core.client.RestClient
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.convert-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints)
  */
 class ConvertClient(key: String, secret: String) : RestClient<ConvertMapping>(ConvertMapping::class.java, key, secret) {
 	/**

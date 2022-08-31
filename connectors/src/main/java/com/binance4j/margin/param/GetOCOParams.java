@@ -10,10 +10,10 @@ import com.binance4j.margin.client.MarginClient;
  * @param symbol            Symbol. Mandatory for isolated margin, not supported
  *                          for cross margin.
  * @param isIsolated        Is the order isolated?
- * @param orderListId       Either {@code orderListId} or
- *                          {@code origClientOrderId} must be provided.
- * @param origClientOrderId Either {@code orderListId} or
- *                          {@code origClientOrderId} must be provided.
+ * @param orderListId       Either `orderListId` or
+ *                          `origClientOrderId` must be provided.
+ * @param origClientOrderId Either `orderListId` or
+ *                          `origClientOrderId` must be provided.
  */
 data class GetOCOParams(
 symbol : String, Boolean isIsolated,

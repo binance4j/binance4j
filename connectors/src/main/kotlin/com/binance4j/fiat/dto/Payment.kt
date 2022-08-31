@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property cryptoCurrency Crypto token.
  * @property totalFee Trade fee.
  * @property price Price.
- * @property status Status: {@code Processing}, {@code Completed}, {@code Failed}, {@code Refunded}.
+ * @property status Status: `Processing`, `Completed`, `Failed`, `Refunded`.
  * @property createTime Create time in ms.
  * @property updateTime Update time in ms.
  */

@@ -33,10 +33,10 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * User data update event:
  * <ul>
- * <li>{@code outboundAccountPosition}: the change in account balances caused by
+ * <li>`outboundAccountPosition`: the change in account balances caused by
  * an event.</li>
- * <li>{@code executionReport}: whenever there is a trade or an order.</li>
- * <li>{@code balanceUpdate}: the change in account balance (delta).</li>
+ * <li>`executionReport`: whenever there is a trade or an order.</li>
+ * <li>`balanceUpdate`: the change in account balance (delta).</li>
  * </ul>
  *
  * @property eventType                          Event type.

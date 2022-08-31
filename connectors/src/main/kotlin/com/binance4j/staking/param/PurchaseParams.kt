@@ -34,7 +34,7 @@ import com.binance4j.staking.dto.ProductType
  * @param product   Product type.
  * @param productId Product id.
  * @param amount    Amount to purchase.
- * @param renewable Renew purchase? Active if product is {@code STAKING} or {@code L_DEFI}.
+ * @param renewable Renew purchase? Active if product is `STAKING` or `L_DEFI`.
  */
 data class PurchaseParams @JvmOverloads constructor(
 	var product: String,

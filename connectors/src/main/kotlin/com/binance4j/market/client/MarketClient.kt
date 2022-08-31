@@ -30,7 +30,7 @@ import com.binance4j.market.param.*
 /**
  * API client for the market endpoints
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.market-data-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints)
  */
 class MarketClient
 /**

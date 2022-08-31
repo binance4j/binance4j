@@ -30,8 +30,8 @@ Boolean isIsolated):Params
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to
-	 *               {@code true}
+	 * @param symbol Isolated symbol. `isIsolated` automatically set to
+	 *               `true`
 	 */
 	public GetAllOCOParams(String symbol) {
 		this(symbol, null, true);
@@ -40,8 +40,8 @@ Boolean isIsolated):Params
 	/**
 	 * Creates an instance of {@link GetAllOCOParams}.
 	 * 
-	 * @param symbol Isolated symbol. {@code isIsolated} automatically set to
-	 *               {@code true}
+	 * @param symbol Isolated symbol. `isIsolated` automatically set to
+	 *               `true`
 	 * @param fromId If supplied, don't provide {@link TimeFrame}
 	 */
 	public GetAllOCOParams(String symbol, Long fromId) {

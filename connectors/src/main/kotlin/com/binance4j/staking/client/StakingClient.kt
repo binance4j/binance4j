@@ -33,7 +33,7 @@ import com.binance4j.staking.param.*
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.staking-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#staking-endpoints)
  */
 class StakingClient(key: String, secret: String) : RestClient<StakingMapping>(StakingMapping::class.java, key, secret) {
 	/**

@@ -1,6 +1,6 @@
 package com.binance4j.margin.dto;
 
-import java.util.List;
+;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

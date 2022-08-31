@@ -33,7 +33,7 @@ import com.binance4j.wallet.param.*
  * The API client for the wallet endpoints
  * @param key    API public key.
  * @param secret API secret key.
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.wallet-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints)
  */
 class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(WalletMapping::class.java, key, secret) {
 	/**

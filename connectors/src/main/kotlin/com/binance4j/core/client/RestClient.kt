@@ -47,7 +47,8 @@ abstract class RestClient<T> @JvmOverloads constructor(
 	mapping: Class<T>, var key: String = "", var secret: String = "", useTestnet: Boolean = false
 ) {
 	/** Request authentication interceptor. */
-	private var interceptor: AuthenticationInterceptor = AuthenticationInterceptor(key, secret)
+	private var authInterceptor: AuthenticationInterceptor = AuthenticationInterceptor(key, secret)
+	private var headersInterceptor: MetaHeadersInterceptor = MetaHeadersInterceptor()
 	
 	/** API service to make calls.  */
 	protected var service: T = createService(mapping, useTestnet)
@@ -60,8 +61,9 @@ abstract class RestClient<T> @JvmOverloads constructor(
 	private fun createService(mapping: Class<T>, useTestnet: Boolean): T {
 		val apiUrl = if (useTestnet) "https://testnet.binance.vision" else "https://api.binance.com"
 		val converterFactory = JacksonConverterFactory.create(Binance4j.mapper)
-		val client = OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder().addInterceptor(interceptor)
-			.addInterceptor(MetaHeadersInterceptor()).build()
+		val client =
+			OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder().addInterceptor(authInterceptor)
+				.addInterceptor(headersInterceptor).build()
 		return Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
 			.create(mapping)
 	}
@@ -73,7 +75,7 @@ abstract class RestClient<T> @JvmOverloads constructor(
 	 * @param secret New secret.
 	 */
 	fun updateKeys(key: String, secret: String) {
-		interceptor.key = key
-		interceptor.secret = secret
+		authInterceptor.key = key
+		authInterceptor.secret = secret
 	}
 }

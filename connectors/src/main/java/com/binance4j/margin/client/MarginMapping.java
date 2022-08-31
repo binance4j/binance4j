@@ -1,6 +1,6 @@
 package com.binance4j.margin.client;
 
-import java.util.List;
+;
 import java.util.Map;
 
 import com.binance4j.core.client.RestMapping;
@@ -48,352 +48,395 @@ import retrofit2.http.QueryMap;
 public interface MarginMapping extends RestMapping {
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 600" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 600"})
 	@POST("/sapi/v1/margin/transfer")
 	Call<Transaction> transfer(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 3000"})
 	@POST("/sapi/v1/margin/loan")
 	Call<Transaction> borrow(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 3000" })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 3000"})
 	@POST("/sapi/v1/margin/repay")
 	Call<Transaction> repay(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({API_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/asset")
 	Call<Asset> getAsset(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({API_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/pair")
 	Call<CrossSymbol> getCrossMarginPair(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({API_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/allPairs")
 	Call<List<CrossSymbol>> getAllCrossMarginPairs(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, WEIGHT_ONE_H })
+	@Headers({API_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/allAssets")
 	Call<List<Asset>> getAllAssets();
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ API_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({API_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/priceIndex")
 	Call<PriceIndex> getPriceIndex(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 6", IS_ORDER_H })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 6", IS_ORDER_H})
 	@POST("/sapi/v1/margin/order")
 	Call<NewOrderRecord> newOrder(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@DELETE("/sapi/v1/margin/order")
 	Call<CancelOrderResponse> cancelOrder(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@DELETE("/sapi/v1/margin/openOrders")
 	Call<List<CancelOrderResponse>> cancelOpenOrders(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/transfer")
 	Call<TransferRecords> getTransferHistory(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/loan")
 	Call<LoanRecord> getLoanRecord(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/repay")
 	Call<RepayRecords> getRepayRecord(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/interestHistory")
 	Call<InterestHistory> getInterestHistory(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/forceLiquidationRec")
 	Call<ForceLiquidationRecords> getForceLiquidationRecord(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/account")
 	Call<Account> getAccount(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/order")
 	Call<OrderInfo> getOrder(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/openOrders")
 	Call<List<OrderInfo>> getOpenOrders(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 200" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 200"})
 	@GET("/sapi/v1/margin/allOrders")
 	Call<List<OrderInfo>> getAllOrders(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, IS_ORDER_H, "X-WEIGHT: 6" })
+	@Headers({SIGNED_H, UID_H, IS_ORDER_H, "X-WEIGHT: 6"})
 	@POST("/sapi/v1/margin/order/oco")
 	Call<NewOCOOrderRecord> newOCO(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, UID_H, WEIGHT_ONE_H})
 	@DELETE("/sapi/v1/margin/orderList")
 	Call<NewOCOOrderRecord> cancelOCO(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/orderList")
 	Call<OCOOrderRecord> getOCO(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 200" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 200"})
 	@GET("/sapi/v1/margin/allOrderList")
 	Call<List<OCOOrderRecord>> getAllOCO(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/openOrderList")
 	Call<List<OCOOrderRecord>> getOpenOCO(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/myTrades")
 	Call<List<Trade>> getTrades(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 50" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 50"})
 	@GET("/sapi/v1/margin/maxBorrowable")
 	Call<MaxBorrowable> getMaxBorrowable(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 50" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 50"})
 	@GET("/sapi/v1/margin/maxTransferable")
 	Call<MaxTransferable> getMaxTransferable(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 600" })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 600"})
 	@POST("/sapi/v1/margin/isolated/transfer")
 	Call<Transaction> isolatedTransfer(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/isolated/transfer")
 	Call<IsolatedTransferRecords> getIsolatedTransferHistory(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/isolated/account")
 	Call<IsolatedAccount> getIsolatedAccount(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 300" })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 300"})
 	@DELETE("/sapi/v1/margin/isolated/account")
 	Call<ToogleAccountResponse> disableIsolatedAccount(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, UID_H, "X-WEIGHT: 300" })
+	@Headers({SIGNED_H, UID_H, "X-WEIGHT: 300"})
 	@POST("/sapi/v1/margin/isolated/account")
 	Call<ToogleAccountResponse> enableIsolatedAccount(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 1" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 1"})
 	@GET("/sapi/v1/margin/isolated/accountLimit")
 	Call<IsolatedAccountLimit> getEnabledIsolatedAccountLimit(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/isolated/pair")
 	Call<IsolatedSymbol> getIsolatedSymbol(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/isolated/allPairs")
 	Call<List<IsolatedSymbol>> getAllIsolatedSymbols(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@POST("/sapi/v1/bnbBurn")
 	Call<BNBBurnStatus> toggleBNBBurnOnSpotTradeAndMarginInterest(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/bnbBurn")
 	Call<BNBBurnStatus> getBNBBurnStatus(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, WEIGHT_ONE_H })
+	@Headers({SIGNED_H, IP_H, WEIGHT_ONE_H})
 	@GET("/sapi/v1/margin/interestRateHistory")
 	Call<List<InterestRate>> getInterestRateHistory(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 5" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 5"})
 	@GET("/sapi/v1/margin/crossMarginData")
 	Call<List<CrossFee>> getMarginFeeData(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 10" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 10"})
 	@GET("/sapi/v1/margin/isolatedMarginData")
 	Call<List<IsolatedFee>> getIsolatedFeeData(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 1" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 1"})
 	@GET("/sapi/v1/margin/isolatedMarginTier")
 	Call<List<IsolatedTierData>> getIsolatedMarginTierData(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 20" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 20"})
 	@GET("/sapi/v1/margin/rateLimit/order")
 	Call<List<OrderRateLimit>> getRateLimit(@QueryMap Map<String, Object> map);
-
+	
 	/**
 	 * @param map Query map.
+	 *
 	 * @return The generated Retrofit call.
 	 */
-	@Headers({ SIGNED_H, IP_H, "X-WEIGHT: 1" })
+	@Headers({SIGNED_H, IP_H, "X-WEIGHT: 1"})
 	@GET("/sapi/v1/margin/dribblet")
 	// TODO watch headers in response to get weight since not in doc.
 	Call<DustLogRecord> getDustLog(@QueryMap Map<String, Object> map);

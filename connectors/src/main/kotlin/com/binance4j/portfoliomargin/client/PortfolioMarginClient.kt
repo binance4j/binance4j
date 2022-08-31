@@ -34,7 +34,7 @@ import com.binance4j.portfoliomargin.param.CollateralRateInfoParams
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.portfolio-margin-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#portfolio-margin-endpoints)
  */
 class PortfolioMarginClient(key: String, secret: String) :
 	RestClient<PortfolioMarginMapping>(PortfolioMarginMapping::class.java, key, secret) {

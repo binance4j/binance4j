@@ -35,8 +35,8 @@ import com.binance4j.wallet.dto.WalletTransferType
  * @property asset      Asset.
  * @property type       Transfer type.
  * @property amount     Volume.
- * @property fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
- * @property toSymbol   Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+ * @property fromSymbol Mandatory when `ISOLATEDMARGIN_MARGIN` and `ISOLATEDMARGIN_ISOLATEDMARGIN`.
+ * @property toSymbol   Mandatory when `ISOLATEDMARGIN_MARGIN` and `ISOLATEDMARGIN_ISOLATEDMARGIN`.
  */
 data class WalletTransferParams @JvmOverloads constructor(
 	var asset: String,

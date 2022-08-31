@@ -31,7 +31,7 @@ import com.binance4j.mining.param.*
 /**
  * Api client for the NFT endpoints
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.mining-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#mining-endpoints)
  */
 class MiningClient
 /**

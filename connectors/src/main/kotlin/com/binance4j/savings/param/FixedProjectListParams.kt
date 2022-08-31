@@ -33,7 +33,7 @@ import com.binance4j.savings.dto.FixedProjectType
  *
  * @param type   Project type.
  * @param asset  Asset.
- * @param status Project status. default: {@code START_TIME}.
+ * @param status Project status. default: `START_TIME`.
  * @param page  Results page.
  * @param limit Number of rows.
  */

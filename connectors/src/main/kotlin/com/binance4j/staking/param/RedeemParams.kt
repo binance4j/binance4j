@@ -33,8 +33,8 @@ import com.binance4j.staking.dto.ProductType
  *
  * @param product    Product type.
  * @param productId  Product id.
- * @param positionId Position id. Mandatory if product is {@code STAKING} or {@code L_DEFI}.
- * @param amount     Amount to purchase. Mandatory if product is {@code F_DEFI}.
+ * @param positionId Position id. Mandatory if product is `STAKING` or `L_DEFI`.
+ * @param amount     Amount to purchase. Mandatory if product is `F_DEFI`.
  */
 data class RedeemParams @JvmOverloads constructor(
 	var product: String,

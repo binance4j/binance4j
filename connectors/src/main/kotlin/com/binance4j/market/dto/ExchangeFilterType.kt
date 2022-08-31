@@ -31,7 +31,7 @@ package com.binance4j.market.dto
  */
 enum class ExchangeFilterType {
 	/**
-	 * The {@code EXCHANGE_MAX_NUM_ORDERS} filter The maximum number of orders an
+	 * The `EXCHANGE_MAX_NUM_ORDERS` filter The maximum number of orders an
 	 * account is allowed to have open on the
 	 * exchange. Note that both "algo" orders and normal orders are counted for this
 	 * filter.
@@ -39,11 +39,11 @@ enum class ExchangeFilterType {
 	EXCHANGE_MAX_NUM_ORDERS,
 	
 	/**
-	 * The {@code EXCHANGE_MAX_NUM_ALGO_ORDERS} filter The maximum number of "algo"
+	 * The `EXCHANGE_MAX_NUM_ALGO_ORDERS` filter The maximum number of "algo"
 	 * orders an account is allowed to have
-	 * open on the exchange. "Algo" orders are {@code STOP_LOSS},
-	 * {@code STOP_LOSS_LIMIT}, {@code TAKE_PROFIT}, and
-	 * {@code TAKE_PROFIT_LIMIT} orders.
+	 * open on the exchange. "Algo" orders are `STOP_LOSS`,
+	 * `STOP_LOSS_LIMIT`, `TAKE_PROFIT`, and
+	 * `TAKE_PROFIT_LIMIT` orders.
 	 */
 	EXCHANGE_MAX_NUM_ALGO_ORDERS,
 }

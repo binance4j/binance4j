@@ -1,6 +1,6 @@
 package com.binance4j.margin.dto;
 
-import java.util.List;
+;
 
 import com.binance4j.margin.dto.DustLogRecord.UserAssetDribblet;
 import com.binance4j.margin.dto.DustLogRecord.UserAssetDribblet.UserAssetDribbletDetail;

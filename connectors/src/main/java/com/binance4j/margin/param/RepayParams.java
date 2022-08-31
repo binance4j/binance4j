@@ -11,7 +11,7 @@ import com.binance4j.margin.client.MarginClient;
  * @param asset      Asset to repay.
  * @param amount     Amount to repay.
  * @param symbol     Isolated symbol.
- * @param isIsolated For isolated margin or not. Default {@code false}.
+ * @param isIsolated For isolated margin or not. Default `false`.
  */
 @Param(weight = 300, type = RateLimitType.UID)
 data class RepayParams(
@@ -34,7 +34,7 @@ symbol : String, Boolean isIsolated):Params
 	 * 
 	 * @param asset  Asset to repay.
 	 * @param amount Amount to repay.
-	 * @param symbol Isolated symbol. {@code isIsolated} set to true.
+	 * @param symbol Isolated symbol. `isIsolated` set to true.
 	 */
 	public RepayParams(String asset, String amount, String symbol) {
 		this(asset, amount, symbol, true);

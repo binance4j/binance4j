@@ -33,8 +33,8 @@ import com.binance4j.wallet.dto.WalletTransferType
  * [WalletClient.getTransferHistory] params.
  *
  * @property type       User universal transfer type.
- * @property fromSymbol Mandatory when {@code ISOLATEDMARGIN_MARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
- * @property toSymbol   Mandatory when {@code MARGIN_ISOLATEDMARGIN} and {@code ISOLATEDMARGIN_ISOLATEDMARGIN}.
+ * @property fromSymbol Mandatory when `ISOLATEDMARGIN_MARGIN` and `ISOLATEDMARGIN_ISOLATEDMARGIN`.
+ * @property toSymbol   Mandatory when `MARGIN_ISOLATEDMARGIN` and `ISOLATEDMARGIN_ISOLATEDMARGIN`.
  * @property startTime Start time in ms.
  * @property endTime   End time in ms.
  * @property page      Result page.

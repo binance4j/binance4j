@@ -34,7 +34,7 @@ import com.binance4j.margin.param.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+;
 
 public class MarginClientTest extends CustomTest {
 	protected MarginClient client = new MarginClient(key, secret);

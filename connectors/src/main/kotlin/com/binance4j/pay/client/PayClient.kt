@@ -32,7 +32,7 @@ import com.binance4j.pay.param.TradeHistoryParams
  * @param key    API public key.
  * @param secret API secret key.
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.pay-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints)
  */
 class PayClient(key: String, secret: String) : RestClient<PayMapping>(PayMapping::class.java, key, secret) {
 	/**

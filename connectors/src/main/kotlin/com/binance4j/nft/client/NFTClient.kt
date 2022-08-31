@@ -32,7 +32,7 @@ import com.binance4j.nft.param.TransactionHistoryParams
 /**
  * Api client for the NFT endpoints
  *
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.nft-endpoints)
+ * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#nft-endpoints)
  */
 class NFTClient
 /**

@@ -95,34 +95,38 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-/** Controller for Margin endpoints. */
+/**
+ * Controller for Margin endpoints.
+ */
 @RestController
 @RequestMapping(Binance4jWeb.CONNECTORS_BASE_URI + "margin")
 @Api(value = "Margin", tags = "Margin", produces = "application/json", description = "Margin endpoints")
 public class MarginController extends BaseController {
 	/**
 	 * Creates instance.
-	 * 
+	 *
 	 * @param connectors Binance4j connectors.
 	 */
 	public MarginController(Connectors connectors) {
 		super(connectors);
 	}
-
+	
 	/**
 	 * @return Margin client.
 	 */
 	private MarginClient client() {
 		return connectors.rest().margin();
 	}
-
+	
 	/**
 	 * Execute transfer between spot account and cross margin account.
-	 * 
+	 *
 	 * @param asset  Asset being transferred.
 	 * @param amount Amount to be transferred.
 	 * @param type   Transfer type.
+	 *
 	 * @return The transaction response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "transfer")
@@ -134,15 +138,17 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().transfer(new TransferParams(asset, amount, type)).sync();
 	}
-
+	
 	/**
 	 * Apply for a loan.
-	 * 
+	 *
 	 * @param asset      Asset to borrow.
 	 * @param amount     Amount to borrow.
 	 * @param symbol     Isolated symbol.
 	 * @param isIsolated For isolated margin or not. Default: false.
+	 *
 	 * @return The transaction response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "borrow")
@@ -155,15 +161,17 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().borrow(new BorrowParams(asset, amount, symbol, isIsolated)).sync();
 	}
-
+	
 	/**
 	 * Repay loan for margin account.
-	 * 
+	 *
 	 * @param asset      Asset to repay.
 	 * @param amount     Amount to repay.
 	 * @param symbol     Isolated symbol.
 	 * @param isIsolated For isolated margin or not. Default: false.
+	 *
 	 * @return The transaction response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "repay")
@@ -176,12 +184,14 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().repay(new RepayParams(asset, amount, symbol, isIsolated)).sync();
 	}
-
+	
 	/**
 	 * Get info about an asset.
-	 * 
+	 *
 	 * @param asset Asset.
+	 *
 	 * @return An asset on the platform.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "asset")
@@ -189,11 +199,12 @@ public class MarginController extends BaseController {
 	public Asset getAsset(@RequestParam @ApiParam(ASSET_DESCRIPTION) String asset) throws ApiException {
 		return client().getAsset(new AssetParams(asset)).sync();
 	}
-
+	
 	/**
 	 * Get info about all assets.
-	 * 
+	 *
 	 * @return All assets on the platform.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "all-assets")
@@ -201,12 +212,14 @@ public class MarginController extends BaseController {
 	public List<Asset> getAllAssets() throws ApiException {
 		return client().getAllAssets().sync();
 	}
-
+	
 	/**
 	 * Get info about a cross margin pair.
-	 * 
+	 *
 	 * @param symbol Symbols.
+	 *
 	 * @return A Cross margin Asset pair.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "margin-pair")
@@ -215,11 +228,12 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getCrossMarginPair(new PairParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * Get info about all cross margin pairs.
-	 * 
+	 *
 	 * @return All Cross margin Asset pairs.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "margin-pairs")
@@ -227,12 +241,14 @@ public class MarginController extends BaseController {
 	public List<CrossSymbol> getAllCrossMarginPairs() throws ApiException {
 		return client().getAllCrossMarginPairs().sync();
 	}
-
+	
 	/**
 	 * Get the price index of a symbol.
-	 * 
+	 *
 	 * @param symbol Symbol.
+	 *
 	 * @return All Cross margin Asset pairs.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "price-index")
@@ -241,15 +257,17 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getPriceIndex(new PriceIndexParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * Cancel an open order.
-	 * 
+	 *
 	 * @param symbol            Trade symbol.
 	 * @param orderId           Order id.
 	 * @param origClientOrderId Original client order id.
 	 * @param newClientOrderId  New client order id.
+	 *
 	 * @return The cancellation response.
+	 *
 	 * @throws ApiException
 	 */
 	@DeleteMapping(path = "cancel-order")
@@ -263,24 +281,26 @@ public class MarginController extends BaseController {
 		return client()
 				.cancelOrder(new CancelOrderParams(symbol, orderId, origClientOrderId, newClientOrderId)).sync();
 	}
-
+	
 	/**
 	 * Cancel open orders.
-	 * 
+	 *
 	 * @param symbol Symbol.
+	 *
 	 * @return The cancellation responses.
+	 *
 	 * @throws ApiException
 	 */
 	@DeleteMapping(path = "cancel-orders")
 	@ApiOperation(value = "Cancel open orders.")
 	public List<CancelOrderResponse> cancelOpenOrders(@RequestParam @ApiParam(SYMBOL_DESCRIPTION) String symbol,
-			@RequestParam(required = false) @ApiParam("For isolated symbol.") Boolean isIsolated) throws ApiException {
+	                                                  @RequestParam(required = false) @ApiParam("For isolated symbol.") Boolean isIsolated) throws ApiException {
 		return client().cancelOpenOrders(new CancelOpenOrdersParams(symbol, isIsolated)).sync();
 	}
-
+	
 	/**
 	 * Get Cross Margin Transfer History.
-	 * 
+	 *
 	 * @param asset          Related asset.
 	 * @param isolatedSymbol Isolated symbol.
 	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
@@ -289,7 +309,9 @@ public class MarginController extends BaseController {
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
 	 * @param limit          Results in the page.
+	 *
 	 * @return A list of transfer history records.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "transfers")
@@ -307,10 +329,10 @@ public class MarginController extends BaseController {
 		return client().getTransferHistory(new TransactionHistoryParams(asset, isolatedSymbol, txId, archived),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * Query Loan Record.
-	 * 
+	 *
 	 * @param asset          Related asset.
 	 * @param isolatedSymbol Isolated symbol.
 	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
@@ -319,7 +341,9 @@ public class MarginController extends BaseController {
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
 	 * @param limit          Results in the page.
+	 *
 	 * @return A loan record.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "loans")
@@ -337,10 +361,10 @@ public class MarginController extends BaseController {
 		return client().getLoanRecord(new TransactionHistoryParams(asset, isolatedSymbol, txId, archived),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * Query repay Record.
-	 * 
+	 *
 	 * @param asset          Related asset.
 	 * @param isolatedSymbol Isolated symbol.
 	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
@@ -349,7 +373,9 @@ public class MarginController extends BaseController {
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
 	 * @param limit          Results in the page.
+	 *
 	 * @return A repay record.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "repays")
@@ -367,10 +393,10 @@ public class MarginController extends BaseController {
 		return client().getRepayRecord(new TransactionHistoryParams(asset, isolatedSymbol, txId, archived),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * Query interest Record.
-	 * 
+	 *
 	 * @param asset          Related asset.
 	 * @param isolatedSymbol Isolated symbol.
 	 * @param txId           Transaction id in POST /sapi/v1/margin/repay.
@@ -379,7 +405,9 @@ public class MarginController extends BaseController {
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
 	 * @param limit          Results in the page.
+	 *
 	 * @return A repay record.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "interests")
@@ -397,16 +425,18 @@ public class MarginController extends BaseController {
 		return client().getInterestHistory(new TransactionHistoryParams(asset, isolatedSymbol, txId, archived),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * Get Force Liquidation Record.
-	 * 
+	 *
 	 * @param isolatedSymbol Isolated symbol.
 	 * @param startTime      Start time in ms.
 	 * @param endTime        End time in ms.
 	 * @param page           Result page.
 	 * @param limit          Results in the page.
+	 *
 	 * @return A repay record.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "liquidations")
@@ -421,11 +451,12 @@ public class MarginController extends BaseController {
 		return client().getForceLiquidationRecord(new ForceLiquidationRecordParams(isolatedSymbol),
 				new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
 	 * Get current account information.
-	 * 
+	 *
 	 * @return SPOT account information.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "account")
@@ -433,15 +464,16 @@ public class MarginController extends BaseController {
 	public Account getAccount() throws ApiException {
 		return client().getAccount().sync();
 	}
-
+	
 	/**
 	 * Check an order's status.
-	 * 
+	 *
 	 * @param symbol            Trade symbol.
 	 * @param orderId           Order id.
 	 * @param origClientOrderId Original client order id.
-	 * 
+	 *
 	 * @return Trade order information.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "order-status")
@@ -454,13 +486,14 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getOrder(new OrderParams(symbol, orderId, isIsolated, origClientOrderId)).sync();
 	}
-
+	
 	/**
 	 * Get all open orders on a symbol.
-	 * 
+	 *
 	 * @param symbol Trade symbol.
-	 * 
+	 *
 	 * @return Trade order information.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "open-orders")
@@ -471,17 +504,18 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getOpenOrders(new OpenOrdersParams(symbol, isIsolated)).sync();
 	}
-
+	
 	/**
 	 * Get all orders on a symbol.
-	 * 
+	 *
 	 * @param symbol    Trade symbol.
 	 * @param orderId   Order id.
 	 * @param startTime Start time in ms.
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
-	 * 
+	 *
 	 * @return Trade order information.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "all-orders")
@@ -499,19 +533,21 @@ public class MarginController extends BaseController {
 						new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * Cancel an entire Order List. Canceling an individual leg will cancel the
 	 * entire OCO
-	 * 
+	 *
 	 * @param symbol            Symbol to cancel the order.
-	 * @param orderListId       Either {@code orderListId} or
-	 *                          {@code listClientOrderId} must be provided.
-	 * @param listClientOrderId Either {@code orderListId} or
-	 *                          {@code listClientOrderId} must be provided.
+	 * @param orderListId       Either `orderListId` or
+	 *                          `listClientOrderId` must be provided.
+	 * @param listClientOrderId Either `orderListId` or
+	 *                          `listClientOrderId` must be provided.
 	 * @param newClientOrderId  Used to uniquely identify this cancel. Automatically
 	 *                          generated by default
+	 *
 	 * @return An OCO Order details.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@DeleteMapping(path = "cancel-oco")
@@ -527,17 +563,18 @@ public class MarginController extends BaseController {
 				.cancelOCO(new CancelOCOParams(symbol, orderListId, listClientOrderId, isIsolated, newClientOrderId))
 				.sync();
 	}
-
+	
 	/**
 	 * Retrieves a specific OCO based on provided optional parameters.
-	 * 
+	 *
 	 * @param symbol            Trade symbol.
-	 * @param orderListId       Either {@code orderListId} or
-	 *                          {@code origClientOrderId} must be provided.
-	 * @param origClientOrderId Either {@code orderListId} or
-	 *                          {@code origClientOrderId} must be provided.
-	 * 
+	 * @param orderListId       Either `orderListId` or
+	 *                          `origClientOrderId` must be provided.
+	 * @param origClientOrderId Either `orderListId` or
+	 *                          `origClientOrderId` must be provided.
+	 *
 	 * @return An OCO Order details.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "oco")
@@ -550,16 +587,17 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getOCO(new GetOCOParams(symbol, isIsolated, orderListId, origClientOrderId)).sync();
 	}
-
+	
 	/**
 	 * Retrieves all OCO based on provided optional parameters.
-	 * 
+	 *
 	 * @param fromId    Id to search from.
 	 * @param startTime Start time in ms.
 	 * @param endTime   End time in ms.
 	 * @param limit     Results limit.
-	 * 
+	 *
 	 * @return List of OCO Order details.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "all-oco")
@@ -576,11 +614,12 @@ public class MarginController extends BaseController {
 				.getAllOCO(new GetAllOCOParams(symbol, fromId, isIsolated), new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * Retrieves all open OCO.
-	 * 
+	 *
 	 * @return List of OCO Order details.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "open-oco")
@@ -590,12 +629,13 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("For isolated symbol.") Boolean isIsolated) throws ApiException {
 		return client().getOpenOCO(new GetOpenOCOParams(symbol, isIsolated)).sync();
 	}
-
+	
 	/**
 	 * Get trades for a specific account and symbol. If fromId is set, it will get
 	 * id &gt;= fromId. Otherwise most recent trades are returned.
-	 * 
+	 *
 	 * @return List of OCO Order details.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "trades")
@@ -610,11 +650,12 @@ public class MarginController extends BaseController {
 		return client().getTrades(new TradeParams(symbol, fromId, isIsolated), new TimeFrame(startTime, endTime, limit))
 				.sync();
 	}
-
+	
 	/**
 	 * Query Max Borrow.
-	 * 
+	 *
 	 * @return Max Borrowable amount.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "max-borrowable")
@@ -624,11 +665,12 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("Isolated symbol.") String isolatedSymbol) throws ApiException {
 		return client().getMaxBorrowable(new MaxBorrowableParams(asset, isolatedSymbol)).sync();
 	}
-
+	
 	/**
 	 * Query Max Transfer-Out Amount.
-	 * 
+	 *
 	 * @return Max Borrowable amount.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "max-transferable")
@@ -638,16 +680,18 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("Isolated symbol.") String isolatedSymbol) throws ApiException {
 		return client().getMaxTransferable(new MaxTransferableParams(asset, isolatedSymbol)).sync();
 	}
-
+	
 	/**
 	 * Make an Isolated Margin Account Transfer.
-	 * 
+	 *
 	 * @param asset     Asset to transfer.
 	 * @param symbol    Symbol to transfer from.
 	 * @param amount    Amount to transfer.
 	 * @param transFrom Transfer origin.
 	 * @param transTo   Transfer destination.
+	 *
 	 * @return The transaction.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "isolated-transfer")
@@ -662,10 +706,10 @@ public class MarginController extends BaseController {
 		return client().newIsolatedTransfer(new NewIsolatedTransferParams(asset, symbol, amount, transFrom, transTo))
 				.sync();
 	}
-
+	
 	/**
 	 * Get Isolated Margin Transfer History.
-	 * 
+	 *
 	 * @param asset     Asset.
 	 * @param symbol    Symbol.
 	 * @param transFrom Transfer origin.
@@ -675,7 +719,9 @@ public class MarginController extends BaseController {
 	 * @param endTime   End time in ms.
 	 * @param page      Result page.
 	 * @param limit     Results in the page.
+	 *
 	 * @return Isolated margin transfer records.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-transfers")
@@ -693,11 +739,12 @@ public class MarginController extends BaseController {
 		return client().getIsolatedTransferHistory(new IsolatedTransferHistoryParams(symbol, asset, transFrom,
 				transTo, archived), new FramedPaging(startTime, endTime, page, limit)).sync();
 	}
-
+	
 	/**
-	 * 
 	 * @param symbols Max 5 symbols can be sent; separated by ",".
+	 *
 	 * @return Isolated margin account info.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-account")
@@ -706,13 +753,15 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam(SYMBOLS_DESCRIPTION) String symbols) throws ApiException {
 		return client().getIsolatedAccount(new IsolatedAccountParams(symbols)).sync();
 	}
-
+	
 	/**
 	 * Disable isolated margin account for a specific symbol. Each trading pair can
 	 * only be deactivated once every 24 hours.
-	 * 
+	 *
 	 * @param symbol Symbol.
+	 *
 	 * @return Response after enabling/disabling isolated margin account.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "disable-isolated-account")
@@ -721,13 +770,15 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().disableIsolatedAccount(new ToogleAccountParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * Enable isolated margin account for a specific symbol(Only supports activation
 	 * of previously disabled accounts).
-	 * 
+	 *
 	 * @param symbol Symbol.
+	 *
 	 * @return Response after enabling/disabling isolated margin account.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "enable-isolated-account")
@@ -736,9 +787,10 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().enableIsolatedAccount(new ToogleAccountParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * @return enabled isolated margin account limit.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-account-limit")
@@ -746,9 +798,10 @@ public class MarginController extends BaseController {
 	public IsolatedAccountLimit getEnabledIsolatedAccountLimit() throws ApiException {
 		return client().getEnabledIsolatedAccountLimit().sync();
 	}
-
+	
 	/**
 	 * @return info about an isolated symbol.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-symbol")
@@ -757,9 +810,10 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		return client().getIsolatedSymbol(new PairParams(symbol)).sync();
 	}
-
+	
 	/**
 	 * @return info about all isolated symbols.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-symbols")
@@ -767,13 +821,15 @@ public class MarginController extends BaseController {
 	public List<IsolatedSymbol> getAllIsolatedSymbols() throws ApiException {
 		return client().getAllIsolatedSymbols().sync();
 	}
-
+	
 	/**
 	 * Toggle BNB Burn On Spot Trade And Margin Interest.
-	 * 
+	 *
 	 * @param spotBNBBurn     Use BNB to pay for trading fees on SPOT?
 	 * @param interestBNBBurn Use BNB to pay for margin loan's interest?
+	 *
 	 * @return BNB burn status.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "toggle-bnb-burn")
@@ -785,9 +841,10 @@ public class MarginController extends BaseController {
 		return client().toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(spotBNBBurn, interestBNBBurn))
 				.sync();
 	}
-
+	
 	/**
 	 * @return BNB Burn Status.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "bnb-burn-status")
@@ -795,12 +852,13 @@ public class MarginController extends BaseController {
 	public BNBBurnStatus getBNBBurnStatus() throws ApiException {
 		return client().getBNBBurnStatus().sync();
 	}
-
+	
 	/**
 	 * @param asset    Asset.
 	 * @param vipLevel VIP level.
-	 * 
+	 *
 	 * @return Query Margin Interest Rate History.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "interest-rates")
@@ -810,13 +868,14 @@ public class MarginController extends BaseController {
 			@RequestParam @ApiParam("VIP level") Integer vipLevel) throws ApiException {
 		return client().getInterestRateHistory(new InterestRateHistoryParams(asset, vipLevel)).sync();
 	}
-
+	
 	/**
 	 * @param coin     Coin.
 	 * @param vipLevel VIP level.
-	 * 
+	 *
 	 * @return cross margin fee data collection with any vip level or user's current
-	 *         specific data
+	 * specific data
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "margin-fee")
@@ -826,13 +885,14 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("VIP level") Integer vipLevel) throws ApiException {
 		return client().getMarginFeeData(new CrossFeeParams(coin, vipLevel)).sync();
 	}
-
+	
 	/**
 	 * @param coin     Coin.
 	 * @param vipLevel VIP level.
-	 * 
+	 *
 	 * @return Get isolated margin fee data collection with any vip level or user's
-	 *         current specific data.
+	 * current specific data.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-fee")
@@ -842,12 +902,13 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("VIP level") Integer vipLevel) throws ApiException {
 		return client().getIsolatedFeeData(new IsolatedFeeParams(coin, vipLevel)).sync();
 	}
-
+	
 	/**
 	 * @param symbol Symbol.
 	 * @param tier   Tier.
-	 * 
+	 *
 	 * @return isolated margin tier data collection with any tier .
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "isolated-tier")
@@ -857,12 +918,13 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("Tier.") String tier) throws ApiException {
 		return client().getIsolatedMarginTierData(new IsolatedTierDataParams(symbol, tier)).sync();
 	}
-
+	
 	/**
 	 * @param symbol     Symbol.
 	 * @param isIsolated Is it isolated?
-	 * 
+	 *
 	 * @return the user's current margin order count usage for all intervals.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "rate-limit")
@@ -872,13 +934,14 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("For isolated symbol.") Boolean isIsolated) throws ApiException {
 		return client().getRateLimit(new RateLimitParams(symbol, isIsolated)).sync();
 	}
-
+	
 	/**
-	 * 
 	 * @param startTime Start time in ms.
 	 * @param endTime   End time in ms.
 	 * @param limit     Results in the page.
+	 *
 	 * @return A record of asset conversions to BNB.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonGetMapping(path = "dust-log")
@@ -889,12 +952,12 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam(LIMIT_DESCRIPTION) Integer limit) throws ApiException {
 		return client().getDustLog(new TimeFrame(startTime, endTime, limit)).sync();
 	}
-
+	
 	// ORDERS
-
+	
 	/**
 	 * Send in an OCO order.
-	 * 
+	 *
 	 * @param symbol               The order symbol.
 	 * @param side                 The order side.
 	 * @param quantity             The order quantity.
@@ -911,7 +974,9 @@ public class MarginController extends BaseController {
 	 *                             leg.
 	 * @param stopIcebergQuantity  Used with STOP_LOSS_LIMIT leg to make an iceberg
 	 *                             order.
+	 *
 	 * @return Response of an OCO order.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/oco")
@@ -942,16 +1007,18 @@ public class MarginController extends BaseController {
 		oco.setIsIsolated(isIsolated);
 		return client().newOCO(oco).sync();
 	}
-
+	
 	// MARKET ORDER
-
+	
 	/**
 	 * Submits a market order.
-	 * 
+	 *
 	 * @param symbol   Symbol.
 	 * @param quantity Quantity.
 	 * @param side     Side.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/market")
@@ -968,14 +1035,16 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a market order with the wuote asset quantity
-	 * 
+	 *
 	 * @param symbol   Symbol.
 	 * @param quantity Quantity.
 	 * @param side     Side.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/quote")
@@ -992,17 +1061,19 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a limit order.
-	 * 
+	 *
 	 * @param symbol      Symbol.
 	 * @param quantity    Quantity.
 	 * @param side        Side.
 	 * @param price       Price.
 	 * @param timeInForce Time in force.
 	 * @param icebergQty  Iceber quantity.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/limit")
@@ -1022,15 +1093,17 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a limit maker order.
-	 * 
+	 *
 	 * @param symbol   Symbol.
 	 * @param side     Side.
 	 * @param quantity Quantity.
 	 * @param price    Price.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/limit-maker")
@@ -1048,17 +1121,19 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a stop loss limit order.
-	 * 
+	 *
 	 * @param symbol      Symbol.
 	 * @param side        Side.
 	 * @param quantity    Quantity.
 	 * @param price       Price.
 	 * @param stopPrice   Stop price.
 	 * @param timeInForce Time in force.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/stop-loss-limit")
@@ -1078,7 +1153,7 @@ public class MarginController extends BaseController {
 		// handle null values
 		handleNullTrailingDeltaAndStopPrice(trailingDelta, stopPrice);
 		timeInForce = handleNullTimeInForce(timeInForce);
-
+		
 		if (stopPrice != null) {
 			order = new StopLossLimitOrder(symbol, side, quantity, price, stopPrice, timeInForce);
 		} else {
@@ -1088,16 +1163,18 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a stop loss order.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param side          Side.
 	 * @param quantity      Quantity.
 	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/stop-loss")
@@ -1114,7 +1191,7 @@ public class MarginController extends BaseController {
 		StopLossOrder order;
 		// handle null values
 		handleNullTrailingDeltaAndStopPrice(trailingDelta, stopPrice);
-
+		
 		if (stopPrice != null) {
 			order = new StopLossOrder(symbol, side, quantity, stopPrice);
 		} else {
@@ -1124,10 +1201,10 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a take profit limit order.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param side          Side.
 	 * @param quantity      Quantity.
@@ -1136,8 +1213,9 @@ public class MarginController extends BaseController {
 	 * @param stopPrice     Stop price.
 	 * @param trailingDelta Trailing delta.
 	 * @param timeInForce   Time in force.
-	 * 
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/take-profit-limit")
@@ -1166,16 +1244,18 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	/**
 	 * Submits a take profit order.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param side          Side.
 	 * @param quantity      Quantity.
 	 * @param trailingDelta Trailing delta.
 	 * @param stopPrice     Stop price.
+	 *
 	 * @return The order response.
+	 *
 	 * @throws ApiException Something went wrong.
 	 */
 	@JsonPostMapping(path = "order/take-profit")
@@ -1191,7 +1271,7 @@ public class MarginController extends BaseController {
 			throws ApiException {
 		TakeProfitOrder order;
 		handleNullTrailingDeltaAndStopPrice(trailingDelta, stopPrice);
-
+		
 		if (stopPrice != null) {
 			order = new TakeProfitOrder(symbol, side, quantity, stopPrice);
 		} else {
@@ -1201,14 +1281,15 @@ public class MarginController extends BaseController {
 		order.setSideEffectType(sideEffectType);
 		return client().newOrder(order).sync();
 	}
-
+	
 	// Handle Null values
-
+	
 	/**
 	 * Will thow an Api Exception if trailingDelta and stopPrice are null
-	 * 
+	 *
 	 * @param trailingDelta trailingDelta.
 	 * @param stopPrice     stopPrice.
+	 *
 	 * @throws ApiException Exception sent if both null.
 	 */
 	private void handleNullTrailingDeltaAndStopPrice(Long trailingDelta, String stopPrice) throws ApiException {
@@ -1216,9 +1297,10 @@ public class MarginController extends BaseController {
 			throw new ApiException(400, "Missing trailingDelta or stopPrice");
 		}
 	}
-
+	
 	/**
 	 * @param timeInForce input time in force
+	 *
 	 * @return a default Time in force if input is null
 	 */
 	private TimeInForce handleNullTimeInForce(TimeInForce timeInForce) {
