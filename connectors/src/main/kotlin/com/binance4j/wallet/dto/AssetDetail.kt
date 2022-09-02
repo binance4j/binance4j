@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Details of a supported asset.")
 data class AssetDetail(
 	@ApiModelProperty("Minimal withdraw amount.")
-	val minWithdrawAmount: String,
+	var minWithdrawAmount: String,
 	@ApiModelProperty("Deposit status (false if ALL of networks' are false).")
-	val depositStatus: Boolean,
+	var depositStatus: Boolean,
 	@ApiModelProperty("Withdraw fee.")
 	var withdrawFee: Float = 0f,
 	@ApiModelProperty("Withdraw status (false if ALL of networks' are false).")
-	val withdrawStatus: Boolean,
+	var withdrawStatus: Boolean,
 	@ApiModelProperty("Reason of the status.")
-	val depositTip: String
+	var depositTip: String
 )

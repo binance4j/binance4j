@@ -41,17 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Asset that can be converted into BNB.")
 data class ConvertibleAsset(
 	@ApiModelProperty("Asset name.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Asset full name.")
-	val assetFullName: String,
+	var assetFullName: String,
 	@ApiModelProperty("Free balance.")
-	val amountFree: String,
+	var amountFree: String,
 	@ApiModelProperty("BTC valuation.")
-	val toBTC: String,
+	var toBTC: String,
 	@ApiModelProperty("BNB valuation.")
-	val toBNB: String,
+	var toBNB: String,
 	@ApiModelProperty("BNB valuation commissions fees deducted.")
-	val toBNBOffExchange: String,
+	var toBNBOffExchange: String,
 	@ApiModelProperty("Commission fees.")
-	val exchange: String
+	var exchange: String
 )

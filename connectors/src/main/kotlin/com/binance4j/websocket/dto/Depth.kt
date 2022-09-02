@@ -46,19 +46,19 @@ import io.swagger.annotations.ApiModelProperty
 data class Depth(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
+	var eventType: String,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("First update id.")
 	@JsonProperty("U")
-	val firstUpdateId: Long,
+	var firstUpdateId: Long,
 	@ApiModelProperty("Last update id.")
 	@JsonProperty("u")
-	val finalUpdateId: Long,
+	var finalUpdateId: Long,
 	@ApiModelProperty("Offers.")
 	@JsonProperty("b")
 	var bids: List<OrderBookEntry>,

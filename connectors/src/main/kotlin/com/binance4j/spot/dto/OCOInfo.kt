@@ -42,18 +42,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An OCO Order details.")
 data class OCOInfo(
 	@ApiModelProperty("Order list id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("Contingency type.")
-	val contingencyType: String,
+	var contingencyType: String,
 	@ApiModelProperty("List status type.")
-	val listStatusType: String,
+	var listStatusType: String,
 	@ApiModelProperty("List order status.")
-	val listOrderStatus: String,
+	var listOrderStatus: String,
 	@ApiModelProperty("List client order id.")
-	val listClientOrderId: String,
+	var listClientOrderId: String,
 	@ApiModelProperty("Transaction timestamp in ms.")
-	val transactionTime: Long,
+	var transactionTime: Long,
 	@ApiModelProperty("Orders symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Two orders of the OCO order.") var orders: List<OCOOrder>
 )

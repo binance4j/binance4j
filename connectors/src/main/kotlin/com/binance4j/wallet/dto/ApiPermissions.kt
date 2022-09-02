@@ -51,35 +51,35 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The API key permissions.")
 data class ApiPermissions(
 	@ApiModelProperty("Is the key restricted to an ip address?")
-	val ipRestrict: Boolean,
+	var ipRestrict: Boolean,
 	@ApiModelProperty(
 		"This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable withdrawals"
 	)
-	val enableWithdrawals: Boolean,
+	var enableWithdrawals: Boolean,
 	@ApiModelProperty(
 		"This option authorizes this key to transfer funds between your master account and your sub account instantly."
 	)
-	val enableInternalTransfer: Boolean,
+	var enableInternalTransfer: Boolean,
 	@ApiModelProperty(
 		"Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each business's own transfer API rights are not affected by this authorization."
 	)
-	val permitsUniversalTransfer: Boolean,
+	var permitsUniversalTransfer: Boolean,
 	@ApiModelProperty("Authorizes this key to Vanilla options trading.")
-	val enableVanillaOptions: Boolean,
+	var enableVanillaOptions: Boolean,
 	@ApiModelProperty("Does the key enables reading ?")
-	val enableReading: Boolean,
+	var enableReading: Boolean,
 	@ApiModelProperty(
 		"API Key created before your futures account opened does not support futures API service."
 	)
-	val enableFutures: Boolean,
+	var enableFutures: Boolean,
 	@ApiModelProperty(
 		"This option can be adjusted after the Cross Margin account transfer is completed."
 	)
-	val enableMargin: Boolean,
+	var enableMargin: Boolean,
 	@ApiModelProperty("Spot and margin trading.")
-	val enableSpotAndMarginTrading: Boolean,
+	var enableSpotAndMarginTrading: Boolean,
 	@ApiModelProperty("API key creation timestamp.")
-	val createTime: Long,
+	var createTime: Long,
 	@ApiModelProperty("Expiration time for spot and margin trading permission.")
-	val tradingAuthorityExpirationTime: Long,
+	var tradingAuthorityExpirationTime: Long,
 )

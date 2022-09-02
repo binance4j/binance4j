@@ -49,33 +49,33 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Binance leverage token.")
 data class Token(
 	@ApiModelProperty("Token name.")
-	val tokenName: String,
+	var tokenName: String,
 	@ApiModelProperty("Description.")
-	val description: String,
+	var description: String,
 	@ApiModelProperty("Underlying.")
-	val underlying: String,
+	var underlying: String,
 	@ApiModelProperty("Token issued.")
-	val tokenIssued: String,
+	var tokenIssued: String,
 	@ApiModelProperty("Basket.")
-	val basket: String,
+	var basket: String,
 	@ApiModelProperty("Current baskets.")
-	val currentBaskets: List<Basket>,
+	var currentBaskets: List<Basket>,
 	@ApiModelProperty("Nav.")
-	val nav: String,
+	var nav: String,
 	@ApiModelProperty("Real leverage.")
-	val realLeverage: String,
+	var realLeverage: String,
 	@ApiModelProperty("Funding rate.")
-	val fundingRate: String,
+	var fundingRate: String,
 	@ApiModelProperty("Daily management fee.")
-	val dailyManagementFee: String,
+	var dailyManagementFee: String,
 	@ApiModelProperty("Purchase Fee Pct.")
-	val purchaseFeePct: String,
+	var purchaseFeePct: String,
 	@ApiModelProperty("Daily Purchase Limit.")
-	val dailyPurchaseLimit: String,
+	var dailyPurchaseLimit: String,
 	@ApiModelProperty("Redeem Fee Pct.")
-	val redeemFeePct: String,
+	var redeemFeePct: String,
 	@ApiModelProperty("Daily Redeem Limit.")
-	val dailyRedeemLimit: String,
+	var dailyRedeemLimit: String,
 	@ApiModelProperty("Timestamp.")
-	val timestamp: Long,
+	var timestamp: Long,
 )

@@ -42,17 +42,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account profit.")
 data class Profit(
 	@ApiModelProperty("Mining date in ms.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Transferred Hash rate.")
 	var type: Int,
 	@ApiModelProperty("Transferred Income.")
-	val hashTransfer: Long,
+	var hashTransfer: Long,
 	@ApiModelProperty("Daily Hash rate.")
-	val transferAmount: String,
+	var transferAmount: String,
 	@ApiModelProperty("Earnings Amount.")
-	val dayHashRate: Long,
+	var dayHashRate: Long,
 	@ApiModelProperty("Coin type.")
-	val profitAmount: String,
+	var profitAmount: String,
 	@ApiModelProperty("Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32: Hash rate Resale-Mining Wallet 33: Hash rate Resale-Pool Savings")
 	var coinName: String,
 	@ApiModelProperty("Status. 0: Unpaid 1: Paying 2: Paid")

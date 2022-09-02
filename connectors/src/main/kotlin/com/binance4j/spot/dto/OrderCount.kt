@@ -31,18 +31,18 @@ import io.swagger.annotations.ApiModelProperty
  * The user's current order count usage for all intervals.
  *
  * @property rateLimitType Type of order.
- * @property interval      Order interval.
- * @property intervalNum   Order interval num.
+ * @property intervar      Order interval.
+ * @property intervalNum   Order intervar num.
  * @property limit         Order limit.
  * @property count         Current order count.
  */
 @ApiModel("The user's current order count usage for all intervals.")
 data class OrderCount(
 	@ApiModelProperty("Type of order.")
-	val rateLimitType: String,
+	var rateLimitType: String,
 	@ApiModelProperty("Order interval.")
-	val interval: String,
-	@ApiModelProperty("Order interval num.")
+	var interval: String,
+	@ApiModelProperty("Order intervar num.")
 	var intervalNum: Int,
 	@ApiModelProperty("Order limit.")
 	var limit: Int,

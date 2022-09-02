@@ -51,7 +51,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property eventType                Event type.
  * @property eventTime                Timestamp in ms.
  * @property symbol                   Trading pair.
- * @property intervalId               Interval id.
+ * @property intervalId               Intervar id.
  * @property firstTradeId             First trade id.
  * @property lastTradeId              Last trade id.
  * @property isBarFinal               Is it the last bar of the interval?
@@ -63,39 +63,39 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Kline/candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("Candlestick open timestamp in milliseconds")
-	val openTime: Long,
+	var openTime: Long,
 	@ApiModelProperty("Open value")
-	val open: String,
+	var open: String,
 	@ApiModelProperty("High value")
-	val high: String,
+	var high: String,
 	@ApiModelProperty("Low value")
-	val low: String,
+	var low: String,
 	@ApiModelProperty("Close value")
-	val close: String,
+	var close: String,
 	@ApiModelProperty("Traded volume in the interval")
-	val volume: String,
+	var volume: String,
 	@ApiModelProperty("Candlestick close timestamp in milliseconds")
-	val closeTime: Long,
+	var closeTime: Long,
 	@ApiModelProperty("Quote asset traded volume")
-	val quoteAssetVolume: String,
+	var quoteAssetVolume: String,
 	@ApiModelProperty("Number of trades")
-	val numberOfTrades: Long,
+	var numberOfTrades: Long,
 	@ApiModelProperty("Taker buy base asset volume")
-	val takerBuyBaseAssetVolume: String,
+	var takerBuyBaseAssetVolume: String,
 	@ApiModelProperty("Taker buy quote asset volume")
-	val takerBuyQuoteAssetVolume: String,
+	var takerBuyQuoteAssetVolume: String,
 	@ApiModelProperty("Event type.")
-	val eventType: String,
+	var eventType: String,
 	@ApiModelProperty("Timestamp in ms.")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Trading pair.")
-	val symbol: String,
-	@ApiModelProperty("Interval id.")
-	val intervalId: String,
+	var symbol: String,
+	@ApiModelProperty("Intervar id.")
+	var intervalId: String,
 	@ApiModelProperty("First trade id.")
-	val firstTradeId: Long,
+	var firstTradeId: Long,
 	@ApiModelProperty("Last trade id.")
-	val lastTradeId: Long,
+	var lastTradeId: Long,
 	@ApiModelProperty("Is it the last bar of the interval?")
-	val isBarFinal: Boolean
+	var isBarFinal: Boolean
 )

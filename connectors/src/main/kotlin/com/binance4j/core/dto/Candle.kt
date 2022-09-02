@@ -48,27 +48,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An OHLC candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("The candlestick open timestamp in milliseconds.")
-	val openTime: Long,
+	var openTime: Long,
 	@ApiModelProperty("The Open value.")
-	val open: String,
+	var open: String,
 	@ApiModelProperty("The High value.")
-	val high: String,
+	var high: String,
 	@ApiModelProperty("The Low value.")
-	val low: String,
+	var low: String,
 	@ApiModelProperty("The Close value.")
-	val close: String,
+	var close: String,
 	@ApiModelProperty("The traded volume in the interval.")
-	val volume: String,
+	var volume: String,
 	@ApiModelProperty("The candlestick close timestamp in milliseconds.")
-	val closeTime: Long,
+	var closeTime: Long,
 	@ApiModelProperty("The quote asset traded volume.")
-	val quoteAssetVolume: String,
+	var quoteAssetVolume: String,
 	@ApiModelProperty("The number of trades.")
-	val numberOfTrades: Long,
+	var numberOfTrades: Long,
 	@ApiModelProperty("Taker buy base asset volume.")
-	val takerBuyBaseAssetVolume: String,
+	var takerBuyBaseAssetVolume: String,
 	@ApiModelProperty("Taker buy quote asset volume.")
-	val takerBuyQuoteAssetVolume: String
+	var takerBuyQuoteAssetVolume: String
 ) {
 	/**
 	 * @property input String input.

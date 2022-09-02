@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A transfer, borrow or repay transaction.")
 data class Transaction(
 	@ApiModelProperty("Transaction id.")
-	val tranId: String,
+	var tranId: String,
 	@ApiModelProperty("Client tag.")
-	val clientTag: String
+	var clientTag: String
 )

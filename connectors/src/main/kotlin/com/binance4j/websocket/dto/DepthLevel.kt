@@ -26,7 +26,7 @@ package com.binance4j.websocket.dto
 
 /** The order book size.
  * @property value Result size. */
-enum class DepthLevel(val value: String) {
+enum class DepthLevel(var value: String) {
 	/** Depth of 5 results.  */
 	LEVEL_5("5"),
 	

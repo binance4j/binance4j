@@ -38,9 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account data.")
 data class AccountData(
 	@ApiModelProperty("Type of daily hash rate.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Mining account.")
-	val userName: String,
+	var userName: String,
 	@ApiModelProperty("List.")
-	val list: List<AccountList>
+	var list: List<AccountList>
 )

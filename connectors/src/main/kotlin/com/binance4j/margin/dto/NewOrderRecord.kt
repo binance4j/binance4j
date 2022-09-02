@@ -53,35 +53,35 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An newly placed order record.")
 data class NewOrderRecord(
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Traded symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order side.")
 	var side: OrderSide? = null,
 	@ApiModelProperty("Order status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Order type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Order time in force.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Transaction time.")
-	val transactTime: Long,
+	var transactTime: Long,
 	@ApiModelProperty("Client order id.")
-	val clientOrderId: String,
+	var clientOrderId: String,
 	@ApiModelProperty("Symbol price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Order original quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Order executed quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Cumulative quote quantity.")
-	val cummulativeQuoteQty: String,
+	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.")
 	var marginBuyBorrowAmount: String,
 	@ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
 	var marginBuyBorrowAsset: String,
 	@ApiModelProperty("Is the order isolated?")
-	val isIsolated: Boolean,
+	var isIsolated: Boolean,
 	@ApiModelProperty("Filled trades.")
 	var fills: List<Trade>
 )

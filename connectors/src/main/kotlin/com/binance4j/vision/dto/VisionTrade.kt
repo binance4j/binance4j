@@ -41,19 +41,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A trade.")
 data class VisionTrade(
 	@ApiModelProperty("Trade id.")
-	val tradeId: Long,
+	var tradeId: Long,
 	@ApiModelProperty("Time in ms.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Quantity.")
-	val quantity: String,
+	var quantity: String,
 	@ApiModelProperty("Quote quantity.")
-	val quoteQuantity: String,
+	var quoteQuantity: String,
 	@ApiModelProperty("Was it a buyer maker.")
-	val isBuyerMaker: Boolean,
+	var isBuyerMaker: Boolean,
 	@ApiModelProperty("Was it the best price match?")
-	val isBestMatch: Boolean
+	var isBestMatch: Boolean
 ) {
 	
 	/**

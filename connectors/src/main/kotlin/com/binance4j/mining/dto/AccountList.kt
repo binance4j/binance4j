@@ -37,10 +37,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account statistics.")
 data class AccountList(
 	@ApiModelProperty("Time in ms.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Hashrate.")
-	val hashrate: String,
+	var hashrate: String,
 	@ApiModelProperty("Reject rate.")
-	val reject: String
+	var reject: String
 )
 

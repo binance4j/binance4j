@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Conversions history.")
 data class ConversionHistory(
 	@ApiModelProperty("The conversions.")
-	val list: List<Conversion>,
+	var list: List<Conversion>,
 	@ApiModelProperty("Start time in ms.")
-	val startTime: Long,
+	var startTime: Long,
 	@ApiModelProperty("End time in ms.")
-	val endTime: Long,
+	var endTime: Long,
 	@ApiModelProperty("Results limit.")
-	val limit: Int,
+	var limit: Int,
 	@ApiModelProperty("Is there more data?")
-	val moreData: Boolean
+	var moreData: Boolean
 )

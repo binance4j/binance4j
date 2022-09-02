@@ -40,9 +40,9 @@ data class ConvertibleAssets(
 	@ApiModelProperty("Details.")
 	var details: List<ConvertibleAsset>,
 	@ApiModelProperty("BTC valuation.")
-	val totalTransferBtc: String,
+	var totalTransferBtc: String,
 	@ApiModelProperty("BNB valuation.")
-	val totalTransferBNB: String,
+	var totalTransferBNB: String,
 	@ApiModelProperty("Commission fee.")
-	val dribbletPercentage: String
+	var dribbletPercentage: String
 )

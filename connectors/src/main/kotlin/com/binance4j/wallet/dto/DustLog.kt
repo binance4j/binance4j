@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Logs of assets converted in BNB.")
 data class DustLog(
 	@ApiModelProperty("Total counts of exchange.")
-	val total: Int,
+	var total: Int,
 	@ApiModelProperty("Dribblets.")
 	var userAssetDribblets: List<UserAssetDribblets>
 )

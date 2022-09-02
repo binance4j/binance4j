@@ -42,9 +42,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Defines valid range for a price based on the average of the previous trades. avgPriceMins is the number of minutes the average price is calculated over. 0 means the last price is used.")
 data class PercentPriceFilter(
 	@ApiModelProperty("Multiplier up.")
-	val multiplierUp: String,
+	var multiplierUp: String,
 	@ApiModelProperty("Multiplier down.")
-	val multiplierDown: String,
+	var multiplierDown: String,
 	@ApiModelProperty("Weighted average price.")
-	val avgPriceMins: String
+	var avgPriceMins: String
 )

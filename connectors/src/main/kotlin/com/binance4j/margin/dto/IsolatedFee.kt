@@ -40,8 +40,8 @@ data class IsolatedFee(
 	@ApiModelProperty("VIP level.")
 	var vipLevel: Int,
 	@ApiModelProperty("Related symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Leverage.")
-	val leverage: String,
+	var leverage: String,
 	@ApiModelProperty("Isolated fee data.") var data: List<IsolatedFeeData>
 )

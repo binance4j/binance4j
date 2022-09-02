@@ -47,13 +47,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Dribblets.")
 data class UserAssetDribblets(
 	@ApiModelProperty("Operation timestamp.")
-	val operateTime: Long,
+	var operateTime: Long,
 	@ApiModelProperty("Total transfered BNB amount for this exchange.")
-	val totalTransferedAmount: String,
+	var totalTransferedAmount: String,
 	@ApiModelProperty("Total service charge amount for this exchange.")
-	val totalServiceChargeAmount: String,
+	var totalServiceChargeAmount: String,
 	@ApiModelProperty("Transaction id.")
-	val transId: Long,
+	var transId: Long,
 	@ApiModelProperty("Details of this exchange.")
 	var userAssetDribbletDetails: List<UserAssetDribbletDetails>
 )

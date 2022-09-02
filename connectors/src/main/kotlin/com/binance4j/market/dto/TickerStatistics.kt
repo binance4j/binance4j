@@ -56,45 +56,45 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("24 hour price change statistics for a ticker.")
 data class TickerStatistics(
 	@ApiModelProperty("Ticker symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Price change during the last 24 hours.")
-	val priceChange: String,
+	var priceChange: String,
 	@ApiModelProperty("Price change; in percentage; during the last 24 hours.")
-	val priceChangePercent: String,
+	var priceChangePercent: String,
 	@ApiModelProperty("Weighted average price.")
-	val weightedAvgPrice: String,
+	var weightedAvgPrice: String,
 	@ApiModelProperty("Previous close price.")
-	val prevClosePrice: String,
+	var prevClosePrice: String,
 	@ApiModelProperty("Last price.")
-	val lastPrice: String,
+	var lastPrice: String,
 	@ApiModelProperty("Last quantity.")
-	val lastQty: String,
+	var lastQty: String,
 	@ApiModelProperty("Bid price.")
-	val bidPrice: String,
+	var bidPrice: String,
 	@ApiModelProperty("Bid quantity.")
-	val bidQty: String,
+	var bidQty: String,
 	@ApiModelProperty("Ask price.")
-	val askPrice: String,
+	var askPrice: String,
 	@ApiModelProperty("Ask quantity.")
-	val askQty: String,
+	var askQty: String,
 	@ApiModelProperty("Open price 24 hours ago.")
-	val openPrice: String,
+	var openPrice: String,
 	@ApiModelProperty("Highest price during the past 24 hours.")
-	val highPrice: String,
+	var highPrice: String,
 	@ApiModelProperty("Lowest price during the past 24 hours.")
-	val lowPrice: String,
+	var lowPrice: String,
 	@ApiModelProperty("Total volume during the past 24 hours.")
-	val volume: String,
+	var volume: String,
 	@ApiModelProperty("Total quote volume during the past 24 hours.")
-	val quoteVolume: String,
+	var quoteVolume: String,
 	@ApiModelProperty("Open time.")
-	val openTime: Long,
+	var openTime: Long,
 	@ApiModelProperty("Close time.")
-	val closeTime: Long,
+	var closeTime: Long,
 	@ApiModelProperty("First trade id.")
-	val firstId: Long,
+	var firstId: Long,
 	@ApiModelProperty("Last trade id.")
-	val lastId: Long,
+	var lastId: Long,
 	@ApiModelProperty("Total number of trades during the last 24 hours.")
-	val count: Long,
+	var count: Long,
 )

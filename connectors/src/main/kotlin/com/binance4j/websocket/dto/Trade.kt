@@ -48,32 +48,32 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Pair trade data.")
 data class Trade(
 	@ApiModelProperty("Event type.")
-	@JsonProperty("e") val eventType: String,
+	@JsonProperty("e") var eventType: String,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Trade id.")
 	@JsonProperty("t")
-	val tradeId: String,
+	var tradeId: String,
 	@ApiModelProperty("Price.")
 	@JsonProperty("p")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Price.")
 	@JsonProperty("q")
-	val quantity: String,
+	var quantity: String,
 	@ApiModelProperty("Buyer order id.")
 	@JsonProperty("b")
-	val buyerOrderId: Long,
+	var buyerOrderId: Long,
 	@ApiModelProperty("Seller order id.")
 	@JsonProperty("a")
-	val sellerOrderId: Long,
+	var sellerOrderId: Long,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("T")
-	val tradeTime: Long,
+	var tradeTime: Long,
 	@ApiModelProperty("Is the buyer the market maker?")
 	@JsonProperty("m")
-	val buyerIsMarketMaker: Boolean
+	var buyerIsMarketMaker: Boolean
 )

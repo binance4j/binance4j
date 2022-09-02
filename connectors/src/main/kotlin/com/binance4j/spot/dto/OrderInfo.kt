@@ -54,41 +54,41 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Trade order information.")
 data class OrderInfo(
 	@ApiModelProperty("The order side.")
-	val side: String,
+	var side: String,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Original quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Original quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Used to calculate the average price.")
-	val cummulativeQuoteQty: String,
+	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Order status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Time in force to indicate how long will the order remain active.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Type of order.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Used with stop orders.")
-	val stopPrice: String,
+	var stopPrice: String,
 	@ApiModelProperty("Used with iceberg orders.")
-	val icebergQty: String,
+	var icebergQty: String,
 	@ApiModelProperty("Order timestamp.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Update timestamp.")
-	val updateTime: Long,
+	var updateTime: Long,
 	@ApiModelProperty("Original quote order quantity.")
-	val origQuoteOrderQty: String,
+	var origQuoteOrderQty: String,
 	@ApiModelProperty("is working.")
-	val isWorking: Boolean,
+	var isWorking: Boolean,
 	@ApiModelProperty("The order symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Client order id.")
-	val clientOrderId: String,
+	var clientOrderId: String,
 	@ApiModelProperty("Order list id.")
-	val orderListId: String,
+	var orderListId: String,
 	@ApiModelProperty("Account id.")
-	val accountId: String
+	var accountId: String
 )

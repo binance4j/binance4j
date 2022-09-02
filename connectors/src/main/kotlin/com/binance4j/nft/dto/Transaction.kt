@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT transaction.")
 data class Transaction(
 	@ApiModelProperty("Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee")
-	val orderNo: String,
+	var orderNo: String,
 	@ApiModelProperty("Tokens.")
-	val tokens: List<NFT>,
+	var tokens: List<NFT>,
 	@ApiModelProperty("Trade time in ms.")
-	val tradeTime: Long,
+	var tradeTime: Long,
 	@ApiModelProperty("Trade amount.")
-	val tradeAmount: String,
+	var tradeAmount: String,
 	@ApiModelProperty("Currency used to buy the NFT.")
-	val tradeCurrency: String
+	var tradeCurrency: String
 )

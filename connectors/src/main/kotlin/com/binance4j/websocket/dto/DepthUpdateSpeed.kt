@@ -27,7 +27,7 @@ package com.binance4j.websocket.dto
 /** The order book update speed.
  * @property value The result update speed.
  * */
-enum class DepthUpdateSpeed(val value: String) {
+enum class DepthUpdateSpeed(var value: String) {
 	/** Update of 1000ms.  */
 	MS_1000("1000ms"),
 	

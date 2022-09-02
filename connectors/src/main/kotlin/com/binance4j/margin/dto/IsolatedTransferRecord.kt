@@ -42,17 +42,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset transfer record between two accounts.")
 data class IsolatedTransferRecord(
 	@ApiModelProperty("Transferred amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Transferred asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Transfer status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Transfer timestamp in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 	@ApiModelProperty("Transaction id.")
-	val txId: Long,
+	var txId: Long,
 	@ApiModelProperty("Account the asset is Transferred from.")
-	val transFrom: String,
+	var transFrom: String,
 	@ApiModelProperty("Account the asset is Transferred to.")
-	val transTo: String
+	var transTo: String
 )

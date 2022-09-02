@@ -38,12 +38,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Position Amount.")
 data class PositionAmount(
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Amount in BTC.")
-	val amountInBTC: String,
+	var amountInBTC: String,
 	@ApiModelProperty("Amount in USDT.")
-	val amountInUSDT: String,
+	var amountInUSDT: String,
 	@ApiModelProperty("Asset.")
-	val asset: String
+	var asset: String
 )
 

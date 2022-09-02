@@ -43,19 +43,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Data about a repay.")
 data class RepayRecord(
 	@ApiModelProperty("Transaction id.")
-	val txId: Long,
+	var txId: Long,
 	@ApiModelProperty("Transaction timestamp in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 	@ApiModelProperty("Isolated symbol, will not be returned for crossed margin.")
 	var isolatedSymbol: String,
 	@ApiModelProperty("Total amount repaid.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Interest repaid.")
-	val interest: String,
+	var interest: String,
 	@ApiModelProperty("Quantity repaid.")
-	val principal: String,
+	var principal: String,
 	@ApiModelProperty("Repay status.")
-	val status: String
+	var status: String
 )

@@ -47,29 +47,29 @@ import io.swagger.annotations.ApiModelProperty
 data class BLVT(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
+	var eventType: String,
 	@ApiModelProperty("Event time.")
 	@JsonProperty("E")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Name.")
 	@JsonProperty("s")
-	val name: String,
+	var name: String,
 	@ApiModelProperty("Tokens issued.")
 	@JsonProperty("m")
-	val tokensIssued: String,
+	var tokensIssued: String,
 	@ApiModelProperty("BVLT basket.")
 	@JsonProperty("b")
 	var baskets: List<BLVTBasket>,
 	@ApiModelProperty("Nav.")
 	@JsonProperty("n")
-	val nav: String,
+	var nav: String,
 	@ApiModelProperty("Real leverage.")
 	@JsonProperty("l")
-	val realLeverage: String,
+	var realLeverage: String,
 	@ApiModelProperty("Leverage.")
 	@JsonProperty("t")
-	val leverage: Int,
+	var leverage: Int,
 	@ApiModelProperty("Funding ratio.")
 	@JsonProperty("f")
-	val fundingRatio: String
+	var fundingRatio: String
 )

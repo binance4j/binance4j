@@ -31,18 +31,18 @@ import io.swagger.annotations.ApiModelProperty
  * Margin Order rate limit.
  *
  * @property rateLimitType Rate limit type.
- * @property interval      Interval.
- * @property intervalNum   Interval num.
+ * @property intervar      Interval.
+ * @property intervalNum   Intervar num.
  * @property limit         Limit.
  * @property count         Count.
  */
 @ApiModel("Margin Order rate limit.")
 data class OrderRateLimit(
 	@ApiModelProperty("Rate limit type.")
-	val rateLimitType: String,
+	var rateLimitType: String,
 	@ApiModelProperty("Interval.")
-	val interval: String,
-	@ApiModelProperty("Interval num.")
+	var interval: String,
+	@ApiModelProperty("Intervar num.")
 	var intervalNum: Int,
 	@ApiModelProperty("Limit.")
 	var limit: Int,

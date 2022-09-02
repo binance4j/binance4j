@@ -39,6 +39,6 @@ data class HashrateResaleCancellationResponse(
 	@ApiModelProperty("Code.")
 	var code: Int,
 	@ApiModelProperty("Message.")
-	val msg: String,
-	@ApiModelProperty("Cancellation success.") val data: Boolean
+	var msg: String,
+	@ApiModelProperty("Cancellation success.") var data: Boolean
 )

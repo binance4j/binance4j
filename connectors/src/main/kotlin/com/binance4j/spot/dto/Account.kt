@@ -48,27 +48,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The SPOT account information.")
 data class Account(
 	@ApiModelProperty("Maker commission.")
-	val makerCommission: String,
+	var makerCommission: String,
 	@ApiModelProperty("Taker commission.")
-	val takerCommission: String,
+	var takerCommission: String,
 	@ApiModelProperty("Buyer commission.")
-	val buyerCommission: String,
+	var buyerCommission: String,
 	@ApiModelProperty("Seller commission.")
-	val sellerCommission: String,
+	var sellerCommission: String,
 	@ApiModelProperty("Trade permission.")
-	val canTrade: Boolean,
+	var canTrade: Boolean,
 	@ApiModelProperty("Withdrawal permission.")
-	val canWithdraw: Boolean,
+	var canWithdraw: Boolean,
 	@ApiModelProperty("Deposit permission.")
-	val canDeposit: Boolean,
+	var canDeposit: Boolean,
 	@ApiModelProperty("Timestamp of the last data update.")
-	val updateTime: Long,
+	var updateTime: Long,
 	@ApiModelProperty("Balances of each asset in the SPOT wallet.")
 	var balances: List<AssetBalance>,
 	@ApiModelProperty("Account Type .")
-	val accountType: String,
+	var accountType: String,
 	@ApiModelProperty("Permissions list.")
 	var permissions: List<String>,
 	@ApiModelProperty("Brokered account?")
-	val brokered: Boolean
+	var brokered: Boolean
 )

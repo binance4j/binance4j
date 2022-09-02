@@ -43,15 +43,15 @@ import io.swagger.annotations.ApiModelProperty
 )
 data class FundingAsset(
 	@ApiModelProperty("Asset abbreviation.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Available balance.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("Locked balance (volume in the order book).")
-	val locked: String,
+	var locked: String,
 	@ApiModelProperty("Frozen balance.")
-	val freeze: String,
+	var freeze: String,
 	@ApiModelProperty("Pending volume withdrawing.")
-	val withdrawing: String,
+	var withdrawing: String,
 	@ApiModelProperty("Value of the balance in BTC.")
-	val btcValuation: String
+	var btcValuation: String
 )

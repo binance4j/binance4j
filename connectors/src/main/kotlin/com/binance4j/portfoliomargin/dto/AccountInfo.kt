@@ -38,11 +38,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Margin portfolio account info's.")
 data class AccountInfo(
 	@ApiModelProperty("Portfolio margin account maintenance margin rate")
-	val uniMMR: String,
+	var uniMMR: String,
 	@ApiModelProperty("Account equity, unit：USD")
-	val accountEquity: String,
+	var accountEquity: String,
 	@ApiModelProperty("Portfolio margin account maintenance margin, unit：USD")
-	val accountMaintMargin: String,
+	var accountMaintMargin: String,
 	@ApiModelProperty("Portfolio margin account. status: NORMAL, MARGIN_CALL, SUPPLY_MARGIN, REDUCE_ONLY, ACTIVE_LIQUIDATION, FORCE_LIQUIDATION, BANKRUPTED")
-	val accountStatus: String
+	var accountStatus: String
 )

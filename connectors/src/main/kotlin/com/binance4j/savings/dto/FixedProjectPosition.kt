@@ -51,37 +51,37 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A fixed project position.")
 data class FixedProjectPosition(
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Can transfer.")
-	val canTransfer: Boolean,
+	var canTransfer: Boolean,
 	@ApiModelProperty("Create timestamp.")
-	val createTimestamp: Long,
+	var createTimestamp: Long,
 	@ApiModelProperty("Duration.")
-	val duration: Long,
+	var duration: Long,
 	@ApiModelProperty("End time.")
-	val endTime: Long,
+	var endTime: Long,
 	@ApiModelProperty("Interest.")
-	val interest: String,
+	var interest: String,
 	@ApiModelProperty("Interest rate.")
-	val interestRate: String,
+	var interestRate: String,
 	@ApiModelProperty("Lot.")
-	val lot: Long,
+	var lot: Long,
 	@ApiModelProperty("Position id.")
-	val positionId: Long,
+	var positionId: Long,
 	@ApiModelProperty("Principal.")
-	val principal: String,
+	var principal: String,
 	@ApiModelProperty("Project id.")
-	val projectId: String,
+	var projectId: String,
 	@ApiModelProperty("Project name.")
-	val projectName: String,
+	var projectName: String,
 	@ApiModelProperty("Purchase time.")
-	val purchaseTime: Long,
+	var purchaseTime: Long,
 	@ApiModelProperty("Redeem date.")
-	val redeemDate: String,
+	var redeemDate: String,
 	@ApiModelProperty("Start time.")
-	val startTime: Long,
+	var startTime: Long,
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Type.")
-	val type: String
+	var type: String
 )

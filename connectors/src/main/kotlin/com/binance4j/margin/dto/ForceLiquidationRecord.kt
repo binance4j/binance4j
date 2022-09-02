@@ -47,22 +47,22 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Market order to exit leveraged position.")
 data class ForceLiquidationRecord(
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Liquidation timestamp in ms.")
-	val updatedTime: Long,
+	var updatedTime: Long,
 	@ApiModelProperty("Symbol average price.")
-	val avgPrice: String,
+	var avgPrice: String,
 	@ApiModelProperty("Executed quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Order time in force.")
 	var timeInForce: TimeInForce? = null,
 	@ApiModelProperty("Order side.")
 	var side: OrderSide? = null,
 	@ApiModelProperty("Order symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Order total quantity.")
-	val qty: String,
-	@ApiModelProperty("Is it isolated?") val isIsolated: Boolean
+	var qty: String,
+	@ApiModelProperty("Is it isolated?") var isIsolated: Boolean
 )

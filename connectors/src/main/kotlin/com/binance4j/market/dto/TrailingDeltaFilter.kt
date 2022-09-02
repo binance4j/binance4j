@@ -40,11 +40,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The minimum and maximum value for the parameter trailingDelta.")
 data class TrailingDeltaFilter(
 	@ApiModelProperty("Min trailing above delta.")
-	val minTrailingAboveDelta: String,
+	var minTrailingAboveDelta: String,
 	@ApiModelProperty("Max trailing above delta.")
-	val maxTrailingAboveDelta: String,
+	var maxTrailingAboveDelta: String,
 	@ApiModelProperty("Min trailing below delta.")
-	val minTrailingBelowDelta: String,
+	var minTrailingBelowDelta: String,
 	@ApiModelProperty("Max trailing below delta.")
-	val maxTrailingBelowDelta: String
+	var maxTrailingBelowDelta: String
 )

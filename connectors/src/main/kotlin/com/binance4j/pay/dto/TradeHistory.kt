@@ -38,11 +38,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Pay trade history.")
 data class TradeHistory(
 	@ApiModelProperty("Response code.")
-	val code: String,
+	var code: String,
 	@ApiModelProperty("Response message.")
-	val message: String,
+	var message: String,
 	@ApiModelProperty("Trades.")
-	val data: List<Trade>,
+	var data: List<Trade>,
 	@ApiModelProperty("Response success.")
-	val success: Boolean
+	var success: Boolean
 )

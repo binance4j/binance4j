@@ -42,19 +42,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Purchase info.")
 data class Purchase(
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Create time.")
-	val createTime: Long,
+	var createTime: Long,
 	@ApiModelProperty("Lending type.")
-	val lendingType: String,
+	var lendingType: String,
 	@ApiModelProperty("Lot.")
-	val lot: Long,
+	var lot: Long,
 	@ApiModelProperty("Product name.")
-	val productName: String,
+	var productName: String,
 	@ApiModelProperty("Purchase id.")
-	val purchaseId: Long,
+	var purchaseId: Long,
 	@ApiModelProperty("Status.")
-	val status: String
+	var status: String
 )

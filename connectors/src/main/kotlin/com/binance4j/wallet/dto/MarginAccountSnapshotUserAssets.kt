@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Margin account snapshot user assets.")
 data class MarginAccountSnapshotUserAssets(
 	@ApiModelProperty("Asset abbreviation.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Borrowed amount.")
-	val borrowed: String,
+	var borrowed: String,
 	@ApiModelProperty("Fee amount.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("Interest amount.")
-	val interest: String,
+	var interest: String,
 	@ApiModelProperty("Locked volume.")
-	val locked: String,
+	var locked: String,
 	@ApiModelProperty("Net asset.")
-	val netAsset: String
+	var netAsset: String
 )

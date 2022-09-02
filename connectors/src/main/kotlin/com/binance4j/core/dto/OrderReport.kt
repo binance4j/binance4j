@@ -55,45 +55,45 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An order report.")
 data class OrderReport(
 	@ApiModelProperty("The order list id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("The original client order id.")
-	val origClientOrderId: String,
+	var origClientOrderId: String,
 	@ApiModelProperty("The order timestamp.")
-	val transactTime: Long,
+	var transactTime: Long,
 	@ApiModelProperty("The order side.")
 	var side: OrderSide? = null,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Original quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Original quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Used to calculate the average price.")
-	val cumulativeQuoteQty: String,
+	var cumulativeQuoteQty: String,
 	@ApiModelProperty("Order status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Time in force to indicate how long will the order remain active.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Type of order.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Used with stop orders.")
-	val stopPrice: String,
+	var stopPrice: String,
 	@ApiModelProperty("Used with iceberg orders.")
-	val icebergQty: String,
+	var icebergQty: String,
 	@ApiModelProperty("Order timestamp.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Update timestamp.")
-	val updateTime: Long,
+	var updateTime: Long,
 	@ApiModelProperty("Original quote order quantity.")
-	val origQuoteOrderQty: String,
+	var origQuoteOrderQty: String,
 	@ApiModelProperty("Is working.")
-	val isWorking: Boolean,
+	var isWorking: Boolean,
 	@ApiModelProperty("is isolated margin.")
-	val isIsolated: Boolean,
+	var isIsolated: Boolean,
 	@ApiModelProperty("The order symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Client order id.")
-	val clientOrderId: String
+	var clientOrderId: String
 )

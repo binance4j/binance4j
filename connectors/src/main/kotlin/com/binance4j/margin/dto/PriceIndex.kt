@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A symbol price index.")
 data class PriceIndex(
 	@ApiModelProperty("Last price calculation timestamp in ms.")
-	val calcTime: Long,
+	var calcTime: Long,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Asset pair.")
-	val symbol: String
+	var symbol: String
 )

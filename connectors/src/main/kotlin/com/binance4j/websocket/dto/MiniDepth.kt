@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Top bids and asks.")
 data class MiniDepth(
 	@ApiModelProperty("Last update id.")
-	val lastUpdateId: Long,
+	var lastUpdateId: Long,
 	@ApiModelProperty("Bids.")
 	var bids: List<OrderBookEntry>,
 	@ApiModelProperty("Asks.")

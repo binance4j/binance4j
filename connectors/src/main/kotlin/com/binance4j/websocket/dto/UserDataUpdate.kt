@@ -52,7 +52,7 @@ data class UserDataUpdate(
 	@ApiModelProperty("Event type.")
 	var eventType: UserDataUpdateType,
 	@ApiModelProperty("Timestamp.")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Account update.")
 	var outboundAccountPositionUpdateEvent: AccountUpdate,
 	@ApiModelProperty("Balance update.")

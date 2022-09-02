@@ -48,32 +48,32 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("OCO order report.")
 data class OCOOrderReport(
 	@ApiModelProperty("Symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order Id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Order List Id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("Client Order Id.")
-	val clientOrderId: String,
+	var clientOrderId: String,
 	@ApiModelProperty("Transact Time.")
-	val transactTime: Long,
+	var transactTime: Long,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Original Quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Executed Quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Cummulative Quote Quantity.")
-	val cummulativeQuoteQty: String,
+	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Time In Force.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Side.")
-	val side: String,
+	var side: String,
 	@ApiModelProperty("StopPrice.")
-	val stopPrice: String
+	var stopPrice: String
 )
 

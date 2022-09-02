@@ -27,7 +27,7 @@ package com.binance4j.wallet.dto
 /** A wallet type.
  * @property value
  */
-enum class WalletType(val value: String) {
+enum class WalletType(var value: String) {
 	/** Spot  */
 	SPOT("0"),
 	

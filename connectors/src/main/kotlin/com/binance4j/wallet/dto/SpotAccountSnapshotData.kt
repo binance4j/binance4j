@@ -39,5 +39,5 @@ data class SpotAccountSnapshotData(
 	@ApiModelProperty("Wallet asset balances.")
 	var balances: List<AssetBalance>,
 	@ApiModelProperty("Cumulated value of the wallet in Bitcoin.")
-	val totalAssetOfBtc: String
+	var totalAssetOfBtc: String
 )

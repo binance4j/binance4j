@@ -38,11 +38,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A deposit address for a given asset.")
 data class DepositAddress(
 	@ApiModelProperty("Deposit url.")
-	val url: String,
+	var url: String,
 	@ApiModelProperty("Deposit address.")
-	val address: String,
+	var address: String,
 	@ApiModelProperty("Deposit tag.")
-	val tag: String,
+	var tag: String,
 	@ApiModelProperty("Coin abbreviation.")
-	val coin: String
+	var coin: String
 )

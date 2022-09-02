@@ -38,6 +38,6 @@ data class AveragePrice(
 	@ApiModelProperty("Mins.")
 	var mins: Int,
 	@ApiModelProperty("Average price of the asset.")
-	val price: String
+	var price: String
 )
 

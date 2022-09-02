@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account profit.")
 data class AccountProfit(
 	@ApiModelProperty("Time in ms.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Coin.")
-	val coinName: String,
+	var coinName: String,
 	@ApiModelProperty("0:Referral 1：Refund 2：Rebate.")
-	val type: Int,
+	var type: Int,
 	@ApiModelProperty("Sub-account id.")
-	val puid: Int,
+	var puid: Int,
 	@ApiModelProperty("Mining account.")
-	val subName: String,
+	var subName: String,
 	@ApiModelProperty("Amount.")
-	val amount: String
+	var amount: String
 )

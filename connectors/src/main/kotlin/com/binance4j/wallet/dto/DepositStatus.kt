@@ -27,7 +27,7 @@ package com.binance4j.wallet.dto
 /** The coin deposit status.
  * @property value The status number.
  * */
-enum class DepositStatus(val value: String) {
+enum class DepositStatus(var value: String) {
 	/** Pending  */
 	PENDING("0"),
 	

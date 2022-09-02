@@ -41,17 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Lending account.")
 data class LendingAccount(
 	@ApiModelProperty("Position amount.")
-	val positionAmountVos: List<PositionAmount>,
+	var positionAmountVos: List<PositionAmount>,
 	@ApiModelProperty("Total amount in btc.")
-	val totalAmountInBTC: String,
+	var totalAmountInBTC: String,
 	@ApiModelProperty("Total amount in usdt.")
-	val totalAmountInUSDT: String,
+	var totalAmountInUSDT: String,
 	@ApiModelProperty("Total fixed amount in btc.")
-	val totalFixedAmountInBTC: String,
+	var totalFixedAmountInBTC: String,
 	@ApiModelProperty("Total fixed amount in usdt.")
-	val totalFixedAmountInUSDT: String,
+	var totalFixedAmountInUSDT: String,
 	@ApiModelProperty("Total flexible in btc.")
-	val totalFlexibleInBTC: String,
+	var totalFlexibleInBTC: String,
 	@ApiModelProperty("Total flexible in usdt.")
-	val totalFlexibleInUSDT: String
+	var totalFlexibleInUSDT: String
 )

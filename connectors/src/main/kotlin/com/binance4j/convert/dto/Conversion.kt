@@ -44,23 +44,23 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A conversion of an asset into another.")
 data class Conversion(
 	@ApiModelProperty("Quote Id.")
-	val quoteId: String,
+	var quoteId: String,
 	@ApiModelProperty("Order Id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Order Status.")
-	val orderStatus: String,
+	var orderStatus: String,
 	@ApiModelProperty("From Asset.")
-	val fromAsset: String,
+	var fromAsset: String,
 	@ApiModelProperty("From Amount.")
-	val fromAmount: String,
+	var fromAmount: String,
 	@ApiModelProperty("To Asset.")
-	val toAsset: String,
+	var toAsset: String,
 	@ApiModelProperty("To Amount.")
-	val toAmount: String,
+	var toAmount: String,
 	@ApiModelProperty("Ratio.")
-	val ratio: String,
+	var ratio: String,
 	@ApiModelProperty("Inverse Ratio.")
-	val inverseRatio: String,
+	var inverseRatio: String,
 	@ApiModelProperty("Create Time in ms.")
-	val createTime: Long,
+	var createTime: Long,
 )

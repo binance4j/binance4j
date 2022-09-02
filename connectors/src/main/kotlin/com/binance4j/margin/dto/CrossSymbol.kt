@@ -41,17 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A Cross margin Asset pair.")
 data class CrossSymbol(
 	@ApiModelProperty("Pair id.")
-	val id: Long,
+	var id: Long,
 	@ApiModelProperty("Asset pair.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Base asset.")
-	val base: String,
+	var base: String,
 	@ApiModelProperty("Quote asset.")
-	val quote: String,
+	var quote: String,
 	@ApiModelProperty("Is margin trade allowed?")
-	val isMarginTrade: Boolean,
+	var isMarginTrade: Boolean,
 	@ApiModelProperty("Is purchase allowed?")
-	val isBuyAllowed: Boolean,
+	var isBuyAllowed: Boolean,
 	@ApiModelProperty("Is sale allowed?")
-	val isSellAllowed: Boolean
+	var isSellAllowed: Boolean
 )

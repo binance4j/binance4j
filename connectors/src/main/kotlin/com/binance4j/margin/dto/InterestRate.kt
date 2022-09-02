@@ -38,10 +38,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A loan interest rate.")
 data class InterestRate(
 	@ApiModelProperty("Related coin.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Daily interest rate.")
-	val dailyInterestRate: String,
+	var dailyInterestRate: String,
 	@ApiModelProperty("Timestamp of the applied interest rate in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 	@ApiModelProperty("Account VIP level.") var vipLevel: Int
 )

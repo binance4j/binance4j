@@ -38,5 +38,5 @@ data class WalletTransferHistory(
 	@ApiModelProperty("List of transfers.")
 	var rows: List<WalletTransfer>,
 	@ApiModelProperty("Result size.")
-	val total: Long,
+	var total: Long,
 )

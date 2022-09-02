@@ -35,5 +35,5 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Flexible purchase response.")
 data class PurchaseResponse(
 	@ApiModelProperty("Purchase id.")
-	val purchaseId: String
+	var purchaseId: String
 )

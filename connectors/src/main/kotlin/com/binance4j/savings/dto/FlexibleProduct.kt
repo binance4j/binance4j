@@ -47,29 +47,29 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A Flexible product.")
 data class FlexibleProduct(
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Avg annual interest rate.")
-	val avgAnnualInterestRate: String,
+	var avgAnnualInterestRate: String,
 	@ApiModelProperty("Tier annual interest rate.")
 	var tierAnnualInterestRate: Map<String, String>,
 	@ApiModelProperty("Latest annual interest rate.")
-	val latestAnnualInterestRate: String,
+	var latestAnnualInterestRate: String,
 	@ApiModelProperty("Product can be purchase?")
-	val canPurchase: Boolean,
+	var canPurchase: Boolean,
 	@ApiModelProperty("Product can be redeemed?")
-	val canRedeem: Boolean,
+	var canRedeem: Boolean,
 	@ApiModelProperty("Featured.")
-	val featured: Boolean,
+	var featured: Boolean,
 	@ApiModelProperty("Min purchase amount.")
-	val minPurchaseAmount: String,
+	var minPurchaseAmount: String,
 	@ApiModelProperty("Product id.")
-	val productId: String,
+	var productId: String,
 	@ApiModelProperty("Purchased amount.")
-	val purchasedAmount: String,
+	var purchasedAmount: String,
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Up limit.")
-	val upLimit: String,
+	var upLimit: String,
 	@ApiModelProperty("Up limit per user.")
-	val upLimitPerUser: String
+	var upLimitPerUser: String
 )

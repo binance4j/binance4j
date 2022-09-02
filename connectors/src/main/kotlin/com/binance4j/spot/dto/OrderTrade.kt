@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The partial trade of an order.")
 data class OrderTrade(
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Quantity.")
-	val qty: String,
+	var qty: String,
 	@ApiModelProperty("Commission.")
-	val commission: String,
+	var commission: String,
 	@ApiModelProperty("Commission asset.")
-	val commissionAsset: String,
+	var commissionAsset: String,
 	@ApiModelProperty("Trade id.")
-	val tradeId: Long
+	var tradeId: Long
 )

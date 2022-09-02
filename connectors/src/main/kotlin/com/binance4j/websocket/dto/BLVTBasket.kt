@@ -41,8 +41,8 @@ import io.swagger.annotations.ApiModelProperty
 data class BLVTBasket(
 	@ApiModelProperty("Futures symbol.")
 	@JsonProperty("s")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Position.")
 	@JsonProperty("n")
-	val position: Long,
+	var position: Long,
 )

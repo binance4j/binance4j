@@ -49,31 +49,31 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("New order response.")
 data class NewOrderResponse(
 	@ApiModelProperty("Trading pair to trade.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Order list id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("Client order id.")
-	val clientOrderId: String,
+	var clientOrderId: String,
 	@ApiModelProperty("Order transaction timestamp.")
-	val transactTime: Long,
+	var transactTime: Long,
 	@ApiModelProperty("Price of trade.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Original traded quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Current executed quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Opposite coin quantity.")
-	val cummulativeQuoteQty: String,
+	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Order status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("How long the order will remain active.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Order type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Order side.")
-	val side: String,
+	var side: String,
 	@ApiModelProperty("List of trades that partially of fully filled the order.")
 	var fills: List<OrderTrade>
 )

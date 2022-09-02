@@ -51,23 +51,23 @@ data class IsolatedPair(
 	@ApiModelProperty("Quote asset.")
 	var quoteAsset: IsolatedAsset? = null,
 	@ApiModelProperty("Asset symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("is isolated asset created.")
-	val isolatedCreated: Boolean,
+	var isolatedCreated: Boolean,
 	@ApiModelProperty("Is trading enabled?")
-	val tradeEnabled: Boolean,
+	var tradeEnabled: Boolean,
 	@ApiModelProperty("Is the pair enabled for the account?")
-	val enabled: Boolean,
+	var enabled: Boolean,
 	@ApiModelProperty("Margin level status.")
-	val marginLevelStatus: String,
+	var marginLevelStatus: String,
 	@ApiModelProperty("Margin level.")
-	val marginLevel: String,
+	var marginLevel: String,
 	@ApiModelProperty("Margin ratio.")
-	val marginRatio: String,
+	var marginRatio: String,
 	@ApiModelProperty("Index price.")
-	val indexPrice: String,
+	var indexPrice: String,
 	@ApiModelProperty("Liquidate price.")
-	val liquidatePrice: String,
+	var liquidatePrice: String,
 	@ApiModelProperty("Liquidate rate.")
-	val liquidateRate: String
+	var liquidateRate: String
 )

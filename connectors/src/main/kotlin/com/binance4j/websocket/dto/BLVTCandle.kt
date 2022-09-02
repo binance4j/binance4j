@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property startTime     Start time.
  * @property endTime       End time.
  * @property name          Name.
- * @property interval      Interval.
+ * @property intervar      Interval.
  * @property firstUpdate   First update.
  * @property lastUpdate    Last update.
  * @property open          Open.
@@ -52,38 +52,38 @@ import io.swagger.annotations.ApiModelProperty
 data class BLVTCandle(
 	@ApiModelProperty("Start time.")
 	@JsonProperty("t")
-	val startTime: Long,
+	var startTime: Long,
 	@ApiModelProperty("End time.")
 	@JsonProperty("T")
-	val endTime: Long,
+	var endTime: Long,
 	@ApiModelProperty("Name.")
 	@JsonProperty("s")
-	val name: String,
+	var name: String,
 	@ApiModelProperty("Interval.")
 	@JsonProperty("i")
 	var interval: CandlestickInterval,
 	@ApiModelProperty("First update.")
 	@JsonProperty("f")
-	val firstUpdate: Long,
+	var firstUpdate: Long,
 	@ApiModelProperty("Last update.")
 	@JsonProperty("L")
-	val lastUpdate: Long,
+	var lastUpdate: Long,
 	@ApiModelProperty("Open.")
 	@JsonProperty("o")
-	val open: String,
+	var open: String,
 	@ApiModelProperty("Close.")
 	@JsonProperty("c")
-	val close: String,
+	var close: String,
 	@ApiModelProperty("High.")
 	@JsonProperty("h")
-	val high: String,
+	var high: String,
 	@ApiModelProperty("Low.")
 	@JsonProperty("l")
-	val low: String,
+	var low: String,
 	@ApiModelProperty("Real leverage.")
 	@JsonProperty("v")
-	val realLeverage: String,
+	var realLeverage: String,
 	@ApiModelProperty("Number of updates.")
 	@JsonProperty("n")
-	val updateNumbers: Long,
+	var updateNumbers: Long,
 )

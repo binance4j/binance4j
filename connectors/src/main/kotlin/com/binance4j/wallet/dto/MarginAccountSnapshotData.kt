@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Margin account snapshot data.")
 data class MarginAccountSnapshotData(
 	@ApiModelProperty("Margin level.")
-	val marginLevel: String,
+	var marginLevel: String,
 	@ApiModelProperty("Total Asset Of Btc.")
-	val totalAssetOfBtc: String,
+	var totalAssetOfBtc: String,
 	@ApiModelProperty("Total Liability Of Btc.")
-	val totalLiabilityOfBtc: String,
+	var totalLiabilityOfBtc: String,
 	@ApiModelProperty("Total Net Asset Of Btc.")
-	val totalNetAssetOfBtc: String,
+	var totalNetAssetOfBtc: String,
 	@ApiModelProperty("User Assets.")
 	var userAssets: List<MarginAccountSnapshotUserAssets>
 )

@@ -47,29 +47,29 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The trading rules of a symbol.")
 data class SymbolFilters(
 	@ApiModelProperty("IcebergParts filter")
-	val icebergParts: IcebergPartsFilter,
+	var icebergParts: IcebergPartsFilter,
 	@ApiModelProperty("LotSize filter")
-	val lotSize: LotSizeFilter,
+	var lotSize: LotSizeFilter,
 	@ApiModelProperty("MarketLotSize filter")
-	val marketLotSize: MarketLotSizeFilter,
+	var marketLotSize: MarketLotSizeFilter,
 	@ApiModelProperty("MaxNumAlgoOrders filter")
-	val maxNumAlgoOrders: MaxNumAlgoOrdersFilter,
+	var maxNumAlgoOrders: MaxNumAlgoOrdersFilter,
 	@ApiModelProperty("MaxNumIcebergOrders filter")
-	val maxNumIcebergOrders: MaxNumIcebergOrdersFilter,
+	var maxNumIcebergOrders: MaxNumIcebergOrdersFilter,
 	@ApiModelProperty("MaxNumOrders filter")
-	val maxNumOrders: MaxNumOrdersFilter,
+	var maxNumOrders: MaxNumOrdersFilter,
 	@ApiModelProperty("MaxPosition filter")
-	val maxPosition: MaxPositionFilter,
+	var maxPosition: MaxPositionFilter,
 	@ApiModelProperty("MinNotional filter")
-	val minNotional: MinNotionalFilter,
+	var minNotional: MinNotionalFilter,
 	@ApiModelProperty("Notional filter")
-	val notional: NotionalFilter,
+	var notional: NotionalFilter,
 	@ApiModelProperty("PercentPriceBySide filter")
-	val percentPriceBySide: PercentPriceBySideFilter,
+	var percentPriceBySide: PercentPriceBySideFilter,
 	@ApiModelProperty("PercentPrice filter")
-	val percentPrice: PercentPriceFilter,
+	var percentPrice: PercentPriceFilter,
 	@ApiModelProperty("Price filter")
-	val price: PriceFilter,
+	var price: PriceFilter,
 	@ApiModelProperty("TrailingDelta filter")
-	val trailingDelta: TrailingDeltaFilter
+	var trailingDelta: TrailingDeltaFilter
 )

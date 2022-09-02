@@ -50,25 +50,25 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Record of a newly placed OCO order.")
 data class NewOCOOrderRecord(
 	@ApiModelProperty("Order list id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("Contingency type.")
-	val contingencyType: String,
+	var contingencyType: String,
 	@ApiModelProperty("List status.")
-	val listStatusType: String,
+	var listStatusType: String,
 	@ApiModelProperty("List order status.")
-	val listOrderStatus: String,
+	var listOrderStatus: String,
 	@ApiModelProperty("List client order id.")
-	val listClientOrderId: String,
+	var listClientOrderId: String,
 	@ApiModelProperty("Order timestamp.")
-	val transactionTime: Long,
+	var transactionTime: Long,
 	@ApiModelProperty("Order symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Margin buy borrow amount. Will not return if no margin trade happens.")
 	var marginBuyBorrowAmount: String,
 	@ApiModelProperty("Margin buy borrow asset. Will not return if no margin trade happens.")
 	var marginBuyBorrowAsset: String,
 	@ApiModelProperty("Is the order isolated?")
-	val isIsolated: Boolean,
+	var isIsolated: Boolean,
 	@ApiModelProperty("The 2 orders.")
 	var orders: List<MiniOrderInfo>,
 	@ApiModelProperty("Order reports.")

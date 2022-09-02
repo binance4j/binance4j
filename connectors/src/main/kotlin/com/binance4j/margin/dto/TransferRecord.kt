@@ -43,19 +43,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A transfer history record.")
 data class TransferRecord(
 	@ApiModelProperty("Transaction id.")
-	val txId: Long,
+	var txId: Long,
 	@ApiModelProperty("Transfered amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Transfered asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Transfer status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Transaction time in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 	@ApiModelProperty("Transfer history type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Transfer counterparty.")
-	val transferCounterparty: String,
+	var transferCounterparty: String,
 	@ApiModelProperty("Client tag.")
-	val clientTag: String
+	var clientTag: String
 ) 

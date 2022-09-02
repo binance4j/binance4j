@@ -41,15 +41,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A wallet to wallet transfer.")
 data class WalletTransfer(
 	@ApiModelProperty("Transferred asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Transferred amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Transfer type (origin wallet to destination wallet).")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Transfer status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Transaction id.")
-	val tranId: Long,
+	var tranId: Long,
 	@ApiModelProperty("Transfer timestamp.")
-	val timestamp: Long,
+	var timestamp: Long,
 )

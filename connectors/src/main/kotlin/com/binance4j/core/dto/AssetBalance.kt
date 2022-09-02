@@ -38,10 +38,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset balance in a wallet.")
 data class AssetBalance(
 	@ApiModelProperty("The Asset symbol.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("The available balance.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("The balance locked by open orders.")
 	@JsonProperty
-	val locked: String
+	var locked: String
 )

@@ -62,71 +62,71 @@ import io.swagger.annotations.ApiModelProperty
 data class Ticker(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
+	var eventType: String,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	val eventTime: Long,
+	var eventTime: Long,
 	@ApiModelProperty("Trading pair.")
 	@JsonProperty("s")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Price change.")
 	@JsonProperty("p")
-	val priceChange: String,
+	var priceChange: String,
 	@ApiModelProperty("Price change percent.")
 	@JsonProperty("P")
-	val priceChangePercent: String,
+	var priceChangePercent: String,
 	@ApiModelProperty("Weighted average price.")
 	@JsonProperty("w")
-	val weightedAveragePrice: String,
+	var weightedAveragePrice: String,
 	@ApiModelProperty("Previous days close price.")
 	@JsonProperty("x")
-	val previousDaysClosePrice: String,
+	var previousDaysClosePrice: String,
 	@ApiModelProperty("Current days close price.")
 	@JsonProperty("c")
-	val currentDaysClosePrice: String,
+	var currentDaysClosePrice: String,
 	@ApiModelProperty("Last quantity.")
 	@JsonProperty("Q")
-	val closeTradesQuantity: String,
+	var closeTradesQuantity: String,
 	@ApiModelProperty("Best bid price.")
 	@JsonProperty("b")
-	val bestBidPrice: String,
+	var bestBidPrice: String,
 	@ApiModelProperty("Best bid quantity.")
 	@JsonProperty("B")
-	val bestBidQuantity: String,
+	var bestBidQuantity: String,
 	@ApiModelProperty("Best ask price.")
 	@JsonProperty("a")
-	val bestAskPrice: String,
+	var bestAskPrice: String,
 	@ApiModelProperty("Best ask quantity.")
 	@JsonProperty("A")
-	val bestAskQuantity: String,
+	var bestAskQuantity: String,
 	@ApiModelProperty("Open price.")
 	@JsonProperty("o")
-	val openPrice: String,
+	var openPrice: String,
 	@ApiModelProperty("Highest price.")
 	@JsonProperty("h")
-	val highPrice: String,
+	var highPrice: String,
 	@ApiModelProperty("Lowest price.")
 	@JsonProperty("l")
-	val lowPrice: String,
+	var lowPrice: String,
 	@ApiModelProperty("Total traded base asset volume.")
 	@JsonProperty("v")
-	val totalTradedBaseAssetVolume: String,
+	var totalTradedBaseAssetVolume: String,
 	@ApiModelProperty("Total traded quote asset volume.")
 	@JsonProperty("q")
-	val totalTradedQuoteAssetVolume: String,
+	var totalTradedQuoteAssetVolume: String,
 	@ApiModelProperty("Statistics open time.")
 	@JsonProperty("O")
-	val statisticsOpenTime: Long,
+	var statisticsOpenTime: Long,
 	@ApiModelProperty("Statistics close time.")
 	@JsonProperty("C")
-	val statisticsCloseTime: Long,
+	var statisticsCloseTime: Long,
 	@ApiModelProperty("First trade ID.")
 	@JsonProperty("F")
-	val firstTradeId: Long,
+	var firstTradeId: Long,
 	@ApiModelProperty("Last trade Id.")
 	@JsonProperty("L")
-	val lastTradeId: Long,
+	var lastTradeId: Long,
 	@ApiModelProperty("Total number of trades.")
 	@JsonProperty("n")
-	val totalNumberOfTrade: Long,
+	var totalNumberOfTrade: Long,
 )

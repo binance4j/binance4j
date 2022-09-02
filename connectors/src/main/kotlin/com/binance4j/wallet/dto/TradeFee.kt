@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A trading pair trade fees.")
 data class TradeFee(
 	@ApiModelProperty("Trading pair.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Maker fees (limit order).")
-	val makerCommission: String,
+	var makerCommission: String,
 	@ApiModelProperty("Taker fees (market order).")
-	val takerCommission: String
+	var takerCommission: String
 )

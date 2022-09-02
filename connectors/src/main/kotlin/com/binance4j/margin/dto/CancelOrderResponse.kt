@@ -48,31 +48,31 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The CancelOrder request result.")
 data class CancelOrderResponse(
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Side.")
-	val side: String,
+	var side: String,
 	@ApiModelProperty("Type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Time in force.")
-	val timeInForce: String,
+	var timeInForce: String,
 	@ApiModelProperty("Order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Order list id.")
-	val orderListId: Long,
+	var orderListId: Long,
 	@ApiModelProperty("Symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Orig client order id.")
-	val origClientOrderId: String,
+	var origClientOrderId: String,
 	@ApiModelProperty("Client order id.")
-	val clientOrderId: String,
+	var clientOrderId: String,
 	@ApiModelProperty("Executed quantity.")
-	val executedQty: String,
+	var executedQty: String,
 	@ApiModelProperty("Price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Original quantity.")
-	val origQty: String,
+	var origQty: String,
 	@ApiModelProperty("Cumulative quote quantity.")
-	val cummulativeQuoteQty: String,
+	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Is isolated.")
-	val isIsolated: Boolean
+	var isIsolated: Boolean
 )

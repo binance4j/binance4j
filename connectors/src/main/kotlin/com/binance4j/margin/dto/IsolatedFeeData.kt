@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Isolated fee data.")
 data class IsolatedFeeData(
 	@ApiModelProperty("Related coin.")
-	val coin: String,
+	var coin: String,
 	@ApiModelProperty("Daily interest.")
-	val dailyInterest: String,
+	var dailyInterest: String,
 	@ApiModelProperty("Borrow limit.")
-	val borrowLimit: String
+	var borrowLimit: String
 )

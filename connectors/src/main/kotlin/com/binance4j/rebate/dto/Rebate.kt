@@ -38,11 +38,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A rebate.")
 data class Rebate(
 	@ApiModelProperty("Rebate asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Rebate type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Rebate amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Rebate update time.")
-	val updateTime: Long,
+	var updateTime: Long,
 )

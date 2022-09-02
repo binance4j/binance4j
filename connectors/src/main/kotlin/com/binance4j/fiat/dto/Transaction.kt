@@ -43,21 +43,21 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A fiat transaction.")
 data class Transaction(
 	@ApiModelProperty("Order No.")
-	val orderNo: String,
+	var orderNo: String,
 	@ApiModelProperty("Fiat currency.")
-	val fiatCurrency: String,
+	var fiatCurrency: String,
 	@ApiModelProperty("Indicated amount.")
-	val indicatedAmount: String,
+	var indicatedAmount: String,
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Total fee.")
-	val totalFee: String,
+	var totalFee: String,
 	@ApiModelProperty("Method.")
-	val method: String,
+	var method: String,
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Create time in ms.")
-	val createTime: Long,
+	var createTime: Long,
 	@ApiModelProperty("Update time in ms.")
-	val updateTime: Long,
+	var updateTime: Long,
 )

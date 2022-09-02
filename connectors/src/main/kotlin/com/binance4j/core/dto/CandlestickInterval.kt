@@ -28,7 +28,7 @@ package com.binance4j.core.dto
  * Kline/Candlestick intervals. m : minutes; h : hours; d : days; w : weeks; M : months
  * @property value Value
  */
-enum class CandlestickInterval(val value: String) {
+enum class CandlestickInterval(var value: String) {
 	/** 1 minute interval.  */
 	ONE_MINUTE("1m"),
 	
@@ -71,17 +71,17 @@ enum class CandlestickInterval(val value: String) {
 	/** 1 week interval.  */
 	WEEKLY("1w"),
 	
-	/** 1-month interval for market data.  */
+	/** 1-month intervar for market data.  */
 	MONTHLY_MARKET("1M"),
 	
-	/** 1-month interval for vision data.  */
+	/** 1-month intervar for vision data.  */
 	MONTHLY_VISION("1mo");
 	
 	override fun toString(): String = value
 	
 	companion object {
 		/**
-		 * @property value The interval String value.
+		 * @property value The intervar String value.
 		 * @return The enum equivalent of the input value.
 		 */
 		@JvmStatic

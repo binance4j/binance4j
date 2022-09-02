@@ -47,31 +47,31 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A deposit history.")
 data class DepositHistory(
 	@ApiModelProperty("Volume to deposit.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Coin abbreviation.")
-	val coin: String,
+	var coin: String,
 	@ApiModelProperty("Transfer network.")
-	val network: String,
+	var network: String,
 	@ApiModelProperty("Deposit address.")
-	val address: String,
+	var address: String,
 	@ApiModelProperty("Deposit address tag.")
-	val addressTag: String,
+	var addressTag: String,
 	@ApiModelProperty("Transaction id.")
-	val txId: String,
+	var txId: String,
 	@ApiModelProperty("confirm times for unlocking.")
-	val unlockConfirm: String,
+	var unlockConfirm: String,
 	@ApiModelProperty("Confirm times")
-	val confirmTimes: String,
+	var confirmTimes: String,
 	@ApiModelProperty("Deposit status code.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("confirm times for insertion (?)")
-	val insertTime: Long,
+	var insertTime: Long,
 	@ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.")
 	@JsonProperty
-	val transferType: Int,
+	var transferType: Int,
 	@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
 	var walletType: Int
 ) {
-	/** String value of status. */
-	val depositStatus: DepositStatus? get() = DepositStatus.fromValue(status)
+	/** @return String value of status. */
+	fun getDepositStatus(): DepositStatus? = DepositStatus.fromValue(status)
 }

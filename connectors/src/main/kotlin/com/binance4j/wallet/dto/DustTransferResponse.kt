@@ -36,9 +36,9 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The dust transfer (asset to BNB) response.")
 data class DustTransferResponse(
-	@ApiModelProperty("Fees.") val totalServiceCharge: String,
+	@ApiModelProperty("Fees.") var totalServiceCharge: String,
 	@ApiModelProperty("Volume converted into BNB after fees.")
-	val totalTransfered: String,
+	var totalTransfered: String,
 	@ApiModelProperty("Detailed transfer result asset by asset.")
 	var transferResult: List<DustTransferResult>
 )

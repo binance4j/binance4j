@@ -43,22 +43,22 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Staking record.")
 data class StakingRecord(
 	@ApiModelProperty("Position id.")
-	val positionId: String,
+	var positionId: String,
 	@ApiModelProperty("Time.")
-	val time: String,
+	var time: String,
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Project.")
-	val project: String,
+	var project: String,
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Lock period.")
-	val lockPeriod: String,
+	var lockPeriod: String,
 	@ApiModelProperty("Deliver date.")
-	val deliverDate: String,
+	var deliverDate: String,
 	@ApiModelProperty("Type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Status.")
-	val status: String
+	var status: String
 )
 

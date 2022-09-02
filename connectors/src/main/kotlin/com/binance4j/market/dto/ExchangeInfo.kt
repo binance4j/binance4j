@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The current exchange trading rules and symbol information.")
 data class ExchangeInfo(
 	@ApiModelProperty("Server timezone.")
-	val timezone: String,
+	var timezone: String,
 	@ApiModelProperty("Server time.")
-	val serverTime: Long,
+	var serverTime: Long,
 	@ApiModelProperty("Request limits (weight, orders, raw...).")
 	var rateLimits: List<RateLimit>,
 	@ApiModelProperty("Trading rules of the exchange.")

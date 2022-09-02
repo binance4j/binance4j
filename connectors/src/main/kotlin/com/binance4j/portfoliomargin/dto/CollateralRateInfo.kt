@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("CollateralRateInfo rate info.")
 data class CollateralRateInfo(
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Collateral rate.")
-	val collateralRate: String
+	var collateralRate: String
 )

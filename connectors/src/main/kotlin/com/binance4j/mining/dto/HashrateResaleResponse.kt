@@ -41,6 +41,6 @@ data class HashrateResaleResponse(
 	@ApiModelProperty("Code.")
 	var code: Int,
 	@ApiModelProperty("Message.")
-	val msg: String,
+	var msg: String,
 	@ApiModelProperty("Mining account.") var data: Int
 )

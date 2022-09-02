@@ -35,5 +35,5 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The user universal transfer response.")
 data class WalletTransferResponse(
 	@ApiModelProperty("Transaction id.")
-	val tranId: Long,
+	var tranId: Long,
 )

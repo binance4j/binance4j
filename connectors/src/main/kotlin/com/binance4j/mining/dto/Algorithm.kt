@@ -38,12 +38,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A mining algorithm.")
 data class Algorithm(
 	@ApiModelProperty("Algorithm name.")
-	val algoName: String,
+	var algoName: String,
 	@ApiModelProperty("Algorithm id.")
-	val algoId: Long,
+	var algoId: Long,
 	@ApiModelProperty("Sequence.")
-	val poolIndex: Long,
+	var poolIndex: Long,
 	@ApiModelProperty("Unit.")
-	val unit: String
+	var unit: String
 )
 

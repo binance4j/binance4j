@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset dividend.")
 data class AssetDividend(
 	@ApiModelProperty("Dividend amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Info about the asset.")
-	val enInfo: String,
+	var enInfo: String,
 	@ApiModelProperty("Asset abbreviation.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Id.")
-	val id: Long,
+	var id: Long,
 	@ApiModelProperty("Dividend time in ms.")
-	val divTime: Long,
+	var divTime: Long,
 	@ApiModelProperty("Transaction id.")
-	val tranId: Long,
+	var tranId: Long,
 )

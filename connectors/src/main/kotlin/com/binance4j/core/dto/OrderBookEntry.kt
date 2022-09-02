@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An order book entry consisting of price and quantity.")
 data class OrderBookEntry(
 	@ApiModelProperty("The price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("The quantity.")
-	val qt: String
+	var qt: String
 )

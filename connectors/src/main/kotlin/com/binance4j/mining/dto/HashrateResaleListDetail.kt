@@ -44,17 +44,17 @@ data class HashrateResaleListDetail(
 	@ApiModelProperty("Mining ID.")
 	var configId: Int,
 	@ApiModelProperty("Transfer out of subaccount.")
-	val poolUsername: String,
+	var poolUsername: String,
 	@ApiModelProperty("Transfer into subaccount.")
-	val toPoolUsername: String,
+	var toPoolUsername: String,
 	@ApiModelProperty("Transfer algorithm.")
-	val algoName: String,
+	var algoName: String,
 	@ApiModelProperty("Transferred Hash rate quantity.")
-	val hashRate: Long,
+	var hashRate: Long,
 	@ApiModelProperty("Start date.")
-	val startDay: Long,
+	var startDay: Long,
 	@ApiModelProperty("End date.")
-	val endDay: Long,
+	var endDay: Long,
 	@ApiModelProperty("Status：0 Processing，1：Cancelled，2：Terminated.")
 	var status: Int
 )

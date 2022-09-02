@@ -36,9 +36,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Token Basket.")
 data class Basket(
 	@ApiModelProperty("Symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Notional value.")
-	val notionalvalue: String
+	var notionalvalue: String
 )

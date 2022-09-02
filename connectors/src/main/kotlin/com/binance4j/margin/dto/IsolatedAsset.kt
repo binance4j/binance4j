@@ -44,23 +44,23 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Isolated asset in isolated pair.")
 data class IsolatedAsset(
 	@ApiModelProperty("Asset name.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Borrowed quantity.")
-	val borrowed: String,
+	var borrowed: String,
 	@ApiModelProperty("Free quantity.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("Loan interest.")
-	val interest: String,
+	var interest: String,
 	@ApiModelProperty("Locked quantity.")
-	val locked: String,
+	var locked: String,
 	@ApiModelProperty("Net asset quantity.")
-	val netAsset: String,
+	var netAsset: String,
 	@ApiModelProperty("Net asset of Bitcoin.")
-	val netAssetOfBtc: String,
+	var netAssetOfBtc: String,
 	@ApiModelProperty("Asset total quantity.")
-	val totalAsset: String,
+	var totalAsset: String,
 	@ApiModelProperty("Can the account borrow this asset?")
-	val borrowEnabled: Boolean,
+	var borrowEnabled: Boolean,
 	@ApiModelProperty("Can the account repay this asset?")
-	val repayEnabled: Boolean
+	var repayEnabled: Boolean
 )

@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("BNB burn status")
 data class BNBBurnStatus(
 	@ApiModelProperty("Is spot BNB burn allowed.")
-	val spotBNBBurn: Boolean,
+	var spotBNBBurn: Boolean,
 	@ApiModelProperty("Is interest BNB burn allowed.")
-	val interestBNBBurn: Boolean
+	var interestBNBBurn: Boolean
 )

@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Other profit.")
 data class OtherProfit(
 	@ApiModelProperty("Mining date.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Coin Name.")
-	val coinName: String,
+	var coinName: String,
 	@ApiModelProperty("Amount.")
 	var type: Int,
 	@ApiModelProperty("Status. 0: Unpaid 1: Paying 2：Paid")

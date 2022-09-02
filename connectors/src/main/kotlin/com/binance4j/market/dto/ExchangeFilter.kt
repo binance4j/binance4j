@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Trading rules of the exchange.")
 data class ExchangeFilter(
 	@ApiModelProperty("Trading rules of the exchange.")
-	val filterType: ExchangeFilterType,
+	var filterType: ExchangeFilterType,
 	@ApiModelProperty("Trading rules of the exchange.")
-	val limit: Int
+	var limit: Int
 )

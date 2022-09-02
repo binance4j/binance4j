@@ -42,19 +42,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Staking product detail.")
 data class ProductDetail(
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Reward Asset.")
-	val rewardAsset: String,
+	var rewardAsset: String,
 	@ApiModelProperty("Duration in ms.")
-	val duration: Int,
+	var duration: Int,
 	@ApiModelProperty("Renewable.")
-	val renewable: Boolean,
+	var renewable: Boolean,
 	@ApiModelProperty("Apy.")
-	val apy: String,
+	var apy: String,
 	@ApiModelProperty("Extra reward asset.")
-	val extraRewardAsset: String,
+	var extraRewardAsset: String,
 	@ApiModelProperty("Extra reward APY.")
-	val extraRewardsAPY: String,
+	var extraRewardsAPY: String,
 	@ApiModelProperty("project.")
-	val project: String
+	var project: String
 )

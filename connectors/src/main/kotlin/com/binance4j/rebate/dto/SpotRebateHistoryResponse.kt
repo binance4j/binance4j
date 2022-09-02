@@ -39,11 +39,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Rebate history record")
 data class SpotRebateHistoryResponse(
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("Code.")
-	val code: String,
+	var code: String,
 	@ApiModelProperty("Data.")
 	var data: RebateData? = null
 )

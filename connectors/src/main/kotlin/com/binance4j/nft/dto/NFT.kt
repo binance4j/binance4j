@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT asset.")
 data class NFT(
 	@ApiModelProperty("NFT Network.")
-	val network: String,
+	var network: String,
 	@ApiModelProperty("NFT Token ID.")
-	val tokenId: String,
+	var tokenId: String,
 	@ApiModelProperty("NFT Contract Address.")
-	val contractAddress: String
+	var contractAddress: String
 )

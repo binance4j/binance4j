@@ -38,8 +38,8 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Coins wrapper")
 data class CoinsResponse(
 	@ApiModelProperty("Response code.")
-	val code: String,
+	var code: String,
 	@ApiModelProperty("Response message.")
-	val msg: String,
+	var msg: String,
 	@ApiModelProperty("Response data.") var data: List<Coin>
 )

@@ -50,35 +50,35 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Fixed or activity project.")
 data class FixedProject(
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Display priority.")
-	val displayPriority: Long,
+	var displayPriority: Long,
 	@ApiModelProperty("Duration.")
-	val duration: Long,
+	var duration: Long,
 	@ApiModelProperty("Interest per lot.")
-	val interestPerLot: String,
+	var interestPerLot: String,
 	@ApiModelProperty("Interest rate.")
-	val interestRate: String,
+	var interestRate: String,
 	@ApiModelProperty("Lot size.")
-	val lotSize: String,
+	var lotSize: String,
 	@ApiModelProperty("Lots low limit.")
-	val lotsLowLimit: Long,
+	var lotsLowLimit: Long,
 	@ApiModelProperty("Lots purchased.")
-	val lotsPurchased: Long,
+	var lotsPurchased: Long,
 	@ApiModelProperty("Lots up limit.")
-	val lotsUpLimit: Long,
+	var lotsUpLimit: Long,
 	@ApiModelProperty("Max lots per user.")
-	val maxLotsPerUser: Long,
+	var maxLotsPerUser: Long,
 	@ApiModelProperty("Need kyc.")
-	val needKyc: Boolean,
+	var needKyc: Boolean,
 	@ApiModelProperty("Project id.")
-	val projectId: String,
+	var projectId: String,
 	@ApiModelProperty("Project name.")
-	val projectName: String,
+	var projectName: String,
 	@ApiModelProperty("Status.")
-	val status: String,
+	var status: String,
 	@ApiModelProperty("Type.")
-	val type: String,
+	var type: String,
 	@ApiModelProperty("With area limitation.")
-	val withAreaLimitation: Boolean
+	var withAreaLimitation: Boolean
 )

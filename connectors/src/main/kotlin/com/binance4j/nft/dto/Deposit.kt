@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT Deposit.")
 data class Deposit(
 	@ApiModelProperty("NFT Network.")
-	val network: String,
+	var network: String,
 	@ApiModelProperty("NFT Contract Address.")
-	val contractAddress: String,
+	var contractAddress: String,
 	@ApiModelProperty("NFT Token ID.")
-	val tokenId: String,
+	var tokenId: String,
 	@ApiModelProperty("Transaction ID.")
-	val txID: String,
+	var txID: String,
 	@ApiModelProperty("Deposit time in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 )

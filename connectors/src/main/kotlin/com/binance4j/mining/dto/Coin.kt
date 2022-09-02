@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A mineable coin.")
 data class Coin(
 	@ApiModelProperty("Currency name.")
-	val coinName: String,
+	var coinName: String,
 	@ApiModelProperty("Coin id.")
-	val coinId: Long,
+	var coinId: Long,
 	@ApiModelProperty("Pool index.")
-	val poolIndex: Long,
+	var poolIndex: Long,
 	@ApiModelProperty("Algorithm id.")
-	val algoId: Long,
+	var algoId: Long,
 	@ApiModelProperty("Name of the algorithm.")
-	val algoName: String
+	var algoName: String
 )

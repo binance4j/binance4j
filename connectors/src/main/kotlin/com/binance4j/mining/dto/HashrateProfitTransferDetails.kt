@@ -41,17 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hash rate resale list detail.")
 data class HashrateProfitTransferDetails(
 	@ApiModelProperty("Transfer out of subaccount.")
-	val poolUsername: String,
+	var poolUsername: String,
 	@ApiModelProperty("Transfer into subaccount.")
-	val toPoolUsername: String,
+	var toPoolUsername: String,
 	@ApiModelProperty("Transfer algorithm.")
-	val algoName: String,
+	var algoName: String,
 	@ApiModelProperty("Transferred Hash rate quantity.")
-	val hashRate: Long,
+	var hashRate: Long,
 	@ApiModelProperty("Transfer date.")
-	val day: Long,
+	var day: Long,
 	@ApiModelProperty("Transferred Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Coin name.")
-	val coinName: String,
+	var coinName: String,
 )

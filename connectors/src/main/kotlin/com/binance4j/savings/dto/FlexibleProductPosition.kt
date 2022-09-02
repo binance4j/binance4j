@@ -49,33 +49,33 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Flexible product position.")
 data class FlexibleProductPosition(
 	@ApiModelProperty("Tier annual interest rate.")
-	val tierAnnualInterestRate: Map<String, String>,
+	var tierAnnualInterestRate: Map<String, String>,
 	@ApiModelProperty("Annual interest rate.")
-	val annualInterestRate: String,
+	var annualInterestRate: String,
 	@ApiModelProperty("Asset.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Avg annual interest rate.")
-	val avgAnnualInterestRate: String,
+	var avgAnnualInterestRate: String,
 	@ApiModelProperty("Can redeem.")
-	val canRedeem: Boolean,
+	var canRedeem: Boolean,
 	@ApiModelProperty("Daily interest rate.")
-	val dailyInterestRate: String,
+	var dailyInterestRate: String,
 	@ApiModelProperty("Free amount.")
-	val freeAmount: String,
+	var freeAmount: String,
 	@ApiModelProperty("Freeze amount.")
-	val freezeAmount: String,
+	var freezeAmount: String,
 	@ApiModelProperty("Locked amount.")
-	val lockedAmount: String,
+	var lockedAmount: String,
 	@ApiModelProperty("Product id.")
-	val productId: String,
+	var productId: String,
 	@ApiModelProperty("Product name.")
-	val productName: String,
+	var productName: String,
 	@ApiModelProperty("Redeeming amount.")
-	val redeemingAmount: String,
+	var redeemingAmount: String,
 	@ApiModelProperty("Today purchased amount.")
-	val todayPurchasedAmount: String,
+	var todayPurchasedAmount: String,
 	@ApiModelProperty("Total amount.")
-	val totalAmount: String,
+	var totalAmount: String,
 	@ApiModelProperty("Total interest.")
-	val totalInterest: String
+	var totalInterest: String
 )

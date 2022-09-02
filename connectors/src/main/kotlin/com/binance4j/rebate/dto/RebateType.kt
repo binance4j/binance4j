@@ -26,7 +26,7 @@ package com.binance4j.rebate.dto
 /** The rebate type.
  * @property value Value.
  */
-enum class RebateType(val value: String) {
+enum class RebateType(var value: String) {
 	/** commission rebate  */
 	COMMISSION_REBATE("1"),
 	

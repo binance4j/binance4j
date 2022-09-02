@@ -31,18 +31,18 @@ import io.swagger.annotations.ApiModelProperty
  * Requests and orders rate limit.
  *
  * @property rateLimitType Rate limit type.
- * @property interval Limit interval type.
- * @property intervalNum Limit interval number.
+ * @property intervar Limit intervar type.
+ * @property intervalNum Limit intervar number.
  * @property limit Limit for the given interval.
  */
 @ApiModel("Requests and orders rate limit.")
 data class RateLimit(
 	@ApiModelProperty("The rate limit type.")
-	val rateLimitType: String,
-	@ApiModelProperty("The limit interval type.")
-	val interval: String,
-	@ApiModelProperty("The limit interval number.")
-	val intervalNum: Int,
+	var rateLimitType: String,
+	@ApiModelProperty("The limit intervar type.")
+	var interval: String,
+	@ApiModelProperty("The limit intervar number.")
+	var intervalNum: Int,
 	@ApiModelProperty("The limit for the given interval.")
-	val limit: Int
+	var limit: Int
 )

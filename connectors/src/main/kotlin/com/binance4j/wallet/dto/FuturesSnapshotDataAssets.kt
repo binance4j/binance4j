@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The snapshot assets balances.")
 data class FuturesSnapshotDataAssets(
 	@ApiModelProperty("Asset abbreviation.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Margin balance.")
-	val marginBalance: String,
+	var marginBalance: String,
 	@ApiModelProperty("Wallet balance.")
-	val walletBalance: String
+	var walletBalance: String
 )

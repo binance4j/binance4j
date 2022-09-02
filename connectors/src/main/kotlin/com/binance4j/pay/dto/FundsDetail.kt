@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Funds detail.")
 data class FundsDetail(
 	@ApiModelProperty("Asset.")
-	val currency: String,
+	var currency: String,
 	@ApiModelProperty("Amount.")
-	val amount: String
+	var amount: String
 )

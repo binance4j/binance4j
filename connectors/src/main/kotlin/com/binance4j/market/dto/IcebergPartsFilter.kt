@@ -35,4 +35,4 @@ import io.swagger.annotations.ApiModelProperty
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#filters)
  */
 @ApiModel("The maximum parts an iceberg order can have.")
-data class IcebergPartsFilter(@ApiModelProperty("The filter limit number.") val limit: Int)
+data class IcebergPartsFilter(@ApiModelProperty("The filter limit number.") var limit: Int)

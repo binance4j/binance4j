@@ -48,31 +48,31 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The coin infos for the authenticated account.")
 data class CoinInformation(
 	@ApiModelProperty("Coin abbreviation.")
-	val coin: String,
+	var coin: String,
 	@ApiModelProperty("Coin name.")
-	val name: String,
+	var name: String,
 	@ApiModelProperty("Deposit permission.")
-	val depositAllEnable: Boolean,
+	var depositAllEnable: Boolean,
 	@ApiModelProperty("Is the coin a legal money?")
-	val isLegalMoney: Boolean,
+	var isLegalMoney: Boolean,
 	@ApiModelProperty("Can the coin be traded?")
-	val trading: Boolean,
+	var trading: Boolean,
 	@ApiModelProperty("Withdraw permission.")
-	val withdrawAllEnable: Boolean,
+	var withdrawAllEnable: Boolean,
 	@ApiModelProperty("Free balance.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("Freezed balance.")
-	val freeze: String,
+	var freeze: String,
 	@ApiModelProperty("Initial Public Offering balance (?)")
-	val ipoable: String,
+	var ipoable: String,
 	@ApiModelProperty("Initial Public Offering freezed balance (?)")
-	val ipoing: String,
+	var ipoing: String,
 	@ApiModelProperty("Locked balance.")
-	val locked: String,
+	var locked: String,
 	@ApiModelProperty("Storage")
-	val storage: String,
+	var storage: String,
 	@ApiModelProperty("Withdrawing balance.")
-	val withdrawing: String,
+	var withdrawing: String,
 	@ApiModelProperty("Coin network information.")
 	var networkList: List<CoinNetworkInformation>
 )

@@ -28,7 +28,7 @@ package com.binance4j.wallet.dto
  *
  * @property value Value.
  */
-enum class WithdrawStatus(val value: String) {
+enum class WithdrawStatus(var value: String) {
 	/** Email sent. */
 	EMAIL_SENT("0"),
 	

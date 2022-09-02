@@ -28,7 +28,7 @@ package com.binance4j.nft.dto
  *
  * @property value Value.
  */
-enum class OrderType(val value: String) {
+enum class OrderType(var value: String) {
 	/** Purchase order  */
 	PURCHASE_ORDER("0"),
 	

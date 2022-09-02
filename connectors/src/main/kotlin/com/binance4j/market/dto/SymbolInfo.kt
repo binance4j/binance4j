@@ -56,42 +56,42 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Symbol information (base/quote).")
 data class SymbolInfo(
 	@ApiModelProperty("Symbol status.")
-	val orderTypes: List<String>,
+	var orderTypes: List<String>,
 	@ApiModelProperty("Allowed orders on the symbol*.")
 	@JsonDeserialize(using = SymbolFiltersDeserializer::class)
-	val filters: SymbolFilters,
+	var filters: SymbolFilters,
 	@ApiModelProperty("Symbol filters.")
-	val permissions: List<String>,
+	var permissions: List<String>,
 	@ApiModelProperty("Symbol permission.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Symbol name.")
-	val quoteAsset: String,
+	var quoteAsset: String,
 	@ApiModelProperty("Quote asset.")
-	val baseAsset: String,
+	var baseAsset: String,
 	@ApiModelProperty("Base asset.")
-	val baseAssetPrecision: Int,
+	var baseAssetPrecision: Int,
 	@ApiModelProperty("Base asset precision.")
-	val baseCommissionPrecision: Int,
+	var baseCommissionPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
-	val quoteAssetPrecision: Int,
+	var quoteAssetPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
-	val quotePrecision: Int,
+	var quotePrecision: Int,
 	@ApiModelProperty("Quote asset precision.")
-	val quoteCommissionPrecision: Int,
+	var quoteCommissionPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
-	val icebergAllowed: Boolean,
+	var icebergAllowed: Boolean,
 	@ApiModelProperty("Are iceberg orders allowed?")
-	val ocoAllowed: Boolean,
+	var ocoAllowed: Boolean,
 	@ApiModelProperty("Are OCO orders allowed?")
-	val quoteOrderQtyMarketAllowed: Boolean,
+	var quoteOrderQtyMarketAllowed: Boolean,
 	@ApiModelProperty("Are orders by quote quantity allowed?")
-	val isSpotTradingAllowed: Boolean,
+	var isSpotTradingAllowed: Boolean,
 	@ApiModelProperty("Cancel replace allowed?")
-	val cancelReplaceAllowed: Boolean,
+	var cancelReplaceAllowed: Boolean,
 	@ApiModelProperty("Is trailing stop allowed?")
-	val allowTrailingStop: Boolean,
+	var allowTrailingStop: Boolean,
 	@ApiModelProperty("Is spot trading allowed?")
-	val isMarginTradingAllowed: Boolean,
+	var isMarginTradingAllowed: Boolean,
 	@ApiModelProperty("Is margin trading allowed?")
-	val status: String
+	var status: String
 )

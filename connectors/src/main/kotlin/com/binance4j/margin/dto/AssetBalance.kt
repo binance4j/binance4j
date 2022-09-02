@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Asset balance of an Account.")
 data class AssetBalance(
 	@ApiModelProperty("Asset name.")
-	val asset: String,
+	var asset: String,
 	@ApiModelProperty("Borrowed quantity.")
-	val borrowed: String,
+	var borrowed: String,
 	@ApiModelProperty("Free quantity.")
-	val free: String,
+	var free: String,
 	@ApiModelProperty("Borrow interest.")
-	val interest: String,
+	var interest: String,
 	@ApiModelProperty("Locked quantity.")
-	val locked: String,
+	var locked: String,
 	@ApiModelProperty("Net asset.")
-	val netAsset: String
+	var netAsset: String
 )

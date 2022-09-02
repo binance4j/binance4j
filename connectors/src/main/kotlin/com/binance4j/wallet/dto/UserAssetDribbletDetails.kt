@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Dust log details.")
 data class UserAssetDribbletDetails(
 	@ApiModelProperty("Transaction id.")
-	val transId: Long,
+	var transId: Long,
 	@ApiModelProperty("Timestamp.")
-	val operateTime: Long,
+	var operateTime: Long,
 	@ApiModelProperty("Fees.")
-	val serviceChargeAmount: String,
+	var serviceChargeAmount: String,
 	@ApiModelProperty("Volume.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Transferred amount.")
-	val transferedAmount: String,
+	var transferedAmount: String,
 	@ApiModelProperty("Transferred asset.")
-	val fromAsset: String
+	var fromAsset: String
 )

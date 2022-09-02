@@ -28,7 +28,7 @@ package com.binance4j.margin.dto
  * The transfer type.
  * @property value Value
  */
-enum class TransferType(val value: String) {
+enum class TransferType(var value: String) {
 	/** Main to margin  */
 	MAIN_TO_MARGIN("1"),
 	

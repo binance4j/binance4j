@@ -37,9 +37,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("OCO order info.")
 data class OCOOrder(
 	@ApiModelProperty("symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("client order id.")
-	val clientOrderId: String
+	var clientOrderId: String
 )

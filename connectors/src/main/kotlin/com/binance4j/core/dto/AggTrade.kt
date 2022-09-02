@@ -44,28 +44,28 @@ import io.swagger.annotations.ApiModelProperty
 data class AggTrade(
 	@JsonProperty("a")
 	@ApiModelProperty("The trade id")
-	val tradeId: Long,
+	var tradeId: Long,
 	@JsonProperty("p")
 	@ApiModelProperty("The price")
-	val price: String,
+	var price: String,
 	@JsonProperty("q")
 	@ApiModelProperty("The quantity")
-	val quantity: String,
+	var quantity: String,
 	@JsonProperty("f")
 	@ApiModelProperty("The first trade id")
-	val firstTradeId: Long,
+	var firstTradeId: Long,
 	@JsonProperty("l")
 	@ApiModelProperty("The last trade id")
-	val lastTradeId: Long,
+	var lastTradeId: Long,
 	@JsonProperty("T")
 	@ApiModelProperty("The timestamp")
-	val time: Long,
+	var time: Long,
 	@JsonProperty("m")
 	@ApiModelProperty("Was it a buyer maker")
-	val isBuyerMaker: Boolean,
+	var isBuyerMaker: Boolean,
 	@JsonProperty("M")
 	@ApiModelProperty("Was it the best price match?")
-	val isBestMatch: Boolean
+	var isBestMatch: Boolean
 ) {
 	/** @property input CSV line. */
 	constructor(input: List<String>) : this(

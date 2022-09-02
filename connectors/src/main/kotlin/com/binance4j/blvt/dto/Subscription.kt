@@ -41,17 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A BLVT subscription.")
 data class Subscription(
 	@ApiModelProperty("Id.")
-	val id: Long,
+	var id: Long,
 	@ApiModelProperty("Token name.")
-	val tokenName: String,
+	var tokenName: String,
 	@ApiModelProperty("Amount.")
-	val amount: String,
+	var amount: String,
 	@ApiModelProperty("Nav.")
-	val nav: String,
+	var nav: String,
 	@ApiModelProperty("Fee.")
-	val fee: String,
+	var fee: String,
 	@ApiModelProperty("Total charge.")
-	val totalCharge: String,
+	var totalCharge: String,
 	@ApiModelProperty("Timestamp in ms.")
-	val timestamp: Long,
+	var timestamp: Long,
 )

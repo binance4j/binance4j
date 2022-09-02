@@ -48,10 +48,10 @@ import io.swagger.annotations.ApiModelProperty
 data class AccountUpdate(
 	@ApiModelProperty("Event type.")
 	@JsonProperty("e")
-	val eventType: String,
+	var eventType: String,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
-	val eventTime: Long,
+	var eventTime: Long,
 	@JsonProperty("B")
 	@ApiModelProperty("Assets balance.")
 	@JsonDeserialize(contentUsing = AssetBalanceDeserializer::class)

@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A staking purchase response.")
 data class PurchaseResponse(
 	@ApiModelProperty("Position id.")
-	val positionId: String,
+	var positionId: String,
 	@ApiModelProperty("Success.")
-	val success: Boolean
+	var success: Boolean
 )

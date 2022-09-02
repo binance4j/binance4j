@@ -40,15 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset on the platform.")
 data class Asset(
 	@ApiModelProperty("Asset full name.")
-	val assetFullName: String,
+	var assetFullName: String,
 	@ApiModelProperty("Asset name.")
-	val assetName: String,
+	var assetName: String,
 	@ApiModelProperty("User minimum borrow.")
-	val userMinBorrow: String,
+	var userMinBorrow: String,
 	@ApiModelProperty("User minimum repay.")
-	val userMinRepay: String,
+	var userMinRepay: String,
 	@ApiModelProperty("Is it borrowable?")
-	val isBorrowable: Boolean,
+	var isBorrowable: Boolean,
 	@ApiModelProperty("Is it mortgageable?")
-	val isMortgageable: Boolean
+	var isMortgageable: Boolean
 )

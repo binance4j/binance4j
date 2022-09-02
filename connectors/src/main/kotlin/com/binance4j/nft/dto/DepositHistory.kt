@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT deposit history.")
 data class DepositHistory(
 	@ApiModelProperty("Total records.")
-	val total: Long,
+	var total: Long,
 	@ApiModelProperty("Transactions.")
-	val list: List<Deposit>
+	var list: List<Deposit>
 )

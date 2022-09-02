@@ -40,7 +40,7 @@ data class AccountListResponse(
 	@ApiModelProperty("Response code.")
 	var code: Int,
 	@ApiModelProperty("Response message.")
-	val msg: String,
+	var msg: String,
 	@ApiModelProperty("Response data.")
-	val data: List<AccountData>
+	var data: List<AccountData>
 )

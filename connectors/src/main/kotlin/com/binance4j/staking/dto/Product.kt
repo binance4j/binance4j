@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A staking product.")
 data class Product(
 	@ApiModelProperty("Project id.")
-	val projectId: String,
+	var projectId: String,
 	@ApiModelProperty("Detail.")
 	var detail: ProductDetail? = null,
 	@ApiModelProperty("Quota.")

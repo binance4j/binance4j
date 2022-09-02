@@ -52,49 +52,49 @@ import io.swagger.annotations.ApiModelProperty
  * @property resetAddressStatus Reset address status.
  * @property withdrawEnable If withdraw is enabled.
  * @property sameAddress If the coin needs to provide memo to withdraw.
- * @property estimatedArrivalTime Estimated arrival time in ms.
+ * @property estimatedArrivalTime Estimated arrivar time in ms.
  * @property busy Is network busy?
  * @property country Country.
  */
 @ApiModel("The coin network information.")
 data class CoinNetworkInformation(
-	@ApiModelProperty("Address pattern.") val addressRegex: String,
-	@ApiModelProperty("Address rule") val addressRule: String,
-	@ApiModelProperty("Coin abbreviation.") val coin: String,
-	@ApiModelProperty("Deposit description.") val depositDesc: String,
-	@ApiModelProperty("Withdraw description.") val withdrawDesc: String,
-	@ApiModelProperty("Network name.") val name: String,
-	@ApiModelProperty("Memo pattern.") val memoRegex: String,
-	@ApiModelProperty("Network") val network: String,
-	@ApiModelProperty("Tips about the network.") val specialTips: String,
+	@ApiModelProperty("Address pattern.") var addressRegex: String,
+	@ApiModelProperty("Address rule") var addressRule: String,
+	@ApiModelProperty("Coin abbreviation.") var coin: String,
+	@ApiModelProperty("Deposit description.") var depositDesc: String,
+	@ApiModelProperty("Withdraw description.") var withdrawDesc: String,
+	@ApiModelProperty("Network name.") var name: String,
+	@ApiModelProperty("Memo pattern.") var memoRegex: String,
+	@ApiModelProperty("Network") var network: String,
+	@ApiModelProperty("Tips about the network.") var specialTips: String,
 	@ApiModelProperty("Tips about the withdraw.")
-	val specialWithdrawTips: String,
-	@ApiModelProperty("Deposit dust.") val depositDust: String,
-	@ApiModelProperty("Withdraw fee.") val withdrawFee: String,
+	var specialWithdrawTips: String,
+	@ApiModelProperty("Deposit dust.") var depositDust: String,
+	@ApiModelProperty("Withdraw fee.") var withdrawFee: String,
 	@ApiModelProperty("Withdraw integer multiple")
-	val withdrawIntegerMultiple: String,
+	var withdrawIntegerMultiple: String,
 	@ApiModelProperty("Maximal amount authorized to be withdrawn.")
-	val withdrawMax: String,
+	var withdrawMax: String,
 	@ApiModelProperty("Minimal amount authorized to be withdrawn.")
-	val withdrawMin: String,
+	var withdrawMin: String,
 	@ApiModelProperty("Min number for balance confirmation.")
-	val minConfirm: Int,
+	var minConfirm: Int,
 	@ApiModelProperty("Confirmation number for balance unlock.")
-	val unLockConfirm: Int,
+	var unLockConfirm: Int,
 	@ApiModelProperty("If deposit is enabled.")
-	val depositEnable: Boolean,
+	var depositEnable: Boolean,
 	@ApiModelProperty("if is the default network.")
-	val isDefault: Boolean,
+	var isDefault: Boolean,
 	@ApiModelProperty("Reset address status.")
-	val resetAddressStatus: Boolean,
+	var resetAddressStatus: Boolean,
 	@ApiModelProperty("If withdraw is enabled.")
-	val withdrawEnable: Boolean,
+	var withdrawEnable: Boolean,
 	@ApiModelProperty("If the coin needs to provide memo to withdraw.")
-	val sameAddress: Boolean,
-	@ApiModelProperty("Estimated arrival time in ms.")
-	val estimatedArrivalTime: Long,
+	var sameAddress: Boolean,
+	@ApiModelProperty("Estimated arrivar time in ms.")
+	var estimatedArrivalTime: Long,
 	@ApiModelProperty("Is network busy?")
-	val busy: Boolean,
+	var busy: Boolean,
 	@ApiModelProperty("Country.")
-	val country: String
+	var country: String
 )

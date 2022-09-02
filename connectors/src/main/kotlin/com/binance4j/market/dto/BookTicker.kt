@@ -39,13 +39,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The best price/quantity on the order book for a given symbol.")
 data class BookTicker(
 	@ApiModelProperty("Ticker symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Bid price.")
-	val bidPrice: String,
+	var bidPrice: String,
 	@ApiModelProperty("Bid quantity.")
-	val bidQty: String,
+	var bidQty: String,
 	@ApiModelProperty("Ask price.")
-	val askPrice: String,
+	var askPrice: String,
 	@ApiModelProperty("Ask quantity.")
-	val askQty: String
+	var askQty: String
 )

@@ -36,4 +36,4 @@ import io.swagger.annotations.ApiModelProperty
  *      "https://binance-docs.github.io/apidocs/spot/en/#filters">Documentation</a>
  */
 @ApiModel("The allowed maximum position an account can have on the base asset of a symbol.")
-data class MaxNumIcebergOrdersFilter(@ApiModelProperty("Max iceberg orders.") val maxNumIcebergOrders: Int)
+data class MaxNumIcebergOrdersFilter(@ApiModelProperty("Max iceberg orders.") var maxNumIcebergOrders: Int)

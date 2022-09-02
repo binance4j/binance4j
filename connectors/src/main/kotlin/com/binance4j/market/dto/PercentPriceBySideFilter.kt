@@ -44,13 +44,13 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The valid range for the price based on the lastPrice of the symbol. There is a different range depending on whether the order is placed on the BUY side or the SELL side.")
 data class PercentPriceBySideFilter(
 	@ApiModelProperty("Bid multiplier up.")
-	val bidMultiplierUp: String,
+	var bidMultiplierUp: String,
 	@ApiModelProperty("Bid multiplier down.")
-	val bidMultiplierDown: String,
+	var bidMultiplierDown: String,
 	@ApiModelProperty("Ask multiplier up.")
-	val askMultiplierUp: String,
+	var askMultiplierUp: String,
 	@ApiModelProperty("Ask multiplier down.")
-	val askMultiplierDown: String,
+	var askMultiplierDown: String,
 	@ApiModelProperty("Weighted average price.")
-	val avgPriceMins: String
+	var avgPriceMins: String
 )

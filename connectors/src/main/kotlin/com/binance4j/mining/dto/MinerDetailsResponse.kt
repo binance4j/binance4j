@@ -40,6 +40,6 @@ data class MinerDetailsResponse(
 	@ApiModelProperty("Response code.")
 	var code: Int,
 	@ApiModelProperty("Response message.")
-	val msg: String,
+	var msg: String,
 	@ApiModelProperty("Response data.") var data: List<MinerDetails>
 )

@@ -46,27 +46,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A trade being part of a NewOrderRecord.")
 data class Trade(
 	@ApiModelProperty("Trade id.")
-	val id: Long,
+	var id: Long,
 	@ApiModelProperty("Related order id.")
-	val orderId: Long,
+	var orderId: Long,
 	@ApiModelProperty("Traded symbol.")
-	val symbol: String,
+	var symbol: String,
 	@ApiModelProperty("Commission asset .")
-	val commissionAsset: String,
+	var commissionAsset: String,
 	@ApiModelProperty("Commission amount.")
-	val commission: String,
+	var commission: String,
 	@ApiModelProperty("Trade price.")
-	val price: String,
+	var price: String,
 	@ApiModelProperty("Traded quantity.")
-	val qty: String,
+	var qty: String,
 	@ApiModelProperty("Transaction time.")
-	val time: Long,
+	var time: Long,
 	@ApiModelProperty("Is it the best match?")
-	val isBestMatch: Boolean,
+	var isBestMatch: Boolean,
 	@ApiModelProperty("Is it a buyer trade?")
-	val isBuyer: Boolean,
+	var isBuyer: Boolean,
 	@ApiModelProperty("Is it a maker trade?")
-	val isMaker: Boolean,
+	var isMaker: Boolean,
 	@ApiModelProperty("Is it an isolated trade?")
-	val isIsolated: Boolean
+	var isIsolated: Boolean
 )
