@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hahs rate cancellation response.")
 data class HashrateResaleCancellationResponse(
 	@ApiModelProperty("Code.")
-	var code: Int = 0,
+	var code: Int,
 	@ApiModelProperty("Message.")
 	val msg: String,
 	@ApiModelProperty("Cancellation success.") val data: Boolean

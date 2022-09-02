@@ -30,10 +30,6 @@ import com.binance4j.core.Headers.SIGNED_H
 import com.binance4j.core.Headers.UID_H
 import com.binance4j.core.Headers.WEIGHT_ONE_H
 import com.binance4j.margin.dto.*
-import com.binance4j.nft.dto.Asset
-import com.binance4j.spot.dto.Account
-import com.binance4j.spot.dto.CancelOrderResponse
-import com.binance4j.spot.dto.OrderInfo
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -433,6 +429,5 @@ interface MarginMapping {
 	 */
 	@Headers(SIGNED_H, IP_H, "X-WEIGHT: 1")
 	@GET("/sapi/v1/margin/dribblet")
-	fun  // TODO watch headers in response to get weight since not in doc.
-		getDustLog(@QueryMap map: Map<String, Any>): Call<DustLogRecord>
+	fun getDustLog(@QueryMap map: Map<String, Any>): Call<DustLogRecord>
 }

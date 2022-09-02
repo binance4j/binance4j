@@ -36,11 +36,19 @@ import com.binance4j.margin.dto.IsolatedTransferAccount
  * @param transFrom Transfer origin.
  * @param transTo   Transfer destination.
  * @param archived  Set to true for archived data from 6 months ago.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param current   Result page.
+ * @param size      Results in the page.
  */
 data class IsolatedTransferHistoryParams(
 	var symbol: String,
 	var asset: String? = null,
 	var transFrom: IsolatedTransferAccount? = null,
 	var transTo: IsolatedTransferAccount? = null,
-	var archived: Boolean? = null
+	var archived: Boolean? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var current: Int? = null,
+	var size: Int? = null
 ) : Params

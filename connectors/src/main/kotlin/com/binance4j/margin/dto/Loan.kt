@@ -1,17 +1,38 @@
-package com.binance4j.margin.dto;
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import java.util.Optional;
+package com.binance4j.margin.dto
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
 
 /**
  * An executed trade history item.
- * 
+ *
  * @property status         Loan status.
  * @property principal      Borrowed quantity.
- * @property isolatedSymbol Isolated symbol. Will not be returned for crossed
- *                       margin.
+ * @property isolatedSymbol Isolated symbol. Will not be returned for crossed margin.
  * @property asset          Related asset.
  * @property timestamp      Loan timestamp in ms.
  * @property txId           Transaction id.
@@ -19,15 +40,16 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel("An executed trade history item.")
 data class Loan(
-@ApiModelProperty("Loan status.")
- val status : String,
-@ApiModelProperty("Borrowed quantity.")
- val principal : String,
-@ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.") Optional<String> isolatedSymbol,
-@ApiModelProperty("Related asset.")
- val asset : String,
-@ApiModelProperty("Loan timestamp in ms.")
- val timestamp : Long,
-@ApiModelProperty("Transaction id.")  val txId : Long)
-{
-}
+	@ApiModelProperty("Loan status.")
+	val status: String,
+	@ApiModelProperty("Borrowed quantity.")
+	val principal: String,
+	@ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.")
+	var isolatedSymbol: String,
+	@ApiModelProperty("Related asset.")
+	val asset: String,
+	@ApiModelProperty("Loan timestamp in ms.")
+	val timestamp: Long,
+	@ApiModelProperty("Transaction id.")
+	val txId: Long
+)

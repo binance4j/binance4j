@@ -38,7 +38,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Accounts list wrapper")
 data class AccountListResponse(
 	@ApiModelProperty("Response code.")
-	var code: Int = 0,
+	var code: Int,
 	@ApiModelProperty("Response message.")
 	val msg: String,
 	@ApiModelProperty("Response data.")

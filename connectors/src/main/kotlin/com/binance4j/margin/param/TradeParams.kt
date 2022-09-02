@@ -33,5 +33,15 @@ import com.binance4j.core.param.Params
  * @param symbol     Symbol.
  * @param fromId     Search from id.
  * @param isIsolated Is isolated margin?
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
  */
-data class TradeParams(var symbol: String, var fromId: Long? = null, var isIsolated: Boolean? = null) : Params
+data class TradeParams(
+	var symbol: String,
+	var fromId: Long? = null,
+	var isIsolated: Boolean? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

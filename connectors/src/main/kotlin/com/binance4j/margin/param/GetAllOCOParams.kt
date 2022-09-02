@@ -30,10 +30,18 @@ import com.binance4j.core.param.Params
 /**
  * [MarginClient.getAllOCO] params.
  *
- * @param symbol     Mandatory for isolated margin, not supported for cross
- *                   margin.
- * @param fromId     If supplied, don't provide {@link TimeFrame}
- * @param isIsolated Is the order isolated?
+ * @param symbol        Mandatory for isolated margin, not supported for cross margin.
+ * @param fromId        If supplied, don't provide {@link TimeFrame}
+ * @param isIsolated    Is the order isolated?
+ * @param startTime     Start time in ms.
+ * @param endTime       End time in ms.
+ * @param limit         Results limit.
  */
-data class GetAllOCOParams(var symbol: String? = null, var fromId: Long? = null, var isIsolated: Boolean? = null) :
-	Params
+data class GetAllOCOParams(
+	var symbol: String? = null,
+	var fromId: Long? = null,
+	var isIsolated: Boolean? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

@@ -21,281 +21,318 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.binance4j.margin.client
 
-package com.binance4j.margin.client;
+import com.binance4j.core.Binance4j
+import com.binance4j.core.dto.OrderSide
+import com.binance4j.core.exception.ApiException
+import com.binance4j.core.test.CustomTest
+import com.binance4j.margin.dto.IsolatedTransferAccount
+import com.binance4j.margin.dto.TransferType
+import com.binance4j.margin.param.*
+import com.fasterxml.jackson.databind.DeserializationFeature
+import org.junit.jupiter.api.Test
 
-import com.binance4j.core.dto.OrderSide;
-import com.binance4j.core.exception.ApiException;
-import com.binance4j.core.test.CustomTest;
-import com.binance4j.margin.dto.IsolatedTransferAccount;
-import com.binance4j.margin.dto.OrderInfo;
-import com.binance4j.margin.dto.TransferType;
-import com.binance4j.margin.param.*;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import org.junit.jupiter.api.Test;
-
-;
-
-public class MarginClientTest extends CustomTest {
-	protected MarginClient client = new MarginClient(key, secret);
+class MarginClientTest : CustomTest() {
+	protected var client = MarginClient(key, secret)
+	var isolatedSymbol = "BTCUSDT"
+	var isolatedAsset = "BTC"
+	var isolatedAmount = "0.00044"
 	
-	String isolatedSymbol = "BTCUSDT";
-	
-	String isolatedAsset = "BTC";
-	
-	String isolatedAmount = "0.00044";
-	
-	public MarginClientTest() {
-		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	init {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 	
 	@Test
-	void testGetAccount() throws ApiException {
-		testNotThrow(client.getAccount());
+	@Throws(ApiException::class)
+	fun testGetAccount() {
+		assertNotThrow(client.getAccount())
 	}
 	
 	@Test
-	void testGetIsolatedAccount() throws ApiException {
-		testNotThrow(client.getIsolatedAccount());
+	@Throws(ApiException::class)
+	fun testGetIsolatedAccount() {
+		assertNotThrow(client.getIsolatedAccount())
 	}
 	
 	@Test
-	void testGetMarginFeeData() throws ApiException {
-		testNotThrow(client.getMarginFeeData());
+	@Throws(ApiException::class)
+	fun testGetMarginFeeData() {
+		assertNotThrow(client.getMarginFeeData())
 	}
 	
 	// @Test OK WORKS! but system might be short of asset
-	void testGetMaxBorrowable() throws ApiException {
-		testNotThrow(client.getMaxBorrowable(new MaxBorrowableParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetMaxBorrowable() {
+		assertNotThrow(client.getMaxBorrowable(MaxBorrowableParams(asset)))
 	}
 	
 	@Test
-	void testGetMaxTransferable() throws ApiException {
-		testNotThrow(client.getMaxTransferable(new MaxTransferableParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetMaxTransferable() {
+		assertNotThrow(client.getMaxTransferable(MaxTransferableParams(asset)))
 	}
 	
 	@Test
-	void testGetAsset() throws ApiException {
-		testNotThrow(client.getAsset(new AssetParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetAsset() {
+		assertNotThrow(client.getAsset(AssetParams(asset)))
 	}
 	
 	@Test
-	void testGetBNBBurnStatus() throws ApiException {
-		testNotThrow(client.getBNBBurnStatus());
+	@Throws(ApiException::class)
+	fun testGetBNBBurnStatus() {
+		assertNotThrow(client.getBNBBurnStatus())
 	}
 	
 	@Test
-	void testEnableIsolatedAccount() throws ApiException {
-		testNotThrow(client.enableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
+	@Throws(ApiException::class)
+	fun testEnableIsolatedAccount() {
+		assertNotThrow(client.enableIsolatedAccount(ToogleAccountParams(isolatedSymbol)))
 	}
 	
 	@Test
-	void testGetAllAssets() throws ApiException {
-		testNotThrow(client.getAllAssets());
+	@Throws(ApiException::class)
+	fun testGetAllAssets() {
+		assertNotThrow(client.getAllAssets())
 	}
 	
 	@Test
-	void testGetAllCrossMarginPairs() throws ApiException {
-		testNotThrow(client.getAllCrossMarginPairs());
+	@Throws(ApiException::class)
+	fun testGetAllCrossMarginPairs() {
+		assertNotThrow(client.getAllCrossMarginPairs())
 	}
 	
 	@Test
-	void testGetAllIsolatedSymbols() throws ApiException {
-		testNotThrow(client.getAllIsolatedSymbols());
+	@Throws(ApiException::class)
+	fun testGetAllIsolatedSymbols() {
+		assertNotThrow(client.getAllIsolatedSymbols())
 	}
 	
 	@Test
-	void testGetIsolatedFeeData() throws ApiException {
-		testNotThrow(client.getIsolatedFeeData());
+	@Throws(ApiException::class)
+	fun testGetIsolatedFeeData() {
+		assertNotThrow(client.getIsolatedFeeData())
 	}
 	
 	@Test
-	void testGetIsolatedMarginTierData() throws ApiException {
-		testNotThrow(client.getIsolatedMarginTierData(new IsolatedTierDataParams(isolatedSymbol)));
+	@Throws(ApiException::class)
+	fun testGetIsolatedMarginTierData() {
+		assertNotThrow(client.getIsolatedMarginTierData(IsolatedTierDataParams(isolatedSymbol)))
 	}
 	
 	@Test
-	void testGetIsolatedSymbol() throws ApiException {
-		testNotThrow(client.getIsolatedSymbol(new PairParams(isolatedSymbol)));
+	@Throws(ApiException::class)
+	fun testGetIsolatedSymbol() {
+		assertNotThrow(client.getIsolatedSymbol(PairParams(isolatedSymbol)))
 	}
 	
 	@Test
-	void testGetIsolatedTransferHistory() throws ApiException {
-		testNotThrow(client.getIsolatedTransferHistory(new IsolatedTransferHistoryParams(symbol)));
+	@Throws(ApiException::class)
+	fun testGetIsolatedTransferHistory() {
+		assertNotThrow(client.getIsolatedTransferHistory(IsolatedTransferHistoryParams(symbol)))
 	}
 	
 	// @Test General error?
-	void testToggleBNBBurnOnSpotTradeAndMarginInterest() throws ApiException {
-		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(false, false)));
-		testNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(new ToggleBurnParams(true, true)));
+	@Throws(ApiException::class)
+	fun testToggleBNBBurnOnSpotTradeAndMarginInterest() {
+		assertNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams(false, false)))
+		assertNotThrow(client.toggleBNBBurnOnSpotTradeAndMarginInterest(ToggleBurnParams(true, true)))
 	}
 	
 	@Test
-	void testGetInterestRateHistory() throws ApiException {
-		testNotThrow(client.getInterestRateHistory(new InterestRateHistoryParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetInterestRateHistory() {
+		assertNotThrow(client.getInterestRateHistory(InterestRateHistoryParams(asset)))
 	}
 	
 	@Test
-	void testGetCrossMarginPair() throws ApiException {
-		testNotThrow(client.getCrossMarginPair(new PairParams(symbol)));
+	@Throws(ApiException::class)
+	fun testGetCrossMarginPair() {
+		assertNotThrow(client.getCrossMarginPair(PairParams(symbol)))
 	}
 	
 	@Test
-	void testGetEnabledIsolatedAccountLimit() throws ApiException {
-		testNotThrow(client.getEnabledIsolatedAccountLimit());
+	@Throws(ApiException::class)
+	fun testGetEnabledIsolatedAccountLimit() {
+		assertNotThrow(client.getEnabledIsolatedAccountLimit())
 	}
 	
 	@Test
-	void testGetPriceIndex() throws ApiException {
-		testNotThrow(client.getPriceIndex(new PriceIndexParams(symbol)));
+	@Throws(ApiException::class)
+	fun testGetPriceIndex() {
+		assertNotThrow(client.getPriceIndex(PriceIndexParams(symbol)))
 	}
 	
 	@Test
-	void testGetTransferHistory() throws ApiException {
-		testNotThrow(client.getTransferHistory());
+	@Throws(ApiException::class)
+	fun testGetTransferHistory() {
+		assertNotThrow(client.getTransferHistory())
 	}
 	
 	// @Test WORKS!
-	void testGetOpenOrdersAndGetOrder() throws ApiException {
-		var list = List.of("origQuoteOrderQty")
-		List<OrderInfo> orders = client.getOpenOrders().sync();
-		testHasNulls(orders,list, true);
-		
-		orders.forEach(o -> {
-			try {
-				testHasNulls(client.getOrder(new OrderParams(o.symbol(), o.orderId())), list, true);
-			} catch (ApiException e) {
-				e.printStackTrace();
-			}
-			
-		});
+	@Throws(ApiException::class)
+	fun testGetOpenOrdersAndGetOrder() {
+		assertNotThrow(client.getOpenOrders())
 	}
 	
 	// @Test WORKS!
-	void testNewIsolatedTransfer() throws ApiException {
-		
-		testNotThrow(client.newIsolatedTransfer(new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol,
-				isolatedAmount, IsolatedTransferAccount.SPOT,
-				IsolatedTransferAccount.ISOLATED_MARGIN)));
-		
-		testNotThrow(
-				client.newIsolatedTransfer(
-						new NewIsolatedTransferParams(isolatedAsset, isolatedSymbol, isolatedAmount,
-								IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT)));
+	@Throws(ApiException::class)
+	fun testNewIsolatedTransfer() {
+		assertNotThrow(
+			client.newIsolatedTransfer(
+				NewIsolatedTransferParams(
+					isolatedAsset, isolatedSymbol,
+					isolatedAmount, IsolatedTransferAccount.SPOT,
+					IsolatedTransferAccount.ISOLATED_MARGIN
+				)
+			)
+		)
+		assertNotThrow(
+			client.newIsolatedTransfer(
+				NewIsolatedTransferParams(
+					isolatedAsset, isolatedSymbol, isolatedAmount,
+					IsolatedTransferAccount.ISOLATED_MARGIN, IsolatedTransferAccount.SPOT
+				)
+			)
+		)
 	}
 	
 	// @Test WORKS!
-	void testDisableIsolatedAccount() throws ApiException {
-		testNotThrow(client.disableIsolatedAccount(new ToogleAccountParams(isolatedSymbol)));
+	@Throws(ApiException::class)
+	fun testDisableIsolatedAccount() {
+		assertNotThrow(client.disableIsolatedAccount(ToogleAccountParams(isolatedSymbol)))
 	}
 	
 	// @Test WORKS!
-	void testTransfer() throws ApiException {
-		testNotThrow(
-				client.transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MAIN_TO_MARGIN)));
-		testNotThrow(
-				client.transfer(new TransferParams(isolatedAsset, isolatedAmount, TransferType.MARGIN_TO_MAIN)));
+	@Throws(ApiException::class)
+	fun testTransfer() {
+		assertNotThrow(
+			client.transfer(TransferParams(isolatedAsset, isolatedAmount, TransferType.MAIN_TO_MARGIN))
+		)
+		assertNotThrow(
+			client.transfer(TransferParams(isolatedAsset, isolatedAmount, TransferType.MARGIN_TO_MAIN))
+		)
 	}
 	
 	// @Test WORKS!
-	void testGetAllOrders() throws ApiException {
-		AllOrdersParams params = new AllOrdersParams("BTCBUSD");
-		testHasNulls(client.getAllOrders(params), List.of("accountId", "origQuoteOrderQty"), true);
+	@Throws(ApiException::class)
+	fun testGetAllOrders() {
+		val params = AllOrdersParams("BTCBUSD")
+		assertNotThrow(client.getAllOrders(params))
 	}
 	
 	// @Test WORKS!
-	void testNewOrder() throws ApiException {
-		testHasNulls(client.newOrder(NewOrderParams.buy("BTCBUSD", "0.0004", "25000")),
-				List.of("orderId", "quoteQty", "symbol", "marginBuyBorrowAmount", "marginBuyBorrowAsset"), true);
+	@Throws(ApiException::class)
+	fun testNewOrder() {
+		assertNotThrow(
+			client.newOrder(NewOrder.limit("BTCBUSD", OrderSide.BUY, "0.0004", "25000"))
+		)
 	}
 	
 	// ***** NOT TESTED ***** //
-	
 	// TODO @Test
-	void testBorrow() throws ApiException {
-		client.borrow(new BorrowParams(asset, "1"));
+	@Throws(ApiException::class)
+	fun testBorrow() {
+		client.borrow(BorrowParams(asset, "1"))
 	}
 	
 	// TODO @Test
-	void testCancelOCO() throws ApiException {
-		testNotThrow(client.cancelOCO(new CancelOCOParams(symbol)));
+	@Throws(ApiException::class)
+	fun testCancelOCO() {
+		assertNotThrow(client.cancelOCO(CancelOCOParams(symbol)))
 	}
 	
 	// TODO @Test
-	void testCancelOpenOrders() throws ApiException {
-		testNotThrow(client.cancelOpenOrders(new CancelOpenOrdersParams(symbol)));
+	@Throws(ApiException::class)
+	fun testCancelOpenOrders() {
+		assertNotThrow(client.cancelOpenOrders(CancelOpenOrdersParams(symbol)))
 	}
 	
 	// TODO @Test
-	void testCancelOrder() throws ApiException {
-		testNotThrow(client.cancelOrder(new CancelOrderParams(symbol)));
+	@Throws(ApiException::class)
+	fun testCancelOrder() {
+		assertNotThrow(client.cancelOrder(CancelOrderParams(symbol)))
 	}
 	
 	// TODO @Test
-	void testGetAllOCO() throws ApiException {
-		testNotThrow(client.getAllOCO(new GetAllOCOParams(null, null)));
+	@Throws(ApiException::class)
+	fun testGetAllOCO() {
+		assertNotThrow(client.getAllOCO(GetAllOCOParams(null, null)))
 	}
 	
 	@Test
-	void testGetForceLiquidationRecord() throws ApiException {
-		testNotThrow(client.getForceLiquidationRecord(new ForceLiquidationRecordParams(null)));
+	@Throws(ApiException::class)
+	fun testGetForceLiquidationRecord() {
+		assertNotThrow(client.getForceLiquidationRecord(ForceLiquidationRecordParams()))
 	}
 	
 	// TODO @Test
-	void testGetInterestHistory() throws ApiException {
-		testNotThrow(client.getInterestHistory(new TransactionHistoryParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetInterestHistory() {
+		assertNotThrow(client.getInterestHistory(TransactionHistoryParams(asset)))
 	}
 	
 	// TODO @Test
-	void testGetLoanRecord() throws ApiException {
-		testNotThrow(client.getLoanRecord(new TransactionHistoryParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetLoanRecord() {
+		assertNotThrow(client.getLoanRecord(TransactionHistoryParams(asset)))
 	}
 	
 	// TODO @Test
-	void testGetTrades() throws ApiException {
-		testNotThrow(client.getTrades(new TradeParams(isolatedSymbol)));
+	@Throws(ApiException::class)
+	fun testGetTrades() {
+		assertNotThrow(client.getTrades(TradeParams(isolatedSymbol)))
 	}
 	
 	// TODO @Test
-	void testGetOCO() throws ApiException {
-		testNotThrow(client.getOCO(new GetOCOParams(false)));
+	@Throws(ApiException::class)
+	fun testGetOCO() {
+		assertNotThrow(client.getOCO(GetOCOParams(symbol)))
 	}
 	
 	// TODO @Test
-	void testGetOpenOCO() throws ApiException {
-		testNotThrow(client.getOpenOCO());
+	@Throws(ApiException::class)
+	fun testGetOpenOCO() {
+		assertNotThrow(client.getOpenOCO())
 	}
 	
 	// TODO @Test
-	void testGetRepayRecord() throws ApiException {
-		testNotThrow(client.getRepayRecord(new TransactionHistoryParams(asset)));
+	@Throws(ApiException::class)
+	fun testGetRepayRecord() {
+		assertNotThrow(client.getRepayRecord(TransactionHistoryParams(asset)))
 	}
 	
 	// TODO @Test
-	void testNewOCO() throws ApiException {
-		testNotThrow(client.newOCO(new NewOCOOrderParams(symbol, OrderSide.BUY, "1", "1", "1")));
+	@Throws(ApiException::class)
+	fun testNewOCO() {
+		assertNotThrow(client.newOCO(NewOCO(symbol, OrderSide.BUY, "1", "1", "1")))
 	}
 	
 	// TODO @Test
-	void testRepay() throws ApiException {
-		testNotThrow(client.repay(new RepayParams(asset, "amount")));
+	@Throws(ApiException::class)
+	fun testRepay() {
+		assertNotThrow(client.repay(RepayParams(asset, "amount")))
 	}
 	
 	@Test
-	void testGetRateLimit() throws ApiException {
-		testNotThrow(client.getRateLimit());
+	@Throws(ApiException::class)
+	fun testGetRateLimit() {
+		assertNotThrow(client.getRateLimit())
 	}
 	
 	@Test
-	void testGetRateLimit2() throws ApiException {
-		testNotThrow(client.getRateLimit(new RateLimitParams("BTC")));
+	@Throws(ApiException::class)
+	fun testGetRateLimit2() {
+		assertNotThrow(client.getRateLimit(RateLimitParams("BTC")))
 	}
 	
 	@Test
-	void testGetDustLog() throws ApiException {
-		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
-		testNotThrow(client.getDustLog());
-		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
+	@Throws(ApiException::class)
+	fun testGetDustLog() {
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
+		assertNotThrow(client.getDustLog())
+		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
 	}
 }

@@ -38,7 +38,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Algorithms wrapper")
 data class AlgorithmsResponse(
 	@ApiModelProperty("Response code.")
-	var code: Int = 0,
+	var code: Int,
 	@ApiModelProperty("Response message.")
 	val msg: String,
 	@ApiModelProperty("Response data.") var data: List<Algorithm>

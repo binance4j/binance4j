@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The quantity (aka \"lots\" in auction terms) rules for a symbol.")
 data class LotSizeFilter(
 	@ApiModelProperty("Minimum quantity/iceberg Quantity allowed.")
-	var minQty: String = "",
+	var minQty: String,
 	@ApiModelProperty("Maximum quantity/iceberg Quantity allowed.")
-	var maxQty: String = "",
+	var maxQty: String,
 	@ApiModelProperty("Intervals that a quantity/iceberg Quantity can be increased/decreased by.")
-	var stepSize: String = ""
+	var stepSize: String
 )

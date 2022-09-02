@@ -31,14 +31,22 @@ import com.binance4j.core.param.Params
  * [MarginClient.getInterestHistory],[MarginClient.getTransferHistory],[MarginClient.getLoanRecord],[MarginClient.getRepayRecord]
  * params.
  *
- * @param asset          Related asset.
- * @param isolatedSymbol Isolated symbol.
- * @param txId           Transaction id in POST /sapi/v1/margin/repay.
- * @param archived       Set to true for archived data from 6 months ago.
+ * @param asset             Related asset.
+ * @param isolatedSymbol    Isolated symbol.
+ * @param txId              Transaction id in POST /sapi/v1/margin/repay.
+ * @param archived          Set to true for archived data from 6 months ago.
+ * @param startTime         Start time in ms.
+ * @param endTime           End time in ms.
+ * @param current           Result page.
+ * @param size              Results in the page.
  */
 data class TransactionHistoryParams(
-	var asset: String,
+	var asset: String? = null,
 	var isolatedSymbol: String? = null,
 	var txId: Long? = null,
-	var archived: Boolean? = null
+	var archived: Boolean? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var current: Int? = null,
+	var size: Int? = null
 ) : Params

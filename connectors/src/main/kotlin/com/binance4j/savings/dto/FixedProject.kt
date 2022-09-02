@@ -50,7 +50,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Fixed or activity project.")
 data class FixedProject(
 	@ApiModelProperty("Asset.")
-	val asset: String = "",
+	val asset: String,
 	@ApiModelProperty("Display priority.")
 	val displayPriority: Long,
 	@ApiModelProperty("Duration.")

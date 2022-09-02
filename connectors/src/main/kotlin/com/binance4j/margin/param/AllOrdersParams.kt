@@ -33,5 +33,15 @@ import com.binance4j.core.param.Params
  * @param symbol     Order symbol.
  * @param isIsolated Is the order isolated?
  * @param orderId    Order id.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
  */
-data class AllOrdersParams(var symbol: String, var orderId: Long? = null, var isIsolated: Boolean? = null) : Params
+data class AllOrdersParams(
+	var symbol: String,
+	var orderId: Long? = null,
+	var isIsolated: Boolean? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params

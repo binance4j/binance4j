@@ -32,4 +32,4 @@ import com.binance4j.core.param.Params
  *
  * @param symbols Max 5 symbols can be sent; separated by ",".
  */
-data class IsolatedAccountParams(var symbols: String) : Params
+data class IsolatedAccountParams(var symbols: String? = null) : Params

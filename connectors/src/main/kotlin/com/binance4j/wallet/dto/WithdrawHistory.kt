@@ -85,5 +85,5 @@ data class WithdrawHistory(
 	@ApiModelProperty("Withdraw fees.")
 	val transactionFee: String,
 	@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
-	var walletType: Int = 0
+	var walletType: Int
 )

@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hash rate resale detail wrapper.")
 data class HashrateResaleDetailResponse(
 	@ApiModelProperty("Response code.")
-	var code: Int = 0,
+	var code: Int,
 	@ApiModelProperty("Response message.")
 	val msg: String,
 	@ApiModelProperty("Response data.")

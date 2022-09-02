@@ -31,5 +31,15 @@ import com.binance4j.core.param.Params
  * [MarginClient.getForceLiquidationRecord] params.
  *
  * @param isolatedSymbol Isolated symbol.
+ * @param startTime         Start time in ms.
+ * @param endTime           End time in ms.
+ * @param current           Result page.
+ * @param size              Results in the page.
  */
-data class ForceLiquidationRecordParams(var isolatedSymbol: String) : Params
+data class ForceLiquidationRecordParams(
+	var isolatedSymbol: String? = null,
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var current: Int? = null,
+	var size: Int? = null
+) : Params

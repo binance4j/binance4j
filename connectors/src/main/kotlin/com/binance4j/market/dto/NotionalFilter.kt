@@ -52,9 +52,9 @@ data class NotionalFilter(
 	val minNotional: String,
 	@ApiModelProperty("The maximum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.")
 	val maxNotional: String,
-	@ApiModelProperty("Determines whether the minNotional will be applied to MARKET orders.") @JsonProperty("applyMinToMarket ")
+	@ApiModelProperty("Determines whether the minNotional will be applied to MARKET orders.") 
 	val applyMinToMarket: Boolean,
-	@ApiModelProperty(" determines whether the maxNotional will be applied to MARKET orders.") @JsonProperty("applyMaxToMarket ")
+	@ApiModelProperty(" determines whether the maxNotional will be applied to MARKET orders.") 
 	val applyMaxToMarket: Boolean,
 	@ApiModelProperty("Number of minutes the average price is calculated over. 0 means the last price is used.")
 	val avgPriceMins: Int

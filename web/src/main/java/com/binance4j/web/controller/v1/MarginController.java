@@ -1,11 +1,28 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.binance4j.web.controller.v1;
-
-import java.util.List;
-
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.binance4j.connectors.Connectors;
 import com.binance4j.core.dto.NewOrderResponseType;
@@ -15,85 +32,20 @@ import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.param.FramedPaging;
 import com.binance4j.core.param.TimeFrame;
 import com.binance4j.margin.client.MarginClient;
-import com.binance4j.margin.dto.Account;
-import com.binance4j.margin.dto.Asset;
-import com.binance4j.margin.dto.BNBBurnStatus;
-import com.binance4j.margin.dto.CancelOrderResponse;
-import com.binance4j.margin.dto.CrossFee;
-import com.binance4j.margin.dto.CrossSymbol;
-import com.binance4j.margin.dto.DustLogRecord;
-import com.binance4j.margin.dto.ForceLiquidationRecords;
-import com.binance4j.margin.dto.InterestHistory;
-import com.binance4j.margin.dto.InterestRate;
-import com.binance4j.margin.dto.IsolatedAccount;
-import com.binance4j.margin.dto.IsolatedAccountLimit;
-import com.binance4j.margin.dto.IsolatedFee;
-import com.binance4j.margin.dto.IsolatedSymbol;
-import com.binance4j.margin.dto.IsolatedTierData;
-import com.binance4j.margin.dto.IsolatedTransferAccount;
-import com.binance4j.margin.dto.IsolatedTransferRecords;
-import com.binance4j.margin.dto.LoanRecord;
-import com.binance4j.margin.dto.MaxBorrowable;
-import com.binance4j.margin.dto.MaxTransferable;
-import com.binance4j.margin.dto.NewOCOOrderRecord;
-import com.binance4j.margin.dto.NewOrderRecord;
-import com.binance4j.margin.dto.OCOOrderRecord;
-import com.binance4j.margin.dto.OrderInfo;
-import com.binance4j.margin.dto.OrderRateLimit;
-import com.binance4j.margin.dto.PriceIndex;
-import com.binance4j.margin.dto.RepayRecords;
-import com.binance4j.margin.dto.SideEffectType;
-import com.binance4j.margin.dto.ToogleAccountResponse;
-import com.binance4j.margin.dto.Trade;
-import com.binance4j.margin.dto.Transaction;
-import com.binance4j.margin.dto.TransferRecords;
-import com.binance4j.margin.dto.TransferType;
-import com.binance4j.margin.param.AllOrdersParams;
-import com.binance4j.margin.param.AssetParams;
-import com.binance4j.margin.param.BorrowParams;
-import com.binance4j.margin.param.CancelOCOParams;
-import com.binance4j.margin.param.CancelOpenOrdersParams;
-import com.binance4j.margin.param.CancelOrderParams;
-import com.binance4j.margin.param.CrossFeeParams;
-import com.binance4j.margin.param.ForceLiquidationRecordParams;
-import com.binance4j.margin.param.GetAllOCOParams;
-import com.binance4j.margin.param.GetOCOParams;
-import com.binance4j.margin.param.GetOpenOCOParams;
-import com.binance4j.margin.param.InterestRateHistoryParams;
-import com.binance4j.margin.param.IsolatedAccountParams;
-import com.binance4j.margin.param.IsolatedFeeParams;
-import com.binance4j.margin.param.IsolatedTierDataParams;
-import com.binance4j.margin.param.IsolatedTransferHistoryParams;
-import com.binance4j.margin.param.LimitMakerOrder;
-import com.binance4j.margin.param.LimitOrder;
-import com.binance4j.margin.param.MarketOrder;
-import com.binance4j.margin.param.MarketQuoteOrder;
-import com.binance4j.margin.param.MaxBorrowableParams;
-import com.binance4j.margin.param.MaxTransferableParams;
-import com.binance4j.margin.param.NewIsolatedTransferParams;
-import com.binance4j.margin.param.NewOCOOrderParams;
-import com.binance4j.margin.param.OpenOrdersParams;
-import com.binance4j.margin.param.OrderParams;
-import com.binance4j.margin.param.PairParams;
-import com.binance4j.margin.param.PriceIndexParams;
-import com.binance4j.margin.param.RateLimitParams;
-import com.binance4j.margin.param.RepayParams;
-import com.binance4j.margin.param.StopLossLimitOrder;
-import com.binance4j.margin.param.StopLossOrder;
-import com.binance4j.margin.param.TakeProfitLimitOrder;
-import com.binance4j.margin.param.TakeProfitOrder;
-import com.binance4j.margin.param.ToggleBurnParams;
-import com.binance4j.margin.param.ToogleAccountParams;
-import com.binance4j.margin.param.TradeParams;
-import com.binance4j.margin.param.TransactionHistoryParams;
-import com.binance4j.margin.param.TransferParams;
+import com.binance4j.margin.dto.*;
+import com.binance4j.margin.param.*;
 import com.binance4j.web.annotation.JsonGetMapping;
 import com.binance4j.web.annotation.JsonPostMapping;
 import com.binance4j.web.configuration.Binance4jWeb;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Controller for Margin endpoints.
@@ -115,7 +67,7 @@ public class MarginController extends BaseController {
 	 * @return Margin client.
 	 */
 	private MarginClient client() {
-		return connectors.rest().margin();
+		return Connectors.rest().margin();
 	}
 	
 	/**
@@ -997,7 +949,7 @@ public class MarginController extends BaseController {
 			@RequestParam(required = false) @ApiParam("Used with STOP_LOSS_LIMIT leg to make an iceberg order.") String stopIcebergQuantity,
 			@RequestParam(required = false) @ApiParam("For isolated symbol.") Boolean isIsolated)
 			throws ApiException {
-		var oco = new NewOCOOrderParams(symbol, side, quantity, price, stopPrice, stopLimitPrice, stopLimitTimeInForce);
+		var oco = new NewOCO(symbol, side, quantity, price, stopPrice, stopLimitPrice, stopLimitTimeInForce);
 		oco.setNewOrderRespType(newOrderRespType);
 		oco.setListClientOrderId(listClientOrderId);
 		oco.setLimitClientOrderId(limitClientOrderId);

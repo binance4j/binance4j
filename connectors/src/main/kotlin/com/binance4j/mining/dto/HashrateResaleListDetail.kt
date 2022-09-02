@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hash rate resale list detail.")
 data class HashrateResaleListDetail(
 	@ApiModelProperty("Mining ID.")
-	var configId: Int = 0,
+	var configId: Int,
 	@ApiModelProperty("Transfer out of subaccount.")
 	val poolUsername: String,
 	@ApiModelProperty("Transfer into subaccount.")

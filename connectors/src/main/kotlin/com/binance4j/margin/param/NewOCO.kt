@@ -47,19 +47,19 @@ import com.binance4j.core.param.Params
  * @property stopLimitTimeInForce   Valid values are GTC/FOK/IOC.
  * @property isIsolated             Is the order isolated?.
  * */
-data class NewOCOOrderParams(
+data class NewOCO(
 	var symbol: String,
 	var side: OrderSide,
 	var quantity: String,
 	var price: String,
 	var stopPrice: String,
-	var newOrderRespType: NewOrderResponseType,
-	var listClientOrderId: String,
-	var limitClientOrderId: String,
-	var limitIcebergQty: String,
-	var stopClientOrderId: String,
-	var stopLimitPrice: String,
-	var stopIcebergQty: String,
-	var stopLimitTimeInForce: TimeInForce,
-	var isIsolated: Boolean,
+	var newOrderRespType: NewOrderResponseType? = null,
+	var listClientOrderId: String? = null,
+	var limitClientOrderId: String? = null,
+	var limitIcebergQty: String? = null,
+	var stopClientOrderId: String? = null,
+	var stopLimitPrice: String? = null,
+	var stopIcebergQty: String? = null,
+	var stopLimitTimeInForce: TimeInForce? = null,
+	var isIsolated: Boolean? = null,
 ) : Params

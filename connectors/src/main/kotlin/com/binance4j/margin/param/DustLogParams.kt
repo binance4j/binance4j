@@ -28,6 +28,13 @@ import com.binance4j.core.param.Params
 
 
 /**
- * [MarginClient.getDustLog] params
+ * [MarginClient.getDustLog] params.
+ * @param startTime Start time in ms.
+ * @param endTime   End time in ms.
+ * @param limit     Results limit.
  */
-class DustLogParams : Params
+class DustLogParams @JvmOverloads constructor(
+	var startTime: Long? = null,
+	var endTime: Long? = null,
+	var limit: Int? = null
+) : Params
