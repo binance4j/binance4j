@@ -24,6 +24,8 @@
 
 package com.binance4j.core.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -55,45 +57,66 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An order report.")
 data class OrderReport(
 	@ApiModelProperty("The order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: Long,
 	@ApiModelProperty("The original client order id.")
+	@JsonProperty("origClientOrderId")
 	var origClientOrderId: String,
 	@ApiModelProperty("The order timestamp.")
+	@JsonProperty("transactTime")
 	var transactTime: Long,
 	@ApiModelProperty("The order side.")
+	@JsonProperty("side")
 	var side: OrderSide? = null,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Original quantity.")
+	@JsonProperty("origQty")
 	var origQty: String,
 	@ApiModelProperty("Original quantity.")
+	@JsonProperty("executedQty")
 	var executedQty: String,
 	@ApiModelProperty("Used to calculate the average price.")
+	@JsonProperty("cumulativeQuoteQty")
 	var cumulativeQuoteQty: String,
 	@ApiModelProperty("Order status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Time in force to indicate how long will the order remain active.")
+	@JsonProperty("timeInForce")
 	var timeInForce: String,
 	@ApiModelProperty("Type of order.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("Used with stop orders.")
+	@JsonProperty("stopPrice")
 	var stopPrice: String,
 	@ApiModelProperty("Used with iceberg orders.")
+	@JsonProperty("icebergQty")
 	var icebergQty: String,
 	@ApiModelProperty("Order timestamp.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("Update timestamp.")
+	@JsonProperty("updateTime")
 	var updateTime: Long,
 	@ApiModelProperty("Original quote order quantity.")
+	@JsonProperty("origQuoteOrderQty")
 	var origQuoteOrderQty: String,
 	@ApiModelProperty("Is working.")
+	@JsonProperty("isWorking")
 	var isWorking: Boolean,
 	@ApiModelProperty("is isolated margin.")
+	@JsonProperty("isIsolated")
 	var isIsolated: Boolean,
 	@ApiModelProperty("The order symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Client order id.")
+	@JsonProperty("clientOrderId")
 	var clientOrderId: String
 )

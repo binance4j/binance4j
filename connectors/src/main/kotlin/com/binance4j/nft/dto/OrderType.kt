@@ -24,11 +24,14 @@
 
 package com.binance4j.nft.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The NFT order type.
  *
  * @property value Value.
  */
-enum class OrderType(var value: String) {
+enum class OrderType(@JsonProperty("value")
+	var value: String) {
 	/** Purchase order  */
 	PURCHASE_ORDER("0"),
 	

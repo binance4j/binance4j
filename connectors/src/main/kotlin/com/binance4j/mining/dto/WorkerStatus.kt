@@ -23,12 +23,15 @@
  */
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Worker status.
  *
  * @property value
  */
-enum class WorkerStatus(var value: String) {
+enum class WorkerStatus(@JsonProperty("value")
+	var value: String) {
 	/** All. */
 	ALL("0"),
 	

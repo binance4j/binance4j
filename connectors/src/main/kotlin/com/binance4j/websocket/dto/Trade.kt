@@ -48,7 +48,8 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Pair trade data.")
 data class Trade(
 	@ApiModelProperty("Event type.")
-	@JsonProperty("e") var eventType: String,
+	@JsonProperty("e")
+	var eventType: String,
 	@ApiModelProperty("Timestamp.")
 	@JsonProperty("E")
 	var eventTime: Long,

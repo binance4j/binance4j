@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,13 +41,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Margin Order rate limit.")
 data class OrderRateLimit(
 	@ApiModelProperty("Rate limit type.")
+	@JsonProperty("rateLimitType")
 	var rateLimitType: String,
 	@ApiModelProperty("Interval.")
+	@JsonProperty("interval")
 	var interval: String,
 	@ApiModelProperty("Intervar num.")
+	@JsonProperty("intervalNum")
 	var intervalNum: Int,
 	@ApiModelProperty("Limit.")
+	@JsonProperty("limit")
 	var limit: Int,
 	@ApiModelProperty("Count.")
+	@JsonProperty("count")
 	var count: Int
 )

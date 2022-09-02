@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,17 +43,24 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A miner/worker data.")
 data class Worker(
 	@ApiModelProperty("Miner id.")
+	@JsonProperty("workerId")
 	var workerId: String,
 	@ApiModelProperty("Miner's name'.")
+	@JsonProperty("workerName")
 	var workerName: String,
 	@ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.")
+	@JsonProperty("status")
 	var status: Long,
 	@ApiModelProperty("Real-time rate.")
+	@JsonProperty("hashRate")
 	var hashRate: Long,
 	@ApiModelProperty("24H Hashrate.")
+	@JsonProperty("dayHashRate")
 	var dayHashRate: Long,
 	@ApiModelProperty("Real-time Rejection Rate.")
+	@JsonProperty("rejectRate")
 	var rejectRate: Long,
 	@ApiModelProperty("Last submission time.")
+	@JsonProperty("lastShareTime")
 	var lastShareTime: Long
 )

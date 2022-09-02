@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,11 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Isolated margin account info.")
 data class IsolatedAccount(
 	@ApiModelProperty("Owned assets.")
+	@JsonProperty("assets")
 	var assets: List<IsolatedPair>,
 	@ApiModelProperty("Total asset of Bitcoin.")
+	@JsonProperty("totalAssetOfBtc")
 	var totalAssetOfBtc: String,
 	@ApiModelProperty("Total liability of Bitcoin.")
+	@JsonProperty("totalLiabilityOfBtc")
 	var totalLiabilityOfBtc: String,
 	@ApiModelProperty("Total net asset of Bitcoin.")
+	@JsonProperty("totalNetAssetOfBtc")
 	var totalNetAssetOfBtc: String
 )

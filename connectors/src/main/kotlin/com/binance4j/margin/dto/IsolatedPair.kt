@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,27 +49,39 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Isolated asset pair in an isolated account.")
 data class IsolatedPair(
 	@ApiModelProperty("Base asset.")
+	@JsonProperty("baseAsset")
 	var baseAsset: IsolatedAsset? = null,
 	@ApiModelProperty("Quote asset.")
+	@JsonProperty("quoteAsset")
 	var quoteAsset: IsolatedAsset? = null,
 	@ApiModelProperty("Asset symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("is isolated asset created.")
+	@JsonProperty("isolatedCreated")
 	var isolatedCreated: Boolean,
 	@ApiModelProperty("Is trading enabled?")
+	@JsonProperty("tradeEnabled")
 	var tradeEnabled: Boolean,
 	@ApiModelProperty("Is the pair enabled for the account?")
+	@JsonProperty("enabled")
 	var enabled: Boolean,
 	@ApiModelProperty("Margin level status.")
+	@JsonProperty("marginLevelStatus")
 	var marginLevelStatus: String,
 	@ApiModelProperty("Margin level.")
+	@JsonProperty("marginLevel")
 	var marginLevel: String,
 	@ApiModelProperty("Margin ratio.")
+	@JsonProperty("marginRatio")
 	var marginRatio: String,
 	@ApiModelProperty("Index price.")
+	@JsonProperty("indexPrice")
 	var indexPrice: String,
 	@ApiModelProperty("Liquidate price.")
+	@JsonProperty("liquidatePrice")
 	var liquidatePrice: String,
 	@ApiModelProperty("Liquidate rate.")
+	@JsonProperty("liquidateRate")
 	var liquidateRate: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.dto.OrderBookEntry
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
@@ -38,9 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The market depth.")
 data class OrderBook(
 	@ApiModelProperty("Last update id of this order book.")
+	@JsonProperty("lastUpdateId")
 	var lastUpdateId: Long,
 	@ApiModelProperty("List of bids (price/qty).")
+	@JsonProperty("bids")
 	var bids: List<OrderBookEntry>,
 	@ApiModelProperty("List of asks (price/qty).")
+	@JsonProperty("asks")
 	var asks: List<OrderBookEntry>
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.dto.OrderBookEntry
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import io.swagger.annotations.ApiModel
@@ -40,9 +42,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Top bids and asks.")
 data class MiniDepth(
 	@ApiModelProperty("Last update id.")
+	@JsonProperty("lastUpdateId")
 	var lastUpdateId: Long,
 	@ApiModelProperty("Bids.")
+	@JsonProperty("bids")
 	var bids: List<OrderBookEntry>,
 	@ApiModelProperty("Asks.")
+	@JsonProperty("asks")
 	var asks: List<OrderBookEntry>
 )

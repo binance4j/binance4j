@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.market.serialization.SymbolFiltersDeserializer
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.swagger.annotations.ApiModel
@@ -56,42 +58,61 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Symbol information (base/quote).")
 data class SymbolInfo(
 	@ApiModelProperty("Symbol status.")
+	@JsonProperty("orderTypes")
 	var orderTypes: List<String>,
 	@ApiModelProperty("Allowed orders on the symbol*.")
 	@JsonDeserialize(using = SymbolFiltersDeserializer::class)
+	@JsonProperty("filters")
 	var filters: SymbolFilters,
 	@ApiModelProperty("Symbol filters.")
+	@JsonProperty("permissions")
 	var permissions: List<String>,
 	@ApiModelProperty("Symbol permission.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Symbol name.")
+	@JsonProperty("quoteAsset")
 	var quoteAsset: String,
 	@ApiModelProperty("Quote asset.")
+	@JsonProperty("baseAsset")
 	var baseAsset: String,
 	@ApiModelProperty("Base asset.")
+	@JsonProperty("baseAssetPrecision")
 	var baseAssetPrecision: Int,
 	@ApiModelProperty("Base asset precision.")
+	@JsonProperty("baseCommissionPrecision")
 	var baseCommissionPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
+	@JsonProperty("quoteAssetPrecision")
 	var quoteAssetPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
+	@JsonProperty("quotePrecision")
 	var quotePrecision: Int,
 	@ApiModelProperty("Quote asset precision.")
+	@JsonProperty("quoteCommissionPrecision")
 	var quoteCommissionPrecision: Int,
 	@ApiModelProperty("Quote asset commission precision.")
+	@JsonProperty("icebergAllowed")
 	var icebergAllowed: Boolean,
 	@ApiModelProperty("Are iceberg orders allowed?")
+	@JsonProperty("ocoAllowed")
 	var ocoAllowed: Boolean,
 	@ApiModelProperty("Are OCO orders allowed?")
+	@JsonProperty("quoteOrderQtyMarketAllowed")
 	var quoteOrderQtyMarketAllowed: Boolean,
 	@ApiModelProperty("Are orders by quote quantity allowed?")
+	@JsonProperty("isSpotTradingAllowed")
 	var isSpotTradingAllowed: Boolean,
 	@ApiModelProperty("Cancel replace allowed?")
+	@JsonProperty("cancelReplaceAllowed")
 	var cancelReplaceAllowed: Boolean,
 	@ApiModelProperty("Is trailing stop allowed?")
+	@JsonProperty("allowTrailingStop")
 	var allowTrailingStop: Boolean,
 	@ApiModelProperty("Is spot trading allowed?")
+	@JsonProperty("isMarginTradingAllowed")
 	var isMarginTradingAllowed: Boolean,
 	@ApiModelProperty("Is margin trading allowed?")
+	@JsonProperty("status")
 	var status: String
 )

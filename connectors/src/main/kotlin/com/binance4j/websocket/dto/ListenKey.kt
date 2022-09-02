@@ -24,6 +24,8 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -34,5 +36,6 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A wrapper for the listen key.")
 data class ListenKey(
 	@ApiModelProperty("Key used to open a user data stream.")
+	@JsonProperty("listenKey")
 	var listenKey: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,11 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The API trading status detail.")
 data class ApiTradingStatusData(
 	@ApiModelProperty("API trading function is locked or not.")
+	@JsonProperty("isLocked")
 	var isLocked: Boolean,
 	@ApiModelProperty("If API trading function is locked, this is the planned recover time.")
+	@JsonProperty("plannedRecoverTime")
 	var plannedRecoverTime: Long,
 	@ApiModelProperty("Details update timestamps.")
+	@JsonProperty("updateTime")
 	var updateTime: Long,
 	@ApiModelProperty("Trigger condition.")
+	@JsonProperty("triggerCondition")
 	var triggerCondition: ApiTradingStatusTriggerCondition
 )

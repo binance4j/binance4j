@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.param.Params
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
@@ -37,8 +39,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Sorting.")
 data class Sorting(
 	@ApiModelProperty("Project sorting.")
+	@JsonProperty("sortBy")
 	var sortBy: String,
 	@ApiModelProperty("Sort ascending. Default: true.")
+	@JsonProperty("isSortAsc")
 	var isSortAsc: Boolean
 ) : Params {
 	constructor (sortBy: FixedProjectSorting, isSortAsc: Boolean) : this(sortBy.toString(), isSortAsc)

@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,17 +49,24 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The tiers for the number of Base Coins Borrowings and Quote Coins Borrowings currently exist in your account.")
 data class IsolatedTierData(
 	@ApiModelProperty("Related symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Tier.")
+	@JsonProperty("tier")
 	var tier: Int,
 	@ApiModelProperty("Effective multiple.")
+	@JsonProperty("effectiveMultiple")
 	var effectiveMultiple: String,
 	@ApiModelProperty("Initial risk ratio.")
+	@JsonProperty("initialRiskRatio")
 	var initialRiskRatio: String,
 	@ApiModelProperty("Liquidation risk ratio.")
+	@JsonProperty("liquidationRiskRatio")
 	var liquidationRiskRatio: String,
 	@ApiModelProperty("Base asset max borrowable.")
+	@JsonProperty("baseAssetMaxBorrowable")
 	var baseAssetMaxBorrowable: String,
 	@ApiModelProperty("Quote asset max borrowable.")
+	@JsonProperty("quoteAssetMaxBorrowable")
 	var quoteAssetMaxBorrowable: String
 )

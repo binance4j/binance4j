@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.dto.MiniOrderInfo
 
 import io.swagger.annotations.ApiModel
@@ -46,23 +48,33 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Response of an OCO order.")
 data class OCOResponse(
 	@ApiModelProperty("Order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: Long,
 	@ApiModelProperty("Contingency type.")
+	@JsonProperty("contingencyType")
 	var contingencyType: String,
 	@ApiModelProperty("List status.")
+	@JsonProperty("listStatusType")
 	var listStatusType: String,
 	@ApiModelProperty("List order status.")
+	@JsonProperty("listOrderStatus")
 	var listOrderStatus: String,
 	@ApiModelProperty("List client order id.")
+	@JsonProperty("listClientOrderId")
 	var listClientOrderId: String,
 	@ApiModelProperty("Order timestamp.")
+	@JsonProperty("transactionTime")
 	var transactionTime: Long,
 	@ApiModelProperty("Order symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("The 2 orders.")
+	@JsonProperty("orders")
 	var orders: List<MiniOrderInfo>,
 	@ApiModelProperty("is it an isolated trade?")
+	@JsonProperty("isIsolated")
 	var isIsolated: Boolean,
 	@ApiModelProperty("Order reports.")
+	@JsonProperty("orderReports")
 	var orderReports: List<OCOOrderReport>
 )

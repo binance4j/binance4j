@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,7 +39,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("BNB burn status")
 data class BNBBurnStatus(
 	@ApiModelProperty("Is spot BNB burn allowed.")
+	@JsonProperty("spotBNBBurn")
 	var spotBNBBurn: Boolean,
 	@ApiModelProperty("Is interest BNB burn allowed.")
+	@JsonProperty("interestBNBBurn")
 	var interestBNBBurn: Boolean
 )

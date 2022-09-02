@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -43,15 +45,21 @@ import io.swagger.annotations.ApiModelProperty
 )
 data class FundingAsset(
 	@ApiModelProperty("Asset abbreviation.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Available balance.")
+	@JsonProperty("free")
 	var free: String,
 	@ApiModelProperty("Locked balance (volume in the order book).")
+	@JsonProperty("locked")
 	var locked: String,
 	@ApiModelProperty("Frozen balance.")
+	@JsonProperty("freeze")
 	var freeze: String,
 	@ApiModelProperty("Pending volume withdrawing.")
+	@JsonProperty("withdrawing")
 	var withdrawing: String,
 	@ApiModelProperty("Value of the balance in BTC.")
+	@JsonProperty("btcValuation")
 	var btcValuation: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.dto.OrderSide
 import com.binance4j.core.dto.TimeInForce
 
@@ -47,22 +49,32 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Market order to exit leveraged position.")
 data class ForceLiquidationRecord(
 	@ApiModelProperty("Order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Liquidation timestamp in ms.")
+	@JsonProperty("updatedTime")
 	var updatedTime: Long,
 	@ApiModelProperty("Symbol average price.")
+	@JsonProperty("avgPrice")
 	var avgPrice: String,
 	@ApiModelProperty("Executed quantity.")
+	@JsonProperty("executedQty")
 	var executedQty: String,
 	@ApiModelProperty("Order time in force.")
+	@JsonProperty("timeInForce")
 	var timeInForce: TimeInForce? = null,
 	@ApiModelProperty("Order side.")
+	@JsonProperty("side")
 	var side: OrderSide? = null,
 	@ApiModelProperty("Order symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Order price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Order total quantity.")
+	@JsonProperty("qty")
 	var qty: String,
-	@ApiModelProperty("Is it isolated?") var isIsolated: Boolean
+	@ApiModelProperty("Is it isolated?") @JsonProperty("isIsolated")
+	var isIsolated: Boolean
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.pay.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,11 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Pay trade history.")
 data class TradeHistory(
 	@ApiModelProperty("Response code.")
+	@JsonProperty("code")
 	var code: String,
 	@ApiModelProperty("Response message.")
+	@JsonProperty("message")
 	var message: String,
 	@ApiModelProperty("Trades.")
+	@JsonProperty("data")
 	var data: List<Trade>,
 	@ApiModelProperty("Response success.")
+	@JsonProperty("success")
 	var success: Boolean
 )

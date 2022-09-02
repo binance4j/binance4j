@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -54,41 +56,60 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Trade order information.")
 data class OrderInfo(
 	@ApiModelProperty("The order side.")
+	@JsonProperty("side")
 	var side: String,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Original quantity.")
+	@JsonProperty("origQty")
 	var origQty: String,
 	@ApiModelProperty("Original quantity.")
+	@JsonProperty("executedQty")
 	var executedQty: String,
 	@ApiModelProperty("Used to calculate the average price.")
+	@JsonProperty("cummulativeQuoteQty")
 	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Order status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Time in force to indicate how long will the order remain active.")
+	@JsonProperty("timeInForce")
 	var timeInForce: String,
 	@ApiModelProperty("Type of order.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("Used with stop orders.")
+	@JsonProperty("stopPrice")
 	var stopPrice: String,
 	@ApiModelProperty("Used with iceberg orders.")
+	@JsonProperty("icebergQty")
 	var icebergQty: String,
 	@ApiModelProperty("Order timestamp.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("Update timestamp.")
+	@JsonProperty("updateTime")
 	var updateTime: Long,
 	@ApiModelProperty("Original quote order quantity.")
+	@JsonProperty("origQuoteOrderQty")
 	var origQuoteOrderQty: String,
 	@ApiModelProperty("is working.")
+	@JsonProperty("isWorking")
 	var isWorking: Boolean,
 	@ApiModelProperty("The order symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Client order id.")
+	@JsonProperty("clientOrderId")
 	var clientOrderId: String,
 	@ApiModelProperty("Order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: String,
 	@ApiModelProperty("Account id.")
+	@JsonProperty("accountId")
 	var accountId: String
 )

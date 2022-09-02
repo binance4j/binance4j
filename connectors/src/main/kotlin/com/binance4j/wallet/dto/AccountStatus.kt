@@ -25,6 +25,7 @@
 package com.binance4j.wallet.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -35,6 +36,7 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The authenticated account status.")
 data class AccountStatus(
-	@ApiModelProperty("Account status.") @JsonProperty
+	@ApiModelProperty("Account status.")
+	@JsonProperty("data")
 	var data: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.staking.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -33,4 +35,5 @@ import io.swagger.annotations.ApiModelProperty
  * @property success Success.
  */
 @ApiModel("A staking redeem response.")
-data class RedeemResponse(@ApiModelProperty("Success.") var success: Boolean)
+data class RedeemResponse(@ApiModelProperty("Success.") @JsonProperty("success")
+	var success: Boolean)

@@ -24,6 +24,8 @@
 
 package com.binance4j.nft.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT asset.")
 data class NFT(
 	@ApiModelProperty("NFT Network.")
+	@JsonProperty("network")
 	var network: String,
 	@ApiModelProperty("NFT Token ID.")
+	@JsonProperty("tokenId")
 	var tokenId: String,
 	@ApiModelProperty("NFT Contract Address.")
+	@JsonProperty("contractAddress")
 	var contractAddress: String
 )

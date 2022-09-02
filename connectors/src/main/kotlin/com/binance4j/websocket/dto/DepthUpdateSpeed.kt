@@ -24,10 +24,13 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The order book update speed.
  * @property value The result update speed.
  * */
-enum class DepthUpdateSpeed(var value: String) {
+enum class DepthUpdateSpeed(@JsonProperty("value")
+	var value: String) {
 	/** Update of 1000ms.  */
 	MS_1000("1000ms"),
 	

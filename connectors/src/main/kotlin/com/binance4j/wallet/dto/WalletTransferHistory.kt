@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The transfers' wrapper.")
 data class WalletTransferHistory(
 	@ApiModelProperty("List of transfers.")
+	@JsonProperty("rows")
 	var rows: List<WalletTransfer>,
 	@ApiModelProperty("Result size.")
+	@JsonProperty("total")
 	var total: Long,
 )

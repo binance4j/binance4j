@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,12 +41,17 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The user's current order count usage for all intervals.")
 data class OrderCount(
 	@ApiModelProperty("Type of order.")
+	@JsonProperty("rateLimitType")
 	var rateLimitType: String,
 	@ApiModelProperty("Order interval.")
+	@JsonProperty("interval")
 	var interval: String,
 	@ApiModelProperty("Order intervar num.")
+	@JsonProperty("intervalNum")
 	var intervalNum: Int,
 	@ApiModelProperty("Order limit.")
+	@JsonProperty("limit")
 	var limit: Int,
-	@ApiModelProperty("Current order count.") var count: Int
+	@ApiModelProperty("Current order count.") @JsonProperty("count")
+	var count: Int
 )

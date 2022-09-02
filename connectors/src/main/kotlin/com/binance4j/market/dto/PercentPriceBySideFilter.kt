@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -44,13 +46,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The valid range for the price based on the lastPrice of the symbol. There is a different range depending on whether the order is placed on the BUY side or the SELL side.")
 data class PercentPriceBySideFilter(
 	@ApiModelProperty("Bid multiplier up.")
+	@JsonProperty("bidMultiplierUp")
 	var bidMultiplierUp: String,
 	@ApiModelProperty("Bid multiplier down.")
+	@JsonProperty("bidMultiplierDown")
 	var bidMultiplierDown: String,
 	@ApiModelProperty("Ask multiplier up.")
+	@JsonProperty("askMultiplierUp")
 	var askMultiplierUp: String,
 	@ApiModelProperty("Ask multiplier down.")
+	@JsonProperty("askMultiplierDown")
 	var askMultiplierDown: String,
 	@ApiModelProperty("Weighted average price.")
+	@JsonProperty("avgPriceMins")
 	var avgPriceMins: String
 )

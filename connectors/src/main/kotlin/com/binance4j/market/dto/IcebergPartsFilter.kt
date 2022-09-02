@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -35,4 +37,5 @@ import io.swagger.annotations.ApiModelProperty
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#filters)
  */
 @ApiModel("The maximum parts an iceberg order can have.")
-data class IcebergPartsFilter(@ApiModelProperty("The filter limit number.") var limit: Int)
+data class IcebergPartsFilter(@ApiModelProperty("The filter limit number.") @JsonProperty("limit")
+	var limit: Int)

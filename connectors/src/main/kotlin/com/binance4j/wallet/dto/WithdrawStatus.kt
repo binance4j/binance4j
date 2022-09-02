@@ -23,12 +23,15 @@
  */
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * The status of a withdrawal.
  *
  * @property value Value.
  */
-enum class WithdrawStatus(var value: String) {
+enum class WithdrawStatus(@JsonProperty("value")
+	var value: String) {
 	/** Email sent. */
 	EMAIL_SENT("0"),
 	

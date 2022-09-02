@@ -24,6 +24,8 @@
 
 package com.binance4j.nft.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("NFT withdraw history.")
 data class AssetHistory(
 	@ApiModelProperty("Total records.")
+	@JsonProperty("total")
 	var total: Long,
 	@ApiModelProperty("Transactions.")
+	@JsonProperty("list")
 	var list: List<Asset> = emptyList()
 )

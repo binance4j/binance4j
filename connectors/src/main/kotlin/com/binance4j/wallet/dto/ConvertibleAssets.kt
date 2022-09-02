@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,11 +40,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Assets that can be converted into BNB.")
 data class ConvertibleAssets(
 	@ApiModelProperty("Details.")
+	@JsonProperty("details")
 	var details: List<ConvertibleAsset>,
 	@ApiModelProperty("BTC valuation.")
+	@JsonProperty("totalTransferBtc")
 	var totalTransferBtc: String,
 	@ApiModelProperty("BNB valuation.")
+	@JsonProperty("totalTransferBNB")
 	var totalTransferBNB: String,
 	@ApiModelProperty("Commission fee.")
+	@JsonProperty("dribbletPercentage")
 	var dribbletPercentage: String
 )

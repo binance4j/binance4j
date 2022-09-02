@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,9 +42,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The quantity (aka \"lots\" in auction terms) rules for a symbol.")
 data class LotSizeFilter(
 	@ApiModelProperty("Minimum quantity/iceberg Quantity allowed.")
+	@JsonProperty("minQty")
 	var minQty: String,
 	@ApiModelProperty("Maximum quantity/iceberg Quantity allowed.")
+	@JsonProperty("maxQty")
 	var maxQty: String,
 	@ApiModelProperty("Intervals that a quantity/iceberg Quantity can be increased/decreased by.")
+	@JsonProperty("stepSize")
 	var stepSize: String
 )

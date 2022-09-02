@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,10 +40,14 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Isolated margin fee.")
 data class IsolatedFee(
 	@ApiModelProperty("VIP level.")
+	@JsonProperty("vipLevel")
 	var vipLevel: Int,
 	@ApiModelProperty("Related symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Leverage.")
+	@JsonProperty("leverage")
 	var leverage: String,
-	@ApiModelProperty("Isolated fee data.") var data: List<IsolatedFeeData>
+	@ApiModelProperty("Isolated fee data.") @JsonProperty("data")
+	var data: List<IsolatedFeeData>
 )

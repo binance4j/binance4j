@@ -24,9 +24,12 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The user data update type.
  * @property value The enum string value. */
-enum class UserDataUpdateType(var value: String) {
+enum class UserDataUpdateType(@JsonProperty("value")
+	var value: String) {
 	/** Corresponds to "outboundAccountPosition" events.  */
 	ACCOUNT_POSITION_UPDATE("outboundAccountPosition"),
 	

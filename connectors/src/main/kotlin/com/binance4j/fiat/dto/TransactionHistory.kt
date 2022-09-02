@@ -24,6 +24,8 @@
 
 package com.binance4j.fiat.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,13 +41,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Transaction history.")
 data class TransactionHistory(
 	@ApiModelProperty("Code.")
+	@JsonProperty("code")
 	var code: String,
 	@ApiModelProperty("Message.")
+	@JsonProperty("message")
 	var message: String,
 	@ApiModelProperty("Transactions.")
+	@JsonProperty("data")
 	var data: List<Transaction>,
 	@ApiModelProperty("Total.")
+	@JsonProperty("total")
 	var total: Int,
 	@ApiModelProperty("Success.")
+	@JsonProperty("success")
 	var success: Boolean
 )

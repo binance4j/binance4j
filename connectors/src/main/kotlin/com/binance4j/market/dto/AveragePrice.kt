@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,8 +38,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Current average price for a symbol.")
 data class AveragePrice(
 	@ApiModelProperty("Mins.")
+	@JsonProperty("mins")
 	var mins: Int,
 	@ApiModelProperty("Average price of the asset.")
+	@JsonProperty("price")
 	var price: String
 )
 

@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -58,43 +60,68 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The coin network information.")
 data class CoinNetworkInformation(
-	@ApiModelProperty("Address pattern.") var addressRegex: String,
-	@ApiModelProperty("Address rule") var addressRule: String,
-	@ApiModelProperty("Coin abbreviation.") var coin: String,
-	@ApiModelProperty("Deposit description.") var depositDesc: String,
-	@ApiModelProperty("Withdraw description.") var withdrawDesc: String,
-	@ApiModelProperty("Network name.") var name: String,
-	@ApiModelProperty("Memo pattern.") var memoRegex: String,
-	@ApiModelProperty("Network") var network: String,
-	@ApiModelProperty("Tips about the network.") var specialTips: String,
+	@ApiModelProperty("Address pattern.") @JsonProperty("addressRegex")
+	var addressRegex: String,
+	@ApiModelProperty("Address rule") @JsonProperty("addressRule")
+	var addressRule: String,
+	@ApiModelProperty("Coin abbreviation.") @JsonProperty("coin")
+	var coin: String,
+	@ApiModelProperty("Deposit description.") @JsonProperty("depositDesc")
+	var depositDesc: String,
+	@ApiModelProperty("Withdraw description.") @JsonProperty("withdrawDesc")
+	var withdrawDesc: String,
+	@ApiModelProperty("Network name.") @JsonProperty("name")
+	var name: String,
+	@ApiModelProperty("Memo pattern.") @JsonProperty("memoRegex")
+	var memoRegex: String,
+	@ApiModelProperty("Network") @JsonProperty("network")
+	var network: String,
+	@ApiModelProperty("Tips about the network.") @JsonProperty("specialTips")
+	var specialTips: String,
 	@ApiModelProperty("Tips about the withdraw.")
+	@JsonProperty("specialWithdrawTips")
 	var specialWithdrawTips: String,
-	@ApiModelProperty("Deposit dust.") var depositDust: String,
-	@ApiModelProperty("Withdraw fee.") var withdrawFee: String,
+	@ApiModelProperty("Deposit dust.") @JsonProperty("depositDust")
+	var depositDust: String,
+	@ApiModelProperty("Withdraw fee.") @JsonProperty("withdrawFee")
+	var withdrawFee: String,
 	@ApiModelProperty("Withdraw integer multiple")
+	@JsonProperty("withdrawIntegerMultiple")
 	var withdrawIntegerMultiple: String,
 	@ApiModelProperty("Maximal amount authorized to be withdrawn.")
+	@JsonProperty("withdrawMax")
 	var withdrawMax: String,
 	@ApiModelProperty("Minimal amount authorized to be withdrawn.")
+	@JsonProperty("withdrawMin")
 	var withdrawMin: String,
 	@ApiModelProperty("Min number for balance confirmation.")
+	@JsonProperty("minConfirm")
 	var minConfirm: Int,
 	@ApiModelProperty("Confirmation number for balance unlock.")
+	@JsonProperty("unLockConfirm")
 	var unLockConfirm: Int,
 	@ApiModelProperty("If deposit is enabled.")
+	@JsonProperty("depositEnable")
 	var depositEnable: Boolean,
 	@ApiModelProperty("if is the default network.")
+	@JsonProperty("isDefault")
 	var isDefault: Boolean,
 	@ApiModelProperty("Reset address status.")
+	@JsonProperty("resetAddressStatus")
 	var resetAddressStatus: Boolean,
 	@ApiModelProperty("If withdraw is enabled.")
+	@JsonProperty("withdrawEnable")
 	var withdrawEnable: Boolean,
 	@ApiModelProperty("If the coin needs to provide memo to withdraw.")
+	@JsonProperty("sameAddress")
 	var sameAddress: Boolean,
 	@ApiModelProperty("Estimated arrivar time in ms.")
+	@JsonProperty("estimatedArrivalTime")
 	var estimatedArrivalTime: Long,
 	@ApiModelProperty("Is network busy?")
+	@JsonProperty("busy")
 	var busy: Boolean,
 	@ApiModelProperty("Country.")
+	@JsonProperty("country")
 	var country: String
 )

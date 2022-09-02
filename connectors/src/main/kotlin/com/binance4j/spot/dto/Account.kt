@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 
 import com.binance4j.core.dto.AssetBalance
 import io.swagger.annotations.ApiModel
@@ -48,27 +50,39 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The SPOT account information.")
 data class Account(
 	@ApiModelProperty("Maker commission.")
+	@JsonProperty("makerCommission")
 	var makerCommission: String,
 	@ApiModelProperty("Taker commission.")
+	@JsonProperty("takerCommission")
 	var takerCommission: String,
 	@ApiModelProperty("Buyer commission.")
+	@JsonProperty("buyerCommission")
 	var buyerCommission: String,
 	@ApiModelProperty("Seller commission.")
+	@JsonProperty("sellerCommission")
 	var sellerCommission: String,
 	@ApiModelProperty("Trade permission.")
+	@JsonProperty("canTrade")
 	var canTrade: Boolean,
 	@ApiModelProperty("Withdrawal permission.")
+	@JsonProperty("canWithdraw")
 	var canWithdraw: Boolean,
 	@ApiModelProperty("Deposit permission.")
+	@JsonProperty("canDeposit")
 	var canDeposit: Boolean,
 	@ApiModelProperty("Timestamp of the last data update.")
+	@JsonProperty("updateTime")
 	var updateTime: Long,
 	@ApiModelProperty("Balances of each asset in the SPOT wallet.")
+	@JsonProperty("balances")
 	var balances: List<AssetBalance>,
 	@ApiModelProperty("Account Type .")
+	@JsonProperty("accountType")
 	var accountType: String,
 	@ApiModelProperty("Permissions list.")
+	@JsonProperty("permissions")
 	var permissions: List<String>,
 	@ApiModelProperty("Brokered account?")
+	@JsonProperty("brokered")
 	var brokered: Boolean
 )

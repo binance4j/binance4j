@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,29 +49,42 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The CancelOrder request result.")
 data class CancelOrderResponse(
 	@ApiModelProperty("Status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Side.")
+	@JsonProperty("side")
 	var side: String,
 	@ApiModelProperty("Type.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("Time in force.")
+	@JsonProperty("timeInForce")
 	var timeInForce: String,
 	@ApiModelProperty("Order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: Long,
 	@ApiModelProperty("Symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Orig client order id.")
+	@JsonProperty("origClientOrderId")
 	var origClientOrderId: String,
 	@ApiModelProperty("Client order id.")
+	@JsonProperty("clientOrderId")
 	var clientOrderId: String,
 	@ApiModelProperty("Executed quantity.")
+	@JsonProperty("executedQty")
 	var executedQty: String,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Original quantity.")
+	@JsonProperty("origQty")
 	var origQty: String,
 	@ApiModelProperty("Cummulative quote quantity.")
+	@JsonProperty("cummulativeQuoteQty")
 	var cummulativeQuoteQty: String
 )

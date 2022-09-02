@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -46,27 +48,39 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A trade being part of a NewOrderRecord.")
 data class Trade(
 	@ApiModelProperty("Trade id.")
+	@JsonProperty("id")
 	var id: Long,
 	@ApiModelProperty("Related order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Traded symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Commission asset .")
+	@JsonProperty("commissionAsset")
 	var commissionAsset: String,
 	@ApiModelProperty("Commission amount.")
+	@JsonProperty("commission")
 	var commission: String,
 	@ApiModelProperty("Trade price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Traded quantity.")
+	@JsonProperty("qty")
 	var qty: String,
 	@ApiModelProperty("Transaction time.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("Is it the best match?")
+	@JsonProperty("isBestMatch")
 	var isBestMatch: Boolean,
 	@ApiModelProperty("Is it a buyer trade?")
+	@JsonProperty("isBuyer")
 	var isBuyer: Boolean,
 	@ApiModelProperty("Is it a maker trade?")
+	@JsonProperty("isMaker")
 	var isMaker: Boolean,
 	@ApiModelProperty("Is it an isolated trade?")
+	@JsonProperty("isIsolated")
 	var isIsolated: Boolean
 )

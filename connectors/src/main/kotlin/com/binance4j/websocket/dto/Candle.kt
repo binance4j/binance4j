@@ -24,6 +24,8 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.websocket.serialization.CandlestickEventDeserializer
 import com.binance4j.websocket.serialization.CandlestickEventSerializer
 import com.fasterxml.jackson.annotation.JsonFormat
@@ -63,39 +65,57 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Kline/candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("Candlestick open timestamp in milliseconds")
+	@JsonProperty("openTime")
 	var openTime: Long,
 	@ApiModelProperty("Open value")
+	@JsonProperty("open")
 	var open: String,
 	@ApiModelProperty("High value")
+	@JsonProperty("high")
 	var high: String,
 	@ApiModelProperty("Low value")
+	@JsonProperty("low")
 	var low: String,
 	@ApiModelProperty("Close value")
+	@JsonProperty("close")
 	var close: String,
 	@ApiModelProperty("Traded volume in the interval")
+	@JsonProperty("volume")
 	var volume: String,
 	@ApiModelProperty("Candlestick close timestamp in milliseconds")
+	@JsonProperty("closeTime")
 	var closeTime: Long,
 	@ApiModelProperty("Quote asset traded volume")
+	@JsonProperty("quoteAssetVolume")
 	var quoteAssetVolume: String,
 	@ApiModelProperty("Number of trades")
+	@JsonProperty("numberOfTrades")
 	var numberOfTrades: Long,
 	@ApiModelProperty("Taker buy base asset volume")
+	@JsonProperty("takerBuyBaseAssetVolume")
 	var takerBuyBaseAssetVolume: String,
 	@ApiModelProperty("Taker buy quote asset volume")
+	@JsonProperty("takerBuyQuoteAssetVolume")
 	var takerBuyQuoteAssetVolume: String,
 	@ApiModelProperty("Event type.")
+	@JsonProperty("eventType")
 	var eventType: String,
 	@ApiModelProperty("Timestamp in ms.")
+	@JsonProperty("eventTime")
 	var eventTime: Long,
 	@ApiModelProperty("Trading pair.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Intervar id.")
+	@JsonProperty("intervalId")
 	var intervalId: String,
 	@ApiModelProperty("First trade id.")
+	@JsonProperty("firstTradeId")
 	var firstTradeId: Long,
 	@ApiModelProperty("Last trade id.")
+	@JsonProperty("lastTradeId")
 	var lastTradeId: Long,
 	@ApiModelProperty("Is it the last bar of the interval?")
+	@JsonProperty("isBarFinal")
 	var isBarFinal: Boolean
 )

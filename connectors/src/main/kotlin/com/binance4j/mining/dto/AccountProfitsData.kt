@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account profits data.")
 data class AccountProfitsData(
 	@ApiModelProperty("Profits data.")
+	@JsonProperty("accountProfits")
 	var accountProfits: List<AccountProfit>,
 	@ApiModelProperty("Total amount.")
+	@JsonProperty("totalNum")
 	var totalNum: Long = 0L,
 	@ApiModelProperty("Rows per page.")
+	@JsonProperty("pageSize")
 	var pageSize: Long = 0L
 )

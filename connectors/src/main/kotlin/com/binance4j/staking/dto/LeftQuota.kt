@@ -24,6 +24,8 @@
 
 package com.binance4j.staking.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -32,4 +34,5 @@ import io.swagger.annotations.ApiModelProperty
  * @property leftPersonalQuota User left quota.
  */
 @ApiModel("Personal left quota.")
-data class LeftQuota(@ApiModelProperty("User left quota.") var leftPersonalQuota: String)
+data class LeftQuota(@ApiModelProperty("User left quota.") @JsonProperty("leftPersonalQuota")
+	var leftPersonalQuota: String)

@@ -23,11 +23,14 @@
  */
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Sorting.
  * @property value Value.
  */
-enum class SortSequence(var value: String) {
+enum class SortSequence(@JsonProperty("value")
+	var value: String) {
 	/**
 	 * Positive.
 	 */

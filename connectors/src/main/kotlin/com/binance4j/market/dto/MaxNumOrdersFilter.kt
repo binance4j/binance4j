@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,4 +39,5 @@ import io.swagger.annotations.ApiModelProperty
  * @property maxNumOrders Max number of orders allowed.
  */
 @ApiModel("The maximum number of orders an account is allowed to have open on a symbol.")
-data class MaxNumOrdersFilter(@ApiModelProperty("Max number of orders allowed.") var maxNumOrders: Int)
+data class MaxNumOrdersFilter(@ApiModelProperty("Max number of orders allowed.") @JsonProperty("maxNumOrders")
+	var maxNumOrders: Int)

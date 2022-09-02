@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.binance4j.savings.client.SavingsClient
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Response for changing fixed product to flexible.")
 data class PositionChangedResponse(
 	@ApiModelProperty("Daily purchase id.")
+	@JsonProperty("dailyPurchaseId")
 	var dailyPurchaseId: Long,
 	@ApiModelProperty("Success.")
+	@JsonProperty("success")
 	var success: Boolean,
 	@ApiModelProperty("Time.")
+	@JsonProperty("timestamp")
 	var timestamp: Long,
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,19 +44,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The authenticated margin account.")
 data class Account(
 	@ApiModelProperty("User assets.")
+	@JsonProperty("userAssets")
 	var userAssets: List<AssetBalance>,
 	@ApiModelProperty("Margin level.")
+	@JsonProperty("marginLevel")
 	var marginLevel: String,
 	@ApiModelProperty("Total asset of Bitcoin.")
+	@JsonProperty("totalAssetOfBtc")
 	var totalAssetOfBtc: String,
 	@ApiModelProperty("Total liability of Bitcoin.")
+	@JsonProperty("totalLiabilityOfBtc")
 	var totalLiabilityOfBtc: String,
 	@ApiModelProperty("Total net asset of Bitcoin.")
+	@JsonProperty("totalNetAssetOfBtc")
 	var totalNetAssetOfBtc: String,
 	@ApiModelProperty("Is borrow enabled?")
+	@JsonProperty("borrowEnabled")
 	var borrowEnabled: Boolean,
 	@ApiModelProperty("Is trade enabled?")
+	@JsonProperty("tradeEnabled")
 	var tradeEnabled: Boolean,
 	@ApiModelProperty("Is transfer Enabled?")
+	@JsonProperty("transferEnabled")
 	var transferEnabled: Boolean
 )

@@ -24,9 +24,12 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The order book size.
  * @property value Result size. */
-enum class DepthLevel(var value: String) {
+enum class DepthLevel(@JsonProperty("value")
+	var value: String) {
 	/** Depth of 5 results.  */
 	LEVEL_5("5"),
 	

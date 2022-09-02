@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,14 +42,20 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An isolated asset pair.")
 data class IsolatedSymbol(
 	@ApiModelProperty("Asset pair.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Base asset.")
+	@JsonProperty("base")
 	var base: String,
 	@ApiModelProperty("Quote asset.")
+	@JsonProperty("quote")
 	var quote: String,
 	@ApiModelProperty("Is margin trade allowed?")
+	@JsonProperty("isMarginTrade")
 	var isMarginTrade: Boolean,
 	@ApiModelProperty("Is purchase allowed?")
+	@JsonProperty("isBuyAllowed")
 	var isBuyAllowed: Boolean,
-	@ApiModelProperty("Is sale allowed?") var isSellAllowed: Boolean
+	@ApiModelProperty("Is sale allowed?") @JsonProperty("isSellAllowed")
+	var isSellAllowed: Boolean
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,10 +40,14 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A loan interest rate.")
 data class InterestRate(
 	@ApiModelProperty("Related coin.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Daily interest rate.")
+	@JsonProperty("dailyInterestRate")
 	var dailyInterestRate: String,
 	@ApiModelProperty("Timestamp of the applied interest rate in ms.")
+	@JsonProperty("timestamp")
 	var timestamp: Long,
-	@ApiModelProperty("Account VIP level.") var vipLevel: Int
+	@ApiModelProperty("Account VIP level.") @JsonProperty("vipLevel")
+	var vipLevel: Int
 )

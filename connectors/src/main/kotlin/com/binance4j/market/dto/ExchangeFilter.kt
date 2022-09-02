@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Trading rules of the exchange.")
 data class ExchangeFilter(
 	@ApiModelProperty("Trading rules of the exchange.")
+	@JsonProperty("filterType")
 	var filterType: ExchangeFilterType,
 	@ApiModelProperty("Trading rules of the exchange.")
+	@JsonProperty("limit")
 	var limit: Int
 )

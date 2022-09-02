@@ -25,6 +25,7 @@
 package com.binance4j.wallet.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,29 +48,40 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A deposit history.")
 data class DepositHistory(
 	@ApiModelProperty("Volume to deposit.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Coin abbreviation.")
+	@JsonProperty("coin")
 	var coin: String,
 	@ApiModelProperty("Transfer network.")
+	@JsonProperty("network")
 	var network: String,
 	@ApiModelProperty("Deposit address.")
+	@JsonProperty("address")
 	var address: String,
 	@ApiModelProperty("Deposit address tag.")
+	@JsonProperty("addressTag")
 	var addressTag: String,
 	@ApiModelProperty("Transaction id.")
+	@JsonProperty("txId")
 	var txId: String,
 	@ApiModelProperty("confirm times for unlocking.")
+	@JsonProperty("unlockConfirm")
 	var unlockConfirm: String,
 	@ApiModelProperty("Confirm times")
+	@JsonProperty("confirmTimes")
 	var confirmTimes: String,
 	@ApiModelProperty("Deposit status code.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("confirm times for insertion (?)")
+	@JsonProperty("insertTime")
 	var insertTime: Long,
 	@ApiModelProperty("Transfer type. 1 for internal transfer, 0 for external transfer.")
-	@JsonProperty
+	@JsonProperty("transferType")
 	var transferType: Int,
 	@ApiModelProperty("Wallet type. 0-spot wallet ，1-funding wallet.Default spot wallet.")
+	@JsonProperty("walletType")
 	var walletType: Int
 ) {
 	/** @return String value of status. */

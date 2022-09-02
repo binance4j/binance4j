@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A repay record.")
 data class RepayRecords(
 	@ApiModelProperty("Total of repays.")
+	@JsonProperty("total")
 	var total: Int,
 	@ApiModelProperty("Repays.")
+	@JsonProperty("rows")
 	var rows: List<RepayRecord>
 )

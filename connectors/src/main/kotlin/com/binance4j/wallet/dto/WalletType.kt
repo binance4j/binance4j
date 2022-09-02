@@ -24,10 +24,13 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** A wallet type.
  * @property value
  */
-enum class WalletType(var value: String) {
+enum class WalletType(@JsonProperty("value")
+	var value: String) {
 	/** Spot  */
 	SPOT("0"),
 	

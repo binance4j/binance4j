@@ -24,6 +24,8 @@
 
 package com.binance4j.vision.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,18 +43,25 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A trade.")
 data class VisionTrade(
 	@ApiModelProperty("Trade id.")
+	@JsonProperty("tradeId")
 	var tradeId: Long,
 	@ApiModelProperty("Time in ms.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Quantity.")
+	@JsonProperty("quantity")
 	var quantity: String,
 	@ApiModelProperty("Quote quantity.")
+	@JsonProperty("quoteQuantity")
 	var quoteQuantity: String,
 	@ApiModelProperty("Was it a buyer maker.")
+	@JsonProperty("isBuyerMaker")
 	var isBuyerMaker: Boolean,
 	@ApiModelProperty("Was it the best price match?")
+	@JsonProperty("isBestMatch")
 	var isBestMatch: Boolean
 ) {
 	

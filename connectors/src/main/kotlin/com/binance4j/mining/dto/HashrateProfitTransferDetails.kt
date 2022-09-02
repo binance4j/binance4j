@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,17 +43,24 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hash rate resale list detail.")
 data class HashrateProfitTransferDetails(
 	@ApiModelProperty("Transfer out of subaccount.")
+	@JsonProperty("poolUsername")
 	var poolUsername: String,
 	@ApiModelProperty("Transfer into subaccount.")
+	@JsonProperty("toPoolUsername")
 	var toPoolUsername: String,
 	@ApiModelProperty("Transfer algorithm.")
+	@JsonProperty("algoName")
 	var algoName: String,
 	@ApiModelProperty("Transferred Hash rate quantity.")
+	@JsonProperty("hashRate")
 	var hashRate: Long,
 	@ApiModelProperty("Transfer date.")
+	@JsonProperty("day")
 	var day: Long,
 	@ApiModelProperty("Transferred Amount.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Coin name.")
+	@JsonProperty("coinName")
 	var coinName: String,
 )

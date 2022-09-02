@@ -24,6 +24,8 @@
 
 package com.binance4j.staking.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Staking product quota.")
 data class ProductQuota(
 	@ApiModelProperty("Total personal quota.")
+	@JsonProperty("totalPersonalQuota")
 	var totalPersonalQuota: String,
 	@ApiModelProperty("Minimum.")
+	@JsonProperty("minimum")
 	var minimum: String,
 	@ApiModelProperty("Quota per order.")
+	@JsonProperty("quotaPerOrder")
 	var quotaPerOrder: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
@@ -38,9 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account data.")
 data class AccountData(
 	@ApiModelProperty("Type of daily hash rate.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("Mining account.")
+	@JsonProperty("userName")
 	var userName: String,
 	@ApiModelProperty("List.")
+	@JsonProperty("list")
 	var list: List<AccountList>
 )

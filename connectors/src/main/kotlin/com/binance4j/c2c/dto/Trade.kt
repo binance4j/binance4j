@@ -24,6 +24,8 @@
 
 package com.binance4j.c2c.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -48,31 +50,45 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A C2C Trade.")
 data class Trade(
 	@ApiModelProperty("Order number.")
+	@JsonProperty("orderNumber")
 	var orderNumber: String,
 	@ApiModelProperty("Adv No.")
+	@JsonProperty("advNo")
 	var advNo: Long,
 	@ApiModelProperty("Trade type.")
+	@JsonProperty("tradeType")
 	var tradeType: String,
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Fiat.")
+	@JsonProperty("fiat")
 	var fiat: String,
 	@ApiModelProperty("Fiat symbol.")
+	@JsonProperty("fiatSymbol")
 	var fiatSymbol: String,
 	@ApiModelProperty("Amount.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Total price.")
+	@JsonProperty("totalPrice")
 	var totalPrice: String,
 	@ApiModelProperty("Unit price.")
+	@JsonProperty("unitPrice")
 	var unitPrice: String,
 	@ApiModelProperty("Order status.")
+	@JsonProperty("orderStatus")
 	var orderStatus: String,
 	@ApiModelProperty("Create time.")
+	@JsonProperty("createTime")
 	var createTime: Long,
 	@ApiModelProperty("Commission.")
+	@JsonProperty("commission")
 	var commission: String,
 	@ApiModelProperty("Counter part nickname.")
+	@JsonProperty("counterPartNickName")
 	var counterPartNickName: String,
 	@ApiModelProperty("Advertisement role.")
+	@JsonProperty("advertisementRole")
 	var advertisementRole: String
 )

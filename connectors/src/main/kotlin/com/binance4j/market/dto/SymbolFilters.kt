@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -47,29 +49,42 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The trading rules of a symbol.")
 data class SymbolFilters(
 	@ApiModelProperty("IcebergParts filter")
+	@JsonProperty("icebergParts")
 	var icebergParts: IcebergPartsFilter,
 	@ApiModelProperty("LotSize filter")
+	@JsonProperty("lotSize")
 	var lotSize: LotSizeFilter,
 	@ApiModelProperty("MarketLotSize filter")
+	@JsonProperty("marketLotSize")
 	var marketLotSize: MarketLotSizeFilter,
 	@ApiModelProperty("MaxNumAlgoOrders filter")
+	@JsonProperty("maxNumAlgoOrders")
 	var maxNumAlgoOrders: MaxNumAlgoOrdersFilter,
 	@ApiModelProperty("MaxNumIcebergOrders filter")
+	@JsonProperty("maxNumIcebergOrders")
 	var maxNumIcebergOrders: MaxNumIcebergOrdersFilter,
 	@ApiModelProperty("MaxNumOrders filter")
+	@JsonProperty("maxNumOrders")
 	var maxNumOrders: MaxNumOrdersFilter,
 	@ApiModelProperty("MaxPosition filter")
+	@JsonProperty("maxPosition")
 	var maxPosition: MaxPositionFilter,
 	@ApiModelProperty("MinNotional filter")
+	@JsonProperty("minNotional")
 	var minNotional: MinNotionalFilter,
 	@ApiModelProperty("Notional filter")
+	@JsonProperty("notional")
 	var notional: NotionalFilter,
 	@ApiModelProperty("PercentPriceBySide filter")
+	@JsonProperty("percentPriceBySide")
 	var percentPriceBySide: PercentPriceBySideFilter,
 	@ApiModelProperty("PercentPrice filter")
+	@JsonProperty("percentPrice")
 	var percentPrice: PercentPriceFilter,
 	@ApiModelProperty("Price filter")
+	@JsonProperty("price")
 	var price: PriceFilter,
 	@ApiModelProperty("TrailingDelta filter")
+	@JsonProperty("trailingDelta")
 	var trailingDelta: TrailingDeltaFilter
 )

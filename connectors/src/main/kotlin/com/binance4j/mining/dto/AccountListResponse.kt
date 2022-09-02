@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.mining.client.MiningClient
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
@@ -38,9 +40,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Accounts list wrapper")
 data class AccountListResponse(
 	@ApiModelProperty("Response code.")
+	@JsonProperty("code")
 	var code: Int,
 	@ApiModelProperty("Response message.")
+	@JsonProperty("msg")
 	var msg: String,
 	@ApiModelProperty("Response data.")
+	@JsonProperty("data")
 	var data: List<AccountData>
 )

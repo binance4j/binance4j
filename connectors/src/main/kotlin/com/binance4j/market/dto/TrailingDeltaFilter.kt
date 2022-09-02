@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,11 +42,15 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The minimum and maximum value for the parameter trailingDelta.")
 data class TrailingDeltaFilter(
 	@ApiModelProperty("Min trailing above delta.")
+	@JsonProperty("minTrailingAboveDelta")
 	var minTrailingAboveDelta: String,
 	@ApiModelProperty("Max trailing above delta.")
+	@JsonProperty("maxTrailingAboveDelta")
 	var maxTrailingAboveDelta: String,
 	@ApiModelProperty("Min trailing below delta.")
+	@JsonProperty("minTrailingBelowDelta")
 	var minTrailingBelowDelta: String,
 	@ApiModelProperty("Max trailing below delta.")
+	@JsonProperty("maxTrailingBelowDelta")
 	var maxTrailingBelowDelta: String
 )

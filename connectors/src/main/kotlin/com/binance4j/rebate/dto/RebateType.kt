@@ -23,10 +23,13 @@
  */
 package com.binance4j.rebate.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The rebate type.
  * @property value Value.
  */
-enum class RebateType(var value: String) {
+enum class RebateType(@JsonProperty("value")
+	var value: String) {
 	/** commission rebate  */
 	COMMISSION_REBATE("1"),
 	

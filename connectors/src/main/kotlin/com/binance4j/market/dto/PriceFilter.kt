@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,9 +42,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The price rules for a symbol.")
 data class PriceFilter(
 	@ApiModelProperty("Minimum price/stopPrice allowed. Disabled on minPrice == 0.")
+	@JsonProperty("minPrice")
 	var minPrice: String,
 	@ApiModelProperty("Maximum price/stopPrice allowed. Disabled on maxPrice == 0.")
+	@JsonProperty("maxPrice")
 	var maxPrice: String,
 	@ApiModelProperty("Intervals that a price/stopPrice can be increased/decreased by. Disabled on tickSize == 0.")
+	@JsonProperty("tickSize")
 	var tickSize: String
 )

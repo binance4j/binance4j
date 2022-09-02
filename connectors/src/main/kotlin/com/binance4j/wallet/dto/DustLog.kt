@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Logs of assets converted in BNB.")
 data class DustLog(
 	@ApiModelProperty("Total counts of exchange.")
+	@JsonProperty("total")
 	var total: Int,
 	@ApiModelProperty("Dribblets.")
+	@JsonProperty("userAssetDribblets")
 	var userAssetDribblets: List<UserAssetDribblets>
 )

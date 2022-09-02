@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -56,45 +58,66 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("24 hour price change statistics for a ticker.")
 data class TickerStatistics(
 	@ApiModelProperty("Ticker symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Price change during the last 24 hours.")
+	@JsonProperty("priceChange")
 	var priceChange: String,
 	@ApiModelProperty("Price change; in percentage; during the last 24 hours.")
+	@JsonProperty("priceChangePercent")
 	var priceChangePercent: String,
 	@ApiModelProperty("Weighted average price.")
+	@JsonProperty("weightedAvgPrice")
 	var weightedAvgPrice: String,
 	@ApiModelProperty("Previous close price.")
+	@JsonProperty("prevClosePrice")
 	var prevClosePrice: String,
 	@ApiModelProperty("Last price.")
+	@JsonProperty("lastPrice")
 	var lastPrice: String,
 	@ApiModelProperty("Last quantity.")
+	@JsonProperty("lastQty")
 	var lastQty: String,
 	@ApiModelProperty("Bid price.")
+	@JsonProperty("bidPrice")
 	var bidPrice: String,
 	@ApiModelProperty("Bid quantity.")
+	@JsonProperty("bidQty")
 	var bidQty: String,
 	@ApiModelProperty("Ask price.")
+	@JsonProperty("askPrice")
 	var askPrice: String,
 	@ApiModelProperty("Ask quantity.")
+	@JsonProperty("askQty")
 	var askQty: String,
 	@ApiModelProperty("Open price 24 hours ago.")
+	@JsonProperty("openPrice")
 	var openPrice: String,
 	@ApiModelProperty("Highest price during the past 24 hours.")
+	@JsonProperty("highPrice")
 	var highPrice: String,
 	@ApiModelProperty("Lowest price during the past 24 hours.")
+	@JsonProperty("lowPrice")
 	var lowPrice: String,
 	@ApiModelProperty("Total volume during the past 24 hours.")
+	@JsonProperty("volume")
 	var volume: String,
 	@ApiModelProperty("Total quote volume during the past 24 hours.")
+	@JsonProperty("quoteVolume")
 	var quoteVolume: String,
 	@ApiModelProperty("Open time.")
+	@JsonProperty("openTime")
 	var openTime: Long,
 	@ApiModelProperty("Close time.")
+	@JsonProperty("closeTime")
 	var closeTime: Long,
 	@ApiModelProperty("First trade id.")
+	@JsonProperty("firstId")
 	var firstId: Long,
 	@ApiModelProperty("Last trade id.")
+	@JsonProperty("lastId")
 	var lastId: Long,
 	@ApiModelProperty("Total number of trades during the last 24 hours.")
+	@JsonProperty("count")
 	var count: Long,
 )

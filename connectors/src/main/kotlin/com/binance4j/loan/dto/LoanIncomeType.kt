@@ -24,8 +24,11 @@
 
 package com.binance4j.loan.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** Loan income type.  */
-enum class LoanIncomeType(var value: String) {
+enum class LoanIncomeType(@JsonProperty("value")
+	var value: String) {
 	/** Borrow in  */
 	BORROW_IN("borrowIn"),
 	

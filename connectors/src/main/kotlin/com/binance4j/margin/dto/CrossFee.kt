@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -44,19 +46,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Cross margin fee data collection")
 data class CrossFee(
 	@ApiModelProperty("User's VIP level.")
+	@JsonProperty("vipLevel")
 	var vipLevel: Int,
 	@ApiModelProperty("Coin name.")
+	@JsonProperty("coin")
 	var coin: String,
 	@ApiModelProperty("Borrow limit.")
+	@JsonProperty("borrowLimit")
 	var borrowLimit: String,
 	@ApiModelProperty("Daily interest.")
+	@JsonProperty("dailyInterest")
 	var dailyInterest: String,
 	@ApiModelProperty("Yearly interest.")
+	@JsonProperty("yearlyInterest")
 	var yearlyInterest: String,
 	@ApiModelProperty("Is it borrowable?")
+	@JsonProperty("borrowable")
 	var borrowable: Boolean,
 	@ApiModelProperty("Is internal transfer allowed?")
+	@JsonProperty("transferIn")
 	var transferIn: Boolean,
 	@ApiModelProperty("Bound pairs.")
+	@JsonProperty("marginablePairs")
 	var marginablePairs: List<String>
 )

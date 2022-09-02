@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property startTime     Start time.
  * @property endTime       End time.
  * @property name          Name.
- * @property intervar      Interval.
+ * @property interval     Interval.
  * @property firstUpdate   First update.
  * @property lastUpdate    Last update.
  * @property open          Open.

@@ -24,6 +24,8 @@
 
 package com.binance4j.staking.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,19 +44,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Staking product detail.")
 data class ProductDetail(
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Reward Asset.")
+	@JsonProperty("rewardAsset")
 	var rewardAsset: String,
 	@ApiModelProperty("Duration in ms.")
+	@JsonProperty("duration")
 	var duration: Int,
 	@ApiModelProperty("Renewable.")
+	@JsonProperty("renewable")
 	var renewable: Boolean,
 	@ApiModelProperty("Apy.")
+	@JsonProperty("apy")
 	var apy: String,
 	@ApiModelProperty("Extra reward asset.")
+	@JsonProperty("extraRewardAsset")
 	var extraRewardAsset: String,
 	@ApiModelProperty("Extra reward APY.")
+	@JsonProperty("extraRewardsAPY")
 	var extraRewardsAPY: String,
 	@ApiModelProperty("project.")
+	@JsonProperty("project")
 	var project: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,12 +40,16 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A mining algorithm.")
 data class Algorithm(
 	@ApiModelProperty("Algorithm name.")
+	@JsonProperty("algoName")
 	var algoName: String,
 	@ApiModelProperty("Algorithm id.")
+	@JsonProperty("algoId")
 	var algoId: Long,
 	@ApiModelProperty("Sequence.")
+	@JsonProperty("poolIndex")
 	var poolIndex: Long,
 	@ApiModelProperty("Unit.")
+	@JsonProperty("unit")
 	var unit: String
 )
 

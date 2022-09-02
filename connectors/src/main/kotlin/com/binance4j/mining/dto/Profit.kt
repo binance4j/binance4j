@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,19 +44,27 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Account profit.")
 data class Profit(
 	@ApiModelProperty("Mining date in ms.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("Transferred Hash rate.")
+	@JsonProperty("type")
 	var type: Int,
 	@ApiModelProperty("Transferred Income.")
+	@JsonProperty("hashTransfer")
 	var hashTransfer: Long,
 	@ApiModelProperty("Daily Hash rate.")
+	@JsonProperty("transferAmount")
 	var transferAmount: String,
 	@ApiModelProperty("Earnings Amount.")
+	@JsonProperty("dayHashRate")
 	var dayHashRate: Long,
 	@ApiModelProperty("Coin type.")
+	@JsonProperty("profitAmount")
 	var profitAmount: String,
 	@ApiModelProperty("Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32: Hash rate Resale-Mining Wallet 33: Hash rate Resale-Pool Savings")
+	@JsonProperty("coinName")
 	var coinName: String,
 	@ApiModelProperty("Status. 0: Unpaid 1: Paying 2: Paid")
+	@JsonProperty("status")
 	var status: Int
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -48,13 +50,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The acceptable notional range allowed for an order on a symbol.")
 data class NotionalFilter(
 	@ApiModelProperty("The minimum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.")
+	@JsonProperty("minNotional")
 	var minNotional: String,
 	@ApiModelProperty("The maximum notional value allowed for an order on a symbol. An order's notional value is the. price * quantity.")
+	@JsonProperty("maxNotional")
 	var maxNotional: String,
 	@ApiModelProperty("Determines whether the minNotional will be applied to MARKET orders.")
+	@JsonProperty("applyMinToMarket")
 	var applyMinToMarket: Boolean,
 	@ApiModelProperty(" determines whether the maxNotional will be applied to MARKET orders.")
+	@JsonProperty("applyMaxToMarket")
 	var applyMaxToMarket: Boolean,
 	@ApiModelProperty("Number of minutes the average price is calculated over. 0 means the last price is used.")
+	@JsonProperty("avgPriceMins")
 	var avgPriceMins: Int
 )

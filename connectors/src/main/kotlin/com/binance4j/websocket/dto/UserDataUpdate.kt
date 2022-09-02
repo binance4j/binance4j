@@ -24,6 +24,8 @@
 
 package com.binance4j.websocket.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.websocket.serialization.UserDataUpdateEventDeserializer
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
@@ -50,13 +52,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("User data update event")
 data class UserDataUpdate(
 	@ApiModelProperty("Event type.")
+	@JsonProperty("eventType")
 	var eventType: UserDataUpdateType,
 	@ApiModelProperty("Timestamp.")
+	@JsonProperty("eventTime")
 	var eventTime: Long,
 	@ApiModelProperty("Account update.")
+	@JsonProperty("outboundAccountPositionUpdateEvent")
 	var outboundAccountPositionUpdateEvent: AccountUpdate,
 	@ApiModelProperty("Balance update.")
+	@JsonProperty("balanceUpdateEvent")
 	var balanceUpdateEvent: BalanceUpdate,
 	@ApiModelProperty("Order trade update.")
+	@JsonProperty("orderTradeUpdateEvent")
 	var orderTradeUpdateEvent: OrderTradeUpdate,
 )

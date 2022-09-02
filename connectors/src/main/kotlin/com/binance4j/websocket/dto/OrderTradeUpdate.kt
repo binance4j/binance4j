@@ -24,6 +24,7 @@
 
 package com.binance4j.websocket.dto
 
+
 import com.binance4j.core.dto.TimeInForce
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty

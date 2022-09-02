@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -51,37 +53,54 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A fixed project position.")
 data class FixedProjectPosition(
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Can transfer.")
+	@JsonProperty("canTransfer")
 	var canTransfer: Boolean,
 	@ApiModelProperty("Create timestamp.")
+	@JsonProperty("createTimestamp")
 	var createTimestamp: Long,
 	@ApiModelProperty("Duration.")
+	@JsonProperty("duration")
 	var duration: Long,
 	@ApiModelProperty("End time.")
+	@JsonProperty("endTime")
 	var endTime: Long,
 	@ApiModelProperty("Interest.")
+	@JsonProperty("interest")
 	var interest: String,
 	@ApiModelProperty("Interest rate.")
+	@JsonProperty("interestRate")
 	var interestRate: String,
 	@ApiModelProperty("Lot.")
+	@JsonProperty("lot")
 	var lot: Long,
 	@ApiModelProperty("Position id.")
+	@JsonProperty("positionId")
 	var positionId: Long,
 	@ApiModelProperty("Principal.")
+	@JsonProperty("principal")
 	var principal: String,
 	@ApiModelProperty("Project id.")
+	@JsonProperty("projectId")
 	var projectId: String,
 	@ApiModelProperty("Project name.")
+	@JsonProperty("projectName")
 	var projectName: String,
 	@ApiModelProperty("Purchase time.")
+	@JsonProperty("purchaseTime")
 	var purchaseTime: Long,
 	@ApiModelProperty("Redeem date.")
+	@JsonProperty("redeemDate")
 	var redeemDate: String,
 	@ApiModelProperty("Start time.")
+	@JsonProperty("startTime")
 	var startTime: Long,
 	@ApiModelProperty("Status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Type.")
+	@JsonProperty("type")
 	var type: String
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -50,35 +52,51 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Fixed or activity project.")
 data class FixedProject(
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Display priority.")
+	@JsonProperty("displayPriority")
 	var displayPriority: Long,
 	@ApiModelProperty("Duration.")
+	@JsonProperty("duration")
 	var duration: Long,
 	@ApiModelProperty("Interest per lot.")
+	@JsonProperty("interestPerLot")
 	var interestPerLot: String,
 	@ApiModelProperty("Interest rate.")
+	@JsonProperty("interestRate")
 	var interestRate: String,
 	@ApiModelProperty("Lot size.")
+	@JsonProperty("lotSize")
 	var lotSize: String,
 	@ApiModelProperty("Lots low limit.")
+	@JsonProperty("lotsLowLimit")
 	var lotsLowLimit: Long,
 	@ApiModelProperty("Lots purchased.")
+	@JsonProperty("lotsPurchased")
 	var lotsPurchased: Long,
 	@ApiModelProperty("Lots up limit.")
+	@JsonProperty("lotsUpLimit")
 	var lotsUpLimit: Long,
 	@ApiModelProperty("Max lots per user.")
+	@JsonProperty("maxLotsPerUser")
 	var maxLotsPerUser: Long,
 	@ApiModelProperty("Need kyc.")
+	@JsonProperty("needKyc")
 	var needKyc: Boolean,
 	@ApiModelProperty("Project id.")
+	@JsonProperty("projectId")
 	var projectId: String,
 	@ApiModelProperty("Project name.")
+	@JsonProperty("projectName")
 	var projectName: String,
 	@ApiModelProperty("Status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Type.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("With area limitation.")
+	@JsonProperty("withAreaLimitation")
 	var withAreaLimitation: Boolean
 )

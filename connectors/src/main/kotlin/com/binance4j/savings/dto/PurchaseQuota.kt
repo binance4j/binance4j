@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Flexible purchase quota.")
 data class PurchaseQuota(
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Left quota.")
+	@JsonProperty("leftQuota")
 	var leftQuota: String
 )

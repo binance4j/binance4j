@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.mining.client.MiningClient
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
@@ -38,8 +40,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Coins wrapper")
 data class CoinsResponse(
 	@ApiModelProperty("Response code.")
+	@JsonProperty("code")
 	var code: String,
 	@ApiModelProperty("Response message.")
+	@JsonProperty("msg")
 	var msg: String,
-	@ApiModelProperty("Response data.") var data: List<Coin>
+	@ApiModelProperty("Response data.") @JsonProperty("data")
+	var data: List<Coin>
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,17 +44,24 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An asset transfer record between two accounts.")
 data class IsolatedTransferRecord(
 	@ApiModelProperty("Transferred amount.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Transferred asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Transfer status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Transfer timestamp in ms.")
+	@JsonProperty("timestamp")
 	var timestamp: Long,
 	@ApiModelProperty("Transaction id.")
+	@JsonProperty("txId")
 	var txId: Long,
 	@ApiModelProperty("Account the asset is Transferred from.")
+	@JsonProperty("transFrom")
 	var transFrom: String,
 	@ApiModelProperty("Account the asset is Transferred to.")
+	@JsonProperty("transTo")
 	var transTo: String
 )

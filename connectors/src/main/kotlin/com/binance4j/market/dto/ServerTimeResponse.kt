@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -33,4 +35,5 @@ import io.swagger.annotations.ApiModelProperty
  * @property serverTime Server time in ms.
  */
 @ApiModel("A wrapper for the server time.")
-data class ServerTimeResponse(@ApiModelProperty("The server time in ms.") var serverTime: Long)
+data class ServerTimeResponse(@ApiModelProperty("The server time in ms.") @JsonProperty("serverTime")
+	var serverTime: Long)

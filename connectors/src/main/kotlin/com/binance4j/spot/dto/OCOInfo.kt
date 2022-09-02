@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -42,18 +44,26 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An OCO Order details.")
 data class OCOInfo(
 	@ApiModelProperty("Order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: Long,
 	@ApiModelProperty("Contingency type.")
+	@JsonProperty("contingencyType")
 	var contingencyType: String,
 	@ApiModelProperty("List status type.")
+	@JsonProperty("listStatusType")
 	var listStatusType: String,
 	@ApiModelProperty("List order status.")
+	@JsonProperty("listOrderStatus")
 	var listOrderStatus: String,
 	@ApiModelProperty("List client order id.")
+	@JsonProperty("listClientOrderId")
 	var listClientOrderId: String,
 	@ApiModelProperty("Transaction timestamp in ms.")
+	@JsonProperty("transactionTime")
 	var transactionTime: Long,
 	@ApiModelProperty("Orders symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
-	@ApiModelProperty("Two orders of the OCO order.") var orders: List<OCOOrder>
+	@ApiModelProperty("Two orders of the OCO order.") @JsonProperty("orders")
+	var orders: List<OCOOrder>
 )

@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -48,32 +50,46 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("OCO order report.")
 data class OCOOrderReport(
 	@ApiModelProperty("Symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Order Id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("Order List Id.")
+	@JsonProperty("orderListId")
 	var orderListId: Long,
 	@ApiModelProperty("Client Order Id.")
+	@JsonProperty("clientOrderId")
 	var clientOrderId: String,
 	@ApiModelProperty("Transact Time.")
+	@JsonProperty("transactTime")
 	var transactTime: Long,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Original Quantity.")
+	@JsonProperty("origQty")
 	var origQty: String,
 	@ApiModelProperty("Executed Quantity.")
+	@JsonProperty("executedQty")
 	var executedQty: String,
 	@ApiModelProperty("Cummulative Quote Quantity.")
+	@JsonProperty("cummulativeQuoteQty")
 	var cummulativeQuoteQty: String,
 	@ApiModelProperty("Status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Time In Force.")
+	@JsonProperty("timeInForce")
 	var timeInForce: String,
 	@ApiModelProperty("Type.")
+	@JsonProperty("type")
 	var type: String,
 	@ApiModelProperty("Side.")
+	@JsonProperty("side")
 	var side: String,
 	@ApiModelProperty("StopPrice.")
+	@JsonProperty("stopPrice")
 	var stopPrice: String
 )
 

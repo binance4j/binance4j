@@ -24,6 +24,8 @@
 
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.mining.client.MiningClient
 
 import io.swagger.annotations.ApiModel
@@ -39,8 +41,11 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Hash rate resale wrapper")
 data class HashrateResaleResponse(
 	@ApiModelProperty("Code.")
+	@JsonProperty("code")
 	var code: Int,
 	@ApiModelProperty("Message.")
+	@JsonProperty("msg")
 	var msg: String,
-	@ApiModelProperty("Mining account.") var data: Int
+	@ApiModelProperty("Mining account.") @JsonProperty("data")
+	var data: Int
 )

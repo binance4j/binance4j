@@ -24,11 +24,14 @@
 
 package com.binance4j.core.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Kline/Candlestick intervals. m : minutes; h : hours; d : days; w : weeks; M : months
  * @property value Value
  */
-enum class CandlestickInterval(var value: String) {
+enum class CandlestickInterval(@JsonProperty("value")
+	var value: String) {
 	/** 1 minute interval.  */
 	ONE_MINUTE("1m"),
 	

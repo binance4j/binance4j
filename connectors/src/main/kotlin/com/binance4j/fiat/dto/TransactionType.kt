@@ -24,11 +24,14 @@
 
 package com.binance4j.fiat.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Transaction type.
  * @property value Value
  */
-enum class TransactionType(var value: String) {
+enum class TransactionType(@JsonProperty("value")
+	var value: String) {
 	/** Deposit. */
 	DEPOSIT("0"),
 	

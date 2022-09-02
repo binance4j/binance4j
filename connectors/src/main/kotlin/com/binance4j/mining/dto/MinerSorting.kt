@@ -23,12 +23,15 @@
  */
 package com.binance4j.mining.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Miner sorting.
  *
  * @property value
  */
-enum class MinerSorting(var value: String) {
+enum class MinerSorting(@JsonProperty("value")
+	var value: String) {
 	/**
 	 * Miner name.
 	 */

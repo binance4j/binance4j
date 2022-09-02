@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A symbol price index.")
 data class PriceIndex(
 	@ApiModelProperty("Last price calculation timestamp in ms.")
+	@JsonProperty("calcTime")
 	var calcTime: Long,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Asset pair.")
+	@JsonProperty("symbol")
 	var symbol: String
 )

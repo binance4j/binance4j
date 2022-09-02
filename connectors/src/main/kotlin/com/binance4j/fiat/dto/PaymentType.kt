@@ -24,12 +24,15 @@
 
 package com.binance4j.fiat.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Payment type.
  *
  * @property value Value
  */
-enum class PaymentType(var value: String) {
+enum class PaymentType(@JsonProperty("value")
+	var value: String) {
 	/** Buy. */
 	BUY("0"),
 	

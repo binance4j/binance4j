@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -41,15 +43,21 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An executed trade history item.")
 data class Loan(
 	@ApiModelProperty("Loan status.")
+	@JsonProperty("status")
 	var status: String,
 	@ApiModelProperty("Borrowed quantity.")
+	@JsonProperty("principal")
 	var principal: String,
 	@ApiModelProperty("Isolated symbol. Will not be returned for crossed margin.")
+	@JsonProperty("isolatedSymbol")
 	var isolatedSymbol: String,
 	@ApiModelProperty("Related asset.")
+	@JsonProperty("asset")
 	var asset: String,
 	@ApiModelProperty("Loan timestamp in ms.")
+	@JsonProperty("timestamp")
 	var timestamp: Long,
 	@ApiModelProperty("Transaction id.")
+	@JsonProperty("txId")
 	var txId: Long
 )

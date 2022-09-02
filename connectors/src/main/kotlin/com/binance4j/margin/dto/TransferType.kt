@@ -24,11 +24,14 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * The transfer type.
  * @property value Value
  */
-enum class TransferType(var value: String) {
+enum class TransferType(@JsonProperty("value")
+	var value: String) {
 	/** Main to margin  */
 	MAIN_TO_MARGIN("1"),
 	

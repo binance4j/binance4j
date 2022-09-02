@@ -24,10 +24,13 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /** The coin deposit status.
  * @property value The status number.
  * */
-enum class DepositStatus(var value: String) {
+enum class DepositStatus(@JsonProperty("value")
+	var value: String) {
 	/** Pending  */
 	PENDING("0"),
 	

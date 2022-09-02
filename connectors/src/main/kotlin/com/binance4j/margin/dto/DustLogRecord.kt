@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,8 +38,10 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("A record of asset conversions to BNB.")
 data class DustLogRecord(
 	@ApiModelProperty("Result count.")
+	@JsonProperty("total")
 	var total: Int,
 	@ApiModelProperty("Transfers.")
+	@JsonProperty("userAssetDribblets")
 	var userAssetDribblets: List<UserAssetDribblet>
 ) {
 	/**
@@ -49,15 +53,20 @@ data class DustLogRecord(
 	 */
 	data class UserAssetDribblet(
 		@ApiModelProperty("Operate time.")
-		var operateTime: Long = 0L,
+		@JsonProperty("operateTime")
+	var operateTime: Long = 0L,
 		@ApiModelProperty("Total transfered BNB amount for this exchange.")
-		var totalTransferedAmount: String,
+		@JsonProperty("totalTransferedAmount")
+	var totalTransferedAmount: String,
 		@ApiModelProperty("Total service charge amount for this exchange.")
-		var totalServiceChargeAmount: String,
+		@JsonProperty("totalServiceChargeAmount")
+	var totalServiceChargeAmount: String,
 		@ApiModelProperty("Transaction id.")
-		var transId: Long = 0L,
+		@JsonProperty("transId")
+	var transId: Long = 0L,
 		@ApiModelProperty("Transfer details.")
-		var userAssetDribbletDetails: List<UserAssetDribbletDetail>
+		@JsonProperty("userAssetDribbletDetails")
+	var userAssetDribbletDetails: List<UserAssetDribbletDetail>
 	) {
 		/**
 		 * @property transId             Transaction id.
@@ -69,17 +78,23 @@ data class DustLogRecord(
 		 */
 		data class UserAssetDribbletDetail(
 			@ApiModelProperty("Transaction id.")
-			var transId: Long = 0L,
+			@JsonProperty("transId")
+	var transId: Long = 0L,
 			@ApiModelProperty("Fees.")
-			var serviceChargeAmount: String,
+			@JsonProperty("serviceChargeAmount")
+	var serviceChargeAmount: String,
 			@ApiModelProperty("Converted BNB amount.")
-			var amount: String,
+			@JsonProperty("amount")
+	var amount: String,
 			@ApiModelProperty("Operate time in ms.")
-			var operateTime: Long = 0L,
+			@JsonProperty("operateTime")
+	var operateTime: Long = 0L,
 			@ApiModelProperty("Asset amount.")
-			var transferedAmount: String,
+			@JsonProperty("transferedAmount")
+	var transferedAmount: String,
 			@ApiModelProperty("Asset transfered.")
-			var fromAsset: String
+			@JsonProperty("fromAsset")
+	var fromAsset: String
 		)
 	}
 }

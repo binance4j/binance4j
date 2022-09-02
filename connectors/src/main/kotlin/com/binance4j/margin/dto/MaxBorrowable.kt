@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Max Borrowable amount.")
 data class MaxBorrowable(
 	@ApiModelProperty("Account's currently max borrowable amount with sufficient system availability.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Max borrowable amount limited by the account level.")
+	@JsonProperty("borrowLimit")
 	var borrowLimit: String
 )

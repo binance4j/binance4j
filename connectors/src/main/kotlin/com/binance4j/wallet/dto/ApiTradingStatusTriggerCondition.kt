@@ -24,6 +24,8 @@
 
 package com.binance4j.wallet.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Trading status trigger condition.")
 data class ApiTradingStatusTriggerCondition(
 	@ApiModelProperty("Number of GTC orders.")
+	@JsonProperty("gcr")
 	var gcr: Long,
 	@ApiModelProperty("Number of FOK/IOC orders.")
+	@JsonProperty("ifer")
 	var ifer: Long,
 	@ApiModelProperty("Number of FOK/IOC orders.")
+	@JsonProperty("ufr")
 	var ufr: Long,
 )

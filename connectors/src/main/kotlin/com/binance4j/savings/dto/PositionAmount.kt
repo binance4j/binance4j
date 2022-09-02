@@ -24,6 +24,8 @@
 
 package com.binance4j.savings.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -38,12 +40,16 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Position Amount.")
 data class PositionAmount(
 	@ApiModelProperty("Amount.")
+	@JsonProperty("amount")
 	var amount: String,
 	@ApiModelProperty("Amount in BTC.")
+	@JsonProperty("amountInBTC")
 	var amountInBTC: String,
 	@ApiModelProperty("Amount in USDT.")
+	@JsonProperty("amountInUSDT")
 	var amountInUSDT: String,
 	@ApiModelProperty("Asset.")
+	@JsonProperty("asset")
 	var asset: String
 )
 

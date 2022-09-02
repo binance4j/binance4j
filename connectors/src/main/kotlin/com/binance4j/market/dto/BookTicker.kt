@@ -24,6 +24,8 @@
 
 package com.binance4j.market.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,13 +41,18 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The best price/quantity on the order book for a given symbol.")
 data class BookTicker(
 	@ApiModelProperty("Ticker symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("Bid price.")
+	@JsonProperty("bidPrice")
 	var bidPrice: String,
 	@ApiModelProperty("Bid quantity.")
+	@JsonProperty("bidQty")
 	var bidQty: String,
 	@ApiModelProperty("Ask price.")
+	@JsonProperty("askPrice")
 	var askPrice: String,
 	@ApiModelProperty("Ask quantity.")
+	@JsonProperty("askQty")
 	var askQty: String
 )

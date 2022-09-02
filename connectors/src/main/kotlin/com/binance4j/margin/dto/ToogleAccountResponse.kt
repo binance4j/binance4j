@@ -24,6 +24,8 @@
 
 package com.binance4j.margin.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -36,7 +38,9 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("Response after enabling/disabling isolated margin account.")
 data class ToogleAccountResponse(
 	@ApiModelProperty("Was the request a success?")
+	@JsonProperty("success")
 	var success: Boolean,
 	@ApiModelProperty("The enabled/disabled symbol.")
+	@JsonProperty("symbol")
 	var symbol: String
 )

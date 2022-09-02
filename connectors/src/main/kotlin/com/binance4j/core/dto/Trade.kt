@@ -24,6 +24,7 @@
 
 package com.binance4j.core.dto
 
+
 import com.fasterxml.jackson.annotation.JsonIncludeProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
@@ -50,31 +51,42 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIncludeProperties
 data class Trade(
 	@ApiModelProperty("Trade id.")
+	@JsonProperty("id")
 	var id: Long,
 	@ApiModelProperty("Price.")
+	@JsonProperty("price")
 	var price: String,
 	@ApiModelProperty("Quantity.")
+	@JsonProperty("qty")
 	var qty: String,
 	@ApiModelProperty("Quote quantity for the trade (price * qty).")
-	@JsonProperty
+	@JsonProperty("quoteQty")
 	var quoteQty: String,
 	@ApiModelProperty("Commission.")
+	@JsonProperty("commission")
 	var commission: String,
 	@ApiModelProperty("Asset on which commission is taken.")
-	@JsonProperty
+	@JsonProperty("commissionAsset")
 	var commissionAsset: String,
 	@ApiModelProperty("Trade execution time.")
+	@JsonProperty("time")
 	var time: Long,
 	@ApiModelProperty("The symbol of the trade.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("The order id.")
+	@JsonProperty("orderId")
 	var orderId: String,
 	@ApiModelProperty("The order list id.")
+	@JsonProperty("orderListId")
 	var orderListId: String,
 	@ApiModelProperty("Is buyer trade.")
+	@JsonProperty("isBuyer")
 	var isBuyer: Boolean,
 	@ApiModelProperty("Is maker trade.")
+	@JsonProperty("isMaker")
 	var isMaker: Boolean,
 	@ApiModelProperty("Is best match?")
+	@JsonProperty("isBestMatch")
 	var isBestMatch: Boolean
 )

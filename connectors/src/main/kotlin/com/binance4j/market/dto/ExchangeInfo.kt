@@ -25,6 +25,7 @@
 package com.binance4j.market.dto
 
 import com.binance4j.core.dto.RateLimit
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,14 +41,19 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("The current exchange trading rules and symbol information.")
 data class ExchangeInfo(
 	@ApiModelProperty("Server timezone.")
+	@JsonProperty("timezone")
 	var timezone: String,
 	@ApiModelProperty("Server time.")
+	@JsonProperty("serverTime")
 	var serverTime: Long,
 	@ApiModelProperty("Request limits (weight, orders, raw...).")
+	@JsonProperty("rateLimits")
 	var rateLimits: List<RateLimit>,
 	@ApiModelProperty("Trading rules of the exchange.")
+	@JsonProperty("exchangeFilters")
 	var exchangeFilters: List<ExchangeFilter>,
 	@ApiModelProperty("Available symbols on the exchange.")
+	@JsonProperty("symbols")
 	var symbols: List<SymbolInfo>,
 ) {
 	/**

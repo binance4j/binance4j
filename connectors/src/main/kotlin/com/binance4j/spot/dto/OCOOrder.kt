@@ -24,6 +24,8 @@
 
 package com.binance4j.spot.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -37,9 +39,12 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("OCO order info.")
 data class OCOOrder(
 	@ApiModelProperty("symbol.")
+	@JsonProperty("symbol")
 	var symbol: String,
 	@ApiModelProperty("order id.")
+	@JsonProperty("orderId")
 	var orderId: Long,
 	@ApiModelProperty("client order id.")
+	@JsonProperty("clientOrderId")
 	var clientOrderId: String
 )

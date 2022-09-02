@@ -24,6 +24,8 @@
 
 package com.binance4j.core.dto
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import com.binance4j.core.serialization.CandleDeserializer
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.swagger.annotations.ApiModel
@@ -48,26 +50,37 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel("An OHLC candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("The candlestick open timestamp in milliseconds.")
+	@JsonProperty("openTime")
 	var openTime: Long,
 	@ApiModelProperty("The Open value.")
+	@JsonProperty("open")
 	var open: String,
 	@ApiModelProperty("The High value.")
+	@JsonProperty("high")
 	var high: String,
 	@ApiModelProperty("The Low value.")
+	@JsonProperty("low")
 	var low: String,
 	@ApiModelProperty("The Close value.")
+	@JsonProperty("close")
 	var close: String,
 	@ApiModelProperty("The traded volume in the interval.")
+	@JsonProperty("volume")
 	var volume: String,
 	@ApiModelProperty("The candlestick close timestamp in milliseconds.")
+	@JsonProperty("closeTime")
 	var closeTime: Long,
 	@ApiModelProperty("The quote asset traded volume.")
+	@JsonProperty("quoteAssetVolume")
 	var quoteAssetVolume: String,
 	@ApiModelProperty("The number of trades.")
+	@JsonProperty("numberOfTrades")
 	var numberOfTrades: Long,
 	@ApiModelProperty("Taker buy base asset volume.")
+	@JsonProperty("takerBuyBaseAssetVolume")
 	var takerBuyBaseAssetVolume: String,
 	@ApiModelProperty("Taker buy quote asset volume.")
+	@JsonProperty("takerBuyQuoteAssetVolume")
 	var takerBuyQuoteAssetVolume: String
 ) {
 	/**
