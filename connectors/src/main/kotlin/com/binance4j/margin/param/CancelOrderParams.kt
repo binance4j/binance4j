@@ -35,7 +35,7 @@ import com.binance4j.core.param.Params
  * @param origClientOrderId Original client order id.
  * @param newClientOrderId  New client order id.
  */
-data class CancelOrderParams(
+data class CancelOrderParams @JvmOverloads constructor(
 	var symbol: String, var orderId: Long? = null,
 	var origClientOrderId: String? = null, var newClientOrderId: String? = null
 ) : Params

@@ -36,7 +36,7 @@ import com.binance4j.core.param.Params
  * @param current           Result page.
  * @param size              Results in the page.
  */
-data class ForceLiquidationRecordParams(
+data class ForceLiquidationRecordParams @JvmOverloads constructor(
 	var isolatedSymbol: String? = null,
 	var startTime: Long? = null,
 	var endTime: Long? = null,

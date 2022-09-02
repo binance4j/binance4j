@@ -73,6 +73,7 @@ data class NewOrder @JvmOverloads constructor(
 		 *
 		 * @return A Market order.
 		 */
+		@JvmOverloads
 		fun market(symbol: String, side: OrderSide, quantity: String) =
 			NewOrder(symbol, side, OrderType.MARKET, quantity = quantity)
 		
@@ -83,6 +84,7 @@ data class NewOrder @JvmOverloads constructor(
 		 *
 		 * @return A Market order by the quote asset.
 		 */
+		@JvmOverloads
 		fun marketQuote(symbol: String, side: OrderSide, quoteOrderQty: String) =
 			NewOrder(symbol, side, OrderType.MARKET, quantity = quoteOrderQty)
 		
@@ -113,6 +115,7 @@ data class NewOrder @JvmOverloads constructor(
 		 *
 		 * @return A limit Maker order.
 		 */
+		@JvmOverloads
 		fun limitMaker(symbol: String, side: OrderSide, quantity: String, price: String) =
 			NewOrder(symbol, side, OrderType.LIMIT_MAKER, quantity = quantity, price = price)
 		

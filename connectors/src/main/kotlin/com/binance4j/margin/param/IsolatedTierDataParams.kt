@@ -33,4 +33,4 @@ import com.binance4j.core.param.Params
  * @param symbol Symbol.
  * @param tier   Tier.
  */
-data class IsolatedTierDataParams(var symbol: String, var tier: String? = null) : Params
+data class IsolatedTierDataParams @JvmOverloads constructor(var symbol: String, var tier: String? = null) : Params

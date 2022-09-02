@@ -47,7 +47,7 @@ import com.binance4j.core.param.Params
  * @property stopLimitTimeInForce   Valid values are GTC/FOK/IOC.
  * @property isIsolated             Is the order isolated?.
  * */
-data class NewOCO(
+data class NewOCO @JvmOverloads constructor(
 	var symbol: String,
 	var side: OrderSide,
 	var quantity: String,

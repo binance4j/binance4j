@@ -35,7 +35,7 @@ import com.binance4j.core.param.Params
  * @param symbol     Isolated symbol.
  * @param isIsolated For isolated margin or not. Default `false`.
  */
-data class RepayParams(
+data class RepayParams @JvmOverloads constructor(
 	var asset: String,
 	var amount: String,
 	var symbol: String? = null,

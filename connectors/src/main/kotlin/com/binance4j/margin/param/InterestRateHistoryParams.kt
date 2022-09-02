@@ -33,4 +33,4 @@ import com.binance4j.core.param.Params
  * @param asset    Asset.
  * @param vipLevel VIP level.
  */
-data class InterestRateHistoryParams(var asset: String, var vipLevel: Int? = null) : Params
+data class InterestRateHistoryParams @JvmOverloads constructor(var asset: String, var vipLevel: Int? = null) : Params

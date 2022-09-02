@@ -40,7 +40,7 @@ import com.binance4j.core.param.Params
  * @param current           Result page.
  * @param size              Results in the page.
  */
-data class TransactionHistoryParams(
+data class TransactionHistoryParams @JvmOverloads constructor(
 	var asset: String? = null,
 	var isolatedSymbol: String? = null,
 	var txId: Long? = null,

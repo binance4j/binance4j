@@ -33,4 +33,5 @@ import com.binance4j.core.param.Params
  * @param symbol     Symbol.
  * @param isIsolated Is the order isolated?
  */
-data class OpenOrdersParams(var symbol: String? = null, var isIsolated: Boolean? = null) : Params
+data class OpenOrdersParams @JvmOverloads constructor(var symbol: String? = null, var isIsolated: Boolean? = null) :
+	Params

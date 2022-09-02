@@ -38,7 +38,7 @@ import com.binance4j.core.param.Params
  * @param origClientOrderId Either `orderListId` or
  *                          `origClientOrderId` must be provided.
  */
-data class GetOCOParams(
+data class GetOCOParams @JvmOverloads constructor(
 	var symbol: String? = null, var isIsolated: Boolean? = null,
 	var orderListId: Long? = null, var origClientOrderId: String? = null
 ) : Params

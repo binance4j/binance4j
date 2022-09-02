@@ -33,4 +33,5 @@ import com.binance4j.core.param.Params
  * @param symbol     Symbol.
  * @param isIsolated Is it isolated?
  */
-data class RateLimitParams(var symbol: String? = null, var isIsolated: Boolean? = null) : Params
+data class RateLimitParams @JvmOverloads constructor(var symbol: String? = null, var isIsolated: Boolean? = null) :
+	Params

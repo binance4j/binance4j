@@ -33,4 +33,5 @@ import com.binance4j.core.param.Params
  * @param symbol     Trade symbol
  * @param isIsolated For isolated margin or not.
  */
-data class CancelOpenOrdersParams(var symbol: String, var isIsolated: Boolean? = null) : Params
+data class CancelOpenOrdersParams @JvmOverloads constructor(var symbol: String, var isIsolated: Boolean? = null) :
+	Params

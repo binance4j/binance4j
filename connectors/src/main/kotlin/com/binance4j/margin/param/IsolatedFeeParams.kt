@@ -33,4 +33,4 @@ import com.binance4j.core.param.Params
  * @param symbol   Asset.
  * @param vipLevel Vip level.
  */
-data class IsolatedFeeParams(var symbol: String? = null, var vipLevel: Int? = null) : Params
+data class IsolatedFeeParams @JvmOverloads constructor(var symbol: String? = null, var vipLevel: Int? = null) : Params

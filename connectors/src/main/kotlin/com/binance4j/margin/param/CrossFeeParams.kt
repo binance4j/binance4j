@@ -33,4 +33,4 @@ import com.binance4j.core.param.Params
  * @param coin     Related coin.
  * @param vipLevel Related VIP level.
  */
-data class CrossFeeParams(var coin: String? = null, var vipLevel: Int? = null) : Params
+data class CrossFeeParams @JvmOverloads constructor(var coin: String? = null, var vipLevel: Int? = null) : Params

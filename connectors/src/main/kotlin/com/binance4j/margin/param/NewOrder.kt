@@ -73,6 +73,7 @@ data class NewOrder @JvmOverloads constructor(
 		 * @param sideEffectType     Side effect type.
 		 * @return A Market order.
 		 */
+		@JvmOverloads
 		fun market(
 			symbol: String,
 			side: OrderSide,
@@ -97,6 +98,7 @@ data class NewOrder @JvmOverloads constructor(
 		 * @param sideEffectType     Side effect type.
 		 * @return A Market order by the quote asset.
 		 */
+		@JvmOverloads
 		fun marketQuote(
 			symbol: String,
 			side: OrderSide,
@@ -155,6 +157,7 @@ data class NewOrder @JvmOverloads constructor(
 		 * @param sideEffectType     Side effect type.
 		 * @return A limit Maker order.
 		 */
+		@JvmOverloads
 		fun limitMaker(
 			symbol: String,
 			side: OrderSide,

@@ -37,7 +37,7 @@ import com.binance4j.core.param.Params
  * @param endTime       End time in ms.
  * @param limit         Results limit.
  */
-data class GetAllOCOParams(
+data class GetAllOCOParams @JvmOverloads constructor(
 	var symbol: String? = null,
 	var fromId: Long? = null,
 	var isIsolated: Boolean? = null,

@@ -41,7 +41,7 @@ import com.binance4j.margin.dto.IsolatedTransferAccount
  * @param current   Result page.
  * @param size      Results in the page.
  */
-data class IsolatedTransferHistoryParams(
+data class IsolatedTransferHistoryParams @JvmOverloads constructor(
 	var symbol: String,
 	var asset: String? = null,
 	var transFrom: IsolatedTransferAccount? = null,

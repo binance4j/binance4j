@@ -35,6 +35,6 @@ import com.binance4j.margin.dto.TransferType
  * @param amount Amount to be transferred.
  * @param type   Transfer type.
  */
-data class TransferParams(var asset: String, var amount: String, var type: String) : Params {
+data class TransferParams constructor(var asset: String, var amount: String, var type: String) : Params {
 	constructor(asset: String, amount: String, type: TransferType) : this(asset, amount, type.toString())
 }

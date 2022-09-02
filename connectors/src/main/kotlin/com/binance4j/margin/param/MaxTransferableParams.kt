@@ -33,4 +33,5 @@ import com.binance4j.core.param.Params
  * @param asset          Asset.
  * @param isolatedSymbol Isolated symbol.
  */
-data class MaxTransferableParams(var asset: String, var isolatedSymbol: String? = null) : Params
+data class MaxTransferableParams @JvmOverloads constructor(var asset: String, var isolatedSymbol: String? = null) :
+	Params

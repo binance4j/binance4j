@@ -33,4 +33,5 @@ import com.binance4j.core.param.Params
  * @param symbol     Isolated symbol. Not supported for cross margin.
  * @param isIsolated Is the order isolated?
  */
-data class GetOpenOCOParams(var symbol: String? = null, var isIsolated: Boolean? = null) : Params
+data class GetOpenOCOParams @JvmOverloads constructor(var symbol: String? = null, var isIsolated: Boolean? = null) :
+	Params
