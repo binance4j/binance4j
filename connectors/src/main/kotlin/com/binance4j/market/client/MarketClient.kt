@@ -32,12 +32,7 @@ import com.binance4j.market.param.*
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints)
  */
-class MarketClient
-/**
- * @param key    API public key.
- * @param secret API secret key.
- */
-	(key: String, secret: String) : RestClient<MarketMapping>(MarketMapping::class.java, key, secret) {
+object MarketClient : RestClient<MarketMapping>(MarketMapping::class.java) {
 	/**
 	 * Test connectivity to the Rest API.
 	 *

@@ -29,12 +29,9 @@ import com.binance4j.websocket.param.IsolatedUserDataStreamParams
 import com.binance4j.websocket.param.KeepAliveIsolatedUserDataStreamParams
 import com.binance4j.websocket.request.*
 
-/** The API client for the user data endpoints.
- * @param key    API public key.
- * @param secret API secret key.
- */
-class UserDataClient(key: String, secret: String) :
-	RestClient<UserDataMapping>(UserDataMapping::class.java, key, secret) {
+/** The API client for the user data endpoints. */
+object UserDataClient :
+	RestClient<UserDataMapping>(UserDataMapping::class.java) {
 	/**
 	 * Create a ListenKey.
 	 * The stream will close after 60 minutes unless a keep alive is sent.

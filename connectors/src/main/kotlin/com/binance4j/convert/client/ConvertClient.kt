@@ -31,12 +31,9 @@ import com.binance4j.core.client.RestClient
 /**
  * Api client for the convert endpoints.
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints)
  */
-class ConvertClient(key: String, secret: String) : RestClient<ConvertMapping>(ConvertMapping::class.java, key, secret) {
+object ConvertClient : RestClient<ConvertMapping>(ConvertMapping::class.java) {
 	/**
 	 * Get assets conversion history.
 	 *

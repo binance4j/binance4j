@@ -27,6 +27,7 @@ package com.binance4j.core.client
 import com.binance4j.core.Binance4j
 import com.binance4j.core.interceptor.AuthenticationInterceptor
 import com.binance4j.core.interceptor.MetaHeadersInterceptor
+import com.binance4j.core.interceptor.RecvWindowTimestampInterceptor
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -37,18 +38,11 @@ import retrofit2.converter.jackson.JacksonConverterFactory
  *
  * @param T The Retrofit2 mapping type.
  * @param mapping The Retrofit2 mapping.
- * @param key The API key.
- * @param secret The API secret.
  * @param useTestnet Should the client use the Test Network?
  *
  * [See: doc](https://binance-docs.github.io/apidocs/spot/en/#endpoint-security-type)
  */
-abstract class RestClient<T> @JvmOverloads constructor(
-	mapping: Class<T>, var key: String = "", var secret: String = "", useTestnet: Boolean = false
-) {
-	/** Request authentication interceptor. */
-	private var authInterceptor: AuthenticationInterceptor = AuthenticationInterceptor(key, secret)
-	private var headersInterceptor: MetaHeadersInterceptor = MetaHeadersInterceptor()
+abstract class RestClient<T> @JvmOverloads constructor(mapping: Class<T>, useTestnet: Boolean = false) {
 	
 	/** API service to make calls.  */
 	protected var service: T = createService(mapping, useTestnet)
@@ -58,24 +52,15 @@ abstract class RestClient<T> @JvmOverloads constructor(
 	 * @param mapping The Retrofit2 mapping.
 	 * @param useTestnet Should the client use the Test Network?
 	 */
-	private fun createService(mapping: Class<T>, useTestnet: Boolean): T {
+	protected fun createService(mapping: Class<T>, useTestnet: Boolean): T {
 		val apiUrl = if (useTestnet) "https://testnet.binance.vision" else "https://api.binance.com"
 		val converterFactory = JacksonConverterFactory.create(Binance4j.mapper)
 		val client =
-			OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder().addInterceptor(authInterceptor)
-				.addInterceptor(headersInterceptor).build()
+			OkHttpClient.Builder().dispatcher(Dispatcher()).build().newBuilder()
+				.addInterceptor(AuthenticationInterceptor)
+				.addInterceptor(MetaHeadersInterceptor)
+				.addInterceptor(RecvWindowTimestampInterceptor).build()
 		return Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
 			.create(mapping)
-	}
-	
-	/**
-	 * Updates the authentication interceptor's API keys.
-	 *
-	 * @param key    New key.
-	 * @param secret New secret.
-	 */
-	fun updateKeys(key: String, secret: String) {
-		authInterceptor.key = key
-		authInterceptor.secret = secret
 	}
 }

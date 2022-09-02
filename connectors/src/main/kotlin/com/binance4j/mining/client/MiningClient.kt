@@ -33,12 +33,7 @@ import com.binance4j.mining.param.*
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#mining-endpoints)
  */
-class MiningClient
-/**
- * @param key    API public key.
- * @param secret API secret key.
- */
-	(key: String, secret: String) : RestClient<MiningMapping>(MiningMapping::class.java, key, secret) {
+object MiningClient : RestClient<MiningMapping>(MiningMapping::class.java) {
 	/**
 	 * Acquiring algorithms.
 	 *

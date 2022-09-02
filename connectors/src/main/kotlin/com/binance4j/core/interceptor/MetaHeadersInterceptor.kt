@@ -34,7 +34,7 @@ import java.io.IOException
 /**
  * Interceptor to remove metadata headers before sending the request.
  */
-class MetaHeadersInterceptor : Interceptor {
+object MetaHeadersInterceptor : Interceptor {
 	/**
 	 * Intercepts the request
 	 *

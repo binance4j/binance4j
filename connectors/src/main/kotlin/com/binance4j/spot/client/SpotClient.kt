@@ -31,14 +31,10 @@ import com.binance4j.spot.param.*
 /**
  * API client for the SPOT endpoints
  *
- * @param key    API public key.
- * @param secret API secret key.
- * @param useTestnet use test network.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade)
  */
-open class SpotClient(key: String = "", secret: String = "", useTestnet: Boolean = false) :
-	RestClient<SpotMapping>(SpotMapping::class.java, key, secret, useTestnet) {
+object SpotClient : RestClient<SpotMapping>(SpotMapping::class.java) {
+	fun testnet(testnet: Boolean) = createService(SpotMapping::class.java, testnet)
 	
 	/**
 	 * Sends an order.

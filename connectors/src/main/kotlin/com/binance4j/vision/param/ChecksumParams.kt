@@ -36,7 +36,7 @@ import java.util.*
  * Vision data checksum request
  * @param call API call.
  */
-class ChecksumParams(call: Call<ResponseBody?>?) : Request<ResponseBody?>(call!!) {
+class ChecksumParams(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	
 	/**
 	 * Retrieves the checksum from the response body
@@ -71,13 +71,13 @@ class ChecksumParams(call: Call<ResponseBody?>?) : Request<ResponseBody?>(call!!
 	 * @param callback Callback handling the deserialized data and the API response
 	 * error.
 	 */
-	fun getChecksum(callback: ApiCallback<VisionChecksum?>) =
+	fun getChecksum(callback: ApiCallback<VisionChecksum>) =
 		async { res: ResponseBody?, e: ApiException? -> callback.onResponse(resToChecksum(res!!), e) }
 	
 	@Throws(ApiException::class)
 	override fun sync(): ResponseBody {
 		return try {
-			super.sync()!!
+			super.sync()
 		} catch (e: Exception) {
 			throw NotFoundException()
 		}

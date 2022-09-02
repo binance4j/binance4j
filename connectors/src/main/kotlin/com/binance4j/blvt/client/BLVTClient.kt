@@ -31,12 +31,9 @@ import com.binance4j.core.client.RestClient
 /**
  * Api client for the BLVT endpoints.
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Binance documentation](https://binance-docs.github.io/apidocs/spot/en/#blvt-endpoints)
  */
-class BLVTClient(key: String, secret: String) : RestClient<BLVTMapping>(BLVTMapping::class.java, key, secret) {
+object BLVTClient : RestClient<BLVTMapping>(BLVTMapping::class.java) {
 	/**
 	 * Get BLVT Info.
 	 *

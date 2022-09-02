@@ -32,24 +32,8 @@ import com.binance4j.margin.param.*
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.margin-account-trade)
  */
-open class MarginClient : RestClient<MarginMapping> {
-	/**
-	 * @param key        API public key.
-	 * @param secret     API secret key.
-	 * @param useTestnet use testnet
-	 */
-	protected constructor(key: String, secret: String, useTestnet: Boolean) : super(
-		MarginMapping::class.java,
-		key,
-		secret,
-		useTestnet
-	)
-	
-	/**
-	 * @param key    API public key.
-	 * @param secret API secret key.
-	 */
-	constructor(key: String, secret: String) : super(MarginMapping::class.java, key, secret)
+object MarginClient : RestClient<MarginMapping>(MarginMapping::class.java) {
+	fun testnet(testnet: Boolean) = createService(MarginMapping::class.java, testnet)
 	
 	/**
 	 * Execute transfer between spot account and cross margin account.

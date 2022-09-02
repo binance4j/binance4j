@@ -24,9 +24,10 @@
 
 package com.binance4j.core.interceptor
 
-import com.binance4j.core.Binance4j.API_KEY_HEADER
-import com.binance4j.core.Binance4j.ENDPOINT_SECURITY_TYPE_APIKEY
-import com.binance4j.core.Binance4j.ENDPOINT_SECURITY_TYPE_SIGNED
+import com.binance4j.connectors.RestConnectors
+import com.binance4j.core.Headers.API_KEY_HEADER
+import com.binance4j.core.Headers.ENDPOINT_SECURITY_TYPE_APIKEY
+import com.binance4j.core.Headers.ENDPOINT_SECURITY_TYPE_SIGNED
 import com.binance4j.core.exception.UnableToSignException
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -38,10 +39,8 @@ import javax.crypto.spec.SecretKeySpec
 /**
  * The parameters interceptor that injects the API Key Header into requests, and
  * signs messages, whenever required.
- * @property key    API public key
- * @property secret API private key.
  */
-class AuthenticationInterceptor(var key: String, var secret: String) : Interceptor {
+object AuthenticationInterceptor : Interceptor {
 	
 	/**
 	 * Intercepts the request
@@ -57,14 +56,15 @@ class AuthenticationInterceptor(var key: String, var secret: String) : Intercept
 		newRequestBuilder.removeHeader(ENDPOINT_SECURITY_TYPE_APIKEY).removeHeader(ENDPOINT_SECURITY_TYPE_SIGNED)
 		// Endpoint requires sending a valid API-KEY
 		if (isApiKeyRequired || isSignatureRequired) {
-			newRequestBuilder.addHeader(API_KEY_HEADER, key)
+			newRequestBuilder.addHeader(API_KEY_HEADER, RestConnectors.key)
 		}
 		// Endpoint requires signing the payload
 		if (isSignatureRequired) {
 			val payload = original.url.query
 			if (payload != null && "" != payload) {
 				newRequestBuilder.url(
-					original.url.newBuilder().addQueryParameter("signature", sign(payload, secret)).build()
+					original.url.newBuilder().addQueryParameter("signature", sign(payload, RestConnectors.secret))
+						.build()
 				)
 			}
 		}

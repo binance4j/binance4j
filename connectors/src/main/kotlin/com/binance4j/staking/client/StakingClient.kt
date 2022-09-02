@@ -30,12 +30,9 @@ import com.binance4j.staking.param.*
 /**
  * Api client for the staking endpoints
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#staking-endpoints)
  */
-class StakingClient(key: String, secret: String) : RestClient<StakingMapping>(StakingMapping::class.java, key, secret) {
+object StakingClient : RestClient<StakingMapping>(StakingMapping::class.java) {
 	/**
 	 * Get available Staking product list.
 	 *

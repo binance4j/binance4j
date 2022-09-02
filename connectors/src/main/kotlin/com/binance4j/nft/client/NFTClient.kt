@@ -34,16 +34,11 @@ import com.binance4j.nft.param.TransactionHistoryParams
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#nft-endpoints)
  */
-class NFTClient
-/**
- * @param key    API public key.
- * @param secret API secret key.
- */
-	(key: String, secret: String) : RestClient<NFTMapping>(NFTMapping::class.java, key, secret) {
+object NFTClient : RestClient<NFTMapping>(NFTMapping::class.java) {
 	/**
 	 * Get NFT Transaction History.
 	 *
-	 * @param params       Request params.
+	 * @param params    Request params.
 	 * @return The request to execute.
 	 */
 	fun getTransactions(params: TransactionHistoryParams) = Request(service.getTransactions(params.toMap()))
@@ -51,7 +46,7 @@ class NFTClient
 	/**
 	 * Get NFT deposit History.
 	 *
-	 * @param params Time interval search.
+	 * @param params Request params
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
@@ -60,7 +55,7 @@ class NFTClient
 	/**
 	 * Get NFT withdraw History.
 	 *
-	 * @param params Time interval search.
+	 * @param params Request params
 	 * @return The request to execute.
 	 */
 	@JvmOverloads

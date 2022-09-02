@@ -26,7 +26,6 @@ package com.binance4j.connectors
 import com.binance4j.blvt.client.BLVTClient
 import com.binance4j.c2c.client.C2CClient
 import com.binance4j.convert.client.ConvertClient
-import com.binance4j.core.client.RestClient
 import com.binance4j.fiat.client.FiatClient
 import com.binance4j.loan.client.LoanClient
 import com.binance4j.margin.client.MarginClient
@@ -43,198 +42,64 @@ import com.binance4j.vision.client.VisionSpotClient
 import com.binance4j.wallet.client.WalletClient
 import com.binance4j.websocket.client.UserDataClient
 
-/**
- * REST Connectors container.
- * @param key    API key
- * @param secret API secret
- */
-class RestConnectors(var key: String, var secret: String) {
+/** REST Connectors. */
+object RestConnectors {
+	var key: String = ""
+	var secret: String = ""
 	
-	/** Inner [BLVTClient]. */
-	private lateinit var blvtClient: BLVTClient
+	/** [BLVTClient] singleton. */
+	val blvt = BLVTClient
 	
-	/** @return instance of [BLVTClient]. */
-	fun blvt(): BLVTClient {
-		if (!::blvtClient.isInitialized) blvtClient = BLVTClient(key, secret)
-		updateClientKeys(blvtClient)
-		return blvtClient
-	}
+	/** [C2CClient] singleton. */
+	val c2c = C2CClient
 	
-	/** Inner [C2CClient]. */
-	private lateinit var c2cClient: C2CClient
+	/** [ConvertClient] singleton. */
+	val convert = ConvertClient
 	
-	/** @return instance of [C2CClient]. */
-	fun c2c(): C2CClient {
-		if (!::c2cClient.isInitialized) c2cClient = C2CClient(key, secret)
-		updateClientKeys(c2cClient)
-		return c2cClient
-	}
+	/** [FiatClient] singleton.*/
+	val fiat = FiatClient
 	
-	/** Inner [ConvertClient]. */
-	private lateinit var convertClient: ConvertClient
+	/** [LoanClient] singleton. */
+	val loan = LoanClient
 	
-	/** @return instance of [ConvertClient]. */
-	fun convert(): ConvertClient {
-		if (!::convertClient.isInitialized) convertClient = ConvertClient(key, secret)
-		updateClientKeys(convertClient)
-		return convertClient
-	}
+	/** [MarginClient] singleton. */
+	val margin = MarginClient
 	
-	/** Inner [FiatClient].*/
-	private lateinit var fiatClient: FiatClient
+	/** [MarketClient] singleton. */
+	val market = MarketClient
 	
-	/** @return instance of [FiatClient]. */
-	fun fiat(): FiatClient {
-		if (!::fiatClient.isInitialized) fiatClient = FiatClient(key, secret)
-		updateClientKeys(fiatClient)
-		return fiatClient
-	}
+	/** [MiningClient] singleton. */
+	val mining = MiningClient
 	
-	/**
-	 * Inner [LoanClient].
-	 */
-	private lateinit var loanClient: LoanClient
+	/** [NFTClient] singleton. */
+	val nft = NFTClient
 	
-	/** @return instance of [LoanClient]. */
-	fun loan(): LoanClient {
-		if (!::loanClient.isInitialized) loanClient = LoanClient(key, secret)
-		updateClientKeys(loanClient)
-		return loanClient
-	}
+	/** [PayClient] singleton. */
+	val pay = PayClient
 	
-	/** Inner [MarginClient]. */
-	private lateinit var marginClient: MarginClient
+	/** [PortfolioMarginClient] singleton. */
+	val portfolio = PortfolioMarginClient
 	
-	/** @return instance of [MarginClient]. */
-	fun margin(): MarginClient {
-		if (!::marginClient.isInitialized) marginClient = MarginClient(key, secret)
-		updateClientKeys(marginClient)
-		return marginClient
-	}
+	/** [RebateClient] singleton. */
+	val rebate = RebateClient
 	
-	/**
-	 * Inner [MarketClient].
-	 */
-	private lateinit var marketClient: MarketClient
+	/** [SavingsClient] singleton. */
+	val savings = SavingsClient
 	
-	/** @return instance of [MarketClient]. */
-	fun market(): MarketClient {
-		if (!::marketClient.isInitialized) marketClient = MarketClient(key, secret)
-		updateClientKeys(marketClient)
-		return marketClient
-	}
+	/** [SpotClient] singleton. */
+	val spot = SpotClient
 	
+	/** [SpotClient] singleton. */
+	val staking = StakingClient
 	
-	/** Inner [MiningClient]. */
-	private lateinit var miningClient: MiningClient
+	/** [VisionSpotClient] singleton. */
+	val visionSpot = VisionSpotClient
 	
-	/** @return instance of [MiningClient]. */
-	fun mining(): MiningClient {
-		if (!::miningClient.isInitialized) miningClient = MiningClient(key, secret)
-		updateClientKeys(miningClient)
-		return miningClient
-	}
+	/** [WalletClient] singleton. */
+	val wallet = WalletClient
 	
-	/**
-	 * Inner [NFTClient].
-	 */
-	private lateinit var nftClient: NFTClient
-	
-	/** @return instance of [NFTClient]. */
-	fun nft(): NFTClient {
-		if (!::nftClient.isInitialized) nftClient = NFTClient(key, secret)
-		updateClientKeys(nftClient)
-		return nftClient
-	}
-	
-	/** Inner [PayClient]. */
-	private lateinit var payClient: PayClient
-	
-	/** @return instance of [PayClient]. */
-	fun pay(): PayClient {
-		if (!::payClient.isInitialized) payClient = PayClient(key, secret)
-		updateClientKeys(payClient)
-		return payClient
-	}
-	
-	/** Inner [PortfolioMarginClient]. */
-	private lateinit var portfolioMarginClient: PortfolioMarginClient
-	
-	/** @return instance of [PortfolioMarginClient]. */
-	fun portfolio(): PortfolioMarginClient {
-		if (!::portfolioMarginClient.isInitialized) portfolioMarginClient = PortfolioMarginClient(key, secret)
-		updateClientKeys(portfolioMarginClient)
-		return portfolioMarginClient
-	}
-	
-	/** Inner [RebateClient]. */
-	private lateinit var rebateClient: RebateClient
-	
-	/** @return instance of [RebateClient]. */
-	fun rebate(): RebateClient {
-		if (!::rebateClient.isInitialized) rebateClient = RebateClient(key, secret)
-		updateClientKeys(rebateClient)
-		return rebateClient
-	}
-	
-	/** Inner [SavingsClient]. */
-	private lateinit var savingsClient: SavingsClient
-	
-	/** @return instance of [SavingsClient]. */
-	fun savings(): SavingsClient {
-		if (!::savingsClient.isInitialized) savingsClient = SavingsClient(key, secret)
-		updateClientKeys(savingsClient)
-		return savingsClient
-	}
-	
-	/** Inner [SpotClient]. */
-	private lateinit var spotClient: SpotClient
-	
-	/** @return instance of [SpotClient]. */
-	fun spot(): SpotClient {
-		if (!::spotClient.isInitialized) spotClient = SpotClient(key, secret)
-		updateClientKeys(spotClient)
-		return spotClient
-	}
-	
-	/** Inner [StakingClient]. */
-	private lateinit var stakingClient: StakingClient
-	
-	/** @return instance of [StakingClient]. */
-	fun staking(): StakingClient {
-		if (!::stakingClient.isInitialized) stakingClient = StakingClient(key, secret)
-		updateClientKeys(stakingClient)
-		return stakingClient
-	}
-	
-	/** Inner [VisionSpotClient]. */
-	private lateinit var visionSpotClient: VisionSpotClient
-	
-	/** @return instance of [VisionSpotClient]. */
-	fun visionSpot(): VisionSpotClient {
-		if (!::visionSpotClient.isInitialized) visionSpotClient = VisionSpotClient()
-		return visionSpotClient
-	}
-	
-	/** Inner [WalletClient]. */
-	private lateinit var walletClient: WalletClient
-	
-	/** @return instance of [WalletClient]. */
-	fun wallet(): WalletClient {
-		if (!::walletClient.isInitialized) walletClient = WalletClient(key, secret)
-		updateClientKeys(walletClient)
-		return walletClient
-	}
-	
-	/** Inner [UserDataClient]. */
-	private lateinit var userDataClient: UserDataClient
-	
-	/** @return instance of [UserDataClient]. */
-	fun user(): UserDataClient {
-		if (!::userDataClient.isInitialized) userDataClient = UserDataClient(key, secret)
-		updateClientKeys(userDataClient)
-		return userDataClient
-	}
+	/** [UserDataClient] singleton. */
+	val user = UserDataClient
 	
 	/**
 	 * Updates API keys.
@@ -246,16 +111,5 @@ class RestConnectors(var key: String, var secret: String) {
 		this.key = key
 		this.secret = secret
 		return this
-	}
-	
-	/**
-	 * Will update the client's keys if they have changed in the container.
-	 *
-	 * @param client client.
-	 */
-	private fun updateClientKeys(client: RestClient<*>) {
-		if (client.key != key || client.secret != secret) {
-			client.updateKeys(key, secret)
-		}
 	}
 }

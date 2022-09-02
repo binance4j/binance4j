@@ -26,22 +26,18 @@ package com.binance4j.connectors
 
 /** All Rest and Websocket connectors. */
 object Connectors {
-	private val rest = RestConnectors("", "")
-	private val ws = WebsocketConnectors()
+	/** Websocket connectors. */
+	val ws = WebsocketConnectors
 	
-	/** @return Rest connectors. */
+	/** Rest connectors. */
 	@JvmStatic
-	fun rest(): RestConnectors = rest
+	val rest = RestConnectors
 	
 	/**
 	 * @param key new API key
 	 * @param secret new API secret
-	 * @return Rest connectors after updating keys.
+	 * @return Rest connectors after updating API keys.
 	 * */
 	@JvmStatic
 	fun rest(key: String, secret: String): RestConnectors = rest.updateKeys(key, secret)
-	
-	/** @return Websocket connectors. */
-	@JvmStatic
-	fun ws(): WebsocketConnectors = ws
 }

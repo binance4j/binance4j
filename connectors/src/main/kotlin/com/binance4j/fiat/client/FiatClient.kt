@@ -32,12 +32,9 @@ import com.binance4j.fiat.param.TransactionParams
 /**
  * Api client for the fiat endpoints
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#fiat-endpoints)
  */
-class FiatClient(key: String, secret: String) : RestClient<FiatMapping>(FiatMapping::class.java, key, secret) {
+object FiatClient : RestClient<FiatMapping>(FiatMapping::class.java) {
 	/**
 	 * Get fiat transactions.
 	 *

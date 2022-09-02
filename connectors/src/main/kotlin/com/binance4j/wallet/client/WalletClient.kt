@@ -30,12 +30,11 @@ import com.binance4j.wallet.dto.AccountSnapshotType
 import com.binance4j.wallet.param.*
 
 /**
- * The API client for the wallet endpoints
- * @param key    API public key.
- * @param secret API secret key.
+ * The API client for the wallet endpoints.
+ *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#wallet-endpoints)
  */
-class WalletClient(key: String, secret: String) : RestClient<WalletMapping>(WalletMapping::class.java, key, secret) {
+object WalletClient : RestClient<WalletMapping>(WalletMapping::class.java) {
 	/**
 	 * Fetches the system status.
 	 *

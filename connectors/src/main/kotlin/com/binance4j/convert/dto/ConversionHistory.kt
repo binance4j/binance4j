@@ -32,11 +32,11 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * Conversions history.
  *
- * @param list Conversions.
- * @param startTime Start time in ms.
- * @param endTime End time in ms.
- * @param limit Results limit.
- * @param moreData Is there more data?
+ * @property list Conversions.
+ * @property startTime Start time in ms.
+ * @property endTime End time in ms.
+ * @property limit Results limit.
+ * @property moreData Is there more data?
  */
 @ApiModel("Conversions history.")
 data class ConversionHistory(

@@ -31,12 +31,9 @@ import com.binance4j.core.client.RestClient
 /**
  * Api client for the c2c endpoints
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#convert-endpoints)
  */
-class C2CClient(key: String, secret: String) : RestClient<C2CMapping>(C2CMapping::class.java, key, secret) {
+object C2CClient : RestClient<C2CMapping>(C2CMapping::class.java) {
 	/**
 	 * Get C2C trades.
 	 *

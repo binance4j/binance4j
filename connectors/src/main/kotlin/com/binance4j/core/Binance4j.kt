@@ -30,6 +30,10 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 /** Library constants */
 object Binance4j {
+	/** Request receiving window. */
+	@JvmStatic
+	var recvWindow = 60_000L
+	
 	/** Jackson Object mapper. */
 	@JvmStatic
 	val mapper: ObjectMapper = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

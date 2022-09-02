@@ -30,12 +30,9 @@ import com.binance4j.loan.param.LoanIncomeHistoryParams
 /**
  * Api client for the loan endpoints
  *
- * @param key    API public key.
- * @param secret API secret key.
- *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#pay-endpoints)
  */
-class LoanClient(key: String, secret: String) : RestClient<LoanMapping>(LoanMapping::class.java, key, secret) {
+object LoanClient : RestClient<LoanMapping>(LoanMapping::class.java) {
 	/**
 	 * Get crypto loans income history.
 	 *

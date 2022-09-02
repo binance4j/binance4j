@@ -22,13 +22,25 @@
  * SOFTWARE.
  */
 
-package com.binance4j.margin.client
+package com.binance4j.core.interceptor
 
-/**
- * REST client for the testnet margin endpoints.
- *
- * @param key    API public key.
- * @param secret API secret key.
- * [Documentation](https://binance-docs.github.io/apidocs/spot/en/.margin-account-trade)
- */
-class TestnetMarginClient(key: String, secret: String) : MarginClient(key, secret, true)
+import com.binance4j.core.Binance4j
+import okhttp3.Interceptor
+import okhttp3.Response
+import java.io.IOException
+
+/** Adds recvWindow and timestamp to request */
+object RecvWindowTimestampInterceptor : Interceptor {
+	/**
+	 * Intercepts the request
+	 *
+	 * @param chain Request chain.
+	 */
+	@Throws(IOException::class)
+	override fun intercept(chain: Interceptor.Chain): Response {
+		val newUrl =
+			chain.request().url.newBuilder().addQueryParameter("timestamp", System.currentTimeMillis().toString())
+				.addQueryParameter("recvWindow", Binance4j.recvWindow.toString()).build()
+		return chain.proceed(chain.request().newBuilder().url(newUrl).build())
+	}
+}

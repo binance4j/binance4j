@@ -29,12 +29,10 @@ import com.binance4j.savings.param.*
 
 /**
  * Api client for the savings endpoints
- * @param key    API public key.
- * @param secret API secret key.
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#savings-endpoints)
  */
-class SavingsClient(key: String, secret: String) : RestClient<SavingsMapping>(SavingsMapping::class.java, key, secret) {
+object SavingsClient : RestClient<SavingsMapping>(SavingsMapping::class.java) {
 	/**
 	 * Get flexible product list.
 	 *
