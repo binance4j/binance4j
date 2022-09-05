@@ -118,10 +118,8 @@ class SymbolFiltersDeserializer : JsonDeserializer<SymbolFilters>() {
 			}
 		})
 		return SymbolFilters(
-			icebergPartsFilter, lotSizeFilter, marketLotSizeFilter, maxNumAlgoOrdersFilter,
-			maxNumIcebergOrdersFilter, maxNumOrdersFilter,
-			maxPositionFilter, minNotionalFilter, notionalFilter, percentPriceBySideFilter, percentPriceFilter,
-			priceFilter, trailingDeltaFilter
+			icebergPartsFilter, lotSizeFilter, marketLotSizeFilter, maxNumAlgoOrdersFilter, maxNumIcebergOrdersFilter, maxNumOrdersFilter,
+			maxPositionFilter, minNotionalFilter, notionalFilter, percentPriceBySideFilter, percentPriceFilter, priceFilter, trailingDeltaFilter
 		)
 	}
 }

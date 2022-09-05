@@ -35,7 +35,7 @@ object Binance4j {
 	
 	/** Jackson Object mapper. */
 	@JvmStatic
-	val mapper: ObjectMapper get() = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).configure(DeserializationFeature
-	.FAIL_ON_MISSING_CREATOR_PROPERTIES,
-		false)
+	val mapper: ObjectMapper = ObjectMapper()
+		.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+		.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES,false)
 }
