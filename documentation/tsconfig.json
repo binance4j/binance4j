@@ -1,8 +1,0 @@
-{
-    "extends": "@tsconfig/docusaurus/tsconfig.json",
-    "compilerOptions": {
-        "lib": [
-            "ESNext"
-        ]
-    }
-}
