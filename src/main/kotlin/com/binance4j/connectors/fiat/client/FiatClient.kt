@@ -26,8 +26,8 @@ package com.binance4j.connectors.fiat.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.fiat.param.PaymentParams
-import com.binance4j.connectors.fiat.param.TransactionParams
+import com.binance4j.connectors.fiat.dto.PaymentType
+import com.binance4j.connectors.fiat.dto.TransactionType
 
 /**
  * Api client for the fiat endpoints
@@ -38,16 +38,29 @@ object FiatClient : RestClient<FiatMapping>(FiatMapping::class.java) {
 	/**
 	 * Get fiat transactions.
 	 *
-	 * @param params    Request params.
+	 * @param transactionType 	Transaction type.
+	 * @param beginTime 		Start time in ms.
+	 * @param endTime   		End time in ms.
+	 * @param page      		Result page.
+	 * @param rows     			Results in the page.
+	 *
 	 * @return The request to execute.
 	 */
-	fun getTransactions(params: TransactionParams) = Request(service.getTransactions(params.toMap()))
+	@JvmOverloads
+	fun getTransactions(transactionType: TransactionType, beginTime: Long? = null, endTime: Long? = null, page: Int? = null, rows: Int? = null) = Request(service.getTransactions(transactionType.toString() , beginTime , endTime , page , rows))
 	
 	/**
 	 * Get fiat payments.
 	 *
-	 * @param params    Request params.
+	 * @param paymentType    	Payment type.
+	 * @param beginTime 		Start time in ms.
+	 * @param endTime   		End time in ms.
+	 * @param page      		Result page.
+	 * @param rows     			Results in the page.
+	 *
 	 * @return The request to execute.
 	 */
-	fun getPayments(params: PaymentParams) = Request(service.getPayments(params.toMap()))
+	@JvmOverloads
+	fun getPayments(paymentType: PaymentType, beginTime: Long? = null, endTime: Long? = null, page: Int? = null, rows: Int? = null) = Request(service
+		.getPayments(paymentType.toString() , beginTime , endTime , page , rows))
 }

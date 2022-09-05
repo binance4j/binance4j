@@ -48,7 +48,7 @@ data class PaymentHistory(
 	var message: String,
 	@ApiModelProperty("Transactions.")
 	@JsonProperty("data")
-	var data: List<Payment>,
+	var data: List<Payment>?,
 	@ApiModelProperty("Total.")
 	@JsonProperty("total")
 	var total: Int,

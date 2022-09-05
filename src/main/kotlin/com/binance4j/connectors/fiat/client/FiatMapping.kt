@@ -31,27 +31,37 @@ import com.binance4j.connectors.fiat.dto.TransactionHistory
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /**
  * [FiatClient] mapping.
  */
 interface FiatMapping {
 	/**
-	 * @param map Query map.
+	 * Get fiat transactions.
+	 *
+	 * @param transactionType 	Transaction type.
+	 * @param beginTime 		Start time in ms.
+	 * @param endTime   		End time in ms.
+	 * @param page      		Result page.
+	 * @param rows     			Results in the page.
+	 *
 	 * @return The generated Retrofit call.
 	 */
 	@GET("/sapi/v1/fiat/orders")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
-	@JvmSuppressWildcards
-	fun getTransactions(@QueryMap map: Map<String, Any>): Call<TransactionHistory>
+	fun getTransactions(@Query("transactionType") transactionType: String,@Query("beginTime") beginTime: Long? = null, @Query("endTime") endTime: Long? = null, @Query("page") page: Int? = null, @Query("rows") rows: Int? = null): Call<TransactionHistory>
 	
 	/**
-	 * @param map Query map.
+	 * @param paymentType 		Payment type.
+	 * @param beginTime 		Start time in ms.
+	 * @param endTime   		End time in ms.
+	 * @param page      		Result page.
+	 * @param rows     			Results in the page.
+	 *
 	 * @return The generated Retrofit call.
 	 */
 	@GET("/sapi/v1/fiat/payments")
 	@Headers(SIGNED_H, WEIGHT_ONE_H, IP_H)
-	@JvmSuppressWildcards
-	fun getPayments(@QueryMap map: Map<String, Any>): Call<PaymentHistory>
+	fun getPayments(@Query("transactionType") paymentType: String,@Query("beginTime") beginTime: Long? = null, @Query("endTime") endTime: Long? = null, @Query("page") page: Int? = null, @Query("rows") rows: Int? = null): Call<PaymentHistory>
 }

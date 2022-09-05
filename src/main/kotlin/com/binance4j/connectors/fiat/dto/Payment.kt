@@ -66,9 +66,12 @@ data class Payment(
 	@ApiModelProperty("Price.")
 	@JsonProperty("price")
 	var price: String,
-	@ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
 	@JsonProperty("status")
+	@ApiModelProperty("Status: Processing, Completed, Failed, Refunded.")
 	var status: String,
+	@ApiModelProperty("Payment method.")
+	@JsonProperty("paymentMethod")
+	var paymentMethod : String,
 	@ApiModelProperty("Create time in ms.")
 	@JsonProperty("createTime")
 	var createTime: Long,

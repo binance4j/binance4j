@@ -28,7 +28,6 @@ import com.binance4j.connectors.core.Binance4j
 import com.binance4j.connectors.core.Request
 import com.fasterxml.jackson.databind.DeserializationFeature
 import org.junit.jupiter.api.assertDoesNotThrow
-import java.util.*
 
 
 /** Base class for Unit test.  */ // @Execution(ExecutionMode.CONCURRENT)
@@ -75,8 +74,7 @@ abstract class CustomTest {
 	}
 	
 	fun assertDoesNotThrow(request: Request<*>) {
-		println("Calling: " + request.request.url)
-		assertDoesNotThrow { println("Result : " + request.sync()) }
+		assertDoesNotThrow { println("URL: " + request.request.url + "\nResult : " + request.sync()) }
 	}
 
 	/** Last year timestamp in ms */

@@ -60,6 +60,7 @@ open class Request<T>(private val call: Call<T>) {
 		acquire()
 		try {
 			val res = call.execute()
+			println(res.message())
 			if (res.isSuccessful) return res.body()!!
 			throw ApiException(Binance4j.mapper.readValue(res.errorBody()!!.string(), ApiError::class.java))
 		} catch (e: IOException) {
