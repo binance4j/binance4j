@@ -25,7 +25,7 @@ package com.binance4j.connectors.loan.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.loan.param.LoanIncomeHistoryParams
+import com.binance4j.connectors.loan.dto.LoanIncomeType
 
 /**
  * Api client for the loan endpoints
@@ -36,8 +36,15 @@ object LoanClient : RestClient<LoanMapping>(LoanMapping::class.java) {
 	/**
 	 * Get crypto loans income history.
 	 *
-	 * @param params Request params.
+	 * @param asset 	Asset we want the incomes.
+	 * @param type  	Loan income type. All types will be returned by default.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 *
 	 * @return The request to execute.
 	 */
-	fun getLoansIncome(params: LoanIncomeHistoryParams) = Request(service.getLoansIncome(params.toMap()))
+	@JvmOverloads
+	fun getLoansIncome(asset: String, type: LoanIncomeType, startTime: Long? = null, endTime: Long? = null, limit: Int? = null) = Request(service
+		.getLoansIncome(asset, type.toString(), startTime, endTime, limit))
 }

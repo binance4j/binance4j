@@ -29,18 +29,26 @@ import com.binance4j.connectors.loan.dto.LoanIncome
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /**
  * [LoanClient] mapping.
  */
 interface LoanMapping {
 	/**
-	 * @param map Query map.
+	 * Get crypto loans income history.
+	 *
+	 * @param asset 	Asset we want the incomes.
+	 * @param type  	Loan income type. All types will be returned by default.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 *
 	 * @return The generated Retrofit call.
 	 */
 	@GET("/sapi/v1/loan/income")
 	@Headers(SIGNED_H, "X-WEIGHT: 6000", UID_H)
-	@JvmSuppressWildcards
-	fun getLoansIncome(@QueryMap map: Map<String, Any>): Call<List<LoanIncome>>
+	fun getLoansIncome(@Query("asset") asset: String, @Query("type") type: String? = null, @Query("startTime") startTime: Long? = null, @Query("endTime")
+	endTime: Long? = null, @Query("limit") limit:
+	Int? = null): Call<List<LoanIncome>>
 }
