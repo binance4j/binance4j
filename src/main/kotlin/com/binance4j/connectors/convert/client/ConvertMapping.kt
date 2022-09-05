@@ -31,16 +31,20 @@ import com.binance4j.connectors.core.Headers.WEIGHT_H
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /** [ConvertClient] mapping.  */
 interface ConvertMapping {
 	/**
-	 * @param map Query map.
+	 * Get assets conversion history.
+
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 *
 	 * @return The generated Retrofit call.
 	 */
 	@GET("/sapi/v1/convert/tradeFlow")
 	@Headers(SIGNED_H, IP_H, "$WEIGHT_H: 3000")
-	@JvmSuppressWildcards
-	fun getConversions(@QueryMap map: Map<String, Any>): Call<ConversionHistory>
+	fun getConversions(@Query("startTime") startTime: Long, @Query("endTime") endTime: Long, @Query("limit") limit: Int? = null): Call<ConversionHistory>
 }

@@ -24,7 +24,6 @@
 
 package com.binance4j.connectors.convert.client
 
-import com.binance4j.connectors.convert.param.ConversionParams
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
 
@@ -37,8 +36,12 @@ object ConvertClient : RestClient<ConvertMapping>(ConvertMapping::class.java) {
 	/**
 	 * Get assets conversion history.
 	 *
-	 * @param params Request params.
+	 * @param startTime Start time in ms.
+	 * @param endTime   End time in ms.
+	 * @param limit     Results limit.
+	 *
 	 * @return The request to execute.
 	 */
-	fun getConversions(params: ConversionParams) = Request(service.getConversions(params.toMap()))
+	@JvmOverloads
+	fun getConversions(startTime: Long, endTime: Long, limit: Int? = null) = Request(service.getConversions(startTime, endTime, limit))
 }
