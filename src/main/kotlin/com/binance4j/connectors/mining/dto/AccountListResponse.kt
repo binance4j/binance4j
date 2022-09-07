@@ -24,9 +24,8 @@
 
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 import com.binance4j.connectors.mining.client.MiningClient
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,13 +38,54 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Accounts list wrapper")
 data class AccountListResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: Int,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.")
-	@JsonProperty("data")
-	var data: List<AccountData>
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.")
+    @JsonProperty("data")
+    var data: List<AccountData>
+) {
+    /**
+     * Account data.
+     *
+     * @property type     Type of daily hash rate.
+     * @property userName Mining account.
+     * @property list     List.
+     */
+    @ApiModel("Account data.")
+    data class AccountData(
+        @ApiModelProperty("Type of daily hash rate.")
+        @JsonProperty("type")
+        var type: String,
+        @ApiModelProperty("Mining account.")
+        @JsonProperty("userName")
+        var userName: String?,
+        @ApiModelProperty("List.")
+        @JsonProperty("list")
+        var list: List<AccountList>?
+    ) {
+        /**
+         * Account statistics.
+         *
+         * @property time     Time in ms.
+         * @property hashrate Hashrate.
+         * @property reject   Reject rate.
+         */
+        @ApiModel("Account statistics.")
+        data class AccountList(
+            @ApiModelProperty("Time in ms.")
+            @JsonProperty("time")
+            var time: Long,
+            @ApiModelProperty("Hashrate.")
+            @JsonProperty("hashrate")
+            var hashrate: String,
+            @ApiModelProperty("Reject rate.")
+            @JsonProperty("reject")
+            var reject: String
+        )
+    }
+
+}

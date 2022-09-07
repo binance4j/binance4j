@@ -23,39 +23,36 @@
  */
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 /**
  * Miner sorting.
  *
  * @property value
  */
-enum class MinerSorting(@JsonProperty("value")
-	var value: String) {
-	/**
-	 * Miner name.
-	 */
-	MINER_NAME("1"),
-	
-	/**
-	 * Real time computing_power.
-	 */
-	REAL_TIME_COMPUTING_POWER("2"),
-	
-	/**
-	 * Daily average computing_power.
-	 */
-	DAILY_AVERAGE_COMPUTING_POWER("3"),
-	
-	/**
-	 * Real time rejection rate.
-	 */
-	REAL_TIME_REJECTION_RATE("4"),
-	
-	/**
-	 * Last submission time.
-	 */
-	LAST_SUBMISSION_TIME("5");
-	
-	override fun toString(): String = value
+enum class MinerSorting(var value: String) {
+    /**
+     * Miner name.
+     */
+    MINER_NAME("1"),
+
+    /**
+     * Real time computing_power.
+     */
+    REAL_TIME_COMPUTING_POWER("2"),
+
+    /**
+     * Daily average computing_power.
+     */
+    DAILY_AVERAGE_COMPUTING_POWER("3"),
+
+    /**
+     * Real time rejection rate.
+     */
+    REAL_TIME_REJECTION_RATE("4"),
+
+    /**
+     * Last submission time.
+     */
+    LAST_SUBMISSION_TIME("5");
+
+    override fun toString(): String = value
 }

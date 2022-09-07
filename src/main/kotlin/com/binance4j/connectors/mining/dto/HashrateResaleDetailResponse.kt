@@ -24,10 +24,8 @@
 
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 import com.binance4j.connectors.mining.client.MiningClient
-
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,13 +38,69 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Hash rate resale detail wrapper.")
 data class HashrateResaleDetailResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: Int,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.")
-	@JsonProperty("data")
-	var data: HashrateResaleDetailData
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.")
+    @JsonProperty("data")
+    var data: HashrateResaleDetailData?
+) {
+    /**
+     * Hash rate detail data.
+     *
+     * @property profitTransferDetails Details.
+     * @property totalNum              Total amount.
+     * @property pageSize              Rows per page.
+     */
+    @ApiModel("Hash rate detail data.")
+    data class HashrateResaleDetailData(
+        @ApiModelProperty("Config details.")
+        @JsonProperty("profitTransferDetails")
+        var profitTransferDetails: List<HashrateProfitTransferDetails>?,
+        @ApiModelProperty("Total amount.")
+        @JsonProperty("totalNum")
+        var totalNum: Long,
+        @ApiModelProperty("Rows per page.")
+        @JsonProperty("pageSize")
+        var pageSize: Long
+    ) {
+        /**
+         * Hash rate resale list detail.
+         *
+         * @property poolUsername   Transfer out of subaccount.
+         * @property toPoolUsername Transfer into subaccount.
+         * @property algoName       Transfer algorithm.
+         * @property hashRate       Transferred Hash rate quantity.
+         * @property day            Transfer date.
+         * @property amount         Transferred amount.
+         * @property coinName       Coin name.
+         */
+        @ApiModel("Hash rate resale list detail.")
+        data class HashrateProfitTransferDetails(
+            @ApiModelProperty("Transfer out of subaccount.")
+            @JsonProperty("poolUsername")
+            var poolUsername: String,
+            @ApiModelProperty("Transfer into subaccount.")
+            @JsonProperty("toPoolUsername")
+            var toPoolUsername: String,
+            @ApiModelProperty("Transfer algorithm.")
+            @JsonProperty("algoName")
+            var algoName: String,
+            @ApiModelProperty("Transferred Hash rate quantity.")
+            @JsonProperty("hashRate")
+            var hashRate: Long,
+            @ApiModelProperty("Transfer date.")
+            @JsonProperty("day")
+            var day: Long,
+            @ApiModelProperty("Transferred Amount.")
+            @JsonProperty("amount")
+            var amount: String,
+            @ApiModelProperty("Coin name.")
+            @JsonProperty("coinName")
+            var coinName: String,
+        )
+    }
+}

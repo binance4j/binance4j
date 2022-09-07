@@ -28,7 +28,6 @@ import com.binance4j.connectors.core.callback.ApiCallbackAdapter
 import com.binance4j.connectors.core.exception.ApiError
 import com.binance4j.connectors.core.exception.ApiException
 import com.binance4j.connectors.core.ratelimiter.RateLimiting
-
 import retrofit2.Call
 import java.io.IOException
 
@@ -37,57 +36,56 @@ import java.io.IOException
  * @property call Retrofit call
  */
 open class Request<T>(private val call: Call<T>) {
-	/** Is the request an order request. */
-	val isOrder: Boolean get() = call.request().header(Headers.ORDER_H) != null
-	
-	/** The request weight. */
-	val weight: Int get() = call.request().header(Headers.WEIGHT_H)?.toInt() ?: 1
-	
-	/** The request rateLimit. */
-	val rateLimit: String get() = call.request().header(Headers.RATE_LIMIT_H) ?: "IP"
-	
-	/** The request path. */
-	val request : okhttp3.Request get() = call.request()
+    /** Is the request an order request. */
+    val isOrder: Boolean get() = call.request().header(Headers.ORDER_H) != null
 
-	/**
-	 * Executes the request synchronously
-	 *
-	 * @return The request response.
-	 * @throws ApiException The exception produced with the server error response
-	 */
-	@Throws(ApiException::class)
-	open fun sync(): T {
-		acquire()
-		try {
-			val res = call.execute()
-			println(res.message())
-			if (res.isSuccessful) return res.body()!!
-			throw ApiException(Binance4j.mapper.readValue(res.errorBody()!!.string(), ApiError::class.java))
-		} catch (e: IOException) {
-			throw ApiException(-400, e.message!!)
-		}
-	}
-	
-	/**
-	 * Executes the request asynchronously
-	 *
-	 * @param callback Request callback managing a success or error response.
-	 */
-	fun async(callback: ApiCallback<T>) {
-		acquire(); call.enqueue(ApiCallbackAdapter(callback))
-	}
-	
-	/** Rate limits the API calls. */
-	private fun acquire() {
-		if(RateLimiting.isEnabled()){
-			RateLimiting.rawRequestLimiter.acquire(1)
-			RateLimiting.requestWeightLimiter.acquire(weight)
-		}
-	}
-	
-	/** The request method.*/
-	val method: String get() = call.request().method
-	
-	/** The request signature.*/
-	val signature: String? get() = call.request().header(Headers.SIGNED_H) ?: call.request().header(Headers.API_H)
+    /** The request weight. */
+    val weight: Int get() = call.request().header(Headers.WEIGHT_H)?.toInt() ?: 1
+
+    /** The request rateLimit. */
+    val rateLimit: String get() = call.request().header(Headers.RATE_LIMIT_H) ?: "IP"
+
+    /** The request path. */
+    val request: okhttp3.Request get() = call.request()
+
+    /**
+     * Executes the request synchronously
+     *
+     * @return The request response.
+     * @throws ApiException The exception produced with the server error response
+     */
+    @Throws(ApiException::class)
+    open fun sync(): T {
+        acquire()
+        try {
+            val res = call.execute()
+            if (res.isSuccessful) return res.body()!!
+            throw ApiException(Binance4j.mapper.readValue(res.errorBody()!!.string(), ApiError::class.java))
+        } catch (e: IOException) {
+            throw ApiException(-400, e.message!!)
+        }
+    }
+
+    /**
+     * Executes the request asynchronously
+     *
+     * @param callback Request callback managing a success or error response.
+     */
+    fun async(callback: ApiCallback<T>) {
+        acquire(); call.enqueue(ApiCallbackAdapter(callback))
+    }
+
+    /** Rate limits the API calls. */
+    private fun acquire() {
+        if (RateLimiting.isEnabled()) {
+            RateLimiting.rawRequestLimiter.acquire(1)
+            RateLimiting.requestWeightLimiter.acquire(weight)
+        }
+    }
+
+    /** The request method.*/
+    val method: String get() = call.request().method
+
+    /** The request signature.*/
+    val signature: String? get() = call.request().header(Headers.SIGNED_H) ?: call.request().header(Headers.API_H)
 }

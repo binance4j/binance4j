@@ -24,9 +24,8 @@
 
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 import com.binance4j.connectors.mining.client.MiningClient
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,12 +38,36 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Algorithms wrapper")
 data class AlgorithmsResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: Int,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.") @JsonProperty("data")
-	var data: List<Algorithm>
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.") @JsonProperty("data")
+    var data: List<Algorithm>
+) {
+    /**
+     * A mining algorithm.
+     *
+     * @property algoName  Algorithm name.
+     * @property algoId    Algorithm id.
+     * @property poolIndex Sequence.
+     * @property unit      Unit.
+     */
+    @ApiModel("A mining algorithm.")
+    data class Algorithm(
+        @ApiModelProperty("Algorithm name.")
+        @JsonProperty("algoName")
+        var algoName: String,
+        @ApiModelProperty("Algorithm id.")
+        @JsonProperty("algoId")
+        var algoId: Long,
+        @ApiModelProperty("Sequence.")
+        @JsonProperty("poolIndex")
+        var poolIndex: Long,
+        @ApiModelProperty("Unit.")
+        @JsonProperty("unit")
+        var unit: String
+    )
+}

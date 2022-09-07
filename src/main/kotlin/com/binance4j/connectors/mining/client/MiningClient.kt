@@ -25,8 +25,6 @@ package com.binance4j.connectors.mining.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.mining.dto.OtherProfitsResponse
-import com.binance4j.connectors.mining.param.*
 
 /**
  * Api client for the NFT endpoints
@@ -34,116 +32,170 @@ import com.binance4j.connectors.mining.param.*
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#mining-endpoints)
  */
 object MiningClient : RestClient<MiningMapping>(MiningMapping::class.java) {
-	/**
-	 * Acquiring algorithms.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getAlgorithms() = Request(service.getAlgorithms(AlgorithmsAcquisitionParams().toMap()))
-	
-	/**
-	 * Acquiring coin name.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getCoins() = Request(service.getCoins(CoinsAquisitionParams().toMap()))
-	
-	/**
-	 * Request for detail miner list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getMinersDetails(params: MinerDetailsParams) = Request(service.getMinersDetails(params.toMap()))
-	
-	/**
-	 * Request for miner list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getMiners(params: MinersParams) = Request(service.getMiners(params.toMap()))
-	
-	/**
-	 * Get earnings list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getProfits(params: ProfitsParams) = Request(service.getProfits(params.toMap()))
-	
-	/**
-	 * Get extra bonus list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getOtherProfits(params: ProfitsParams): Request<OtherProfitsResponse> =
-		Request(service.getOtherProfits(params.toMap()))
-	
-	/**
-	 * Get mining account earning.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getAccountProfits(params: AccountProfitsParams) = Request(service.getAccountProfits(params.toMap()))
-	
-	/**
-	 * Get hash rate resale list.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getHashrateResales() = Request(service.getHashrateResales(HashrateResaleListParams().toMap()))
-	
-	/**
-	 * Get hash rate resale list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getHashrateResales(params: HashrateResaleListParams = HashrateResaleListParams()) =
-		Request(service.getHashrateResales(params.toMap()))
-	
-	/**
-	 * Get hash rate resale detail.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getHashrateResalesDetails(params: HashrateResaleDetailParam) =
-		Request(service.getHashrateResalesDetails(params.toMap()))
-	
-	/**
-	 * Hash rate resale request.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun resellHashrate(params: HashrateResaleParams) = Request(service.resellHashrate(params.toMap()))
-	
-	/**
-	 * Cancel hash rate resale configuration.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun cancelHashrateResaleConfiguration(params: HashrateResaleCancellationParams) =
-		Request(service.cancelHashrateResaleConfiguration(params.toMap()))
-	
-	/**
-	 * Get Statistic list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getStatistics(params: StatisticsParams) = Request(service.getStatistics(params.toMap()))
-	
-	/**
-	 * Get Account list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getAccounts(params: AccountListParams) = Request(service.getAccounts(params.toMap()))
+    /**
+     * Acquiring algorithms.
+     *
+     * @return The request to execute.
+     */
+    fun getAlgorithms() = Request(service.getAlgorithms())
+
+    /**
+     * Acquiring coin name.
+     *
+     * @return The request to execute.
+     */
+    fun getCoins() = Request(service.getCoins())
+
+    /**
+     * Request for detail miner list.
+     *
+     * @param algo       Algorithm.
+     * @param userName   Mining account.
+     * @param workerName Miner’s name.
+     *
+     * @return The request to execute.
+     */
+    fun getMinersDetails(algo: String, userName: String, workerName: String) = Request(service.getMinersDetails(algo, userName, workerName))
+
+    /**
+     * Request for miner list.
+     *
+     * @param algo         Algorithm.
+     * @param userName     Mining account.
+     * @param pageIndex    Page number.
+     * @param sort         Sort sequence.
+     * @param sortColumn   Miner sort.
+     * @param workerStatus Miner status.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getMiners(algo: String, userName: String, workerStatus: String? = null, pageIndex: Int? = null, sort: String? = null, sortColumn: String? = null) =
+        Request(service.getMiners(algo, userName, workerStatus, pageIndex, sort, sortColumn))
+
+    /**
+     * Get earnings list.
+     *
+     * @param algo      Transfer algorithm.
+     * @param userName  Mining account test.
+     * @param coin      Coin name.
+     * @param startDate Start time in ms.
+     * @param endDate   End time in ms.
+     * @param pageIndex Result page.
+     * @param pageSize  Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getProfits(
+        algo: String, userName: String, coin: String? = null,
+        startDate: Long? = null, endDate: Long? = null, pageIndex: Int? = null, pageSize: Int? = null
+    ) = Request(service.getProfits(algo, userName, coin, startDate, endDate, pageIndex, pageSize))
+
+    /**
+     * Get extra bonus list.
+     *
+     * @param algo      Transfer algorithm.
+     * @param userName  Mining account test.
+     * @param coin      Coin name.
+     * @param startDate Start time in ms.
+     * @param endDate   End time in ms.
+     * @param pageIndex Result page.
+     * @param pageSize  Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getOtherProfits(
+        algo: String, userName: String, coin: String? = null,
+        startDate: Long? = null, endDate: Long? = null, pageIndex: Int? = null, pageSize: Int? = null
+    ) = Request(service.getOtherProfits(algo, userName, coin, startDate, endDate, pageIndex, pageSize))
+
+    /**
+     * Get mining account earning.
+     *
+     * @param algo      Transfer algorithm.
+     * @param userName  Mining account.
+     * @param startDate Start time in ms.
+     * @param endDate   End time in ms.
+     * @param pageIndex Result page.
+     * @param pageSize  Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getAccountProfits(
+        algo: String, userName: String, startDate: Long? = null, endDate: Long? = null, pageIndex: Int? = null, pageSize: Int? = null
+    ) = Request(service.getAccountProfits(algo, userName, startDate, endDate, pageIndex, pageSize))
+
+    /**
+     * Get hash rate resale list.
+     *
+     * @param pageIndex Result page.
+     * @param pageSize  Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getHashrateResales(pageIndex: Int? = null, pageSize: Int? = null) = Request(service.getHashrateResales(pageIndex, pageSize))
+
+    /**
+     * Get hash rate resale detail.
+     *
+     * @param configId    Config id.
+     * @param userName    User name.
+     * @param pageIndex   Result page.
+     * @param pageSize    Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getHashrateResalesDetails(configId: Int, userName: String, pageIndex: Int? = null, pageSize: Int? = null) =
+        Request(service.getHashrateResalesDetails(configId, userName, pageIndex, pageSize))
+
+    /**
+     * Hash rate resale request.
+     *
+     * @param userName   Mining Account test.
+     * @param algo       Transfer algorithm.
+     * @param endDate    Resale End Time in ms.
+     * @param startDate  Resale Start Time in ms.
+     * @param toPoolUser Mining Account.
+     * @param hashRate   Resale hash rate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than 500000).
+     *
+     * @return The request to execute.
+     */
+    fun resellHashrate(userName: String, algo: String, startDate: Long, endDate: Long, toPoolUser: String, hashRate: Long) =
+        Request(service.resellHashrate(userName, algo, startDate, endDate, toPoolUser, hashRate))
+
+    /**
+     * Cancel hash rate resale configuration.
+     *
+     * @param configId Config id.
+     * @param userName User name.
+     *
+     * @return The request to execute.
+     */
+    fun cancelHashrateResaleConfiguration(configId: Int, userName: String) =
+        Request(service.cancelHashrateResaleConfiguration(configId, userName))
+
+    /**
+     * Get Statistic list.
+     *
+     * @param algo     Algorithm.
+     * @param userName Mining account.
+     *
+     * @return The request to execute.
+     */
+    fun getStatistics(algo: String, userName: String) = Request(service.getStatistics(algo, userName))
+
+    /**
+     * Get Account list.
+     *
+     * @param algo     Algorithm.
+     * @param userName Mining account.
+     *
+     * @return The request to execute.
+     */
+    fun getAccounts(algo: String, userName: String) = Request(service.getAccounts(algo, userName))
 }

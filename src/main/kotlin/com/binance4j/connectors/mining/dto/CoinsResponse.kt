@@ -24,9 +24,8 @@
 
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 import com.binance4j.connectors.mining.client.MiningClient
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -39,12 +38,40 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Coins wrapper")
 data class CoinsResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: String,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.") @JsonProperty("data")
-	var data: List<Coin>
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: String,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.") @JsonProperty("data")
+    var data: List<Coin>
+) {
+    /**
+     * A mineable coin.
+     *
+     * @property coinName  Currency name.
+     * @property coinId    Coin id.
+     * @property poolIndex Pool index.
+     * @property algoId    Algorithm id.
+     * @property algoName  Name of the algorithm.
+     */
+    @ApiModel("A mineable coin.")
+    data class Coin(
+        @ApiModelProperty("Currency name.")
+        @JsonProperty("coinName")
+        var coinName: String,
+        @ApiModelProperty("Coin id.")
+        @JsonProperty("coinId")
+        var coinId: Long,
+        @ApiModelProperty("Pool index.")
+        @JsonProperty("poolIndex")
+        var poolIndex: Long,
+        @ApiModelProperty("Algorithm id.")
+        @JsonProperty("algoId")
+        var algoId: Long,
+        @ApiModelProperty("Name of the algorithm.")
+        @JsonProperty("algoName")
+        var algoName: String
+    )
+}

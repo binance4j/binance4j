@@ -32,57 +32,59 @@ import org.junit.jupiter.api.assertDoesNotThrow
 
 /** Base class for Unit test.  */ // @Execution(ExecutionMode.CONCURRENT)
 abstract class CustomTest {
-	/** The key.  */
-	var key: String = System.getenv("BINANCE_API_KEY")
-		protected set
 
-	/** The secret.  */
-	var secret: String = System.getenv("BINANCE_API_SECRET")
-		protected set
+    var algo = "sha256"
 
-	/** The testnetKey.  */
-	var testnetKey: String = System.getenv("BINANCE_TESTNET_API_KEY")
-		protected set
+    /** The key.  */
+    var key: String = System.getenv("BINANCE_API_KEY")
+        protected set
 
-	/** The testnetSecret.  */
-	var testnetSecret: String = System.getenv("BINANCE_TESTNET_API_SECRET")
-		protected set
+    /** The secret.  */
+    var secret: String = System.getenv("BINANCE_API_SECRET")
+        protected set
 
-	/** The symbol.  */
-	var symbol = "BNBBTC"
-		protected set
+    /** The testnetKey.  */
+    var testnetKey: String = System.getenv("BINANCE_TESTNET_API_KEY")
+        protected set
 
-	/** The asset.  */
-	var asset = "BNB"
-		protected set
+    /** The testnetSecret.  */
+    var testnetSecret: String = System.getenv("BINANCE_TESTNET_API_SECRET")
+        protected set
 
-	/** The limit.  */
-	var limit = 25
-		protected set
+    /** The symbol.  */
+    var symbol = "BNBBTC"
+        protected set
 
-	/** The String.  */
-	var assets = listOf(asset, "BUSD", "BTC")
-		protected set
+    /** The asset.  */
+    var asset = "BNB"
+        protected set
 
-	/** The String.  */
-	var symbols = listOf(symbol, "BNBBUSD", "BTCBUSD")
-		protected set
+    /** The limit.  */
+    var limit = 25
+        protected set
 
-	init {
-		Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
-			.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-	}
+    /** The String.  */
+    var assets = listOf(asset, "BUSD", "BTC")
+        protected set
 
-	fun assertDoesNotThrow(request: Request<*>) {
-		assertDoesNotThrow { println("URL: " + request.request.url + "\nResult : " + request.sync()) }
-	}
+    /** The String.  */
+    var symbols = listOf(symbol, "BNBBUSD", "BTCBUSD")
+        protected set
 
-	/** Last year timestamp in ms */
-	val lastYear get() = System.currentTimeMillis() - (365L * 24L * 60L * 60L * 1000L)
+    init {
+        Binance4j.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+    }
 
-	/** Last hour timestamp in ms */
-	val lastHour get() = System.currentTimeMillis() - (60L * 60L * 1000L)
+    fun assertDoesNotThrow(request: Request<*>) {
+        assertDoesNotThrow { println("URL: " + request.request.url + "\nResult : " + request.sync()) }
+    }
 
-	/** Today timestamp in ms */
-	val today get() = System.currentTimeMillis()
+    /** Last year timestamp in ms */
+    val lastYear get() = System.currentTimeMillis() - (365L * 24L * 60L * 60L * 1000L)
+
+    /** Last hour timestamp in ms */
+    val lastHour get() = System.currentTimeMillis() - (60L * 60L * 1000L)
+
+    /** Today timestamp in ms */
+    val today get() = System.currentTimeMillis()
 }

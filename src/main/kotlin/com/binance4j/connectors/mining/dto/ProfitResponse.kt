@@ -24,10 +24,8 @@
 
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 import com.binance4j.connectors.mining.client.MiningClient
-
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -40,13 +38,73 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Profits wrapper.")
 data class ProfitResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: Int,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.")
-	@JsonProperty("data")
-	var data: ProfitsData
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.")
+    @JsonProperty("data")
+    var data: ProfitsData?
+) {
+    /**
+     * Workers data.
+     *
+     * @property accountProfits Profits data.
+     * @property totalNum       Total amount.
+     * @property pageSize       Rows per page.
+     */
+    @ApiModel("Workers data.")
+    data class ProfitsData(
+        @ApiModelProperty("Profits data.")
+        @JsonProperty("accountProfits")
+        var accountProfits: List<Profit>?,
+        @ApiModelProperty("Total amount.")
+        @JsonProperty("totalNum")
+        var totalNum: Long,
+        @ApiModelProperty("Rows per page.")
+        @JsonProperty("pageSize")
+        var pageSize: Long
+    ) {
+        /**
+         * Account profit.
+         *
+         * @property time           Mining date in ms.
+         * @property hashTransfer   Transferred Hash rate.
+         * @property transferAmount Transferred Income.
+         * @property dayHashRate    Daily Hash rate.
+         * @property profitAmount   Earnings Amount.
+         * @property coinName       Coin type.
+         * @property type           Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32: Hash rate Resale-Mining Wallet 33: Hash rate Resale-Pool Savings
+         * @property status         Status. 0: Unpaid 1: Paying 2: Paid
+         */
+        @ApiModel("Account profit.")
+        data class Profit(
+            @ApiModelProperty("Mining date in ms.")
+            @JsonProperty("time")
+            var time: Long,
+            @ApiModelProperty("Transferred Hash rate.")
+            @JsonProperty("type")
+            var type: Int,
+            @ApiModelProperty("Transferred Income.")
+            @JsonProperty("hashTransfer")
+            var hashTransfer: Long,
+            @ApiModelProperty("Daily Hash rate.")
+            @JsonProperty("transferAmount")
+            var transferAmount: String,
+            @ApiModelProperty("Earnings Amount.")
+            @JsonProperty("dayHashRate")
+            var dayHashRate: Long,
+            @ApiModelProperty("Coin type.")
+            @JsonProperty("profitAmount")
+            var profitAmount: String,
+            @ApiModelProperty("Type. 0: Mining Wallet 5: Mining Address 7: Pool Savings 8: Transferred 31: Income Transfer 32: Hash rate Resale-Mining Wallet 33: Hash rate Resale-Pool Savings")
+            @JsonProperty("coinName")
+            var coinName: String,
+            @ApiModelProperty("Status. 0: Unpaid 1: Paying 2: Paid")
+            @JsonProperty("status")
+            var status: Int
+        )
+    }
+}

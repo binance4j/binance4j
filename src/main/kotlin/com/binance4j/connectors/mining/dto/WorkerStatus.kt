@@ -23,26 +23,23 @@
  */
 package com.binance4j.connectors.mining.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 /**
  * Worker status.
  *
  * @property value
  */
-enum class WorkerStatus(@JsonProperty("value")
-	var value: String) {
-	/** All. */
-	ALL("0"),
-	
-	/** Valid. */
-	VALID("1"),
-	
-	/**  Invalid. */
-	INVALID("2"),
-	
-	/** Failure. */
-	FAILURE("3");
-	
-	override fun toString(): String = value
+enum class WorkerStatus(var value: String) {
+    /** All. */
+    ALL("0"),
+
+    /** Valid. */
+    VALID("1"),
+
+    /**  Invalid. */
+    INVALID("2"),
+
+    /** Failure. */
+    FAILURE("3");
+
+    override fun toString(): String = value
 }

@@ -38,13 +38,61 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Other profits wrapper.")
 data class OtherProfitsResponse(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: Int,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("msg")
-	var msg: String,
-	@ApiModelProperty("Response data.")
-	@JsonProperty("data")
-	var data: OtherProfitsData
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Response data.")
+    @JsonProperty("data")
+    var data: OtherProfitsData?
+) {
+    /**
+     * Other profits data.
+     *
+     * @property otherProfits Profits data.
+     * @property totalNum     Total amount.
+     * @property pageSize     Rows per page.
+     */
+    @ApiModel("Other profits data.")
+    data class OtherProfitsData(
+        @ApiModelProperty("Profits data.")
+        @JsonProperty("otherProfits")
+        var otherProfits: List<OtherProfit>?,
+        @ApiModelProperty("Total amount.")
+        @JsonProperty("totalNum")
+        var totalNum: Long,
+        @ApiModelProperty("Rows per page.")
+        @JsonProperty("pageSize")
+        var pageSize: Long
+    ) {
+        /**
+         * Other profit.
+         *
+         * @property time         Mining date.
+         * @property coinName     Coin Name.
+         * @property profitAmount Amount.
+         * @property status       Status. 0: Unpaid 1: Paying 2：Paid
+         * @property type         Type. 1: Merged Mining 2: Activity Bonus 3: Rebate 4:Smart Pool 6: Income Transfer 7: PoolSavings
+         */
+        @ApiModel("Other profit.")
+        data class OtherProfit(
+            @ApiModelProperty("Mining date.")
+            @JsonProperty("time")
+            var time: Long,
+            @ApiModelProperty("Coin Name.")
+            @JsonProperty("coinName")
+            var coinName: String,
+            @ApiModelProperty("Amount.")
+            @JsonProperty("type")
+            var type: Int,
+            @ApiModelProperty("Status. 0: Unpaid 1: Paying 2：Paid")
+            @JsonProperty("profitAmount")
+            var profitAmount: String,
+            @ApiModelProperty("Type.1: Merged Mining 2: Activity Bonus 3: Rebate 4: Smart Pool 6: Income Transfer 7: Pool Savings")
+            @JsonProperty("status")
+            var status: Int
+        )
+    }
+}
