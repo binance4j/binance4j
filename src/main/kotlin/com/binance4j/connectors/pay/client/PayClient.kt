@@ -25,7 +25,6 @@ package com.binance4j.connectors.pay.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.pay.param.TradeHistoryParams
 
 /**
  * Api client for the pay endpoints
@@ -36,10 +35,12 @@ object PayClient : RestClient<PayMapping>(PayMapping::class.java) {
 	/**
 	 * Get pay trades.
 	 *
-	 * @param params Request params
+	 * @param startTime  Start time in ms.
+	 * @param endTime    End time in ms.
+	 * @param limit      Results limit.
+	 *
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getTrades(params: TradeHistoryParams = TradeHistoryParams()) =
-		Request(service.getTrades(params.toMap()))
+	fun getTrades(startTime: Long? = null, endTime: Long? = null, limit: Int? = null) = Request(service.getTrades(startTime, endTime, limit))
 }

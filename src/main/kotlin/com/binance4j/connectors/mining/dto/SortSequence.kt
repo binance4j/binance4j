@@ -29,17 +29,19 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * Sorting.
  * @property value Value.
  */
-enum class SortSequence(@JsonProperty("value")
-	var value: String) {
-	/**
-	 * Positive.
-	 */
-	POSITIVE("0"),
-	
-	/**
-	 * Negative.
-	 */
-	NEGATIVE("1");
-	
-	override fun toString(): String = value
+enum class SortSequence(
+    @JsonProperty("value")
+    var value: String
+) {
+    /**
+     * Positive.
+     */
+    POSITIVE("0"),
+
+    /**
+     * Negative.
+     */
+    NEGATIVE("1");
+
+    override fun toString(): String = value
 }

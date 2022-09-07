@@ -39,16 +39,65 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Pay trade history.")
 data class TradeHistory(
-	@ApiModelProperty("Response code.")
-	@JsonProperty("code")
-	var code: String,
-	@ApiModelProperty("Response message.")
-	@JsonProperty("message")
-	var message: String,
-	@ApiModelProperty("Trades.")
-	@JsonProperty("data")
-	var data: List<Trade>,
-	@ApiModelProperty("Response success.")
-	@JsonProperty("success")
-	var success: Boolean
-)
+    @ApiModelProperty("Response code.")
+    @JsonProperty("code")
+    var code: String,
+    @ApiModelProperty("Response message.")
+    @JsonProperty("message")
+    var message: String,
+    @ApiModelProperty("Trades.")
+    @JsonProperty("data")
+    var data: List<Trade>,
+    @ApiModelProperty("Response success.")
+    @JsonProperty("success")
+    var success: Boolean
+) {
+    /**
+     * Pay transaction.
+     *
+     * @property transactionId   Transaction id.
+     * @property transactionTime Transaction time in ms.
+     * @property amount          Transaction amount.
+     * @property currency        Transaction asset.
+     * @property fundsDetail     Funds details.
+     * @property orderType       Order type.
+     * @see OrderType
+     */
+    @ApiModel("Pay transaction.")
+    data class Trade(
+        @ApiModelProperty("Transaction id.")
+        @JsonProperty("orderType")
+        var orderType: String,
+        @ApiModelProperty("Transaction time in ms.")
+        @JsonProperty("transactionId")
+        var transactionId: String,
+        @ApiModelProperty("Transaction amount.")
+        @JsonProperty("transactionTime")
+        var transactionTime: Long,
+        @ApiModelProperty("Transaction asset.")
+        @JsonProperty("amount")
+        var amount: String,
+        @ApiModelProperty("Funds details.")
+        @JsonProperty("currency")
+        var currency: String,
+        @ApiModelProperty("Order type. PAY: C2B Merchant Acquiring Payment. PAY_REFUND: C2B Merchant Acquiring Payment,refund. C2C: C2C Transfer Payment. CRYPTO_BOX: Crypto box. CRYPTO_BOX_RF: Crypto Box, refund. C2C_HOLDING: Transfer to new Binance user. C2C_HOLDING_RF: Transfer to new Binance user,refund. PAYOUT: B2C Disbursement Payment. ")
+        @JsonProperty("fundsDetail")
+        var fundsDetail: List<FundsDetail>
+    ) {
+        /**
+         * Funds detail.
+         *
+         * @property currency Asset.
+         * @property amount   Amount.
+         */
+        @ApiModel("Funds detail.")
+        data class FundsDetail(
+            @ApiModelProperty("Asset.")
+            @JsonProperty("currency")
+            var currency: String,
+            @ApiModelProperty("Amount.")
+            @JsonProperty("amount")
+            var amount: String
+        )
+    }
+}

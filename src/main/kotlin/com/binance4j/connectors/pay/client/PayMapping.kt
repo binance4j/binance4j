@@ -29,16 +29,20 @@ import com.binance4j.connectors.pay.dto.TradeHistory
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /** [PayClient] mapping. */
 interface PayMapping {
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/pay/transactions")
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@JvmSuppressWildcards
-	fun getTrades(@QueryMap map: Map<String, Any>): Call<TradeHistory>
+    /**
+     * Get pay trades.
+     *
+     * @param startTime  Start time in ms.
+     * @param endTime    End time in ms.
+     * @param limit      Results limit.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/pay/transactions")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    fun getTrades(@Query("startTime") startTime: Long?, @Query("endTime") endTime: Long?, @Query("limit") limit: Int?): Call<TradeHistory>
 }

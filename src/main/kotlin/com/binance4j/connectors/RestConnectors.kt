@@ -44,72 +44,72 @@ import com.binance4j.connectors.websocket.client.UserDataClient
 
 /** REST Connectors. */
 object RestConnectors {
-	var key: String = ""
-	var secret: String = ""
-	
-	/** [BLVTClient] singleton. */
-	val blvt = BLVTClient
-	
-	/** [C2CClient] singleton. */
-	val c2c = C2CClient
-	
-	/** [ConvertClient] singleton. */
-	val convert = ConvertClient
-	
-	/** [FiatClient] singleton.*/
-	val fiat = FiatClient
-	
-	/** [LoanClient] singleton. */
-	val loan = LoanClient
-	
-	/** [MarginClient] singleton. */
-	val margin = MarginClient
-	
-	/** [MarketClient] singleton. */
-	val market = MarketClient
-	
-	/** [MiningClient] singleton. */
-	val mining = MiningClient
-	
-	/** [NFTClient] singleton. */
-	val nft = NFTClient
-	
-	/** [PayClient] singleton. */
-	val pay = PayClient
-	
-	/** [PortfolioMarginClient] singleton. */
-	val portfolio = PortfolioMarginClient
-	
-	/** [RebateClient] singleton. */
-	val rebate = RebateClient
-	
-	/** [SavingsClient] singleton. */
-	val savings = SavingsClient
-	
-	/** [SpotClient] singleton. */
-	val spot = SpotClient
-	
-	/** [SpotClient] singleton. */
-	val staking = StakingClient
-	
-	/** [VisionSpotClient] singleton. */
-	val visionSpot = VisionSpotClient
-	
-	/** [WalletClient] singleton. */
-	val wallet = WalletClient
-	
-	/** [UserDataClient] singleton. */
-	val user = UserDataClient
-	
-	/**
-	 * Updates API keys.
-	 *
-	 * @param key    New public key.
-	 * @param secret New secret key.
-	 */
-	fun updateKeys(key: String, secret: String): RestConnectors {
-		RestConnectors.key = key
-		RestConnectors.secret = secret
-		return this
-	}
+    var key: String = ""
+    var secret: String = ""
+
+    /** [BLVTClient] singleton. */
+    val blvt = BLVTClient
+
+    /** [C2CClient] singleton. */
+    val c2c = C2CClient
+
+    /** [ConvertClient] singleton. */
+    val convert = ConvertClient
+
+    /** [FiatClient] singleton.*/
+    val fiat = FiatClient
+
+    /** [LoanClient] singleton. */
+    val loan = LoanClient
+
+    /** [MarginClient] singleton. */
+    val margin = MarginClient
+
+    /** [MarketClient] singleton. */
+    val market = MarketClient
+
+    /** [MiningClient] singleton. */
+    val mining = MiningClient
+
+    /** [NFTClient] singleton. */
+    val nft = NFTClient
+
+    /** [PayClient] singleton. */
+    val pay = PayClient
+
+    /** [PortfolioMarginClient] singleton. */
+    val portfolio = PortfolioMarginClient
+
+    /** [RebateClient] singleton. */
+    val rebate = RebateClient
+
+    /** [SavingsClient] singleton. */
+    val savings = SavingsClient
+
+    /** [SpotClient] singleton. */
+    val spot = SpotClient
+
+    /** [SpotClient] singleton. */
+    val staking = StakingClient
+
+    /** [VisionSpotClient] singleton. */
+    val visionSpot = VisionSpotClient
+
+    /** [WalletClient] singleton. */
+    val wallet = WalletClient
+
+    /** [UserDataClient] singleton. */
+    val user = UserDataClient
+
+    /**
+     * Updates API keys.
+     *
+     * @param key    New public key.
+     * @param secret New secret key.
+     */
+    fun updateKeys(key: String, secret: String): RestConnectors {
+        RestConnectors.key = key
+        RestConnectors.secret = secret
+        return this
+    }
 }
