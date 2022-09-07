@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property data Response data.
  */
 @ApiModel("Hash rate resale list wrapper")
-data class HashrateResaleListResponse(
+data class HashrateResaleList(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
     var code: Int,

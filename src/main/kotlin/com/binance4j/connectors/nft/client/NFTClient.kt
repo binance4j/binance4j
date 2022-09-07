@@ -25,9 +25,7 @@ package com.binance4j.connectors.nft.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.nft.param.AssetParams
-import com.binance4j.connectors.nft.param.OperationParams
-import com.binance4j.connectors.nft.param.TransactionHistoryParams
+import com.binance4j.connectors.nft.dto.OrderType
 
 /**
  * Api client for the NFT endpoints
@@ -35,38 +33,57 @@ import com.binance4j.connectors.nft.param.TransactionHistoryParams
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#nft-endpoints)
  */
 object NFTClient : RestClient<NFTMapping>(NFTMapping::class.java) {
-	/**
-	 * Get NFT Transaction History.
-	 *
-	 * @param params    Request params.
-	 * @return The request to execute.
-	 */
-	fun getTransactions(params: TransactionHistoryParams) = Request(service.getTransactions(params.toMap()))
-	
-	/**
-	 * Get NFT deposit History.
-	 *
-	 * @param params Request params
-	 * @return The request to execute.
-	 */
-	@JvmOverloads
-	fun getDeposits(params: OperationParams = OperationParams()) = Request(service.getDeposits(params.toMap()))
-	
-	/**
-	 * Get NFT withdraw History.
-	 *
-	 * @param params Request params
-	 * @return The request to execute.
-	 */
-	@JvmOverloads
-	fun getWithdraws(params: OperationParams = OperationParams()) = Request(service.getWithdraws(params.toMap()))
-	
-	/**
-	 * Get NFT assets.
-	 *
-	 * @param params Paging.
-	 * @return The request to execute.
-	 */
-	@JvmOverloads
-	fun getAssets(params: AssetParams = AssetParams()) = Request(service.getAssets(params.toMap()))
+    /**
+     * Get NFT Transaction History.
+     *
+     * @param orderType Order type.
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getTransactions(orderType: OrderType, startTime: Long? = null, endTime: Long? = null, page: Int? = null, limit: Int? = null) =
+        Request(service.getTransactions(orderType.toString(), startTime, endTime, page, limit))
+
+    /**
+     * Get NFT deposit History.
+     *
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getDeposits(startTime: Long? = null, endTime: Long? = null, page: Int? = null, limit: Int? = null) =
+        Request(service.getDeposits(startTime, endTime, page, limit))
+
+    /**
+     * Get NFT withdraw History.
+     *
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getWithdraws(startTime: Long? = null, endTime: Long? = null, page: Int? = null, limit: Int? = null) =
+        Request(service.getWithdraw(startTime, endTime, page, limit))
+
+    /**
+     * Get NFT assets.
+     *
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getAssets(page: Int? = null, limit: Int? = null) = Request(service.getAssets(page, limit))
 }

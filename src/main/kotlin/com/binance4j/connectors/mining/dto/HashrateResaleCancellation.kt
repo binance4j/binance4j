@@ -22,15 +22,29 @@
  * SOFTWARE.
  */
 
-package com.binance4j.connectors.nft.param
+package com.binance4j.connectors.mining.dto
 
-import com.binance4j.connectors.core.param.Params
-import com.binance4j.connectors.nft.client.NFTClient
+import com.fasterxml.jackson.annotation.JsonProperty
 
-/** [NFTClient.getWithdraws] and [NFTClient.getDeposits] params. */
-data class OperationParams @JvmOverloads constructor(
-	var startTime: Long? = null,
-	var endTime: Long? = null,
-	var page: Int? = null,
-	var limit: Int? = null
-) : Params
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
+/**
+ * Hashrate cancellation response.
+ *
+ * @property code Code.
+ * @property msg  Message.
+ * @property data Cancellation success.
+ */
+@ApiModel("Hashrate cancellation response.")
+data class HashrateResaleCancellation(
+    @ApiModelProperty("Code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Cancellation success.")
+    @JsonProperty("data")
+    var data: Boolean
+)

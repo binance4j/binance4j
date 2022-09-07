@@ -30,48 +30,44 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.getCoins] response.
+ * [MiningClient.getAlgorithms] response.
  *
  * @property code Response code.
  * @property msg  Response message.
  * @property data Response data.
  */
-@ApiModel("Coins wrapper")
-data class CoinsResponse(
+@ApiModel("Algorithms wrapper")
+data class Algorithms(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
-    var code: String,
+    var code: Int,
     @ApiModelProperty("Response message.")
     @JsonProperty("msg")
     var msg: String,
     @ApiModelProperty("Response data.") @JsonProperty("data")
-    var data: List<Coin>
+    var data: List<Algorithm>
 ) {
     /**
-     * A mineable coin.
+     * A mining algorithm.
      *
-     * @property coinName  Currency name.
-     * @property coinId    Coin id.
-     * @property poolIndex Pool index.
+     * @property algoName  Algorithm name.
      * @property algoId    Algorithm id.
-     * @property algoName  Name of the algorithm.
+     * @property poolIndex Sequence.
+     * @property unit      Unit.
      */
-    @ApiModel("A mineable coin.")
-    data class Coin(
-        @ApiModelProperty("Currency name.")
-        @JsonProperty("coinName")
-        var coinName: String,
-        @ApiModelProperty("Coin id.")
-        @JsonProperty("coinId")
-        var coinId: Long,
-        @ApiModelProperty("Pool index.")
-        @JsonProperty("poolIndex")
-        var poolIndex: Long,
+    @ApiModel("A mining algorithm.")
+    data class Algorithm(
+        @ApiModelProperty("Algorithm name.")
+        @JsonProperty("algoName")
+        var algoName: String,
         @ApiModelProperty("Algorithm id.")
         @JsonProperty("algoId")
         var algoId: Long,
-        @ApiModelProperty("Name of the algorithm.")
-        @JsonProperty("algoName")
-        var algoName: String
+        @ApiModelProperty("Sequence.")
+        @JsonProperty("poolIndex")
+        var poolIndex: Long,
+        @ApiModelProperty("Unit.")
+        @JsonProperty("unit")
+        var unit: String
     )
 }

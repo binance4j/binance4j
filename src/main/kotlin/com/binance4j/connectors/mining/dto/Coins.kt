@@ -30,21 +30,48 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.resellHashrate] response.
+ * [MiningClient.getCoins] response.
  *
- * @property code Code.
- * @property msg  Message.
- * @property data Mining account.
+ * @property code Response code.
+ * @property msg  Response message.
+ * @property data Response data.
  */
-@ApiModel("Hash rate resale wrapper")
-data class HashrateResaleResponse(
-    @ApiModelProperty("Code.")
+@ApiModel("Coins wrapper")
+data class Coins(
+    @ApiModelProperty("Response code.")
     @JsonProperty("code")
-    var code: Int,
-    @ApiModelProperty("Message.")
+    var code: String,
+    @ApiModelProperty("Response message.")
     @JsonProperty("msg")
     var msg: String,
-    @ApiModelProperty("Mining account.")
-    @JsonProperty("data")
-    var data: Int
-)
+    @ApiModelProperty("Response data.") @JsonProperty("data")
+    var data: List<Coin>
+) {
+    /**
+     * A mineable coin.
+     *
+     * @property coinName  Currency name.
+     * @property coinId    Coin id.
+     * @property poolIndex Pool index.
+     * @property algoId    Algorithm id.
+     * @property algoName  Name of the algorithm.
+     */
+    @ApiModel("A mineable coin.")
+    data class Coin(
+        @ApiModelProperty("Currency name.")
+        @JsonProperty("coinName")
+        var coinName: String,
+        @ApiModelProperty("Coin id.")
+        @JsonProperty("coinId")
+        var coinId: Long,
+        @ApiModelProperty("Pool index.")
+        @JsonProperty("poolIndex")
+        var poolIndex: Long,
+        @ApiModelProperty("Algorithm id.")
+        @JsonProperty("algoId")
+        var algoId: Long,
+        @ApiModelProperty("Name of the algorithm.")
+        @JsonProperty("algoName")
+        var algoName: String
+    )
+}

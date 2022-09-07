@@ -37,10 +37,38 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("NFT deposit history.")
 data class DepositHistory(
-	@ApiModelProperty("Total records.")
-	@JsonProperty("total")
-	var total: Long,
-	@ApiModelProperty("Transactions.")
-	@JsonProperty("list")
-	var list: List<Deposit>
-)
+    @ApiModelProperty("Total records.")
+    @JsonProperty("total")
+    var total: Long,
+    @ApiModelProperty("Transactions.")
+    @JsonProperty("list")
+    var list: List<Deposit>
+) {
+    /**
+     * NFT Deposit.
+     *
+     * @property network         NFT Network.
+     * @property contractAddress NFT Contract Address.
+     * @property tokenId         NFT Token ID.
+     * @property txID            Transaction ID.
+     * @property timestamp       Deposit time in ms.
+     */
+    @ApiModel("NFT Deposit.")
+    data class Deposit(
+        @ApiModelProperty("NFT Network.")
+        @JsonProperty("network")
+        var network: String,
+        @ApiModelProperty("NFT Contract Address.")
+        @JsonProperty("contractAddress")
+        var contractAddress: String,
+        @ApiModelProperty("NFT Token ID.")
+        @JsonProperty("tokenId")
+        var tokenId: String,
+        @ApiModelProperty("Transaction ID.")
+        @JsonProperty("txID")
+        var txID: String,
+        @ApiModelProperty("Deposit time in ms.")
+        @JsonProperty("timestamp")
+        var timestamp: Long,
+    )
+}

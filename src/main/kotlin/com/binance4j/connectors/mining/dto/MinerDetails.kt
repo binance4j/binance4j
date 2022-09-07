@@ -30,73 +30,53 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.getAccountProfits] response.
+ * [MiningClient.getMinersDetails] response.
  *
  * @property code Response code.
  * @property msg  Response message.
  * @property data Response data.
  */
-@ApiModel("Account profits wrapper.")
-data class AccountProfitsResponse(
+@ApiModel("Miners detail wrapper.")
+data class MinerDetails(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
     var code: Int,
     @ApiModelProperty("Response message.")
     @JsonProperty("msg")
     var msg: String,
-    @ApiModelProperty("Response data.")
-    @JsonProperty("data")
-    var data: AccountProfitsData?
+    @ApiModelProperty("Response data.") @JsonProperty("data")
+    var data: List<MinerDetails>?
 ) {
-    /**
-     * Account profits data.
-     *
-     * @property accountProfits Profits data.
-     * @property totalNum       Total amount.
-     * @property pageSize       Rows per page.
-     */
-    @ApiModel("Account profits data.")
-    data class AccountProfitsData(
-        @ApiModelProperty("Profits data.")
-        @JsonProperty("accountProfits")
-        var accountProfits: List<AccountProfit>?,
-        @ApiModelProperty("Total amount.")
-        @JsonProperty("totalNum")
-        var totalNum: Long = 0L,
-        @ApiModelProperty("Rows per page.")
-        @JsonProperty("pageSize")
-        var pageSize: Long = 0L
+    @ApiModel("Miner details.")
+    data class MinerDetails(
+        @ApiModelProperty("Mining Account name.")
+        @JsonProperty("workerName")
+        var workerName: String,
+        @ApiModelProperty("Type of hourly hashrate.")
+        @JsonProperty("type")
+        var type: String,
+        @ApiModelProperty("Hashrate data")
+        @JsonProperty("hashrateDatas")
+        var hashrateDatas: List<HashrateData>?
     ) {
         /**
-         * Account profit.
+         * Hash rate data.
          *
          * @property time     Time in ms.
-         * @property coinName Coin.
-         * @property type     0:Referral 1：Refund 2：Rebate.
-         * @property puid     Sub-account id.
-         * @property subName  Mining account.
-         * @property amount   Amount.
+         * @property hashrate Hash rate.
+         * @property reject   Rejection Rate.
          */
-        @ApiModel("Account profit.")
-        data class AccountProfit(
+        @ApiModel("Hashrate data.")
+        data class HashrateData(
             @ApiModelProperty("Time in ms.")
             @JsonProperty("time")
             var time: Long,
-            @ApiModelProperty("Coin.")
-            @JsonProperty("coinName")
-            var coinName: String,
-            @ApiModelProperty("0:Referral 1：Refund 2：Rebate.")
-            @JsonProperty("type")
-            var type: Int,
-            @ApiModelProperty("Sub-account id.")
-            @JsonProperty("puid")
-            var puid: Int,
-            @ApiModelProperty("Mining account.")
-            @JsonProperty("subName")
-            var subName: String,
-            @ApiModelProperty("Amount.")
-            @JsonProperty("amount")
-            var amount: String
+            @ApiModelProperty("Hashrate.")
+            @JsonProperty("hashrate")
+            var hashrate: String,
+            @ApiModelProperty("Rejection Rate.")
+            @JsonProperty("reject")
+            var reject: Long
         )
     }
 }

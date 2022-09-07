@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property data Response data.
  */
 @ApiModel("Other profits wrapper.")
-data class OtherProfitsResponse(
+data class OtherProfits(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
     var code: Int,

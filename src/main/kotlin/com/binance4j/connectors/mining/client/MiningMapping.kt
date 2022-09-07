@@ -43,7 +43,7 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/pub/algoList")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getAlgorithms(): Call<AlgorithmsResponse>
+    fun getAlgorithms(): Call<Algorithms>
 
     /**
      * Acquiring coin name.
@@ -52,7 +52,7 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/pub/coinList")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getCoins(): Call<CoinsResponse>
+    fun getCoins(): Call<Coins>
 
     /**
      * Request for detail miner list.
@@ -65,7 +65,7 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/worker/detail")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getMinersDetails(@Query("algo") algo: String, @Query("userName") userName: String, @Query("workerName") workerName: String): Call<MinerDetailsResponse>
+    fun getMinersDetails(@Query("algo") algo: String, @Query("userName") userName: String, @Query("workerName") workerName: String): Call<MinerDetails>
 
     /**
      * Request for miner list.
@@ -88,7 +88,7 @@ interface MiningMapping {
         @Query("pageIndex") pageIndex: Int?,
         @Query("sort") sort: String?,
         @Query("sortColumn") sortColumn: String?
-    ): Call<WorkersResponse>
+    ): Call<Workers>
 
     /**
      * Get earnings list.
@@ -113,7 +113,7 @@ interface MiningMapping {
         @Query("endDate") endDate: Long?,
         @Query("pageIndex") pageIndex: Int?,
         @Query("pageSize") pageSize: Int?
-    ): Call<ProfitResponse>
+    ): Call<Profit>
 
     /**
      * Get extra bonus list.
@@ -133,7 +133,7 @@ interface MiningMapping {
     fun getOtherProfits(
         @Query("algo") algo: String, @Query("userName") userName: String, @Query("coin") coin: String?,
         @Query("startDate") startDate: Long?, @Query("endDate") endDate: Long?, @Query("pageIndex") pageIndex: Int?, @Query("pageSize") pageSize: Int?
-    ): Call<OtherProfitsResponse>
+    ): Call<OtherProfits>
 
     /**
      * Get mining account earning.
@@ -156,7 +156,7 @@ interface MiningMapping {
         @Query("endDate") endDate: Long?,
         @Query("pageIndex") pageIndex: Int?,
         @Query("pageSize") pageSize: Int?
-    ): Call<AccountProfitsResponse>
+    ): Call<AccountProfits>
 
     /**
      * Get hash rate resale list.
@@ -168,7 +168,7 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/hash-transfer/config/details/list")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getHashrateResales(@Query("pageIndex") pageIndex: Int?, @Query("pageSize") pageSize: Int?): Call<HashrateResaleListResponse>
+    fun getHashrateResales(@Query("pageIndex") pageIndex: Int?, @Query("pageSize") pageSize: Int?): Call<HashrateResaleList>
 
     /**
      * Get hash rate resale detail.
@@ -187,7 +187,7 @@ interface MiningMapping {
         @Query("userName") userName: String,
         @Query("pageIndex") pageIndex: Int?,
         @Query("pageSize") pageSize: Int?
-    ): Call<HashrateResaleDetailResponse>
+    ): Call<HashrateResaleDetail>
 
     /**
      * Hash rate resale request.
@@ -210,7 +210,7 @@ interface MiningMapping {
         @Query("endDate") endDate: Long,
         @Query("toPoolUser") toPoolUser: String,
         @Query("hashRate") hashRate: Long
-    ): Call<HashrateResaleResponse>
+    ): Call<HashrateResale>
 
     /**
      * Cancel hash rate resale configuration.
@@ -222,7 +222,7 @@ interface MiningMapping {
      */
     @POST("/sapi/v1/mining/hash-transfer/config/cancel")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun cancelHashrateResaleConfiguration(@Query("configId") configId: Int, @Query("userName") userName: String): Call<HashrateResaleCancellationResponse>
+    fun cancelHashrateResaleConfiguration(@Query("configId") configId: Int, @Query("userName") userName: String): Call<HashrateResaleCancellation>
 
     /**
      * Get Statistic list.
@@ -234,7 +234,7 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/statistics/user/status")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getStatistics(@Query("algo") algo: String, @Query("userName") userName: String): Call<StatisticsResponse>
+    fun getStatistics(@Query("algo") algo: String, @Query("userName") userName: String): Call<Statistics>
 
     /**
      * Get Account list.
@@ -246,5 +246,5 @@ interface MiningMapping {
      */
     @GET("/sapi/v1/mining/statistics/user/list")
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 5")
-    fun getAccounts(@Query("algo") algo: String, @Query("userName") userName: String): Call<AccountListResponse>
+    fun getAccounts(@Query("algo") algo: String, @Query("userName") userName: String): Call<AccountList>
 }

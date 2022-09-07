@@ -30,44 +30,21 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.getAlgorithms] response.
+ * [MiningClient.resellHashrate] response.
  *
- * @property code Response code.
- * @property msg  Response message.
- * @property data Response data.
+ * @property code Code.
+ * @property msg  Message.
+ * @property data Mining account.
  */
-@ApiModel("Algorithms wrapper")
-data class AlgorithmsResponse(
-    @ApiModelProperty("Response code.")
+@ApiModel("Hash rate resale wrapper")
+data class HashrateResale(
+    @ApiModelProperty("Code.")
     @JsonProperty("code")
     var code: Int,
-    @ApiModelProperty("Response message.")
+    @ApiModelProperty("Message.")
     @JsonProperty("msg")
     var msg: String,
-    @ApiModelProperty("Response data.") @JsonProperty("data")
-    var data: List<Algorithm>
-) {
-    /**
-     * A mining algorithm.
-     *
-     * @property algoName  Algorithm name.
-     * @property algoId    Algorithm id.
-     * @property poolIndex Sequence.
-     * @property unit      Unit.
-     */
-    @ApiModel("A mining algorithm.")
-    data class Algorithm(
-        @ApiModelProperty("Algorithm name.")
-        @JsonProperty("algoName")
-        var algoName: String,
-        @ApiModelProperty("Algorithm id.")
-        @JsonProperty("algoId")
-        var algoId: Long,
-        @ApiModelProperty("Sequence.")
-        @JsonProperty("poolIndex")
-        var poolIndex: Long,
-        @ApiModelProperty("Unit.")
-        @JsonProperty("unit")
-        var unit: String
-    )
-}
+    @ApiModelProperty("Mining account.")
+    @JsonProperty("data")
+    var data: Int
+)

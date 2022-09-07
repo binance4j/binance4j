@@ -33,45 +33,81 @@ import com.binance4j.connectors.nft.dto.WithdrawHistory
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /**
  * [NFTClient] mapping.
  */
 interface NFTMapping {
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/nft/history/transactions")
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@JvmSuppressWildcards
-	fun getTransactions(@QueryMap map: Map<String, Any>): Call<TransactionHistory>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/nft/history/deposit")
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@JvmSuppressWildcards
-	fun getDeposits(@QueryMap map: Map<String, Any>): Call<DepositHistory>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/nft/history/withdraw")
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@JvmSuppressWildcards
-	fun getWithdraws(@QueryMap map: Map<String, Any>): Call<WithdrawHistory>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/nft/user/getAsset")
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@JvmSuppressWildcards
-	fun getAssets(@QueryMap map: Map<String, Any>): Call<AssetHistory>
+    /**
+     * Get NFT Transaction History.
+     *
+     * @param orderType Order type.
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/nft/history/transactions")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    fun getTransactions(
+        @Query("orderType") orderType: String,
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("page") page: Int?,
+        @Query("limit") limit: Int?
+    ): Call<TransactionHistory>
+
+    /**
+     * Get NFT deposit History.
+     *
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/nft/history/deposit")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    fun getDeposits(
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("page") page: Int?,
+        @Query("limit") limit: Int?
+    ): Call<DepositHistory>
+
+    /**
+     * Get NFT withdraw History.
+     *
+     * @param startTime Start time.
+     * @param endTime End time.
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/nft/history/withdraw")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    fun getWithdraw(
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("page") page: Int?,
+        @Query("limit") limit: Int?
+    ): Call<WithdrawHistory>
+
+    /**
+     * Get NFT assets.
+     *
+     * @param page Result page.
+     * @param limit Result limit.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/nft/user/getAsset")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    @JvmSuppressWildcards
+    fun getAssets(@Query("page") page: Int?, @Query("limit") limit: Int?): Call<AssetHistory>
 }

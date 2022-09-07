@@ -37,10 +37,58 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("NFT transaction history.")
 data class TransactionHistory(
-	@ApiModelProperty("Total records.")
-	@JsonProperty("total")
-	var total: Long,
-	@ApiModelProperty("Transactions.")
-	@JsonProperty("list")
-	var list: List<Transaction>
-)
+    @ApiModelProperty("Total records.")
+    @JsonProperty("total")
+    var total: Long,
+    @ApiModelProperty("Transactions.")
+    @JsonProperty("list")
+    var list: List<Transaction>
+) {
+    /**
+     * NFT transaction.
+     *
+     * @property orderNo       Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee
+     * @property tokens        Tokens.
+     * @property tradeTime     Trade time in ms.
+     * @property tradeAmount   Trade amount.
+     * @property tradeCurrency Currency used to buy the NFT.
+     */
+    @ApiModel("NFT transaction.")
+    data class Transaction(
+        @ApiModelProperty("Order number. 0: purchase order 1: sell order 2: royalty income 3: primary market order 4: mint fee")
+        @JsonProperty("orderNo")
+        var orderNo: String,
+        @ApiModelProperty("Tokens.")
+        @JsonProperty("tokens")
+        var tokens: List<NFT>,
+        @ApiModelProperty("Trade time in ms.")
+        @JsonProperty("tradeTime")
+        var tradeTime: Long,
+        @ApiModelProperty("Trade amount.")
+        @JsonProperty("tradeAmount")
+        var tradeAmount: String,
+        @ApiModelProperty("Currency used to buy the NFT.")
+        @JsonProperty("tradeCurrency")
+        var tradeCurrency: String
+    ) {
+        /**
+         * NFT asset.
+         *
+         * @property network         NFT Network.
+         * @property tokenId         NFT Token ID.
+         * @property contractAddress NFT Contract Address.
+         */
+        @ApiModel("NFT asset.")
+        data class NFT(
+            @ApiModelProperty("NFT Network.")
+            @JsonProperty("network")
+            var network: String,
+            @ApiModelProperty("NFT Token ID.")
+            @JsonProperty("tokenId")
+            var tokenId: String,
+            @ApiModelProperty("NFT Contract Address.")
+            @JsonProperty("contractAddress")
+            var contractAddress: String
+        )
+    }
+}

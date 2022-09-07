@@ -30,14 +30,14 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.getStatistics] response.
+ * [MiningClient.getAccounts] response.
  *
  * @property code Response code.
  * @property msg  Response message.
  * @property data Response data.
  */
-@ApiModel("Statistics wrapper.")
-data class StatisticsResponse(
+@ApiModel("Accounts list wrapper")
+data class AccountList(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
     var code: Int,
@@ -46,49 +46,46 @@ data class StatisticsResponse(
     var msg: String,
     @ApiModelProperty("Response data.")
     @JsonProperty("data")
-    var data: Statistics
+    var data: List<AccountData>
 ) {
     /**
-     * Statistics.
+     * Account data.
      *
-     * @property fifteenMinHashRate 15 mins hash rate.
-     * @property dayHashRate        24H Hash rate.
-     * @property validNum           Effective quantity.
-     * @property invalidNum         Invalid quantity.
-     * @property profitToday        Today's estimate.
-     * @property profitYesterday    Yesterday's earnings.
-     * @property userName           Mining account.
-     * @property unit               Hash rate unit.
-     * @property algo               Algorithm.
+     * @property type     Type of daily hash rate.
+     * @property userName Mining account.
+     * @property list     List.
      */
-    @ApiModel("Statistics.")
-    data class Statistics(
-        @ApiModelProperty("15 mins hash rate.")
-        @JsonProperty("fifteenMinHashRate")
-        var fifteenMinHashRate: String,
-        @ApiModelProperty("24H Hash rate.")
-        @JsonProperty("dayHashRate")
-        var dayHashRate: String,
-        @ApiModelProperty("Effective quantity.")
-        @JsonProperty("validNum")
-        var validNum: Int,
-        @ApiModelProperty("Invalid quantity.")
-        @JsonProperty("invalidNum")
-        var invalidNum: Int,
-        @ApiModelProperty("Today's estimate.")
-        @JsonProperty("profitToday")
-        var profitToday: Map<String, String>,
-        @ApiModelProperty("Yesterday's earnings.")
-        @JsonProperty("profitYesterday")
-        var profitYesterday: Map<String, String>,
+    @ApiModel("Account data.")
+    data class AccountData(
+        @ApiModelProperty("Type of daily hash rate.")
+        @JsonProperty("type")
+        var type: String,
         @ApiModelProperty("Mining account.")
         @JsonProperty("userName")
-        var userName: String,
-        @ApiModelProperty("Hash rate unit.")
-        @JsonProperty("unit")
-        var unit: String,
-        @ApiModelProperty("Algorithm.")
-        @JsonProperty("algo")
-        var algo: String
-    )
+        var userName: String?,
+        @ApiModelProperty("List.")
+        @JsonProperty("list")
+        var list: List<AccountList>?
+    ) {
+        /**
+         * Account statistics.
+         *
+         * @property time     Time in ms.
+         * @property hashrate Hashrate.
+         * @property reject   Reject rate.
+         */
+        @ApiModel("Account statistics.")
+        data class AccountList(
+            @ApiModelProperty("Time in ms.")
+            @JsonProperty("time")
+            var time: Long,
+            @ApiModelProperty("Hashrate.")
+            @JsonProperty("hashrate")
+            var hashrate: String,
+            @ApiModelProperty("Reject rate.")
+            @JsonProperty("reject")
+            var reject: String
+        )
+    }
+
 }

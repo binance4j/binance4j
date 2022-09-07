@@ -30,14 +30,14 @@ import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
 /**
- * [MiningClient.getAccountProfits] response.
+ * Workers data wrapper. [MiningClient.getMiners] response.
  *
  * @property code Response code.
  * @property msg  Response message.
  * @property data Response data.
  */
-@ApiModel("Hash rate resale detail wrapper.")
-data class HashrateResaleDetailResponse(
+@ApiModel("Workers data wrapper.")
+data class Workers(
     @ApiModelProperty("Response code.")
     @JsonProperty("code")
     var code: Int,
@@ -46,20 +46,20 @@ data class HashrateResaleDetailResponse(
     var msg: String,
     @ApiModelProperty("Response data.")
     @JsonProperty("data")
-    var data: HashrateResaleDetailData?
+    var data: WorkersData?
 ) {
     /**
-     * Hash rate detail data.
+     * Workers data.
      *
-     * @property profitTransferDetails Details.
-     * @property totalNum              Total amount.
-     * @property pageSize              Rows per page.
+     * @property workerDatas Workers data.
+     * @property totalNum    Total amount.
+     * @property pageSize    Rows per page.
      */
-    @ApiModel("Hash rate detail data.")
-    data class HashrateResaleDetailData(
-        @ApiModelProperty("Config details.")
-        @JsonProperty("profitTransferDetails")
-        var profitTransferDetails: List<HashrateProfitTransferDetails>?,
+    @ApiModel("Workers data.")
+    data class WorkersData(
+        @ApiModelProperty("Workers data.")
+        @JsonProperty("workerDatas")
+        var workerDatas: List<Worker>?,
         @ApiModelProperty("Total amount.")
         @JsonProperty("totalNum")
         var totalNum: Long,
@@ -68,39 +68,39 @@ data class HashrateResaleDetailResponse(
         var pageSize: Long
     ) {
         /**
-         * Hash rate resale list detail.
+         * A miner/worker data.
          *
-         * @property poolUsername   Transfer out of subaccount.
-         * @property toPoolUsername Transfer into subaccount.
-         * @property algoName       Transfer algorithm.
-         * @property hashRate       Transferred Hash rate quantity.
-         * @property day            Transfer date.
-         * @property amount         Transferred amount.
-         * @property coinName       Coin name.
+         * @property workerId      Miner id.
+         * @property workerName    Miner's name'.
+         * @property status        Status：1 valid,2 invalid, 3 no longer valid.
+         * @property hashRate      Real-time rate.
+         * @property dayHashRate   24H Hash rate.
+         * @property rejectRate    Real-time Rejection Rate.
+         * @property lastShareTime Last submission time.
          */
-        @ApiModel("Hash rate resale list detail.")
-        data class HashrateProfitTransferDetails(
-            @ApiModelProperty("Transfer out of subaccount.")
-            @JsonProperty("poolUsername")
-            var poolUsername: String,
-            @ApiModelProperty("Transfer into subaccount.")
-            @JsonProperty("toPoolUsername")
-            var toPoolUsername: String,
-            @ApiModelProperty("Transfer algorithm.")
-            @JsonProperty("algoName")
-            var algoName: String,
-            @ApiModelProperty("Transferred Hash rate quantity.")
+        @ApiModel("A miner/worker data.")
+        data class Worker(
+            @ApiModelProperty("Miner id.")
+            @JsonProperty("workerId")
+            var workerId: String,
+            @ApiModelProperty("Miner's name'.")
+            @JsonProperty("workerName")
+            var workerName: String,
+            @ApiModelProperty("Status：1 valid,2 invalid, 3 no longer valid.")
+            @JsonProperty("status")
+            var status: Long,
+            @ApiModelProperty("Real-time rate.")
             @JsonProperty("hashRate")
             var hashRate: Long,
-            @ApiModelProperty("Transfer date.")
-            @JsonProperty("day")
-            var day: Long,
-            @ApiModelProperty("Transferred Amount.")
-            @JsonProperty("amount")
-            var amount: String,
-            @ApiModelProperty("Coin name.")
-            @JsonProperty("coinName")
-            var coinName: String,
+            @ApiModelProperty("24H Hashrate.")
+            @JsonProperty("dayHashRate")
+            var dayHashRate: Long,
+            @ApiModelProperty("Real-time Rejection Rate.")
+            @JsonProperty("rejectRate")
+            var rejectRate: Long,
+            @ApiModelProperty("Last submission time.")
+            @JsonProperty("lastShareTime")
+            var lastShareTime: Long
         )
     }
 }
