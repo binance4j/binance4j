@@ -25,7 +25,7 @@ package com.binance4j.connectors.savings.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.savings.param.*
+import com.binance4j.connectors.savings.dto.*
 
 /**
  * Api client for the savings endpoints
@@ -33,119 +33,183 @@ import com.binance4j.connectors.savings.param.*
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#savings-endpoints)
  */
 object SavingsClient : RestClient<SavingsMapping>(SavingsMapping::class.java) {
-	/**
-	 * Get flexible product list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getFlexibleProducts(params: FlexibleProductsParams = FlexibleProductsParams("")) =
-		Request(service.getFlexibleProducts(params.toMap()))
-	
-	/**
-	 * Get left daily purchase quota of flexible product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getLeftDailyFlexiblePurchaseQuota(params: PurchaseQuotaParams) =
-		Request(service.getLeftDailyFlexiblePurchaseQuota(params.toMap()))
-	
-	/**
-	 * Purchase Flexible Product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun purchaseFlexible(params: FlexiblePurchaseParams) = Request(service.purchaseFlexible(params.toMap()))
-	
-	/**
-	 * Get Left Daily Redemption Quota of Flexible Product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getLeftDailyRedemptionQuota(params: RedemptionQuotaParams) =
-		Request(service.getLeftDailyRedemptionQuota(params.toMap()))
-	
-	/**
-	 * Redeem Flexible Product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun redeemFlexible(params: RedemptionParams) = Request(service.redeemFlexible(params.toMap()))
-	
-	/**
-	 * Get flexible product position.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getFlexibleProductPosition(params: FlexibleProductPositionParams = FlexibleProductPositionParams()) =
-		Request(service.getFlexibleProductPosition(params.toMap()))
-	
-	/**
-	 * Get fixed and activity project list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getFixedProjects(params: FixedProjectListParams) = Request(service.getFixedProjects(params.toMap()))
-	
-	/**
-	 * Purchase fixed project.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun purchaseFixed(params: FixedPurchaseParams) = Request(service.purchaseFixed(params.toMap()))
-	
-	/**
-	 * Get fixed/activity project position.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getFixedProjectPosition(params: FixedProjectPositionParams) =
-		Request(service.getFixedProjectPosition(params.toMap()))
-	
-	/**
-	 * Get lending account.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getAccount() = Request(service.getAccount(LendingAccountParams().toMap()))
-	
-	/**
-	 * Get purchase record.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getPurchases(params: LendingParams) = Request(service.getPurchases(params.toMap()))
-	
-	/**
-	 * Get redemption record.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getRedemptions(params: LendingParams) = Request(service.getRedemptions(params.toMap()))
-	
-	/**
-	 * Get interest record.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getInterests(params: LendingParams) = Request(service.getInterests(params.toMap()))
-	
-	/**
-	 * Change fixed/activity position to daily position.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun fixedToDailyPosition(params: ChangePositionParams) = Request(service.fixedToDailyPosition(params.toMap()))
+    /**
+     * Get flexible product list.
+     *
+     * @param status    Product status.
+     * @param featured  Featured.
+     * @param current   Current page.
+     * @param size      Page size.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getFlexibleProducts(status: FlexibleProductStatus? = FlexibleProductStatus.ALL, featured: Featured? = null, current: Int? = null, size: Int? = null) =
+        Request(service.getFlexibleProducts(status.toString(), featured, current, size))
+
+    /**
+     * Get left daily purchase quota of flexible product.
+     *
+     * @param productId Product id.
+     *
+     * @return The request to execute.
+     */
+    fun getLeftDailyFlexiblePurchaseQuota(productId: String) = Request(service.getLeftDailyFlexiblePurchaseQuota(productId))
+
+    /**
+     * Purchase Flexible Product.
+     *
+     * @param productId Product id.
+     * @param amount    Amount.
+     *
+     * @return The request to execute.
+     */
+    fun purchaseFlexible(productId: String, amount: String) = Request(service.purchaseFlexible(productId, amount))
+
+    /**
+     * Get Left Daily Redemption Quota of Flexible Product.
+     *
+     * @param productId Product id.
+     * @param type      Product type.
+     *
+     * @return The request to execute.
+     */
+    fun getLeftDailyRedemptionQuota(productId: String, type: ProductType) = Request(service.getLeftDailyRedemptionQuota(productId, type.toString()))
+
+    /**
+     * Redeem Flexible Product.
+     *
+     * @param productId Product id.
+     * @param amount    Amount.
+     * @param type      Product type.
+     *
+     * @return The request to execute.
+     */
+    fun redeemFlexible(productId: String, amount: String, type: ProductType) = Request(service.redeemFlexible(productId, amount, type.toString()))
+
+    /**
+     * Get flexible product position.
+     *
+     * @param asset Asset.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getFlexibleProductPosition(asset: String? = null) = Request(service.getFlexibleProductPosition(asset))
+
+    /**
+     * Get fixed and activity project list.
+     *
+     * @param type   Project type.
+     * @param status Project status. default: `START_TIME`.
+     * @param sortBy Sorting.
+     * @param asset  Asset.
+     * @param page  Results page.
+     * @param limit Number of rows.
+     * @param isSortAsc Ascending sorting.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getFixedProjects(
+        type: FixedProjectType,
+        status: FixedProjectStatus,
+        sortBy: FixedProjectSorting,
+        asset: String? = null,
+        page: Int? = null,
+        limit: Int? = null,
+        isSortAsc: Boolean? = null
+    ) = Request(service.getFixedProjects(type.toString(), status.toString(), sortBy.toString(), asset, page, limit, isSortAsc))
+
+    /**
+     * Purchase fixed project.
+     *
+     * @param productId Product id.
+     * @param lot       Amount.
+     *
+     * @return The request to execute.
+     */
+    fun purchaseFixed(productId: String, lot: Long) = Request(service.purchaseFixed(productId, lot))
+
+    /**
+     * Get fixed/activity project position.
+     *
+     * @param asset     Asset.
+     * @param projectId Project id.
+     * @param status    Status.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getFixedProjectPosition(asset: String? = null, projectId: String? = null, status: FixedProjectPositionStatus? = null) =
+        Request(service.getFixedProjectPosition(asset, projectId, status.toString()))
+
+    /**
+     * Get lending account.
+     *
+     * @return The request to execute.
+     */
+    fun getAccount() = Request(service.getAccount())
+
+    /**
+     * Get purchase record.
+     *
+     * @param lendingType Lending type.
+     * @param asset       Asset name.
+     * @param startTime Start time in ms.
+     * @param endTime   End time in ms.
+     * @param current      Result page.
+     * @param size     Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getPurchases(lendingType: LendingType, asset: String? = null, startTime: Long? = null, endTime: Long? = null, current: Int? = null, size: Int? = null) =
+        Request(service.getPurchases(lendingType.toString(), asset, startTime, endTime, current, size))
+
+    /**
+     * Get redemption record.
+     *
+     * @param lendingType Lending type.
+     * @param asset       Asset name.
+     * @param startTime Start time in ms.
+     * @param endTime   End time in ms.
+     * @param current      Result page.
+     * @param size     Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getRedemptions(
+        lendingType: LendingType, asset: String? = null, startTime: Long? = null, endTime: Long? = null, current: Int? = null, size: Int? = null
+    ) = Request(service.getRedemptions(lendingType.toString(), asset, startTime, endTime, current, size))
+
+    /**
+     * Get interest record.
+     *
+     * @param lendingType Lending type.
+     * @param asset       Asset name.
+     * @param startTime Start time in ms.
+     * @param endTime   End time in ms.
+     * @param current      Result page.
+     * @param size     Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getInterests(
+        lendingType: LendingType, asset: String? = null, startTime: Long? = null, endTime: Long? = null, current: Int? = null, size: Int? = null
+    ) = Request(service.getInterests(lendingType.toString(), asset, startTime, endTime, current, size))
+
+    /**
+     * Change fixed/activity position to daily position.
+     *
+     * @param projectId  Project id.
+     * @param lot        Lot size.
+     * @param positionId Position id for fixed position.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun fixedToDailyPosition(projectId: String, lot: Long, positionId: Long? = null) = Request(service.fixedToDailyPosition(projectId, lot, positionId))
 }

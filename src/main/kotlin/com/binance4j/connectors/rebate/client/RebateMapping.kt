@@ -25,22 +25,32 @@ package com.binance4j.connectors.rebate.client
 
 import com.binance4j.connectors.core.Headers.SIGNED_H
 import com.binance4j.connectors.core.Headers.UID_H
-import com.binance4j.connectors.rebate.dto.SpotRebateHistoryResponse
+import com.binance4j.connectors.rebate.dto.SpotRebateHistoryRecord
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /**
  * [RebateClient] mapping.
  */
 interface RebateMapping {
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
-	@GET("/sapi/v1/rebate/taxQuery")
-	@JvmSuppressWildcards
-	fun getSpotRebateHistoryRecords(@QueryMap map: Map<String, Any>): Call<SpotRebateHistoryResponse>
+    /**
+     * Get the spot rebate history records.
+     *
+     * @property startTime Start time in ms.
+     * @property endTime   End time in ms.
+     * @property page      Result page.
+     * @property limit     Results in the page.
+     *
+     * @return The generated Retrofit call.
+     */
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    @GET("/sapi/v1/rebate/taxQuery")
+    fun getSpotRebateHistoryRecords(
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("page") page: Int?,
+        @Query("limit") limit: Int?
+    ): Call<SpotRebateHistoryRecord>
 }

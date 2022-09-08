@@ -23,20 +23,16 @@
  */
 package com.binance4j.connectors.rebate.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
 /** The rebate type.
+ *
  * @property value Value.
  */
-enum class RebateType(@JsonProperty("value")
-	var value: String) {
-	/** commission rebate  */
-	COMMISSION_REBATE("1"),
-	
-	/** referral kickback  */
-	REFERRAL_KICKBACK("2");
-	
-	override fun toString(): String {
-		return value
-	}
+enum class RebateType(var value: String) {
+    /** commission rebate  */
+    COMMISSION_REBATE("1"),
+
+    /** referral kickback  */
+    REFERRAL_KICKBACK("2");
+
+    override fun toString(): String = value
 }

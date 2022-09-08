@@ -25,7 +25,6 @@ package com.binance4j.connectors.rebate.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.rebate.param.SpotRebateHistoryParams
 
 /**
  * The API client for the SPOT endpoints
@@ -36,10 +35,14 @@ object RebateClient : RestClient<RebateMapping>(RebateMapping::class.java) {
 	/**
 	 * Get the spot rebate history records.
 	 *
-	 * @param params Request params.
+	 * @property startTime Start time in ms.
+	 * @property endTime   End time in ms.
+	 * @property page      Result page.
+	 * @property limit     Results in the page.
+	 *
 	 * @return The request to execute.
 	 */
 	@JvmOverloads
-	fun getSpotRebateHistoryRecords(params: SpotRebateHistoryParams = SpotRebateHistoryParams()) =
-		Request(service.getSpotRebateHistoryRecords(params.toMap()))
+	fun getSpotRebateHistoryRecords(startTime: Long? = null, endTime: Long? = null, page: Int? = null, limit: Int? = null) =
+		Request(service.getSpotRebateHistoryRecords(startTime, endTime, page, limit))
 }

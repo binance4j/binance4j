@@ -48,43 +48,43 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("A Flexible product.")
 data class FlexibleProduct(
-	@ApiModelProperty("Asset.")
-	@JsonProperty("asset")
-	var asset: String,
-	@ApiModelProperty("Avg annual interest rate.")
-	@JsonProperty("avgAnnualInterestRate")
-	var avgAnnualInterestRate: String,
-	@ApiModelProperty("Tier annual interest rate.")
-	@JsonProperty("tierAnnualInterestRate")
-	var tierAnnualInterestRate: Map<String, String>,
-	@ApiModelProperty("Latest annual interest rate.")
-	@JsonProperty("latestAnnualInterestRate")
-	var latestAnnualInterestRate: String,
-	@ApiModelProperty("Product can be purchase?")
-	@JsonProperty("canPurchase")
-	var canPurchase: Boolean,
-	@ApiModelProperty("Product can be redeemed?")
-	@JsonProperty("canRedeem")
-	var canRedeem: Boolean,
-	@ApiModelProperty("Featured.")
-	@JsonProperty("featured")
-	var featured: Boolean,
-	@ApiModelProperty("Min purchase amount.")
-	@JsonProperty("minPurchaseAmount")
-	var minPurchaseAmount: String,
-	@ApiModelProperty("Product id.")
-	@JsonProperty("productId")
-	var productId: String,
-	@ApiModelProperty("Purchased amount.")
-	@JsonProperty("purchasedAmount")
-	var purchasedAmount: String,
-	@ApiModelProperty("Status.")
-	@JsonProperty("status")
-	var status: String,
-	@ApiModelProperty("Up limit.")
-	@JsonProperty("upLimit")
-	var upLimit: String,
-	@ApiModelProperty("Up limit per user.")
-	@JsonProperty("upLimitPerUser")
-	var upLimitPerUser: String
+    @ApiModelProperty("Asset.")
+    @JsonProperty("asset")
+    var asset: String,
+    @ApiModelProperty("Avg annual interest rate.")
+    @JsonProperty("avgAnnualInterestRate")
+    var avgAnnualInterestRate: String,
+    @ApiModelProperty("Tier annual interest rate.")
+    @JsonProperty("tierAnnualInterestRate")
+    var tierAnnualInterestRate: Map<String, String>?,
+    @ApiModelProperty("Latest annual interest rate.")
+    @JsonProperty("latestAnnualInterestRate")
+    var latestAnnualInterestRate: String,
+    @ApiModelProperty("Product can be purchase?")
+    @JsonProperty("canPurchase")
+    var canPurchase: Boolean,
+    @ApiModelProperty("Product can be redeemed?")
+    @JsonProperty("canRedeem")
+    var canRedeem: Boolean,
+    @ApiModelProperty("Featured.")
+    @JsonProperty("featured")
+    var featured: Boolean,
+    @ApiModelProperty("Min purchase amount.")
+    @JsonProperty("minPurchaseAmount")
+    var minPurchaseAmount: String,
+    @ApiModelProperty("Product id.")
+    @JsonProperty("productId")
+    var productId: String,
+    @ApiModelProperty("Purchased amount.")
+    @JsonProperty("purchasedAmount")
+    var purchasedAmount: String,
+    @ApiModelProperty("Status.")
+    @JsonProperty("status")
+    var status: String,
+    @ApiModelProperty("Up limit.")
+    @JsonProperty("upLimit")
+    var upLimit: String,
+    @ApiModelProperty("Up limit per user.")
+    @JsonProperty("upLimitPerUser")
+    var upLimitPerUser: String
 )
