@@ -26,33 +26,54 @@ package com.binance4j.connectors.portfoliomargin.client
 import com.binance4j.connectors.core.Headers.API_H
 import com.binance4j.connectors.core.Headers.IP_H
 import com.binance4j.connectors.core.Headers.SIGNED_H
+import com.binance4j.connectors.core.Headers.UID_H
 import com.binance4j.connectors.core.Headers.WEIGHT_ONE_H
 import com.binance4j.connectors.portfoliomargin.dto.AccountInfo
+import com.binance4j.connectors.portfoliomargin.dto.BankruptcyLoanAmount
 import com.binance4j.connectors.portfoliomargin.dto.CollateralRateInfo
+import com.binance4j.connectors.portfoliomargin.dto.RepayResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.QueryMap
+import retrofit2.http.POST
 
 /**
  * [PortfolioMarginClient] mapping.
  */
 interface PortfolioMarginMapping {
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/portfolio/account")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun getAccountInfo(@QueryMap map: Map<String, Any>): Call<AccountInfo>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/portfolio/collateralRate")
-	@Headers(API_H, IP_H, "X-WEIGHT: 50")
-	@JvmSuppressWildcards
-	fun getCollateralRate(@QueryMap map: Map<String, Any>): Call<List<CollateralRateInfo>>
+    /**
+     * Get account info.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/portfolio/account")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun getAccountInfo(): Call<AccountInfo>
+
+    /**
+     * Get collateral rate.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/portfolio/collateralRate")
+    @Headers(API_H, IP_H, "X-WEIGHT: 50")
+    fun getCollateralRate(): Call<List<CollateralRateInfo>>
+
+    /**
+     * Get portfolio margin bankruptcy loan amount
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/portfolio/pmLoan")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 500")
+    fun getBankruptcyLoanAmount(): Call<BankruptcyLoanAmount>
+
+    /**
+     * Repay portfolio margin bankruptcy loan.
+     *
+     * @return The generated Retrofit call.
+     */
+    @POST("/sapi/v1/portfolio/repay")
+    @Headers(SIGNED_H, UID_H, "X-WEIGHT: 3000")
+    fun repay(): Call<RepayResponse>
 }

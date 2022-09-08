@@ -25,27 +25,38 @@ package com.binance4j.connectors.portfoliomargin.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.portfoliomargin.param.AccountInfoParams
-import com.binance4j.connectors.portfoliomargin.param.CollateralRateInfoParams
 
 /**
  * Api client for the margin portfolio endpoints
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#portfolio-margin-endpoints)
  */
-object PortfolioMarginClient :
-	RestClient<PortfolioMarginMapping>(PortfolioMarginMapping::class.java) {
-	/**
-	 * Get account info.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getAccountInfo() = Request(service.getAccountInfo(AccountInfoParams().toMap()))
-	
-	/**
-	 * Get collateral rate.
-	 *
-	 * @return The request to execute.
-	 */
-	fun getCollateralRate() = Request(service.getCollateralRate(CollateralRateInfoParams().toMap()))
+object PortfolioMarginClient : RestClient<PortfolioMarginMapping>(PortfolioMarginMapping::class.java) {
+    /**
+     * Get account info.
+     *
+     * @return The request to execute.
+     */
+    fun getAccountInfo() = Request(service.getAccountInfo())
+
+    /**
+     * Get collateral rate.
+     *
+     * @return The request to execute.
+     */
+    fun getCollateralRate() = Request(service.getCollateralRate())
+
+    /**
+     * Get portfolio margin bankruptcy loan amount
+     *
+     * @return The request to execute.
+     */
+    fun getBankruptcyLoanAmount() = Request(service.getBankruptcyLoanAmount())
+
+    /**
+     * Repay portfolio margin bankruptcy loan.
+     *
+     * @return The request to execute.
+     */
+    fun repay() = Request(service.repay())
 }
