@@ -25,101 +25,97 @@
 package com.binance4j.connectors.websocket.client
 
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.websocket.param.IsolatedUserDataStreamParams
-import com.binance4j.connectors.websocket.param.KeepAliveIsolatedUserDataStreamParams
 import com.binance4j.connectors.websocket.request.*
 
 /** The API client for the user data endpoints. */
-object UserDataClient :
-	RestClient<UserDataMapping>(UserDataMapping::class.java) {
-	/**
-	 * Create a ListenKey.
-	 * The stream will close after 60 minutes unless a keep alive is sent.
-	 * If the account has an active listenKey, that listenKey
-	 * will be returned and its validity will be extended for 60 minutes
-	 *
-	 * @return The request to execute.
-	 */
-	fun startUserDataStream(): StartUserDataStreamRequest = StartUserDataStreamRequest(service.startUserDataStream())
-	
-	/**
-	 * Keep alive a user data stream to prevent a timeout.
-	 * User data streams will close after 60 minutes.
-	 * It's recommended to send a ping about every 30 minutes.
-	 * @param listenKey Listen key.
-	 * @return The request to execute.
-	 */
-	fun keepAliveUserDataStream(listenKey: String): KeepALiveUserDataStreamRequest =
-		KeepALiveUserDataStreamRequest(service.keepAliveUserDataStream(listenKey))
-	
-	/**
-	 * Close out a user data stream.
-	 *
-	 * @param listenKey Listen key.
-	 * @return The request to execute.
-	 */
-	fun closeUserDataStream(listenKey: String): CloseUserDataStreamRequest =
-		CloseUserDataStreamRequest(service.closeUserDataStream(listenKey))
-	
-	/**
-	 * Create a ListenKey (Margin).
-	 * The stream will close after 60 minutes unless a keep alive is sent.
-	 * If the account has an active listenKey, that listenKey will be returned and
-	 * its validity will be extended for 60 minutes.
-	 *
-	 * @return The request to execute.
-	 */
-	fun startMarginUserDataStream(): StartMarginUserDataStreamRequest =
-		StartMarginUserDataStreamRequest(service.startMarginUserDataStream())
-	// MARGIN
-	/**
-	 * Keep alive a user data stream to prevent a timeout (Margin).
-	 * User data streams will close after 60 minutes.
-	 * It's recommended to send a ping about every 30 minutes.
-	 *
-	 * @param listenKey Listen key.
-	 * @return The request to execute.
-	 */
-	fun keepAliveMarginUserDataStream(listenKey: String): KeepAliveMarginUserDataStreamRequest =
-		KeepAliveMarginUserDataStreamRequest(service.keepAliveMarginUserDataStream(listenKey))
-	
-	/**
-	 * Close out a user data stream (Margin).
-	 *
-	 * @param listenKey Listen key.
-	 * @return The request to execute.
-	 */
-	fun closeMarginUserDataStream(listenKey: String): CloseMarginUserDataStreamRequest =
-		CloseMarginUserDataStreamRequest(service.closeMarginUserDataStream(listenKey))
-	
-	/**
-	 * Create a ListenKey (Isolated margin).
-	 * The stream will close after 60 minutes unless a keep alive is sent.
-	 * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
-	 *
-	 * @param params Query params
-	 * @return The request to execute.
-	 */
-	fun startIsolatedUserDataStream(params: IsolatedUserDataStreamParams): StartIsolatedUserDataStreamRequest =
-		StartIsolatedUserDataStreamRequest(service.startIsolatedUserDataStream(params.toMap()))
-	
-	/**
-	 * Keep alive a user data stream to prevent a time-out (Isolated margin).
-	 * User data streams will close after 60 minutes.
-	 * It's recommended to send a ping about every 30 minutes.
-	 *
-	 * @param params Query params
-	 * @return The request to execute.
-	 */
-	fun keepAliveIsolatedUserDataStream(params: KeepAliveIsolatedUserDataStreamParams): KeepAliveIsolatedUserDataStreamRequest =
-		KeepAliveIsolatedUserDataStreamRequest(service.keepAliveIsolatedUserDataStream(params.toMap()))
-	
-	/**
-	 * Close out a user data stream (Isolated margin).
-	 *
-	 * @param params Query params
-	 * @return The request to execute.
-	 */
-	fun closeIsolatedUserDataStream(params: KeepAliveIsolatedUserDataStreamParams): CloseIsolatedUserDataStreamRequest =
-		CloseIsolatedUserDataStreamRequest(service.closeIsolatedUserDataStream(params.toMap()))
+object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java) {
+    /**
+     * Create a ListenKey.
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey
+     * will be returned and its validity will be extended for 60 minutes
+     *
+     * @return The request to execute.
+     */
+    fun startUserDataStream() = StartUserDataStreamRequest(service.startUserDataStream())
+
+    /**
+     * Keep alive a user data stream to prevent a timeout.
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param listenKey Listen key.
+     * @return The request to execute.
+     */
+    fun keepAliveUserDataStream(listenKey: String) = KeepALiveUserDataStreamRequest(service.keepAliveUserDataStream(listenKey))
+
+    /**
+     * Close out a user data stream.
+     *
+     * @param listenKey Listen key.
+     * @return The request to execute.
+     */
+    fun closeUserDataStream(listenKey: String) = CloseUserDataStreamRequest(service.closeUserDataStream(listenKey))
+
+    /**
+     * Create a ListenKey (Margin).
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey will be returned and
+     * its validity will be extended for 60 minutes.
+     *
+     * @return The request to execute.
+     */
+    fun startMarginUserDataStream() = StartMarginUserDataStreamRequest(service.startMarginUserDataStream())
+
+    /**
+     * Keep alive a user data stream to prevent a timeout (Margin).
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param listenKey Listen key.
+     * @return The request to execute.
+     */
+    fun keepAliveMarginUserDataStream(listenKey: String) = KeepAliveMarginUserDataStreamRequest(service.keepAliveMarginUserDataStream(listenKey))
+
+    /**
+     * Close out a user data stream (Margin).
+     *
+     * @param listenKey Listen key.
+     * @return The request to execute.
+     */
+    fun closeMarginUserDataStream(listenKey: String) = CloseMarginUserDataStreamRequest(service.closeMarginUserDataStream(listenKey))
+
+    /**
+     * Create a ListenKey (Isolated margin).
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
+     *
+     * @param symbol Symbol.
+     * @return The request to execute.
+     */
+    fun startIsolatedUserDataStream(symbol: String) = StartIsolatedUserDataStreamRequest(service.startIsolatedUserDataStream(symbol))
+
+    /**
+     * Keep alive a user data stream to prevent a time-out (Isolated margin).
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param symbol    Symbol.
+     * @param listenKey Listen key.
+     *
+     * @return The request to execute.
+     */
+    fun keepAliveIsolatedUserDataStream(symbol: String, listenKey: String): KeepAliveIsolatedUserDataStreamRequest =
+        KeepAliveIsolatedUserDataStreamRequest(service.keepAliveIsolatedUserDataStream(symbol, listenKey))
+
+    /**
+     * Close out a user data stream (Isolated margin).
+     *
+     * @param symbol    Symbol.
+     * @param listenKey Listen key.
+     *
+     * @return The request to execute.
+     */
+    fun closeIsolatedUserDataStream(symbol: String, listenKey: String): CloseIsolatedUserDataStreamRequest =
+        CloseIsolatedUserDataStreamRequest(service.closeIsolatedUserDataStream(symbol, listenKey))
 }

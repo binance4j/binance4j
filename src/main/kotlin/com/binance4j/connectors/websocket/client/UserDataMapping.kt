@@ -33,81 +33,109 @@ import retrofit2.http.*
 
 /** [UserDataClient] mapping.  */
 interface UserDataMapping {
-	/** @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@POST("/api/v3/userDataStream")
-	@JvmSuppressWildcards
-	fun startUserDataStream(): Call<ListenKey>
-	
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@PUT("/api/v3/userDataStream")
-	@JvmSuppressWildcards
-	fun keepAliveUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
-	
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@DELETE("/api/v3/userDataStream")
-	@JvmSuppressWildcards
-	fun closeUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
-	// MARGIN
-	/**
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@POST("/sapi/v1/userDataStream")
-	@JvmSuppressWildcards
-	fun startMarginUserDataStream(): Call<ListenKey>
-	
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@PUT("/sapi/v1/userDataStream")
-	@JvmSuppressWildcards
-	fun keepAliveMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
-	
-	/**
-	 * @param listenKey Authenticated account user listen key.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@DELETE("/sapi/v1/userDataStream")
-	@JvmSuppressWildcards
-	fun closeMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@POST("/sapi/v1/userDataStream/isolated")
-	@JvmSuppressWildcards
-	fun startIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<ListenKey>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@PUT("/sapi/v1/userDataStream/isolated")
-	@JvmSuppressWildcards
-	fun keepAliveIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<Void>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit Call
-	 */
-	@Headers(API_H, IP_H, WEIGHT_ONE_H)
-	@DELETE("/sapi/v1/userDataStream/isolated")
-	@JvmSuppressWildcards
-	fun closeIsolatedUserDataStream(@QueryMap map: Map<String, Any>): Call<Void>
+    /**
+     * Create a ListenKey.
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey
+     * will be returned and its validity will be extended for 60 minutes
+     *
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/api/v3/userDataStream")
+    fun startUserDataStream(): Call<ListenKey>
+
+    /**
+     * Keep alive a user data stream to prevent a timeout.
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/api/v3/userDataStream")
+    fun keepAliveUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+
+    /**
+     * Close out a user data stream.
+     *
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/api/v3/userDataStream")
+    fun closeUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+
+    /**
+     * Create a ListenKey (Margin).
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey will be returned and
+     * its validity will be extended for 60 minutes.
+     *
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/sapi/v1/userDataStream")
+    fun startMarginUserDataStream(): Call<ListenKey>
+
+    /**
+     * Keep alive a user data stream to prevent a timeout (Margin).
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/sapi/v1/userDataStream")
+    fun keepAliveMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+
+    /**
+     * Close out a user data stream (Margin).
+     *
+     * @param listenKey Authenticated account user listen key.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/sapi/v1/userDataStream")
+    fun closeMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+
+    /**
+     * Create a ListenKey (Isolated margin).
+     * The stream will close after 60 minutes unless a keep alive is sent.
+     * If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
+     *
+     * @param symbol Symbol.
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @POST("/sapi/v1/userDataStream/isolated")
+    fun startIsolatedUserDataStream(@Query("symbol") symbol: String): Call<ListenKey>
+
+    /**
+     * Keep alive a user data stream to prevent a time-out (Isolated margin).
+     * User data streams will close after 60 minutes.
+     * It's recommended to send a ping about every 30 minutes.
+     *
+     * @param symbol    Symbol.
+     * @param listenKey Listen key.
+     *
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @PUT("/sapi/v1/userDataStream/isolated")
+    fun keepAliveIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Void>
+
+    /**
+     * Close out a user data stream (Isolated margin).
+     *
+     * @param symbol    Symbol.
+     * @param listenKey Listen key.
+     *
+     * @return The generated Retrofit Call
+     */
+    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @DELETE("/sapi/v1/userDataStream/isolated")
+    fun closeIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Void>
 }

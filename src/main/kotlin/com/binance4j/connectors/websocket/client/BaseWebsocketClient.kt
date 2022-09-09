@@ -38,100 +38,99 @@ import java.util.*
 
 /** Websocket clients base class */
 abstract class BaseWebsocketClient<T>(
-	var symbols: String?,
-	var stream: String,
-	private var payloadClass: Class<T>,
-	var callback: WebsocketCallback<T>
-) :
-	WebsocketClient {
-	/** The websocket client. */
-	protected lateinit var innerClient: BaseWebsocketClient<T>
-	
-	/** The wrapped websocket. */
-	private lateinit var innerWebsocket: WebSocket
-	
-	/** The interceptor callback. */
-	private var interceptorCallback: WebsocketInterceptorCallback<T> = WebsocketInterceptorCallback(this, callback)
-	
-	/** The channel to connect to. */
-	private lateinit var channel: String
-	
-	/** The listener using the interceptor callback. */
-	private var listener: ApiWebSocketListener<T> = ApiWebSocketListener(interceptorCallback, payloadClass)
-	
-	/** The client configuration. */
-	final override var configuration: WebsocketClientConfiguration = WebsocketClientConfiguration()
-	
-	/** Will call onClosing and onClosed of the interceptor callback if not. */
-	private var forceClosingHandler: WebsocketForceClosingHandler =
-		WebsocketForceClosingHandler(this, interceptorCallback)
-	
-	/** Will close the client after some time. */
-	private var closeClientHandler: WebsocketCloseClientHandler =
-		WebsocketCloseClientHandler(this, interceptorCallback)
-	
-	/*
-	 * @param symbols      Pairs of assets.
-	 * @param stream       Stream.
-	 * @param payloadClass Payload type.
-	 * @param callback     Events handler.
-	 */
-	init {
-		this.symbols = symbols?.replace(" ", "")
-		generateChannel(true)
-	}
-	
-	override fun open() {
-		close(false)
-		innerWebsocket = newWebSocket(configuration, channel, listener)
-		interceptorCallback.socket = innerWebsocket
-		interceptorCallback.forceClosingHandler = forceClosingHandler
-		interceptorCallback.connectionHandler.run()
-		closeClientHandler.run()
-	}
-	
-	override fun close() = close(true)
-	
-	/**
-	 * Closes the stream
-	 *
-	 * @param force Defines if the closing is made by the client.
-	 */
-	override fun close(force: Boolean) {
-		this.interceptorCallback.closedByClient = force
-		innerWebsocket.close(1000, null)
-		forceClosingHandler.run()
-	}
-	
-	/**
-	 * Generate the websocket communicating with the API
-	 *
-	 * @param configuration Configuration.
-	 * @param channel       address containing the symbols and the stream name.
-	 * @param listener      Websocket listener.
-	 * @return The websocket to communicate with the API.
-	 */
-	internal fun newWebSocket(
-		configuration: WebsocketClientConfiguration,
-		channel: String,
-		listener: ApiWebSocketListener<*>
-	): WebSocket {
-		val streamingUrl = String.format("%s/%s", configuration.baseUrl, channel)
-		val request = Request.Builder().url(streamingUrl).build()
-		return OkHttpClient.Builder().dispatcher(Dispatcher()).pingInterval(configuration.pingInterval)
-			.build().newWebSocket(request, listener)
-	}
-	
-	/**
-	 * Generates the channel the Websocket will connect to
-	 *
-	 * @param symbolToLowerCase Are the symbols in lower case?
-	 */
-	internal fun generateChannel(symbolToLowerCase: Boolean) {
-		symbols =
-			if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault())
-			else symbols?.uppercase(Locale.getDefault())
-		channel =
-			symbols.toString().split(",").map(String::trim).joinToString("/") { s -> String.format("%s@%s", s, stream) }
-	}
+    var symbols: String?,
+    var stream: String,
+    payloadClass: Class<T>,
+    var callback: WebsocketCallback<T>
+) : WebsocketClient {
+    /** The websocket client. */
+    protected lateinit var innerClient: BaseWebsocketClient<T>
+
+    /** The wrapped websocket. */
+    private lateinit var innerWebsocket: WebSocket
+
+    /** The interceptor callback. */
+    private var interceptorCallback: WebsocketInterceptorCallback<T> = WebsocketInterceptorCallback(this, callback)
+
+    /** The channel to connect to. */
+    private lateinit var channel: String
+
+    /** The listener using the interceptor callback. */
+    private var listener: ApiWebSocketListener<T> = ApiWebSocketListener(interceptorCallback, payloadClass)
+
+    /** The client configuration. */
+    final override var configuration: WebsocketClientConfiguration = WebsocketClientConfiguration()
+
+    /** Will call onClosing and onClosed of the interceptor callback if not. */
+    private var forceClosingHandler: WebsocketForceClosingHandler =
+        WebsocketForceClosingHandler(this, interceptorCallback)
+
+    /** Will close the client after some time. */
+    private var closeClientHandler: WebsocketCloseClientHandler =
+        WebsocketCloseClientHandler(this, interceptorCallback)
+
+    /*
+     * @param symbols      Pairs of assets.
+     * @param stream       Stream.
+     * @param payloadClass Payload type.
+     * @param callback     Events handler.
+     */
+    init {
+        this.symbols = symbols?.replace(" ", "")
+        generateChannel(true)
+    }
+
+    override fun open() {
+        close(false)
+        innerWebsocket = newWebSocket(configuration, channel, listener)
+        interceptorCallback.socket = innerWebsocket
+        interceptorCallback.forceClosingHandler = forceClosingHandler
+        interceptorCallback.connectionHandler.run()
+        closeClientHandler.run()
+    }
+
+    override fun close() = close(true)
+
+    /**
+     * Closes the stream
+     *
+     * @param force Defines if the closing is made by the client.
+     */
+    override fun close(force: Boolean) {
+        this.interceptorCallback.closedByClient = force
+        innerWebsocket.close(1000, null)
+        forceClosingHandler.run()
+    }
+
+    /**
+     * Generate the websocket communicating with the API
+     *
+     * @param configuration Configuration.
+     * @param channel       address containing the symbols and the stream name.
+     * @param listener      Websocket listener.
+     * @return The websocket to communicate with the API.
+     */
+    internal fun newWebSocket(
+        configuration: WebsocketClientConfiguration,
+        channel: String,
+        listener: ApiWebSocketListener<*>
+    ): WebSocket {
+        val streamingUrl = String.format("%s/%s", configuration.baseUrl, channel)
+        val request = Request.Builder().url(streamingUrl).build()
+        return OkHttpClient.Builder().dispatcher(Dispatcher()).pingInterval(configuration.pingInterval)
+            .build().newWebSocket(request, listener)
+    }
+
+    /**
+     * Generates the channel the Websocket will connect to
+     *
+     * @param symbolToLowerCase Are the symbols in lower case?
+     */
+    internal fun generateChannel(symbolToLowerCase: Boolean) {
+        symbols =
+            if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault())
+            else symbols?.uppercase(Locale.getDefault())
+        channel =
+            symbols.toString().split(",").map(String::trim).joinToString("/") { s -> String.format("%s@%s", s, stream) }
+    }
 }

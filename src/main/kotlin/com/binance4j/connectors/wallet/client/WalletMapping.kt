@@ -74,7 +74,7 @@ interface WalletMapping {
         @Query("startTime") startTime: Long?,
         @Query("endTime") endTime: Long?,
         @Query("limit") limit: Int?
-    ): Call<SpotAccountSnapshotResponse>
+    ): Call<SpotAccountSnapshot>
 
     /**
      * Fetch the daily MARGIN account snapshots.
@@ -90,7 +90,7 @@ interface WalletMapping {
     @GET("/sapi/v1/accountSnapshot")
     fun getMarginAccountSnapshot(
         @Query("type") type: AccountSnapshotType, @Query("startTime") startTime: Long?, @Query("endTime") endTime: Long?, @Query("limit") limit: Int?
-    ): Call<MarginAccountSnapshotResponse>
+    ): Call<MarginAccountSnapshot>
 
     /**
      * Fetch the daily FUTURES account snapshots.
@@ -109,7 +109,7 @@ interface WalletMapping {
         @Query("startTime") startTime: Long?,
         @Query("endTime") endTime: Long?,
         @Query("limit") limit: Int?
-    ): Call<FuturesAccountSnapshotResponse>
+    ): Call<FuturesAccountSnapshot>
 
     /**
      * Disable fast withdraw switch under your account.

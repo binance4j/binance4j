@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property snapshotVos Snapshot.
  */
 @ApiModel("Response of a MARGIN account snapshot request.")
-data class MarginAccountSnapshotResponse(
+data class MarginAccountSnapshot(
     @JsonProperty("code")
     @ApiModelProperty("Code.")
     var code: Int,
