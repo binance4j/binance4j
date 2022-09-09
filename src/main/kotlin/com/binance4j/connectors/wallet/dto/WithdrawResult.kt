@@ -35,5 +35,4 @@ import io.swagger.annotations.ApiModelProperty
  * @property id Withdraw id.
  */
 @ApiModel("The result of a withdraw.")
-data class WithdrawResult(@ApiModelProperty("Withdraw id.") @JsonProperty("id")
-	var id: String)
+data class WithdrawResult(@ApiModelProperty("Withdraw id.") @JsonProperty("id") var id: String)
