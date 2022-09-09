@@ -37,10 +37,78 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Logs of assets converted in BNB.")
 data class DustLog(
-	@ApiModelProperty("Total counts of exchange.")
-	@JsonProperty("total")
-	var total: Int,
-	@ApiModelProperty("Dribblets.")
-	@JsonProperty("userAssetDribblets")
-	var userAssetDribblets: List<UserAssetDribblets>
-)
+    @ApiModelProperty("Total counts of exchange.")
+    @JsonProperty("total")
+    var total: Int,
+    @ApiModelProperty("Dribblets.")
+    @JsonProperty("userAssetDribblets")
+    var userAssetDribblets: List<UserAssetDribblets>
+) {
+    /**
+     * Dribblets.
+     *
+     * @property operateTime Operation timestamp.
+     * @property totalTransferedAmount Total transfered BNB amount for this
+     * ```
+     *                                 exchange.
+     * @property totalServiceChargeAmount
+     * ```
+     * Total service charge amount for this
+     * ```
+     *                                 exchange.
+     * @property transId
+     * ```
+     * Transaction id.
+     * @property userAssetDribbletDetails Details of this exchange.
+     */
+    @ApiModel("Dribblets.")
+    data class UserAssetDribblets(
+        @ApiModelProperty("Operation timestamp.")
+        @JsonProperty("operateTime")
+        var operateTime: Long,
+        @ApiModelProperty("Total transfered BNB amount for this exchange.")
+        @JsonProperty("totalTransferedAmount")
+        var totalTransferedAmount: String,
+        @ApiModelProperty("Total service charge amount for this exchange.")
+        @JsonProperty("totalServiceChargeAmount")
+        var totalServiceChargeAmount: String,
+        @ApiModelProperty("Transaction id.")
+        @JsonProperty("transId")
+        var transId: Long,
+        @ApiModelProperty("Details of this exchange.")
+        @JsonProperty("userAssetDribbletDetails")
+        var userAssetDribbletDetails: List<UserAssetDribbletDetails>
+    ) {
+        /**
+         * Dust log details.
+         *
+         * @property transId Transaction id.
+         * @property operateTime Timestamp.
+         * @property serviceChargeAmount Fees.
+         * @property amount Volume.
+         * @property transferedAmount Transferred amount.
+         * @property fromAsset Transferred asset.
+         */
+        @ApiModel("Dust log details.")
+        data class UserAssetDribbletDetails(
+            @ApiModelProperty("Transaction id.")
+            @JsonProperty("transId")
+            var transId: Long,
+            @ApiModelProperty("Timestamp.")
+            @JsonProperty("operateTime")
+            var operateTime: Long,
+            @ApiModelProperty("Fees.")
+            @JsonProperty("serviceChargeAmount")
+            var serviceChargeAmount: String,
+            @ApiModelProperty("Volume.")
+            @JsonProperty("amount")
+            var amount: String,
+            @ApiModelProperty("Transferred amount.")
+            @JsonProperty("transferedAmount")
+            var transferedAmount: String,
+            @ApiModelProperty("Transferred asset.")
+            @JsonProperty("fromAsset")
+            var fromAsset: String
+        )
+    }
+}

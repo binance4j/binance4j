@@ -24,6 +24,7 @@
 
 package com.binance4j.connectors.wallet.dto
 
+import com.binance4j.connectors.core.dto.AssetBalance
 import com.fasterxml.jackson.annotation.JsonProperty
 
 import io.swagger.annotations.ApiModel
@@ -38,13 +39,49 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a SPOT account snapshot request.")
 data class SpotAccountSnapshotResponse(
-	@ApiModelProperty("Code.")
-	@JsonProperty("code")
-	override var code: Int,
-	@ApiModelProperty("Message.")
-	@JsonProperty("msg")
-	override var msg: String,
-	@ApiModelProperty("Snapshot.")
-	@JsonProperty("snapshotVos")
-	override var snapshotVos: List<SpotAccountSnapshot>
-) : AccountSnapshotResponse<SpotAccountSnapshot>
+    @ApiModelProperty("Code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Snapshot.")
+    @JsonProperty("snapshotVos")
+    var snapshotVos: List<Snapshot>
+) {
+    /**
+     * A daily SPOT account snapshot.
+     *
+     * @property type Type.
+     * @property updateTime Update time in ms.
+     * @property data Data.
+     */
+    @ApiModel("A daily SPOT account snapshot.")
+    data class Snapshot(
+        @ApiModelProperty("Type.")
+        @JsonProperty("type")
+        var type: String,
+        @ApiModelProperty("Update time in ms.")
+        @JsonProperty("updateTime")
+        var updateTime: Long,
+        @ApiModelProperty("Data.")
+        @JsonProperty("data")
+        var data: Data
+    ) {
+        /**
+         * The SPOT account snapshot data.
+         *
+         * @property balances Wallet asset balances.
+         * @property totalAssetOfBtc Cumulated value of the wallet in Bitcoin.
+         */
+        @ApiModel("The SPOT account snapshot data.")
+        data class Data(
+            @ApiModelProperty("Wallet asset balances.")
+            @JsonProperty("balances")
+            var balances: List<AssetBalance>,
+            @ApiModelProperty("Cumulated value of the wallet in Bitcoin.")
+            @JsonProperty("totalAssetOfBtc")
+            var totalAssetOfBtc: String
+        )
+    }
+}

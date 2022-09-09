@@ -368,7 +368,7 @@ interface WalletMapping {
      */
     @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
     @POST("/sapi/v1/asset/get-funding-asset")
-    fun getFundingWallet(asset: String?, @Query("needBtcValuation") needBtcValuation: Boolean?): Call<List<FundingAsset>>
+    fun getFundingWallet(@Query("asset") asset: String?, @Query("needBtcValuation") needBtcValuation: Boolean?): Call<List<FundingAsset>>
 
     /**
      * Fetches the API Key Permission.

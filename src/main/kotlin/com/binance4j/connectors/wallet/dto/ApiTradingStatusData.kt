@@ -32,23 +32,43 @@ import io.swagger.annotations.ApiModelProperty
 /**
  * The API trading status detail.
  *
- * @property locked API trading function is locked or not.
+ * @property isLocked API trading function is locked or not.
  * @property plannedRecoverTime If API trading function is locked, this is the planned recover time.
  * @property updateTime Details update timestamps.
  * @property triggerCondition Trigger condition.
  */
 @ApiModel("The API trading status detail.")
 data class ApiTradingStatusData(
-	@ApiModelProperty("API trading function is locked or not.")
-	@JsonProperty("isLocked")
-	var isLocked: Boolean,
-	@ApiModelProperty("If API trading function is locked, this is the planned recover time.")
-	@JsonProperty("plannedRecoverTime")
-	var plannedRecoverTime: Long,
-	@ApiModelProperty("Details update timestamps.")
-	@JsonProperty("updateTime")
-	var updateTime: Long,
-	@ApiModelProperty("Trigger condition.")
-	@JsonProperty("triggerCondition")
-	var triggerCondition: ApiTradingStatusTriggerCondition
-)
+    @ApiModelProperty("API trading function is locked or not.")
+    @JsonProperty("isLocked")
+    var isLocked: Boolean,
+    @ApiModelProperty("If API trading function is locked, this is the planned recover time.")
+    @JsonProperty("plannedRecoverTime")
+    var plannedRecoverTime: Long,
+    @ApiModelProperty("Details update timestamps.")
+    @JsonProperty("updateTime")
+    var updateTime: Long,
+    @ApiModelProperty("Trigger condition.")
+    @JsonProperty("triggerCondition")
+    var triggerCondition: ApiTradingStatusTriggerCondition
+) {
+    /**
+     * Trading status trigger condition.
+     *
+     * @property gcr Number of GTC orders.
+     * @property ifer Number of FOK/IOC orders.
+     * @property ufr Number of FOK/IOC orders.
+     */
+    @ApiModel("Trading status trigger condition.")
+    data class ApiTradingStatusTriggerCondition(
+        @ApiModelProperty("Number of GTC orders.")
+        @JsonProperty("GCR")
+        var gcr: Long,
+        @ApiModelProperty("Number of FOK/IOC orders.")
+        @JsonProperty("IFER")
+        var ifer: Long,
+        @ApiModelProperty("Number of FOK/IOC orders.")
+        @JsonProperty("UFR")
+        var ufr: Long,
+    )
+}

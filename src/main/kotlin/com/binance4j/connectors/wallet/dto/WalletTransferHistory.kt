@@ -37,10 +37,43 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The transfers' wrapper.")
 data class WalletTransferHistory(
-	@ApiModelProperty("List of transfers.")
-	@JsonProperty("rows")
-	var rows: List<WalletTransfer>,
-	@ApiModelProperty("Result size.")
-	@JsonProperty("total")
-	var total: Long,
-)
+    @ApiModelProperty("List of transfers.")
+    @JsonProperty("rows")
+    var rows: List<WalletTransfer>?,
+    @ApiModelProperty("Result size.")
+    @JsonProperty("total")
+    var total: Long,
+) {
+    /**
+     * A wallet to wallet transfer.
+     *
+     * @property asset Transferred asset.
+     * @property amount Transferred amount.
+     * @property type Transfer type (origin wallet to destination wallet).
+     * @property status Transfer status.
+     * @property tranId Transaction id.
+     * @property timestamp Transfer timestamp.
+     * @see WalletTransferType
+     */
+    @ApiModel("A wallet to wallet transfer.")
+    data class WalletTransfer(
+        @ApiModelProperty("Transferred asset.")
+        @JsonProperty("asset")
+        var asset: String,
+        @ApiModelProperty("Transferred amount.")
+        @JsonProperty("amount")
+        var amount: String,
+        @ApiModelProperty("Transfer type (origin wallet to destination wallet).")
+        @JsonProperty("type")
+        var type: String,
+        @ApiModelProperty("Transfer status.")
+        @JsonProperty("status")
+        var status: String,
+        @ApiModelProperty("Transaction id.")
+        @JsonProperty("tranId")
+        var tranId: Long,
+        @ApiModelProperty("Transfer timestamp.")
+        @JsonProperty("timestamp")
+        var timestamp: Long,
+    )
+}

@@ -2,268 +2,79 @@ package com.binance4j.connectors.wallet.client
 
 import com.binance4j.connectors.connectors.Connectors
 import com.binance4j.connectors.core.test.CustomTest
+import com.binance4j.connectors.wallet.dto.DepositStatus
+import com.binance4j.connectors.wallet.dto.WalletTransferType
 import org.junit.jupiter.api.Test
 
 internal class WalletClientTest : CustomTest() {
     private var client = Connectors.rest(key, secret).wallet
 
     @Test
-    fun getSystemStatus() {
-    }
+    fun `Get system status`() = assertDoesNotThrow(client.getSystemStatus())
 
     @Test
-    fun getAllCoinsInfo() {
-    }
+    fun `Get all coins info`() = assertDoesNotThrow(client.getAllCoinsInfo())
 
     @Test
-    fun getSpotAccountSnapshot() {
-    }
+    fun `Get spot account snapshot`() = assertDoesNotThrow(client.getSpotAccountSnapshot())
 
     @Test
-    fun testGetSpotAccountSnapshot() {
-    }
+    fun `Get margin account snapshot`() = assertDoesNotThrow(client.getMarginAccountSnapshot())
 
     @Test
-    fun testGetSpotAccountSnapshot1() {
-    }
+    fun `Get futures account snapshot`() = assertDoesNotThrow(client.getFuturesAccountSnapshot())
 
     @Test
-    fun testGetSpotAccountSnapshot2() {
-    }
+    fun `Disable fast withdraw switch`() = assertDoesNotThrow(client.disableFastWithdrawSwitch())
 
     @Test
-    fun getMarginAccountSnapshot() {
-    }
+    fun `Enable fast withdraw switch`() = assertDoesNotThrow(client.enableFastWithdrawSwitch())
 
-    @Test
-    fun testGetMarginAccountSnapshot() {
-    }
-
-    @Test
-    fun testGetMarginAccountSnapshot1() {
-    }
-
-    @Test
-    fun testGetMarginAccountSnapshot2() {
-    }
-
-    @Test
-    fun getFuturesAccountSnapshot() {
-    }
-
-    @Test
-    fun testGetFuturesAccountSnapshot() {
-    }
-
-    @Test
-    fun testGetFuturesAccountSnapshot1() {
-    }
-
-    @Test
-    fun testGetFuturesAccountSnapshot2() {
-    }
-
-    @Test
-    fun disableFastWithdrawSwitch() {
-    }
-
-    @Test
-    fun enableFastWithdrawSwitch() {
-    }
-
-    @Test
-    fun withdraw() {
-    }
-
-    @Test
-    fun testWithdraw() {
-    }
-
-    @Test
-    fun testWithdraw1() {
-    }
-
-    @Test
-    fun testWithdraw2() {
-    }
-
-    @Test
-    fun testWithdraw3() {
-    }
-
-    @Test
-    fun testWithdraw4() {
-    }
-
-    @Test
-    fun testWithdraw5() {
-    }
-
-    @Test
-    fun getDepositHistory() {
-    }
-
-    @Test
-    fun testGetDepositHistory() {
-    }
-
-    @Test
-    fun testGetDepositHistory1() {
-    }
-
-    @Test
-    fun testGetDepositHistory2() {
-    }
-
-    @Test
-    fun testGetDepositHistory3() {
-    }
-
-    @Test
-    fun testGetDepositHistory4() {
-    }
+    //@Test unquote to test
+    //fun withdraw() = assertDoesNotThrow(client.withdraw("coin", "address", "amount"))
 
     @Test
-    fun testGetDepositHistory5() {
-    }
+    fun `Get deposit history`() = assertDoesNotThrow(client.getDepositHistory(DepositStatus.SUCCESS, asset))
 
     @Test
-    fun testGetDepositHistory6() {
-    }
+    fun `Get withdraw history`() = assertDoesNotThrow(client.getWithdrawHistory(coin = asset))
 
     @Test
-    fun getWithdrawHistory() {
-    }
+    fun `Get deposit address`() = assertDoesNotThrow(client.getDepositAddress(coin = asset))
 
     @Test
-    fun testGetWithdrawHistory() {
-    }
+    fun getAccountStatus() = assertDoesNotThrow(client.getAccountStatus())
 
     @Test
-    fun testGetWithdrawHistory1() {
-    }
+    fun getApiTradingStatus() = assertDoesNotThrow(client.getApiTradingStatus())
 
     @Test
-    fun testGetWithdrawHistory2() {
-    }
+    fun getDustLog() = assertDoesNotThrow(client.getDustLog())
 
     @Test
-    fun testGetWithdrawHistory3() {
-    }
+    fun getConvertibleAssets() = assertDoesNotThrow(client.getConvertibleAssets())
 
-    @Test
-    fun testGetWithdrawHistory4() {
-    }
-
-    @Test
-    fun testGetWithdrawHistory5() {
-    }
-
-    @Test
-    fun getDepositAddress() {
-    }
-
-    @Test
-    fun testGetDepositAddress() {
-    }
-
-    @Test
-    fun getAccountStatus() {
-    }
-
-    @Test
-    fun getApiTradingStatus() {
-    }
-
-    @Test
-    fun getDustLog() {
-    }
-
-    @Test
-    fun testGetDustLog() {
-    }
-
-    @Test
-    fun testGetDustLog1() {
-    }
-
-    @Test
-    fun testGetDustLog2() {
-    }
-
-    @Test
-    fun getConvertibleAssets() {
-    }
-
-    @Test
-    fun dustTransfer() {
-    }
-
-    @Test
-    fun getAssetDividendRecord() {
-    }
-
-    @Test
-    fun testGetAssetDividendRecord() {
-    }
-
-    @Test
-    fun testGetAssetDividendRecord1() {
-    }
-
-    @Test
-    fun testGetAssetDividendRecord2() {
-    }
-
-    @Test
-    fun testGetAssetDividendRecord3() {
-    }
+    //@Test unquote to test
+    //fun dustTransfer() = assertDoesNotThrow(client.dustTransfer(assets))
 
     @Test
-    fun getAssetDetail() {
-    }
+    fun getAssetDividendRecord() = assertDoesNotThrow(client.getAssetDividendRecord())
 
     @Test
-    fun testGetAssetDetail() {
-    }
+    fun getAssetDetail() = assertDoesNotThrow(client.getAssetDetail())
 
     @Test
-    fun getTradeFee() {
-    }
+    fun getTradeFee() = assertDoesNotThrow(client.getTradeFee())
 
-    @Test
-    fun testGetTradeFee() {
-    }
-
-    @Test
-    fun transfer() {
-    }
-
-    @Test
-    fun getTransferHistory() {
-    }
-
-    @Test
-    fun testGetTransferHistory() {
-    }
-
-    @Test
-    fun testGetTransferHistory1() {
-    }
-
-    @Test
-    fun getFundingWallet() {
-    }
+    //@Test TODO unquote to test
+    //fun transfer() = assertDoesNotThrow(client.transfer(asset,WalletTransferType.MAIN_MARGIN,"amount"))
 
     @Test
-    fun testGetFundingWallet() {
-    }
+    fun getTransferHistory() = assertDoesNotThrow(client.getTransferHistory(WalletTransferType.MAIN_MARGIN))
 
     @Test
-    fun testGetFundingWallet1() {
-    }
+    fun getFundingWallet() = assertDoesNotThrow(client.getFundingWallet())
 
     @Test
-    fun getApiPermissions() {
-    }
+    fun getApiPermissions() = assertDoesNotThrow(client.getApiPermissions())
 }

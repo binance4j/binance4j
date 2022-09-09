@@ -39,16 +39,52 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Assets that can be converted into BNB.")
 data class ConvertibleAssets(
-	@ApiModelProperty("Details.")
-	@JsonProperty("details")
-	var details: List<ConvertibleAsset>,
-	@ApiModelProperty("BTC valuation.")
-	@JsonProperty("totalTransferBtc")
-	var totalTransferBtc: String,
-	@ApiModelProperty("BNB valuation.")
-	@JsonProperty("totalTransferBNB")
-	var totalTransferBNB: String,
-	@ApiModelProperty("Commission fee.")
-	@JsonProperty("dribbletPercentage")
-	var dribbletPercentage: String
-)
+    @ApiModelProperty("Details.")
+    @JsonProperty("details")
+    var details: List<ConvertibleAsset>,
+    @ApiModelProperty("BTC valuation.")
+    @JsonProperty("totalTransferBtc")
+    var totalTransferBtc: String,
+    @ApiModelProperty("BNB valuation.")
+    @JsonProperty("totalTransferBNB")
+    var totalTransferBNB: String,
+    @ApiModelProperty("Commission fee.")
+    @JsonProperty("dribbletPercentage")
+    var dribbletPercentage: String
+) {
+    /**
+     * Asset that can be converted into BNB.
+     *
+     * @property asset Asset name.
+     * @property assetFullName Asset full name.
+     * @property amountFree Free balance.
+     * @property toBTC BTC valuation.
+     * @property toBNB BNB valuation.
+     * @property toBNBOffExchange BNB valuation commissions fees deducted.
+     * @property exchange Commission fees.
+     */
+    @ApiModel("Asset that can be converted into BNB.")
+    data class ConvertibleAsset(
+        @ApiModelProperty("Asset name.")
+        @JsonProperty("asset")
+        var asset: String,
+        @ApiModelProperty("Asset full name.")
+        @JsonProperty("assetFullName")
+        var assetFullName: String,
+        @ApiModelProperty("Free balance.")
+        @JsonProperty("amountFree")
+        var amountFree: String,
+        @ApiModelProperty("BTC valuation.")
+        @JsonProperty("toBTC")
+        var toBTC: String,
+        @ApiModelProperty("BNB valuation.")
+        @JsonProperty("toBNB")
+        var toBNB: String,
+        @ApiModelProperty("BNB valuation commissions fees deducted.")
+        @JsonProperty("toBNBOffExchange")
+        var toBNBOffExchange: String,
+        @ApiModelProperty("Commission fees.")
+        @JsonProperty("exchange")
+        var exchange: String
+    )
+}

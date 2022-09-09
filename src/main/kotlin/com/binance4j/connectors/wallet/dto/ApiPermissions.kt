@@ -36,63 +36,53 @@ import io.swagger.annotations.ApiModelProperty
  * @property enableWithdrawals This option allows you to withdraw via API. You must apply the IP
  * Access Restriction filter in order to enable withdrawals.
  * @property enableInternalTransfer This option authorizes this key to transfer funds between your
- * master account and your sub account instantly.
+ * master account and your subaccount instantly.
  * @property permitsUniversalTransfer Authorizes this key to be used for a dedicated universal
  * transfer API to transfer multiple supported currencies. Each business's own transfer API rights
  * are not affected by this authorization.
  * @property enableVanillaOptions Authorizes this key to Vanilla options trading.
  * @property enableReading Does the key enables reading ?
- * @property enableFutures API Key created before your futures account opened does not support
- * futures API service.
- * @property enableMargin This option can be adjusted after the Cross Margin account transfer is
- * completed.
+ * @property enableFutures API Key created before your futures account opened does not support futures API service.
+ * @property enableMargin This option can be adjusted after the Cross Margin account transfer is completed.
  * @property enableSpotAndMarginTrading Spot and margin trading.
  * @property createTime API key creation timestamp.
  * @property tradingAuthorityExpirationTime Expiration time for spot and margin trading permission.
  */
 @ApiModel("The API key permissions.")
 data class ApiPermissions(
-	@ApiModelProperty("Is the key restricted to an ip address?")
-	@JsonProperty("ipRestrict")
-	var ipRestrict: Boolean,
-	@ApiModelProperty(
-		"This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable withdrawals"
-	)
-	@JsonProperty("enableWithdrawals")
-	var enableWithdrawals: Boolean,
-	@ApiModelProperty(
-		"This option authorizes this key to transfer funds between your master account and your sub account instantly."
-	)
-	@JsonProperty("enableInternalTransfer")
-	var enableInternalTransfer: Boolean,
-	@ApiModelProperty(
-		"Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each business's own transfer API rights are not affected by this authorization."
-	)
-	@JsonProperty("permitsUniversalTransfer")
-	var permitsUniversalTransfer: Boolean,
-	@ApiModelProperty("Authorizes this key to Vanilla options trading.")
-	@JsonProperty("enableVanillaOptions")
-	var enableVanillaOptions: Boolean,
-	@ApiModelProperty("Does the key enables reading ?")
-	@JsonProperty("enableReading")
-	var enableReading: Boolean,
-	@ApiModelProperty(
-		"API Key created before your futures account opened does not support futures API service."
-	)
-	@JsonProperty("enableFutures")
-	var enableFutures: Boolean,
-	@ApiModelProperty(
-		"This option can be adjusted after the Cross Margin account transfer is completed."
-	)
-	@JsonProperty("enableMargin")
-	var enableMargin: Boolean,
-	@ApiModelProperty("Spot and margin trading.")
-	@JsonProperty("enableSpotAndMarginTrading")
-	var enableSpotAndMarginTrading: Boolean,
-	@ApiModelProperty("API key creation timestamp.")
-	@JsonProperty("createTime")
-	var createTime: Long,
-	@ApiModelProperty("Expiration time for spot and margin trading permission.")
-	@JsonProperty("tradingAuthorityExpirationTime")
-	var tradingAuthorityExpirationTime: Long,
+    @ApiModelProperty("Is the key restricted to an ip address?")
+    @JsonProperty("ipRestrict")
+    var ipRestrict: Boolean,
+    @ApiModelProperty("This option allows you to withdraw via API. You must apply the IP Access Restriction filter in order to enable withdrawals")
+    @JsonProperty("enableWithdrawals")
+    var enableWithdrawals: Boolean,
+    @ApiModelProperty("This option authorizes this key to transfer funds between your master account and your sub account instantly.")
+    @JsonProperty("enableInternalTransfer")
+    var enableInternalTransfer: Boolean,
+    @ApiModelProperty(
+        "Authorizes this key to be used for a dedicated universal transfer API to transfer multiple supported currencies. Each business's own transfer API rights are not affected by this authorization."
+    )
+    @JsonProperty("permitsUniversalTransfer")
+    var permitsUniversalTransfer: Boolean,
+    @ApiModelProperty("Authorizes this key to Vanilla options trading.")
+    @JsonProperty("enableVanillaOptions")
+    var enableVanillaOptions: Boolean,
+    @ApiModelProperty("Does the key enables reading ?")
+    @JsonProperty("enableReading")
+    var enableReading: Boolean,
+    @ApiModelProperty("API Key created before your futures account opened does not support futures API service.")
+    @JsonProperty("enableFutures")
+    var enableFutures: Boolean,
+    @ApiModelProperty("This option can be adjusted after the Cross Margin account transfer is completed.")
+    @JsonProperty("enableMargin")
+    var enableMargin: Boolean,
+    @ApiModelProperty("Spot and margin trading.")
+    @JsonProperty("enableSpotAndMarginTrading")
+    var enableSpotAndMarginTrading: Boolean,
+    @ApiModelProperty("API key creation timestamp.")
+    @JsonProperty("createTime")
+    var createTime: Long,
+    @ApiModelProperty("Expiration time for spot and margin trading permission.")
+    @JsonProperty("tradingAuthorityExpirationTime")
+    var tradingAuthorityExpirationTime: Long,
 )

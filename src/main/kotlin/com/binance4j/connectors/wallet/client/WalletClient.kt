@@ -148,8 +148,8 @@ object WalletClient : RestClient<WalletMapping>(WalletMapping::class.java) {
      */
     @JvmOverloads
     fun getDepositHistory(
+        status: DepositStatus,
         coin: String? = null,
-        status: DepositStatus? = null,
         startTime: Long? = null,
         endTime: Long? = null,
         offset: Int? = null,
@@ -171,14 +171,14 @@ object WalletClient : RestClient<WalletMapping>(WalletMapping::class.java) {
      */
     @JvmOverloads
     fun getWithdrawHistory(
-        status: WithdrawStatus?,
+        status: WithdrawStatus? = null,
         coin: String? = null,
         withdrawOrderId: String? = null,
         startTime: Long? = null,
         endTime: Long? = null,
         offset: Int? = null,
         limit: Int? = null
-    ) = Request(service.getWithdrawHistory(status.toString(), coin, withdrawOrderId, startTime, endTime, offset, limit))
+    ) = Request(service.getWithdrawHistory(status?.toString(), coin, withdrawOrderId, startTime, endTime, offset, limit))
 
     /**
      * Fetches deposit address

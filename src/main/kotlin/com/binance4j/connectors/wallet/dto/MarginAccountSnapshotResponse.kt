@@ -38,12 +38,96 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a MARGIN account snapshot request.")
 data class MarginAccountSnapshotResponse(
-	@JsonProperty("code")
-	@ApiModelProperty("Code.") override var code: Int,
-	@ApiModelProperty("Message.")
-	@JsonProperty("msg")
-	override var msg: String,
-	@ApiModelProperty("Snapshot.")
-	@JsonProperty("snapshotVos")
-	override var snapshotVos: List<MarginAccountSnapshot>
-) : AccountSnapshotResponse<MarginAccountSnapshot>
+    @JsonProperty("code")
+    @ApiModelProperty("Code.")
+    var code: Int,
+    @ApiModelProperty("Message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Snapshot.")
+    @JsonProperty("snapshotVos")
+    var snapshotVos: List<Snapshot>
+) {
+    /**
+     * A daily MARGIN account snapshot.
+     *
+     * @property type Type.
+     * @property updateTime Update time in ms.
+     * @property data Data.
+     */
+    @ApiModel("A daily MARGIN account snapshot.")
+    data class Snapshot(
+        @ApiModelProperty("Type.")
+        @JsonProperty("type")
+        var type: String,
+        @ApiModelProperty("Update time in ms.")
+        @JsonProperty("updateTime")
+        var updateTime: Long,
+        @ApiModelProperty("Data.")
+        @JsonProperty("data")
+        var data: Data?
+    ) {
+
+        /**
+         * Margin account snapshot data.
+         *
+         * @property marginLevel Margin level.
+         * @property totalAssetOfBtc Total Asset Of Btc.
+         * @property totalLiabilityOfBtc Total Liability Of Btc.
+         * @property totalNetAssetOfBtc Total Net Asset Of Btc.
+         * @property userAssets User Assets.
+         */
+        @ApiModel("Margin account snapshot data.")
+        data class Data(
+            @ApiModelProperty("Margin level.")
+            @JsonProperty("marginLevel")
+            var marginLevel: String?,
+            @ApiModelProperty("Total Asset Of Btc.")
+            @JsonProperty("totalAssetOfBtc")
+            var totalAssetOfBtc: String,
+            @ApiModelProperty("Total Liability Of Btc.")
+            @JsonProperty("totalLiabilityOfBtc")
+            var totalLiabilityOfBtc: String,
+            @ApiModelProperty("Total Net Asset Of Btc.")
+            @JsonProperty("totalNetAssetOfBtc")
+            var totalNetAssetOfBtc: String,
+            @ApiModelProperty("User Assets.")
+            @JsonProperty("userAssets")
+            var userAssets: List<Assets>
+        ) {
+
+            /**
+             * Margin account snapshot user assets.
+             *
+             * @property asset Asset abbreviation.
+             * @property borrowed Borrowed amount.
+             * @property free Fee amount.
+             * @property interest Interest amount.
+             * @property locked Locked volume.
+             * @property netAsset Net asset.
+             */
+            @ApiModel("Margin account snapshot user assets.")
+            data class Assets(
+                @ApiModelProperty("Asset abbreviation.")
+                @JsonProperty("asset")
+                var asset: String,
+                @ApiModelProperty("Borrowed amount.")
+                @JsonProperty("borrowed")
+                var borrowed: String,
+                @ApiModelProperty("Fee amount.")
+                @JsonProperty("free")
+                var free: String,
+                @ApiModelProperty("Interest amount.")
+                @JsonProperty("interest")
+                var interest: String,
+                @ApiModelProperty("Locked volume.")
+                @JsonProperty("locked")
+                var locked: String,
+                @ApiModelProperty("Net asset.")
+                @JsonProperty("netAsset")
+                var netAsset: String
+            )
+        }
+    }
+
+}

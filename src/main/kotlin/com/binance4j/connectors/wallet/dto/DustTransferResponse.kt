@@ -38,12 +38,45 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("The dust transfer (asset to BNB) response.")
 data class DustTransferResponse(
-	@ApiModelProperty("Fees.") @JsonProperty("totalServiceCharge")
-	var totalServiceCharge: String,
-	@ApiModelProperty("Volume converted into BNB after fees.")
-	@JsonProperty("totalTransfered")
-	var totalTransfered: String,
-	@ApiModelProperty("Detailed transfer result asset by asset.")
-	@JsonProperty("transferResult")
-	var transferResult: List<DustTransferResult>
-)
+    @ApiModelProperty("Fees.")
+    @JsonProperty("totalServiceCharge")
+    var totalServiceCharge: String,
+    @ApiModelProperty("Volume converted into BNB after fees.")
+    @JsonProperty("totalTransfered")
+    var totalTransfered: String,
+    @ApiModelProperty("Detailed transfer result asset by asset.")
+    @JsonProperty("transferResult")
+    var transferResult: List<DustTransferResult>
+) {
+    /**
+     * Details about an asset dust transfer (conversion into BNB).
+     *
+     * @property amount Amount of volume converted.
+     * @property fromAsset Converted asset abbreviation.
+     * @property operateTime Operation timestamp.
+     * @property serviceChargeAmount Fees.
+     * @property tranId Transaction id.
+     * @property transferedAmount Transferred amount after fees.
+     */
+    @ApiModel("Details about an asset dust transfer (conversion into BNB).")
+    data class DustTransferResult(
+        @ApiModelProperty("Amount of volume converted.")
+        @JsonProperty("amount")
+        var amount: String,
+        @ApiModelProperty("Converted asset abbreviation.")
+        @JsonProperty("fromAsset")
+        var fromAsset: String,
+        @ApiModelProperty("Operation timestamp.")
+        @JsonProperty("operateTime")
+        var operateTime: Long,
+        @ApiModelProperty("Fees.")
+        @JsonProperty("serviceChargeAmount")
+        var serviceChargeAmount: String,
+        @ApiModelProperty("Transaction id.")
+        @JsonProperty("tranId")
+        var tranId: Long,
+        @ApiModelProperty("Transferred amount after fees.")
+        @JsonProperty("transferedAmount")
+        var transferedAmount: String
+    )
+}

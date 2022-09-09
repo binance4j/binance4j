@@ -38,13 +38,97 @@ import io.swagger.annotations.ApiModelProperty
  */
 @ApiModel("Response of a FUTURES account snapshot request.")
 data class FuturesAccountSnapshotResponse(
-	@ApiModelProperty("Code.")
-	@JsonProperty("code")
-	override var code: Int,
-	@ApiModelProperty("Message.")
-	@JsonProperty("msg")
-	override var msg: String,
-	@ApiModelProperty("Snapshot.")
-	@JsonProperty("snapshotVos")
-	override var snapshotVos: List<FuturesAccountSnapshot>
-) : AccountSnapshotResponse<FuturesAccountSnapshot>
+    @ApiModelProperty("Code.")
+    @JsonProperty("code")
+    var code: Int,
+    @ApiModelProperty("Message.")
+    @JsonProperty("msg")
+    var msg: String,
+    @ApiModelProperty("Snapshot.")
+    @JsonProperty("snapshotVos")
+    var snapshotVos: List<Snapshot>
+) {
+    /**
+     * A daily FUTURES account snapshot.
+     *
+     * @property type Type.
+     * @property updateTime Update time in ms.
+     * @property data Data.
+     */
+    @ApiModel("A daily FUTURES account snapshot.")
+    data class Snapshot(
+        @JsonProperty("type")
+        @ApiModelProperty("Type.")
+        var type: String,
+        @JsonProperty("updateTime")
+        @ApiModelProperty("Update time in ms.")
+        var updateTime: Long,
+        @ApiModelProperty("Data.")
+        @JsonProperty("data")
+        var data: Data
+    ) {
+        /**
+         * The account snapshot data.
+         *
+         * @property assets Assets balances.
+         * @property position Account snapshot position.
+         */
+        @ApiModel("The account snapshot data.")
+        data class Data(
+            @ApiModelProperty("Assets balances.")
+            @JsonProperty("assets")
+            var assets: List<Assets>,
+            @ApiModelProperty("Account snapshot position.")
+            @JsonProperty("position")
+            var position: List<Position>
+        ) {
+            /**
+             * The snapshot assets balances.
+             *
+             * @property asset Asset abbreviation.
+             * @property marginBalance Margin balance.
+             * @property walletBalance Wallet balance.
+             */
+            @ApiModel("The snapshot assets balances.")
+            data class Assets(
+                @ApiModelProperty("Asset abbreviation.")
+                @JsonProperty("asset")
+                var asset: String,
+                @ApiModelProperty("Margin balance.")
+                @JsonProperty("marginBalance")
+                var marginBalance: String,
+                @ApiModelProperty("Wallet balance.")
+                @JsonProperty("walletBalance")
+                var walletBalance: String
+            )
+
+            /**
+             * Futures account snapshot position.
+             *
+             * @property symbol Symbol.
+             * @property entryPrice Entry price.
+             * @property markPrice Mark price.
+             * @property positionAmt Position amount.
+             * @property unRealizedProfit Unrealized profit.
+             */
+            @ApiModel("Futures account snapshot position.")
+            data class Position(
+                @ApiModelProperty("Symbol.")
+                @JsonProperty("symbol")
+                var symbol: String,
+                @ApiModelProperty("Entry price.")
+                @JsonProperty("entryPrice")
+                var entryPrice: String,
+                @ApiModelProperty("Mark price.")
+                @JsonProperty("markPrice")
+                var markPrice: String,
+                @ApiModelProperty("Position amount.")
+                @JsonProperty("positionAmt")
+                var positionAmt: String,
+                @ApiModelProperty("Unrealized profit.")
+                @JsonProperty("unRealizedProfit")
+                var unRealizedProfit: String
+            )
+        }
+    }
+}
