@@ -25,7 +25,8 @@ package com.binance4j.connectors.staking.client
 
 import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.staking.param.*
+import com.binance4j.connectors.staking.dto.ProductType
+import com.binance4j.connectors.staking.dto.TransactionType
 
 /**
  * Api client for the staking endpoints
@@ -33,60 +34,105 @@ import com.binance4j.connectors.staking.param.*
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#staking-endpoints)
  */
 object StakingClient : RestClient<StakingMapping>(StakingMapping::class.java) {
-	/**
-	 * Get available Staking product list.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getProducts(params: ProductListParams) = Request(service.getProductList(params.toMap()))
-	
-	/**
-	 * Purchase Staking product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun purchase(params: PurchaseParams) = Request(service.purchase(params.toMap()))
-	
-	/**
-	 * Redeem Staking product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun redeem(params: RedeemParams) = Request(service.redeem(params.toMap()))
-	
-	/**
-	 * Get Staking product position.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	@JvmOverloads
-	fun getPosition(params: PositionParams = PositionParams()) = Request(service.getPosition(params.toMap()))
-	
-	/**
-	 * Get staking history.
-	 *
-	 * @param params   Request params.
-	 * @return The request to execute.
-	 */
-	fun getHistory(params: HistoryParams) = Request(service.getHistory(params.toMap()))
-	
-	/**
-	 * Set auto staking on Locked Staking or Locked DeFi Staking.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun setAutoStaking(params: AutoStakingParams) = Request(service.setAutoStaking(params.toMap()))
-	
-	/**
-	 * Get personal left quota of Staking product.
-	 *
-	 * @param params Request params.
-	 * @return The request to execute.
-	 */
-	fun getLeftQuota(params: LeftQuotaParams) = Request(service.getLeftQuota(params.toMap()))
+    /**
+     * Get available Staking product list.
+     *
+     * @param product Product type.
+     * @param asset   Product name.
+     * @param current  Results page.
+     * @param size Number of rows.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getProducts(product: ProductType, asset: String? = null, current: Int? = null, size: Int? = null) =
+        Request(service.getProducts(product.toString(), asset, current, size))
+
+    /**
+     * Purchase Staking product.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     * @param amount    Amount to purchase.
+     * @param renewable Renew purchase? Active if product is `STAKING` or `L_DEFI`.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun purchase(product: ProductType, productId: String, amount: String, renewable: Boolean? = null) =
+        Request(service.purchase(product.toString(), productId, amount, renewable))
+
+    /**
+     * Redeem Staking product.
+     *
+     * @param product    Product type.
+     * @param productId  Product id.
+     * @param positionId Position id. Mandatory if product is `STAKING` or `L_DEFI`.
+     * @param amount     Amount to purchase. Mandatory if product is `F_DEFI`.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun redeem(product: ProductType, productId: String, positionId: String? = null, amount: String? = null) =
+        Request(service.redeem(product.toString(), productId, positionId, amount))
+
+    /**
+     * Get Staking product position.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     * @param asset     Product name.
+     * @param current   Results page.
+     * @param size      Number of rows.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getPosition(product: ProductType, productId: String? = null, asset: String? = null, current: Int? = null, size: Int? = null) =
+        Request(service.getPosition(product.toString(), productId, asset, current, size))
+
+    /**
+     * Get staking history.
+     *
+     * @property product    Product type.
+     * @property txnType    Transaction type.
+     * @property asset      Product name.
+     * @property startTime     Start time in ms.
+     * @property endTime       End time in ms.
+     * @property current       Result page.
+     * @property size          Results in the page.
+     *
+     * @return The request to execute.
+     */
+    @JvmOverloads
+    fun getHistory(
+        product: ProductType,
+        txnType: TransactionType,
+        asset: String? = null,
+        startTime: Long? = null,
+        endTime: Long? = null,
+        current: Int? = null,
+        size: Int? = null
+    ) = Request(service.getHistory(product.toString(), txnType.toString(), asset, startTime, endTime, current, size))
+
+    /**
+     * Set auto staking on Locked Staking or Locked DeFi Staking.
+     *
+     * @param product    Product type.
+     * @param positionId Position id.
+     * @param renewable  Renew purchase?
+     *
+     * @return The request to execute.
+     */
+    fun setAutoStaking(product: ProductType, positionId: String, renewable: Boolean) = Request(service.setAutoStaking(product, positionId, renewable))
+
+    /**
+     * Get personal left quota of Staking product.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     *
+     * @return The request to execute.
+     */
+    fun getLeftQuota(product: ProductType, productId: String) = Request(service.getLeftQuota(product.toString(), productId))
 }

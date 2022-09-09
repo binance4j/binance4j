@@ -31,72 +31,141 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 /**
  * [StakingClient] mapping.
  */
 interface StakingMapping {
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/staking/productList")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun getProductList(@QueryMap map: Map<String, Any>): Call<List<Product>>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@POST("/sapi/v1/staking/purchase")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun purchase(@QueryMap map: Map<String, Any>): Call<PurchaseResponse>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@POST("/sapi/v1/staking/redeem")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun redeem(@QueryMap map: Map<String, Any>): Call<RedeemResponse>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/staking/position")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun getPosition(@QueryMap map: Map<String, Any>): Call<List<ProductPosition>>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/staking/stakingRecord")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun getHistory(@QueryMap map: Map<String, Any>): Call<List<StakingRecord>>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/staking/setAutoStaking")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun setAutoStaking(@QueryMap map: Map<String, Any>): Call<AutoStakingResponse>
-	
-	/**
-	 * @param map Query map.
-	 * @return The generated Retrofit call.
-	 */
-	@GET("/sapi/v1/staking/personalLeftQuota")
-	@Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
-	@JvmSuppressWildcards
-	fun getLeftQuota(@QueryMap map: Map<String, Any>): Call<LeftQuota>
+    /**
+     * Get available Staking product list.
+     *
+     * @param product Product type.
+     * @param asset   Product name.
+     * @param current  Results page.
+     * @param size Number of rows.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/staking/productList")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun getProducts(
+        @Query("product") product: String,
+        @Query("asset") asset: String?,
+        @Query("current") current: Int?,
+        @Query("size") size: Int?
+    ): Call<List<Product>>
+
+    /**
+     * Purchase Staking product.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     * @param amount    Amount to purchase.
+     * @param renewable Renew purchase? Active if product is `STAKING` or `L_DEFI`.
+     *
+     * @return The generated Retrofit call.
+     */
+    @POST("/sapi/v1/staking/purchase")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun purchase(
+        @Query("product") product: String,
+        @Query("productId") productId: String,
+        @Query("amount") amount: String,
+        @Query("renewable") renewable: Boolean?
+    ): Call<PurchaseResponse>
+
+    /**
+     * Redeem Staking product.
+     *
+     * @param product    Product type.
+     * @param productId  Product id.
+     * @param positionId Position id. Mandatory if product is `STAKING` or `L_DEFI`.
+     * @param amount     Amount to purchase. Mandatory if product is `F_DEFI`.
+     *
+     * @return The generated Retrofit call.
+     */
+    @POST("/sapi/v1/staking/redeem")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun redeem(
+        @Query("product") product: String,
+        @Query("productId") productId: String,
+        @Query("positionId") positionId: String?,
+        @Query("amount") amount: String?
+    ): Call<RedeemResponse>
+
+    /**
+     * Get Staking product position.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     * @param asset     Product name.
+     * @param current   Results page.
+     * @param size      Number of rows.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/staking/position")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun getPosition(
+        @Query("product") product: String,
+        @Query("productId") productId: String?,
+        @Query("asset") asset: String?,
+        @Query("current") current: Int?,
+        @Query("size") size: Int?
+    ): Call<List<ProductPosition>>
+
+    /**
+     * Get staking history.
+     *
+     * @property product    Product type.
+     * @property txnType    Transaction type.
+     * @property asset      Product name.
+     * @property startTime     Start time in ms.
+     * @property endTime       End time in ms.
+     * @property current       Result page.
+     * @property size          Results in the page.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/staking/stakingRecord")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun getHistory(
+        @Query("product") product: String,
+        @Query("txnType") txnType: String,
+        @Query("asset") asset: String?,
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("current") current: Int?,
+        @Query("size") size: Int?
+    ): Call<List<StakingRecord>>
+
+    /**
+     * Set auto staking on Locked Staking or Locked DeFi Staking.
+     *
+     * @param product    Product type.
+     * @param positionId Position id.
+     * @param renewable  Renew purchase?
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/staking/setAutoStaking")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun setAutoStaking(
+        @Query("product") product: ProductType,
+        @Query("positionId") positionId: String,
+        @Query("renewable") renewable: Boolean
+    ): Call<AutoStakingResponse>
+
+    /**
+     * Get personal left quota of Staking product.
+     *
+     * @param product   Product type.
+     * @param productId Product id.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET("/sapi/v1/staking/personalLeftQuota")
+    @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
+    fun getLeftQuota(@Query("product") product: String, @Query("productId") productId: String): Call<LeftQuota>
 }
