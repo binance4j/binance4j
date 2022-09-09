@@ -35,7 +35,7 @@ import java.util.*
 import java.util.zip.ZipInputStream
 
 
-/** Base executor implementation for the public data enpoint  */
+/** Base executor implementation for the public data endpoint  */
 abstract class VisionParams<T>
 /**
  * @param call API call.
@@ -53,7 +53,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	} catch (e: ApiException) {
 		throw NotFoundException()
 	}
-	
+
 	/**
 	 * Downloads the zip file asynchronously
 	 *
@@ -63,8 +63,8 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	open fun getZip(callback: ApiCallback<ZipInputStream>) {
 		async { res: ResponseBody?, exc: ApiException? -> callback.onResponse(responseToZip(res!!), exc) }
 	}
-	
-	
+
+
 	/**
 	 * Downloads the zip file synchronously and returns the data in a csv style (2d
 	 * list)
@@ -74,7 +74,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	 */
 	@Throws(ApiException::class)
 	fun getCSV(): List<List<String>> = extractCSV(getZip())
-	
+
 	/**
 	 * Downloads the zip file asynchronously and returns the data in a csv style (2d
 	 * list)
@@ -91,7 +91,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 			}
 		}
 	}
-	
+
 	/**
 	 * Downloads the zip file synchronously and returns the data in the csv as a
 	 * list of objects
@@ -101,7 +101,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	 */
 	@Throws(ApiException::class)
 	fun getData(): List<T> = csvToObject(getCSV())
-	
+
 	/**
 	 * Downloads the zip file asynchronously and returns the data in the csv as a
 	 * list of objects
@@ -118,7 +118,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 			}
 		}
 	}
-	
+
 	/**
 	 * Converts the responseBody into a zip stream
 	 *
@@ -128,7 +128,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 	private fun responseToZip(res: ResponseBody): ZipInputStream {
 		return ZipInputStream(res.byteStream())
 	}
-	
+
 	/**
 	 * Extracts the csv from the zip
 	 *
@@ -152,7 +152,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 			throw ApiException(-400, e.message!!)
 		}
 	}
-	
+
 	/**
 	 * Converts the csv into a list of the desired type
 	 *
@@ -174,7 +174,7 @@ protected constructor(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
 		}
 		return obj
 	}
-	
+
 	/**
 	 * The child class method to convert the csv list into a list of the generic
 	 * type
