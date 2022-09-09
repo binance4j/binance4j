@@ -26,6 +26,8 @@ package com.binance4j.connectors.websocket.client
 
 import com.binance4j.connectors.core.Headers.API_H
 import com.binance4j.connectors.core.Headers.IP_H
+import com.binance4j.connectors.core.Headers.NO_RECV_WINDOW_H
+import com.binance4j.connectors.core.Headers.NO_TIMESTAMP_H
 import com.binance4j.connectors.core.Headers.WEIGHT_ONE_H
 import com.binance4j.connectors.websocket.dto.ListenKey
 import retrofit2.Call
@@ -41,7 +43,7 @@ interface UserDataMapping {
      *
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @POST("/api/v3/userDataStream")
     fun startUserDataStream(): Call<ListenKey>
 
@@ -53,9 +55,9 @@ interface UserDataMapping {
      * @param listenKey Authenticated account user listen key.
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @PUT("/api/v3/userDataStream")
-    fun keepAliveUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+    fun keepAliveUserDataStream(@Query("listenKey") listenKey: String): Call<Unit>
 
     /**
      * Close out a user data stream.
@@ -63,9 +65,9 @@ interface UserDataMapping {
      * @param listenKey Authenticated account user listen key.
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @DELETE("/api/v3/userDataStream")
-    fun closeUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+    fun closeUserDataStream(@Query("listenKey") listenKey: String): Call<Unit>
 
     /**
      * Create a ListenKey (Margin).
@@ -75,7 +77,7 @@ interface UserDataMapping {
      *
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @POST("/sapi/v1/userDataStream")
     fun startMarginUserDataStream(): Call<ListenKey>
 
@@ -89,7 +91,7 @@ interface UserDataMapping {
      */
     @Headers(API_H, IP_H, WEIGHT_ONE_H)
     @PUT("/sapi/v1/userDataStream")
-    fun keepAliveMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+    fun keepAliveMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Unit>
 
     /**
      * Close out a user data stream (Margin).
@@ -97,9 +99,9 @@ interface UserDataMapping {
      * @param listenKey Authenticated account user listen key.
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @DELETE("/sapi/v1/userDataStream")
-    fun closeMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Void>
+    fun closeMarginUserDataStream(@Query("listenKey") listenKey: String): Call<Unit>
 
     /**
      * Create a ListenKey (Isolated margin).
@@ -109,7 +111,7 @@ interface UserDataMapping {
      * @param symbol Symbol.
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @POST("/sapi/v1/userDataStream/isolated")
     fun startIsolatedUserDataStream(@Query("symbol") symbol: String): Call<ListenKey>
 
@@ -123,9 +125,9 @@ interface UserDataMapping {
      *
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @PUT("/sapi/v1/userDataStream/isolated")
-    fun keepAliveIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Void>
+    fun keepAliveIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Unit>
 
     /**
      * Close out a user data stream (Isolated margin).
@@ -135,7 +137,7 @@ interface UserDataMapping {
      *
      * @return The generated Retrofit Call
      */
-    @Headers(API_H, IP_H, WEIGHT_ONE_H)
+    @Headers(API_H, IP_H, WEIGHT_ONE_H, NO_TIMESTAMP_H, NO_RECV_WINDOW_H)
     @DELETE("/sapi/v1/userDataStream/isolated")
-    fun closeIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Void>
+    fun closeIsolatedUserDataStream(@Query("symbol") symbol: String, @Query("listenKey") listenKey: String): Call<Unit>
 }

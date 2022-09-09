@@ -24,8 +24,8 @@
 
 package com.binance4j.connectors.websocket.client
 
+import com.binance4j.connectors.core.Request
 import com.binance4j.connectors.core.client.RestClient
-import com.binance4j.connectors.websocket.request.*
 
 /** The API client for the user data endpoints. */
 object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java) {
@@ -37,7 +37,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      *
      * @return The request to execute.
      */
-    fun startUserDataStream() = StartUserDataStreamRequest(service.startUserDataStream())
+    fun startUserDataStream() = Request(service.startUserDataStream())
 
     /**
      * Keep alive a user data stream to prevent a timeout.
@@ -47,7 +47,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      * @param listenKey Listen key.
      * @return The request to execute.
      */
-    fun keepAliveUserDataStream(listenKey: String) = KeepALiveUserDataStreamRequest(service.keepAliveUserDataStream(listenKey))
+    fun keepAliveUserDataStream(listenKey: String) = Request(service.keepAliveUserDataStream(listenKey))
 
     /**
      * Close out a user data stream.
@@ -55,7 +55,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      * @param listenKey Listen key.
      * @return The request to execute.
      */
-    fun closeUserDataStream(listenKey: String) = CloseUserDataStreamRequest(service.closeUserDataStream(listenKey))
+    fun closeUserDataStream(listenKey: String) = Request(service.closeUserDataStream(listenKey))
 
     /**
      * Create a ListenKey (Margin).
@@ -65,7 +65,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      *
      * @return The request to execute.
      */
-    fun startMarginUserDataStream() = StartMarginUserDataStreamRequest(service.startMarginUserDataStream())
+    fun startMarginUserDataStream() = Request(service.startMarginUserDataStream())
 
     /**
      * Keep alive a user data stream to prevent a timeout (Margin).
@@ -75,7 +75,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      * @param listenKey Listen key.
      * @return The request to execute.
      */
-    fun keepAliveMarginUserDataStream(listenKey: String) = KeepAliveMarginUserDataStreamRequest(service.keepAliveMarginUserDataStream(listenKey))
+    fun keepAliveMarginUserDataStream(listenKey: String) = Request(service.keepAliveMarginUserDataStream(listenKey))
 
     /**
      * Close out a user data stream (Margin).
@@ -83,7 +83,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      * @param listenKey Listen key.
      * @return The request to execute.
      */
-    fun closeMarginUserDataStream(listenKey: String) = CloseMarginUserDataStreamRequest(service.closeMarginUserDataStream(listenKey))
+    fun closeMarginUserDataStream(listenKey: String) = Request(service.closeMarginUserDataStream(listenKey))
 
     /**
      * Create a ListenKey (Isolated margin).
@@ -93,7 +93,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      * @param symbol Symbol.
      * @return The request to execute.
      */
-    fun startIsolatedUserDataStream(symbol: String) = StartIsolatedUserDataStreamRequest(service.startIsolatedUserDataStream(symbol))
+    fun startIsolatedUserDataStream(symbol: String) = Request(service.startIsolatedUserDataStream(symbol))
 
     /**
      * Keep alive a user data stream to prevent a time-out (Isolated margin).
@@ -105,8 +105,7 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      *
      * @return The request to execute.
      */
-    fun keepAliveIsolatedUserDataStream(symbol: String, listenKey: String): KeepAliveIsolatedUserDataStreamRequest =
-        KeepAliveIsolatedUserDataStreamRequest(service.keepAliveIsolatedUserDataStream(symbol, listenKey))
+    fun keepAliveIsolatedUserDataStream(symbol: String, listenKey: String) = Request(service.keepAliveIsolatedUserDataStream(symbol, listenKey))
 
     /**
      * Close out a user data stream (Isolated margin).
@@ -116,6 +115,5 @@ object UserDataClient : RestClient<UserDataMapping>(UserDataMapping::class.java)
      *
      * @return The request to execute.
      */
-    fun closeIsolatedUserDataStream(symbol: String, listenKey: String): CloseIsolatedUserDataStreamRequest =
-        CloseIsolatedUserDataStreamRequest(service.closeIsolatedUserDataStream(symbol, listenKey))
+    fun closeIsolatedUserDataStream(symbol: String, listenKey: String) = Request(service.closeIsolatedUserDataStream(symbol, listenKey))
 }

@@ -24,6 +24,7 @@
 
 package com.binance4j.connectors.websocket.event
 
+import com.binance4j.connectors.core.event.ScheduledTask
 import com.binance4j.connectors.core.event.TimeoutEvent
 import com.binance4j.connectors.websocket.callback.WebsocketCloseObject
 import com.binance4j.connectors.websocket.callback.WebsocketInterceptorCallback
@@ -43,11 +44,12 @@ class WebsocketForceClosingHandler(websocketClient: WebsocketClient, callback: W
 
     override fun run() {
         cancel()
-        eventHandler = TimeoutEvent(websocketClient.configuration.disconnectionTimeout) {
+        val task = ScheduledTask {
             if (!callback.onClosingCalled) {
                 callback.onClosing(closeObject)
                 callback.onClosed(closeObject)
             }
         }
+        eventHandler = TimeoutEvent(websocketClient.configuration.disconnectionTimeout, task)
     }
 }

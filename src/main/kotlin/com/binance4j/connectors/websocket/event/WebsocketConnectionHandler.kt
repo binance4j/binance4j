@@ -25,7 +25,6 @@
 package com.binance4j.connectors.websocket.event
 
 import com.binance4j.connectors.core.event.IntervalEvent
-import com.binance4j.connectors.core.event.ScheduledTask
 import com.binance4j.connectors.websocket.callback.WebsocketInterceptorCallback
 import com.binance4j.connectors.websocket.client.WebsocketClient
 import com.binance4j.connectors.websocket.configuration.WebsocketClientConfiguration
@@ -40,7 +39,7 @@ class WebsocketConnectionHandler(websocketClient: WebsocketClient?, callback: We
     BaseWebsocketEventHandler(websocketClient!!, callback!!, "Connection failed", "Connection failed too many times") {
     override fun run() {
         cancel()
-        eventHandler = IntervalEvent(ScheduledTask {
+        eventHandler = IntervalEvent({
             callback.onFailure(timeoutException)
 
             if (eventHandler!!.isFinalTick) disconnect(websocketClient.configuration.reconnectionInterval)

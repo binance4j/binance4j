@@ -36,7 +36,12 @@ import okhttp3.Request
 import okhttp3.WebSocket
 import java.util.*
 
-/** Websocket clients base class */
+/** Websocket clients base class
+ *
+ * @param symbols      Pairs of assets.
+ * @param stream       Stream.
+ * @param payloadClass Payload type.
+ * @param callback     Events handler.*/
 abstract class BaseWebsocketClient<T>(
     var symbols: String?,
     var stream: String,
@@ -62,21 +67,13 @@ abstract class BaseWebsocketClient<T>(
     final override var configuration: WebsocketClientConfiguration = WebsocketClientConfiguration()
 
     /** Will call onClosing and onClosed of the interceptor callback if not. */
-    private var forceClosingHandler: WebsocketForceClosingHandler =
-        WebsocketForceClosingHandler(this, interceptorCallback)
+    private var forceClosingHandler: WebsocketForceClosingHandler = WebsocketForceClosingHandler(this, interceptorCallback)
 
     /** Will close the client after some time. */
-    private var closeClientHandler: WebsocketCloseClientHandler =
-        WebsocketCloseClientHandler(this, interceptorCallback)
+    private var closeClientHandler: WebsocketCloseClientHandler = WebsocketCloseClientHandler(this, interceptorCallback)
 
-    /*
-     * @param symbols      Pairs of assets.
-     * @param stream       Stream.
-     * @param payloadClass Payload type.
-     * @param callback     Events handler.
-     */
     init {
-        this.symbols = symbols?.replace(" ", "")
+        this.symbols = if (symbols == null) null else symbols?.replace(" ", "")
         generateChannel(true)
     }
 
@@ -98,8 +95,10 @@ abstract class BaseWebsocketClient<T>(
      */
     override fun close(force: Boolean) {
         this.interceptorCallback.closedByClient = force
-        innerWebsocket.close(1000, null)
-        forceClosingHandler.run()
+        if (::innerWebsocket.isInitialized) {
+            innerWebsocket.close(1000, null)
+            forceClosingHandler.run()
+        }
     }
 
     /**
@@ -127,10 +126,14 @@ abstract class BaseWebsocketClient<T>(
      * @param symbolToLowerCase Are the symbols in lower case?
      */
     internal fun generateChannel(symbolToLowerCase: Boolean) {
-        symbols =
-            if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault())
-            else symbols?.uppercase(Locale.getDefault())
-        channel =
-            symbols.toString().split(",").map(String::trim).joinToString("/") { s -> String.format("%s@%s", s, stream) }
+        if (symbols == null) {
+            channel = stream
+        } else {
+            symbols =
+                if (symbolToLowerCase) symbols?.lowercase(Locale.getDefault())
+                else symbols?.uppercase(Locale.getDefault())
+            channel =
+                symbols.toString().split(",").map(String::trim).joinToString("/") { s -> String.format("%s@%s", s, stream) }
+        }
     }
 }
