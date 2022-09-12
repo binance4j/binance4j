@@ -14,4 +14,7 @@ cd binance4j-savings && mvn clean install -DskipTests && cd ..
 cd binance4j-spot && mvn clean install -DskipTests && cd ..
 cd binance4j-staking && mvn clean install -DskipTests && cd ..
 cd binance4j-wallet && mvn clean install -DskipTests && cd ..
-cd binance4j-connectors && mvn clean install -DskipTests
+cd binance4j-convert && mvn clean install -DskipTests && cd ..
+cd binance4j-websocket && mvn clean install -DskipTests && cd ..
+cd binance4j-vision && mvn clean install -DskipTests && cd ..
+cd binance4j-connectors && mvn clean install -DskipTests && cd ..
