@@ -26,18 +26,12 @@ package com.binance4j.connectors.core.param
 import com.binance4j.connectors.core.Binance4j
 import com.fasterxml.jackson.core.type.TypeReference
 
-/** The base of every Binance Request */
+/** Base of a request parameter. */
 interface Params {
-	/** The request timestamp */
-	val timestamp: Long? get() = System.currentTimeMillis()
-	
-	/** The receiving windows */
-	val recvWindow: Long? get() = 60_000L
-	
-	/** Converts the object into a map and removes empty/null values. */
-	fun toMap(): Map<String, Any> {
-		val map = Binance4j.mapper.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
-		map.values.removeAll(setOf<Any?>(null, ""))
-		return map
-	}
+    /** Converts the object into a map and removes empty/null values. */
+    fun toMap(): Map<String, Any> {
+        val map = Binance4j.mapper.convertValue(this, object : TypeReference<MutableMap<String, Any>>() {})
+        map.values.removeAll(setOf<Any?>(null, ""))
+        return map
+    }
 }
