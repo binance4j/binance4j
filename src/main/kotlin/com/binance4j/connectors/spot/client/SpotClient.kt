@@ -217,7 +217,7 @@ object SpotClient : RestClient<SpotMapping>(SpotMapping::class.java) {
      *
      * @return The request to execute.
      */
-    fun getOCO(orderListId: Long, origClientOrderId: String) = Request(service.getOCO(orderListId, origClientOrderId))
+    fun getOCO(orderListId: Long? = null, origClientOrderId: String? = null) = Request(service.getOCO(orderListId, origClientOrderId))
 
     /**
      * Retrieves all OCO based on provided optional parameters.

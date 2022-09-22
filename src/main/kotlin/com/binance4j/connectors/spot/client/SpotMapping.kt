@@ -200,7 +200,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 2")
     @GET("/api/v3/orderList")
-    fun getOCO(orderListId: Long, origClientOrderId: String): Call<OCOInfo>
+    fun getOCO(orderListId: Long?, origClientOrderId: String?): Call<OCOInfo>
 
     /**
      * Retrieves all OCO based on provided optional parameters.
