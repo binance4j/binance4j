@@ -1,6 +1,6 @@
 package com.binance4j.connectors.staking.client
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.test.CustomTest
 import com.binance4j.connectors.staking.dto.ProductType
 import com.binance4j.connectors.staking.dto.TransactionType

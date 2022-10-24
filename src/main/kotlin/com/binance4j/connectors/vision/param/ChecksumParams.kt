@@ -37,49 +37,49 @@ import java.util.*
  * @param call API call.
  */
 class ChecksumParams(call: Call<ResponseBody>) : Request<ResponseBody>(call) {
-	
-	/**
-	 * Retrieves the checksum from the response body
-	 *
-	 * @param res Response body.
-	 * @return The checksum wrapper.
-	 */
-	private fun resToChecksum(res: ResponseBody): VisionChecksum {
-		val sc = Scanner(res.byteStream())
-		var data = arrayOf("")
-		while (sc.hasNextLine()) {
-			val line = sc.nextLine()
-			data = line.split("\\s+".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-		}
-		sc.close()
-		return VisionChecksum(data[0], data[1])
-	}
-	
-	/**
-	 *  Downloads the checksum synchronously
-	 
-	 * @return The checksum.
-	 * @throws ApiException Thrown if data fetching failed.
-	 */
-	@Throws(ApiException::class)
-	fun getChecksum(): VisionChecksum = resToChecksum(sync())
-	
-	
-	/**
-	 * Downloads the checksum asynchronously
-	 *
-	 * @param callback Callback handling the deserialized data and the API response
-	 * error.
-	 */
-	fun getChecksum(callback: ApiCallback<VisionChecksum>) =
-		async { res: ResponseBody?, e: ApiException? -> callback.onResponse(resToChecksum(res!!), e) }
-	
-	@Throws(ApiException::class)
-	override fun sync(): ResponseBody {
-		return try {
-			super.sync()
-		} catch (e: Exception) {
-			throw NotFoundException()
-		}
-	}
+
+    /**
+     * Retrieves the checksum from the response body
+     *
+     * @param res Response body.
+     * @return The checksum wrapper.
+     */
+    private fun resToChecksum(res: ResponseBody): VisionChecksum {
+        val sc = Scanner(res.byteStream())
+        var data = arrayOf("")
+        while (sc.hasNextLine()) {
+            val line = sc.nextLine()
+            data = line.split("\\s+".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        }
+        sc.close()
+        return VisionChecksum(data[0], data[1])
+    }
+
+    /**
+     *  Downloads the checksum synchronously
+
+     * @return The checksum.
+     * @throws ApiException Thrown if data fetching failed.
+     */
+    @Throws(ApiException::class)
+    fun getChecksum(): VisionChecksum = resToChecksum(sync())
+
+
+    /**
+     * Downloads the checksum asynchronously
+     *
+     * @param callback Callback handling the deserialized data and the API response
+     * error.
+     */
+    fun getChecksum(callback: ApiCallback<VisionChecksum>) =
+        async { res: ResponseBody?, e: ApiException? -> callback(resToChecksum(res!!), e) }
+
+    @Throws(ApiException::class)
+    override fun sync(): ResponseBody {
+        return try {
+            super.sync()
+        } catch (e: Exception) {
+            throw NotFoundException()
+        }
+    }
 }

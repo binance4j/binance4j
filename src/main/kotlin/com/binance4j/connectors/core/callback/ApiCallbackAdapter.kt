@@ -30,38 +30,45 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
+/**
+ * Triggered when the receiving a response from the server.
+ *
+ * - response  : API response.
+ * - exception : Exception response sent by the Binance API.
+ */
+typealias ApiCallback<T> = (response: T?, exception: ApiException?) -> Unit
+
 /** A wrapper for [ApiCallback].  */
 class ApiCallbackAdapter<T>(val callback: ApiCallback<T>) : Callback<T> {
-	
-	/**
-	 * Calls [ApiCallback] corresponding method according to the response HTTP code
-	 *
-	 * @param call     Retrofit call.
-	 * @param res API response.
-	 */
-	override fun onResponse(call: Call<T>, res: Response<T>) {
-		when (res.code()) {
-			200 -> callback.onResponse(res.body(), null)
-			403 -> callback.onResponse(null, FirewallViolationException())
-			404 -> callback.onResponse(null, NotFoundException())
-			418 -> callback.onResponse(null, ApiBanException())
-			429 -> callback.onResponse(null, RateLimitExcessException())
-			else -> {
-				try {
-					callback.onResponse(null, ApiException(res.code(), res.errorBody()!!.string()))
-				} catch (e: IOException) {
-					callback.onResponse(null, ApiException(-400, e.localizedMessage))
-				}
-			}
-		}
-	}
-	
-	/**
-	 * Generates an [ApiException] from the given Throwable and calls [ApiCallback.onResponse]
-	 *
-	 * @param call      Retrofit call.
-	 * @param throwable API error message.
-	 */
-	override fun onFailure(call: Call<T>, throwable: Throwable) =
-		callback.onResponse(null, ApiException(-1000, throwable.localizedMessage))
+
+    /**
+     * Calls [ApiCallback] corresponding method according to the response HTTP code
+     *
+     * @param call     Retrofit call.
+     * @param res API response.
+     */
+    override fun onResponse(call: Call<T>, res: Response<T>) {
+        when (res.code()) {
+            200 -> callback(res.body(), null)
+            403 -> callback(null, FirewallViolationException())
+            404 -> callback(null, NotFoundException())
+            418 -> callback(null, ApiBanException())
+            429 -> callback(null, RateLimitExcessException())
+            else -> {
+                try {
+                    callback(null, ApiException(res.code(), res.errorBody()!!.string()))
+                } catch (e: IOException) {
+                    callback(null, ApiException(-400, e.localizedMessage))
+                }
+            }
+        }
+    }
+
+    /**
+     * Generates an [ApiException] from the given Throwable and calls [ApiCallback]
+     *
+     * @param call      Retrofit call.
+     * @param throwable API error message.
+     */
+    override fun onFailure(call: Call<T>, throwable: Throwable) = callback(null, ApiException(-1000, throwable.localizedMessage))
 }

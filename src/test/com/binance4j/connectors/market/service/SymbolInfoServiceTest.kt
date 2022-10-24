@@ -22,12 +22,18 @@
  * SOFTWARE.
  */
 
-package com.binance4j.connectors.core.param
+package com.binance4j.connectors.market.service
 
-/**
- * Paging search params.
- *
- * @param page  Results page.
- * @param limit Number of rows.
- */
-data class Paging @JvmOverloads constructor(var page: Int? = null, var limit: Int? = null) : Params
+import com.binance4j.connectors.core.test.CustomTest
+import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+
+internal class SymbolInfoServiceTest : CustomTest() {
+    private var service = SymbolInfoService(ExchangeInfoService.getSymbolInfo(symbol)!!)
+
+    @Test
+    fun getLotScale() = assertEquals(service.lotScale, 3)
+
+    @Test
+    fun getPriceScale() = assertEquals(service.priceScale, 6)
+}

@@ -25,11 +25,15 @@
 package com.binance4j.connectors.core.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-
-import com.binance4j.connectors.core.serialization.CandleDeserializer
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.core.TreeNode
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.node.ArrayNode
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import java.io.IOException
 
 /**
  * An OHLC candle for a symbol.
@@ -46,7 +50,7 @@ import io.swagger.annotations.ApiModelProperty
  * @property takerBuyBaseAssetVolume Taker buy base asset volume.
  * @property takerBuyQuoteAssetVolume Taker buy quote asset volume.
  */
-@JsonDeserialize(using = CandleDeserializer::class)
+@JsonDeserialize(using = Candle.CandleDeserializer::class)
 @ApiModel("An OHLC candle for a symbol.")
 data class Candle(
 	@ApiModelProperty("The candlestick open timestamp in milliseconds.")
@@ -99,4 +103,19 @@ data class Candle(
 		input[9],
 		input[10]
 	)
+
+
+	/** [Candle] deserializer  */
+	class CandleDeserializer : JsonDeserializer<Candle>() {
+		@Throws(IOException::class)
+		override fun deserialize(jp: JsonParser, ctx: DeserializationContext): Candle {
+			val oc = jp.codec
+			val node = oc.readTree<TreeNode>(jp) as ArrayNode
+			return Candle(
+				node[0].asLong(), node[1].asText(), node[2].asText(), node[3].asText(),
+				node[4].asText(), node[5].asText(), node[6].asLong(), node[7].asText(),
+				node[8].asLong(), node[9].asText(), node[10].asText()
+			)
+		}
+	}
 }

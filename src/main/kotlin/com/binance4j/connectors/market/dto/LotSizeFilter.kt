@@ -39,15 +39,15 @@ import io.swagger.annotations.ApiModelProperty
  *
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#filters)
  */
-@ApiModel("The quantity (aka \"lots\" in auction terms) rules for a symbol.")
+@ApiModel("The quantity (aka `lots` in auction terms) rules for a symbol.")
 data class LotSizeFilter(
-	@ApiModelProperty("Minimum quantity/iceberg Quantity allowed.")
-	@JsonProperty("minQty")
-	var minQty: String,
-	@ApiModelProperty("Maximum quantity/iceberg Quantity allowed.")
-	@JsonProperty("maxQty")
-	var maxQty: String,
-	@ApiModelProperty("Intervals that a quantity/iceberg Quantity can be increased/decreased by.")
-	@JsonProperty("stepSize")
-	var stepSize: String
-)
+    @ApiModelProperty("Minimum quantity/iceberg Quantity allowed.")
+    @JsonProperty("minQty")
+    override var minQty: String,
+    @ApiModelProperty("Maximum quantity/iceberg Quantity allowed.")
+    @JsonProperty("maxQty")
+    override var maxQty: String,
+    @ApiModelProperty("Intervals that a quantity/iceberg Quantity can be increased/decreased by.")
+    @JsonProperty("stepSize")
+    override var stepSize: String
+) : BaseLotSizeFilter

@@ -27,7 +27,9 @@ package com.binance4j.connectors.core.test
 import com.binance4j.connectors.core.Binance4j
 import com.binance4j.connectors.core.Request
 import com.fasterxml.jackson.databind.DeserializationFeature
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.assertDoesNotThrow
+import java.util.concurrent.CompletableFuture
 
 
 /** Base class for Unit test.  */ // @Execution(ExecutionMode.CONCURRENT)
@@ -77,6 +79,18 @@ abstract class CustomTest {
 
     fun assertDoesNotThrow(request: Request<*>) {
         assertDoesNotThrow { println("URL: " + request.request.url + "\nResult : " + request.sync()) }
+    }
+
+    fun assertDoesNotThrowAsync(request: Request<*>) {
+        val future = CompletableFuture<Unit>()
+        request.async { res, ex ->
+            run {
+                println("URL: " + request.request.url + "\nResult : " + res)
+                assertNull(ex)
+                future.complete(null)
+            }
+        }
+        future.get()
     }
 
     /** Last year timestamp in ms */

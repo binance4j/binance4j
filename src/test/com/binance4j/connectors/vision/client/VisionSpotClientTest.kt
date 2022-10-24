@@ -1,6 +1,6 @@
 package com.binance4j.connectors.vision.client
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.dto.CandlestickInterval
 import com.binance4j.connectors.core.exception.ApiException
 import com.binance4j.connectors.core.exception.InvalidDateException

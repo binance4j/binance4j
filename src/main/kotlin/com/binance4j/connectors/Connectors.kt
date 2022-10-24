@@ -22,20 +22,20 @@
  * SOFTWARE.
  */
 
-package com.binance4j.connectors.connectors
+package com.binance4j.connectors
 
-import com.binance4j.connectors.RestConnectors
+import com.binance4j.connectors.connectors.WebsocketConnectors
 
 /** All Rest and Websocket connectors. */
 object Connectors {
 	/** Websocket connectors. */
 	@JvmStatic
 	val ws = WebsocketConnectors
-	
+
 	/** Rest connectors. */
 	@JvmStatic
 	val rest = RestConnectors
-	
+
 	/**
 	 * @param key new API key
 	 * @param secret new API secret

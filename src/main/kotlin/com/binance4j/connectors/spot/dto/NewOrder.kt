@@ -64,6 +64,7 @@ data class NewOrder @JvmOverloads constructor(
     var strategyType: Int? = null,
     var newOrderRespType: NewOrderResponseType? = null
 ) : Params {
+
     companion object {
 
         /**
@@ -84,7 +85,7 @@ data class NewOrder @JvmOverloads constructor(
          * @return A Market order by the quote asset.
          */
         fun marketQuote(symbol: String, side: OrderSide, quoteOrderQty: String) =
-            NewOrder(symbol, side, OrderType.MARKET, quantity = quoteOrderQty)
+            NewOrder(symbol, side, OrderType.MARKET, quoteOrderQty = quoteOrderQty)
 
         /**
          * @param symbol             Symbol.
@@ -99,7 +100,7 @@ data class NewOrder @JvmOverloads constructor(
         @JvmOverloads
         fun limit(
             symbol: String, side: OrderSide, quantity: String,
-            price: String, icebergQty: String? = null, timeInForce: TimeInForce? = null
+            price: String, timeInForce: TimeInForce, icebergQty: String? = null
         ) = NewOrder(
             symbol, side, OrderType.LIMIT, quantity = quantity,
             price = price, icebergQty = icebergQty, timeInForce = timeInForce
@@ -150,7 +151,7 @@ data class NewOrder @JvmOverloads constructor(
         @JvmOverloads
         fun stopLossLimit(
             symbol: String, side: OrderSide, quantity: String,
-            price: String, stopPrice: String? = null, timeInForce: TimeInForce? = null,
+            price: String, timeInForce: TimeInForce, stopPrice: String? = null,
             icebergQty: String? = null, trailingDelta: Long? = null
         ) = NewOrder(
             symbol, side, OrderType.STOP_LOSS_LIMIT,
@@ -190,8 +191,7 @@ data class NewOrder @JvmOverloads constructor(
          */
         @JvmOverloads
         fun takeProfitLimit(
-            symbol: String,
-            side: OrderSide, quantity: String,
+            symbol: String, side: OrderSide, quantity: String,
             price: String, timeInForce: TimeInForce, icebergQty: String? = null,
             stopPrice: String? = null, trailingDelta: Long? = null
         ) = NewOrder(

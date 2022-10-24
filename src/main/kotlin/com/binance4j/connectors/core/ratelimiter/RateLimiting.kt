@@ -23,7 +23,7 @@
  */
 package com.binance4j.connectors.core.ratelimiter
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.client.RateLimits
 import com.binance4j.connectors.core.exception.ApiException
 import kotlin.system.exitProcess
@@ -31,45 +31,45 @@ import kotlin.system.exitProcess
 /**
  * Wrapper for all rate limiters
  */
-object RateLimiting  {
-	
-	var rawRequestLimiter: RateLimiter
+object RateLimiting {
 
-	var requestWeightLimiter: RateLimiter
+    var rawRequestLimiter: RateLimiter
 
-	private var rateLimits: RateLimits
-	
-	/** Is Rate limit enabled? */
-	private var enabled: Boolean = false
+    var requestWeightLimiter: RateLimiter
 
-	/** @return if is rate limiting enabled */
-	fun isEnabled() = enabled
+    private var rateLimits: RateLimits
 
-	/** Enables global rate limiting. */
-	fun enable() {
-		enabled = true
-	}
-	
-	/** Disables global rate limiting. */
-	fun disable() {
-		enabled = false
-	}
-	
-	/**
-	 * Fetches rate limits and creates instance of rate limiters
-	 */
-	init {
-		// Fetch rate limit data
-		try {
-			disable()
-			// init raw request and request weight limiter with data
-			rateLimits = RateLimits(Connectors.rest.market.getExchangeInfo().sync().rateLimits)
-			rawRequestLimiter = RateLimiter(rateLimits.rawRequestsLimit)
-			requestWeightLimiter = RateLimiter(rateLimits.weightLimit)
-			enable()
-		} catch (e: ApiException) {
-			e.printStackTrace()
-			exitProcess(0)
-		}
-	}
+    /** Is Rate limit enabled? */
+    private var enabled: Boolean = false
+
+    /** @return if is rate limiting enabled */
+    fun isEnabled() = enabled
+
+    /** Enables global rate limiting. */
+    fun enable() {
+        enabled = true
+    }
+
+    /** Disables global rate limiting. */
+    fun disable() {
+        enabled = false
+    }
+
+    /**
+     * Fetches rate limits and creates instance of rate limiters
+     */
+    init {
+        // Fetch rate limit data
+        try {
+            disable()
+            // init raw request and request weight limiter with data
+            rateLimits = RateLimits(Connectors.rest.market.getExchangeInfo().sync().rateLimits)
+            rawRequestLimiter = RateLimiter(rateLimits.rawRequestsLimit)
+            requestWeightLimiter = RateLimiter(rateLimits.weightLimit)
+            enable()
+        } catch (e: ApiException) {
+            e.printStackTrace()
+            exitProcess(0)
+        }
+    }
 }

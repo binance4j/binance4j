@@ -28,7 +28,9 @@ import com.binance4j.connectors.core.client.RestClient
 import com.binance4j.connectors.core.dto.NewOrderResponseType
 import com.binance4j.connectors.core.dto.OrderSide
 import com.binance4j.connectors.core.dto.TimeInForce
+import com.binance4j.connectors.core.exception.ApiException
 import com.binance4j.connectors.spot.dto.NewOrder
+import com.binance4j.connectors.spot.dto.NewOrderResponse
 import com.binance4j.connectors.spot.dto.OrderInfo
 
 /**
@@ -37,13 +39,25 @@ import com.binance4j.connectors.spot.dto.OrderInfo
  * [Documentation](https://binance-docs.github.io/apidocs/spot/en/#spot-account-trade)
  */
 object SpotClient : RestClient<SpotMapping>(SpotMapping::class.java) {
+
+    /**
+     * Cleans the order before sending it.
+     *
+     * @param order The order to clean.
+     * @return The cleaned order
+     */
+    private fun cleanOrder(order: NewOrder): NewOrder {
+        order.symbol = order.symbol.uppercase()
+        return order
+    }
+
     /**
      * Defines if the client uses the test network.
      *
      * @param testnet network choice.
      */
     fun testnet(testnet: Boolean): SpotClient {
-        createService(SpotMapping::class.java, testnet)
+        service = createService(SpotMapping::class.java, testnet)
         return this
     }
 
@@ -52,14 +66,15 @@ object SpotClient : RestClient<SpotMapping>(SpotMapping::class.java) {
      *
      * @param order The order to send.
      */
-    fun newOrder(order: NewOrder) = Request(service.newOrder(order.toMap()))
+    @Throws(ApiException::class)
+    fun newOrder(order: NewOrder): Request<NewOrderResponse> = Request(service.newOrder(cleanOrder(order).toMap()))
 
     /**
      * Sends an order.
      *
      * @param order The order to send.
      */
-    fun newOrderTest(order: NewOrder) = Request(service.newOrderTest(order.toMap()))
+    fun newOrderTest(order: NewOrder) = Request(service.newOrderTest(cleanOrder(order).toMap()))
 
     /**
      * Cancel an active order.

@@ -22,19 +22,35 @@
  * SOFTWARE.
  */
 
-package com.binance4j.connectors.core.param
+package com.binance4j.connectors.spot.service
 
-/**
- * Framed paging search.
- *
- * @param startDate Start time in ms.
- * @param endDate   End time in ms.
- * @param pageIndex      Result page.
- * @param pageSize     Results in the page.
- */
-data class FramedPaging @JvmOverloads constructor(
-	var startDate: Long? = null,
-	var endDate: Long? = null,
-	var pageIndex: Int? = null,
-	var pageSize: Int? = null
-) : Params
+import com.binance4j.connectors.Connectors
+import com.binance4j.connectors.core.dto.AssetBalance
+import com.binance4j.connectors.core.test.CustomTest
+import com.binance4j.connectors.spot.client.SpotClient
+import org.junit.jupiter.api.Test
+import java.util.concurrent.CompletableFuture
+import kotlin.test.assertNotNull
+
+internal class AccountServiceTest : CustomTest() {
+    private var client: SpotClient = Connectors.rest(testnetKey, testnetSecret).spot.testnet(true)
+
+    @Test
+    fun `Asset balance in fetched account must not be null`() {
+        assertNotNull(AccountService.getBalance(asset))
+    }
+
+    @Test
+    fun `Asset balance in given list must not be null (sync)`() {
+        assertNotNull(AccountService.getBalance(asset, client.getAccount().sync().balances))
+    }
+
+    @Test
+    fun `Asset balance in given list must not be null (async)`() {
+        val future = CompletableFuture<AssetBalance?>()
+        AccountService.getBalance(asset) { b, _ -> future.complete(b) }
+        val balance = future.get()
+        println(balance)
+        assertNotNull(balance)
+    }
+}

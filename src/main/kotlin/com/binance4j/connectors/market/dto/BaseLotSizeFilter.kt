@@ -22,7 +22,11 @@
  * SOFTWARE.
  */
 
-package com.binance4j.connectors.core.exception
+package com.binance4j.connectors.market.dto
 
-/** Thrown when a mandatory param is missing in a request.  */
-class MandatoryParamException : ApiException(-3000, "A mandatory param is missing in the request")
+/** Base lot size filter */
+interface BaseLotSizeFilter {
+    var minQty: String
+    var maxQty: String
+    var stepSize: String
+}

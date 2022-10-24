@@ -1,10 +1,35 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Binance4j
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.binance4j.connectors.spot.client
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.dto.OrderSide
 import com.binance4j.connectors.core.dto.TimeInForce
 import com.binance4j.connectors.core.exception.ApiException
 import com.binance4j.connectors.core.test.CustomTest
+import com.binance4j.connectors.market.service.ExchangeInfoService
 import com.binance4j.connectors.spot.dto.NewOrder
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Order
@@ -13,34 +38,45 @@ import kotlin.test.assertEquals
 
 
 internal class SpotClientTest : CustomTest() {
-    private var page = 1
-    private var client: SpotClient = Connectors.rest(key, secret).spot.testnet(true)
-    private var orderId: Long = 0
-    private var quantity = "1"
-    private var price = "0.011160"
+    private var symbolInfoService = ExchangeInfoService.getSymbolInfoService(symbol)!!
+    private var quantity = symbolInfoService.symbolInfo.filters.lotSize.minQty
+    private var minNotional = symbolInfoService.symbolInfo.filters.minNotional.minNotional
+    private var client: SpotClient = Connectors.rest(testnetKey, testnetSecret).spot.testnet(true)
+    private var price = Connectors.rest.market.getAveragePrice(symbol).sync().price
     private var ocoQuantity = "0.01"
     private var ocoPrice = "22000"
     private var ocoStopPrice = "23500"
-    private var ocoLimitPrice = "23500"
     private var ocoSymbol = "BTCUSDT"
-    private var orderListId: Long = 0
+    private var orderId = 0L
+    private var orderListId = 0L
 
     @Test
     @Order(0)
-
     fun testNewOrderTest() {
-        assertDoesNotThrow(client.newOrderTest(NewOrder.market(symbol, OrderSide.BUY, "1")))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.market(symbol, OrderSide.SELL, "1")))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.marketQuote(symbol, OrderSide.BUY, "25000")))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.marketQuote(symbol, OrderSide.SELL, "25000")))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.BUY, "1", price)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.SELL, "1", price)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.BUY, "1", price, timeInForce = TimeInForce.FOK)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.SELL, "1", price, timeInForce = TimeInForce.FOK)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limitMaker(symbol, OrderSide.BUY, "1", price)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.limitMaker(symbol, OrderSide.SELL, "1", price)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.takeProfitLimit(symbol, OrderSide.BUY, "1", price, timeInForce = TimeInForce.FOK, stopPrice = price)))
-        assertDoesNotThrow(client.newOrderTest(NewOrder.takeProfitLimit(symbol, OrderSide.SELL, "1", price, timeInForce = TimeInForce.FOK, stopPrice = price)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.market(symbol, OrderSide.BUY, quantity)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.market(symbol, OrderSide.SELL, quantity)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.marketQuote(symbol, OrderSide.BUY, minNotional)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.marketQuote(symbol, OrderSide.SELL, minNotional)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.BUY, quantity, price, TimeInForce.FOK)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.limit(symbol, OrderSide.SELL, quantity, price, TimeInForce.FOK)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.limitMaker(symbol, OrderSide.BUY, quantity, price)))
+        assertDoesNotThrow(client.newOrderTest(NewOrder.limitMaker(symbol, OrderSide.SELL, quantity, price)))
+        assertDoesNotThrow(
+            client.newOrderTest(
+                NewOrder.takeProfitLimit(
+                    symbol, OrderSide.BUY, quantity, price, timeInForce = TimeInForce.FOK, stopPrice =
+                    price
+                )
+            )
+        )
+        assertDoesNotThrow(
+            client.newOrderTest(
+                NewOrder.takeProfitLimit(
+                    symbol, OrderSide.SELL, quantity, price, timeInForce = TimeInForce.FOK, stopPrice =
+                    price
+                )
+            )
+        )
     }
 
     @Test
@@ -52,18 +88,11 @@ internal class SpotClientTest : CustomTest() {
 
     @Test
     @Order(2)
-    fun testNewOrderBuyLimit() = assertDoesNotThrow(client.newOrder(NewOrder.limit(symbol, OrderSide.BUY, quantity, "0.011160")))
+    fun testNewOrderBuyLimit() = assertDoesNotThrow(client.newOrder(NewOrder.limit(symbol, OrderSide.BUY, quantity, "0.011160", TimeInForce.GTC)))
 
     @Test
     @Order(3)
-
-    fun testCancelOpenOrders() {
-        // cancel orders
-        Assertions.assertDoesNotThrow {
-            val orders = client.getOpenOrders().sync()
-            assertEquals(orders.size, 0)
-        }
-    }
+    fun testCancelOpenOrders() = assertDoesNotThrow(client.getOpenOrders())
 
     @Test
     @Order(4)
@@ -85,7 +114,7 @@ internal class SpotClientTest : CustomTest() {
     fun testCancelOrder() {
         Assertions.assertDoesNotThrow {
             // buy limit
-            val buyOrder = client.newOrder(NewOrder.limit(symbol, OrderSide.BUY, quantity, "0.011160")).sync()
+            val buyOrder = client.newOrder(NewOrder.limit(symbol, OrderSide.BUY, quantity, "0.011160", TimeInForce.GTC)).sync()
             assertEquals(buyOrder.side, "BUY")
             val cancellation = client.cancelOrder(symbol, buyOrder.orderId).sync()
             orderId = buyOrder.orderId
@@ -140,12 +169,8 @@ internal class SpotClientTest : CustomTest() {
     fun testGetAllOCO() = assertDoesNotThrow(client.getAllOCO())
 
     @Test
-    @Order(16)
-    fun testGetAllOCO2() = assertDoesNotThrow(client.getAllOCO(orderId))
-
-    @Test
     @Order(17)
-    fun testGetAllOCO3() = assertDoesNotThrow(client.getAllOCO(orderId, startTime = limit.toLong()))
+    fun testGetAllOCO3() = assertDoesNotThrow(client.getAllOCO(orderId))
 
     @Test
     @Order(18)

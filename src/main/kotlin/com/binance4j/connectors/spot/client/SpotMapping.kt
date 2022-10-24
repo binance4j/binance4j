@@ -49,6 +49,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_UID_H, WEIGHT_ONE_H, IS_ORDER_H)
     @POST("/api/v3/order")
+    @JvmSuppressWildcards
     fun newOrder(@QueryMap map: Map<String, Any>): Call<NewOrderResponse>
 
     /**
@@ -58,6 +59,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_UID_H, WEIGHT_ONE_H)
     @POST("/api/v3/order/test")
+    @JvmSuppressWildcards
     fun newOrderTest(@QueryMap map: Map<String, Any>): Call<Void>
 
     /**
@@ -72,7 +74,12 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
     @DELETE("/api/v3/order")
-    fun cancelOrder(symbol: String, orderId: Long, origClientOrderId: String?, newClientOrderId: String?): Call<CancelOrderResponse>
+    fun cancelOrder(
+        @Query("symbol") symbol: String,
+        @Query("orderId") orderId: Long,
+        @Query("origClientOrderId") origClientOrderId: String?,
+        @Query("newClientOrderId") newClientOrderId: String?
+    ): Call<CancelOrderResponse>
 
     /**
      * Cancels all active orders on a symbol. This includes OCO orders.
@@ -83,7 +90,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
     @DELETE("/api/v3/openOrders")
-    fun cancelOpenOrders(symbol: String): Call<List<CancelOrderResponse>>
+    fun cancelOpenOrders(@Query("symbol") symbol: String): Call<List<CancelOrderResponse>>
 
     /**
      * Check an order's status.
@@ -100,7 +107,11 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 2")
     @GET("/api/v3/order")
-    fun getOrderStatus(symbol: String, origClientOrderId: String?, orderId: Long?): Call<OrderInfo>
+    fun getOrderStatus(
+        @Query("symbol") symbol: String,
+        @Query("origClientOrderId") origClientOrderId: String?,
+        @Query("orderId") orderId: Long?
+    ): Call<OrderInfo>
 
     /**
      * Get all open orders on a symbol.
@@ -111,7 +122,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 40")
     @GET("/api/v3/openOrders")
-    fun getOpenOrders(symbol: String?): Call<List<OrderInfo>>
+    fun getOpenOrders(@Query("symbol") symbol: String?): Call<List<OrderInfo>>
 
     /**
      * Get all orders on a symbol.
@@ -127,7 +138,14 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 10")
     @GET("/api/v3/allOrders")
-    fun getAllOrders(symbol: String, orderId: Long?, startTime: Long?, endTime: Long?, limit: Int?): Call<List<OrderInfo>>
+    fun getAllOrders(
+        @Query("symbol") symbol: String,
+        @Query("orderId") orderId: Long?,
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("limit") limit: Int?
+    ):
+            Call<List<OrderInfo>>
 
     /**
      * Send in an OCO order.
@@ -155,24 +173,24 @@ interface SpotMapping {
     @Headers(SIGNED_H, IP_UID_H, "X-WEIGHT: 2")
     @POST("/api/v3/order/oco")
     fun newOCO(
-        symbol: String,
-        side: OrderSide,
-        quantity: String,
-        price: String,
-        stopPrice: String,
-        stopLimitPrice: String?,
-        stopLimitTimeInForce: TimeInForce?,
-        newOrderRespType: NewOrderResponseType?,
-        listClientOrderId: String?,
-        limitClientOrderId: String?,
-        limitIcebergQuantity: String?,
-        stopClientOrderId: String?,
-        stopIcebergQuantity: String?,
-        limitStrategyId: Int?,
-        limitStrategyType: Int?,
-        trailingDelta: Long?,
-        stopStrategyId: Int?,
-        stopStrategyType: Int?
+        @Query("symbol") symbol: String,
+        @Query("side") side: OrderSide,
+        @Query("quantity") quantity: String,
+        @Query("price") price: String,
+        @Query("stopPrice") stopPrice: String,
+        @Query("stopLimitPrice") stopLimitPrice: String?,
+        @Query("stopLimitTimeInForce") stopLimitTimeInForce: TimeInForce?,
+        @Query("newOrderRespType") newOrderRespType: NewOrderResponseType?,
+        @Query("listClientOrderId") listClientOrderId: String?,
+        @Query("limitClientOrderId") limitClientOrderId: String?,
+        @Query("limitIcebergQuantity") limitIcebergQuantity: String?,
+        @Query("stopClientOrderId") stopClientOrderId: String?,
+        @Query("stopIcebergQuantity") stopIcebergQuantity: String?,
+        @Query("limitStrategyId") limitStrategyId: Int?,
+        @Query("limitStrategyType") limitStrategyType: Int?,
+        @Query("trailingDelta") trailingDelta: Long?,
+        @Query("stopStrategyId") stopStrategyId: Int?,
+        @Query("stopStrategyType") stopStrategyType: Int?
     ): Call<OCOResponse>
 
     /**
@@ -188,7 +206,13 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, WEIGHT_ONE_H)
     @DELETE("/api/v3/orderList")
-    fun cancelOCO(symbol: String, orderListId: Long?, listClientOrderId: String?, newClientOrderId: String?): Call<OCOResponse>
+    fun cancelOCO(
+        @Query("symbol") symbol: String,
+        @Query("orderListId") orderListId: Long?,
+        @Query("listClientOrderId") listClientOrderId: String?,
+        @Query("newClientOrderId") newClientOrderId: String?
+    ):
+            Call<OCOResponse>
 
     /**
      * Retrieves a specific OCO based on provided optional parameters.
@@ -200,7 +224,7 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 2")
     @GET("/api/v3/orderList")
-    fun getOCO(orderListId: Long?, origClientOrderId: String?): Call<OCOInfo>
+    fun getOCO(@Query("orderListId") orderListId: Long?, @Query("origClientOrderId") origClientOrderId: String?): Call<OCOInfo>
 
     /**
      * Retrieves all OCO based on provided optional parameters.
@@ -214,7 +238,12 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 10")
     @GET("/api/v3/allOrderList")
-    fun getAllOCO(fromId: Long?, startTime: Long?, endTime: Long?, limit: Int?): Call<List<OCOInfo>>
+    fun getAllOCO(
+        @Query("fromId") fromId: Long?,
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("limit") limit: Int?
+    ): Call<List<OCOInfo>>
 
     /**
      * Retrieves all open OCO.
@@ -250,7 +279,15 @@ interface SpotMapping {
      */
     @Headers(SIGNED_H, IP_H, "X-WEIGHT: 10")
     @GET("/api/v3/myTrades")
-    fun getTrades(symbol: String, orderId: Long?, fromId: Long?, startTime: Long?, endTime: Long?, limit: Int?): Call<List<Trade>>
+    fun getTrades(
+        @Query("symbol") symbol: String,
+        @Query("orderId") orderId: Long?,
+        @Query("fromId") fromId: Long?,
+        @Query("startTime") startTime: Long?,
+        @Query("endTime") endTime: Long?,
+        @Query("limit") limit: Int?
+    ):
+            Call<List<Trade>>
 
     /**
      * Displays the user's current order count usage for all intervals with default

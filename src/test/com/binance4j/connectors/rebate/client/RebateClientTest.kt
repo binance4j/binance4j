@@ -1,6 +1,6 @@
 package com.binance4j.connectors.rebate.client
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.test.CustomTest
 import org.junit.jupiter.api.Test
 

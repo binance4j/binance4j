@@ -1,6 +1,6 @@
 package com.binance4j.connectors.fiat.client
 
-import com.binance4j.connectors.connectors.Connectors
+import com.binance4j.connectors.Connectors
 import com.binance4j.connectors.core.test.CustomTest
 import com.binance4j.connectors.fiat.dto.PaymentType
 import com.binance4j.connectors.fiat.dto.TransactionType

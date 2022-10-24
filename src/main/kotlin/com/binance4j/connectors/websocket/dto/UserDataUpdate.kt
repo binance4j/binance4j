@@ -24,13 +24,17 @@
 
 package com.binance4j.connectors.websocket.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
-import com.binance4j.connectors.websocket.serialization.UserDataUpdateEventDeserializer
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonDeserializer
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import java.io.IOException
 
 /**
  * User data update event:
@@ -51,19 +55,44 @@ import io.swagger.annotations.ApiModelProperty
 @JsonDeserialize(using = UserDataUpdateEventDeserializer::class)
 @ApiModel("User data update event")
 data class UserDataUpdate(
-	@ApiModelProperty("Event type.")
-	@JsonProperty("eventType")
-	var eventType: UserDataUpdateType,
-	@ApiModelProperty("Timestamp.")
-	@JsonProperty("eventTime")
-	var eventTime: Long,
-	@ApiModelProperty("Account update.")
-	@JsonProperty("outboundAccountPositionUpdateEvent")
-	var outboundAccountPositionUpdateEvent: AccountUpdate? = null,
-	@ApiModelProperty("Balance update.")
-	@JsonProperty("balanceUpdateEvent")
-	var balanceUpdateEvent: BalanceUpdate? = null,
-	@ApiModelProperty("Order trade update.")
-	@JsonProperty("orderTradeUpdateEvent")
-	var orderTradeUpdateEvent: OrderTradeUpdate? = null,
+    @ApiModelProperty("Event type.")
+    @JsonProperty("eventType")
+    var eventType: UserDataUpdateType,
+    @ApiModelProperty("Timestamp.")
+    @JsonProperty("eventTime")
+    var eventTime: Long,
+    @ApiModelProperty("Account update.")
+    @JsonProperty("outboundAccountPositionUpdateEvent")
+    var outboundAccountPositionUpdateEvent: AccountUpdate? = null,
+    @ApiModelProperty("Balance update.")
+    @JsonProperty("balanceUpdateEvent")
+    var balanceUpdateEvent: BalanceUpdate? = null,
+    @ApiModelProperty("Order trade update.")
+    @JsonProperty("orderTradeUpdateEvent")
+    var orderTradeUpdateEvent: OrderTradeUpdate? = null,
 )
+
+/** [UserDataUpdate] deserializer  */
+class UserDataUpdateEventDeserializer : JsonDeserializer<UserDataUpdate>() {
+    @Throws(IOException::class)
+    override fun deserialize(jp: JsonParser, ctx: DeserializationContext): UserDataUpdate {
+        val mapper = ObjectMapper()
+        val node = jp.codec.readTree<JsonNode>(jp)
+        val json = node.toString()
+        val eventTypeId = node["e"].asText()
+        val eventTime = node["E"].asLong()
+        return when (val userDataUpdateEventType = UserDataUpdateType.getValue(eventTypeId)) {
+            UserDataUpdateType.ACCOUNT_POSITION_UPDATE -> UserDataUpdate(
+                userDataUpdateEventType, eventTime, mapper.readValue(json, AccountUpdate::class.java), null, null
+            )
+
+            UserDataUpdateType.BALANCE_UPDATE -> UserDataUpdate(
+                userDataUpdateEventType, eventTime, null, mapper.readValue(json, BalanceUpdate::class.java), null
+            )
+
+            UserDataUpdateType.ORDER_TRADE_UPDATE -> UserDataUpdate(
+                userDataUpdateEventType, eventTime, null, null, mapper.readValue(json, OrderTradeUpdate::class.java)
+            )
+        }
+    }
+}

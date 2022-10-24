@@ -25,12 +25,16 @@
 package com.binance4j.connectors.websocket.dto
 
 import com.binance4j.connectors.core.dto.AssetBalance
-import com.binance4j.connectors.websocket.serialization.AssetBalanceDeserializer
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonDeserializer
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import java.io.IOException
 
 /**
  * Account update event which will reflect the current position/balances of the
@@ -46,15 +50,23 @@ import io.swagger.annotations.ApiModelProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel("Account update event which will reflect the current position/balances of the account.")
 data class AccountUpdate(
-	@ApiModelProperty("Event type.")
-	@JsonProperty("e")
-	var eventType: String,
-	@ApiModelProperty("Timestamp.")
-	@JsonProperty("E")
-	var eventTime: Long,
-	@JsonProperty("B")
-	@ApiModelProperty("Assets balance.")
-	@JsonDeserialize(contentUsing = AssetBalanceDeserializer::class)
-	var balances: List<AssetBalance> = emptyList()
+    @ApiModelProperty("Event type.")
+    @JsonProperty("e")
+    var eventType: String,
+    @ApiModelProperty("Timestamp.")
+    @JsonProperty("E")
+    var eventTime: Long,
+    @JsonProperty("B")
+    @ApiModelProperty("Assets balance.")
+    @JsonDeserialize(contentUsing = AssetBalanceDeserializer::class)
+    var balances: List<AssetBalance> = emptyList()
 )
 
+/** [AssetBalance] deserializer  */
+class AssetBalanceDeserializer : JsonDeserializer<AssetBalance>() {
+    @Throws(IOException::class)
+    override fun deserialize(jp: JsonParser, ctx: DeserializationContext): AssetBalance {
+        val n = jp.codec.readTree<JsonNode>(jp)
+        return AssetBalance(n["a"].asText(), n["f"].asText(), n["l"].asText())
+    }
+}
